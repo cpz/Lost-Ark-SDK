@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,7 +21,7 @@ namespace SDK
 struct FAkEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	class UAkEvent*                                    Event;                                                    // 0x0004(0x0008)
+	class UAkEvent*                                    Event;                                                    // 0x0004(0x0008) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
 };
 
 }

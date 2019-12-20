@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -218,10 +218,10 @@ struct FCrowdSpawnerPlayerInfo
 // 0x0018
 struct FBehaviorEntry
 {
-	class UGameCrowdAgentBehavior*                     BehaviorArchetype;                                        // 0x0000(0x0008)
-	class AActor*                                      LookAtActor;                                              // 0x0008(0x0008)
-	float                                              BehaviorFrequency;                                        // 0x0010(0x0004)
-	unsigned long                                      bNeverRepeat : 1;                                         // 0x0014(0x0004)
+	class UGameCrowdAgentBehavior*                     BehaviorArchetype;                                        // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	class AActor*                                      LookAtActor;                                              // 0x0008(0x0008) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	float                                              BehaviorFrequency;                                        // 0x0010(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	unsigned long                                      bNeverRepeat : 1;                                         // 0x0014(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
 	unsigned long                                      bHasBeenUsed : 1;                                         // 0x0014(0x0004)
 	unsigned long                                      bCanBeUsed : 1;                                           // 0x0014(0x0004)
 };
@@ -230,17 +230,17 @@ struct FBehaviorEntry
 // 0x0008
 struct FNearbyDynamicItem
 {
-	class AActor*                                      Dynamic;                                                  // 0x0000(0x0008)
+	class AActor*                                      Dynamic;                                                  // 0x0000(0x0008) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.AvoidOtherSampleItem
 // 0x000C
 struct FAvoidOtherSampleItem
 {
-	int                                                RotOffset;                                                // 0x0000(0x0004)
-	unsigned char                                      NumMagSamples;                                            // 0x0004(0x0001)
+	int                                                RotOffset;                                                // 0x0000(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
+	unsigned char                                      NumMagSamples;                                            // 0x0004(0x0001) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	unsigned long                                      bFallbackOnly : 1;                                        // 0x0008(0x0004)
+	unsigned long                                      bFallbackOnly : 1;                                        // 0x0008(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.RecentInteraction
@@ -255,28 +255,28 @@ struct FRecentInteraction
 // 0x0018
 struct FGameCrowdAttachmentInfo
 {
-	class UStaticMesh*                                 StaticMesh;                                               // 0x0000(0x0008)
-	float                                              Chance;                                                   // 0x0008(0x0004)
-	struct FVector                                     Scale3D;                                                  // 0x000C(0x000C)
+	class UStaticMesh*                                 StaticMesh;                                               // 0x0000(0x0008) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              Chance;                                                   // 0x0008(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FVector                                     Scale3D;                                                  // 0x000C(0x000C) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgentSkeletal.GameCrowdAttachmentList
 // 0x0018
 struct FGameCrowdAttachmentList
 {
-	struct FName                                       SocketName;                                               // 0x0000(0x0008)
-	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0008(0x0010)
+	struct FName                                       SocketName;                                               // 0x0000(0x0008) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0008(0x0010) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameTypes.AgentArchetypeInfo
 // 0x0024
 struct FAgentArchetypeInfo
 {
-	class UObject*                                     AgentArchetype;                                           // 0x0000(0x0008)
-	float                                              FrequencyModifier;                                        // 0x0008(0x0004)
-	int                                                MaxAllowed;                                               // 0x000C(0x0004)
+	class UObject*                                     AgentArchetype;                                           // 0x0000(0x0008) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
+	float                                              FrequencyModifier;                                        // 0x0008(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
+	int                                                MaxAllowed;                                               // 0x000C(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
 	int                                                CurrSpawned;                                              // 0x0010(0x0004)
-	TArray<class UObject*>                             GroupMembers;                                             // 0x0014(0x0010)
+	TArray<class UObject*>                             GroupMembers;                                             // 0x0014(0x0010) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameTypes.CrowdSpawnInfoItem
@@ -301,7 +301,7 @@ struct FCrowdSpawnInfoItem
 	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0050(0x0004)
 	unsigned long                                      bCastShadows : 1;                                         // 0x0050(0x0004)
 	struct FLightingChannelContainer                   AgentLightingChannel;                                     // 0x0054(0x0004)
-	int                                                NumAgentsToTickPerFrame;                                  // 0x0058(0x0004)
+	int                                                NumAgentsToTickPerFrame;                                  // 0x0058(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
 	int                                                LastAgentTickedIndex;                                     // 0x005C(0x0004)
 	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x0060(0x0010)
 	float                                              SpawnPrioritizationInterval;                              // 0x0070(0x0004)
@@ -315,21 +315,21 @@ struct FCrowdSpawnInfoItem
 // 0x0010
 struct FTextureUVs
 {
-	float                                              U;                                                        // 0x0000(0x0004)
-	float                                              V;                                                        // 0x0004(0x0004)
-	float                                              UL;                                                       // 0x0008(0x0004)
-	float                                              VL;                                                       // 0x000C(0x0004)
+	float                                              U;                                                        // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              V;                                                        // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              UL;                                                       // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              VL;                                                       // 0x000C(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.MobileMenuObject.UVCoords
 // 0x0014
 struct FUVCoords
 {
-	unsigned long                                      bCustomCoords : 1;                                        // 0x0000(0x0004)
-	float                                              U;                                                        // 0x0004(0x0004)
-	float                                              V;                                                        // 0x0008(0x0004)
-	float                                              UL;                                                       // 0x000C(0x0004)
-	float                                              VL;                                                       // 0x0010(0x0004)
+	unsigned long                                      bCustomCoords : 1;                                        // 0x0000(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              U;                                                        // 0x0004(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              V;                                                        // 0x0008(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              UL;                                                       // 0x000C(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              VL;                                                       // 0x0010(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.TouchDataEvent
@@ -384,18 +384,18 @@ struct FMobileInputZoneClassMap
 // 0x001C
 struct FPropertyInfo
 {
-	struct FName                                       PropertyName;                                             // 0x0000(0x0008)
-	unsigned long                                      bModifyProperty : 1;                                      // 0x0008(0x0004)
-	struct FString                                     PropertyValue;                                            // 0x000C(0x0010)
+	struct FName                                       PropertyName;                                             // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	unsigned long                                      bModifyProperty : 1;                                      // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FString                                     PropertyValue;                                            // 0x000C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameSkelCtrl_Recoil.RecoilParams
 // 0x0004
 struct FRecoilParams
 {
-	TEnumAsByte<ERecoilStart>                          X;                                                        // 0x0000(0x0001)
-	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0001(0x0001)
-	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0002(0x0001)
+	TEnumAsByte<ERecoilStart>                          X;                                                        // 0x0000(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0001(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0002(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	unsigned char                                      Padding;                                                  // 0x0003(0x0001)
 };
 
@@ -404,16 +404,16 @@ struct FRecoilParams
 struct FRecoilDef
 {
 	float                                              TimeToGo;                                                 // 0x0000(0x0004)
-	float                                              TimeDuration;                                             // 0x0004(0x0004)
-	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C)
-	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C)
+	float                                              TimeDuration;                                             // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	struct FVector                                     RotSinOffset;                                             // 0x0020(0x000C)
-	struct FRecoilParams                               RotParams;                                                // 0x002C(0x0004)
+	struct FRecoilParams                               RotParams;                                                // 0x002C(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	struct FRotator                                    RotOffset;                                                // 0x0030(0x000C)
-	struct FVector                                     LocAmplitude;                                             // 0x003C(0x000C)
-	struct FVector                                     LocFrequency;                                             // 0x0048(0x000C)
+	struct FVector                                     LocAmplitude;                                             // 0x003C(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FVector                                     LocFrequency;                                             // 0x0048(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	struct FVector                                     LocSinOffset;                                             // 0x0054(0x000C)
-	struct FRecoilParams                               LocParams;                                                // 0x0060(0x0004)
+	struct FRecoilParams                               LocParams;                                                // 0x0060(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	struct FVector                                     LocOffset;                                                // 0x0064(0x000C)
 };
 
@@ -421,27 +421,27 @@ struct FRecoilDef
 // 0x0038
 struct FCamFocusPointParams
 {
-	class AActor*                                      FocusActor;                                               // 0x0000(0x0008)
-	struct FName                                       FocusBoneName;                                            // 0x0008(0x0008)
-	struct FVector                                     FocusWorldLoc;                                            // 0x0010(0x000C)
-	float                                              CameraFOV;                                                // 0x001C(0x0004)
-	struct FVector2D                                   InterpSpeedRange;                                         // 0x0020(0x0008)
-	struct FVector2D                                   InFocusFOV;                                               // 0x0028(0x0008)
-	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0030(0x0004)
-	unsigned long                                      bAdjustCamera : 1;                                        // 0x0030(0x0004)
-	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0030(0x0004)
-	float                                              FocusPitchOffsetDeg;                                      // 0x0034(0x0004)
+	class AActor*                                      FocusActor;                                               // 0x0000(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	struct FName                                       FocusBoneName;                                            // 0x0008(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	struct FVector                                     FocusWorldLoc;                                            // 0x0010(0x000C) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	float                                              CameraFOV;                                                // 0x001C(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	struct FVector2D                                   InterpSpeedRange;                                         // 0x0020(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	struct FVector2D                                   InFocusFOV;                                               // 0x0028(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	unsigned long                                      bAdjustCamera : 1;                                        // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	float                                              FocusPitchOffsetDeg;                                      // 0x0034(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCamera.PenetrationAvoidanceFeeler
 // 0x0028
 struct FPenetrationAvoidanceFeeler
 {
-	struct FRotator                                    AdjustmentRot;                                            // 0x0000(0x000C)
-	float                                              WorldWeight;                                              // 0x000C(0x0004)
-	float                                              PawnWeight;                                               // 0x0010(0x0004)
-	struct FVector                                     Extent;                                                   // 0x0014(0x000C)
-	int                                                TraceInterval;                                            // 0x0020(0x0004)
+	struct FRotator                                    AdjustmentRot;                                            // 0x0000(0x000C) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              WorldWeight;                                              // 0x000C(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              PawnWeight;                                               // 0x0010(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FVector                                     Extent;                                                   // 0x0014(0x000C) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	int                                                TraceInterval;                                            // 0x0020(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
 	int                                                FramesUntilNextTrace;                                     // 0x0024(0x0004)
 };
 
@@ -449,9 +449,9 @@ struct FPenetrationAvoidanceFeeler
 // 0x0024
 struct FViewOffsetData
 {
-	struct FVector                                     OffsetHigh;                                               // 0x0000(0x000C)
-	struct FVector                                     OffsetMid;                                                // 0x000C(0x000C)
-	struct FVector                                     OffsetLow;                                                // 0x0018(0x000C)
+	struct FVector                                     OffsetHigh;                                               // 0x0000(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	struct FVector                                     OffsetMid;                                                // 0x000C(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	struct FVector                                     OffsetLow;                                                // 0x0018(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.AggregateEventMapping
@@ -544,9 +544,9 @@ struct FSpecialMoveStruct
 // 0x0018
 struct FGameSpecialMoveInfo
 {
-	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008)
-	class UClass*                                      SpecialMoveClass;                                         // 0x0008(0x0008)
-	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0010(0x0008)
+	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	class UClass*                                      SpecialMoveClass;                                         // 0x0008(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0010(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
 };
 
 // ScriptStruct GameFramework.GameTypes.TakeHitInfo

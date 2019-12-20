@@ -1,4 +1,4 @@
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,13 +13,30 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Function EFGame.EFCharacterParts.OnParticleSystemFinished
-// (Final, Defined, Latent, PreOperator, Singular, Native)
+// (Defined, Simulated, Public)
 
 void AEFCharacterParts::OnParticleSystemFinished()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.OnParticleSystemFinished");
 
 	AEFCharacterParts_OnParticleSystemFinished_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFCharacterParts.ClearAttachedPSIIndex
+// (Native, Public)
+
+void AEFCharacterParts::ClearAttachedPSIIndex()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.ClearAttachedPSIIndex");
+
+	AEFCharacterParts_ClearAttachedPSIIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -30,25 +47,8 @@ void AEFCharacterParts::OnParticleSystemFinished()
 }
 
 
-// Function EFGame.EFCharacterParts.ClearAttachedPSIIndex
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
-
-void AEFCharacterParts::STATIC_ClearAttachedPSIIndex()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.ClearAttachedPSIIndex");
-
-	AEFCharacterParts_ClearAttachedPSIIndex_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFCharacterParts.NotifyChangedBase
-// (Latent, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFCharacterParts::NotifyChangedBase()
 {
@@ -57,6 +57,7 @@ void AEFCharacterParts::NotifyChangedBase()
 	AEFCharacterParts_NotifyChangedBase_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -65,7 +66,7 @@ void AEFCharacterParts::NotifyChangedBase()
 
 
 // Function EFGame.EFCharacterParts.BaseChange
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated)
+// (Defined, Singular, Event, Public)
 
 void AEFCharacterParts::BaseChange()
 {
@@ -82,7 +83,7 @@ void AEFCharacterParts::BaseChange()
 
 
 // Function EFGame.EFCharacterParts.EncroachingOn
-// (Defined, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFCharacterParts::EncroachingOn()
 {
@@ -99,7 +100,7 @@ void AEFCharacterParts::EncroachingOn()
 
 
 // Function EFGame.EFCharacterParts.EncroachedBy
-// (Final, Defined, Latent, PreOperator, Singular, Simulated)
+// (Event, Public)
 
 void AEFCharacterParts::EncroachedBy()
 {
@@ -116,7 +117,7 @@ void AEFCharacterParts::EncroachedBy()
 
 
 // Function EFGame.EFCharacterParts.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFCharacterParts::Destroyed()
 {
@@ -133,7 +134,7 @@ void AEFCharacterParts::Destroyed()
 
 
 // Function EFGame.EFCheatManager.InternalDebugLookAt
-// (Iterator, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalDebugLookAt()
 {
@@ -151,7 +152,7 @@ void UEFCheatManager::InternalDebugLookAt()
 
 
 // Function EFGame.EFCheatManager.InternalVisualizePhysicsCompartmentUsage
-// (Final, Defined, Latent, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalVisualizePhysicsCompartmentUsage()
 {
@@ -169,7 +170,7 @@ void UEFCheatManager::InternalVisualizePhysicsCompartmentUsage()
 
 
 // Function EFGame.EFCheatManager.InternalSetPhysicsCompartmentCount
-// (Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalSetPhysicsCompartmentCount()
 {
@@ -187,7 +188,7 @@ void UEFCheatManager::InternalSetPhysicsCompartmentCount()
 
 
 // Function EFGame.EFCheatManager.InternalTogglePhysicsCompartmentForEFPawns
-// (Latent, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalTogglePhysicsCompartmentForEFPawns()
 {
@@ -205,7 +206,7 @@ void UEFCheatManager::InternalTogglePhysicsCompartmentForEFPawns()
 
 
 // Function EFGame.EFCheatManager.InternalSetCamTargetBlendTime
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalSetCamTargetBlendTime()
 {
@@ -223,7 +224,7 @@ void UEFCheatManager::InternalSetCamTargetBlendTime()
 
 
 // Function EFGame.EFCheatManager.InternalClearCamTarget
-// (Final, Defined, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalClearCamTarget()
 {
@@ -241,7 +242,7 @@ void UEFCheatManager::InternalClearCamTarget()
 
 
 // Function EFGame.EFCheatManager.InternalSetCamTarget
-// (Defined, Iterator, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalSetCamTarget()
 {
@@ -259,7 +260,7 @@ void UEFCheatManager::InternalSetCamTarget()
 
 
 // Function EFGame.EFCheatManager.InternalCamPrevTarget
-// (Defined, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalCamPrevTarget()
 {
@@ -277,7 +278,7 @@ void UEFCheatManager::InternalCamPrevTarget()
 
 
 // Function EFGame.EFCheatManager.InternalCamNextTarget
-// (Final, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalCamNextTarget()
 {
@@ -295,7 +296,7 @@ void UEFCheatManager::InternalCamNextTarget()
 
 
 // Function EFGame.EFCheatManager.InternalGetPlayerCamera
-// (Final, Iterator, Latent, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalGetPlayerCamera()
 {
@@ -313,7 +314,7 @@ void UEFCheatManager::InternalGetPlayerCamera()
 
 
 // Function EFGame.EFCheatManager.InternalToggleCullDistanceVolume
-// (Final, Defined, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleCullDistanceVolume()
 {
@@ -331,7 +332,7 @@ void UEFCheatManager::InternalToggleCullDistanceVolume()
 
 
 // Function EFGame.EFCheatManager.InternalToggleCPUSkinning
-// (Defined, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleCPUSkinning()
 {
@@ -349,7 +350,7 @@ void UEFCheatManager::InternalToggleCPUSkinning()
 
 
 // Function EFGame.EFCheatManager.InternalToggleOneFrameThreadLag
-// (Defined, Iterator, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleOneFrameThreadLag()
 {
@@ -367,7 +368,7 @@ void UEFCheatManager::InternalToggleOneFrameThreadLag()
 
 
 // Function EFGame.EFCheatManager.InternalToggleUpdateDLEOptimize
-// (Defined, Latent, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleUpdateDLEOptimize()
 {
@@ -385,7 +386,7 @@ void UEFCheatManager::InternalToggleUpdateDLEOptimize()
 
 
 // Function EFGame.EFCheatManager.InternalToggleMeshObjectUpdateOptimize
-// (Final, Iterator, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleMeshObjectUpdateOptimize()
 {
@@ -403,7 +404,7 @@ void UEFCheatManager::InternalToggleMeshObjectUpdateOptimize()
 
 
 // Function EFGame.EFCheatManager.InternalToggleUpdateBoundsOptimize
-// (Final, Latent, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleUpdateBoundsOptimize()
 {
@@ -421,7 +422,7 @@ void UEFCheatManager::InternalToggleUpdateBoundsOptimize()
 
 
 // Function EFGame.EFCheatManager.InternalToggleDynamicFoliageOptimize
-// (Iterator, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleDynamicFoliageOptimize()
 {
@@ -439,7 +440,7 @@ void UEFCheatManager::InternalToggleDynamicFoliageOptimize()
 
 
 // Function EFGame.EFCheatManager.InternalToggleCameraODAOptimize
-// (Final, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleCameraODAOptimize()
 {
@@ -457,7 +458,7 @@ void UEFCheatManager::InternalToggleCameraODAOptimize()
 
 
 // Function EFGame.EFCheatManager.InternalToggleParticleOptimizeILG
-// (Final, Defined, Iterator, Singular, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCheatManager::InternalToggleParticleOptimizeILG()
 {
@@ -475,7 +476,7 @@ void UEFCheatManager::InternalToggleParticleOptimizeILG()
 
 
 // Function EFGame.EFConsole.IsValidEFCommand
-// (Defined, Iterator, Singular, Simulated, Native, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFConsole::IsValidEFCommand()
 {
@@ -493,7 +494,7 @@ void UEFConsole::IsValidEFCommand()
 
 
 // Function EFGame.EFConsole.InputAxis
-// (Iterator, PreOperator, Net, Native, HasOptionalParms, Const)
+// (Defined, HasOptionalParms, Public)
 
 void UEFConsole::InputAxis()
 {
@@ -502,7 +503,6 @@ void UEFConsole::InputAxis()
 	UEFConsole_InputAxis_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -511,13 +511,30 @@ void UEFConsole::InputAxis()
 
 
 // Function EFGame.EFConsole.InputKey
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator)
+// (Defined, HasOptionalParms, Public)
 
 void UEFConsole::InputKey()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFConsole.InputKey");
 
 	UEFConsole_InputKey_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFDecalFloorActor.GetBoundingCylinder
+// (Native, Public, HasOutParms)
+
+void AEFDecalFloorActor::GetBoundingCylinder()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDecalFloorActor.GetBoundingCylinder");
+
+	AEFDecalFloorActor_GetBoundingCylinder_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -528,25 +545,8 @@ void UEFConsole::InputKey()
 }
 
 
-// Function EFGame.EFDecalFloorActor.GetBoundingCylinder
-// (Final, Iterator, Latent, NetReliable, Simulated, Exec, Static, HasOptionalParms)
-
-void AEFDecalFloorActor::STATIC_GetBoundingCylinder()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDecalFloorActor.GetBoundingCylinder");
-
-	AEFDecalFloorActor_GetBoundingCylinder_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFDecalManager.SpawnDecalMinimal
-// (Defined, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFDecalManager::SpawnDecalMinimal()
 {
@@ -563,7 +563,7 @@ void AEFDecalManager::SpawnDecalMinimal()
 
 
 // Function EFGame.EFGameInfo.AllowCheats
-// (Latent, Event, HasOptionalParms)
+// (Defined, Public)
 
 void AEFGameInfo::AllowCheats()
 {
@@ -580,7 +580,7 @@ void AEFGameInfo::AllowCheats()
 
 
 // Function EFGame.EFGameInfo.PostSeamlessTravel
-// (Final, Iterator, PreOperator, Net, Simulated, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFGameInfo::PostSeamlessTravel()
 {
@@ -589,6 +589,7 @@ void AEFGameInfo::PostSeamlessTravel()
 	AEFGameInfo_PostSeamlessTravel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -597,7 +598,7 @@ void AEFGameInfo::PostSeamlessTravel()
 
 
 // Function EFGame.EFGameInfo.GameEnding
-// (Defined, Iterator, PreOperator, Singular, Net, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFGameInfo::GameEnding()
 {
@@ -606,6 +607,7 @@ void AEFGameInfo::GameEnding()
 	AEFGameInfo_GameEnding_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -614,7 +616,7 @@ void AEFGameInfo::GameEnding()
 
 
 // Function EFGame.EFGameInfo.NotifyMapLoaded
-// (Final, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFGameInfo::NotifyMapLoaded()
 {
@@ -623,6 +625,7 @@ void AEFGameInfo::NotifyMapLoaded()
 	AEFGameInfo_NotifyMapLoaded_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -631,7 +634,7 @@ void AEFGameInfo::NotifyMapLoaded()
 
 
 // Function EFGame.EFGameInfo.NotfiyLoadingStep
-// (Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFGameInfo::NotfiyLoadingStep()
 {
@@ -640,6 +643,7 @@ void AEFGameInfo::NotfiyLoadingStep()
 	AEFGameInfo_NotfiyLoadingStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -648,7 +652,7 @@ void AEFGameInfo::NotfiyLoadingStep()
 
 
 // Function EFGame.EFGameInfo.Tick
-// (Final, Iterator, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFGameInfo::Tick()
 {
@@ -665,7 +669,7 @@ void AEFGameInfo::Tick()
 
 
 // Function EFGame.EFGameInfo.PostLogin
-// (Final, PreOperator, Net, Simulated, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFGameInfo::PostLogin()
 {
@@ -682,7 +686,7 @@ void AEFGameInfo::PostLogin()
 
 
 // Function EFGame.EFGameInfo.Login
-// (Singular, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public, HasOutParms)
 
 void AEFGameInfo::Login()
 {
@@ -699,7 +703,7 @@ void AEFGameInfo::Login()
 
 
 // Function EFGame.EFGameInfo.LoadLevel
-// (Defined, Iterator, PreOperator, Singular, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFGameInfo::LoadLevel()
 {
@@ -708,7 +712,6 @@ void AEFGameInfo::LoadLevel()
 	AEFGameInfo_LoadLevel_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -717,9 +720,9 @@ void AEFGameInfo::LoadLevel()
 
 
 // Function EFGame.EFGameInfo.RestartPlayer
-// (Final, Iterator, PreOperator, Singular, NetReliable, Simulated, Event, Operator, Static, HasOptionalParms)
+// (Defined, Public)
 
-void AEFGameInfo::STATIC_RestartPlayer()
+void AEFGameInfo::RestartPlayer()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.RestartPlayer");
 
@@ -734,7 +737,7 @@ void AEFGameInfo::STATIC_RestartPlayer()
 
 
 // Function EFGame.EFGameInfo.InitGame
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, NetReliable, HasOptionalParms)
+// (Defined, Event, Public, HasOutParms)
 
 void AEFGameInfo::InitGame()
 {
@@ -751,9 +754,9 @@ void AEFGameInfo::InitGame()
 
 
 // Function EFGame.EFGameInfo.GenericPlayerInitialization
-// (Final, Latent, Net, Simulated, Exec, Static, HasOptionalParms)
+// (Defined, Public)
 
-void AEFGameInfo::STATIC_GenericPlayerInitialization()
+void AEFGameInfo::GenericPlayerInitialization()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.GenericPlayerInitialization");
 
@@ -768,7 +771,7 @@ void AEFGameInfo::STATIC_GenericPlayerInitialization()
 
 
 // Function EFGame.EFPawn.StopAfterImageEffect
-// (Defined, Latent, Singular, Simulated, Exec, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPawn::StopAfterImageEffect()
 {
@@ -786,7 +789,7 @@ void AEFPawn::StopAfterImageEffect()
 
 
 // Function EFGame.EFPawn.StartAfterImageEffect
-// (Final, Defined, PreOperator, Net, NetReliable, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
 void AEFPawn::StartAfterImageEffect()
 {
@@ -804,15 +807,16 @@ void AEFPawn::StartAfterImageEffect()
 
 
 // Function EFGame.EFPawn.GetAnimTrailParticleSystem
-// (Defined, PreOperator, Singular, Net, Simulated, Exec, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_GetAnimTrailParticleSystem()
+void AEFPawn::GetAnimTrailParticleSystem()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetAnimTrailParticleSystem");
 
 	AEFPawn_GetAnimTrailParticleSystem_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -821,7 +825,7 @@ void AEFPawn::STATIC_GetAnimTrailParticleSystem()
 
 
 // Function EFGame.EFPawn.ApplyFluidSurfaceContinuousForce
-// (Final, Defined, PreOperator, Singular, Net, NetReliable, Event, HasOptionalParms)
+// (Simulated, Native, Public)
 
 void AEFPawn::ApplyFluidSurfaceContinuousForce()
 {
@@ -830,6 +834,7 @@ void AEFPawn::ApplyFluidSurfaceContinuousForce()
 	AEFPawn_ApplyFluidSurfaceContinuousForce_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -838,7 +843,7 @@ void AEFPawn::ApplyFluidSurfaceContinuousForce()
 
 
 // Function EFGame.EFPawn.ApplyFluidSurfaceImpact
-// (Iterator, PreOperator, Singular, Net, NetReliable, Event, HasOptionalParms)
+// (Simulated, Native, Public, HasOutParms)
 
 void AEFPawn::ApplyFluidSurfaceImpact()
 {
@@ -847,6 +852,7 @@ void AEFPawn::ApplyFluidSurfaceImpact()
 	AEFPawn_ApplyFluidSurfaceImpact_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -855,7 +861,7 @@ void AEFPawn::ApplyFluidSurfaceImpact()
 
 
 // Function EFGame.EFPawn.NotifyChangedBase
-// (Latent, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPawn::NotifyChangedBase()
 {
@@ -864,6 +870,7 @@ void AEFPawn::NotifyChangedBase()
 	AEFPawn_NotifyChangedBase_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -872,7 +879,7 @@ void AEFPawn::NotifyChangedBase()
 
 
 // Function EFGame.EFPawn.BaseChange
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated)
+// (Defined, Singular, Event, Public)
 
 void AEFPawn::BaseChange()
 {
@@ -889,98 +896,13 @@ void AEFPawn::BaseChange()
 
 
 // Function EFGame.EFPawn.MAT_FinishAnimControl
-// (Final, PreOperator, Net, NetReliable, Simulated, Exec, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_MAT_FinishAnimControl()
+void AEFPawn::MAT_FinishAnimControl()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.MAT_FinishAnimControl");
 
 	AEFPawn_MAT_FinishAnimControl_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFPawn.MAT_BeginAnimControl
-// (PreOperator, Net, NetReliable, Simulated, Exec, Event, Static, HasOptionalParms)
-
-void AEFPawn::STATIC_MAT_BeginAnimControl()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.MAT_BeginAnimControl");
-
-	AEFPawn_MAT_BeginAnimControl_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFPawn.InterpolationFinished
-// (Final, Defined, Iterator, Net, NetReliable, HasOptionalParms)
-
-void AEFPawn::InterpolationFinished()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationFinished");
-
-	AEFPawn_InterpolationFinished_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFPawn.InterpolationStarted
-// (Latent, Net, NetReliable, HasOptionalParms)
-
-void AEFPawn::InterpolationStarted()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationStarted");
-
-	AEFPawn_InterpolationStarted_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFPawn.RigidBodyCollision
-// (Defined, Iterator, NetReliable, Simulated, HasOptionalParms)
-
-void AEFPawn::RigidBodyCollision()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.RigidBodyCollision");
-
-	AEFPawn_RigidBodyCollision_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFPawn.DoKismetAttachment
-// (Final, Defined, Iterator, Latent, PreOperator, Net, Native, Event, Operator, HasOptionalParms)
-
-void AEFPawn::DoKismetAttachment()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.DoKismetAttachment");
-
-	AEFPawn_DoKismetAttachment_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -991,14 +913,86 @@ void AEFPawn::DoKismetAttachment()
 }
 
 
-// Function EFGame.EFPawn.AttachmentCameraActor
-// (Defined, PreOperator, Net, NetReliable, Simulated, Exec, Event, Static, Const)
+// Function EFGame.EFPawn.MAT_BeginAnimControl
+// (Native, Public)
 
-void AEFPawn::STATIC_AttachmentCameraActor()
+void AEFPawn::MAT_BeginAnimControl()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttachmentCameraActor");
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.MAT_BeginAnimControl");
 
-	AEFPawn_AttachmentCameraActor_Params params;
+	AEFPawn_MAT_BeginAnimControl_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPawn.InterpolationFinished
+// (Simulated, Native, Event, Public)
+
+void AEFPawn::InterpolationFinished()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationFinished");
+
+	AEFPawn_InterpolationFinished_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPawn.InterpolationStarted
+// (Simulated, Native, Event, Public)
+
+void AEFPawn::InterpolationStarted()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationStarted");
+
+	AEFPawn_InterpolationStarted_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPawn.RigidBodyCollision
+// (Simulated, Native, Event, Public, HasOutParms)
+
+void AEFPawn::RigidBodyCollision()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.RigidBodyCollision");
+
+	AEFPawn_RigidBodyCollision_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPawn.DoKismetAttachment
+// (Defined, Public)
+
+void AEFPawn::DoKismetAttachment()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.DoKismetAttachment");
+
+	AEFPawn_DoKismetAttachment_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1008,10 +1002,28 @@ void AEFPawn::STATIC_AttachmentCameraActor()
 }
 
 
-// Function EFGame.EFPawn.GetGravityZ
-// (PreOperator, Native, Static, HasOptionalParms)
+// Function EFGame.EFPawn.AttachmentCameraActor
+// (Native, Public)
 
-void AEFPawn::STATIC_GetGravityZ()
+void AEFPawn::AttachmentCameraActor()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttachmentCameraActor");
+
+	AEFPawn_AttachmentCameraActor_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPawn.GetGravityZ
+// (Native, Public)
+
+void AEFPawn::GetGravityZ()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetGravityZ");
 
@@ -1027,7 +1039,7 @@ void AEFPawn::STATIC_GetGravityZ()
 
 
 // Function EFGame.EFPawn.OnForceFieldDestroy
-// (Final, Defined, Iterator, PreOperator, Simulated, HasOptionalParms)
+// (Defined, Simulated, Public)
 
 void AEFPawn::OnForceFieldDestroy()
 {
@@ -1044,7 +1056,7 @@ void AEFPawn::OnForceFieldDestroy()
 
 
 // Function EFGame.EFPawn.CreateForceField
-// (Iterator, PreOperator, Net, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPawn::CreateForceField()
 {
@@ -1061,9 +1073,9 @@ void AEFPawn::CreateForceField()
 
 
 // Function EFGame.EFPawn.ExplodeActor
-// (Final, Defined, Iterator, Latent, Singular, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPawn::STATIC_ExplodeActor()
+void AEFPawn::ExplodeActor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.ExplodeActor");
 
@@ -1079,9 +1091,9 @@ void AEFPawn::STATIC_ExplodeActor()
 
 
 // Function EFGame.EFPawn.FinishDyingDelay
-// (Final, Defined, Iterator, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPawn::STATIC_FinishDyingDelay()
+void AEFPawn::FinishDyingDelay()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.FinishDyingDelay");
 
@@ -1097,7 +1109,7 @@ void AEFPawn::STATIC_FinishDyingDelay()
 
 
 // Function EFGame.EFPawn.SetDefaultStateColor
-// (Final, Defined, Iterator, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPawn::SetDefaultStateColor()
 {
@@ -1106,6 +1118,7 @@ void AEFPawn::SetDefaultStateColor()
 	AEFPawn_SetDefaultStateColor_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1114,7 +1127,7 @@ void AEFPawn::SetDefaultStateColor()
 
 
 // Function EFGame.EFPawn.SetStateColor
-// (Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void AEFPawn::SetStateColor()
 {
@@ -1123,6 +1136,7 @@ void AEFPawn::SetStateColor()
 	AEFPawn_SetStateColor_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1131,15 +1145,16 @@ void AEFPawn::SetStateColor()
 
 
 // Function EFGame.EFPawn.AttackFreezeAnim
-// (Final, Defined, Latent, Singular, Net, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void AEFPawn::STATIC_AttackFreezeAnim()
+void AEFPawn::AttackFreezeAnim()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttackFreezeAnim");
 
 	AEFPawn_AttackFreezeAnim_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1148,15 +1163,16 @@ void AEFPawn::STATIC_AttackFreezeAnim()
 
 
 // Function EFGame.EFPawn.AttackContinueAnim
-// (Defined, Singular, Net, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void AEFPawn::STATIC_AttackContinueAnim()
+void AEFPawn::AttackContinueAnim()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttackContinueAnim");
 
 	AEFPawn_AttackContinueAnim_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1165,9 +1181,9 @@ void AEFPawn::STATIC_AttackContinueAnim()
 
 
 // Function EFGame.EFPawn.SetPPOutlineWidth
-// (Final, Defined, PreOperator, Singular, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_SetPPOutlineWidth()
+void AEFPawn::SetPPOutlineWidth()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutlineWidth");
 
@@ -1183,9 +1199,9 @@ void AEFPawn::STATIC_SetPPOutlineWidth()
 
 
 // Function EFGame.EFPawn.SetPPOutlineColor
-// (Defined, PreOperator, Singular, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_SetPPOutlineColor()
+void AEFPawn::SetPPOutlineColor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutlineColor");
 
@@ -1201,9 +1217,9 @@ void AEFPawn::STATIC_SetPPOutlineColor()
 
 
 // Function EFGame.EFPawn.SetPPOutline
-// (Final, PreOperator, Singular, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_SetPPOutline()
+void AEFPawn::SetPPOutline()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutline");
 
@@ -1219,7 +1235,7 @@ void AEFPawn::STATIC_SetPPOutline()
 
 
 // Function EFGame.EFPawn.SetCloakMode
-// (Final, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPawn::SetCloakMode()
 {
@@ -1228,6 +1244,7 @@ void AEFPawn::SetCloakMode()
 	AEFPawn_SetCloakMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1236,9 +1253,9 @@ void AEFPawn::SetCloakMode()
 
 
 // Function EFGame.EFPawn.SetOccludedOutlineColor
-// (Final, Defined, PreOperator, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFPawn::STATIC_SetOccludedOutlineColor()
+void AEFPawn::SetOccludedOutlineColor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetOccludedOutlineColor");
 
@@ -1254,9 +1271,9 @@ void AEFPawn::STATIC_SetOccludedOutlineColor()
 
 
 // Function EFGame.EFPawn.SetOccludedOutline
-// (Defined, PreOperator, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, HasOptionalParms, Public)
 
-void AEFPawn::STATIC_SetOccludedOutline()
+void AEFPawn::SetOccludedOutline()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetOccludedOutline");
 
@@ -1272,7 +1289,7 @@ void AEFPawn::STATIC_SetOccludedOutline()
 
 
 // Function EFGame.EFPawn.OutsideWorldBounds
-// (Defined, Latent, PreOperator, Singular, Simulated, HasOptionalParms)
+// (Singular, Simulated, Native, Event, Public)
 
 void AEFPawn::OutsideWorldBounds()
 {
@@ -1281,6 +1298,7 @@ void AEFPawn::OutsideWorldBounds()
 	AEFPawn_OutsideWorldBounds_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1289,7 +1307,7 @@ void AEFPawn::OutsideWorldBounds()
 
 
 // Function EFGame.EFPawn.FellOutOfWorld
-// (Iterator, Latent, Singular, Net, HasOptionalParms)
+// (Simulated, Native, Event, Public)
 
 void AEFPawn::FellOutOfWorld()
 {
@@ -1298,6 +1316,7 @@ void AEFPawn::FellOutOfWorld()
 	AEFPawn_FellOutOfWorld_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1306,7 +1325,7 @@ void AEFPawn::FellOutOfWorld()
 
 
 // Function EFGame.EFPawn.Landed
-// (Final, PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFPawn::Landed()
 {
@@ -1315,6 +1334,7 @@ void AEFPawn::Landed()
 	AEFPawn_Landed_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1323,7 +1343,7 @@ void AEFPawn::Landed()
 
 
 // Function EFGame.EFPawn.Falling
-// (PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFPawn::Falling()
 {
@@ -1332,6 +1352,7 @@ void AEFPawn::Falling()
 	AEFPawn_Falling_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1340,9 +1361,9 @@ void AEFPawn::Falling()
 
 
 // Function EFGame.EFPawn.SetDesiredRotation
-// (Defined, Singular, NetReliable, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, HasOptionalParms, Public)
 
-void AEFPawn::STATIC_SetDesiredRotation()
+void AEFPawn::SetDesiredRotation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetDesiredRotation");
 
@@ -1358,7 +1379,7 @@ void AEFPawn::STATIC_SetDesiredRotation()
 
 
 // Function EFGame.EFPawn.OnParticleSystemFinished
-// (Final, Defined, Latent, PreOperator, Singular, Native)
+// (Defined, Simulated, Public)
 
 void AEFPawn::OnParticleSystemFinished()
 {
@@ -1367,7 +1388,6 @@ void AEFPawn::OnParticleSystemFinished()
 	AEFPawn_OnParticleSystemFinished_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1376,7 +1396,7 @@ void AEFPawn::OnParticleSystemFinished()
 
 
 // Function EFGame.EFPawn.PostInitAll
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPawn::PostInitAll()
 {
@@ -1393,15 +1413,16 @@ void AEFPawn::PostInitAll()
 
 
 // Function EFGame.EFPawn.ClearAttachedPSIIndex
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPawn::STATIC_ClearAttachedPSIIndex()
+void AEFPawn::ClearAttachedPSIIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.ClearAttachedPSIIndex");
 
 	AEFPawn_ClearAttachedPSIIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1410,7 +1431,7 @@ void AEFPawn::STATIC_ClearAttachedPSIIndex()
 
 
 // Function EFGame.EFPawn.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFPawn::Destroyed()
 {
@@ -1427,9 +1448,9 @@ void AEFPawn::Destroyed()
 
 
 // Function EFGame.EFPawn.GetDefaultCameraMode
-// (Final, Defined, PreOperator, Net, NetReliable, Simulated, Exec, Static, HasOptionalParms)
+// (Defined, Simulated, Public)
 
-void AEFPawn::STATIC_GetDefaultCameraMode()
+void AEFPawn::GetDefaultCameraMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetDefaultCameraMode");
 
@@ -1444,7 +1465,7 @@ void AEFPawn::STATIC_GetDefaultCameraMode()
 
 
 // Function EFGame.EFPawn.GetObjectCameraStyle
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPawn::GetObjectCameraStyle()
 {
@@ -1453,6 +1474,7 @@ void AEFPawn::GetObjectCameraStyle()
 	AEFPawn_GetObjectCameraStyle_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1461,7 +1483,7 @@ void AEFPawn::GetObjectCameraStyle()
 
 
 // Function EFGame.EFPawn.EncroachingOn
-// (Defined, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFPawn::EncroachingOn()
 {
@@ -1478,7 +1500,7 @@ void AEFPawn::EncroachingOn()
 
 
 // Function EFGame.EFPawn.EncroachedBy
-// (Final, Defined, Latent, PreOperator, Singular, Simulated)
+// (Event, Public)
 
 void AEFPawn::EncroachedBy()
 {
@@ -1495,7 +1517,7 @@ void AEFPawn::EncroachedBy()
 
 
 // Function EFGame.EFPlayer.OnUpdatePropertyDrawScale
-// (Final, Defined, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayer::OnUpdatePropertyDrawScale()
 {
@@ -1513,7 +1535,7 @@ void AEFPlayer::OnUpdatePropertyDrawScale()
 
 
 // Function EFGame.EFPlayer.OnUpdatePropertyDrawScale3D
-// (Iterator, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayer::OnUpdatePropertyDrawScale3D()
 {
@@ -1531,7 +1553,7 @@ void AEFPlayer::OnUpdatePropertyDrawScale3D()
 
 
 // Function EFGame.EFTransit.EncroachingOn
-// (Defined, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFTransit::EncroachingOn()
 {
@@ -1548,7 +1570,7 @@ void AEFTransit::EncroachingOn()
 
 
 // Function EFGame.EFPlayerController.ConsoleCommand
-// (Iterator, Net, Event, Operator, HasOptionalParms)
+// (Native, HasOptionalParms, Public)
 
 void AEFPlayerController::ConsoleCommand()
 {
@@ -1557,6 +1579,7 @@ void AEFPlayerController::ConsoleCommand()
 	AEFPlayerController_ConsoleCommand_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1565,9 +1588,9 @@ void AEFPlayerController::ConsoleCommand()
 
 
 // Function EFGame.EFPlayerController.ProcessCinematic
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Exec, Native, Operator, Static, HasOptionalParms)
+// (Exec, Native, Public)
 
-void AEFPlayerController::STATIC_ProcessCinematic()
+void AEFPlayerController::ProcessCinematic()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.ProcessCinematic");
 
@@ -1583,7 +1606,7 @@ void AEFPlayerController::STATIC_ProcessCinematic()
 
 
 // Function EFGame.EFPlayerController.GetPlayerInitPosition
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
 void AEFPlayerController::GetPlayerInitPosition()
 {
@@ -1592,6 +1615,7 @@ void AEFPlayerController::GetPlayerInitPosition()
 	AEFPlayerController_GetPlayerInitPosition_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1600,7 +1624,7 @@ void AEFPlayerController::GetPlayerInitPosition()
 
 
 // Function EFGame.EFPlayerController.GetPlayerViewPointQuat
-// (Final, Defined, Singular, NetReliable, HasOptionalParms)
+// (Simulated, Native, Event, Public, HasOutParms)
 
 void AEFPlayerController::GetPlayerViewPointQuat()
 {
@@ -1609,6 +1633,7 @@ void AEFPlayerController::GetPlayerViewPointQuat()
 	AEFPlayerController_GetPlayerViewPointQuat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1617,7 +1642,7 @@ void AEFPlayerController::GetPlayerViewPointQuat()
 
 
 // Function EFGame.EFPlayerController.GetPlayerViewPoint
-// (Defined, Singular, NetReliable, HasOptionalParms)
+// (Defined, Simulated, Event, Public, HasOutParms)
 
 void AEFPlayerController::GetPlayerViewPoint()
 {
@@ -1634,7 +1659,7 @@ void AEFPlayerController::GetPlayerViewPoint()
 
 
 // Function EFGame.EFPlayerController.DisplayDebug
-// (Defined, Iterator, Singular, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms)
+// (Defined, Simulated, Public, HasOutParms)
 
 void AEFPlayerController::DisplayDebug()
 {
@@ -1651,7 +1676,7 @@ void AEFPlayerController::DisplayDebug()
 
 
 // Function EFGame.EFPlayerController.DrawHUD
-// (Final, PreOperator, Singular, NetReliable, Native, Event, Operator, HasOptionalParms)
+// (Defined, Public)
 
 void AEFPlayerController::DrawHUD()
 {
@@ -1660,7 +1685,6 @@ void AEFPlayerController::DrawHUD()
 	AEFPlayerController_DrawHUD_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1669,16 +1693,15 @@ void AEFPlayerController::DrawHUD()
 
 
 // Function EFGame.EFPlayerController.SpawnDefaultHUD
-// (Defined, Singular, Net, Simulated, Exec, Native, Event, Operator, Static, HasOptionalParms)
+// (Defined, Public)
 
-void AEFPlayerController::STATIC_SpawnDefaultHUD()
+void AEFPlayerController::SpawnDefaultHUD()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.SpawnDefaultHUD");
 
 	AEFPlayerController_SpawnDefaultHUD_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1687,7 +1710,7 @@ void AEFPlayerController::STATIC_SpawnDefaultHUD()
 
 
 // Function EFGame.EFPlayerController.IsStopMovieLoading
-// (Final, Defined, Latent, PreOperator, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerController::IsStopMovieLoading()
 {
@@ -1705,7 +1728,7 @@ void AEFPlayerController::IsStopMovieLoading()
 
 
 // Function EFGame.EFPlayerController.PlayerTick
-// (Final, Defined, Iterator, Net, Simulated, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFPlayerController::PlayerTick()
 {
@@ -1714,6 +1737,7 @@ void AEFPlayerController::PlayerTick()
 	AEFPlayerController_PlayerTick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1722,7 +1746,7 @@ void AEFPlayerController::PlayerTick()
 
 
 // Function EFGame.EFPlayerController.UpdateRotation
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Public)
 
 void AEFPlayerController::UpdateRotation()
 {
@@ -1739,7 +1763,7 @@ void AEFPlayerController::UpdateRotation()
 
 
 // Function EFGame.EFPlayerController.StopMovieLoading
-// (Iterator, Latent, Singular, Simulated, Exec, Native, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFPlayerController::StopMovieLoading()
 {
@@ -1748,7 +1772,6 @@ void AEFPlayerController::StopMovieLoading()
 	AEFPlayerController_StopMovieLoading_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1757,7 +1780,7 @@ void AEFPlayerController::StopMovieLoading()
 
 
 // Function EFGame.EFPlayerController.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFPlayerController::Destroyed()
 {
@@ -1774,7 +1797,7 @@ void AEFPlayerController::Destroyed()
 
 
 // Function EFGame.EFPlayerController.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFPlayerController::PostBeginPlay()
 {
@@ -1791,7 +1814,7 @@ void AEFPlayerController::PostBeginPlay()
 
 
 // Function EFGame.EFPlayerController.InitInputSystem
-// (Defined, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerController::InitInputSystem()
 {
@@ -1808,9 +1831,9 @@ void AEFPlayerController::InitInputSystem()
 
 
 // Function EFGame.EFPlayerInput.DefaultPositionControlPanel
-// (Final, Singular, NetReliable, Exec, Native, Operator, Static, Const)
+// (Exec, Native, Public)
 
-void UEFPlayerInput::STATIC_DefaultPositionControlPanel()
+void UEFPlayerInput::DefaultPositionControlPanel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.DefaultPositionControlPanel");
 
@@ -1826,9 +1849,9 @@ void UEFPlayerInput::STATIC_DefaultPositionControlPanel()
 
 
 // Function EFGame.EFPlayerInput.FocusControlPanel
-// (Final, Iterator, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Exec, Native, Public)
 
-void UEFPlayerInput::STATIC_FocusControlPanel()
+void UEFPlayerInput::FocusControlPanel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.FocusControlPanel");
 
@@ -1844,15 +1867,16 @@ void UEFPlayerInput::STATIC_FocusControlPanel()
 
 
 // Function EFGame.EFPlayerInput.ToggleControlPanel
-// (Final, Defined, Iterator, Latent, Net, Simulated, Static, HasOptionalParms, Const)
+// (Exec, Native, Public)
 
-void UEFPlayerInput::STATIC_ToggleControlPanel()
+void UEFPlayerInput::ToggleControlPanel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.ToggleControlPanel");
 
 	UEFPlayerInput_ToggleControlPanel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1861,7 +1885,7 @@ void UEFPlayerInput::STATIC_ToggleControlPanel()
 
 
 // Function EFGame.EFPlayerInput.OnMouseScrollDown
-// (Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Exec, Native, Public)
 
 void UEFPlayerInput::OnMouseScrollDown()
 {
@@ -1879,7 +1903,7 @@ void UEFPlayerInput::OnMouseScrollDown()
 
 
 // Function EFGame.EFPlayerInput.OnMouseScrollUp
-// (Final, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Exec, Native, Public)
 
 void UEFPlayerInput::OnMouseScrollUp()
 {
@@ -1897,7 +1921,7 @@ void UEFPlayerInput::OnMouseScrollUp()
 
 
 // Function EFGame.EFPlayerInput.PlayerInput
-// (Final, Defined, Singular, NetReliable)
+// (Defined, Event, Public)
 
 void UEFPlayerInput::PlayerInput()
 {
@@ -1914,13 +1938,30 @@ void UEFPlayerInput::PlayerInput()
 
 
 // Function EFGame.EFPlayerInput.InputAxis
-// (Iterator, PreOperator, Net, Native, HasOptionalParms, Const)
+// (Defined, HasOptionalParms, Public)
 
 void UEFPlayerInput::InputAxis()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.InputAxis");
 
 	UEFPlayerInput_InputAxis_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFProjectile.ClearAttachedPSIIndex
+// (Native, Public)
+
+void AEFProjectile::ClearAttachedPSIIndex()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFProjectile.ClearAttachedPSIIndex");
+
+	AEFProjectile_ClearAttachedPSIIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1931,25 +1972,8 @@ void UEFPlayerInput::InputAxis()
 }
 
 
-// Function EFGame.EFProjectile.ClearAttachedPSIIndex
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
-
-void AEFProjectile::STATIC_ClearAttachedPSIIndex()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFProjectile.ClearAttachedPSIIndex");
-
-	AEFProjectile_ClearAttachedPSIIndex_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFProjectile.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFProjectile::Destroyed()
 {
@@ -1966,7 +1990,7 @@ void AEFProjectile::Destroyed()
 
 
 // Function EFGame.EFProjectile.BaseChange
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFProjectile::BaseChange()
 {
@@ -1983,7 +2007,7 @@ void AEFProjectile::BaseChange()
 
 
 // Function EFGame.EFProjectile.NotifyBaseChange
-// (Final, Defined, Iterator, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFProjectile::NotifyBaseChange()
 {
@@ -1992,6 +2016,7 @@ void AEFProjectile::NotifyBaseChange()
 	AEFProjectile_NotifyBaseChange_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2000,9 +2025,9 @@ void AEFProjectile::NotifyBaseChange()
 
 
 // Function EFGame.EFProjectile.ProcessTouch
-// (Final, Defined, PreOperator, Singular, Net, NetReliable, Exec, Native, Operator, Static, HasOptionalParms)
+// (Simulated, Native, Public)
 
-void AEFProjectile::STATIC_ProcessTouch()
+void AEFProjectile::ProcessTouch()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFProjectile.ProcessTouch");
 
@@ -2018,15 +2043,16 @@ void AEFProjectile::STATIC_ProcessTouch()
 
 
 // Function EFGame.EFSkeletalMeshActor.ClearAttachedPSIIndex
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void AEFSkeletalMeshActor::STATIC_ClearAttachedPSIIndex()
+void AEFSkeletalMeshActor::ClearAttachedPSIIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSkeletalMeshActor.ClearAttachedPSIIndex");
 
 	AEFSkeletalMeshActor_ClearAttachedPSIIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2035,7 +2061,7 @@ void AEFSkeletalMeshActor::STATIC_ClearAttachedPSIIndex()
 
 
 // Function EFGame.EFSkeletalMeshActor.NotifyChangedBase
-// (Latent, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFSkeletalMeshActor::NotifyChangedBase()
 {
@@ -2044,6 +2070,7 @@ void AEFSkeletalMeshActor::NotifyChangedBase()
 	AEFSkeletalMeshActor_NotifyChangedBase_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2052,7 +2079,7 @@ void AEFSkeletalMeshActor::NotifyChangedBase()
 
 
 // Function EFGame.EFSkeletalMeshActor.BaseChange
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated)
+// (Defined, Singular, Event, Public)
 
 void AEFSkeletalMeshActor::BaseChange()
 {
@@ -2069,7 +2096,7 @@ void AEFSkeletalMeshActor::BaseChange()
 
 
 // Function EFGame.EFSkeletalMeshActor.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFSkeletalMeshActor::Destroyed()
 {
@@ -2086,7 +2113,7 @@ void AEFSkeletalMeshActor::Destroyed()
 
 
 // Function EFGame.EFVolume.UnTouch
-// (Final, Defined, PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFVolume::UnTouch()
 {
@@ -2095,6 +2122,7 @@ void AEFVolume::UnTouch()
 	AEFVolume_UnTouch_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2103,7 +2131,7 @@ void AEFVolume::UnTouch()
 
 
 // Function EFGame.EFVolume.Touch
-// (Defined, PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFVolume::Touch()
 {
@@ -2112,6 +2140,7 @@ void AEFVolume::Touch()
 	AEFVolume_Touch_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2120,7 +2149,7 @@ void AEFVolume::Touch()
 
 
 // Function EFGame.EFGameEngine.TranslateGFxUIMessage
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Simulated, Exec, Const)
+// (Native, Public)
 
 void UEFGameEngine::TranslateGFxUIMessage()
 {
@@ -2129,6 +2158,7 @@ void UEFGameEngine::TranslateGFxUIMessage()
 	UEFGameEngine_TranslateGFxUIMessage_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2137,7 +2167,7 @@ void UEFGameEngine::TranslateGFxUIMessage()
 
 
 // Function EFGame.EFGameEngine.ShowLineChecks
-// (Final, NetReliable, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGameEngine::ShowLineChecks()
 {
@@ -2146,6 +2176,7 @@ void UEFGameEngine::ShowLineChecks()
 	UEFGameEngine_ShowLineChecks_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2154,7 +2185,7 @@ void UEFGameEngine::ShowLineChecks()
 
 
 // Function EFGame.EFMapInfo.SaveCameraValue
-// (Final, Iterator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Public)
 
 void UEFMapInfo::SaveCameraValue()
 {
@@ -2171,7 +2202,7 @@ void UEFMapInfo::SaveCameraValue()
 
 
 // Function EFGame.EFMapInfo.LoadCameraValue
-// (PreOperator, Singular, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFMapInfo::LoadCameraValue()
 {
@@ -2180,7 +2211,6 @@ void UEFMapInfo::LoadCameraValue()
 	UEFMapInfo_LoadCameraValue_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2189,7 +2219,7 @@ void UEFMapInfo::LoadCameraValue()
 
 
 // Function EFGame.EFCameraBase.GetCurrentFOV
-// (PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFCameraBase::GetCurrentFOV()
 {
@@ -2206,7 +2236,7 @@ void UEFCameraBase::GetCurrentFOV()
 
 
 // Function EFGame.EFCameraBase.GetDefaultFOV
-// (Final, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFCameraBase::GetDefaultFOV()
 {
@@ -2223,7 +2253,7 @@ void UEFCameraBase::GetDefaultFOV()
 
 
 // Function EFGame.EFCameraBase.SetDefaultFOV
-// (Defined, Iterator, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFCameraBase::SetDefaultFOV()
 {
@@ -2240,7 +2270,7 @@ void UEFCameraBase::SetDefaultFOV()
 
 
 // Function EFGame.EFCameraBase.DisplayDebug
-// (Defined, Iterator, Singular, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms)
+// (Defined, Simulated, Public, HasOutParms)
 
 void UEFCameraBase::DisplayDebug()
 {
@@ -2257,7 +2287,7 @@ void UEFCameraBase::DisplayDebug()
 
 
 // Function EFGame.EFCameraBase.UpdateRotation
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Public)
 
 void UEFCameraBase::UpdateRotation()
 {
@@ -2274,7 +2304,7 @@ void UEFCameraBase::UpdateRotation()
 
 
 // Function EFGame.EFCameraBase.SetCurrentCameraCut
-// (Final, Iterator, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraBase::SetCurrentCameraCut()
 {
@@ -2283,6 +2313,7 @@ void UEFCameraBase::SetCurrentCameraCut()
 	UEFCameraBase_SetCurrentCameraCut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2291,7 +2322,7 @@ void UEFCameraBase::SetCurrentCameraCut()
 
 
 // Function EFGame.EFCameraBase.SetContentsSettingTable
-// (Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraBase::SetContentsSettingTable()
 {
@@ -2300,6 +2331,7 @@ void UEFCameraBase::SetContentsSettingTable()
 	UEFCameraBase_SetContentsSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2308,7 +2340,7 @@ void UEFCameraBase::SetContentsSettingTable()
 
 
 // Function EFGame.EFCameraBase.SetSettingTable
-// (Defined, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFCameraBase::SetSettingTable()
 {
@@ -2317,6 +2349,7 @@ void UEFCameraBase::SetSettingTable()
 	UEFCameraBase_SetSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2325,7 +2358,7 @@ void UEFCameraBase::SetSettingTable()
 
 
 // Function EFGame.EFCameraBase.InActivateSkeletalMeshForceLOD
-// (Final, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraBase::InActivateSkeletalMeshForceLOD()
 {
@@ -2343,15 +2376,16 @@ void UEFCameraBase::InActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFCameraBase.ActivateSkeletalMeshForceLOD
-// (Defined, Latent, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void UEFCameraBase::STATIC_ActivateSkeletalMeshForceLOD()
+void UEFCameraBase::ActivateSkeletalMeshForceLOD()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ActivateSkeletalMeshForceLOD");
 
 	UEFCameraBase_ActivateSkeletalMeshForceLOD_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2360,15 +2394,16 @@ void UEFCameraBase::STATIC_ActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFCameraBase.ChangeZoomStep
-// (Final, Iterator, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFCameraBase::STATIC_ChangeZoomStep()
+void UEFCameraBase::ChangeZoomStep()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ChangeZoomStep");
 
 	UEFCameraBase_ChangeZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2377,15 +2412,16 @@ void UEFCameraBase::STATIC_ChangeZoomStep()
 
 
 // Function EFGame.EFCameraBase.CheckZoom
-// (Final, Singular, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFCameraBase::STATIC_CheckZoom()
+void UEFCameraBase::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.CheckZoom");
 
 	UEFCameraBase_CheckZoom_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2394,7 +2430,7 @@ void UEFCameraBase::STATIC_CheckZoom()
 
 
 // Function EFGame.EFCameraBase.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFCameraBase::ZoomOut()
 {
@@ -2403,6 +2439,7 @@ void UEFCameraBase::ZoomOut()
 	UEFCameraBase_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2411,7 +2448,7 @@ void UEFCameraBase::ZoomOut()
 
 
 // Function EFGame.EFCameraBase.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFCameraBase::ZoomIn()
 {
@@ -2420,6 +2457,7 @@ void UEFCameraBase::ZoomIn()
 	UEFCameraBase_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2428,7 +2466,7 @@ void UEFCameraBase::ZoomIn()
 
 
 // Function EFGame.EFCameraBase.BecomeViewTarget
-// (Iterator, Latent, PreOperator, HasOptionalParms)
+// (Simulated, Public)
 
 void UEFCameraBase::BecomeViewTarget()
 {
@@ -2445,7 +2483,7 @@ void UEFCameraBase::BecomeViewTarget()
 
 
 // Function EFGame.EFCameraBase.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFCameraBase::UpdateCamera()
 {
@@ -2454,6 +2492,7 @@ void UEFCameraBase::UpdateCamera()
 	UEFCameraBase_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2462,9 +2501,9 @@ void UEFCameraBase::UpdateCamera()
 
 
 // Function EFGame.EFCameraBase.ResetInterpolation
-// (Final, Defined, Singular, Net, NetReliable, Simulated, Native, Static, Const)
+// (Native, Public)
 
-void UEFCameraBase::STATIC_ResetInterpolation()
+void UEFCameraBase::ResetInterpolation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ResetInterpolation");
 
@@ -2480,7 +2519,7 @@ void UEFCameraBase::STATIC_ResetInterpolation()
 
 
 // Function EFGame.EFCameraBase.OnBecomeInActive
-// (Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UEFCameraBase::OnBecomeInActive()
 {
@@ -2497,7 +2536,7 @@ void UEFCameraBase::OnBecomeInActive()
 
 
 // Function EFGame.EFCameraBase.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UEFCameraBase::OnBecomeActive()
 {
@@ -2514,7 +2553,7 @@ void UEFCameraBase::OnBecomeActive()
 
 
 // Function EFGame.EFCameraBase.Init
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Exec)
+// (Public)
 
 void UEFCameraBase::Init()
 {
@@ -2531,7 +2570,7 @@ void UEFCameraBase::Init()
 
 
 // Function EFGame.EFBackViewCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFBackViewCamera::UpdateCamera()
 {
@@ -2540,6 +2579,7 @@ void UEFBackViewCamera::UpdateCamera()
 	UEFBackViewCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2548,7 +2588,7 @@ void UEFBackViewCamera::UpdateCamera()
 
 
 // Function EFGame.EFCustomizingCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFCustomizingCamera::UpdateCamera()
 {
@@ -2557,6 +2597,7 @@ void UEFCustomizingCamera::UpdateCamera()
 	UEFCustomizingCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2565,7 +2606,7 @@ void UEFCustomizingCamera::UpdateCamera()
 
 
 // Function EFGame.EFCustomizingCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFCustomizingCamera::ZoomOut()
 {
@@ -2574,6 +2615,7 @@ void UEFCustomizingCamera::ZoomOut()
 	UEFCustomizingCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2582,7 +2624,7 @@ void UEFCustomizingCamera::ZoomOut()
 
 
 // Function EFGame.EFCustomizingCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFCustomizingCamera::ZoomIn()
 {
@@ -2591,6 +2633,7 @@ void UEFCustomizingCamera::ZoomIn()
 	UEFCustomizingCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2599,7 +2642,7 @@ void UEFCustomizingCamera::ZoomIn()
 
 
 // Function EFGame.EFCustomizingCamera.Init
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Exec)
+// (Defined, Public, HasDefaults)
 
 void UEFCustomizingCamera::Init()
 {
@@ -2616,7 +2659,7 @@ void UEFCustomizingCamera::Init()
 
 
 // Function EFGame.EFEditorViewCamera.OnBecomeInActive
-// (Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFEditorViewCamera::OnBecomeInActive()
 {
@@ -2633,7 +2676,7 @@ void UEFEditorViewCamera::OnBecomeInActive()
 
 
 // Function EFGame.EFEditorViewCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFEditorViewCamera::OnBecomeActive()
 {
@@ -2650,7 +2693,7 @@ void UEFEditorViewCamera::OnBecomeActive()
 
 
 // Function EFGame.EFEditorViewCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFEditorViewCamera::ZoomOut()
 {
@@ -2659,6 +2702,7 @@ void UEFEditorViewCamera::ZoomOut()
 	UEFEditorViewCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2667,7 +2711,7 @@ void UEFEditorViewCamera::ZoomOut()
 
 
 // Function EFGame.EFEditorViewCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFEditorViewCamera::ZoomIn()
 {
@@ -2676,6 +2720,7 @@ void UEFEditorViewCamera::ZoomIn()
 	UEFEditorViewCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2684,7 +2729,7 @@ void UEFEditorViewCamera::ZoomIn()
 
 
 // Function EFGame.EFEditorViewCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFEditorViewCamera::UpdateCamera()
 {
@@ -2693,6 +2738,7 @@ void UEFEditorViewCamera::UpdateCamera()
 	UEFEditorViewCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2701,7 +2747,7 @@ void UEFEditorViewCamera::UpdateCamera()
 
 
 // Function EFGame.EFFreeCamera.OnBecomeInActive
-// (Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFFreeCamera::OnBecomeInActive()
 {
@@ -2718,7 +2764,7 @@ void UEFFreeCamera::OnBecomeInActive()
 
 
 // Function EFGame.EFFreeCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFFreeCamera::OnBecomeActive()
 {
@@ -2735,7 +2781,7 @@ void UEFFreeCamera::OnBecomeActive()
 
 
 // Function EFGame.EFFreeCamera.HideOwnerPlayer
-// (Iterator, Latent, Simulated, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFFreeCamera::HideOwnerPlayer()
 {
@@ -2744,6 +2790,7 @@ void UEFFreeCamera::HideOwnerPlayer()
 	UEFFreeCamera_HideOwnerPlayer_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2752,7 +2799,7 @@ void UEFFreeCamera::HideOwnerPlayer()
 
 
 // Function EFGame.EFFreeCamera.ShowOwnerPlayer
-// (Iterator, NetReliable, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFFreeCamera::ShowOwnerPlayer()
 {
@@ -2761,6 +2808,7 @@ void UEFFreeCamera::ShowOwnerPlayer()
 	UEFFreeCamera_ShowOwnerPlayer_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2769,7 +2817,7 @@ void UEFFreeCamera::ShowOwnerPlayer()
 
 
 // Function EFGame.EFFreeCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFFreeCamera::ZoomOut()
 {
@@ -2778,6 +2826,7 @@ void UEFFreeCamera::ZoomOut()
 	UEFFreeCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2786,7 +2835,7 @@ void UEFFreeCamera::ZoomOut()
 
 
 // Function EFGame.EFFreeCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFFreeCamera::ZoomIn()
 {
@@ -2795,6 +2844,7 @@ void UEFFreeCamera::ZoomIn()
 	UEFFreeCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2803,7 +2853,7 @@ void UEFFreeCamera::ZoomIn()
 
 
 // Function EFGame.EFFreeCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFFreeCamera::UpdateCamera()
 {
@@ -2812,6 +2862,7 @@ void UEFFreeCamera::UpdateCamera()
 	UEFFreeCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2820,7 +2871,7 @@ void UEFFreeCamera::UpdateCamera()
 
 
 // Function EFGame.EFInteractionCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFInteractionCamera::UpdateCamera()
 {
@@ -2829,6 +2880,7 @@ void UEFInteractionCamera::UpdateCamera()
 	UEFInteractionCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2837,7 +2889,7 @@ void UEFInteractionCamera::UpdateCamera()
 
 
 // Function EFGame.EFInteractionCamera.GetCurrentFOV
-// (PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFInteractionCamera::GetCurrentFOV()
 {
@@ -2854,7 +2906,7 @@ void UEFInteractionCamera::GetCurrentFOV()
 
 
 // Function EFGame.EFIsometricCamera.SetOverrideIsometricZoomStep
-// (Final, Defined, Iterator, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::SetOverrideIsometricZoomStep()
 {
@@ -2863,6 +2915,7 @@ void UEFIsometricCamera::SetOverrideIsometricZoomStep()
 	UEFIsometricCamera_SetOverrideIsometricZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2871,7 +2924,7 @@ void UEFIsometricCamera::SetOverrideIsometricZoomStep()
 
 
 // Function EFGame.EFIsometricCamera.SetFixedCameraInterpSpeed
-// (Defined, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::SetFixedCameraInterpSpeed()
 {
@@ -2880,6 +2933,7 @@ void UEFIsometricCamera::SetFixedCameraInterpSpeed()
 	UEFIsometricCamera_SetFixedCameraInterpSpeed_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2888,7 +2942,7 @@ void UEFIsometricCamera::SetFixedCameraInterpSpeed()
 
 
 // Function EFGame.EFIsometricCamera.IsFixedCameraMode
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::IsFixedCameraMode()
 {
@@ -2906,7 +2960,7 @@ void UEFIsometricCamera::IsFixedCameraMode()
 
 
 // Function EFGame.EFIsometricCamera.ResetFixedCamera
-// (Singular, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::ResetFixedCamera()
 {
@@ -2924,7 +2978,7 @@ void UEFIsometricCamera::ResetFixedCamera()
 
 
 // Function EFGame.EFIsometricCamera.SetFixedLookAtPos
-// (Final, Defined, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::SetFixedLookAtPos()
 {
@@ -2933,6 +2987,7 @@ void UEFIsometricCamera::SetFixedLookAtPos()
 	UEFIsometricCamera_SetFixedLookAtPos_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2941,7 +2996,7 @@ void UEFIsometricCamera::SetFixedLookAtPos()
 
 
 // Function EFGame.EFIsometricCamera.SetCurIsometricZoomStep
-// (Iterator, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::SetCurIsometricZoomStep()
 {
@@ -2950,6 +3005,7 @@ void UEFIsometricCamera::SetCurIsometricZoomStep()
 	UEFIsometricCamera_SetCurIsometricZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2958,7 +3014,7 @@ void UEFIsometricCamera::SetCurIsometricZoomStep()
 
 
 // Function EFGame.EFIsometricCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFIsometricCamera::UpdateCamera()
 {
@@ -2967,6 +3023,7 @@ void UEFIsometricCamera::UpdateCamera()
 	UEFIsometricCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2975,7 +3032,7 @@ void UEFIsometricCamera::UpdateCamera()
 
 
 // Function EFGame.EFIsometricCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public, HasDefaults)
 
 void UEFIsometricCamera::OnBecomeActive()
 {
@@ -2992,7 +3049,7 @@ void UEFIsometricCamera::OnBecomeActive()
 
 
 // Function EFGame.EFIsometricCamera.SetContentsSettingTable
-// (Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::SetContentsSettingTable()
 {
@@ -3001,6 +3058,7 @@ void UEFIsometricCamera::SetContentsSettingTable()
 	UEFIsometricCamera_SetContentsSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3009,7 +3067,7 @@ void UEFIsometricCamera::SetContentsSettingTable()
 
 
 // Function EFGame.EFIsometricCamera.SetSettingTable
-// (Defined, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFIsometricCamera::SetSettingTable()
 {
@@ -3018,6 +3076,7 @@ void UEFIsometricCamera::SetSettingTable()
 	UEFIsometricCamera_SetSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3026,7 +3085,7 @@ void UEFIsometricCamera::SetSettingTable()
 
 
 // Function EFGame.EFIsometricCamera.RefineFOV
-// (Iterator, Singular, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::RefineFOV()
 {
@@ -3044,7 +3103,7 @@ void UEFIsometricCamera::RefineFOV()
 
 
 // Function EFGame.EFIsometricCamera.InActivateSkeletalMeshForceLOD
-// (Final, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFIsometricCamera::InActivateSkeletalMeshForceLOD()
 {
@@ -3062,15 +3121,16 @@ void UEFIsometricCamera::InActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFIsometricCamera.ActivateSkeletalMeshForceLOD
-// (Defined, Latent, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void UEFIsometricCamera::STATIC_ActivateSkeletalMeshForceLOD()
+void UEFIsometricCamera::ActivateSkeletalMeshForceLOD()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.ActivateSkeletalMeshForceLOD");
 
 	UEFIsometricCamera_ActivateSkeletalMeshForceLOD_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3079,15 +3139,16 @@ void UEFIsometricCamera::STATIC_ActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFIsometricCamera.ChangeZoomStep
-// (Final, Iterator, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFIsometricCamera::STATIC_ChangeZoomStep()
+void UEFIsometricCamera::ChangeZoomStep()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.ChangeZoomStep");
 
 	UEFIsometricCamera_ChangeZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3096,15 +3157,16 @@ void UEFIsometricCamera::STATIC_ChangeZoomStep()
 
 
 // Function EFGame.EFIsometricCamera.CheckZoom
-// (Final, Singular, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFIsometricCamera::STATIC_CheckZoom()
+void UEFIsometricCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.CheckZoom");
 
 	UEFIsometricCamera_CheckZoom_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3113,7 +3175,7 @@ void UEFIsometricCamera::STATIC_CheckZoom()
 
 
 // Function EFGame.EFIsometricCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFIsometricCamera::ZoomOut()
 {
@@ -3122,6 +3184,7 @@ void UEFIsometricCamera::ZoomOut()
 	UEFIsometricCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3130,7 +3193,7 @@ void UEFIsometricCamera::ZoomOut()
 
 
 // Function EFGame.EFIsometricCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFIsometricCamera::ZoomIn()
 {
@@ -3139,6 +3202,7 @@ void UEFIsometricCamera::ZoomIn()
 	UEFIsometricCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3147,9 +3211,9 @@ void UEFIsometricCamera::ZoomIn()
 
 
 // Function EFGame.EFIsometricCamera.ResetInterpolation
-// (Final, Defined, Singular, Net, NetReliable, Simulated, Native, Static, Const)
+// (Native, Public)
 
-void UEFIsometricCamera::STATIC_ResetInterpolation()
+void UEFIsometricCamera::ResetInterpolation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.ResetInterpolation");
 
@@ -3165,7 +3229,7 @@ void UEFIsometricCamera::STATIC_ResetInterpolation()
 
 
 // Function EFGame.EFMacroCamera.UpdateRotation
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Public, HasDefaults)
 
 void UEFMacroCamera::UpdateRotation()
 {
@@ -3182,7 +3246,7 @@ void UEFMacroCamera::UpdateRotation()
 
 
 // Function EFGame.EFMacroCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFMacroCamera::ZoomOut()
 {
@@ -3191,6 +3255,7 @@ void UEFMacroCamera::ZoomOut()
 	UEFMacroCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3199,7 +3264,7 @@ void UEFMacroCamera::ZoomOut()
 
 
 // Function EFGame.EFMacroCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFMacroCamera::ZoomIn()
 {
@@ -3208,6 +3273,7 @@ void UEFMacroCamera::ZoomIn()
 	UEFMacroCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3216,7 +3282,7 @@ void UEFMacroCamera::ZoomIn()
 
 
 // Function EFGame.EFMacroCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFMacroCamera::UpdateCamera()
 {
@@ -3225,6 +3291,7 @@ void UEFMacroCamera::UpdateCamera()
 	UEFMacroCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3233,7 +3300,7 @@ void UEFMacroCamera::UpdateCamera()
 
 
 // Function EFGame.EFPanningCamera.OnBecomeInActive
-// (Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFPanningCamera::OnBecomeInActive()
 {
@@ -3250,7 +3317,7 @@ void UEFPanningCamera::OnBecomeInActive()
 
 
 // Function EFGame.EFPanningCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFPanningCamera::OnBecomeActive()
 {
@@ -3267,15 +3334,16 @@ void UEFPanningCamera::OnBecomeActive()
 
 
 // Function EFGame.EFPanningCamera.EndPanningCamera
-// (Final, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFPanningCamera::STATIC_EndPanningCamera()
+void UEFPanningCamera::EndPanningCamera()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPanningCamera.EndPanningCamera");
 
 	UEFPanningCamera_EndPanningCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3284,7 +3352,7 @@ void UEFPanningCamera::STATIC_EndPanningCamera()
 
 
 // Function EFGame.EFPanningCamera.StartPanningCamera
-// (Defined, Iterator, Singular, Net, NetReliable, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFPanningCamera::StartPanningCamera()
 {
@@ -3302,7 +3370,7 @@ void UEFPanningCamera::StartPanningCamera()
 
 
 // Function EFGame.EFPanningCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFPanningCamera::ZoomOut()
 {
@@ -3311,6 +3379,7 @@ void UEFPanningCamera::ZoomOut()
 	UEFPanningCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3319,7 +3388,7 @@ void UEFPanningCamera::ZoomOut()
 
 
 // Function EFGame.EFPanningCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFPanningCamera::ZoomIn()
 {
@@ -3328,6 +3397,7 @@ void UEFPanningCamera::ZoomIn()
 	UEFPanningCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3336,7 +3406,7 @@ void UEFPanningCamera::ZoomIn()
 
 
 // Function EFGame.EFPanningCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFPanningCamera::UpdateCamera()
 {
@@ -3345,6 +3415,7 @@ void UEFPanningCamera::UpdateCamera()
 	UEFPanningCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3353,7 +3424,7 @@ void UEFPanningCamera::UpdateCamera()
 
 
 // Function EFGame.EFThirdPersonCamera.UpdateRotation
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Public, HasDefaults)
 
 void UEFThirdPersonCamera::UpdateRotation()
 {
@@ -3370,7 +3441,7 @@ void UEFThirdPersonCamera::UpdateRotation()
 
 
 // Function EFGame.EFThirdPersonCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFThirdPersonCamera::ZoomOut()
 {
@@ -3379,6 +3450,7 @@ void UEFThirdPersonCamera::ZoomOut()
 	UEFThirdPersonCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3387,7 +3459,7 @@ void UEFThirdPersonCamera::ZoomOut()
 
 
 // Function EFGame.EFThirdPersonCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFThirdPersonCamera::ZoomIn()
 {
@@ -3396,6 +3468,7 @@ void UEFThirdPersonCamera::ZoomIn()
 	UEFThirdPersonCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3404,7 +3477,7 @@ void UEFThirdPersonCamera::ZoomIn()
 
 
 // Function EFGame.EFThirdPersonCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFThirdPersonCamera::UpdateCamera()
 {
@@ -3413,6 +3486,7 @@ void UEFThirdPersonCamera::UpdateCamera()
 	UEFThirdPersonCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3421,7 +3495,7 @@ void UEFThirdPersonCamera::UpdateCamera()
 
 
 // Function EFGame.EFThirdPersonCamera.GetCurrentFOV
-// (PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFThirdPersonCamera::GetCurrentFOV()
 {
@@ -3438,7 +3512,7 @@ void UEFThirdPersonCamera::GetCurrentFOV()
 
 
 // Function EFGame.EFTopViewCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFTopViewCamera::UpdateCamera()
 {
@@ -3447,6 +3521,7 @@ void UEFTopViewCamera::UpdateCamera()
 	UEFTopViewCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3455,7 +3530,7 @@ void UEFTopViewCamera::UpdateCamera()
 
 
 // Function EFGame.EFTopViewCamera.OnBecomeInActive
-// (Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFTopViewCamera::OnBecomeInActive()
 {
@@ -3472,7 +3547,7 @@ void UEFTopViewCamera::OnBecomeInActive()
 
 
 // Function EFGame.EFTopViewCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFTopViewCamera::OnBecomeActive()
 {
@@ -3489,7 +3564,7 @@ void UEFTopViewCamera::OnBecomeActive()
 
 
 // Function EFGame.EFTopViewCamera.ProcessInActivateCameraType
-// (Final, Defined, PreOperator, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTopViewCamera::ProcessInActivateCameraType()
 {
@@ -3507,7 +3582,7 @@ void UEFTopViewCamera::ProcessInActivateCameraType()
 
 
 // Function EFGame.EFTopViewCamera.ProcessActivateCameraType
-// (Defined, PreOperator, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTopViewCamera::ProcessActivateCameraType()
 {
@@ -3525,7 +3600,7 @@ void UEFTopViewCamera::ProcessActivateCameraType()
 
 
 // Function EFGame.EFTopViewCamera.SetContentsSettingTable
-// (Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTopViewCamera::SetContentsSettingTable()
 {
@@ -3534,6 +3609,7 @@ void UEFTopViewCamera::SetContentsSettingTable()
 	UEFTopViewCamera_SetContentsSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3542,7 +3618,7 @@ void UEFTopViewCamera::SetContentsSettingTable()
 
 
 // Function EFGame.EFTopViewCamera.SetSettingTable
-// (Defined, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFTopViewCamera::SetSettingTable()
 {
@@ -3551,6 +3627,7 @@ void UEFTopViewCamera::SetSettingTable()
 	UEFTopViewCamera_SetSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3559,7 +3636,7 @@ void UEFTopViewCamera::SetSettingTable()
 
 
 // Function EFGame.EFTopViewCamera.InActivateSkeletalMeshForceLOD
-// (Final, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTopViewCamera::InActivateSkeletalMeshForceLOD()
 {
@@ -3577,15 +3654,16 @@ void UEFTopViewCamera::InActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFTopViewCamera.ActivateSkeletalMeshForceLOD
-// (Defined, Latent, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void UEFTopViewCamera::STATIC_ActivateSkeletalMeshForceLOD()
+void UEFTopViewCamera::ActivateSkeletalMeshForceLOD()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ActivateSkeletalMeshForceLOD");
 
 	UEFTopViewCamera_ActivateSkeletalMeshForceLOD_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3594,15 +3672,16 @@ void UEFTopViewCamera::STATIC_ActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFTopViewCamera.ChangeZoomStep
-// (Final, Iterator, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFTopViewCamera::STATIC_ChangeZoomStep()
+void UEFTopViewCamera::ChangeZoomStep()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ChangeZoomStep");
 
 	UEFTopViewCamera_ChangeZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3611,15 +3690,16 @@ void UEFTopViewCamera::STATIC_ChangeZoomStep()
 
 
 // Function EFGame.EFTopViewCamera.CheckZoom
-// (Final, Singular, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFTopViewCamera::STATIC_CheckZoom()
+void UEFTopViewCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.CheckZoom");
 
 	UEFTopViewCamera_CheckZoom_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3628,7 +3708,7 @@ void UEFTopViewCamera::STATIC_CheckZoom()
 
 
 // Function EFGame.EFTopViewCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFTopViewCamera::ZoomOut()
 {
@@ -3637,6 +3717,7 @@ void UEFTopViewCamera::ZoomOut()
 	UEFTopViewCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3645,7 +3726,7 @@ void UEFTopViewCamera::ZoomOut()
 
 
 // Function EFGame.EFTopViewCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFTopViewCamera::ZoomIn()
 {
@@ -3654,6 +3735,7 @@ void UEFTopViewCamera::ZoomIn()
 	UEFTopViewCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3662,9 +3744,9 @@ void UEFTopViewCamera::ZoomIn()
 
 
 // Function EFGame.EFTopViewCamera.ResetInterpolation
-// (Final, Defined, Singular, Net, NetReliable, Simulated, Native, Static, Const)
+// (Native, Public)
 
-void UEFTopViewCamera::STATIC_ResetInterpolation()
+void UEFTopViewCamera::ResetInterpolation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ResetInterpolation");
 
@@ -3680,7 +3762,7 @@ void UEFTopViewCamera::STATIC_ResetInterpolation()
 
 
 // Function EFGame.EFTPSCamera.SetFixedCameraInterpSpeed
-// (Defined, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::SetFixedCameraInterpSpeed()
 {
@@ -3689,6 +3771,7 @@ void UEFTPSCamera::SetFixedCameraInterpSpeed()
 	UEFTPSCamera_SetFixedCameraInterpSpeed_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3697,7 +3780,7 @@ void UEFTPSCamera::SetFixedCameraInterpSpeed()
 
 
 // Function EFGame.EFTPSCamera.IsFixedCameraMode
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::IsFixedCameraMode()
 {
@@ -3715,7 +3798,7 @@ void UEFTPSCamera::IsFixedCameraMode()
 
 
 // Function EFGame.EFTPSCamera.ResetFixedCamera
-// (Singular, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::ResetFixedCamera()
 {
@@ -3733,7 +3816,7 @@ void UEFTPSCamera::ResetFixedCamera()
 
 
 // Function EFGame.EFTPSCamera.SetFixedLookAtPos
-// (Final, Defined, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::SetFixedLookAtPos()
 {
@@ -3742,6 +3825,7 @@ void UEFTPSCamera::SetFixedLookAtPos()
 	UEFTPSCamera_SetFixedLookAtPos_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3750,7 +3834,7 @@ void UEFTPSCamera::SetFixedLookAtPos()
 
 
 // Function EFGame.EFTPSCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFTPSCamera::UpdateCamera()
 {
@@ -3759,6 +3843,7 @@ void UEFTPSCamera::UpdateCamera()
 	UEFTPSCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3767,7 +3852,7 @@ void UEFTPSCamera::UpdateCamera()
 
 
 // Function EFGame.EFTPSCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFTPSCamera::OnBecomeActive()
 {
@@ -3784,7 +3869,7 @@ void UEFTPSCamera::OnBecomeActive()
 
 
 // Function EFGame.EFTPSCamera.SetContentsSettingTable
-// (Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::SetContentsSettingTable()
 {
@@ -3793,6 +3878,7 @@ void UEFTPSCamera::SetContentsSettingTable()
 	UEFTPSCamera_SetContentsSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3801,7 +3887,7 @@ void UEFTPSCamera::SetContentsSettingTable()
 
 
 // Function EFGame.EFTPSCamera.SetSettingTable
-// (Defined, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFTPSCamera::SetSettingTable()
 {
@@ -3810,6 +3896,7 @@ void UEFTPSCamera::SetSettingTable()
 	UEFTPSCamera_SetSettingTable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3818,7 +3905,7 @@ void UEFTPSCamera::SetSettingTable()
 
 
 // Function EFGame.EFTPSCamera.InActivateSkeletalMeshForceLOD
-// (Final, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFTPSCamera::InActivateSkeletalMeshForceLOD()
 {
@@ -3836,15 +3923,16 @@ void UEFTPSCamera::InActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFTPSCamera.ActivateSkeletalMeshForceLOD
-// (Defined, Latent, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void UEFTPSCamera::STATIC_ActivateSkeletalMeshForceLOD()
+void UEFTPSCamera::ActivateSkeletalMeshForceLOD()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.ActivateSkeletalMeshForceLOD");
 
 	UEFTPSCamera_ActivateSkeletalMeshForceLOD_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3853,15 +3941,16 @@ void UEFTPSCamera::STATIC_ActivateSkeletalMeshForceLOD()
 
 
 // Function EFGame.EFTPSCamera.ChangeZoomStep
-// (Final, Iterator, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFTPSCamera::STATIC_ChangeZoomStep()
+void UEFTPSCamera::ChangeZoomStep()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.ChangeZoomStep");
 
 	UEFTPSCamera_ChangeZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3870,15 +3959,16 @@ void UEFTPSCamera::STATIC_ChangeZoomStep()
 
 
 // Function EFGame.EFTPSCamera.CheckZoom
-// (Final, Singular, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFTPSCamera::STATIC_CheckZoom()
+void UEFTPSCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.CheckZoom");
 
 	UEFTPSCamera_CheckZoom_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3887,7 +3977,7 @@ void UEFTPSCamera::STATIC_CheckZoom()
 
 
 // Function EFGame.EFTPSCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFTPSCamera::ZoomOut()
 {
@@ -3896,6 +3986,7 @@ void UEFTPSCamera::ZoomOut()
 	UEFTPSCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3904,7 +3995,7 @@ void UEFTPSCamera::ZoomOut()
 
 
 // Function EFGame.EFTPSCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFTPSCamera::ZoomIn()
 {
@@ -3913,6 +4004,7 @@ void UEFTPSCamera::ZoomIn()
 	UEFTPSCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3921,9 +4013,9 @@ void UEFTPSCamera::ZoomIn()
 
 
 // Function EFGame.EFTPSCamera.ResetInterpolation
-// (Final, Defined, Singular, Net, NetReliable, Simulated, Native, Static, Const)
+// (Native, Public)
 
-void UEFTPSCamera::STATIC_ResetInterpolation()
+void UEFTPSCamera::ResetInterpolation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.ResetInterpolation");
 
@@ -3939,7 +4031,7 @@ void UEFTPSCamera::STATIC_ResetInterpolation()
 
 
 // Function EFGame.EFWatchCamera.SetFixedLookAtPos
-// (Final, Defined, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFWatchCamera::SetFixedLookAtPos()
 {
@@ -3948,6 +4040,7 @@ void UEFWatchCamera::SetFixedLookAtPos()
 	UEFWatchCamera_SetFixedLookAtPos_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3956,7 +4049,7 @@ void UEFWatchCamera::SetFixedLookAtPos()
 
 
 // Function EFGame.EFWatchCamera.SetWatchCameraType
-// (Defined, Iterator, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFWatchCamera::SetWatchCameraType()
 {
@@ -3965,6 +4058,7 @@ void UEFWatchCamera::SetWatchCameraType()
 	UEFWatchCamera_SetWatchCameraType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3973,7 +4067,7 @@ void UEFWatchCamera::SetWatchCameraType()
 
 
 // Function EFGame.EFWatchCamera.UpdateCamera
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
 void UEFWatchCamera::UpdateCamera()
 {
@@ -3982,6 +4076,7 @@ void UEFWatchCamera::UpdateCamera()
 	UEFWatchCamera_UpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3990,7 +4085,7 @@ void UEFWatchCamera::UpdateCamera()
 
 
 // Function EFGame.EFWatchCamera.OnBecomeActive
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFWatchCamera::OnBecomeActive()
 {
@@ -4007,7 +4102,7 @@ void UEFWatchCamera::OnBecomeActive()
 
 
 // Function EFGame.EFWatchCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFWatchCamera::ZoomOut()
 {
@@ -4016,6 +4111,7 @@ void UEFWatchCamera::ZoomOut()
 	UEFWatchCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4024,7 +4120,7 @@ void UEFWatchCamera::ZoomOut()
 
 
 // Function EFGame.EFWatchCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFWatchCamera::ZoomIn()
 {
@@ -4033,6 +4129,7 @@ void UEFWatchCamera::ZoomIn()
 	UEFWatchCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4041,9 +4138,9 @@ void UEFWatchCamera::ZoomIn()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.AddCameraShakeGame
-// (Final, Defined, Latent, PreOperator, Net, NetReliable, Simulated, Event, Static, Const)
+// (Defined, HasOptionalParms, Public)
 
-void UEFCameraModifier_CameraShake::STATIC_AddCameraShakeGame()
+void UEFCameraModifier_CameraShake::AddCameraShakeGame()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.AddCameraShakeGame");
 
@@ -4058,7 +4155,7 @@ void UEFCameraModifier_CameraShake::STATIC_AddCameraShakeGame()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveGameCameraShake
-// (Final, Iterator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFCameraModifier_CameraShake::RemoveGameCameraShake()
 {
@@ -4067,7 +4164,6 @@ void UEFCameraModifier_CameraShake::RemoveGameCameraShake()
 	UEFCameraModifier_CameraShake_RemoveGameCameraShake_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4076,7 +4172,7 @@ void UEFCameraModifier_CameraShake::RemoveGameCameraShake()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.OnRemoveGameCameraShake
-// (Defined, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFCameraModifier_CameraShake::OnRemoveGameCameraShake()
 {
@@ -4093,7 +4189,7 @@ void UEFCameraModifier_CameraShake::OnRemoveGameCameraShake()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.OnAddGameCameraShake
-// (Defined, Iterator, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, HasOptionalParms, Public)
 
 void UEFCameraModifier_CameraShake::OnAddGameCameraShake()
 {
@@ -4110,9 +4206,9 @@ void UEFCameraModifier_CameraShake::OnAddGameCameraShake()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.ModifyCamera
-// (Final, PreOperator, Net, NetReliable, Simulated, Native, Event, Static, HasOptionalParms)
+// (Native, Public, HasOutParms)
 
-void UEFCameraModifier_CameraShake::STATIC_ModifyCamera()
+void UEFCameraModifier_CameraShake::ModifyCamera()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.ModifyCamera");
 
@@ -4128,7 +4224,7 @@ void UEFCameraModifier_CameraShake::STATIC_ModifyCamera()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveAllEFViewShakes
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraModifier_CameraShake::RemoveAllEFViewShakes()
 {
@@ -4146,7 +4242,7 @@ void UEFCameraModifier_CameraShake::RemoveAllEFViewShakes()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveEFViewShake
-// (Iterator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraModifier_CameraShake::RemoveEFViewShake()
 {
@@ -4164,15 +4260,16 @@ void UEFCameraModifier_CameraShake::RemoveEFViewShake()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.AddEFCameraViewShake
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UEFCameraModifier_CameraShake::STATIC_AddEFCameraViewShake()
+void UEFCameraModifier_CameraShake::AddEFCameraViewShake()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.AddEFCameraViewShake");
 
 	UEFCameraModifier_CameraShake_AddEFCameraViewShake_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4181,9 +4278,9 @@ void UEFCameraModifier_CameraShake::STATIC_AddEFCameraViewShake()
 
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveAllCameraShakes
-// (Defined, Singular, Simulated, Event, Operator, Static, HasOptionalParms)
+// (Defined, Public)
 
-void UEFCameraModifier_CameraShake::STATIC_RemoveAllCameraShakes()
+void UEFCameraModifier_CameraShake::RemoveAllCameraShakes()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.RemoveAllCameraShakes");
 
@@ -4198,9 +4295,9 @@ void UEFCameraModifier_CameraShake::STATIC_RemoveAllCameraShakes()
 
 
 // Function EFGame.EFCameraShakePlayGroup.UpdateViewShake
-// (Iterator, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFCameraShakePlayGroup::STATIC_UpdateViewShake()
+void UEFCameraShakePlayGroup::UpdateViewShake()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.UpdateViewShake");
 
@@ -4216,7 +4313,7 @@ void UEFCameraShakePlayGroup::STATIC_UpdateViewShake()
 
 
 // Function EFGame.EFCameraShakePlayGroup.PreUpdateViewShake
-// (Final, Defined, Iterator, Latent, Singular, Net, NetReliable, Simulated, Exec, Operator, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
 void UEFCameraShakePlayGroup::PreUpdateViewShake()
 {
@@ -4225,6 +4322,7 @@ void UEFCameraShakePlayGroup::PreUpdateViewShake()
 	UEFCameraShakePlayGroup_PreUpdateViewShake_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4233,7 +4331,7 @@ void UEFCameraShakePlayGroup::PreUpdateViewShake()
 
 
 // Function EFGame.EFCameraShakePlayGroup.RemoveAllViewShake
-// (NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraShakePlayGroup::RemoveAllViewShake()
 {
@@ -4251,7 +4349,7 @@ void UEFCameraShakePlayGroup::RemoveAllViewShake()
 
 
 // Function EFGame.EFCameraShakePlayGroup.RemoveViewShake
-// (Defined, Iterator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFCameraShakePlayGroup::RemoveViewShake()
 {
@@ -4269,15 +4367,16 @@ void UEFCameraShakePlayGroup::RemoveViewShake()
 
 
 // Function EFGame.EFCameraShakePlayGroup.AddViewShakeInstance
-// (Defined, Latent, PreOperator, Exec, Event, Static, Const)
+// (Native, Protected, HasOutParms)
 
-void UEFCameraShakePlayGroup::STATIC_AddViewShakeInstance()
+void UEFCameraShakePlayGroup::AddViewShakeInstance()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.AddViewShakeInstance");
 
 	UEFCameraShakePlayGroup_AddViewShakeInstance_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4286,15 +4385,16 @@ void UEFCameraShakePlayGroup::STATIC_AddViewShakeInstance()
 
 
 // Function EFGame.EFCameraShakePlayGroup.AddViewShake
-// (Final, Latent, PreOperator, Exec, Event, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UEFCameraShakePlayGroup::STATIC_AddViewShake()
+void UEFCameraShakePlayGroup::AddViewShake()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.AddViewShake");
 
 	UEFCameraShakePlayGroup_AddViewShake_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4303,7 +4403,7 @@ void UEFCameraShakePlayGroup::STATIC_AddViewShake()
 
 
 // Function EFGame.EFCameraViewShake.GetAmplitudeSize
-// (Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFCameraViewShake::GetAmplitudeSize()
 {
@@ -4312,6 +4412,7 @@ void UEFCameraViewShake::GetAmplitudeSize()
 	UEFCameraViewShake_GetAmplitudeSize_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4320,9 +4421,9 @@ void UEFCameraViewShake::GetAmplitudeSize()
 
 
 // Function EFGame.EFInputRotCameraActor.GetCameraView
-// (Defined, PreOperator, NetReliable, Simulated, Exec, Static, HasOptionalParms)
+// (Defined, Simulated, Public, HasOutParms)
 
-void AEFInputRotCameraActor::STATIC_GetCameraView()
+void AEFInputRotCameraActor::GetCameraView()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.GetCameraView");
 
@@ -4337,7 +4438,7 @@ void AEFInputRotCameraActor::STATIC_GetCameraView()
 
 
 // Function EFGame.EFInputRotCameraActor.EndViewTarget
-// (Latent, Singular, Net, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFInputRotCameraActor::EndViewTarget()
 {
@@ -4354,7 +4455,7 @@ void AEFInputRotCameraActor::EndViewTarget()
 
 
 // Function EFGame.EFInputRotCameraActor.BecomeViewTarget
-// (Iterator, Latent, PreOperator, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFInputRotCameraActor::BecomeViewTarget()
 {
@@ -4371,15 +4472,16 @@ void AEFInputRotCameraActor::BecomeViewTarget()
 
 
 // Function EFGame.EFInputRotCameraActor.ActivateInputRotMode
-// (Final, Defined, Iterator, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void AEFInputRotCameraActor::STATIC_ActivateInputRotMode()
+void AEFInputRotCameraActor::ActivateInputRotMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.ActivateInputRotMode");
 
 	AEFInputRotCameraActor_ActivateInputRotMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4388,7 +4490,7 @@ void AEFInputRotCameraActor::STATIC_ActivateInputRotMode()
 
 
 // Function EFGame.EFMacroCameraSplineActor.BreakAllConnections
-// (Defined, Latent, PreOperator, NetReliable, Simulated, Operator, HasOptionalParms)
+// (Native, Public)
 
 void AEFMacroCameraSplineActor::BreakAllConnections()
 {
@@ -4397,6 +4499,7 @@ void AEFMacroCameraSplineActor::BreakAllConnections()
 	AEFMacroCameraSplineActor_BreakAllConnections_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4405,7 +4508,7 @@ void AEFMacroCameraSplineActor::BreakAllConnections()
 
 
 // Function EFGame.EFMacroCameraSplineActor.BreakConnectionTo
-// (Iterator, Latent, PreOperator, NetReliable, Simulated, Operator, HasOptionalParms)
+// (Native, Public)
 
 void AEFMacroCameraSplineActor::BreakConnectionTo()
 {
@@ -4414,6 +4517,7 @@ void AEFMacroCameraSplineActor::BreakConnectionTo()
 	AEFMacroCameraSplineActor_BreakConnectionTo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4422,15 +4526,16 @@ void AEFMacroCameraSplineActor::BreakConnectionTo()
 
 
 // Function EFGame.EFMacroCameraSplineActor.IsConnectedTo
-// (Final, Defined, NetReliable, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFMacroCameraSplineActor::STATIC_IsConnectedTo()
+void AEFMacroCameraSplineActor::IsConnectedTo()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCameraSplineActor.IsConnectedTo");
 
 	AEFMacroCameraSplineActor_IsConnectedTo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4439,7 +4544,7 @@ void AEFMacroCameraSplineActor::STATIC_IsConnectedTo()
 
 
 // Function EFGame.EFMacroCameraSplineActor.AddConnectionTo
-// (Final, Iterator, Simulated, Exec, Native, HasOptionalParms)
+// (Native, Public)
 
 void AEFMacroCameraSplineActor::AddConnectionTo()
 {
@@ -4457,7 +4562,7 @@ void AEFMacroCameraSplineActor::AddConnectionTo()
 
 
 // Function EFGame.EFMacroCameraSplineActor.UpdateConnectedSplineComponents
-// (Final, Iterator, Native, Const)
+// (Native, Public)
 
 void AEFMacroCameraSplineActor::UpdateConnectedSplineComponents()
 {
@@ -4475,7 +4580,7 @@ void AEFMacroCameraSplineActor::UpdateConnectedSplineComponents()
 
 
 // Function EFGame.EFMacroCameraSplineActor.UpdateSplineComponents
-// (Final, Latent, Singular, Native, Const)
+// (Native, Public)
 
 void AEFMacroCameraSplineActor::UpdateSplineComponents()
 {
@@ -4493,7 +4598,7 @@ void AEFMacroCameraSplineActor::UpdateSplineComponents()
 
 
 // Function EFGame.EFPlayerCamera.LoadOutlineData
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::LoadOutlineData()
 {
@@ -4511,9 +4616,9 @@ void AEFPlayerCamera::LoadOutlineData()
 
 
 // Function EFGame.EFPlayerCamera.UpdateTranslucentActorBlend
-// (Final, Defined, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void AEFPlayerCamera::STATIC_UpdateTranslucentActorBlend()
+void AEFPlayerCamera::UpdateTranslucentActorBlend()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.UpdateTranslucentActorBlend");
 
@@ -4529,9 +4634,9 @@ void AEFPlayerCamera::STATIC_UpdateTranslucentActorBlend()
 
 
 // Function EFGame.EFPlayerCamera.UpdateOccludedActorBlend
-// (Defined, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void AEFPlayerCamera::STATIC_UpdateOccludedActorBlend()
+void AEFPlayerCamera::UpdateOccludedActorBlend()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.UpdateOccludedActorBlend");
 
@@ -4547,7 +4652,7 @@ void AEFPlayerCamera::STATIC_UpdateOccludedActorBlend()
 
 
 // Function EFGame.EFPlayerCamera.DisplayDebug
-// (Defined, Iterator, Singular, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms)
+// (Defined, Simulated, Public, HasOutParms)
 
 void AEFPlayerCamera::DisplayDebug()
 {
@@ -4564,7 +4669,7 @@ void AEFPlayerCamera::DisplayDebug()
 
 
 // Function EFGame.EFPlayerCamera.FOV
-// (Defined, Iterator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::FOV()
 {
@@ -4581,7 +4686,7 @@ void AEFPlayerCamera::FOV()
 
 
 // Function EFGame.EFPlayerCamera.AdjustViewportFOV
-// (Final, PreOperator, Singular, NetReliable, Simulated, Exec, Native, HasOptionalParms)
+// (Defined, Public, HasOutParms)
 
 void AEFPlayerCamera::AdjustViewportFOV()
 {
@@ -4590,7 +4695,6 @@ void AEFPlayerCamera::AdjustViewportFOV()
 	AEFPlayerCamera_AdjustViewportFOV_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4599,7 +4703,7 @@ void AEFPlayerCamera::AdjustViewportFOV()
 
 
 // Function EFGame.EFPlayerCamera.SaveCameraValue
-// (Final, Iterator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::SaveCameraValue()
 {
@@ -4616,7 +4720,7 @@ void AEFPlayerCamera::SaveCameraValue()
 
 
 // Function EFGame.EFPlayerCamera.SetCameraType
-// (PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, HasOptionalParms, Public)
 
 void AEFPlayerCamera::SetCameraType()
 {
@@ -4633,7 +4737,7 @@ void AEFPlayerCamera::SetCameraType()
 
 
 // Function EFGame.EFPlayerCamera.UpdateRotation
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::UpdateRotation()
 {
@@ -4650,7 +4754,7 @@ void AEFPlayerCamera::UpdateRotation()
 
 
 // Function EFGame.EFPlayerCamera.ZoomOut
-// (Final, Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFPlayerCamera::ZoomOut()
 {
@@ -4659,6 +4763,7 @@ void AEFPlayerCamera::ZoomOut()
 	AEFPlayerCamera_ZoomOut_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4667,7 +4772,7 @@ void AEFPlayerCamera::ZoomOut()
 
 
 // Function EFGame.EFPlayerCamera.ZoomIn
-// (Defined, Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void AEFPlayerCamera::ZoomIn()
 {
@@ -4676,6 +4781,7 @@ void AEFPlayerCamera::ZoomIn()
 	AEFPlayerCamera_ZoomIn_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4684,7 +4790,7 @@ void AEFPlayerCamera::ZoomIn()
 
 
 // Function EFGame.EFPlayerCamera.UpdateViewTarget
-// (Defined, PreOperator, Singular, Native, Const)
+// (Defined, Public, HasOutParms)
 
 void AEFPlayerCamera::UpdateViewTarget()
 {
@@ -4693,7 +4799,6 @@ void AEFPlayerCamera::UpdateViewTarget()
 	AEFPlayerCamera_UpdateViewTarget_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4702,7 +4807,7 @@ void AEFPlayerCamera::UpdateViewTarget()
 
 
 // Function EFGame.EFPlayerCamera.DoUpdateCamera
-// (Iterator, NetReliable, Native, Event, Operator, HasOptionalParms)
+// (Defined, Simulated, Public)
 
 void AEFPlayerCamera::DoUpdateCamera()
 {
@@ -4711,7 +4816,6 @@ void AEFPlayerCamera::DoUpdateCamera()
 	AEFPlayerCamera_DoUpdateCamera_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4720,7 +4824,7 @@ void AEFPlayerCamera::DoUpdateCamera()
 
 
 // Function EFGame.EFPlayerCamera.ProcessTestInputCameraActor
-// (Defined, Iterator, PreOperator, Native, Operator, HasOptionalParms, Const)
+// (Final, Native, Public, HasOutParms)
 
 void AEFPlayerCamera::ProcessTestInputCameraActor()
 {
@@ -4738,7 +4842,7 @@ void AEFPlayerCamera::ProcessTestInputCameraActor()
 
 
 // Function EFGame.EFPlayerCamera.RestoreCameraMode
-// (Iterator, Singular, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::RestoreCameraMode()
 {
@@ -4756,15 +4860,16 @@ void AEFPlayerCamera::RestoreCameraMode()
 
 
 // Function EFGame.EFPlayerCamera.ChangeCameraMode
-// (Final, Iterator, PreOperator, Singular, Net, NetReliable, Operator, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void AEFPlayerCamera::STATIC_ChangeCameraMode()
+void AEFPlayerCamera::ChangeCameraMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraMode");
 
 	AEFPlayerCamera_ChangeCameraMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4773,15 +4878,16 @@ void AEFPlayerCamera::STATIC_ChangeCameraMode()
 
 
 // Function EFGame.EFPlayerCamera.ChangeCameraContentsSetting
-// (Iterator, PreOperator, Singular, Net, NetReliable, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPlayerCamera::STATIC_ChangeCameraContentsSetting()
+void AEFPlayerCamera::ChangeCameraContentsSetting()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraContentsSetting");
 
 	AEFPlayerCamera_ChangeCameraContentsSetting_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4790,15 +4896,16 @@ void AEFPlayerCamera::STATIC_ChangeCameraContentsSetting()
 
 
 // Function EFGame.EFPlayerCamera.ChangeCameraZoomStep
-// (Final, Defined, Iterator, PreOperator, Singular, Net, NetReliable, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPlayerCamera::STATIC_ChangeCameraZoomStep()
+void AEFPlayerCamera::ChangeCameraZoomStep()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraZoomStep");
 
 	AEFPlayerCamera_ChangeCameraZoomStep_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4807,15 +4914,16 @@ void AEFPlayerCamera::STATIC_ChangeCameraZoomStep()
 
 
 // Function EFGame.EFPlayerCamera.ChangeCameraSetting
-// (Defined, Iterator, PreOperator, Singular, Net, NetReliable, Operator, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void AEFPlayerCamera::STATIC_ChangeCameraSetting()
+void AEFPlayerCamera::ChangeCameraSetting()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraSetting");
 
 	AEFPlayerCamera_ChangeCameraSetting_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4824,15 +4932,16 @@ void AEFPlayerCamera::STATIC_ChangeCameraSetting()
 
 
 // Function EFGame.EFPlayerCamera.ApplyVehicleFOVAngle
-// (Final, Defined, Iterator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, Public, HasOutParms)
 
-void AEFPlayerCamera::STATIC_ApplyVehicleFOVAngle()
+void AEFPlayerCamera::ApplyVehicleFOVAngle()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ApplyVehicleFOVAngle");
 
 	AEFPlayerCamera_ApplyVehicleFOVAngle_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4841,7 +4950,7 @@ void AEFPlayerCamera::STATIC_ApplyVehicleFOVAngle()
 
 
 // Function EFGame.EFPlayerCamera.SetVehicleFOVAngle
-// (Final, Iterator, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::SetVehicleFOVAngle()
 {
@@ -4850,6 +4959,7 @@ void AEFPlayerCamera::SetVehicleFOVAngle()
 	AEFPlayerCamera_SetVehicleFOVAngle_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4858,15 +4968,16 @@ void AEFPlayerCamera::SetVehicleFOVAngle()
 
 
 // Function EFGame.EFPlayerCamera.ApplyCamOverrideFogSetting
-// (Final, Iterator, Latent, PreOperator, Singular, Net, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void AEFPlayerCamera::STATIC_ApplyCamOverrideFogSetting()
+void AEFPlayerCamera::ApplyCamOverrideFogSetting()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ApplyCamOverrideFogSetting");
 
 	AEFPlayerCamera_ApplyCamOverrideFogSetting_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4875,7 +4986,7 @@ void AEFPlayerCamera::STATIC_ApplyCamOverrideFogSetting()
 
 
 // Function EFGame.EFPlayerCamera.ProcessTargetCameraActorBlend
-// (Final, Iterator, PreOperator, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::ProcessTargetCameraActorBlend()
 {
@@ -4893,7 +5004,7 @@ void AEFPlayerCamera::ProcessTargetCameraActorBlend()
 
 
 // Function EFGame.EFPlayerCamera.ResetAttachCameraActor
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::ResetAttachCameraActor()
 {
@@ -4911,9 +5022,9 @@ void AEFPlayerCamera::ResetAttachCameraActor()
 
 
 // Function EFGame.EFPlayerCamera.FindBestCameraType
-// (Final, PreOperator, Net, Simulated, Exec, Static, Const)
+// (Defined, Protected)
 
-void AEFPlayerCamera::STATIC_FindBestCameraType()
+void AEFPlayerCamera::FindBestCameraType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.FindBestCameraType");
 
@@ -4928,7 +5039,7 @@ void AEFPlayerCamera::STATIC_FindBestCameraType()
 
 
 // Function EFGame.EFPlayerCamera.GetCurrentCameraMode
-// (Final, Defined, Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPlayerCamera::GetCurrentCameraMode()
 {
@@ -4937,6 +5048,7 @@ void AEFPlayerCamera::GetCurrentCameraMode()
 	AEFPlayerCamera_GetCurrentCameraMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -4945,9 +5057,9 @@ void AEFPlayerCamera::GetCurrentCameraMode()
 
 
 // Function EFGame.EFPlayerCamera.CreateCamera
-// (Final, Defined, Latent, Singular, Net, Exec, Static, Const)
+// (Defined, Protected)
 
-void AEFPlayerCamera::STATIC_CreateCamera()
+void AEFPlayerCamera::CreateCamera()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.CreateCamera");
 
@@ -4962,7 +5074,7 @@ void AEFPlayerCamera::STATIC_CreateCamera()
 
 
 // Function EFGame.EFPlayerCamera.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Public)
 
 void AEFPlayerCamera::PostBeginPlay()
 {
@@ -4979,7 +5091,7 @@ void AEFPlayerCamera::PostBeginPlay()
 
 
 // Function EFGame.EFPlayerCamera.GetFOV
-// (Defined, Iterator, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::GetFOV()
 {
@@ -4996,7 +5108,7 @@ void AEFPlayerCamera::GetFOV()
 
 
 // Function EFGame.EFPlayerCamera.GetCameraDistance
-// (Iterator, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::GetCameraDistance()
 {
@@ -5013,7 +5125,7 @@ void AEFPlayerCamera::GetCameraDistance()
 
 
 // Function EFGame.EFPlayerCamera.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFPlayerCamera::Destroyed()
 {
@@ -5030,9 +5142,9 @@ void AEFPlayerCamera::Destroyed()
 
 
 // Function EFGame.EFPlayerCamera.CalcVerticalFOV
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Simulated, Exec, Native, Event, Static, Const)
+// (Final, Native, Public, HasOutParms)
 
-void AEFPlayerCamera::STATIC_CalcVerticalFOV()
+void AEFPlayerCamera::CalcVerticalFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.CalcVerticalFOV");
 
@@ -5048,16 +5160,15 @@ void AEFPlayerCamera::STATIC_CalcVerticalFOV()
 
 
 // Function EFGame.EFEmitter.HideSelf
-// (Defined, Latent, PreOperator, Exec, Native, Static, HasOptionalParms)
+// (Defined, Simulated, Public)
 
-void AEFEmitter::STATIC_HideSelf()
+void AEFEmitter::HideSelf()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEmitter.HideSelf");
 
 	AEFEmitter_HideSelf_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5066,7 +5177,7 @@ void AEFEmitter::STATIC_HideSelf()
 
 
 // Function EFGame.EFEmitter.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFEmitter::PostBeginPlay()
 {
@@ -5083,15 +5194,16 @@ void AEFEmitter::PostBeginPlay()
 
 
 // Function EFGame.EFEnvironmentActionEmitter.ClearExtendPool
-// (Final, Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Simulated, Native, Public)
 
-void AEFEnvironmentActionEmitter::STATIC_ClearExtendPool()
+void AEFEnvironmentActionEmitter::ClearExtendPool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentActionEmitter.ClearExtendPool");
 
 	AEFEnvironmentActionEmitter_ClearExtendPool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5100,7 +5212,7 @@ void AEFEnvironmentActionEmitter::STATIC_ClearExtendPool()
 
 
 // Function EFGame.EFEnvironmentActionEmitter.OnParticleSystemFinished
-// (Final, Defined, Latent, PreOperator, Singular, Native)
+// (Simulated, Native, Public)
 
 void AEFEnvironmentActionEmitter::OnParticleSystemFinished()
 {
@@ -5118,7 +5230,7 @@ void AEFEnvironmentActionEmitter::OnParticleSystemFinished()
 
 
 // Function EFGame.EFSpawnedEmitter.HideBecauseFinished
-// (Final, Latent, Simulated, Exec, HasOptionalParms, Const)
+// (Final, Defined, Public)
 
 void AEFSpawnedEmitter::HideBecauseFinished()
 {
@@ -5135,15 +5247,16 @@ void AEFSpawnedEmitter::HideBecauseFinished()
 
 
 // Function EFGame.EFSpawnedEmitter.ClearExtendPool
-// (Final, Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Simulated, Native, Public)
 
-void AEFSpawnedEmitter::STATIC_ClearExtendPool()
+void AEFSpawnedEmitter::ClearExtendPool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSpawnedEmitter.ClearExtendPool");
 
 	AEFSpawnedEmitter_ClearExtendPool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5152,7 +5265,7 @@ void AEFSpawnedEmitter::STATIC_ClearExtendPool()
 
 
 // Function EFGame.EFSpawnedEmitter.OnParticleSystemFinished
-// (Final, Defined, Latent, PreOperator, Singular, Native)
+// (Simulated, Native, Public)
 
 void AEFSpawnedEmitter::OnParticleSystemFinished()
 {
@@ -5170,15 +5283,16 @@ void AEFSpawnedEmitter::OnParticleSystemFinished()
 
 
 // Function EFGame.EFEmitterPool.ClearPoolPSInfoComponents
-// (Final, Defined, Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void AEFEmitterPool::STATIC_ClearPoolPSInfoComponents()
+void AEFEmitterPool::ClearPoolPSInfoComponents()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEmitterPool.ClearPoolPSInfoComponents");
 
 	AEFEmitterPool_ClearPoolPSInfoComponents_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5187,7 +5301,7 @@ void AEFEmitterPool::STATIC_ClearPoolPSInfoComponents()
 
 
 // Function EFGame.EFEmitterPool.OnPSInfoFinished
-// (Final, Iterator, Singular, Net, Exec, Native, Event)
+// (Native, Public)
 
 void AEFEmitterPool::OnPSInfoFinished()
 {
@@ -5205,15 +5319,16 @@ void AEFEmitterPool::OnPSInfoFinished()
 
 
 // Function EFGame.EFEmitterPool.ClearExtendPool
-// (Final, Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void AEFEmitterPool::STATIC_ClearExtendPool()
+void AEFEmitterPool::ClearExtendPool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEmitterPool.ClearExtendPool");
 
 	AEFEmitterPool_ClearExtendPool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5222,7 +5337,7 @@ void AEFEmitterPool::STATIC_ClearExtendPool()
 
 
 // Function EFGame.EFPickingEmitter.IsActivateEffect
-// (Defined, PreOperator, Singular, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFPickingEmitter::IsActivateEffect()
 {
@@ -5240,9 +5355,9 @@ void AEFPickingEmitter::IsActivateEffect()
 
 
 // Function EFGame.EFPickingEmitter.DeactivateEffect
-// (Iterator, Latent, PreOperator, Net, Exec, Native, Operator, Static, Const)
+// (Native, Public)
 
-void AEFPickingEmitter::STATIC_DeactivateEffect()
+void AEFPickingEmitter::DeactivateEffect()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.DeactivateEffect");
 
@@ -5258,15 +5373,16 @@ void AEFPickingEmitter::STATIC_DeactivateEffect()
 
 
 // Function EFGame.EFPickingEmitter.ActivateEffect
-// (Final, Iterator, Net, NetReliable, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void AEFPickingEmitter::STATIC_ActivateEffect()
+void AEFPickingEmitter::ActivateEffect()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.ActivateEffect");
 
 	AEFPickingEmitter_ActivateEffect_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5275,7 +5391,7 @@ void AEFPickingEmitter::STATIC_ActivateEffect()
 
 
 // Function EFGame.EFPickingEmitter.OnParticleSystemFinished
-// (Final, Defined, Latent, PreOperator, Singular, Native)
+// (Defined, Simulated, Public)
 
 void AEFPickingEmitter::OnParticleSystemFinished()
 {
@@ -5284,7 +5400,6 @@ void AEFPickingEmitter::OnParticleSystemFinished()
 	AEFPickingEmitter_OnParticleSystemFinished_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5293,7 +5408,7 @@ void AEFPickingEmitter::OnParticleSystemFinished()
 
 
 // Function EFGame.EFSeqAct_NPCController.Update
-// (Latent, PreOperator, Singular, NetReliable, Native, Event, Operator)
+// (Defined, Event, Public)
 
 void UEFSeqAct_NPCController::Update()
 {
@@ -5302,7 +5417,6 @@ void UEFSeqAct_NPCController::Update()
 	UEFSeqAct_NPCController_Update_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5311,7 +5425,7 @@ void UEFSeqAct_NPCController::Update()
 
 
 // Function EFGame.EFSeqAct_NPCController.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_NPCController::Activated()
 {
@@ -5328,9 +5442,9 @@ void UEFSeqAct_NPCController::Activated()
 
 
 // Function EFGame.EFSeqAct_NPCController.BackupMainMovingState
-// (Iterator, Latent, PreOperator, Net, Native, Event, Static, Const)
+// (Native, Public)
 
-void UEFSeqAct_NPCController::STATIC_BackupMainMovingState()
+void UEFSeqAct_NPCController::BackupMainMovingState()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.BackupMainMovingState");
 
@@ -5346,7 +5460,7 @@ void UEFSeqAct_NPCController::STATIC_BackupMainMovingState()
 
 
 // Function EFGame.EFSeqAct_NPCController.SetEventMoveCompleteProcess
-// (Final, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::SetEventMoveCompleteProcess()
 {
@@ -5355,6 +5469,7 @@ void UEFSeqAct_NPCController::SetEventMoveCompleteProcess()
 	UEFSeqAct_NPCController_SetEventMoveCompleteProcess_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5363,7 +5478,7 @@ void UEFSeqAct_NPCController::SetEventMoveCompleteProcess()
 
 
 // Function EFGame.EFSeqAct_NPCController.SetMoving
-// (Final, Defined, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::SetMoving()
 {
@@ -5372,6 +5487,7 @@ void UEFSeqAct_NPCController::SetMoving()
 	UEFSeqAct_NPCController_SetMoving_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5380,7 +5496,7 @@ void UEFSeqAct_NPCController::SetMoving()
 
 
 // Function EFGame.EFSeqAct_NPCController.SettingReady
-// (Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::SettingReady()
 {
@@ -5389,6 +5505,7 @@ void UEFSeqAct_NPCController::SettingReady()
 	UEFSeqAct_NPCController_SettingReady_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5397,7 +5514,7 @@ void UEFSeqAct_NPCController::SettingReady()
 
 
 // Function EFGame.EFSeqAct_NPCController.setPlayWaitAnimation
-// (Final, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::setPlayWaitAnimation()
 {
@@ -5406,6 +5523,7 @@ void UEFSeqAct_NPCController::setPlayWaitAnimation()
 	UEFSeqAct_NPCController_setPlayWaitAnimation_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5414,7 +5532,7 @@ void UEFSeqAct_NPCController::setPlayWaitAnimation()
 
 
 // Function EFGame.EFSeqAct_NPCController.setPlayAnimation
-// (PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::setPlayAnimation()
 {
@@ -5423,6 +5541,7 @@ void UEFSeqAct_NPCController::setPlayAnimation()
 	UEFSeqAct_NPCController_setPlayAnimation_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5431,7 +5550,7 @@ void UEFSeqAct_NPCController::setPlayAnimation()
 
 
 // Function EFGame.EFSeqAct_NPCController.GetAnimationName
-// (Final, Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::GetAnimationName()
 {
@@ -5440,6 +5559,7 @@ void UEFSeqAct_NPCController::GetAnimationName()
 	UEFSeqAct_NPCController_GetAnimationName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5448,7 +5568,7 @@ void UEFSeqAct_NPCController::GetAnimationName()
 
 
 // Function EFGame.EFSeqAct_NPCController.initial
-// (Final, Defined, Latent, PreOperator, Singular, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFSeqAct_NPCController::initial()
 {
@@ -5466,7 +5586,7 @@ void UEFSeqAct_NPCController::initial()
 
 
 // Function EFGame.EFEnvironmentInfoVolume.UnTouch
-// (Final, Defined, PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFEnvironmentInfoVolume::UnTouch()
 {
@@ -5475,6 +5595,7 @@ void AEFEnvironmentInfoVolume::UnTouch()
 	AEFEnvironmentInfoVolume_UnTouch_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5483,7 +5604,7 @@ void AEFEnvironmentInfoVolume::UnTouch()
 
 
 // Function EFGame.EFEnvironmentInfoVolume.Touch
-// (Defined, PreOperator, Singular, Simulated)
+// (Native, Event, Public)
 
 void AEFEnvironmentInfoVolume::Touch()
 {
@@ -5492,6 +5613,7 @@ void AEFEnvironmentInfoVolume::Touch()
 	AEFEnvironmentInfoVolume_Touch_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5500,9 +5622,9 @@ void AEFEnvironmentInfoVolume::Touch()
 
 
 // Function EFGame.EFEnvironmentInfoVolume.UpdateEnvironment
-// (Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
-void AEFEnvironmentInfoVolume::STATIC_UpdateEnvironment()
+void AEFEnvironmentInfoVolume::UpdateEnvironment()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.UpdateEnvironment");
 
@@ -5518,9 +5640,9 @@ void AEFEnvironmentInfoVolume::STATIC_UpdateEnvironment()
 
 
 // Function EFGame.EFEnvironmentInfoVolume.OnToggle
-// (Iterator, Net, Exec, Operator, Static, HasOptionalParms)
+// (Defined, Simulated, Public)
 
-void AEFEnvironmentInfoVolume::STATIC_OnToggle()
+void AEFEnvironmentInfoVolume::OnToggle()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.OnToggle");
 
@@ -5535,7 +5657,7 @@ void AEFEnvironmentInfoVolume::STATIC_OnToggle()
 
 
 // Function EFGame.EFPathBlockingVolume.StopsProjectile
-// (Iterator, Singular, NetReliable, Const)
+// (Defined, Simulated, Public)
 
 void AEFPathBlockingVolume::StopsProjectile()
 {
@@ -5552,7 +5674,7 @@ void AEFPathBlockingVolume::StopsProjectile()
 
 
 // Function EFGame.EFGFxMoviePlayer.GetStringINI
-// (Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxMoviePlayer::GetStringINI()
 {
@@ -5569,7 +5691,7 @@ void UEFGFxMoviePlayer::GetStringINI()
 
 
 // Function EFGame.EFGFxMoviePlayer.SetStringINI
-// (Final, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public, HasDefaults)
 
 void UEFGFxMoviePlayer::SetStringINI()
 {
@@ -5586,9 +5708,9 @@ void UEFGFxMoviePlayer::SetStringINI()
 
 
 // Function EFGame.EFGFxMoviePlayer.CreateArrayEx
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Native, Operator, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UEFGFxMoviePlayer::STATIC_CreateArrayEx()
+void UEFGFxMoviePlayer::CreateArrayEx()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.CreateArrayEx");
 
@@ -5604,9 +5726,9 @@ void UEFGFxMoviePlayer::STATIC_CreateArrayEx()
 
 
 // Function EFGame.EFGFxMoviePlayer.CreateObjectEx
-// (Singular, Net, NetReliable, Native, Operator, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UEFGFxMoviePlayer::STATIC_CreateObjectEx()
+void UEFGFxMoviePlayer::CreateObjectEx()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.CreateObjectEx");
 
@@ -5622,15 +5744,16 @@ void UEFGFxMoviePlayer::STATIC_CreateObjectEx()
 
 
 // Function EFGame.EFGFxMoviePlayer.PostAdvance
-// (PreOperator, Static, Const)
+// (Native, Public)
 
-void UEFGFxMoviePlayer::STATIC_PostAdvance()
+void UEFGFxMoviePlayer::PostAdvance()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.PostAdvance");
 
 	UEFGFxMoviePlayer_PostAdvance_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5639,7 +5762,7 @@ void UEFGFxMoviePlayer::STATIC_PostAdvance()
 
 
 // Function EFGame.EFGFxMoviePlayer.WidgetUnloaded
-// (Final, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxMoviePlayer::WidgetUnloaded()
 {
@@ -5656,7 +5779,7 @@ void UEFGFxMoviePlayer::WidgetUnloaded()
 
 
 // Function EFGame.EFGFxMoviePlayer.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxMoviePlayer::WidgetInitialized()
 {
@@ -5673,7 +5796,7 @@ void UEFGFxMoviePlayer::WidgetInitialized()
 
 
 // Function EFGame.EFGFxEditorMoviePlayer.Start
-// (Final, Defined, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, HasOptionalParms, Public)
 
 void UEFGFxEditorMoviePlayer::Start()
 {
@@ -5690,7 +5813,7 @@ void UEFGFxEditorMoviePlayer::Start()
 
 
 // Function EFGame.EFGFxMovieWidget.GetExternalTexture
-// (Final, Defined, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFGFxMovieWidget::GetExternalTexture()
 {
@@ -5699,6 +5822,7 @@ void UEFGFxMovieWidget::GetExternalTexture()
 	UEFGFxMovieWidget_GetExternalTexture_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5707,7 +5831,7 @@ void UEFGFxMovieWidget::GetExternalTexture()
 
 
 // Function EFGame.EFGFxMovieWidget.HasGFxObjectBinding
-// (Iterator, Latent, Singular, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFGFxMovieWidget::HasGFxObjectBinding()
 {
@@ -5716,6 +5840,7 @@ void UEFGFxMovieWidget::HasGFxObjectBinding()
 	UEFGFxMovieWidget_HasGFxObjectBinding_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5724,9 +5849,9 @@ void UEFGFxMovieWidget::HasGFxObjectBinding()
 
 
 // Function EFGame.EFGFxMovieWidget.DelGFxObjectBinding
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Exec, Native, Operator, Static, Const)
+// (Final, Native, Public)
 
-void UEFGFxMovieWidget::STATIC_DelGFxObjectBinding()
+void UEFGFxMovieWidget::DelGFxObjectBinding()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.DelGFxObjectBinding");
 
@@ -5742,15 +5867,16 @@ void UEFGFxMovieWidget::STATIC_DelGFxObjectBinding()
 
 
 // Function EFGame.EFGFxMovieWidget.AddGFxObjectBinding
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Event, Static, Const)
+// (Final, Native, Public)
 
-void UEFGFxMovieWidget::STATIC_AddGFxObjectBinding()
+void UEFGFxMovieWidget::AddGFxObjectBinding()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.AddGFxObjectBinding");
 
 	UEFGFxMovieWidget_AddGFxObjectBinding_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5759,15 +5885,16 @@ void UEFGFxMovieWidget::STATIC_AddGFxObjectBinding()
 
 
 // Function EFGame.EFGFxMovieWidget.SetVisible
-// (Final, Defined, Iterator, Latent, Net, Static, Const)
+// (Final, Native, Public)
 
-void UEFGFxMovieWidget::STATIC_SetVisible()
+void UEFGFxMovieWidget::SetVisible()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.SetVisible");
 
 	UEFGFxMovieWidget_SetVisible_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5776,7 +5903,7 @@ void UEFGFxMovieWidget::STATIC_SetVisible()
 
 
 // Function EFGame.EFGFxMovieWidget.GFxFristFrameCallback
-// (Final, Defined, PreOperator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFGFxMovieWidget::GFxFristFrameCallback()
 {
@@ -5785,6 +5912,7 @@ void UEFGFxMovieWidget::GFxFristFrameCallback()
 	UEFGFxMovieWidget_GFxFristFrameCallback_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5793,7 +5921,7 @@ void UEFGFxMovieWidget::GFxFristFrameCallback()
 
 
 // Function EFGame.EFGFxMovieWidget.PostWidgetInit
-// (Defined, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void UEFGFxMovieWidget::PostWidgetInit()
 {
@@ -5802,6 +5930,7 @@ void UEFGFxMovieWidget::PostWidgetInit()
 	UEFGFxMovieWidget_PostWidgetInit_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5810,7 +5939,7 @@ void UEFGFxMovieWidget::PostWidgetInit()
 
 
 // Function EFGame.EFGFxMovieWidget.Start
-// (Final, Defined, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Native, Event, HasOptionalParms, Public)
 
 void UEFGFxMovieWidget::Start()
 {
@@ -5819,6 +5948,7 @@ void UEFGFxMovieWidget::Start()
 	UEFGFxMovieWidget_Start_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5827,7 +5957,7 @@ void UEFGFxMovieWidget::Start()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ActivateFrame
-// (Final, Defined, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxMovieWidgetMain::ActivateFrame()
 {
@@ -5844,15 +5974,16 @@ void UEFGFxMovieWidgetMain::ActivateFrame()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseDoubleClick
-// (Defined, PreOperator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseDoubleClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseDoubleClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseDoubleClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseDoubleClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5861,15 +5992,16 @@ void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseDoubleClick()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseRightClick
-// (Iterator, PreOperator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseRightClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseRightClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseRightClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseRightClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5878,15 +6010,16 @@ void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseRightClick()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseLeftClick
-// (Final, Defined, PreOperator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseLeftClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseLeftClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseLeftClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseLeftClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5895,15 +6028,16 @@ void UEFGFxMovieWidgetMain::STATIC_ARKSlotMouseLeftClick()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByName
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Final, Native, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_ClearBindWidgetByName()
+void UEFGFxMovieWidgetMain::ClearBindWidgetByName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByName");
 
 	UEFGFxMovieWidgetMain_ClearBindWidgetByName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5912,15 +6046,16 @@ void UEFGFxMovieWidgetMain::STATIC_ClearBindWidgetByName()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByWidget
-// (Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Final, Native, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_ClearBindWidgetByWidget()
+void UEFGFxMovieWidgetMain::ClearBindWidgetByWidget()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByWidget");
 
 	UEFGFxMovieWidgetMain_ClearBindWidgetByWidget_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5929,16 +6064,15 @@ void UEFGFxMovieWidgetMain::STATIC_ClearBindWidgetByWidget()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.UnBindWidget
-// (Final, Net, NetReliable, Exec, Native, Static, HasOptionalParms, Const)
+// (Defined, Simulated, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_UnBindWidget()
+void UEFGFxMovieWidgetMain::UnBindWidget()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.UnBindWidget");
 
 	UEFGFxMovieWidgetMain_UnBindWidget_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5947,16 +6081,15 @@ void UEFGFxMovieWidgetMain::STATIC_UnBindWidget()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.BindWidget
-// (Final, Defined, Latent, Singular, Net, NetReliable, Simulated, Native, Event, Static, Const)
+// (Defined, Simulated, Public)
 
-void UEFGFxMovieWidgetMain::STATIC_BindWidget()
+void UEFGFxMovieWidgetMain::BindWidget()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.BindWidget");
 
 	UEFGFxMovieWidgetMain_BindWidget_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -5965,7 +6098,7 @@ void UEFGFxMovieWidgetMain::STATIC_BindWidget()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.WidgetUnloaded
-// (Final, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxMovieWidgetMain::WidgetUnloaded()
 {
@@ -5982,7 +6115,7 @@ void UEFGFxMovieWidgetMain::WidgetUnloaded()
 
 
 // Function EFGame.EFGFxMovieWidgetMain.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxMovieWidgetMain::WidgetInitialized()
 {
@@ -5999,7 +6132,7 @@ void UEFGFxMovieWidgetMain::WidgetInitialized()
 
 
 // Function EFGame.EFUIComponent.InvalidateSize
-// (Final, PreOperator, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::InvalidateSize()
 {
@@ -6017,7 +6150,7 @@ void UEFUIComponent::InvalidateSize()
 
 
 // Function EFGame.EFUIComponent.InvalidateData
-// (PreOperator, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::InvalidateData()
 {
@@ -6035,7 +6168,7 @@ void UEFUIComponent::InvalidateData()
 
 
 // Function EFGame.EFUIComponent.Invalidate
-// (Final, Defined, Iterator, Latent, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::Invalidate()
 {
@@ -6053,9 +6186,9 @@ void UEFUIComponent::Invalidate()
 
 
 // Function EFGame.EFUIComponent.ValidateNow
-// (Latent, Singular, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFUIComponent::STATIC_ValidateNow()
+void UEFUIComponent::ValidateNow()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.ValidateNow");
 
@@ -6071,7 +6204,7 @@ void UEFUIComponent::STATIC_ValidateNow()
 
 
 // Function EFGame.EFUIComponent.HasFocus
-// (Final, Defined, Latent, Singular, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::HasFocus()
 {
@@ -6080,6 +6213,7 @@ void UEFUIComponent::HasFocus()
 	UEFUIComponent_HasFocus_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6088,7 +6222,7 @@ void UEFUIComponent::HasFocus()
 
 
 // Function EFGame.EFUIComponent.GetY
-// (Defined, PreOperator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetY()
 {
@@ -6097,6 +6231,7 @@ void UEFUIComponent::GetY()
 	UEFUIComponent_GetY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6105,7 +6240,7 @@ void UEFUIComponent::GetY()
 
 
 // Function EFGame.EFUIComponent.SetY
-// (Defined, Latent, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::SetY()
 {
@@ -6114,6 +6249,7 @@ void UEFUIComponent::SetY()
 	UEFUIComponent_SetY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6122,7 +6258,7 @@ void UEFUIComponent::SetY()
 
 
 // Function EFGame.EFUIComponent.GetX
-// (Final, PreOperator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetX()
 {
@@ -6131,6 +6267,7 @@ void UEFUIComponent::GetX()
 	UEFUIComponent_GetX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6139,7 +6276,7 @@ void UEFUIComponent::GetX()
 
 
 // Function EFGame.EFUIComponent.SetX
-// (Final, Latent, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::SetX()
 {
@@ -6148,6 +6285,7 @@ void UEFUIComponent::SetX()
 	UEFUIComponent_SetX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6156,7 +6294,7 @@ void UEFUIComponent::SetX()
 
 
 // Function EFGame.EFUIComponent.GetHeight
-// (Final, Iterator, PreOperator, NetReliable, HasOptionalParms)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetHeight()
 {
@@ -6165,6 +6303,7 @@ void UEFUIComponent::GetHeight()
 	UEFUIComponent_GetHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6173,7 +6312,7 @@ void UEFUIComponent::GetHeight()
 
 
 // Function EFGame.EFUIComponent.SetHeight
-// (Defined, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::SetHeight()
 {
@@ -6182,6 +6321,7 @@ void UEFUIComponent::SetHeight()
 	UEFUIComponent_SetHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6190,7 +6330,7 @@ void UEFUIComponent::SetHeight()
 
 
 // Function EFGame.EFUIComponent.GetWidth
-// (Defined, Iterator, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetWidth()
 {
@@ -6199,6 +6339,7 @@ void UEFUIComponent::GetWidth()
 	UEFUIComponent_GetWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6207,7 +6348,7 @@ void UEFUIComponent::GetWidth()
 
 
 // Function EFGame.EFUIComponent.SetWidth
-// (Final, Defined, Iterator, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::SetWidth()
 {
@@ -6216,6 +6357,7 @@ void UEFUIComponent::SetWidth()
 	UEFUIComponent_SetWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6224,7 +6366,7 @@ void UEFUIComponent::SetWidth()
 
 
 // Function EFGame.EFUIComponent.GetEnabled
-// (Defined, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetEnabled()
 {
@@ -6233,6 +6375,7 @@ void UEFUIComponent::GetEnabled()
 	UEFUIComponent_GetEnabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6241,7 +6384,7 @@ void UEFUIComponent::GetEnabled()
 
 
 // Function EFGame.EFUIComponent.SetEnabled
-// (Singular, NetReliable, Simulated, HasOptionalParms)
+// (Final, Native, Public)
 
 void UEFUIComponent::SetEnabled()
 {
@@ -6250,6 +6393,7 @@ void UEFUIComponent::SetEnabled()
 	UEFUIComponent_SetEnabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6258,7 +6402,7 @@ void UEFUIComponent::SetEnabled()
 
 
 // Function EFGame.EFUIComponent.GetVisible
-// (Final, Iterator, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetVisible()
 {
@@ -6267,6 +6411,7 @@ void UEFUIComponent::GetVisible()
 	UEFUIComponent_GetVisible_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6275,15 +6420,16 @@ void UEFUIComponent::GetVisible()
 
 
 // Function EFGame.EFUIComponent.SetVisible
-// (Final, Defined, Iterator, Latent, Net, Static, Const)
+// (Native, Public)
 
-void UEFUIComponent::STATIC_SetVisible()
+void UEFUIComponent::SetVisible()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetVisible");
 
 	UEFUIComponent_SetVisible_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6292,7 +6438,7 @@ void UEFUIComponent::STATIC_SetVisible()
 
 
 // Function EFGame.EFUIComponent.GetName
-// (Final, Iterator, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFUIComponent::GetName()
 {
@@ -6301,6 +6447,7 @@ void UEFUIComponent::GetName()
 	UEFUIComponent_GetName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6309,9 +6456,9 @@ void UEFUIComponent::GetName()
 
 
 // Function EFGame.EFUIComponent.SetName
-// (Final, Iterator, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UEFUIComponent::STATIC_SetName()
+void UEFUIComponent::SetName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetName");
 
@@ -6327,7 +6474,7 @@ void UEFUIComponent::STATIC_SetName()
 
 
 // Function EFGame.EFUIComponent.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFUIComponent::WidgetInitialized()
 {
@@ -6344,7 +6491,7 @@ void UEFUIComponent::WidgetInitialized()
 
 
 // Function EFGame.EFUISlot.SetItemData
-// (Iterator, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFUISlot::SetItemData()
 {
@@ -6361,7 +6508,7 @@ void UEFUISlot::SetItemData()
 
 
 // Function EFGame.EFUISlot.SetDisableType
-// (PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetDisableType()
 {
@@ -6370,6 +6517,7 @@ void UEFUISlot::SetDisableType()
 	UEFUISlot_SetDisableType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6378,7 +6526,7 @@ void UEFUISlot::SetDisableType()
 
 
 // Function EFGame.EFUISlot.SetUniqueData
-// (Final, Defined, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetUniqueData()
 {
@@ -6387,6 +6535,7 @@ void UEFUISlot::SetUniqueData()
 	UEFUISlot_SetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6395,7 +6544,7 @@ void UEFUISlot::SetUniqueData()
 
 
 // Function EFGame.EFUISlot.GetUniqueData
-// (Final, Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetUniqueData()
 {
@@ -6404,6 +6553,7 @@ void UEFUISlot::GetUniqueData()
 	UEFUISlot_GetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6412,7 +6562,7 @@ void UEFUISlot::GetUniqueData()
 
 
 // Function EFGame.EFUISlot.SetLocked
-// (Final, Defined, Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetLocked()
 {
@@ -6421,6 +6571,7 @@ void UEFUISlot::SetLocked()
 	UEFUISlot_SetLocked_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6429,7 +6580,7 @@ void UEFUISlot::SetLocked()
 
 
 // Function EFGame.EFUISlot.IsLocked
-// (Latent, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::IsLocked()
 {
@@ -6447,7 +6598,7 @@ void UEFUISlot::IsLocked()
 
 
 // Function EFGame.EFUISlot.SetItemGrade
-// (Final, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetItemGrade()
 {
@@ -6456,6 +6607,7 @@ void UEFUISlot::SetItemGrade()
 	UEFUISlot_SetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6464,7 +6616,7 @@ void UEFUISlot::SetItemGrade()
 
 
 // Function EFGame.EFUISlot.GetItemGrade
-// (Defined, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetItemGrade()
 {
@@ -6473,6 +6625,7 @@ void UEFUISlot::GetItemGrade()
 	UEFUISlot_GetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6481,7 +6634,7 @@ void UEFUISlot::GetItemGrade()
 
 
 // Function EFGame.EFUISlot.SetSoundTheme
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetSoundTheme()
 {
@@ -6490,6 +6643,7 @@ void UEFUISlot::SetSoundTheme()
 	UEFUISlot_SetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6498,7 +6652,7 @@ void UEFUISlot::SetSoundTheme()
 
 
 // Function EFGame.EFUISlot.GetSoundTheme
-// (Final, Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetSoundTheme()
 {
@@ -6507,6 +6661,7 @@ void UEFUISlot::GetSoundTheme()
 	UEFUISlot_GetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6515,7 +6670,7 @@ void UEFUISlot::GetSoundTheme()
 
 
 // Function EFGame.EFUISlot.SetDisabled
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public)
 
 void UEFUISlot::SetDisabled()
 {
@@ -6524,6 +6679,7 @@ void UEFUISlot::SetDisabled()
 	UEFUISlot_SetDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6532,15 +6688,16 @@ void UEFUISlot::SetDisabled()
 
 
 // Function EFGame.EFUISlot.IsDisabled
-// (Final, Defined, Iterator, Latent, NetReliable, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void UEFUISlot::STATIC_IsDisabled()
+void UEFUISlot::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.IsDisabled");
 
 	UEFUISlot_IsDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6549,7 +6706,7 @@ void UEFUISlot::STATIC_IsDisabled()
 
 
 // Function EFGame.EFUISlot.SetCooltime
-// (Final, Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetCooltime()
 {
@@ -6558,6 +6715,7 @@ void UEFUISlot::SetCooltime()
 	UEFUISlot_SetCooltime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6566,7 +6724,7 @@ void UEFUISlot::SetCooltime()
 
 
 // Function EFGame.EFUISlot.GetTotalCoolTime
-// (Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetTotalCoolTime()
 {
@@ -6575,6 +6733,7 @@ void UEFUISlot::GetTotalCoolTime()
 	UEFUISlot_GetTotalCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6583,7 +6742,7 @@ void UEFUISlot::GetTotalCoolTime()
 
 
 // Function EFGame.EFUISlot.GetRemainCoolTime
-// (Defined, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetRemainCoolTime()
 {
@@ -6592,6 +6751,7 @@ void UEFUISlot::GetRemainCoolTime()
 	UEFUISlot_GetRemainCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6600,7 +6760,7 @@ void UEFUISlot::GetRemainCoolTime()
 
 
 // Function EFGame.EFUISlot.SetIconHeight
-// (Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconHeight()
 {
@@ -6609,6 +6769,7 @@ void UEFUISlot::SetIconHeight()
 	UEFUISlot_SetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6617,7 +6778,7 @@ void UEFUISlot::SetIconHeight()
 
 
 // Function EFGame.EFUISlot.GetIconHeight
-// (Final, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconHeight()
 {
@@ -6626,6 +6787,7 @@ void UEFUISlot::GetIconHeight()
 	UEFUISlot_GetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6634,7 +6796,7 @@ void UEFUISlot::GetIconHeight()
 
 
 // Function EFGame.EFUISlot.SetIconWidth
-// (Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconWidth()
 {
@@ -6643,6 +6805,7 @@ void UEFUISlot::SetIconWidth()
 	UEFUISlot_SetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6651,7 +6814,7 @@ void UEFUISlot::SetIconWidth()
 
 
 // Function EFGame.EFUISlot.GetIconWidth
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconWidth()
 {
@@ -6660,6 +6823,7 @@ void UEFUISlot::GetIconWidth()
 	UEFUISlot_GetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6668,7 +6832,7 @@ void UEFUISlot::GetIconWidth()
 
 
 // Function EFGame.EFUISlot.SetIconY
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconY()
 {
@@ -6677,6 +6841,7 @@ void UEFUISlot::SetIconY()
 	UEFUISlot_SetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6685,7 +6850,7 @@ void UEFUISlot::SetIconY()
 
 
 // Function EFGame.EFUISlot.GetIconY
-// (Final, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconY()
 {
@@ -6694,6 +6859,7 @@ void UEFUISlot::GetIconY()
 	UEFUISlot_GetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6702,7 +6868,7 @@ void UEFUISlot::GetIconY()
 
 
 // Function EFGame.EFUISlot.SetIconX
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconX()
 {
@@ -6711,6 +6877,7 @@ void UEFUISlot::SetIconX()
 	UEFUISlot_SetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6719,7 +6886,7 @@ void UEFUISlot::SetIconX()
 
 
 // Function EFGame.EFUISlot.GetIconX
-// (Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconX()
 {
@@ -6728,6 +6895,7 @@ void UEFUISlot::GetIconX()
 	UEFUISlot_GetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6736,7 +6904,7 @@ void UEFUISlot::GetIconX()
 
 
 // Function EFGame.EFUISlot.SetIconCount
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconCount()
 {
@@ -6745,6 +6913,7 @@ void UEFUISlot::SetIconCount()
 	UEFUISlot_SetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6753,7 +6922,7 @@ void UEFUISlot::SetIconCount()
 
 
 // Function EFGame.EFUISlot.GetIconCount
-// (Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconCount()
 {
@@ -6762,6 +6931,7 @@ void UEFUISlot::GetIconCount()
 	UEFUISlot_GetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6770,7 +6940,7 @@ void UEFUISlot::GetIconCount()
 
 
 // Function EFGame.EFUISlot.SetIconPath
-// (Final, Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetIconPath()
 {
@@ -6779,6 +6949,7 @@ void UEFUISlot::SetIconPath()
 	UEFUISlot_SetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6787,7 +6958,7 @@ void UEFUISlot::SetIconPath()
 
 
 // Function EFGame.EFUISlot.GetIconPath
-// (Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetIconPath()
 {
@@ -6796,6 +6967,7 @@ void UEFUISlot::GetIconPath()
 	UEFUISlot_GetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6804,7 +6976,7 @@ void UEFUISlot::GetIconPath()
 
 
 // Function EFGame.EFUISlot.SetWindowType
-// (Latent, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetWindowType()
 {
@@ -6813,6 +6985,7 @@ void UEFUISlot::SetWindowType()
 	UEFUISlot_SetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6821,7 +6994,7 @@ void UEFUISlot::SetWindowType()
 
 
 // Function EFGame.EFUISlot.GetWindowType
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetWindowType()
 {
@@ -6830,6 +7003,7 @@ void UEFUISlot::GetWindowType()
 	UEFUISlot_GetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6838,7 +7012,7 @@ void UEFUISlot::GetWindowType()
 
 
 // Function EFGame.EFUISlot.SetSlotIndex
-// (Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetSlotIndex()
 {
@@ -6847,6 +7021,7 @@ void UEFUISlot::SetSlotIndex()
 	UEFUISlot_SetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6855,7 +7030,7 @@ void UEFUISlot::SetSlotIndex()
 
 
 // Function EFGame.EFUISlot.GetSlotIndex
-// (Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetSlotIndex()
 {
@@ -6864,6 +7039,7 @@ void UEFUISlot::GetSlotIndex()
 	UEFUISlot_GetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6872,7 +7048,7 @@ void UEFUISlot::GetSlotIndex()
 
 
 // Function EFGame.EFUISlot.SetBindID
-// (Defined, Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetBindID()
 {
@@ -6881,6 +7057,7 @@ void UEFUISlot::SetBindID()
 	UEFUISlot_SetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6889,7 +7066,7 @@ void UEFUISlot::SetBindID()
 
 
 // Function EFGame.EFUISlot.GetBindID
-// (Defined, Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetBindID()
 {
@@ -6898,6 +7075,7 @@ void UEFUISlot::GetBindID()
 	UEFUISlot_GetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6906,7 +7084,7 @@ void UEFUISlot::GetBindID()
 
 
 // Function EFGame.EFUISlot.SetSlotType
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::SetSlotType()
 {
@@ -6915,6 +7093,7 @@ void UEFUISlot::SetSlotType()
 	UEFUISlot_SetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6923,7 +7102,7 @@ void UEFUISlot::SetSlotType()
 
 
 // Function EFGame.EFUISlot.GetSlotType
-// (Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetSlotType()
 {
@@ -6932,6 +7111,7 @@ void UEFUISlot::GetSlotType()
 	UEFUISlot_GetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6940,7 +7120,7 @@ void UEFUISlot::GetSlotType()
 
 
 // Function EFGame.EFUISlot.SetIconData
-// (Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUISlot::SetIconData()
 {
@@ -6949,6 +7129,7 @@ void UEFUISlot::SetIconData()
 	UEFUISlot_SetIconData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6957,7 +7138,7 @@ void UEFUISlot::SetIconData()
 
 
 // Function EFGame.EFUISlot.GetSlotItemData
-// (Final, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlot::GetSlotItemData()
 {
@@ -6966,6 +7147,7 @@ void UEFUISlot::GetSlotItemData()
 	UEFUISlot_GetSlotItemData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6974,15 +7156,16 @@ void UEFUISlot::GetSlotItemData()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogInputSelectType
-// (Final, Defined, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogInputSelectType()
+void UEFUIChatTabControl::ChatLogInputSelectType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogInputSelectType");
 
 	UEFUIChatTabControl_ChatLogInputSelectType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6991,15 +7174,16 @@ void UEFUIChatTabControl::STATIC_ChatLogInputSelectType()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogMainWidgetTabInsertGroup
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogMainWidgetTabInsertGroup()
+void UEFUIChatTabControl::ChatLogMainWidgetTabInsertGroup()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogMainWidgetTabInsertGroup");
 
 	UEFUIChatTabControl_ChatLogMainWidgetTabInsertGroup_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7008,15 +7192,16 @@ void UEFUIChatTabControl::STATIC_ChatLogMainWidgetTabInsertGroup()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogInTabGroupElementStartDrag
-// (Iterator, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogInTabGroupElementStartDrag()
+void UEFUIChatTabControl::ChatLogInTabGroupElementStartDrag()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogInTabGroupElementStartDrag");
 
 	UEFUIChatTabControl_ChatLogInTabGroupElementStartDrag_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7025,15 +7210,16 @@ void UEFUIChatTabControl::STATIC_ChatLogInTabGroupElementStartDrag()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogLinkClick
-// (Final, Iterator, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogLinkClick()
+void UEFUIChatTabControl::ChatLogLinkClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogLinkClick");
 
 	UEFUIChatTabControl_ChatLogLinkClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7042,15 +7228,16 @@ void UEFUIChatTabControl::STATIC_ChatLogLinkClick()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogTabContextMenuShow
-// (NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogTabContextMenuShow()
+void UEFUIChatTabControl::ChatLogTabContextMenuShow()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogTabContextMenuShow");
 
 	UEFUIChatTabControl_ChatLogTabContextMenuShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7059,15 +7246,16 @@ void UEFUIChatTabControl::STATIC_ChatLogTabContextMenuShow()
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogMainWidgetSizeUpdated
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFUIChatTabControl::STATIC_ChatLogMainWidgetSizeUpdated()
+void UEFUIChatTabControl::ChatLogMainWidgetSizeUpdated()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogMainWidgetSizeUpdated");
 
 	UEFUIChatTabControl_ChatLogMainWidgetSizeUpdated_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7076,7 +7264,7 @@ void UEFUIChatTabControl::STATIC_ChatLogMainWidgetSizeUpdated()
 
 
 // Function EFGame.EFUIList.SetSelectedIndex
-// (Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFUIList::SetSelectedIndex()
 {
@@ -7093,7 +7281,7 @@ void UEFUIList::SetSelectedIndex()
 
 
 // Function EFGame.EFUIList.GetSelectedIndex
-// (Final, Defined, NetReliable, Simulated, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFUIList::GetSelectedIndex()
 {
@@ -7110,7 +7298,7 @@ void UEFUIList::GetSelectedIndex()
 
 
 // Function EFGame.EFUIList.GetData
-// (Final, Latent, NetReliable, HasOptionalParms)
+// (Native, Public)
 
 void UEFUIList::GetData()
 {
@@ -7119,6 +7307,7 @@ void UEFUIList::GetData()
 	UEFUIList_GetData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7127,7 +7316,7 @@ void UEFUIList::GetData()
 
 
 // Function EFGame.EFUIListItem.HasAttribute
-// (Defined, Latent, Singular, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItem::HasAttribute()
 {
@@ -7136,6 +7325,7 @@ void UEFUIListItem::HasAttribute()
 	UEFUIListItem_HasAttribute_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7144,7 +7334,7 @@ void UEFUIListItem::HasAttribute()
 
 
 // Function EFGame.EFUIListItemSlot.SetTownShow
-// (Final, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetTownShow()
 {
@@ -7153,6 +7343,7 @@ void UEFUIListItemSlot::SetTownShow()
 	UEFUIListItemSlot_SetTownShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7161,7 +7352,7 @@ void UEFUIListItemSlot::SetTownShow()
 
 
 // Function EFGame.EFUIListItemSlot.SetFriendshipShow
-// (Final, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetFriendshipShow()
 {
@@ -7170,6 +7361,7 @@ void UEFUIListItemSlot::SetFriendshipShow()
 	UEFUIListItemSlot_SetFriendshipShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7178,7 +7370,7 @@ void UEFUIListItemSlot::SetFriendshipShow()
 
 
 // Function EFGame.EFUIListItemSlot.SetAdvBookShow
-// (Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetAdvBookShow()
 {
@@ -7187,6 +7379,7 @@ void UEFUIListItemSlot::SetAdvBookShow()
 	UEFUIListItemSlot_SetAdvBookShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7195,7 +7388,7 @@ void UEFUIListItemSlot::SetAdvBookShow()
 
 
 // Function EFGame.EFUIListItemSlot.SetTemporary
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetTemporary()
 {
@@ -7204,6 +7397,7 @@ void UEFUIListItemSlot::SetTemporary()
 	UEFUIListItemSlot_SetTemporary_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7212,7 +7406,7 @@ void UEFUIListItemSlot::SetTemporary()
 
 
 // Function EFGame.EFUIListItemSlot.SetTrash
-// (Defined, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetTrash()
 {
@@ -7221,6 +7415,7 @@ void UEFUIListItemSlot::SetTrash()
 	UEFUIListItemSlot_SetTrash_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7229,7 +7424,7 @@ void UEFUIListItemSlot::SetTrash()
 
 
 // Function EFGame.EFUIListItemSlot.SetDisableType
-// (PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetDisableType()
 {
@@ -7238,6 +7433,7 @@ void UEFUIListItemSlot::SetDisableType()
 	UEFUIListItemSlot_SetDisableType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7246,7 +7442,7 @@ void UEFUIListItemSlot::SetDisableType()
 
 
 // Function EFGame.EFUIListItemSlot.SetTableID
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetTableID()
 {
@@ -7255,6 +7451,7 @@ void UEFUIListItemSlot::SetTableID()
 	UEFUIListItemSlot_SetTableID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7263,7 +7460,7 @@ void UEFUIListItemSlot::SetTableID()
 
 
 // Function EFGame.EFUIListItemSlot.GetTableID
-// (Final, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetTableID()
 {
@@ -7272,6 +7469,7 @@ void UEFUIListItemSlot::GetTableID()
 	UEFUIListItemSlot_GetTableID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7280,7 +7478,7 @@ void UEFUIListItemSlot::GetTableID()
 
 
 // Function EFGame.EFUIListItemSlot.SetUniqueData
-// (Final, Defined, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetUniqueData()
 {
@@ -7289,6 +7487,7 @@ void UEFUIListItemSlot::SetUniqueData()
 	UEFUIListItemSlot_SetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7297,7 +7496,7 @@ void UEFUIListItemSlot::SetUniqueData()
 
 
 // Function EFGame.EFUIListItemSlot.GetUniqueData
-// (Final, Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetUniqueData()
 {
@@ -7306,6 +7505,7 @@ void UEFUIListItemSlot::GetUniqueData()
 	UEFUIListItemSlot_GetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7314,7 +7514,7 @@ void UEFUIListItemSlot::GetUniqueData()
 
 
 // Function EFGame.EFUIListItemSlot.SetLocked
-// (Final, Defined, Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetLocked()
 {
@@ -7323,6 +7523,7 @@ void UEFUIListItemSlot::SetLocked()
 	UEFUIListItemSlot_SetLocked_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7331,7 +7532,7 @@ void UEFUIListItemSlot::SetLocked()
 
 
 // Function EFGame.EFUIListItemSlot.IsLocked
-// (Latent, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::IsLocked()
 {
@@ -7349,7 +7550,7 @@ void UEFUIListItemSlot::IsLocked()
 
 
 // Function EFGame.EFUIListItemSlot.SetItemGrade
-// (Final, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetItemGrade()
 {
@@ -7358,6 +7559,7 @@ void UEFUIListItemSlot::SetItemGrade()
 	UEFUIListItemSlot_SetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7366,7 +7568,7 @@ void UEFUIListItemSlot::SetItemGrade()
 
 
 // Function EFGame.EFUIListItemSlot.GetItemGrade
-// (Defined, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetItemGrade()
 {
@@ -7375,6 +7577,7 @@ void UEFUIListItemSlot::GetItemGrade()
 	UEFUIListItemSlot_GetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7383,7 +7586,7 @@ void UEFUIListItemSlot::GetItemGrade()
 
 
 // Function EFGame.EFUIListItemSlot.SetSoundTheme
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetSoundTheme()
 {
@@ -7392,6 +7595,7 @@ void UEFUIListItemSlot::SetSoundTheme()
 	UEFUIListItemSlot_SetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7400,7 +7604,7 @@ void UEFUIListItemSlot::SetSoundTheme()
 
 
 // Function EFGame.EFUIListItemSlot.GetSoundTheme
-// (Final, Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetSoundTheme()
 {
@@ -7409,6 +7613,7 @@ void UEFUIListItemSlot::GetSoundTheme()
 	UEFUIListItemSlot_GetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7417,7 +7622,7 @@ void UEFUIListItemSlot::GetSoundTheme()
 
 
 // Function EFGame.EFUIListItemSlot.SetDisabled
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetDisabled()
 {
@@ -7426,6 +7631,7 @@ void UEFUIListItemSlot::SetDisabled()
 	UEFUIListItemSlot_SetDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7434,15 +7640,16 @@ void UEFUIListItemSlot::SetDisabled()
 
 
 // Function EFGame.EFUIListItemSlot.IsDisabled
-// (Final, Defined, Iterator, Latent, NetReliable, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void UEFUIListItemSlot::STATIC_IsDisabled()
+void UEFUIListItemSlot::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.IsDisabled");
 
 	UEFUIListItemSlot_IsDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7451,7 +7658,7 @@ void UEFUIListItemSlot::STATIC_IsDisabled()
 
 
 // Function EFGame.EFUIListItemSlot.SetItemName
-// (Defined, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetItemName()
 {
@@ -7460,6 +7667,7 @@ void UEFUIListItemSlot::SetItemName()
 	UEFUIListItemSlot_SetItemName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7468,9 +7676,9 @@ void UEFUIListItemSlot::SetItemName()
 
 
 // Function EFGame.EFUIListItemSlot.GetItemName
-// (Final, Defined, Iterator, Singular, Native, Static, HasOptionalParms)
+// (Native, Public)
 
-void UEFUIListItemSlot::STATIC_GetItemName()
+void UEFUIListItemSlot::GetItemName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetItemName");
 
@@ -7486,7 +7694,7 @@ void UEFUIListItemSlot::STATIC_GetItemName()
 
 
 // Function EFGame.EFUIListItemSlot.SetLabel
-// (Final, Defined, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetLabel()
 {
@@ -7495,6 +7703,7 @@ void UEFUIListItemSlot::SetLabel()
 	UEFUIListItemSlot_SetLabel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7503,7 +7712,7 @@ void UEFUIListItemSlot::SetLabel()
 
 
 // Function EFGame.EFUIListItemSlot.GetLabel
-// (Final, Defined, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetLabel()
 {
@@ -7512,6 +7721,7 @@ void UEFUIListItemSlot::GetLabel()
 	UEFUIListItemSlot_GetLabel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7520,7 +7730,7 @@ void UEFUIListItemSlot::GetLabel()
 
 
 // Function EFGame.EFUIListItemSlot.SetCooltime
-// (Final, Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetCooltime()
 {
@@ -7529,6 +7739,7 @@ void UEFUIListItemSlot::SetCooltime()
 	UEFUIListItemSlot_SetCooltime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7537,7 +7748,7 @@ void UEFUIListItemSlot::SetCooltime()
 
 
 // Function EFGame.EFUIListItemSlot.GetTotalCoolTime
-// (Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetTotalCoolTime()
 {
@@ -7546,6 +7757,7 @@ void UEFUIListItemSlot::GetTotalCoolTime()
 	UEFUIListItemSlot_GetTotalCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7554,7 +7766,7 @@ void UEFUIListItemSlot::GetTotalCoolTime()
 
 
 // Function EFGame.EFUIListItemSlot.GetRemainCoolTime
-// (Defined, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetRemainCoolTime()
 {
@@ -7563,6 +7775,7 @@ void UEFUIListItemSlot::GetRemainCoolTime()
 	UEFUIListItemSlot_GetRemainCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7571,7 +7784,7 @@ void UEFUIListItemSlot::GetRemainCoolTime()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconHeight
-// (Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconHeight()
 {
@@ -7580,6 +7793,7 @@ void UEFUIListItemSlot::SetIconHeight()
 	UEFUIListItemSlot_SetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7588,7 +7802,7 @@ void UEFUIListItemSlot::SetIconHeight()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconHeight
-// (Final, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconHeight()
 {
@@ -7597,6 +7811,7 @@ void UEFUIListItemSlot::GetIconHeight()
 	UEFUIListItemSlot_GetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7605,7 +7820,7 @@ void UEFUIListItemSlot::GetIconHeight()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconWidth
-// (Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconWidth()
 {
@@ -7614,6 +7829,7 @@ void UEFUIListItemSlot::SetIconWidth()
 	UEFUIListItemSlot_SetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7622,7 +7838,7 @@ void UEFUIListItemSlot::SetIconWidth()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconWidth
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconWidth()
 {
@@ -7631,6 +7847,7 @@ void UEFUIListItemSlot::GetIconWidth()
 	UEFUIListItemSlot_GetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7639,7 +7856,7 @@ void UEFUIListItemSlot::GetIconWidth()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconY
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconY()
 {
@@ -7648,6 +7865,7 @@ void UEFUIListItemSlot::SetIconY()
 	UEFUIListItemSlot_SetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7656,7 +7874,7 @@ void UEFUIListItemSlot::SetIconY()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconY
-// (Final, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconY()
 {
@@ -7665,6 +7883,7 @@ void UEFUIListItemSlot::GetIconY()
 	UEFUIListItemSlot_GetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7673,7 +7892,7 @@ void UEFUIListItemSlot::GetIconY()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconX
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconX()
 {
@@ -7682,6 +7901,7 @@ void UEFUIListItemSlot::SetIconX()
 	UEFUIListItemSlot_SetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7690,7 +7910,7 @@ void UEFUIListItemSlot::SetIconX()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconX
-// (Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconX()
 {
@@ -7699,6 +7919,7 @@ void UEFUIListItemSlot::GetIconX()
 	UEFUIListItemSlot_GetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7707,7 +7928,7 @@ void UEFUIListItemSlot::GetIconX()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconCount
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconCount()
 {
@@ -7716,6 +7937,7 @@ void UEFUIListItemSlot::SetIconCount()
 	UEFUIListItemSlot_SetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7724,7 +7946,7 @@ void UEFUIListItemSlot::SetIconCount()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconCount
-// (Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconCount()
 {
@@ -7733,6 +7955,7 @@ void UEFUIListItemSlot::GetIconCount()
 	UEFUIListItemSlot_GetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7741,7 +7964,7 @@ void UEFUIListItemSlot::GetIconCount()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconPath
-// (Final, Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetIconPath()
 {
@@ -7750,6 +7973,7 @@ void UEFUIListItemSlot::SetIconPath()
 	UEFUIListItemSlot_SetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7758,7 +7982,7 @@ void UEFUIListItemSlot::SetIconPath()
 
 
 // Function EFGame.EFUIListItemSlot.GetIconPath
-// (Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetIconPath()
 {
@@ -7767,6 +7991,7 @@ void UEFUIListItemSlot::GetIconPath()
 	UEFUIListItemSlot_GetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7775,7 +8000,7 @@ void UEFUIListItemSlot::GetIconPath()
 
 
 // Function EFGame.EFUIListItemSlot.SetWindowType
-// (Latent, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetWindowType()
 {
@@ -7784,6 +8009,7 @@ void UEFUIListItemSlot::SetWindowType()
 	UEFUIListItemSlot_SetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7792,7 +8018,7 @@ void UEFUIListItemSlot::SetWindowType()
 
 
 // Function EFGame.EFUIListItemSlot.GetWindowType
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetWindowType()
 {
@@ -7801,6 +8027,7 @@ void UEFUIListItemSlot::GetWindowType()
 	UEFUIListItemSlot_GetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7809,7 +8036,7 @@ void UEFUIListItemSlot::GetWindowType()
 
 
 // Function EFGame.EFUIListItemSlot.SetSlotIndex
-// (Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetSlotIndex()
 {
@@ -7818,6 +8045,7 @@ void UEFUIListItemSlot::SetSlotIndex()
 	UEFUIListItemSlot_SetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7826,7 +8054,7 @@ void UEFUIListItemSlot::SetSlotIndex()
 
 
 // Function EFGame.EFUIListItemSlot.GetSlotIndex
-// (Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetSlotIndex()
 {
@@ -7835,6 +8063,7 @@ void UEFUIListItemSlot::GetSlotIndex()
 	UEFUIListItemSlot_GetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7843,7 +8072,7 @@ void UEFUIListItemSlot::GetSlotIndex()
 
 
 // Function EFGame.EFUIListItemSlot.SetBindID
-// (Defined, Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetBindID()
 {
@@ -7852,6 +8081,7 @@ void UEFUIListItemSlot::SetBindID()
 	UEFUIListItemSlot_SetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7860,7 +8090,7 @@ void UEFUIListItemSlot::SetBindID()
 
 
 // Function EFGame.EFUIListItemSlot.GetBindID
-// (Defined, Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetBindID()
 {
@@ -7869,6 +8099,7 @@ void UEFUIListItemSlot::GetBindID()
 	UEFUIListItemSlot_GetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7877,7 +8108,7 @@ void UEFUIListItemSlot::GetBindID()
 
 
 // Function EFGame.EFUIListItemSlot.SetSlotType
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::SetSlotType()
 {
@@ -7886,6 +8117,7 @@ void UEFUIListItemSlot::SetSlotType()
 	UEFUIListItemSlot_SetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7894,7 +8126,7 @@ void UEFUIListItemSlot::SetSlotType()
 
 
 // Function EFGame.EFUIListItemSlot.GetSlotType
-// (Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUIListItemSlot::GetSlotType()
 {
@@ -7903,6 +8135,7 @@ void UEFUIListItemSlot::GetSlotType()
 	UEFUIListItemSlot_GetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7911,7 +8144,7 @@ void UEFUIListItemSlot::GetSlotType()
 
 
 // Function EFGame.EFUIListItemSlot.SetIconData
-// (Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUIListItemSlot::SetIconData()
 {
@@ -7920,6 +8153,7 @@ void UEFUIListItemSlot::SetIconData()
 	UEFUIListItemSlot_SetIconData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7928,15 +8162,16 @@ void UEFUIListItemSlot::SetIconData()
 
 
 // Function EFGame.EFGFxWidgetAchievement.AchievementRewardTakeBtnClick
-// (Final, Iterator, PreOperator, Singular, Simulated, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetAchievement::STATIC_AchievementRewardTakeBtnClick()
+void UEFGFxWidgetAchievement::AchievementRewardTakeBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAchievement.AchievementRewardTakeBtnClick");
 
 	UEFGFxWidgetAchievement_AchievementRewardTakeBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7945,15 +8180,16 @@ void UEFGFxWidgetAchievement::STATIC_AchievementRewardTakeBtnClick()
 
 
 // Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewSkillSlotClick
-// (Final, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetAnchorModeCrew::STATIC_AnchorCrewSkillSlotClick()
+void UEFGFxWidgetAnchorModeCrew::AnchorCrewSkillSlotClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewSkillSlotClick");
 
 	UEFGFxWidgetAnchorModeCrew_AnchorCrewSkillSlotClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7962,15 +8198,16 @@ void UEFGFxWidgetAnchorModeCrew::STATIC_AnchorCrewSkillSlotClick()
 
 
 // Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewPageIndexChanged
-// (Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetAnchorModeCrew::STATIC_AnchorCrewPageIndexChanged()
+void UEFGFxWidgetAnchorModeCrew::AnchorCrewPageIndexChanged()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewPageIndexChanged");
 
 	UEFGFxWidgetAnchorModeCrew_AnchorCrewPageIndexChanged_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -7979,7 +8216,7 @@ void UEFGFxWidgetAnchorModeCrew::STATIC_AnchorCrewPageIndexChanged()
 
 
 // Function EFGame.EFGFxWidgetBuddy.showNew
-// (Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetBuddy::showNew()
 {
@@ -7996,7 +8233,7 @@ void UEFGFxWidgetBuddy::showNew()
 
 
 // Function EFGame.EFGFxWidgetBuddy.setSelectedTab
-// (Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetBuddy::setSelectedTab()
 {
@@ -8013,7 +8250,7 @@ void UEFGFxWidgetBuddy::setSelectedTab()
 
 
 // Function EFGame.EFGFxWidgetBuddy.setAFK
-// (Final, Defined, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetBuddy::setAFK()
 {
@@ -8030,9 +8267,9 @@ void UEFGFxWidgetBuddy::setAFK()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererMouseOver
-// (Defined, Singular, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererMouseOver()
+void UEFGFxWidgetBuddy::FriendsGroupRendererMouseOver()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererMouseOver");
 
@@ -8048,9 +8285,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererMouseOver()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererRightClick
-// (Final, Defined, Singular, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererRightClick()
+void UEFGFxWidgetBuddy::FriendsGroupRendererRightClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererRightClick");
 
@@ -8066,9 +8303,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererRightClick()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererExtended
-// (Final, Singular, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererExtended()
+void UEFGFxWidgetBuddy::FriendsGroupRendererExtended()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererExtended");
 
@@ -8084,9 +8321,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsGroupRendererExtended()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsRendererRightClick
-// (Final, Iterator, PreOperator, Exec, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsRendererRightClick()
+void UEFGFxWidgetBuddy::FriendsRendererRightClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsRendererRightClick");
 
@@ -8102,9 +8339,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsRendererRightClick()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsInvite
-// (Iterator, PreOperator, Exec, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsInvite()
+void UEFGFxWidgetBuddy::FriendsInvite()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsInvite");
 
@@ -8120,9 +8357,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsInvite()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBlock
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsBlock()
+void UEFGFxWidgetBuddy::FriendsBlock()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBlock");
 
@@ -8138,9 +8375,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsBlock()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsUnBlock
-// (Defined, Iterator, PreOperator, Exec, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsUnBlock()
+void UEFGFxWidgetBuddy::FriendsUnBlock()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsUnBlock");
 
@@ -8156,9 +8393,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsUnBlock()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyCancel
-// (Final, Defined, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsBuddyCancel()
+void UEFGFxWidgetBuddy::FriendsBuddyCancel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyCancel");
 
@@ -8174,9 +8411,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsBuddyCancel()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyReject
-// (Singular, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsBuddyReject()
+void UEFGFxWidgetBuddy::FriendsBuddyReject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyReject");
 
@@ -8192,9 +8429,9 @@ void UEFGFxWidgetBuddy::STATIC_FriendsBuddyReject()
 
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyAgree
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetBuddy::STATIC_FriendsBuddyAgree()
+void UEFGFxWidgetBuddy::FriendsBuddyAgree()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyAgree");
 
@@ -8210,7 +8447,7 @@ void UEFGFxWidgetBuddy::STATIC_FriendsBuddyAgree()
 
 
 // Function EFGame.EFGFxWidgetCandidate.SetCandidateFocus
-// (Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetCandidate::SetCandidateFocus()
 {
@@ -8219,6 +8456,7 @@ void UEFGFxWidgetCandidate::SetCandidateFocus()
 	UEFGFxWidgetCandidate_SetCandidateFocus_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8227,7 +8465,7 @@ void UEFGFxWidgetCandidate::SetCandidateFocus()
 
 
 // Function EFGame.EFGFxWidgetChattingOption.SetChannelColor
-// (Final, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetChattingOption::SetChannelColor()
 {
@@ -8244,15 +8482,16 @@ void UEFGFxWidgetChattingOption::SetChannelColor()
 
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAddTab
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionAddTab()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionAddTab()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAddTab");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionAddTab_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8261,15 +8500,16 @@ void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionAddTab()
 
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionOKWnd
-// (Final, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionOKWnd()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionOKWnd()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionOKWnd");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionOKWnd_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8278,15 +8518,16 @@ void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionOKWnd()
 
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionResetData
-// (Defined, Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionResetData()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionResetData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionResetData");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionResetData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8295,15 +8536,16 @@ void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionResetData()
 
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAppliedChannelList
-// (Latent, PreOperator, Singular, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionAppliedChannelList()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionAppliedChannelList()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAppliedChannelList");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionAppliedChannelList_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8312,9 +8554,9 @@ void UEFGFxWidgetChattingOption::STATIC_ChatLogFilterOptionAppliedChannelList()
 
 
 // Function EFGame.EFGFxWidgetCinematicDungeonEntrance.DungeonEntranceDifficultyIndex
-// (Defined, NetReliable, Simulated, Exec, Native, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetCinematicDungeonEntrance::STATIC_DungeonEntranceDifficultyIndex()
+void UEFGFxWidgetCinematicDungeonEntrance::DungeonEntranceDifficultyIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCinematicDungeonEntrance.DungeonEntranceDifficultyIndex");
 
@@ -8330,7 +8572,7 @@ void UEFGFxWidgetCinematicDungeonEntrance::STATIC_DungeonEntranceDifficultyIndex
 
 
 // Function EFGame.EFGFxWidgetColorPicker.SetTargetPosition
-// (Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColorPicker::SetTargetPosition()
 {
@@ -8347,7 +8589,7 @@ void UEFGFxWidgetColorPicker::SetTargetPosition()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.SetTargetCode
-// (Final, Defined, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColorPicker::SetTargetCode()
 {
@@ -8364,9 +8606,9 @@ void UEFGFxWidgetColorPicker::SetTargetCode()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.SetColor
-// (Final, Iterator, Latent, Net, Simulated, Static)
+// (Defined, Event, Public)
 
-void UEFGFxWidgetColorPicker::STATIC_SetColor()
+void UEFGFxWidgetColorPicker::SetColor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.SetColor");
 
@@ -8381,7 +8623,7 @@ void UEFGFxWidgetColorPicker::STATIC_SetColor()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.SetDefaultColor
-// (Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColorPicker::SetDefaultColor()
 {
@@ -8398,7 +8640,7 @@ void UEFGFxWidgetColorPicker::SetDefaultColor()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerCursorDragEnd
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetColorPicker::RequestEventColorPickerCursorDragEnd()
 {
@@ -8416,7 +8658,7 @@ void UEFGFxWidgetColorPicker::RequestEventColorPickerCursorDragEnd()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerProgressValueChange
-// (PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetColorPicker::RequestEventColorPickerProgressValueChange()
 {
@@ -8434,15 +8676,16 @@ void UEFGFxWidgetColorPicker::RequestEventColorPickerProgressValueChange()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.ChatMessageInputTextHasFocus
-// (Final, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetColorPicker::STATIC_ChatMessageInputTextHasFocus()
+void UEFGFxWidgetColorPicker::ChatMessageInputTextHasFocus()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.ChatMessageInputTextHasFocus");
 
 	UEFGFxWidgetColorPicker_ChatMessageInputTextHasFocus_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8451,7 +8694,7 @@ void UEFGFxWidgetColorPicker::STATIC_ChatMessageInputTextHasFocus()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestARKColorPickerDefaultSetting
-// (Final, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetColorPicker::RequestARKColorPickerDefaultSetting()
 {
@@ -8469,7 +8712,7 @@ void UEFGFxWidgetColorPicker::RequestARKColorPickerDefaultSetting()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestARKColorPickerSaveSetting
-// (Defined, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetColorPicker::RequestARKColorPickerSaveSetting()
 {
@@ -8487,7 +8730,7 @@ void UEFGFxWidgetColorPicker::RequestARKColorPickerSaveSetting()
 
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestARKColorPickerClose
-// (Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetColorPicker::RequestARKColorPickerClose()
 {
@@ -8505,9 +8748,9 @@ void UEFGFxWidgetColorPicker::RequestARKColorPickerClose()
 
 
 // Function EFGame.EFGFxWidgetCurrencyInfo.CurrencyInfoTreeItemClick
-// (Defined, Iterator, PreOperator, Simulated, Native, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetCurrencyInfo::STATIC_CurrencyInfoTreeItemClick()
+void UEFGFxWidgetCurrencyInfo::CurrencyInfoTreeItemClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCurrencyInfo.CurrencyInfoTreeItemClick");
 
@@ -8523,7 +8766,7 @@ void UEFGFxWidgetCurrencyInfo::STATIC_CurrencyInfoTreeItemClick()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetPosition
-// (Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCustomColorPicker::SetTargetPosition()
 {
@@ -8540,7 +8783,7 @@ void UEFGFxWidgetCustomColorPicker::SetTargetPosition()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetCode
-// (Final, Defined, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCustomColorPicker::SetTargetCode()
 {
@@ -8557,9 +8800,9 @@ void UEFGFxWidgetCustomColorPicker::SetTargetCode()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetColor
-// (Final, Iterator, Latent, Net, Simulated, Static)
+// (Defined, Event, Public)
 
-void UEFGFxWidgetCustomColorPicker::STATIC_SetColor()
+void UEFGFxWidgetCustomColorPicker::SetColor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.SetColor");
 
@@ -8574,7 +8817,7 @@ void UEFGFxWidgetCustomColorPicker::STATIC_SetColor()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetInit
-// (Final, Defined, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCustomColorPicker::SetInit()
 {
@@ -8591,15 +8834,16 @@ void UEFGFxWidgetCustomColorPicker::SetInit()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerColorChanged
-// (Defined, Latent, PreOperator, Exec, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetCustomColorPicker::STATIC_ColorPickerColorChanged()
+void UEFGFxWidgetCustomColorPicker::ColorPickerColorChanged()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerColorChanged");
 
 	UEFGFxWidgetCustomColorPicker_ColorPickerColorChanged_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8608,15 +8852,16 @@ void UEFGFxWidgetCustomColorPicker::STATIC_ColorPickerColorChanged()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerLightnessChanged
-// (Final, Defined, Latent, PreOperator, Exec, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetCustomColorPicker::STATIC_ColorPickerLightnessChanged()
+void UEFGFxWidgetCustomColorPicker::ColorPickerLightnessChanged()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerLightnessChanged");
 
 	UEFGFxWidgetCustomColorPicker_ColorPickerLightnessChanged_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8625,7 +8870,7 @@ void UEFGFxWidgetCustomColorPicker::STATIC_ColorPickerLightnessChanged()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.RequestARKColorPickerDefaultSetting
-// (Final, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerDefaultSetting()
 {
@@ -8643,7 +8888,7 @@ void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerDefaultSetting()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.RequestARKColorPickerSaveSetting
-// (Defined, Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerSaveSetting()
 {
@@ -8661,7 +8906,7 @@ void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerSaveSetting()
 
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.RequestARKColorPickerClose
-// (Iterator, Latent, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerClose()
 {
@@ -8679,7 +8924,7 @@ void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerClose()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildApplicantRightClick
-// (PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildApplicantRightClick()
 {
@@ -8688,6 +8933,7 @@ void UEFGFxWidgetGuild::GuildApplicantRightClick()
 	UEFGFxWidgetGuild_GuildApplicantRightClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8696,7 +8942,7 @@ void UEFGFxWidgetGuild::GuildApplicantRightClick()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildMemberRightClick
-// (Final, Defined, Iterator, Latent, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildMemberRightClick()
 {
@@ -8705,6 +8951,7 @@ void UEFGFxWidgetGuild::GuildMemberRightClick()
 	UEFGFxWidgetGuild_GuildMemberRightClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8713,7 +8960,7 @@ void UEFGFxWidgetGuild::GuildMemberRightClick()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildReject
-// (Final, Defined, PreOperator, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildReject()
 {
@@ -8722,6 +8969,7 @@ void UEFGFxWidgetGuild::GuildReject()
 	UEFGFxWidgetGuild_GuildReject_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8730,7 +8978,7 @@ void UEFGFxWidgetGuild::GuildReject()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildAccept
-// (Final, Defined, Iterator, Latent, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildAccept()
 {
@@ -8739,6 +8987,7 @@ void UEFGFxWidgetGuild::GuildAccept()
 	UEFGFxWidgetGuild_GuildAccept_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8747,7 +8996,7 @@ void UEFGFxWidgetGuild::GuildAccept()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildNoticeCopyButtonClick
-// (Final, PreOperator, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick()
 {
@@ -8756,6 +9005,7 @@ void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick()
 	UEFGFxWidgetGuild_GuildNoticeCopyButtonClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8764,7 +9014,7 @@ void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildIntroduction
-// (Final, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildChangeGuildIntroduction()
 {
@@ -8773,6 +9023,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildIntroduction()
 	UEFGFxWidgetGuild_GuildChangeGuildIntroduction_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8781,7 +9032,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildIntroduction()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildNotice
-// (Final, Defined, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildChangeGuildNotice()
 {
@@ -8790,6 +9041,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildNotice()
 	UEFGFxWidgetGuild_GuildChangeGuildNotice_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8798,7 +9050,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildNotice()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeBtnClick
-// (Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildChangeBtnClick()
 {
@@ -8807,6 +9059,7 @@ void UEFGFxWidgetGuild::GuildChangeBtnClick()
 	UEFGFxWidgetGuild_GuildChangeBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8815,7 +9068,7 @@ void UEFGFxWidgetGuild::GuildChangeBtnClick()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildMark
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildChangeGuildMark()
 {
@@ -8824,6 +9077,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildMark()
 	UEFGFxWidgetGuild_GuildChangeGuildMark_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8832,7 +9086,7 @@ void UEFGFxWidgetGuild::GuildChangeGuildMark()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildCreate
-// (Final, Iterator, Net, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildCreate()
 {
@@ -8841,6 +9095,7 @@ void UEFGFxWidgetGuild::GuildCreate()
 	UEFGFxWidgetGuild_GuildCreate_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8849,7 +9104,7 @@ void UEFGFxWidgetGuild::GuildCreate()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildCancel
-// (Final, Defined, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildCancel()
 {
@@ -8858,6 +9113,7 @@ void UEFGFxWidgetGuild::GuildCancel()
 	UEFGFxWidgetGuild_GuildCancel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8866,7 +9122,7 @@ void UEFGFxWidgetGuild::GuildCancel()
 
 
 // Function EFGame.EFGFxWidgetGuild.GuildApply
-// (Final, PreOperator, Singular, NetReliable, Exec, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetGuild::GuildApply()
 {
@@ -8875,6 +9131,7 @@ void UEFGFxWidgetGuild::GuildApply()
 	UEFGFxWidgetGuild_GuildApply_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -8883,7 +9140,7 @@ void UEFGFxWidgetGuild::GuildApply()
 
 
 // Function EFGame.EFGFxWidgetHotKey.killOptionKey
-// (Final, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetHotKey::killOptionKey()
 {
@@ -8900,7 +9157,7 @@ void UEFGFxWidgetHotKey::killOptionKey()
 
 
 // Function EFGame.EFGFxWidgetHotKey.selectOptionHotKeyMainMenu
-// (Final, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetHotKey::selectOptionHotKeyMainMenu()
 {
@@ -8917,7 +9174,7 @@ void UEFGFxWidgetHotKey::selectOptionHotKeyMainMenu()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyCloseBtnClick
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyCloseBtnClick()
 {
@@ -8935,7 +9192,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyCloseBtnClick()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyKillFocus
-// (Final, Net, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyKillFocus()
 {
@@ -8953,7 +9210,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyKillFocus()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyCancelClick
-// (Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyCancelClick()
 {
@@ -8971,7 +9228,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyCancelClick()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyAcceptClick
-// (Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyAcceptClick()
 {
@@ -8989,7 +9246,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyAcceptClick()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyConfirmClick
-// (Net, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyConfirmClick()
 {
@@ -9007,7 +9264,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyConfirmClick()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyResetClick
-// (Final, Defined, Net, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyResetClick()
 {
@@ -9025,7 +9282,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyResetClick()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyButtonChange
-// (Final, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyButtonChange()
 {
@@ -9043,7 +9300,7 @@ void UEFGFxWidgetHotKey::OptionHotKeyButtonChange()
 
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyMainListIndexChange
-// (Defined, Net, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHotKey::OptionHotKeyMainListIndexChange()
 {
@@ -9061,9 +9318,9 @@ void UEFGFxWidgetHotKey::OptionHotKeyMainListIndexChange()
 
 
 // Function EFGame.EFGFxWidgetInstanceDungeonEntrance.DungeonEntranceDifficultyIndex
-// (Defined, NetReliable, Simulated, Exec, Native, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInstanceDungeonEntrance::STATIC_DungeonEntranceDifficultyIndex()
+void UEFGFxWidgetInstanceDungeonEntrance::DungeonEntranceDifficultyIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInstanceDungeonEntrance.DungeonEntranceDifficultyIndex");
 
@@ -9079,7 +9336,7 @@ void UEFGFxWidgetInstanceDungeonEntrance::STATIC_DungeonEntranceDifficultyIndex(
 
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOut
-// (PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut()
 {
@@ -9088,7 +9345,6 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut()
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneRollOut_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9097,13 +9353,30 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut()
 
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOver
-// (Final, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOver()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOver");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneRollOver_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor
+// (Native, Public)
+
+void UEFGFxWidgetInteractionAbility_Refine::ChangeCursor()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor");
+
+	UEFGFxWidgetInteractionAbility_Refine_ChangeCursor_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9114,25 +9387,8 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOver()
 }
 
 
-// Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor
-// (Latent, PreOperator, Singular, Net, NetReliable, Operator, Static, Const)
-
-void UEFGFxWidgetInteractionAbility_Refine::STATIC_ChangeCursor()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor");
-
-	UEFGFxWidgetInteractionAbility_Refine_ChangeCursor_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneClick
-// (Final, Defined, Iterator, Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneClick()
 {
@@ -9150,7 +9406,7 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneClick()
 
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleChangeTabClick
-// (Defined, Iterator, Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleChangeTabClick()
 {
@@ -9168,7 +9424,7 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleChangeTabClick()
 
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneSelected
-// (Defined, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneSelected()
 {
@@ -9186,9 +9442,9 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneSelected()
 
 
 // Function EFGame.EFGFxWidgetInteractionBarter.BarterShopPurchaseItem
-// (Final, Defined, Latent, NetReliable, Native, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteractionBarter::STATIC_BarterShopPurchaseItem()
+void UEFGFxWidgetInteractionBarter::BarterShopPurchaseItem()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionBarter.BarterShopPurchaseItem");
 
@@ -9204,7 +9460,7 @@ void UEFGFxWidgetInteractionBarter::STATIC_BarterShopPurchaseItem()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetNextSlotDisable
-// (Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteractionMail::SetNextSlotDisable()
 {
@@ -9221,9 +9477,9 @@ void UEFGFxWidgetInteractionMail::SetNextSlotDisable()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.ASSetNextSlotDisable
-// (Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetInteractionMail::STATIC_ASSetNextSlotDisable()
+void UEFGFxWidgetInteractionMail::ASSetNextSlotDisable()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.ASSetNextSlotDisable");
 
@@ -9238,7 +9494,7 @@ void UEFGFxWidgetInteractionMail::STATIC_ASSetNextSlotDisable()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetNextSlotEnable
-// (Final, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteractionMail::SetNextSlotEnable()
 {
@@ -9255,9 +9511,9 @@ void UEFGFxWidgetInteractionMail::SetNextSlotEnable()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.ASSetNextSlotEnable
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetInteractionMail::STATIC_ASSetNextSlotEnable()
+void UEFGFxWidgetInteractionMail::ASSetNextSlotEnable()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.ASSetNextSlotEnable");
 
@@ -9272,7 +9528,7 @@ void UEFGFxWidgetInteractionMail::STATIC_ASSetNextSlotEnable()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetMailOpenType
-// (Final, Iterator, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteractionMail::SetMailOpenType()
 {
@@ -9289,7 +9545,7 @@ void UEFGFxWidgetInteractionMail::SetMailOpenType()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetOpenType
-// (Defined, Iterator, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteractionMail::SetOpenType()
 {
@@ -9306,7 +9562,7 @@ void UEFGFxWidgetInteractionMail::SetOpenType()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.StopLoading
-// (Final, Defined, Latent, Singular, Simulated, Exec, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetInteractionMail::StopLoading()
 {
@@ -9324,7 +9580,7 @@ void UEFGFxWidgetInteractionMail::StopLoading()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.StructReceiverCacheData
-// (Final, Iterator, Latent, Singular, Net, Simulated, Exec, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetInteractionMail::StructReceiverCacheData()
 {
@@ -9342,15 +9598,16 @@ void UEFGFxWidgetInteractionMail::StructReceiverCacheData()
 
 
 // Function EFGame.EFGFxWidgetInteractionMail.AddReceiverData
-// (Final, Defined, Iterator, PreOperator, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteractionMail::STATIC_AddReceiverData()
+void UEFGFxWidgetInteractionMail::AddReceiverData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.AddReceiverData");
 
 	UEFGFxWidgetInteractionMail_AddReceiverData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9359,7 +9616,7 @@ void UEFGFxWidgetInteractionMail::STATIC_AddReceiverData()
 
 
 // Function EFGame.EFGFxWidgetItemAssembly.ItemCraftAlarmEffectLuckyPlayEnd
-// (Defined, Latent, PreOperator, Singular, Exec, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetItemAssembly::ItemCraftAlarmEffectLuckyPlayEnd()
 {
@@ -9377,7 +9634,7 @@ void UEFGFxWidgetItemAssembly::ItemCraftAlarmEffectLuckyPlayEnd()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelNoramlSkillClick
-// (Final, Latent, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick()
 {
@@ -9386,7 +9643,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick()
 	UEFGFxWidgetLifeSkill_LifeLevelNoramlSkillClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9395,7 +9651,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillPlusClick
-// (Latent, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick()
 {
@@ -9404,7 +9660,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick()
 	UEFGFxWidgetLifeSkill_LifeLevelMasterSkillPlusClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9413,7 +9668,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillMinusClick
-// (Final, Defined, Iterator, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillMinusClick()
 {
@@ -9422,7 +9677,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillMinusClick()
 	UEFGFxWidgetLifeSkill_LifeLevelMasterSkillMinusClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9431,7 +9685,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillMinusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelPointPlusClick
-// (Final, Defined, Latent, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelPointPlusClick()
 {
@@ -9440,7 +9694,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelPointPlusClick()
 	UEFGFxWidgetLifeSkill_LifeLevelPointPlusClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9449,7 +9702,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelPointPlusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelPointMinusClick
-// (Defined, Latent, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelPointMinusClick()
 {
@@ -9458,7 +9711,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelPointMinusClick()
 	UEFGFxWidgetLifeSkill_LifeLevelPointMinusClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9467,7 +9719,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelPointMinusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuideBtnClick
-// (Iterator, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelGuideBtnClick()
 {
@@ -9476,7 +9728,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuideBtnClick()
 	UEFGFxWidgetLifeSkill_LifeLevelGuideBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9485,7 +9736,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuideBtnClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuideClosed
-// (Final, Iterator, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelGuideClosed()
 {
@@ -9494,7 +9745,6 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuideClosed()
 	UEFGFxWidgetLifeSkill_LifeLevelGuideClosed_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9503,7 +9753,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuideClosed()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeNoramlSkillClick
-// (Iterator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifeNoramlSkillClick()
 {
@@ -9521,7 +9771,7 @@ void UEFGFxWidgetLifeSkill::OnLifeNoramlSkillClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillPlusClick
-// (Final, Defined, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifeMasterSkillPlusClick()
 {
@@ -9539,7 +9789,7 @@ void UEFGFxWidgetLifeSkill::OnLifeMasterSkillPlusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillMinusClick
-// (Defined, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifeMasterSkillMinusClick()
 {
@@ -9557,7 +9807,7 @@ void UEFGFxWidgetLifeSkill::OnLifeMasterSkillMinusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifePointPlusClick
-// (Defined, Iterator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifePointPlusClick()
 {
@@ -9575,7 +9825,7 @@ void UEFGFxWidgetLifeSkill::OnLifePointPlusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifePointMinusClick
-// (Final, Iterator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifePointMinusClick()
 {
@@ -9593,7 +9843,7 @@ void UEFGFxWidgetLifeSkill::OnLifePointMinusClick()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuide
-// (Final, Defined, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::LifeLevelGuide()
 {
@@ -9611,7 +9861,7 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuide()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeLevelGuideClosed
-// (Final, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeSkill::OnLifeLevelGuideClosed()
 {
@@ -9629,7 +9879,7 @@ void UEFGFxWidgetLifeSkill::OnLifeLevelGuideClosed()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuideUI
-// (Iterator, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetLifeSkill::OpenLifeLevelGuideUI()
 {
@@ -9646,7 +9896,7 @@ void UEFGFxWidgetLifeSkill::OpenLifeLevelGuideUI()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuide
-// (Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide()
 {
@@ -9655,7 +9905,6 @@ void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide()
 	UEFGFxWidgetLifeSkill_OpenLifeLevelGuide_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9664,7 +9913,7 @@ void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.SetNoSkillUI
-// (Defined, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetLifeSkill::SetNoSkillUI()
 {
@@ -9681,7 +9930,7 @@ void UEFGFxWidgetLifeSkill::SetNoSkillUI()
 
 
 // Function EFGame.EFGFxWidgetLifeSkill.SetNoSkill
-// (Iterator, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetLifeSkill::SetNoSkill()
 {
@@ -9698,7 +9947,7 @@ void UEFGFxWidgetLifeSkill::SetNoSkill()
 
 
 // Function EFGame.EFGFxWidgetMap.RequestResetMapRotation
-// (Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMap::RequestResetMapRotation()
 {
@@ -9716,7 +9965,7 @@ void UEFGFxWidgetMap::RequestResetMapRotation()
 
 
 // Function EFGame.EFGFxWidgetMap.RequestWorldMapUpperDepth
-// (Latent, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMap::RequestWorldMapUpperDepth()
 {
@@ -9734,15 +9983,16 @@ void UEFGFxWidgetMap::RequestWorldMapUpperDepth()
 
 
 // Function EFGame.EFGFxWidgetMap.WorldMapZoneIndex
-// (Final, Defined, Iterator, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetMap::STATIC_WorldMapZoneIndex()
+void UEFGFxWidgetMap::WorldMapZoneIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMap.WorldMapZoneIndex");
 
 	UEFGFxWidgetMap_WorldMapZoneIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9751,15 +10001,16 @@ void UEFGFxWidgetMap::STATIC_WorldMapZoneIndex()
 
 
 // Function EFGame.EFGFxWidgetMap.WorldMapContinentType
-// (Final, Iterator, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetMap::STATIC_WorldMapContinentType()
+void UEFGFxWidgetMap::WorldMapContinentType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMap.WorldMapContinentType");
 
 	UEFGFxWidgetMap_WorldMapContinentType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9768,7 +10019,7 @@ void UEFGFxWidgetMap::STATIC_WorldMapContinentType()
 
 
 // Function EFGame.EFGFxWidgetMODWatingInfo.MinimapAlarmListRightBtnClick
-// (Defined, Latent, PreOperator, Singular, NetReliable, Simulated, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick()
 {
@@ -9777,6 +10028,7 @@ void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick()
 	UEFGFxWidgetMODWatingInfo_MinimapAlarmListRightBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9785,15 +10037,16 @@ void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick()
 
 
 // Function EFGame.EFGFxWidgetMoviePlayer.TestLabSendInputMessage
-// (Defined, Iterator, Simulated, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetMoviePlayer::STATIC_TestLabSendInputMessage()
+void UEFGFxWidgetMoviePlayer::TestLabSendInputMessage()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMoviePlayer.TestLabSendInputMessage");
 
 	UEFGFxWidgetMoviePlayer_TestLabSendInputMessage_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9802,7 +10055,7 @@ void UEFGFxWidgetMoviePlayer::STATIC_TestLabSendInputMessage()
 
 
 // Function EFGame.EFGFxWidgetNormalBox.NormalBoxItemSelected
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetNormalBox::NormalBoxItemSelected()
 {
@@ -9811,6 +10064,7 @@ void UEFGFxWidgetNormalBox::NormalBoxItemSelected()
 	UEFGFxWidgetNormalBox_NormalBoxItemSelected_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9819,7 +10073,7 @@ void UEFGFxWidgetNormalBox::NormalBoxItemSelected()
 
 
 // Function EFGame.EFGFxWidgetNoticeMOD.NoticeModWaitListItemClick
-// (Final, Iterator, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick()
 {
@@ -9828,6 +10082,7 @@ void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick()
 	UEFGFxWidgetNoticeMOD_NoticeModWaitListItemClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9836,7 +10091,7 @@ void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.SetMaxTreeItemCheckNumber
-// (Defined, Iterator, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetQuestJournal::SetMaxTreeItemCheckNumber()
 {
@@ -9853,7 +10108,7 @@ void UEFGFxWidgetQuestJournal::SetMaxTreeItemCheckNumber()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.SetMaxQuestCheckNumber
-// (Defined, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetQuestJournal::SetMaxQuestCheckNumber()
 {
@@ -9870,9 +10125,9 @@ void UEFGFxWidgetQuestJournal::SetMaxQuestCheckNumber()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.ARKQuestTraceButtonClicked
-// (Final, PreOperator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetQuestJournal::STATIC_ARKQuestTraceButtonClicked()
+void UEFGFxWidgetQuestJournal::ARKQuestTraceButtonClicked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.ARKQuestTraceButtonClicked");
 
@@ -9887,7 +10142,7 @@ void UEFGFxWidgetQuestJournal::STATIC_ARKQuestTraceButtonClicked()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnClicked_TraceQuestButton
-// (Defined, Latent, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestJournal::OnClicked_TraceQuestButton()
 {
@@ -9905,7 +10160,7 @@ void UEFGFxWidgetQuestJournal::OnClicked_TraceQuestButton()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.QuestJournalTreeItemListOverPool
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Native, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetQuestJournal::QuestJournalTreeItemListOverPool()
 {
@@ -9914,7 +10169,6 @@ void UEFGFxWidgetQuestJournal::QuestJournalTreeItemListOverPool()
 	UEFGFxWidgetQuestJournal_QuestJournalTreeItemListOverPool_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9923,7 +10177,7 @@ void UEFGFxWidgetQuestJournal::QuestJournalTreeItemListOverPool()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnCheckedTreeItemOverPool
-// (Final, Iterator, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestJournal::OnCheckedTreeItemOverPool()
 {
@@ -9941,9 +10195,9 @@ void UEFGFxWidgetQuestJournal::OnCheckedTreeItemOverPool()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.ARKQuestGiveUpButtonClicked
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetQuestJournal::STATIC_ARKQuestGiveUpButtonClicked()
+void UEFGFxWidgetQuestJournal::ARKQuestGiveUpButtonClicked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.ARKQuestGiveUpButtonClicked");
 
@@ -9958,7 +10212,7 @@ void UEFGFxWidgetQuestJournal::STATIC_ARKQuestGiveUpButtonClicked()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnClicked_GiveUpButton
-// (Latent, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestJournal::OnClicked_GiveUpButton()
 {
@@ -9976,7 +10230,7 @@ void UEFGFxWidgetQuestJournal::OnClicked_GiveUpButton()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.QuestJournalTreeItemMultiCheck
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Native, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck()
 {
@@ -9985,7 +10239,6 @@ void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck()
 	UEFGFxWidgetQuestJournal_QuestJournalTreeItemMultiCheck_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -9994,7 +10247,7 @@ void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck()
 
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnChecked_QuestTreeItem
-// (Iterator, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestJournal::OnChecked_QuestTreeItem()
 {
@@ -10012,7 +10265,7 @@ void UEFGFxWidgetQuestJournal::OnChecked_QuestTreeItem()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnHide
-// (Final, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetQuestSummary::OnHide()
 {
@@ -10029,7 +10282,7 @@ void UEFGFxWidgetQuestSummary::OnHide()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnHideQuestSummary
-// (Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestSummary::OnHideQuestSummary()
 {
@@ -10047,9 +10300,9 @@ void UEFGFxWidgetQuestSummary::OnHideQuestSummary()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestSelectedRewardItem
-// (PreOperator, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetQuestSummary::STATIC_ARKQuestSelectedRewardItem()
+void UEFGFxWidgetQuestSummary::ARKQuestSelectedRewardItem()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestSelectedRewardItem");
 
@@ -10064,7 +10317,7 @@ void UEFGFxWidgetQuestSummary::STATIC_ARKQuestSelectedRewardItem()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_SelectChoiceItem
-// (Final, Latent, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestSummary::OnClicked_SelectChoiceItem()
 {
@@ -10082,9 +10335,9 @@ void UEFGFxWidgetQuestSummary::OnClicked_SelectChoiceItem()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestCompleteButtonClicked
-// (Defined, Iterator, Latent, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetQuestSummary::STATIC_ARKQuestCompleteButtonClicked()
+void UEFGFxWidgetQuestSummary::ARKQuestCompleteButtonClicked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestCompleteButtonClicked");
 
@@ -10099,7 +10352,7 @@ void UEFGFxWidgetQuestSummary::STATIC_ARKQuestCompleteButtonClicked()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_CompleteButton
-// (Final, Defined, Iterator, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestSummary::OnClicked_CompleteButton()
 {
@@ -10117,9 +10370,9 @@ void UEFGFxWidgetQuestSummary::OnClicked_CompleteButton()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestAcceptButtonClicked
-// (Final, Iterator, Latent, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetQuestSummary::STATIC_ARKQuestAcceptButtonClicked()
+void UEFGFxWidgetQuestSummary::ARKQuestAcceptButtonClicked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestAcceptButtonClicked");
 
@@ -10134,7 +10387,7 @@ void UEFGFxWidgetQuestSummary::STATIC_ARKQuestAcceptButtonClicked()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_AcceptButton
-// (Defined, Iterator, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetQuestSummary::OnClicked_AcceptButton()
 {
@@ -10152,7 +10405,7 @@ void UEFGFxWidgetQuestSummary::OnClicked_AcceptButton()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.SelectChoiceRewardItem
-// (Final, Defined, Iterator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetQuestSummary::SelectChoiceRewardItem()
 {
@@ -10169,7 +10422,7 @@ void UEFGFxWidgetQuestSummary::SelectChoiceRewardItem()
 
 
 // Function EFGame.EFGFxWidgetQuestSummary.SetSelectedIndex_ChoiceRewardItem
-// (Final, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetQuestSummary::SetSelectedIndex_ChoiceRewardItem()
 {
@@ -10186,7 +10439,7 @@ void UEFGFxWidgetQuestSummary::SetSelectedIndex_ChoiceRewardItem()
 
 
 // Function EFGame.EFGFxWidgetRandomBox.Init
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Exec)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetRandomBox::Init()
 {
@@ -10203,7 +10456,7 @@ void UEFGFxWidgetRandomBox::Init()
 
 
 // Function EFGame.EFGFxWidgetRandomBox.startAni
-// (Final, Defined, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetRandomBox::startAni()
 {
@@ -10220,7 +10473,7 @@ void UEFGFxWidgetRandomBox::startAni()
 
 
 // Function EFGame.EFGFxWidgetRandomBox.RandomBoxComplete
-// (Defined, Iterator, Latent, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRandomBox::RandomBoxComplete()
 {
@@ -10238,7 +10491,7 @@ void UEFGFxWidgetRandomBox::RandomBoxComplete()
 
 
 // Function EFGame.EFGFxWidgetRandomBox.RandomBoxClosed
-// (Final, Iterator, Latent, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRandomBox::RandomBoxClosed()
 {
@@ -10256,7 +10509,7 @@ void UEFGFxWidgetRandomBox::RandomBoxClosed()
 
 
 // Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemReceiveAll
-// (Final, Defined, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll()
 {
@@ -10265,6 +10518,7 @@ void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll()
 	UEFGFxWidgetSelectBox_SelectBoxItemReceiveAll_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10273,7 +10527,7 @@ void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll()
 
 
 // Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemSelected
-// (Iterator, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSelectBox::SelectBoxItemSelected()
 {
@@ -10282,6 +10536,7 @@ void UEFGFxWidgetSelectBox::SelectBoxItemSelected()
 	UEFGFxWidgetSelectBox_SelectBoxItemSelected_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10290,7 +10545,7 @@ void UEFGFxWidgetSelectBox::SelectBoxItemSelected()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.closePreset
-// (Final, Defined, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetSkillBook::closePreset()
 {
@@ -10307,7 +10562,7 @@ void UEFGFxWidgetSkillBook::closePreset()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.openPreset
-// (Final, Iterator, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetSkillBook::openPreset()
 {
@@ -10324,7 +10579,7 @@ void UEFGFxWidgetSkillBook::openPreset()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.cancelSelection
-// (Final, Defined, Iterator, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetSkillBook::cancelSelection()
 {
@@ -10341,7 +10596,7 @@ void UEFGFxWidgetSkillBook::cancelSelection()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetUnlock
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookPresetUnlock()
 {
@@ -10350,6 +10605,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetUnlock()
 	UEFGFxWidgetSkillBook_SkillBookPresetUnlock_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10358,7 +10614,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetUnlock()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetApply
-// (Iterator, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookPresetApply()
 {
@@ -10367,6 +10623,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetApply()
 	UEFGFxWidgetSkillBook_SkillBookPresetApply_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10375,7 +10632,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetApply()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetSelected
-// (Defined, Iterator, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookPresetSelected()
 {
@@ -10384,6 +10641,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetSelected()
 	UEFGFxWidgetSkillBook_SkillBookPresetSelected_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10392,7 +10650,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetSelected()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookInitCancel
-// (Final, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookInitCancel()
 {
@@ -10401,6 +10659,7 @@ void UEFGFxWidgetSkillBook::SkillBookInitCancel()
 	UEFGFxWidgetSkillBook_SkillBookInitCancel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10409,7 +10668,7 @@ void UEFGFxWidgetSkillBook::SkillBookInitCancel()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookInitConfirm
-// (Defined, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookInitConfirm()
 {
@@ -10418,6 +10677,7 @@ void UEFGFxWidgetSkillBook::SkillBookInitConfirm()
 	UEFGFxWidgetSkillBook_SkillBookInitConfirm_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10426,7 +10686,7 @@ void UEFGFxWidgetSkillBook::SkillBookInitConfirm()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetEdit
-// (Final, Iterator, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookPresetEdit()
 {
@@ -10435,6 +10695,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetEdit()
 	UEFGFxWidgetSkillBook_SkillBookPresetEdit_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10443,7 +10704,7 @@ void UEFGFxWidgetSkillBook::SkillBookPresetEdit()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookListSelected
-// (Final, Defined, Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookListSelected()
 {
@@ -10452,6 +10713,7 @@ void UEFGFxWidgetSkillBook::SkillBookListSelected()
 	UEFGFxWidgetSkillBook_SkillBookListSelected_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10460,7 +10722,7 @@ void UEFGFxWidgetSkillBook::SkillBookListSelected()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookTierBtnClick
-// (PreOperator, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookTierBtnClick()
 {
@@ -10469,6 +10731,7 @@ void UEFGFxWidgetSkillBook::SkillBookTierBtnClick()
 	UEFGFxWidgetSkillBook_SkillBookTierBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10477,7 +10740,7 @@ void UEFGFxWidgetSkillBook::SkillBookTierBtnClick()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookDownBtnClick
-// (Latent, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookDownBtnClick()
 {
@@ -10486,6 +10749,7 @@ void UEFGFxWidgetSkillBook::SkillBookDownBtnClick()
 	UEFGFxWidgetSkillBook_SkillBookDownBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10494,7 +10758,7 @@ void UEFGFxWidgetSkillBook::SkillBookDownBtnClick()
 
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookUpBtnClick
-// (Defined, PreOperator, NetReliable, Simulated, Exec, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSkillBook::SkillBookUpBtnClick()
 {
@@ -10503,6 +10767,7 @@ void UEFGFxWidgetSkillBook::SkillBookUpBtnClick()
 	UEFGFxWidgetSkillBook_SkillBookUpBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10511,15 +10776,16 @@ void UEFGFxWidgetSkillBook::SkillBookUpBtnClick()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionButtonClickHandler
-// (Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionButtonClickHandler()
+void UEFGFxWidgetSystemOption::SystemOptionButtonClickHandler()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionButtonClickHandler");
 
 	UEFGFxWidgetSystemOption_SystemOptionButtonClickHandler_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10528,15 +10794,16 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionButtonClickHandler()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionListIndexChange
-// (Defined, Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionListIndexChange()
+void UEFGFxWidgetSystemOption::SystemOptionListIndexChange()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionListIndexChange");
 
 	UEFGFxWidgetSystemOption_SystemOptionListIndexChange_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10545,7 +10812,7 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionListIndexChange()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.OpenChattingOptionColorPicker
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSystemOption::OpenChattingOptionColorPicker()
 {
@@ -10563,7 +10830,7 @@ void UEFGFxWidgetSystemOption::OpenChattingOptionColorPicker()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.OptionHotKeyKillFocus
-// (Final, Net, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSystemOption::OptionHotKeyKillFocus()
 {
@@ -10581,7 +10848,7 @@ void UEFGFxWidgetSystemOption::OptionHotKeyKillFocus()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.OptionHotKeyButtonChange
-// (Final, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetSystemOption::OptionHotKeyButtonChange()
 {
@@ -10599,15 +10866,16 @@ void UEFGFxWidgetSystemOption::OptionHotKeyButtonChange()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionWndCloseButtonClicked
-// (Final, Iterator, Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionWndCloseButtonClicked()
+void UEFGFxWidgetSystemOption::SystemOptionWndCloseButtonClicked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionWndCloseButtonClicked");
 
 	UEFGFxWidgetSystemOption_SystemOptionWndCloseButtonClicked_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10616,15 +10884,16 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionWndCloseButtonClicked()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionChangedSlider
-// (Final, Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionChangedSlider()
+void UEFGFxWidgetSystemOption::SystemOptionChangedSlider()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionChangedSlider");
 
 	UEFGFxWidgetSystemOption_SystemOptionChangedSlider_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10633,15 +10902,16 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionChangedSlider()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedComboBox
-// (Iterator, Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionSelectedComboBox()
+void UEFGFxWidgetSystemOption::SystemOptionSelectedComboBox()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedComboBox");
 
 	UEFGFxWidgetSystemOption_SystemOptionSelectedComboBox_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10650,15 +10920,16 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionSelectedComboBox()
 
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedCheckBox
-// (Final, Defined, Latent, Singular, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetSystemOption::STATIC_SystemOptionSelectedCheckBox()
+void UEFGFxWidgetSystemOption::SystemOptionSelectedCheckBox()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedCheckBox");
 
 	UEFGFxWidgetSystemOption_SystemOptionSelectedCheckBox_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10667,9 +10938,9 @@ void UEFGFxWidgetSystemOption::STATIC_SystemOptionSelectedCheckBox()
 
 
 // Function EFGame.EFGFxWidgetUnLockBox.UnlockBoxItemComplete
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetUnLockBox::STATIC_UnlockBoxItemComplete()
+void UEFGFxWidgetUnLockBox::UnlockBoxItemComplete()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUnLockBox.UnlockBoxItemComplete");
 
@@ -10685,9 +10956,9 @@ void UEFGFxWidgetUnLockBox::STATIC_UnlockBoxItemComplete()
 
 
 // Function EFGame.EFGFxWidgetUnLockBox.UnlockBoxItemClosed
-// (Defined, Iterator, PreOperator, Net, NetReliable, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetUnLockBox::STATIC_UnlockBoxItemClosed()
+void UEFGFxWidgetUnLockBox::UnlockBoxItemClosed()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUnLockBox.UnlockBoxItemClosed");
 
@@ -10703,7 +10974,7 @@ void UEFGFxWidgetUnLockBox::STATIC_UnlockBoxItemClosed()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.SetOtherTradeReady
-// (Defined, Iterator, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetUserTrade::SetOtherTradeReady()
 {
@@ -10720,9 +10991,9 @@ void UEFGFxWidgetUserTrade::SetOtherTradeReady()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeReady
-// (Final, Net, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetUserTrade::STATIC_ASSetOtherTradeReady()
+void UEFGFxWidgetUserTrade::ASSetOtherTradeReady()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeReady");
 
@@ -10737,7 +11008,7 @@ void UEFGFxWidgetUserTrade::STATIC_ASSetOtherTradeReady()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.SetMyTradeReady
-// (Final, Defined, Iterator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetUserTrade::SetMyTradeReady()
 {
@@ -10754,9 +11025,9 @@ void UEFGFxWidgetUserTrade::SetMyTradeReady()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeReady
-// (Final, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetUserTrade::STATIC_ASSetMyTradeReady()
+void UEFGFxWidgetUserTrade::ASSetMyTradeReady()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeReady");
 
@@ -10771,7 +11042,7 @@ void UEFGFxWidgetUserTrade::STATIC_ASSetMyTradeReady()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.SetOtherTradeConfirm
-// (Final, Iterator, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetUserTrade::SetOtherTradeConfirm()
 {
@@ -10788,9 +11059,9 @@ void UEFGFxWidgetUserTrade::SetOtherTradeConfirm()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeConfirm
-// (Net, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetUserTrade::STATIC_ASSetOtherTradeConfirm()
+void UEFGFxWidgetUserTrade::ASSetOtherTradeConfirm()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeConfirm");
 
@@ -10805,7 +11076,7 @@ void UEFGFxWidgetUserTrade::STATIC_ASSetOtherTradeConfirm()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.SetMyTradeConfirm
-// (Defined, Iterator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetUserTrade::SetMyTradeConfirm()
 {
@@ -10822,9 +11093,9 @@ void UEFGFxWidgetUserTrade::SetMyTradeConfirm()
 
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeConfirm
-// (Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetUserTrade::STATIC_ASSetMyTradeConfirm()
+void UEFGFxWidgetUserTrade::ASSetMyTradeConfirm()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeConfirm");
 
@@ -10839,9 +11110,9 @@ void UEFGFxWidgetUserTrade::STATIC_ASSetMyTradeConfirm()
 
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick
-// (Final, Iterator, Singular, Net, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowConfirmBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowConfirmBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick");
 
@@ -10857,9 +11128,9 @@ void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowConfirmBtnClick()
 
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick
-// (Defined, Iterator, Singular, Net, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowExchangeBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowExchangeBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick");
 
@@ -10875,9 +11146,9 @@ void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowExchangeBtnClick()
 
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick
-// (Final, Defined, Iterator, Singular, Net, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowUnlockBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowUnlockBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick");
 
@@ -10893,7 +11164,7 @@ void UEFGFxWidgetVictoryCrest::STATIC_VictoryCrestWindowUnlockBtnClick()
 
 
 // Function EFGame.EFUIFrame.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFUIFrame::WidgetInitialized()
 {
@@ -10910,7 +11181,7 @@ void UEFUIFrame::WidgetInitialized()
 
 
 // Function EFGame.EFUIFrame.Deactivate
-// (Iterator, Singular, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UEFUIFrame::Deactivate()
 {
@@ -10927,7 +11198,7 @@ void UEFUIFrame::Deactivate()
 
 
 // Function EFGame.EFUIFrame.Activate
-// (Defined, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UEFUIFrame::Activate()
 {
@@ -10944,15 +11215,16 @@ void UEFUIFrame::Activate()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.AnnounceFrameMotionComplete
-// (Final, Iterator, PreOperator, Singular, Net, Simulated, Exec, Event, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetAnnounce::STATIC_AnnounceFrameMotionComplete()
+void UEFGFxWidgetAnnounce::AnnounceFrameMotionComplete()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.AnnounceFrameMotionComplete");
 
 	UEFGFxWidgetAnnounce_AnnounceFrameMotionComplete_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -10961,7 +11233,7 @@ void UEFGFxWidgetAnnounce::STATIC_AnnounceFrameMotionComplete()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.cleanUpLayer
-// (Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::cleanUpLayer()
 {
@@ -10978,7 +11250,7 @@ void UEFGFxWidgetAnnounce::cleanUpLayer()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnouncePosition
-// (Final, Iterator, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::setAnnouncePosition()
 {
@@ -10995,7 +11267,7 @@ void UEFGFxWidgetAnnounce::setAnnouncePosition()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceListPosition
-// (Defined, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::getAnnounceListPosition()
 {
@@ -11012,7 +11284,7 @@ void UEFGFxWidgetAnnounce::getAnnounceListPosition()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnounceItemTime
-// (Iterator, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::setAnnounceItemTime()
 {
@@ -11029,7 +11301,7 @@ void UEFGFxWidgetAnnounce::setAnnounceItemTime()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceItemTime
-// (Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::getAnnounceItemTime()
 {
@@ -11046,7 +11318,7 @@ void UEFGFxWidgetAnnounce::getAnnounceItemTime()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceListItem
-// (Final, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::getAnnounceListItem()
 {
@@ -11063,7 +11335,7 @@ void UEFGFxWidgetAnnounce::getAnnounceListItem()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnounceTotalItem
-// (Defined, Iterator, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::setAnnounceTotalItem()
 {
@@ -11080,7 +11352,7 @@ void UEFGFxWidgetAnnounce::setAnnounceTotalItem()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceMaxItem
-// (Final, Defined, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::getAnnounceMaxItem()
 {
@@ -11097,7 +11369,7 @@ void UEFGFxWidgetAnnounce::getAnnounceMaxItem()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceCurrentItem
-// (Final, Defined, Iterator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::getAnnounceCurrentItem()
 {
@@ -11114,7 +11386,7 @@ void UEFGFxWidgetAnnounce::getAnnounceCurrentItem()
 
 
 // Function EFGame.EFGFxWidgetAnnounce.addAnnounceMessage
-// (Iterator, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetAnnounce::addAnnounceMessage()
 {
@@ -11131,7 +11403,7 @@ void UEFGFxWidgetAnnounce::addAnnounceMessage()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.SetEnableResetButton
-// (Defined, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetClassPreview::SetEnableResetButton()
 {
@@ -11148,7 +11420,7 @@ void UEFGFxWidgetClassPreview::SetEnableResetButton()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.SetShowType
-// (Final, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetClassPreview::SetShowType()
 {
@@ -11165,7 +11437,7 @@ void UEFGFxWidgetClassPreview::SetShowType()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.SetClassUpgradeChoiceInfo
-// (Iterator, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetClassPreview::SetClassUpgradeChoiceInfo()
 {
@@ -11182,7 +11454,7 @@ void UEFGFxWidgetClassPreview::SetClassUpgradeChoiceInfo()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.SetPlayingClassData
-// (PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetClassPreview::SetPlayingClassData()
 {
@@ -11199,15 +11471,16 @@ void UEFGFxWidgetClassPreview::SetPlayingClassData()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeCancelRelease
-// (Final, Defined, Iterator, Latent, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeCancelRelease()
+void UEFGFxWidgetClassPreview::ClassUpgradeCancelRelease()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeCancelRelease");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeCancelRelease_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11216,15 +11489,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeCancelRelease()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeSelectClassID
-// (Final, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeSelectClassID()
+void UEFGFxWidgetClassPreview::ClassUpgradeSelectClassID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeSelectClassID");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeSelectClassID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11233,15 +11507,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeSelectClassID()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeConfirmClass
-// (PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeConfirmClass()
+void UEFGFxWidgetClassPreview::ClassUpgradeConfirmClass()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeConfirmClass");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeConfirmClass_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11250,15 +11525,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeConfirmClass()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeReturnRelease
-// (Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeReturnRelease()
+void UEFGFxWidgetClassPreview::ClassUpgradeReturnRelease()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeReturnRelease");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeReturnRelease_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11267,15 +11543,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeReturnRelease()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeAddBossMonster
-// (Final, Iterator, Latent, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeAddBossMonster()
+void UEFGFxWidgetClassPreview::ClassUpgradeAddBossMonster()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeAddBossMonster");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeAddBossMonster_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11284,15 +11561,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeAddBossMonster()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeAddNormalMonster
-// (Defined, Iterator, Latent, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeAddNormalMonster()
+void UEFGFxWidgetClassPreview::ClassUpgradeAddNormalMonster()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeAddNormalMonster");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeAddNormalMonster_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11301,15 +11579,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradeAddNormalMonster()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePlayReset
-// (Final, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePlayReset()
+void UEFGFxWidgetClassPreview::ClassUpgradePlayReset()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePlayReset");
 
 	UEFGFxWidgetClassPreview_ClassUpgradePlayReset_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11318,7 +11597,7 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePlayReset()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.RequestStopMovie
-// (Defined, Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetClassPreview::RequestStopMovie()
 {
@@ -11336,7 +11615,7 @@ void UEFGFxWidgetClassPreview::RequestStopMovie()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.RequestPlayMovieClassUpgradePreview
-// (Final, Defined, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetClassPreview::RequestPlayMovieClassUpgradePreview()
 {
@@ -11354,15 +11633,16 @@ void UEFGFxWidgetClassPreview::RequestPlayMovieClassUpgradePreview()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewRequestCloseWnd
-// (Final, Defined, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePreviewRequestCloseWnd()
+void UEFGFxWidgetClassPreview::ClassUpgradePreviewRequestCloseWnd()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewRequestCloseWnd");
 
 	UEFGFxWidgetClassPreview_ClassUpgradePreviewRequestCloseWnd_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11371,15 +11651,16 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePreviewRequestCloseWnd()
 
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewPlaySelectClass
-// (Defined, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePreviewPlaySelectClass()
+void UEFGFxWidgetClassPreview::ClassUpgradePreviewPlaySelectClass()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewPlaySelectClass");
 
 	UEFGFxWidgetClassPreview_ClassUpgradePreviewPlaySelectClass_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11388,7 +11669,7 @@ void UEFGFxWidgetClassPreview::STATIC_ClassUpgradePreviewPlaySelectClass()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.setObserverMod
-// (Iterator, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::setObserverMod()
 {
@@ -11405,7 +11686,7 @@ void UEFGFxWidgetColosseum_New::setObserverMod()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.setTimerPause
-// (Final, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::setTimerPause()
 {
@@ -11422,7 +11703,7 @@ void UEFGFxWidgetColosseum_New::setTimerPause()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.AddItem
-// (Final, PreOperator, Singular, NetReliable, Native)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::AddItem()
 {
@@ -11431,7 +11712,6 @@ void UEFGFxWidgetColosseum_New::AddItem()
 	UEFGFxWidgetColosseum_New_AddItem_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11440,7 +11720,7 @@ void UEFGFxWidgetColosseum_New::AddItem()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.setModType
-// (Final, Iterator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::setModType()
 {
@@ -11457,7 +11737,7 @@ void UEFGFxWidgetColosseum_New::setModType()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.roundAnnounceShowType
-// (Iterator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::roundAnnounceShowType()
 {
@@ -11474,7 +11754,7 @@ void UEFGFxWidgetColosseum_New::roundAnnounceShowType()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.announceShowType
-// (Defined, Iterator, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::announceShowType()
 {
@@ -11491,7 +11771,7 @@ void UEFGFxWidgetColosseum_New::announceShowType()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.setStartData
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::setStartData()
 {
@@ -11508,7 +11788,7 @@ void UEFGFxWidgetColosseum_New::setStartData()
 
 
 // Function EFGame.EFGFxWidgetColosseum_New.setWaitData
-// (Final, Defined, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetColosseum_New::setWaitData()
 {
@@ -11525,7 +11805,7 @@ void UEFGFxWidgetColosseum_New::setWaitData()
 
 
 // Function EFGame.EFGFxWidgetCommon.SetPartyMemberValue
-// (Final, Defined, Iterator, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCommon::SetPartyMemberValue()
 {
@@ -11542,7 +11822,7 @@ void UEFGFxWidgetCommon::SetPartyMemberValue()
 
 
 // Function EFGame.EFGFxWidgetCommon.SetCommonObjectAvailableSkip
-// (Final, Iterator, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCommon::SetCommonObjectAvailableSkip()
 {
@@ -11559,7 +11839,7 @@ void UEFGFxWidgetCommon::SetCommonObjectAvailableSkip()
 
 
 // Function EFGame.EFGFxWidgetCommon.ShowCommonObjectAvailableSkip
-// (Final, Iterator, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCommon::ShowCommonObjectAvailableSkip()
 {
@@ -11576,7 +11856,7 @@ void UEFGFxWidgetCommon::ShowCommonObjectAvailableSkip()
 
 
 // Function EFGame.EFGFxWidgetCommon.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetCommon::WidgetInitialized()
 {
@@ -11593,16 +11873,15 @@ void UEFGFxWidgetCommon::WidgetInitialized()
 
 
 // Function EFGame.EFGFxWidgetContentsUnlock.ContentsUnlockCallbackTypeID
-// (Iterator, Latent, Singular, Net, Native, Operator, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetContentsUnlock::STATIC_ContentsUnlockCallbackTypeID()
+void UEFGFxWidgetContentsUnlock::ContentsUnlockCallbackTypeID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetContentsUnlock.ContentsUnlockCallbackTypeID");
 
 	UEFGFxWidgetContentsUnlock_ContentsUnlockCallbackTypeID_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11611,7 +11890,7 @@ void UEFGFxWidgetContentsUnlock::STATIC_ContentsUnlockCallbackTypeID()
 
 
 // Function EFGame.EFGFxWidgetContentsUnlock.OnContentsUnlockCallbackTypeID
-// (Final, Defined, Latent, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetContentsUnlock::OnContentsUnlockCallbackTypeID()
 {
@@ -11629,9 +11908,9 @@ void UEFGFxWidgetContentsUnlock::OnContentsUnlockCallbackTypeID()
 
 
 // Function EFGame.EFGFxWidgetDamage.EFDataBinding_UpdateData
-// (Final, Iterator, NetReliable, Event, Operator, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetDamage::STATIC_EFDataBinding_UpdateData()
+void UEFGFxWidgetDamage::EFDataBinding_UpdateData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetDamage.EFDataBinding_UpdateData");
 
@@ -11646,7 +11925,7 @@ void UEFGFxWidgetDamage::STATIC_EFDataBinding_UpdateData()
 
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.MiniGameStateChanged
-// (Final, Latent, PreOperator, Singular, NetReliable, Simulated, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetExcavationMiniGame::MiniGameStateChanged()
 {
@@ -11663,7 +11942,7 @@ void UEFGFxWidgetExcavationMiniGame::MiniGameStateChanged()
 
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.OnChangeGameState
-// (Final, Defined, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetExcavationMiniGame::OnChangeGameState()
 {
@@ -11681,9 +11960,9 @@ void UEFGFxWidgetExcavationMiniGame::OnChangeGameState()
 
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.ArcheologyResultComplete
-// (Defined, Latent, NetReliable, Simulated, Exec, Event, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetExcavationMiniGame::STATIC_ArcheologyResultComplete()
+void UEFGFxWidgetExcavationMiniGame::ArcheologyResultComplete()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetExcavationMiniGame.ArcheologyResultComplete");
 
@@ -11698,7 +11977,7 @@ void UEFGFxWidgetExcavationMiniGame::STATIC_ArcheologyResultComplete()
 
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.OnResultComplete
-// (Defined, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetExcavationMiniGame::OnResultComplete()
 {
@@ -11716,7 +11995,7 @@ void UEFGFxWidgetExcavationMiniGame::OnResultComplete()
 
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.MiniGameStateChanged
-// (Final, Latent, PreOperator, Singular, NetReliable, Simulated, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetFishingNetMiniGame::MiniGameStateChanged()
 {
@@ -11733,7 +12012,7 @@ void UEFGFxWidgetFishingNetMiniGame::MiniGameStateChanged()
 
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.OnChangeGameState
-// (Final, Defined, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetFishingNetMiniGame::OnChangeGameState()
 {
@@ -11751,16 +12030,15 @@ void UEFGFxWidgetFishingNetMiniGame::OnChangeGameState()
 
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.FishingGameOver
-// (Final, Defined, PreOperator, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetFishingNetMiniGame::STATIC_FishingGameOver()
+void UEFGFxWidgetFishingNetMiniGame::FishingGameOver()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetFishingNetMiniGame.FishingGameOver");
 
 	UEFGFxWidgetFishingNetMiniGame_FishingGameOver_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11769,7 +12047,7 @@ void UEFGFxWidgetFishingNetMiniGame::STATIC_FishingGameOver()
 
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.OnFishingGameOver
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetFishingNetMiniGame::OnFishingGameOver()
 {
@@ -11787,7 +12065,7 @@ void UEFGFxWidgetFishingNetMiniGame::OnFishingGameOver()
 
 
 // Function EFGame.EFGFxWidgetHeadStatus.MoveHeadStatus
-// (Defined, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetHeadStatus::MoveHeadStatus()
 {
@@ -11804,7 +12082,7 @@ void UEFGFxWidgetHeadStatus::MoveHeadStatus()
 
 
 // Function EFGame.EFGFxWidgetHudCommonExp.HUD_CommonTabIndex
-// (Defined, Iterator, Latent, Net, Simulated, Exec, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetHudCommonExp::HUD_CommonTabIndex()
 {
@@ -11821,15 +12099,16 @@ void UEFGFxWidgetHudCommonExp::HUD_CommonTabIndex()
 
 
 // Function EFGame.EFGFxWidgetHudCommonExp.CommonTabIndex
-// (Final, Defined, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetHudCommonExp::STATIC_CommonTabIndex()
+void UEFGFxWidgetHudCommonExp::CommonTabIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudCommonExp.CommonTabIndex");
 
 	UEFGFxWidgetHudCommonExp_CommonTabIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11838,7 +12117,7 @@ void UEFGFxWidgetHudCommonExp::STATIC_CommonTabIndex()
 
 
 // Function EFGame.EFGFxWidgetHudIdentity.SummonerSkillButtonClick
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetHudIdentity::SummonerSkillButtonClick()
 {
@@ -11856,15 +12135,16 @@ void UEFGFxWidgetHudIdentity::SummonerSkillButtonClick()
 
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListRightBtnClick
-// (Final, Defined, Iterator, Latent, PreOperator, Net, Simulated, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListRightBtnClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListRightBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListRightBtnClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListRightBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11873,15 +12153,16 @@ void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListRightBtnClick()
 
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListLeftBtnClick
-// (Defined, Iterator, Latent, PreOperator, Net, Simulated, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListLeftBtnClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListLeftBtnClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListLeftBtnClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListLeftBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11890,15 +12171,16 @@ void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListLeftBtnClick()
 
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListItemClick
-// (Final, Iterator, Latent, PreOperator, Net, Simulated, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListItemClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListItemClick()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListItemClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListItemClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11907,7 +12189,7 @@ void UEFGFxWidgetHudLeftTop::STATIC_TopHUDAlarmListItemClick()
 
 
 // Function EFGame.EFGFxWidgetInteraction.RelationShipLevelUp
-// (Final, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::RelationShipLevelUp()
 {
@@ -11924,7 +12206,7 @@ void UEFGFxWidgetInteraction::RelationShipLevelUp()
 
 
 // Function EFGame.EFGFxWidgetInteraction.CloseBackGround
-// (Defined, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::CloseBackGround()
 {
@@ -11941,7 +12223,7 @@ void UEFGFxWidgetInteraction::CloseBackGround()
 
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCloseBackGround
-// (Defined, Iterator, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::InteractionCloseBackGround()
 {
@@ -11950,7 +12232,6 @@ void UEFGFxWidgetInteraction::InteractionCloseBackGround()
 	UEFGFxWidgetInteraction_InteractionCloseBackGround_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11959,7 +12240,7 @@ void UEFGFxWidgetInteraction::InteractionCloseBackGround()
 
 
 // Function EFGame.EFGFxWidgetInteraction.OpenBackGround
-// (Final, Defined, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::OpenBackGround()
 {
@@ -11976,7 +12257,7 @@ void UEFGFxWidgetInteraction::OpenBackGround()
 
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionOpenBackGround
-// (Final, Defined, PreOperator, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::InteractionOpenBackGround()
 {
@@ -11985,7 +12266,6 @@ void UEFGFxWidgetInteraction::InteractionOpenBackGround()
 	UEFGFxWidgetInteraction_InteractionOpenBackGround_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -11994,7 +12274,7 @@ void UEFGFxWidgetInteraction::InteractionOpenBackGround()
 
 
 // Function EFGame.EFGFxWidgetInteraction.SelectQuestListIndex
-// (Defined, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::SelectQuestListIndex()
 {
@@ -12011,7 +12291,7 @@ void UEFGFxWidgetInteraction::SelectQuestListIndex()
 
 
 // Function EFGame.EFGFxWidgetInteraction.SelectQuestList
-// (Final, Latent, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::SelectQuestList()
 {
@@ -12028,7 +12308,7 @@ void UEFGFxWidgetInteraction::SelectQuestList()
 
 
 // Function EFGame.EFGFxWidgetInteraction.SelectFunctionType
-// (Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::SelectFunctionType()
 {
@@ -12045,7 +12325,7 @@ void UEFGFxWidgetInteraction::SelectFunctionType()
 
 
 // Function EFGame.EFGFxWidgetInteraction.SelectFunctionContainer
-// (Latent, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::SelectFunctionContainer()
 {
@@ -12062,7 +12342,7 @@ void UEFGFxWidgetInteraction::SelectFunctionContainer()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ShowMaxIntimatePoint
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::ShowMaxIntimatePoint()
 {
@@ -12079,7 +12359,7 @@ void UEFGFxWidgetInteraction::ShowMaxIntimatePoint()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ShowMaximumIntimatePoint
-// (Final, Defined, NetReliable, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::ShowMaximumIntimatePoint()
 {
@@ -12096,7 +12376,7 @@ void UEFGFxWidgetInteraction::ShowMaximumIntimatePoint()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ClearInteractionState
-// (Final, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::ClearInteractionState()
 {
@@ -12113,9 +12393,9 @@ void UEFGFxWidgetInteraction::ClearInteractionState()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ClearFunctionButtonState
-// (Defined, Latent, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Defined, Public)
 
-void UEFGFxWidgetInteraction::STATIC_ClearFunctionButtonState()
+void UEFGFxWidgetInteraction::ClearFunctionButtonState()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClearFunctionButtonState");
 
@@ -12130,7 +12410,7 @@ void UEFGFxWidgetInteraction::STATIC_ClearFunctionButtonState()
 
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonCloseBtnClick
-// (Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::InteractionCommonCloseBtnClick()
 {
@@ -12139,7 +12419,6 @@ void UEFGFxWidgetInteraction::InteractionCommonCloseBtnClick()
 	UEFGFxWidgetInteraction_InteractionCommonCloseBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12148,15 +12427,16 @@ void UEFGFxWidgetInteraction::InteractionCommonCloseBtnClick()
 
 
 // Function EFGame.EFGFxWidgetInteraction.EndInteractionMode
-// (Final, Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteraction::STATIC_EndInteractionMode()
+void UEFGFxWidgetInteraction::EndInteractionMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.EndInteractionMode");
 
 	UEFGFxWidgetInteraction_EndInteractionMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12165,7 +12445,7 @@ void UEFGFxWidgetInteraction::STATIC_EndInteractionMode()
 
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonPlayerTalkListClick
-// (Final, Defined, Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick()
 {
@@ -12174,7 +12454,6 @@ void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick()
 	UEFGFxWidgetInteraction_InteractionCommonPlayerTalkListClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12183,15 +12462,16 @@ void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkSelectList
-// (Defined, Latent, Singular, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteraction::STATIC_ClickInteractionTalkSelectList()
+void UEFGFxWidgetInteraction::ClickInteractionTalkSelectList()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkSelectList");
 
 	UEFGFxWidgetInteraction_ClickInteractionTalkSelectList_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12200,7 +12480,7 @@ void UEFGFxWidgetInteraction::STATIC_ClickInteractionTalkSelectList()
 
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonNPCTalkListClick
-// (Defined, Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick()
 {
@@ -12209,7 +12489,6 @@ void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick()
 	UEFGFxWidgetInteraction_InteractionCommonNPCTalkListClick_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12218,30 +12497,13 @@ void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick()
 
 
 // Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkList
-// (Final, Latent, Singular, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteraction::STATIC_ClickInteractionTalkList()
+void UEFGFxWidgetInteraction::ClickInteractionTalkList()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkList");
 
 	UEFGFxWidgetInteraction_ClickInteractionTalkList_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick
-// (Final, Latent, NetReliable, Native, HasOptionalParms, Const)
-
-void UEFGFxWidgetInteraction::InteractionCommonMenuListClick()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick");
-
-	UEFGFxWidgetInteraction_InteractionCommonMenuListClick_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12252,14 +12514,14 @@ void UEFGFxWidgetInteraction::InteractionCommonMenuListClick()
 }
 
 
-// Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu
-// (Latent, Singular, Net, NetReliable, Simulated, Operator, Static, Const)
+// Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick
+// (Defined, Public)
 
-void UEFGFxWidgetInteraction::STATIC_ClickInteractionFunctionMenu()
+void UEFGFxWidgetInteraction::InteractionCommonMenuListClick()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu");
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick");
 
-	UEFGFxWidgetInteraction_ClickInteractionFunctionMenu_Params params;
+	UEFGFxWidgetInteraction_InteractionCommonMenuListClick_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12269,8 +12531,26 @@ void UEFGFxWidgetInteraction::STATIC_ClickInteractionFunctionMenu()
 }
 
 
+// Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu
+// (Native, Public)
+
+void UEFGFxWidgetInteraction::ClickInteractionFunctionMenu()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu");
+
+	UEFGFxWidgetInteraction_ClickInteractionFunctionMenu_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function EFGame.EFGFxWidgetInteraction.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetInteraction::WidgetInitialized()
 {
@@ -12287,7 +12567,7 @@ void UEFGFxWidgetInteraction::WidgetInitialized()
 
 
 // Function EFGame.EFGFxWidgetInteractionKeyIcon.InteractionKeySelected
-// (Final, Iterator, Latent, NetReliable, Native, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetInteractionKeyIcon::InteractionKeySelected()
 {
@@ -12296,7 +12576,6 @@ void UEFGFxWidgetInteractionKeyIcon::InteractionKeySelected()
 	UEFGFxWidgetInteractionKeyIcon_InteractionKeySelected_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12305,9 +12584,9 @@ void UEFGFxWidgetInteractionKeyIcon::InteractionKeySelected()
 
 
 // Function EFGame.EFGFxWidgetInteractionKeyIcon.FinishSwitchInteractionMode
-// (Final, Latent, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetInteractionKeyIcon::STATIC_FinishSwitchInteractionMode()
+void UEFGFxWidgetInteractionKeyIcon::FinishSwitchInteractionMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionKeyIcon.FinishSwitchInteractionMode");
 
@@ -12323,7 +12602,7 @@ void UEFGFxWidgetInteractionKeyIcon::STATIC_FinishSwitchInteractionMode()
 
 
 // Function EFGame.EFGFxWidgetLifeToolDurability.HideLifeDurability
-// (PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetLifeToolDurability::HideLifeDurability()
 {
@@ -12340,7 +12619,7 @@ void UEFGFxWidgetLifeToolDurability::HideLifeDurability()
 
 
 // Function EFGame.EFGFxWidgetLifeToolDurability.DecreaseLifeDurability
-// (Final, Iterator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetLifeToolDurability::DecreaseLifeDurability()
 {
@@ -12357,7 +12636,7 @@ void UEFGFxWidgetLifeToolDurability::DecreaseLifeDurability()
 
 
 // Function EFGame.EFGFxWidgetLifeToolDurability.ShowLifeDurability
-// (Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetLifeToolDurability::ShowLifeDurability()
 {
@@ -12374,7 +12653,7 @@ void UEFGFxWidgetLifeToolDurability::ShowLifeDurability()
 
 
 // Function EFGame.EFGFxWidgetLifeVessel.LifeVesselCompleteAnimationEnd
-// (Latent, PreOperator, Simulated, Exec, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetLifeVessel::LifeVesselCompleteAnimationEnd()
 {
@@ -12392,7 +12671,7 @@ void UEFGFxWidgetLifeVessel::LifeVesselCompleteAnimationEnd()
 
 
 // Function EFGame.EFGFxWidgetMenu.QuickSlotMenuClick
-// (Singular, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMenu::QuickSlotMenuClick()
 {
@@ -12410,7 +12689,7 @@ void UEFGFxWidgetMenu::QuickSlotMenuClick()
 
 
 // Function EFGame.EFGFxWidgetMenu.GetMenu
-// (Final, Defined, Iterator, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::GetMenu()
 {
@@ -12427,7 +12706,7 @@ void UEFGFxWidgetMenu::GetMenu()
 
 
 // Function EFGame.EFGFxWidgetMenu.SetEnableButton
-// (Final, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::SetEnableButton()
 {
@@ -12444,7 +12723,7 @@ void UEFGFxWidgetMenu::SetEnableButton()
 
 
 // Function EFGame.EFGFxWidgetMenu.SetToolTip
-// (Defined, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::SetToolTip()
 {
@@ -12461,7 +12740,7 @@ void UEFGFxWidgetMenu::SetToolTip()
 
 
 // Function EFGame.EFGFxWidgetMenu.SetBindKey
-// (Final, Defined, Iterator, Latent, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::SetBindKey()
 {
@@ -12478,7 +12757,7 @@ void UEFGFxWidgetMenu::SetBindKey()
 
 
 // Function EFGame.EFGFxWidgetMenu.SetSelectButton
-// (Final, Defined, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::SetSelectButton()
 {
@@ -12495,7 +12774,7 @@ void UEFGFxWidgetMenu::SetSelectButton()
 
 
 // Function EFGame.EFGFxWidgetMenu.SelectButton
-// (Defined, Iterator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMenu::SelectButton()
 {
@@ -12512,7 +12791,7 @@ void UEFGFxWidgetMenu::SelectButton()
 
 
 // Function EFGame.EFGFxWidgetMinimap.RequestShowMinimapChannelList
-// (Final, Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMinimap::RequestShowMinimapChannelList()
 {
@@ -12530,7 +12809,7 @@ void UEFGFxWidgetMinimap::RequestShowMinimapChannelList()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.ModCommonMergeCompensation
-// (Singular, Net, Exec, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetMOD_Cube::ModCommonMergeCompensation()
 {
@@ -12547,9 +12826,9 @@ void UEFGFxWidgetMOD_Cube::ModCommonMergeCompensation()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.FinishMergeCompensation
-// (Latent, NetReliable, Simulated, Native, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetMOD_Cube::STATIC_FinishMergeCompensation()
+void UEFGFxWidgetMOD_Cube::FinishMergeCompensation()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.FinishMergeCompensation");
 
@@ -12565,7 +12844,7 @@ void UEFGFxWidgetMOD_Cube::STATIC_FinishMergeCompensation()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.ModCommonEndCubeEffect
-// (Final, Defined, Iterator, Latent, PreOperator, Net, Exec, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFGFxWidgetMOD_Cube::ModCommonEndCubeEffect()
 {
@@ -12582,15 +12861,16 @@ void UEFGFxWidgetMOD_Cube::ModCommonEndCubeEffect()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.EndBuffEffect
-// (Final, PreOperator, Singular, NetReliable, Simulated, Exec, Event, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetMOD_Cube::STATIC_EndBuffEffect()
+void UEFGFxWidgetMOD_Cube::EndBuffEffect()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.EndBuffEffect");
 
 	UEFGFxWidgetMOD_Cube_EndBuffEffect_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12599,7 +12879,7 @@ void UEFGFxWidgetMOD_Cube::STATIC_EndBuffEffect()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.PlayModCommonMergeCompensation
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::PlayModCommonMergeCompensation()
 {
@@ -12616,7 +12896,7 @@ void UEFGFxWidgetMOD_Cube::PlayModCommonMergeCompensation()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonRandomState
-// (Defined, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonRandomState()
 {
@@ -12633,7 +12913,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonRandomState()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonCurrentCompensation
-// (Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonCurrentCompensation()
 {
@@ -12650,7 +12930,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonCurrentCompensation()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonAccumulateCompensation
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonAccumulateCompensation()
 {
@@ -12667,7 +12947,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonAccumulateCompensation()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.UpdateModCommonCubeState
-// (Iterator, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::UpdateModCommonCubeState()
 {
@@ -12684,7 +12964,7 @@ void UEFGFxWidgetMOD_Cube::UpdateModCommonCubeState()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.RemoveModCommonCubeState
-// (Defined, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::RemoveModCommonCubeState()
 {
@@ -12701,7 +12981,7 @@ void UEFGFxWidgetMOD_Cube::RemoveModCommonCubeState()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.AddModCommonCubeState
-// (Final, Iterator, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::AddModCommonCubeState()
 {
@@ -12718,7 +12998,7 @@ void UEFGFxWidgetMOD_Cube::AddModCommonCubeState()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonStateList
-// (Final, Defined, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonStateList()
 {
@@ -12735,7 +13015,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonStateList()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonWaveStep
-// (Iterator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonWaveStep()
 {
@@ -12752,7 +13032,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonWaveStep()
 
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonHudType
-// (Final, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetMOD_Cube::SetModCommonHudType()
 {
@@ -12769,7 +13049,7 @@ void UEFGFxWidgetMOD_Cube::SetModCommonHudType()
 
 
 // Function EFGame.EFGFxWidgetMOD_PlatinumArea.ModPlatinumCoopComplete
-// (Defined, Latent, Singular, Net, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete()
 {
@@ -12778,6 +13058,7 @@ void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete()
 	UEFGFxWidgetMOD_PlatinumArea_ModPlatinumCoopComplete_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12786,7 +13067,7 @@ void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete()
 
 
 // Function EFGame.EFGFxWidgetMODEntrance.ModEntranceMapCanvasItemClick
-// (Defined, Iterator, Singular, Net, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick()
 {
@@ -12795,6 +13076,7 @@ void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick()
 	UEFGFxWidgetMODEntrance_ModEntranceMapCanvasItemClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12803,7 +13085,7 @@ void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick()
 
 
 // Function EFGame.EFGFxWidgetNotice.setNoticeIcon
-// (Final, Defined, Latent, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetNotice::setNoticeIcon()
 {
@@ -12820,7 +13102,7 @@ void UEFGFxWidgetNotice::setNoticeIcon()
 
 
 // Function EFGame.EFGFxWidgetNotice.NoticeFrameAlarmBtnClick
-// (Iterator, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick()
 {
@@ -12829,6 +13111,7 @@ void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick()
 	UEFGFxWidgetNotice_NoticeFrameAlarmBtnClick_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -12837,7 +13120,7 @@ void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick()
 
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.SetDefaultClassData
-// (Final, Defined, Iterator, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCreateHUD::SetDefaultClassData()
 {
@@ -12854,7 +13137,7 @@ void UEFGFxWidgetPcCreateHUD::SetDefaultClassData()
 
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.RequestStopMovie
-// (Defined, Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetPcCreateHUD::RequestStopMovie()
 {
@@ -12872,7 +13155,7 @@ void UEFGFxWidgetPcCreateHUD::RequestStopMovie()
 
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.RequestPlayMovieClassSelectPreview
-// (Defined, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetPcCreateHUD::RequestPlayMovieClassSelectPreview()
 {
@@ -12890,7 +13173,7 @@ void UEFGFxWidgetPcCreateHUD::RequestPlayMovieClassSelectPreview()
 
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.RequestUpdateClassSelectData
-// (Final, Defined, Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetPcCreateHUD::RequestUpdateClassSelectData()
 {
@@ -12908,7 +13191,7 @@ void UEFGFxWidgetPcCreateHUD::RequestUpdateClassSelectData()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.previewImg
-// (NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCustomizing::previewImg()
 {
@@ -12925,7 +13208,7 @@ void UEFGFxWidgetPcCustomizing::previewImg()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setCostume
-// (Defined, Iterator, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCustomizing::setCostume()
 {
@@ -12942,7 +13225,7 @@ void UEFGFxWidgetPcCustomizing::setCostume()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setClassID
-// (Final, Defined, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCustomizing::setClassID()
 {
@@ -12959,7 +13242,7 @@ void UEFGFxWidgetPcCustomizing::setClassID()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setPreviewcostumeData
-// (Defined, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCustomizing::setPreviewcostumeData()
 {
@@ -12976,7 +13259,7 @@ void UEFGFxWidgetPcCustomizing::setPreviewcostumeData()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setPresetData
-// (Final, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcCustomizing::setPresetData()
 {
@@ -12993,9 +13276,9 @@ void UEFGFxWidgetPcCustomizing::setPresetData()
 
 
 // Function EFGame.EFGFxWidgetPcCustomizing.CustomizingSettingValueChanged
-// (Final, Defined, Iterator, Latent, Net, Simulated, Native, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcCustomizing::STATIC_CustomizingSettingValueChanged()
+void UEFGFxWidgetPcCustomizing::CustomizingSettingValueChanged()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.CustomizingSettingValueChanged");
 
@@ -13011,7 +13294,7 @@ void UEFGFxWidgetPcCustomizing::STATIC_CustomizingSettingValueChanged()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.ShowAnim
-// (Iterator, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcSelect::ShowAnim()
 {
@@ -13028,7 +13311,7 @@ void UEFGFxWidgetPcSelect::ShowAnim()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.ShowNotice
-// (Final, Net, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcSelect::ShowNotice()
 {
@@ -13045,7 +13328,7 @@ void UEFGFxWidgetPcSelect::ShowNotice()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.SetCharacterSelect
-// (Defined, PreOperator, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGFxWidgetPcSelect::SetCharacterSelect()
 {
@@ -13062,15 +13345,16 @@ void UEFGFxWidgetPcSelect::SetCharacterSelect()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectMoving
-// (Iterator, Latent, PreOperator, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_CharacterSelectMoving()
+void UEFGFxWidgetPcSelect::CharacterSelectMoving()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectMoving");
 
 	UEFGFxWidgetPcSelect_CharacterSelectMoving_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13079,15 +13363,16 @@ void UEFGFxWidgetPcSelect::STATIC_CharacterSelectMoving()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.WallpaperCancel
-// (Final, Defined, Iterator, Latent, Singular, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_WallpaperCancel()
+void UEFGFxWidgetPcSelect::WallpaperCancel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.WallpaperCancel");
 
 	UEFGFxWidgetPcSelect_WallpaperCancel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13096,15 +13381,16 @@ void UEFGFxWidgetPcSelect::STATIC_WallpaperCancel()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.WallpaperSelected
-// (Defined, PreOperator, Singular, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_WallpaperSelected()
+void UEFGFxWidgetPcSelect::WallpaperSelected()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.WallpaperSelected");
 
 	UEFGFxWidgetPcSelect_WallpaperSelected_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13113,15 +13399,16 @@ void UEFGFxWidgetPcSelect::STATIC_WallpaperSelected()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.WallpaperConfirm
-// (PreOperator, Singular, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_WallpaperConfirm()
+void UEFGFxWidgetPcSelect::WallpaperConfirm()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.WallpaperConfirm");
 
 	UEFGFxWidgetPcSelect_WallpaperConfirm_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13130,15 +13417,16 @@ void UEFGFxWidgetPcSelect::STATIC_WallpaperConfirm()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectDeleteCancel
-// (Defined, Latent, PreOperator, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_CharacterSelectDeleteCancel()
+void UEFGFxWidgetPcSelect::CharacterSelectDeleteCancel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectDeleteCancel");
 
 	UEFGFxWidgetPcSelect_CharacterSelectDeleteCancel_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13147,15 +13435,16 @@ void UEFGFxWidgetPcSelect::STATIC_CharacterSelectDeleteCancel()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectedIndex
-// (Final, Defined, Latent, PreOperator, Net, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void UEFGFxWidgetPcSelect::STATIC_CharacterSelectedIndex()
+void UEFGFxWidgetPcSelect::CharacterSelectedIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectedIndex");
 
 	UEFGFxWidgetPcSelect_CharacterSelectedIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13164,7 +13453,7 @@ void UEFGFxWidgetPcSelect::STATIC_CharacterSelectedIndex()
 
 
 // Function EFGame.EFGFxWidgetPcSelect.RequestNewCharacter
-// (Final, PreOperator, NetReliable, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetPcSelect::RequestNewCharacter()
 {
@@ -13182,7 +13471,7 @@ void UEFGFxWidgetPcSelect::RequestNewCharacter()
 
 
 // Function EFGame.EFGFxWidgetRaidClear.RaidProcessResultComplete
-// (Final, Defined, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRaidClear::RaidProcessResultComplete()
 {
@@ -13200,7 +13489,7 @@ void UEFGFxWidgetRaidClear::RaidProcessResultComplete()
 
 
 // Function EFGame.EFGFxWidgetRaidExitNotice.RaidProcessNoticeTimeOut
-// (Defined, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRaidExitNotice::RaidProcessNoticeTimeOut()
 {
@@ -13218,7 +13507,7 @@ void UEFGFxWidgetRaidExitNotice::RaidProcessNoticeTimeOut()
 
 
 // Function EFGame.EFGFxWidgetRaidFail.RaidProcessResultComplete
-// (Final, Defined, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRaidFail::RaidProcessResultComplete()
 {
@@ -13236,7 +13525,7 @@ void UEFGFxWidgetRaidFail::RaidProcessResultComplete()
 
 
 // Function EFGame.EFGFxWidgetRaidHUD.RaidProcessTimeOut
-// (Iterator, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGFxWidgetRaidHUD::RaidProcessTimeOut()
 {
@@ -13254,7 +13543,7 @@ void UEFGFxWidgetRaidHUD::RaidProcessTimeOut()
 
 
 // Function EFGame.EFUISlotData.SetTownShow
-// (Final, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetTownShow()
 {
@@ -13263,6 +13552,7 @@ void UEFUISlotData::SetTownShow()
 	UEFUISlotData_SetTownShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13271,7 +13561,7 @@ void UEFUISlotData::SetTownShow()
 
 
 // Function EFGame.EFUISlotData.SetToolTip
-// (Defined, Latent, PreOperator, Singular, NetReliable, Exec, HasOptionalParms)
+// (Native, Public)
 
 void UEFUISlotData::SetToolTip()
 {
@@ -13280,6 +13570,7 @@ void UEFUISlotData::SetToolTip()
 	UEFUISlotData_SetToolTip_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13288,7 +13579,7 @@ void UEFUISlotData::SetToolTip()
 
 
 // Function EFGame.EFUISlotData.SetRecommend
-// (Final, Defined, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetRecommend()
 {
@@ -13297,6 +13588,7 @@ void UEFUISlotData::SetRecommend()
 	UEFUISlotData_SetRecommend_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13305,7 +13597,7 @@ void UEFUISlotData::SetRecommend()
 
 
 // Function EFGame.EFUISlotData.SetFriendshipShow
-// (Final, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetFriendshipShow()
 {
@@ -13314,6 +13606,7 @@ void UEFUISlotData::SetFriendshipShow()
 	UEFUISlotData_SetFriendshipShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13322,7 +13615,7 @@ void UEFUISlotData::SetFriendshipShow()
 
 
 // Function EFGame.EFUISlotData.SetAdvBookShow
-// (Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetAdvBookShow()
 {
@@ -13331,6 +13624,7 @@ void UEFUISlotData::SetAdvBookShow()
 	UEFUISlotData_SetAdvBookShow_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13339,7 +13633,7 @@ void UEFUISlotData::SetAdvBookShow()
 
 
 // Function EFGame.EFUISlotData.SetTemporary
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetTemporary()
 {
@@ -13348,6 +13642,7 @@ void UEFUISlotData::SetTemporary()
 	UEFUISlotData_SetTemporary_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13356,7 +13651,7 @@ void UEFUISlotData::SetTemporary()
 
 
 // Function EFGame.EFUISlotData.SetTrash
-// (Defined, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetTrash()
 {
@@ -13365,6 +13660,7 @@ void UEFUISlotData::SetTrash()
 	UEFUISlotData_SetTrash_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13373,7 +13669,7 @@ void UEFUISlotData::SetTrash()
 
 
 // Function EFGame.EFUISlotData.SetDisableType
-// (PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetDisableType()
 {
@@ -13382,6 +13678,7 @@ void UEFUISlotData::SetDisableType()
 	UEFUISlotData_SetDisableType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13390,7 +13687,7 @@ void UEFUISlotData::SetDisableType()
 
 
 // Function EFGame.EFUISlotData.SetTableID
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetTableID()
 {
@@ -13399,6 +13696,7 @@ void UEFUISlotData::SetTableID()
 	UEFUISlotData_SetTableID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13407,7 +13705,7 @@ void UEFUISlotData::SetTableID()
 
 
 // Function EFGame.EFUISlotData.GetTableID
-// (Final, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetTableID()
 {
@@ -13416,6 +13714,7 @@ void UEFUISlotData::GetTableID()
 	UEFUISlotData_GetTableID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13424,7 +13723,7 @@ void UEFUISlotData::GetTableID()
 
 
 // Function EFGame.EFUISlotData.SetUniqueData
-// (Final, Defined, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetUniqueData()
 {
@@ -13433,6 +13732,7 @@ void UEFUISlotData::SetUniqueData()
 	UEFUISlotData_SetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13441,7 +13741,7 @@ void UEFUISlotData::SetUniqueData()
 
 
 // Function EFGame.EFUISlotData.GetUniqueData
-// (Final, Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetUniqueData()
 {
@@ -13450,6 +13750,7 @@ void UEFUISlotData::GetUniqueData()
 	UEFUISlotData_GetUniqueData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13458,7 +13759,7 @@ void UEFUISlotData::GetUniqueData()
 
 
 // Function EFGame.EFUISlotData.SetLocked
-// (Final, Defined, Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetLocked()
 {
@@ -13467,6 +13768,7 @@ void UEFUISlotData::SetLocked()
 	UEFUISlotData_SetLocked_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13475,7 +13777,7 @@ void UEFUISlotData::SetLocked()
 
 
 // Function EFGame.EFUISlotData.IsLocked
-// (Latent, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::IsLocked()
 {
@@ -13493,7 +13795,7 @@ void UEFUISlotData::IsLocked()
 
 
 // Function EFGame.EFUISlotData.SetItemGrade
-// (Final, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetItemGrade()
 {
@@ -13502,6 +13804,7 @@ void UEFUISlotData::SetItemGrade()
 	UEFUISlotData_SetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13510,7 +13813,7 @@ void UEFUISlotData::SetItemGrade()
 
 
 // Function EFGame.EFUISlotData.GetItemGrade
-// (Defined, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetItemGrade()
 {
@@ -13519,6 +13822,7 @@ void UEFUISlotData::GetItemGrade()
 	UEFUISlotData_GetItemGrade_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13527,7 +13831,7 @@ void UEFUISlotData::GetItemGrade()
 
 
 // Function EFGame.EFUISlotData.SetSoundTheme
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetSoundTheme()
 {
@@ -13536,6 +13840,7 @@ void UEFUISlotData::SetSoundTheme()
 	UEFUISlotData_SetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13544,7 +13849,7 @@ void UEFUISlotData::SetSoundTheme()
 
 
 // Function EFGame.EFUISlotData.GetSoundTheme
-// (Final, Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetSoundTheme()
 {
@@ -13553,6 +13858,7 @@ void UEFUISlotData::GetSoundTheme()
 	UEFUISlotData_GetSoundTheme_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13561,7 +13867,7 @@ void UEFUISlotData::GetSoundTheme()
 
 
 // Function EFGame.EFUISlotData.SetDisabled
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, HasOptionalParms)
+// (Native, Public)
 
 void UEFUISlotData::SetDisabled()
 {
@@ -13570,6 +13876,7 @@ void UEFUISlotData::SetDisabled()
 	UEFUISlotData_SetDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13578,15 +13885,16 @@ void UEFUISlotData::SetDisabled()
 
 
 // Function EFGame.EFUISlotData.IsDisabled
-// (Final, Defined, Iterator, Latent, NetReliable, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void UEFUISlotData::STATIC_IsDisabled()
+void UEFUISlotData::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.IsDisabled");
 
 	UEFUISlotData_IsDisabled_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13595,7 +13903,7 @@ void UEFUISlotData::STATIC_IsDisabled()
 
 
 // Function EFGame.EFUISlotData.SetLabelName
-// (Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetLabelName()
 {
@@ -13604,6 +13912,7 @@ void UEFUISlotData::SetLabelName()
 	UEFUISlotData_SetLabelName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13612,7 +13921,7 @@ void UEFUISlotData::SetLabelName()
 
 
 // Function EFGame.EFUISlotData.GetLabelName
-// (Iterator, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetLabelName()
 {
@@ -13621,6 +13930,7 @@ void UEFUISlotData::GetLabelName()
 	UEFUISlotData_GetLabelName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13629,7 +13939,7 @@ void UEFUISlotData::GetLabelName()
 
 
 // Function EFGame.EFUISlotData.SetCooltime
-// (Final, Defined, Latent, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetCooltime()
 {
@@ -13638,6 +13948,7 @@ void UEFUISlotData::SetCooltime()
 	UEFUISlotData_SetCooltime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13646,7 +13957,7 @@ void UEFUISlotData::SetCooltime()
 
 
 // Function EFGame.EFUISlotData.GetTotalCoolTime
-// (Defined, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetTotalCoolTime()
 {
@@ -13655,6 +13966,7 @@ void UEFUISlotData::GetTotalCoolTime()
 	UEFUISlotData_GetTotalCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13663,7 +13975,7 @@ void UEFUISlotData::GetTotalCoolTime()
 
 
 // Function EFGame.EFUISlotData.GetRemainCoolTime
-// (Defined, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetRemainCoolTime()
 {
@@ -13672,6 +13984,7 @@ void UEFUISlotData::GetRemainCoolTime()
 	UEFUISlotData_GetRemainCoolTime_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13680,7 +13993,7 @@ void UEFUISlotData::GetRemainCoolTime()
 
 
 // Function EFGame.EFUISlotData.SetIconHeight
-// (Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconHeight()
 {
@@ -13689,6 +14002,7 @@ void UEFUISlotData::SetIconHeight()
 	UEFUISlotData_SetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13697,7 +14011,7 @@ void UEFUISlotData::SetIconHeight()
 
 
 // Function EFGame.EFUISlotData.GetIconHeight
-// (Final, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconHeight()
 {
@@ -13706,6 +14020,7 @@ void UEFUISlotData::GetIconHeight()
 	UEFUISlotData_GetIconHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13714,7 +14029,7 @@ void UEFUISlotData::GetIconHeight()
 
 
 // Function EFGame.EFUISlotData.SetIconWidth
-// (Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconWidth()
 {
@@ -13723,6 +14038,7 @@ void UEFUISlotData::SetIconWidth()
 	UEFUISlotData_SetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13731,7 +14047,7 @@ void UEFUISlotData::SetIconWidth()
 
 
 // Function EFGame.EFUISlotData.GetIconWidth
-// (Final, Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconWidth()
 {
@@ -13740,6 +14056,7 @@ void UEFUISlotData::GetIconWidth()
 	UEFUISlotData_GetIconWidth_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13748,7 +14065,7 @@ void UEFUISlotData::GetIconWidth()
 
 
 // Function EFGame.EFUISlotData.SetIconY
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconY()
 {
@@ -13757,6 +14074,7 @@ void UEFUISlotData::SetIconY()
 	UEFUISlotData_SetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13765,7 +14083,7 @@ void UEFUISlotData::SetIconY()
 
 
 // Function EFGame.EFUISlotData.GetIconY
-// (Final, Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconY()
 {
@@ -13774,6 +14092,7 @@ void UEFUISlotData::GetIconY()
 	UEFUISlotData_GetIconY_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13782,7 +14101,7 @@ void UEFUISlotData::GetIconY()
 
 
 // Function EFGame.EFUISlotData.SetIconX
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconX()
 {
@@ -13791,6 +14110,7 @@ void UEFUISlotData::SetIconX()
 	UEFUISlotData_SetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13799,7 +14119,7 @@ void UEFUISlotData::SetIconX()
 
 
 // Function EFGame.EFUISlotData.GetIconX
-// (Latent, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconX()
 {
@@ -13808,6 +14128,7 @@ void UEFUISlotData::GetIconX()
 	UEFUISlotData_GetIconX_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13816,7 +14137,7 @@ void UEFUISlotData::GetIconX()
 
 
 // Function EFGame.EFUISlotData.SetIconCount
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconCount()
 {
@@ -13825,6 +14146,7 @@ void UEFUISlotData::SetIconCount()
 	UEFUISlotData_SetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13833,7 +14155,7 @@ void UEFUISlotData::SetIconCount()
 
 
 // Function EFGame.EFUISlotData.GetIconCount
-// (Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconCount()
 {
@@ -13842,6 +14164,7 @@ void UEFUISlotData::GetIconCount()
 	UEFUISlotData_GetIconCount_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13850,7 +14173,7 @@ void UEFUISlotData::GetIconCount()
 
 
 // Function EFGame.EFUISlotData.SetIconPath
-// (Final, Defined, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetIconPath()
 {
@@ -13859,6 +14182,7 @@ void UEFUISlotData::SetIconPath()
 	UEFUISlotData_SetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13867,7 +14191,7 @@ void UEFUISlotData::SetIconPath()
 
 
 // Function EFGame.EFUISlotData.GetIconPath
-// (Defined, Iterator, PreOperator, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetIconPath()
 {
@@ -13876,6 +14200,7 @@ void UEFUISlotData::GetIconPath()
 	UEFUISlotData_GetIconPath_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13884,7 +14209,7 @@ void UEFUISlotData::GetIconPath()
 
 
 // Function EFGame.EFUISlotData.SetWindowType
-// (Latent, Simulated, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetWindowType()
 {
@@ -13893,6 +14218,7 @@ void UEFUISlotData::SetWindowType()
 	UEFUISlotData_SetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13901,7 +14227,7 @@ void UEFUISlotData::SetWindowType()
 
 
 // Function EFGame.EFUISlotData.GetWindowType
-// (Final, Defined, Iterator, Latent, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetWindowType()
 {
@@ -13910,6 +14236,7 @@ void UEFUISlotData::GetWindowType()
 	UEFUISlotData_GetWindowType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13918,7 +14245,7 @@ void UEFUISlotData::GetWindowType()
 
 
 // Function EFGame.EFUISlotData.SetSlotIndex
-// (Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetSlotIndex()
 {
@@ -13927,6 +14254,7 @@ void UEFUISlotData::SetSlotIndex()
 	UEFUISlotData_SetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13935,7 +14263,7 @@ void UEFUISlotData::SetSlotIndex()
 
 
 // Function EFGame.EFUISlotData.GetSlotIndex
-// (Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetSlotIndex()
 {
@@ -13944,6 +14272,7 @@ void UEFUISlotData::GetSlotIndex()
 	UEFUISlotData_GetSlotIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13952,7 +14281,7 @@ void UEFUISlotData::GetSlotIndex()
 
 
 // Function EFGame.EFUISlotData.SetBindID
-// (Defined, Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetBindID()
 {
@@ -13961,6 +14290,7 @@ void UEFUISlotData::SetBindID()
 	UEFUISlotData_SetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13969,7 +14299,7 @@ void UEFUISlotData::SetBindID()
 
 
 // Function EFGame.EFUISlotData.GetBindID
-// (Defined, Iterator, Latent, Singular, Net, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetBindID()
 {
@@ -13978,6 +14308,7 @@ void UEFUISlotData::GetBindID()
 	UEFUISlotData_GetBindID_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -13986,7 +14317,7 @@ void UEFUISlotData::GetBindID()
 
 
 // Function EFGame.EFUISlotData.SetSlotType
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::SetSlotType()
 {
@@ -13995,6 +14326,7 @@ void UEFUISlotData::SetSlotType()
 	UEFUISlotData_SetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14003,7 +14335,7 @@ void UEFUISlotData::SetSlotType()
 
 
 // Function EFGame.EFUISlotData.GetSlotType
-// (Defined, Iterator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFUISlotData::GetSlotType()
 {
@@ -14012,6 +14344,7 @@ void UEFUISlotData::GetSlotType()
 	UEFUISlotData_GetSlotType_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14020,7 +14353,7 @@ void UEFUISlotData::GetSlotType()
 
 
 // Function EFGame.EFUISlotData.SetIconData_New
-// (Final, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUISlotData::SetIconData_New()
 {
@@ -14029,6 +14362,7 @@ void UEFUISlotData::SetIconData_New()
 	UEFUISlotData_SetIconData_New_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14037,7 +14371,7 @@ void UEFUISlotData::SetIconData_New()
 
 
 // Function EFGame.EFUISlotData.SetIconData
-// (Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUISlotData::SetIconData()
 {
@@ -14046,6 +14380,7 @@ void UEFUISlotData::SetIconData()
 	UEFUISlotData_SetIconData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14054,7 +14389,7 @@ void UEFUISlotData::SetIconData()
 
 
 // Function EFGame.EFUISlotData.SetImageData_New
-// (Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUISlotData::SetImageData_New()
 {
@@ -14063,6 +14398,7 @@ void UEFUISlotData::SetImageData_New()
 	UEFUISlotData_SetImageData_New_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14071,7 +14407,7 @@ void UEFUISlotData::SetImageData_New()
 
 
 // Function EFGame.EFUISlotData.SetImageData
-// (Final, Defined, Iterator, Latent, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, HasOptionalParms, Public)
 
 void UEFUISlotData::SetImageData()
 {
@@ -14080,6 +14416,7 @@ void UEFUISlotData::SetImageData()
 	UEFUISlotData_SetImageData_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14088,7 +14425,7 @@ void UEFUISlotData::SetImageData()
 
 
 // Function EFGame.EFGameViewportClient.Tick
-// (Final, Iterator, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void UEFGameViewportClient::Tick()
 {
@@ -14105,7 +14442,7 @@ void UEFGameViewportClient::Tick()
 
 
 // Function EFGame.EFGameViewportClient.PostRender
-// (Final, Defined, PreOperator, Net, Simulated, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFGameViewportClient::PostRender()
 {
@@ -14122,9 +14459,9 @@ void UEFGameViewportClient::PostRender()
 
 
 // Function EFGame.EFGameViewportClient.CreateScreenshot
-// (Final, Singular, Net, NetReliable, Native, Operator, Static, Const)
+// (Native, HasOptionalParms, Public, HasOutParms)
 
-void UEFGameViewportClient::STATIC_CreateScreenshot()
+void UEFGameViewportClient::CreateScreenshot()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.CreateScreenshot");
 
@@ -14140,7 +14477,7 @@ void UEFGameViewportClient::STATIC_CreateScreenshot()
 
 
 // Function EFGame.EFGameViewportClient.InitRelativeTimeFadeInfo
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGameViewportClient::InitRelativeTimeFadeInfo()
 {
@@ -14158,9 +14495,9 @@ void UEFGameViewportClient::InitRelativeTimeFadeInfo()
 
 
 // Function EFGame.EFGameViewportClient.CacheViewProjectionMatrix
-// (Defined, PreOperator, Singular, Net, Simulated, Exec, Native, Event, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UEFGameViewportClient::STATIC_CacheViewProjectionMatrix()
+void UEFGameViewportClient::CacheViewProjectionMatrix()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.CacheViewProjectionMatrix");
 
@@ -14176,7 +14513,7 @@ void UEFGameViewportClient::STATIC_CacheViewProjectionMatrix()
 
 
 // Function EFGame.EFGameViewportClient.PostFadeInOutRender
-// (Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void UEFGameViewportClient::PostFadeInOutRender()
 {
@@ -14185,6 +14522,7 @@ void UEFGameViewportClient::PostFadeInOutRender()
 	UEFGameViewportClient_PostFadeInOutRender_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14193,7 +14531,7 @@ void UEFGameViewportClient::PostFadeInOutRender()
 
 
 // Function EFGame.EFGameViewportClient.SetHardwareMouseCursorVisibility
-// (Final, Defined, Singular, NetReliable, Simulated, HasOptionalParms)
+// (Defined, Simulated, Event, Public)
 
 void UEFGameViewportClient::SetHardwareMouseCursorVisibility()
 {
@@ -14210,9 +14548,9 @@ void UEFGameViewportClient::SetHardwareMouseCursorVisibility()
 
 
 // Function EFGame.EFNxForceFieldTornado.UpdateDynamicProperty
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void AEFNxForceFieldTornado::STATIC_UpdateDynamicProperty()
+void AEFNxForceFieldTornado::UpdateDynamicProperty()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFNxForceFieldTornado.UpdateDynamicProperty");
 
@@ -14228,7 +14566,7 @@ void AEFNxForceFieldTornado::STATIC_UpdateDynamicProperty()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyHeightOffset
-// (Final, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyHeightOffset()
 {
@@ -14237,7 +14575,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyHeightOffset()
 	AEFNxForceFieldTornado_OnUpdatePropertyHeightOffset_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14246,7 +14583,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyHeightOffset()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyForceHeight
-// (Defined, Iterator, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyForceHeight()
 {
@@ -14255,7 +14592,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceHeight()
 	AEFNxForceFieldTornado_OnUpdatePropertyForceHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14264,7 +14600,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceHeight()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyEscapeVelocity
-// (Final, Iterator, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyEscapeVelocity()
 {
@@ -14273,7 +14609,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyEscapeVelocity()
 	AEFNxForceFieldTornado_OnUpdatePropertyEscapeVelocity_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14282,7 +14617,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyEscapeVelocity()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyLiftFalloffHeight
-// (Defined, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyLiftFalloffHeight()
 {
@@ -14291,7 +14626,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyLiftFalloffHeight()
 	AEFNxForceFieldTornado_OnUpdatePropertyLiftFalloffHeight_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14300,7 +14634,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyLiftFalloffHeight()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyForceTopRadius
-// (PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyForceTopRadius()
 {
@@ -14309,7 +14643,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceTopRadius()
 	AEFNxForceFieldTornado_OnUpdatePropertyForceTopRadius_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14318,7 +14651,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceTopRadius()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyForceRadius
-// (Final, Defined, Iterator, Latent, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyForceRadius()
 {
@@ -14327,7 +14660,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceRadius()
 	AEFNxForceFieldTornado_OnUpdatePropertyForceRadius_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14336,7 +14668,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyForceRadius()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyLiftStrength
-// (Final, Defined, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyLiftStrength()
 {
@@ -14345,7 +14677,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyLiftStrength()
 	AEFNxForceFieldTornado_OnUpdatePropertyLiftStrength_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14354,7 +14685,7 @@ void AEFNxForceFieldTornado::OnUpdatePropertyLiftStrength()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyRotationalStrength
-// (Final, Iterator, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyRotationalStrength()
 {
@@ -14363,7 +14694,6 @@ void AEFNxForceFieldTornado::OnUpdatePropertyRotationalStrength()
 	AEFNxForceFieldTornado_OnUpdatePropertyRotationalStrength_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14372,13 +14702,30 @@ void AEFNxForceFieldTornado::OnUpdatePropertyRotationalStrength()
 
 
 // Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyRadialStrength
-// (Iterator, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Defined, Public)
 
 void AEFNxForceFieldTornado::OnUpdatePropertyRadialStrength()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFNxForceFieldTornado.OnUpdatePropertyRadialStrength");
 
 	AEFNxForceFieldTornado_OnUpdatePropertyRadialStrength_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFData_MaskInfo.GetProperLevel
+// (Native, Public)
+
+void UEFData_MaskInfo::GetProperLevel()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFData_MaskInfo.GetProperLevel");
+
+	UEFData_MaskInfo_GetProperLevel_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14389,25 +14736,8 @@ void AEFNxForceFieldTornado::OnUpdatePropertyRadialStrength()
 }
 
 
-// Function EFGame.EFData_MaskInfo.GetProperLevel
-// (Final, NetReliable, Simulated, HasOptionalParms, Const)
-
-void UEFData_MaskInfo::GetProperLevel()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFData_MaskInfo.GetProperLevel");
-
-	UEFData_MaskInfo_GetProperLevel_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFExcelShell.GetColumNum
-// (Final, Iterator, Latent, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFExcelShell::GetColumNum()
 {
@@ -14424,7 +14754,7 @@ void UEFExcelShell::GetColumNum()
 
 
 // Function EFGame.EFExcelShell.NewLine
-// (Final, Defined, PreOperator, Singular, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFExcelShell::NewLine()
 {
@@ -14441,7 +14771,7 @@ void UEFExcelShell::NewLine()
 
 
 // Function EFGame.EFExcelShell.ResetEdit
-// (Final, Defined, NetReliable, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFExcelShell::ResetEdit()
 {
@@ -14458,7 +14788,7 @@ void UEFExcelShell::ResetEdit()
 
 
 // Function EFGame.EFExcelShell.SetLookPresetPosition
-// (Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetLookPresetPosition()
 {
@@ -14467,6 +14797,7 @@ void UEFExcelShell::SetLookPresetPosition()
 	UEFExcelShell_SetLookPresetPosition_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14475,7 +14806,7 @@ void UEFExcelShell::SetLookPresetPosition()
 
 
 // Function EFGame.EFExcelShell.SetLookPresetRange
-// (Final, Latent, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetLookPresetRange()
 {
@@ -14484,6 +14815,7 @@ void UEFExcelShell::SetLookPresetRange()
 	UEFExcelShell_SetLookPresetRange_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14492,7 +14824,7 @@ void UEFExcelShell::SetLookPresetRange()
 
 
 // Function EFGame.EFExcelShell.ReadStringRange
-// (Final, Iterator, Latent, PreOperator, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Final, Native, HasOptionalParms, Public, HasOutParms)
 
 void UEFExcelShell::ReadStringRange()
 {
@@ -14510,7 +14842,7 @@ void UEFExcelShell::ReadStringRange()
 
 
 // Function EFGame.EFExcelShell.ReadString
-// (Iterator, Latent, PreOperator, Net, Simulated, Exec, Native, Operator, HasOptionalParms, Const)
+// (Final, Native, Public, HasOutParms)
 
 void UEFExcelShell::ReadString()
 {
@@ -14528,15 +14860,16 @@ void UEFExcelShell::ReadString()
 
 
 // Function EFGame.EFExcelShell.WriteString
-// (Iterator, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_WriteString()
+void UEFExcelShell::WriteString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteString");
 
 	UEFExcelShell_WriteString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14545,15 +14878,16 @@ void UEFExcelShell::STATIC_WriteString()
 
 
 // Function EFGame.EFExcelShell.WriteName
-// (Final, Defined, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_WriteName()
+void UEFExcelShell::WriteName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteName");
 
 	UEFExcelShell_WriteName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14562,15 +14896,16 @@ void UEFExcelShell::STATIC_WriteName()
 
 
 // Function EFGame.EFExcelShell.WriteFloat
-// (Final, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_WriteFloat()
+void UEFExcelShell::WriteFloat()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteFloat");
 
 	UEFExcelShell_WriteFloat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14579,15 +14914,16 @@ void UEFExcelShell::STATIC_WriteFloat()
 
 
 // Function EFGame.EFExcelShell.WriteInt
-// (Defined, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_WriteInt()
+void UEFExcelShell::WriteInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteInt");
 
 	UEFExcelShell_WriteInt_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14596,15 +14932,16 @@ void UEFExcelShell::STATIC_WriteInt()
 
 
 // Function EFGame.EFExcelShell.WriteUINT
-// (Final, Iterator, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_WriteUINT()
+void UEFExcelShell::WriteUINT()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteUINT");
 
 	UEFExcelShell_WriteUINT_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14613,7 +14950,7 @@ void UEFExcelShell::STATIC_WriteUINT()
 
 
 // Function EFGame.EFExcelShell.SetSheetName
-// (Final, Defined, Iterator, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetSheetName()
 {
@@ -14622,6 +14959,7 @@ void UEFExcelShell::SetSheetName()
 	UEFExcelShell_SetSheetName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14630,7 +14968,7 @@ void UEFExcelShell::SetSheetName()
 
 
 // Function EFGame.EFExcelShell.SetFont
-// (Iterator, PreOperator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetFont()
 {
@@ -14639,6 +14977,7 @@ void UEFExcelShell::SetFont()
 	UEFExcelShell_SetFont_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14647,7 +14986,7 @@ void UEFExcelShell::SetFont()
 
 
 // Function EFGame.EFExcelShell.SetBorder
-// (Final, Defined, Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetBorder()
 {
@@ -14656,6 +14995,7 @@ void UEFExcelShell::SetBorder()
 	UEFExcelShell_SetBorder_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14664,7 +15004,7 @@ void UEFExcelShell::SetBorder()
 
 
 // Function EFGame.EFExcelShell.SetBackgroundColor
-// (Final, Iterator, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SetBackgroundColor()
 {
@@ -14673,6 +15013,7 @@ void UEFExcelShell::SetBackgroundColor()
 	UEFExcelShell_SetBackgroundColor_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14681,7 +15022,7 @@ void UEFExcelShell::SetBackgroundColor()
 
 
 // Function EFGame.EFExcelShell.GetWorkSheetName
-// (PreOperator, NetReliable, Simulated, HasOptionalParms, Const)
+// (Final, Native, Public, HasOutParms)
 
 void UEFExcelShell::GetWorkSheetName()
 {
@@ -14690,6 +15031,7 @@ void UEFExcelShell::GetWorkSheetName()
 	UEFExcelShell_GetWorkSheetName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14698,7 +15040,7 @@ void UEFExcelShell::GetWorkSheetName()
 
 
 // Function EFGame.EFExcelShell.SelectWorkSheet
-// (Defined, Latent, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SelectWorkSheet()
 {
@@ -14707,6 +15049,7 @@ void UEFExcelShell::SelectWorkSheet()
 	UEFExcelShell_SelectWorkSheet_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14715,7 +15058,7 @@ void UEFExcelShell::SelectWorkSheet()
 
 
 // Function EFGame.EFExcelShell.SelectWorkSheetByName
-// (Final, Defined, Latent, PreOperator, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::SelectWorkSheetByName()
 {
@@ -14724,6 +15067,7 @@ void UEFExcelShell::SelectWorkSheetByName()
 	UEFExcelShell_SelectWorkSheetByName_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14732,15 +15076,16 @@ void UEFExcelShell::SelectWorkSheetByName()
 
 
 // Function EFGame.EFExcelShell.SaveAs
-// (Final, Net, Simulated, Exec, Static)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_SaveAs()
+void UEFExcelShell::SaveAs()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SaveAs");
 
 	UEFExcelShell_SaveAs_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14749,7 +15094,7 @@ void UEFExcelShell::STATIC_SaveAs()
 
 
 // Function EFGame.EFExcelShell.OpenExcelFile
-// (Final, Defined, Iterator, PreOperator, Singular, NetReliable, Simulated, Native, Event, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::OpenExcelFile()
 {
@@ -14767,7 +15112,7 @@ void UEFExcelShell::OpenExcelFile()
 
 
 // Function EFGame.EFExcelShell.NewSheet
-// (Final, Latent, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::NewSheet()
 {
@@ -14776,6 +15121,7 @@ void UEFExcelShell::NewSheet()
 	UEFExcelShell_NewSheet_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14784,7 +15130,7 @@ void UEFExcelShell::NewSheet()
 
 
 // Function EFGame.EFExcelShell.NewExcelFile
-// (Iterator, Latent, PreOperator, Singular, Net, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Final, Native, Public)
 
 void UEFExcelShell::NewExcelFile()
 {
@@ -14793,6 +15139,7 @@ void UEFExcelShell::NewExcelFile()
 	UEFExcelShell_NewExcelFile_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14801,9 +15148,9 @@ void UEFExcelShell::NewExcelFile()
 
 
 // Function EFGame.EFExcelShell.AutoFitColomn
-// (Final, Iterator, PreOperator, Native, Event, Static, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_AutoFitColomn()
+void UEFExcelShell::AutoFitColomn()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.AutoFitColomn");
 
@@ -14819,9 +15166,9 @@ void UEFExcelShell::STATIC_AutoFitColomn()
 
 
 // Function EFGame.EFExcelShell.AutoFitColumn
-// (Defined, Iterator, PreOperator, Native, Event, Static, Const)
+// (Final, Native, Public)
 
-void UEFExcelShell::STATIC_AutoFitColumn()
+void UEFExcelShell::AutoFitColumn()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.AutoFitColumn");
 
@@ -14837,7 +15184,7 @@ void UEFExcelShell::STATIC_AutoFitColumn()
 
 
 // Function EFGame.EFLocalTrigger.Touch
-// (Defined, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFLocalTrigger::Touch()
 {
@@ -14854,7 +15201,7 @@ void AEFLocalTrigger::Touch()
 
 
 // Function EFGame.EFLocalTrigger.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFLocalTrigger::PostBeginPlay()
 {
@@ -14871,7 +15218,7 @@ void AEFLocalTrigger::PostBeginPlay()
 
 
 // Function EFGame.EFLocalTrigger.IsCinematicControl
-// (Iterator, PreOperator, Singular, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFLocalTrigger::IsCinematicControl()
 {
@@ -14889,7 +15236,7 @@ void AEFLocalTrigger::IsCinematicControl()
 
 
 // Function EFGame.EFLocalTrigger.IsLocalMode
-// (Final, Defined, Iterator, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFLocalTrigger::IsLocalMode()
 {
@@ -14907,7 +15254,7 @@ void AEFLocalTrigger::IsLocalMode()
 
 
 // Function EFGame.EFLocalTriggerVolume.Touch
-// (Defined, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFLocalTriggerVolume::Touch()
 {
@@ -14924,7 +15271,7 @@ void AEFLocalTriggerVolume::Touch()
 
 
 // Function EFGame.EFLocalTriggerVolume.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFLocalTriggerVolume::PostBeginPlay()
 {
@@ -14941,7 +15288,7 @@ void AEFLocalTriggerVolume::PostBeginPlay()
 
 
 // Function EFGame.EFLocalTriggerVolume.IsCinematicControl
-// (Iterator, PreOperator, Singular, Net, NetReliable, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFLocalTriggerVolume::IsCinematicControl()
 {
@@ -14959,7 +15306,7 @@ void AEFLocalTriggerVolume::IsCinematicControl()
 
 
 // Function EFGame.EFLocalTriggerVolume.IsLocalMode
-// (Final, Defined, Iterator, Simulated, Native, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFLocalTriggerVolume::IsLocalMode()
 {
@@ -14977,15 +15324,16 @@ void AEFLocalTriggerVolume::IsLocalMode()
 
 
 // Function EFGame.EFDataContainer.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer::STATIC_XmlExport()
+void UEFDataContainer::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XmlExport");
 
 	UEFDataContainer_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -14994,15 +15342,16 @@ void UEFDataContainer::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer.XlsExport
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFDataContainer::STATIC_XlsExport()
+void UEFDataContainer::XlsExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XlsExport");
 
 	UEFDataContainer_XlsExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15011,15 +15360,16 @@ void UEFDataContainer::STATIC_XlsExport()
 
 
 // Function EFGame.EFDataContainer.XlsImport
-// (Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void UEFDataContainer::STATIC_XlsImport()
+void UEFDataContainer::XlsImport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XlsImport");
 
 	UEFDataContainer_XlsImport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15028,15 +15378,16 @@ void UEFDataContainer::STATIC_XlsImport()
 
 
 // Function EFGame.EFDataContainer_CharacterCustomizing.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_CharacterCustomizing::STATIC_XmlExport()
+void UEFDataContainer_CharacterCustomizing::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_CharacterCustomizing.XmlExport");
 
 	UEFDataContainer_CharacterCustomizing_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15045,15 +15396,16 @@ void UEFDataContainer_CharacterCustomizing::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_ColorPalette.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_ColorPalette::STATIC_XmlExport()
+void UEFDataContainer_ColorPalette::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_ColorPalette.XmlExport");
 
 	UEFDataContainer_ColorPalette_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15062,15 +15414,16 @@ void UEFDataContainer_ColorPalette::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_CustomizeBoneScale.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_CustomizeBoneScale::STATIC_XmlExport()
+void UEFDataContainer_CustomizeBoneScale::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_CustomizeBoneScale.XmlExport");
 
 	UEFDataContainer_CustomizeBoneScale_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15079,15 +15432,16 @@ void UEFDataContainer_CustomizeBoneScale::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_LookInfos.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_LookInfos::STATIC_XmlExport()
+void UEFDataContainer_LookInfos::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_LookInfos.XmlExport");
 
 	UEFDataContainer_LookInfos_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15096,15 +15450,16 @@ void UEFDataContainer_LookInfos::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_NpcFunction.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_NpcFunction::STATIC_XmlExport()
+void UEFDataContainer_NpcFunction::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_NpcFunction.XmlExport");
 
 	UEFDataContainer_NpcFunction_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15113,15 +15468,16 @@ void UEFDataContainer_NpcFunction::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_Quest.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_Quest::STATIC_XmlExport()
+void UEFDataContainer_Quest::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_Quest.XmlExport");
 
 	UEFDataContainer_Quest_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15130,15 +15486,16 @@ void UEFDataContainer_Quest::STATIC_XmlExport()
 
 
 // Function EFGame.EFDataContainer_TexturePalette.XmlExport
-// (Final, Singular, NetReliable, Event, Static, HasOptionalParms, Const)
+// (Native, Public, HasOutParms)
 
-void UEFDataContainer_TexturePalette::STATIC_XmlExport()
+void UEFDataContainer_TexturePalette::XmlExport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_TexturePalette.XmlExport");
 
 	UEFDataContainer_TexturePalette_XmlExport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15147,9 +15504,9 @@ void UEFDataContainer_TexturePalette::STATIC_XmlExport()
 
 
 // Function EFGame.EFLightBeam.SetActive
-// (Final, Iterator, PreOperator, Singular, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFLightBeam::STATIC_SetActive()
+void AEFLightBeam::SetActive()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLightBeam.SetActive");
 
@@ -15165,7 +15522,7 @@ void AEFLightBeam::STATIC_SetActive()
 
 
 // Function EFGame.EFItem.SetLocationForceUpdateComponent
-// (Defined, Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFItem::SetLocationForceUpdateComponent()
 {
@@ -15174,6 +15531,7 @@ void AEFItem::SetLocationForceUpdateComponent()
 	AEFItem_SetLocationForceUpdateComponent_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15182,7 +15540,7 @@ void AEFItem::SetLocationForceUpdateComponent()
 
 
 // Function EFGame.EFItem.SetLocationForce
-// (Final, Iterator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFItem::SetLocationForce()
 {
@@ -15191,6 +15549,7 @@ void AEFItem::SetLocationForce()
 	AEFItem_SetLocationForce_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15199,15 +15558,16 @@ void AEFItem::SetLocationForce()
 
 
 // Function EFGame.EFItem.ClearAttachedPSIIndex
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Operator, Static, Const)
+// (Native, Public)
 
-void AEFItem::STATIC_ClearAttachedPSIIndex()
+void AEFItem::ClearAttachedPSIIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFItem.ClearAttachedPSIIndex");
 
 	AEFItem_ClearAttachedPSIIndex_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15216,7 +15576,7 @@ void AEFItem::STATIC_ClearAttachedPSIIndex()
 
 
 // Function EFGame.EFItem.NotifyChangedBase
-// (Latent, Singular, NetReliable, Simulated, Exec, Event, HasOptionalParms, Const)
+// (Native, Public)
 
 void AEFItem::NotifyChangedBase()
 {
@@ -15225,6 +15585,7 @@ void AEFItem::NotifyChangedBase()
 	AEFItem_NotifyChangedBase_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15233,7 +15594,7 @@ void AEFItem::NotifyChangedBase()
 
 
 // Function EFGame.EFItem.EncroachedBy
-// (Final, Defined, Latent, PreOperator, Singular, Simulated)
+// (Defined, Event, Public)
 
 void AEFItem::EncroachedBy()
 {
@@ -15250,7 +15611,7 @@ void AEFItem::EncroachedBy()
 
 
 // Function EFGame.EFItem.BaseChange
-// (Final, Defined, Iterator, PreOperator, Singular, Simulated)
+// (Defined, Singular, Event, Public)
 
 void AEFItem::BaseChange()
 {
@@ -15267,7 +15628,7 @@ void AEFItem::BaseChange()
 
 
 // Function EFGame.EFItem.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Simulated, Event, Public)
 
 void AEFItem::Destroyed()
 {
@@ -15284,7 +15645,7 @@ void AEFItem::Destroyed()
 
 
 // Function EFGame.EFInteractiveFoliageActor.TakeDamage
-// (Final, Defined, Latent, Singular, Net, NetReliable, Simulated, HasOptionalParms)
+// (Simulated, Native, Event, HasOptionalParms, Public)
 
 void AEFInteractiveFoliageActor::TakeDamage()
 {
@@ -15293,6 +15654,7 @@ void AEFInteractiveFoliageActor::TakeDamage()
 	AEFInteractiveFoliageActor_TakeDamage_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15301,7 +15663,7 @@ void AEFInteractiveFoliageActor::TakeDamage()
 
 
 // Function EFGame.EFMatineePathNode.BreakAllConnectionsFrom
-// (Final, Defined, Latent, PreOperator, NetReliable, Simulated, Operator, HasOptionalParms)
+// (Native, Public)
 
 void AEFMatineePathNode::BreakAllConnectionsFrom()
 {
@@ -15310,6 +15672,7 @@ void AEFMatineePathNode::BreakAllConnectionsFrom()
 	AEFMatineePathNode_BreakAllConnectionsFrom_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15318,7 +15681,7 @@ void AEFMatineePathNode::BreakAllConnectionsFrom()
 
 
 // Function EFGame.EFMatineePathNode.BreakAllConnections
-// (Defined, Latent, PreOperator, NetReliable, Simulated, Operator, HasOptionalParms)
+// (Native, Public)
 
 void AEFMatineePathNode::BreakAllConnections()
 {
@@ -15327,6 +15690,7 @@ void AEFMatineePathNode::BreakAllConnections()
 	AEFMatineePathNode_BreakAllConnections_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15335,7 +15699,7 @@ void AEFMatineePathNode::BreakAllConnections()
 
 
 // Function EFGame.EFMatineePathNode.BreakConnectionTo
-// (Iterator, Latent, PreOperator, NetReliable, Simulated, Operator, HasOptionalParms)
+// (Native, Public)
 
 void AEFMatineePathNode::BreakConnectionTo()
 {
@@ -15344,6 +15708,7 @@ void AEFMatineePathNode::BreakConnectionTo()
 	AEFMatineePathNode_BreakConnectionTo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15352,15 +15717,16 @@ void AEFMatineePathNode::BreakConnectionTo()
 
 
 // Function EFGame.EFMatineePathNode.IsConnectedTo
-// (Final, Defined, NetReliable, Event, Static, HasOptionalParms)
+// (Native, Public)
 
-void AEFMatineePathNode::STATIC_IsConnectedTo()
+void AEFMatineePathNode::IsConnectedTo()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.IsConnectedTo");
 
 	AEFMatineePathNode_IsConnectedTo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -15369,7 +15735,7 @@ void AEFMatineePathNode::STATIC_IsConnectedTo()
 
 
 // Function EFGame.EFMatineePathNode.AddConnectionTo
-// (Final, Iterator, Simulated, Exec, Native, HasOptionalParms)
+// (Native, Public)
 
 void AEFMatineePathNode::AddConnectionTo()
 {
@@ -15387,9 +15753,9 @@ void AEFMatineePathNode::AddConnectionTo()
 
 
 // Function EFGame.EFMatineePathNode.UpdateConnectedLineComponents
-// (Defined, Iterator, Latent, PreOperator, Singular, Net, NetReliable, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void AEFMatineePathNode::STATIC_UpdateConnectedLineComponents()
+void AEFMatineePathNode::UpdateConnectedLineComponents()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.UpdateConnectedLineComponents");
 
@@ -15405,9 +15771,9 @@ void AEFMatineePathNode::STATIC_UpdateConnectedLineComponents()
 
 
 // Function EFGame.EFMatineePathNode.UpdateLineComponents
-// (Final, Simulated, Exec, Native, Static, HasOptionalParms, Const)
+// (Native, Public)
 
-void AEFMatineePathNode::STATIC_UpdateLineComponents()
+void AEFMatineePathNode::UpdateLineComponents()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.UpdateLineComponents");
 
@@ -15423,7 +15789,7 @@ void AEFMatineePathNode::STATIC_UpdateLineComponents()
 
 
 // Function EFGame.EFGFxHUDWrapper.PostRender
-// (Final, Defined, PreOperator, Net, Simulated, HasOptionalParms)
+// (Defined, Event, Public)
 
 void AEFGFxHUDWrapper::PostRender()
 {
@@ -15440,7 +15806,7 @@ void AEFGFxHUDWrapper::PostRender()
 
 
 // Function EFGame.EFGFxHUDWrapper.PostBeginPlay
-// (Final, Latent, Net, Simulated)
+// (Defined, Simulated, Public)
 
 void AEFGFxHUDWrapper::PostBeginPlay()
 {
@@ -15457,7 +15823,7 @@ void AEFGFxHUDWrapper::PostBeginPlay()
 
 
 // Function EFGame.EFGFxHUDWrapper.Destroyed
-// (Iterator, Latent, Singular, Simulated)
+// (Defined, Singular, Event, Public)
 
 void AEFGFxHUDWrapper::Destroyed()
 {
@@ -15474,7 +15840,7 @@ void AEFGFxHUDWrapper::Destroyed()
 
 
 // Function EFGame.EFSeqAct_SetPostProcessEffectProperties.GetPostProcessEffects
-// (NetReliable, Simulated, HasOptionalParms, Const)
+// (Defined, HasOptionalParms, Public, HasOutParms)
 
 void UEFSeqAct_SetPostProcessEffectProperties::GetPostProcessEffects()
 {
@@ -15491,7 +15857,7 @@ void UEFSeqAct_SetPostProcessEffectProperties::GetPostProcessEffects()
 
 
 // Function EFGame.EFSeqAct_SetAmbientOcclusionEffectProperties.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetAmbientOcclusionEffectProperties::Activated()
 {
@@ -15508,7 +15874,7 @@ void UEFSeqAct_SetAmbientOcclusionEffectProperties::Activated()
 
 
 // Function EFGame.EFSeqAct_SetBlurEffectProperties.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetBlurEffectProperties::Activated()
 {
@@ -15525,7 +15891,7 @@ void UEFSeqAct_SetBlurEffectProperties::Activated()
 
 
 // Function EFGame.EFSeqAct_SetDOFEffectProperties.SetProperties
-// (Defined, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFSeqAct_SetDOFEffectProperties::SetProperties()
 {
@@ -15542,7 +15908,7 @@ void UEFSeqAct_SetDOFEffectProperties::SetProperties()
 
 
 // Function EFGame.EFSeqAct_SetDOFEffectProperties.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetDOFEffectProperties::Activated()
 {
@@ -15559,7 +15925,7 @@ void UEFSeqAct_SetDOFEffectProperties::Activated()
 
 
 // Function EFGame.EFSeqAct_SetDOFAndBloomEffectProperties.SetProperties
-// (Defined, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFSeqAct_SetDOFAndBloomEffectProperties::SetProperties()
 {
@@ -15576,7 +15942,7 @@ void UEFSeqAct_SetDOFAndBloomEffectProperties::SetProperties()
 
 
 // Function EFGame.EFSeqAct_SetDOFBloomMotionBlurEffect.SetProperties
-// (Defined, PreOperator, Singular, Net, NetReliable, Event, Operator, HasOptionalParms, Const)
+// (Defined, Public)
 
 void UEFSeqAct_SetDOFBloomMotionBlurEffect::SetProperties()
 {
@@ -15593,7 +15959,7 @@ void UEFSeqAct_SetDOFBloomMotionBlurEffect::SetProperties()
 
 
 // Function EFGame.EFSeqAct_SetMaterialEffectProperties.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetMaterialEffectProperties::Activated()
 {
@@ -15610,7 +15976,7 @@ void UEFSeqAct_SetMaterialEffectProperties::Activated()
 
 
 // Function EFGame.EFSeqAct_SetMotionBlurEffectProperties.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetMotionBlurEffectProperties::Activated()
 {
@@ -15627,7 +15993,7 @@ void UEFSeqAct_SetMotionBlurEffectProperties::Activated()
 
 
 // Function EFGame.EFSeqAct_SetUberPostProcessEffect.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_SetUberPostProcessEffect::Activated()
 {
@@ -15644,7 +16010,7 @@ void UEFSeqAct_SetUberPostProcessEffect::Activated()
 
 
 // Function EFGame.EFSeqAct_TogglePostProcessEffect.Activated
-// (Defined, Latent, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UEFSeqAct_TogglePostProcessEffect::Activated()
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,11 +20,11 @@ class UWindowsClient : public UClient
 {
 public:
 	unsigned char                                      UnknownData00[0x16C];                                     // 0x0070(0x016C) MISSED OFFSET
-	class UClass*                                      AudioDeviceClass;                                         // 0x01DC(0x0008)
+	class UClass*                                      AudioDeviceClass;                                         // 0x01DC(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned char                                      UnknownData01[0x8];                                       // 0x01E4(0x0008) MISSED OFFSET
-	class UClass*                                      AKAudioDeviceClass;                                       // 0x01EC(0x0008)
+	class UClass*                                      AKAudioDeviceClass;                                       // 0x01EC(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned char                                      UnknownData02[0x30];                                      // 0x01F4(0x0030) MISSED OFFSET
-	int                                                AllowJoystickInput;                                       // 0x0224(0x0004)
+	int                                                AllowJoystickInput;                                       // 0x0224(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
 	unsigned char                                      UnknownData03[0x10];                                      // 0x0228(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()

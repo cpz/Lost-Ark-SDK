@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -148,7 +148,7 @@ public:
 	char pad_0000[8]; //0x0000
 	uint32_t Index; //0x0008
 	char pad_000C[8]; //0x000C
-	char CharName[1]; //0x0014
+	char CharName[1024]; //0x0014
 
 	int32_t GetIndex() const
 	{

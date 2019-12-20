@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -226,46 +226,46 @@ struct FGuid
 // 0x000C
 struct FRotator
 {
-	int                                                Pitch;                                                    // 0x0000(0x0004)
-	int                                                Yaw;                                                      // 0x0004(0x0004)
-	int                                                Roll;                                                     // 0x0008(0x0004)
+	int                                                Pitch;                                                    // 0x0000(0x0004) (EditorOnly, NotForConsole, PrivateWrite)
+	int                                                Yaw;                                                      // 0x0004(0x0004) (EditorOnly, NotForConsole, PrivateWrite)
+	int                                                Roll;                                                     // 0x0008(0x0004) (EditorOnly, NotForConsole, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Vector
 // 0x000C
 struct FVector
 {
-	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0004(0x0004)
-	float                                              Z;                                                        // 0x0008(0x0004)
+	float                                              X;                                                        // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite)
+	float                                              Y;                                                        // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite)
+	float                                              Z;                                                        // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Vector2D
 // 0x0008
 struct FVector2D
 {
-	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0004(0x0004)
+	float                                              X;                                                        // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, EditHide, EditTextBox)
+	float                                              Y;                                                        // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, EditHide, EditTextBox)
 };
 
 // ScriptStruct Core.Object.LinearColor
 // 0x0010
 struct FLinearColor
 {
-	float                                              R;                                                        // 0x0000(0x0004)
-	float                                              G;                                                        // 0x0004(0x0004)
-	float                                              B;                                                        // 0x0008(0x0004)
-	float                                              A;                                                        // 0x000C(0x0004)
+	float                                              R;                                                        // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	float                                              G;                                                        // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	float                                              B;                                                        // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	float                                              A;                                                        // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Color
 // 0x0004
 struct FColor
 {
-	unsigned char                                      B;                                                        // 0x0000(0x0001)
-	unsigned char                                      G;                                                        // 0x0001(0x0001)
-	unsigned char                                      R;                                                        // 0x0002(0x0001)
-	unsigned char                                      A;                                                        // 0x0003(0x0001)
+	unsigned char                                      B;                                                        // 0x0000(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite)
+	unsigned char                                      G;                                                        // 0x0001(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite)
+	unsigned char                                      R;                                                        // 0x0002(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite)
+	unsigned char                                      A;                                                        // 0x0003(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite)
 
 	inline FColor()
 		: R(0), G(0), B(0), A(0)
@@ -284,18 +284,18 @@ struct FColor
 // 0x001D
 struct FInterpCurvePointVector2D
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FVector2D                                   OutVal;                                                   // 0x0004(0x0008)
-	struct FVector2D                                   ArriveTangent;                                            // 0x000C(0x0008)
-	struct FVector2D                                   LeaveTangent;                                             // 0x0014(0x0008)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x001C(0x0001)
+	float                                              InVal;                                                    // 0x0000(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector2D                                   OutVal;                                                   // 0x0004(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector2D                                   ArriveTangent;                                            // 0x000C(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector2D                                   LeaveTangent;                                             // 0x0014(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x001C(0x0001) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveVector2D
 // 0x0011
 struct FInterpCurveVector2D
 {
-	TArray<struct FInterpCurvePointVector2D>           Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointVector2D>           Points;                                                   // 0x0000(0x0010) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -303,18 +303,18 @@ struct FInterpCurveVector2D
 // 0x0029
 struct FInterpCurvePointVector
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FVector                                     OutVal;                                                   // 0x0004(0x000C)
-	struct FVector                                     ArriveTangent;                                            // 0x0010(0x000C)
-	struct FVector                                     LeaveTangent;                                             // 0x001C(0x000C)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0028(0x0001)
+	float                                              InVal;                                                    // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector                                     OutVal;                                                   // 0x0004(0x000C) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector                                     ArriveTangent;                                            // 0x0010(0x000C) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector                                     LeaveTangent;                                             // 0x001C(0x000C) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0028(0x0001) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveVector
 // 0x0011
 struct FInterpCurveVector
 {
-	TArray<struct FInterpCurvePointVector>             Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointVector>             Points;                                                   // 0x0000(0x0010) (Interp, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -322,18 +322,18 @@ struct FInterpCurveVector
 // 0x0011
 struct FInterpCurvePointFloat
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
-	float                                              OutVal;                                                   // 0x0004(0x0004)
-	float                                              ArriveTangent;                                            // 0x0008(0x0004)
-	float                                              LeaveTangent;                                             // 0x000C(0x0004)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001)
+	float                                              InVal;                                                    // 0x0000(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              OutVal;                                                   // 0x0004(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              ArriveTangent;                                            // 0x0008(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              LeaveTangent;                                             // 0x000C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveFloat
 // 0x0011
 struct FInterpCurveFloat
 {
-	TArray<struct FInterpCurvePointFloat>              Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointFloat>              Points;                                                   // 0x0000(0x0010) (EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -341,27 +341,27 @@ struct FInterpCurveFloat
 // 0x0010
 struct FQuat
 {
-	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0004(0x0004)
-	float                                              Z;                                                        // 0x0008(0x0004)
-	float                                              W;                                                        // 0x000C(0x0004)
+	float                                              X;                                                        // 0x0000(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite)
+	float                                              Y;                                                        // 0x0004(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite)
+	float                                              Z;                                                        // 0x0008(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite)
+	float                                              W;                                                        // 0x000C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Plane
 // 0x0004 (0x0010 - 0x000C)
 struct FPlane : public FVector
 {
-	float                                              W;                                                        // 0x000C(0x0004)
+	float                                              W;                                                        // 0x000C(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Matrix
 // 0x0040
 struct FMatrix
 {
-	struct FPlane                                      XPlane;                                                   // 0x0000(0x0010)
-	struct FPlane                                      YPlane;                                                   // 0x0010(0x0010)
-	struct FPlane                                      ZPlane;                                                   // 0x0020(0x0010)
-	struct FPlane                                      WPlane;                                                   // 0x0030(0x0010)
+	struct FPlane                                      XPlane;                                                   // 0x0000(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	struct FPlane                                      YPlane;                                                   // 0x0010(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	struct FPlane                                      ZPlane;                                                   // 0x0020(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
+	struct FPlane                                      WPlane;                                                   // 0x0030(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite)
 };
 
 // ScriptStruct Core.Object.Pointer
@@ -376,8 +376,8 @@ struct FPointer
 // 0x0008
 struct FQWord
 {
-	int                                                A;                                                        // 0x0000(0x0004)
-	int                                                B;                                                        // 0x0004(0x0004)
+	int                                                A;                                                        // 0x0000(0x0004) (RepRetry, PrivateWrite)
+	int                                                B;                                                        // 0x0004(0x0004) (RepRetry, PrivateWrite)
 };
 
 // ScriptStruct Core.LocAssetRedirector.DestinationLocObject
@@ -408,10 +408,10 @@ struct FInlinePointerArray_Mirror
 // 0x0010
 struct FVector4
 {
-	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0004(0x0004)
-	float                                              Z;                                                        // 0x0008(0x0004)
-	float                                              W;                                                        // 0x000C(0x0004)
+	float                                              X;                                                        // 0x0000(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              Y;                                                        // 0x0004(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              Z;                                                        // 0x0008(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	float                                              W;                                                        // 0x000C(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.Cylinder
@@ -426,17 +426,17 @@ struct FCylinder
 // 0x001C
 struct FBoxSphereBounds
 {
-	struct FVector                                     Origin;                                                   // 0x0000(0x000C)
-	struct FVector                                     BoxExtent;                                                // 0x000C(0x000C)
-	float                                              SphereRadius;                                             // 0x0018(0x0004)
+	struct FVector                                     Origin;                                                   // 0x0000(0x000C) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide)
+	struct FVector                                     BoxExtent;                                                // 0x000C(0x000C) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide)
+	float                                              SphereRadius;                                             // 0x0018(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide)
 };
 
 // ScriptStruct Core.Object.TwoVectors
 // 0x0018
 struct FTwoVectors
 {
-	struct FVector                                     v1;                                                       // 0x0000(0x000C)
-	struct FVector                                     v2;                                                       // 0x000C(0x000C)
+	struct FVector                                     v1;                                                       // 0x0000(0x000C) (RepNotify, EditorOnly, NotForConsole, EditHide, EditTextBox)
+	struct FVector                                     v2;                                                       // 0x000C(0x000C) (RepNotify, EditorOnly, NotForConsole, EditHide, EditTextBox)
 };
 
 // ScriptStruct Core.Object.TAlphaBlend
@@ -445,10 +445,10 @@ struct FTAlphaBlend
 {
 	float                                              AlphaIn;                                                  // 0x0000(0x0004)
 	float                                              AlphaOut;                                                 // 0x0004(0x0004)
-	float                                              AlphaTarget;                                              // 0x0008(0x0004)
-	float                                              BlendTime;                                                // 0x000C(0x0004)
+	float                                              AlphaTarget;                                              // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	float                                              BlendTime;                                                // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
 	float                                              BlendTimeToGo;                                            // 0x0010(0x0004)
-	TEnumAsByte<EAlphaBlendType>                       BlendType;                                                // 0x0014(0x0001)
+	TEnumAsByte<EAlphaBlendType>                       BlendType;                                                // 0x0014(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
 };
 
 // ScriptStruct Core.Object.uint
@@ -501,18 +501,18 @@ struct FRawDistribution
 // 0x0035
 struct FInterpCurvePointLinearColor
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010)
-	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010)
-	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001)
+	float                                              InVal;                                                    // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveLinearColor
 // 0x0011
 struct FInterpCurveLinearColor
 {
-	TArray<struct FInterpCurvePointLinearColor>        Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointLinearColor>        Points;                                                   // 0x0000(0x0010) (RepNotify, Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -520,19 +520,19 @@ struct FInterpCurveLinearColor
 // 0x0041
 struct FInterpCurvePointQuat
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
+	float                                              InVal;                                                    // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
-	struct FQuat                                       OutVal;                                                   // 0x0010(0x0010)
-	struct FQuat                                       ArriveTangent;                                            // 0x0020(0x0010)
-	struct FQuat                                       LeaveTangent;                                             // 0x0030(0x0010)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0040(0x0001)
+	struct FQuat                                       OutVal;                                                   // 0x0010(0x0010) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FQuat                                       ArriveTangent;                                            // 0x0020(0x0010) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FQuat                                       LeaveTangent;                                             // 0x0030(0x0010) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0040(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveQuat
 // 0x0011
 struct FInterpCurveQuat
 {
-	TArray<struct FInterpCurvePointQuat>               Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointQuat>               Points;                                                   // 0x0000(0x0010) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -540,18 +540,18 @@ struct FInterpCurveQuat
 // 0x004D
 struct FInterpCurvePointTwoVectors
 {
-	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FTwoVectors                                 OutVal;                                                   // 0x0004(0x0018)
-	struct FTwoVectors                                 ArriveTangent;                                            // 0x001C(0x0018)
-	struct FTwoVectors                                 LeaveTangent;                                             // 0x0034(0x0018)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x004C(0x0001)
+	float                                              InVal;                                                    // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FTwoVectors                                 OutVal;                                                   // 0x0004(0x0018) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FTwoVectors                                 ArriveTangent;                                            // 0x001C(0x0018) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FTwoVectors                                 LeaveTangent;                                             // 0x0034(0x0018) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x004C(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.InterpCurveTwoVectors
 // 0x0011
 struct FInterpCurveTwoVectors
 {
-	TArray<struct FInterpCurvePointTwoVectors>         Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpCurvePointTwoVectors>         Points;                                                   // 0x0000(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -559,8 +559,8 @@ struct FInterpCurveTwoVectors
 // 0x0019
 struct FBox
 {
-	struct FVector                                     Min;                                                      // 0x0000(0x000C)
-	struct FVector                                     Max;                                                      // 0x000C(0x000C)
+	struct FVector                                     Min;                                                      // 0x0000(0x000C) (Interp, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	struct FVector                                     Max;                                                      // 0x000C(0x000C) (Interp, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
 	unsigned char                                      IsValid;                                                  // 0x0018(0x0001)
 };
 
@@ -568,16 +568,16 @@ struct FBox
 // 0x001C
 struct FTPOV
 {
-	struct FVector                                     Location;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x000C(0x000C)
-	float                                              FOV;                                                      // 0x0018(0x0004)
+	struct FVector                                     Location;                                                 // 0x0000(0x000C) (NonTransactional, NotForConsole, EditHide, EditTextBox)
+	struct FRotator                                    Rotation;                                                 // 0x000C(0x000C) (NonTransactional, NotForConsole, EditHide, EditTextBox)
+	float                                              FOV;                                                      // 0x0018(0x0004) (NonTransactional, NotForConsole, EditHide, EditTextBox)
 };
 
 // ScriptStruct Core.Object.SHVector
 // 0x0030
 struct FSHVector
 {
-	float                                              V[0x9];                                                   // 0x0000(0x0004)
+	float                                              V[0x9];                                                   // 0x0000(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite)
 	float                                              Padding[0x3];                                             // 0x0024(0x0004)
 };
 
@@ -585,27 +585,27 @@ struct FSHVector
 // 0x0090
 struct FSHVectorRGB
 {
-	struct FSHVector                                   R;                                                        // 0x0000(0x0030)
-	struct FSHVector                                   G;                                                        // 0x0030(0x0030)
-	struct FSHVector                                   B;                                                        // 0x0060(0x0030)
+	struct FSHVector                                   R;                                                        // 0x0000(0x0030) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	struct FSHVector                                   G;                                                        // 0x0030(0x0030) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	struct FSHVector                                   B;                                                        // 0x0060(0x0030) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox)
 };
 
 // ScriptStruct Core.Object.IntPoint
 // 0x0008
 struct FIntPoint
 {
-	int                                                X;                                                        // 0x0000(0x0004)
-	int                                                Y;                                                        // 0x0004(0x0004)
+	int                                                X;                                                        // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	int                                                Y;                                                        // 0x0004(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
 };
 
 // ScriptStruct Core.Object.PackedNormal
 // 0x0004
 struct FPackedNormal
 {
-	unsigned char                                      X;                                                        // 0x0000(0x0001)
-	unsigned char                                      Y;                                                        // 0x0001(0x0001)
-	unsigned char                                      Z;                                                        // 0x0002(0x0001)
-	unsigned char                                      W;                                                        // 0x0003(0x0001)
+	unsigned char                                      X;                                                        // 0x0000(0x0001) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	unsigned char                                      Y;                                                        // 0x0001(0x0001) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	unsigned char                                      Z;                                                        // 0x0002(0x0001) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	unsigned char                                      W;                                                        // 0x0003(0x0001) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
 };
 
 // ScriptStruct Core.Object.IndirectArray_Mirror
@@ -717,7 +717,7 @@ struct FDouble
 // 0x0008 (0x0024 - 0x001C)
 struct FRawDistributionFloat : public FRawDistribution
 {
-	class UDistributionFloat*                          Distribution;                                             // 0x001C(0x0008)
+	class UDistributionFloat*                          Distribution;                                             // 0x001C(0x0008) (Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide)
 };
 
 // ScriptStruct Core.DistributionFloat.MatineeRawDistributionFloat
@@ -732,7 +732,7 @@ struct FMatineeRawDistributionFloat : public FRawDistributionFloat
 // 0x0008 (0x0024 - 0x001C)
 struct FRawDistributionVector : public FRawDistribution
 {
-	class UDistributionVector*                         Distribution;                                             // 0x001C(0x0008)
+	class UDistributionVector*                         Distribution;                                             // 0x001C(0x0008) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide)
 };
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,9 +29,9 @@ public:
 	int                                                ObjectInternalInteger;                                    // 0x0030(0x0004)
 	int                                                NetIndex;                                                 // 0x0034(0x0004)
 	class UObject*                                     Outer;                                                    // 0x0038(0x0008)
-	struct FName                                       Name;                                                     // 0x0040(0x0008)
+	struct FName                                       Name;                                                     // 0x0040(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite)
 	class UClass*                                      Class;                                                    // 0x0048(0x0008)
-	class UObject*                                     ObjectArchetype;                                          // 0x0050(0x0008)
+	class UObject*                                     ObjectArchetype;                                          // 0x0050(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite)
 
 	static inline TArray<UObject*>& GetGlobalObjects()
 	{
@@ -95,17 +95,17 @@ public:
 	}
 
 
-	void ProfNodeEvent();
-	void ProfNodeSetDepthThreshold();
-	void ProfNodeSetTimeThresholdSeconds();
-	void ProfNodeStop();
-	void ProfNodeStart();
-	void GetStringFromGuid();
-	void GetGuidFromString();
-	void CreateGuid();
-	void IsGuidValid();
-	void InvalidateGuid();
-	void GetLanguage();
+	void STATIC_ProfNodeEvent();
+	void STATIC_ProfNodeSetDepthThreshold();
+	void STATIC_ProfNodeSetTimeThresholdSeconds();
+	void STATIC_ProfNodeStop();
+	void STATIC_ProfNodeStart();
+	void STATIC_GetStringFromGuid();
+	void STATIC_GetGuidFromString();
+	void STATIC_CreateGuid();
+	void STATIC_IsGuidValid();
+	void STATIC_InvalidateGuid();
+	void STATIC_GetLanguage();
 	void GetRandomOptionSumFrequency();
 	void GetBuildChangelistNumber();
 	void GetEngineVersion();
@@ -116,25 +116,25 @@ public:
 	void IsPendingKill();
 	void ByteToFloat();
 	void FloatToByte();
-	void UnwindHeading();
-	void FindDeltaAngle();
-	void GetHeadingAngle();
-	void GetAngularDegreesFromRadians();
-	void GetAngularFromDotDist();
-	void GetAngularDistance();
-	void GetDotDistance();
-	void PointProjectToPlane();
+	void STATIC_UnwindHeading();
+	void STATIC_FindDeltaAngle();
+	void STATIC_GetHeadingAngle();
+	void STATIC_GetAngularDegreesFromRadians();
+	void STATIC_GetAngularFromDotDist();
+	void STATIC_GetAngularDistance();
+	void STATIC_GetDotDistance();
+	void STATIC_PointProjectToPlane();
 	void PointDistToPlane();
 	void PointDistToSegment();
 	void PointDistToLine();
-	void GetPerObjectConfigSections();
-	void ImportJSON();
-	void StaticSaveConfig();
-	void STATIC_SaveConfig();
-	void FindObject();
-	void DynamicLoadObject();
-	void EnumFromString();
-	void GetEnum();
+	void STATIC_GetPerObjectConfigSections();
+	void STATIC_ImportJSON();
+	void STATIC_StaticSaveConfig();
+	void SaveConfig();
+	void STATIC_FindObject();
+	void STATIC_DynamicLoadObject();
+	void STATIC_EnumFromString();
+	void STATIC_GetEnum();
 	void Disable();
 	void Enable();
 	void ContinuedState();
@@ -150,255 +150,255 @@ public:
 	void IsChildState();
 	void IsInState();
 	void GotoState();
-	void IsUTracing();
-	void SetUTracing();
-	void GetFuncName();
-	void DebugBreak();
-	void GetScriptTrace();
-	void ScriptTrace();
-	void ParseLocalizedPropertyPath();
-	void Localize();
-	void WarnInternal();
-	void LogInternal();
-	void Subtract_LinearColorLinearColor();
-	void Multiply_LinearColorFloat();
-	void ColorToLinearColor();
-	void MakeLinearColor();
-	void LerpColor();
-	void MakeColor();
-	void Add_ColorColor();
-	void Multiply_ColorFloat();
-	void Multiply_FloatColor();
-	void Subtract_ColorColor();
-	void EvalInterpCurveVector2D();
-	void EvalInterpCurveVector();
-	void EvalInterpCurveFloat();
-	void vect2d();
-	void GetMappedRangeValue();
-	void GetRangePctByValue();
-	void GetRangeValueByPct();
-	void SubtractEqual_Vector2DVector2D();
-	void AddEqual_Vector2DVector2D();
-	void DivideEqual_Vector2DFloat();
-	void MultiplyEqual_Vector2DFloat();
-	void Divide_Vector2DFloat();
-	void Multiply_Vector2DFloat();
-	void Subtract_Vector2DVector2D();
-	void Add_Vector2DVector2D();
-	void Subtract_QuatQuat();
-	void Add_QuatQuat();
-	void QuatSlerp();
-	void QuatToRotator();
-	void QuatFromRotator();
-	void QuatFromAxisAndAngle();
-	void QuatFindBetween();
-	void QuatRotateVector();
-	void QuatInvert();
-	void QuatDot();
-	void QuatProduct();
-	void MatrixGetAxis();
-	void MatrixGetOrigin();
-	void MatrixGetRotator();
-	void MakeRotationMatrix();
-	void MakeRotationTranslationMatrix();
-	void InverseTransformNormal();
-	void TransformNormal();
-	void InverseTransformVector();
-	void TransformVector();
-	void Multiply_MatrixMatrix();
-	void NotEqual_NameName();
-	void EqualEqual_NameName();
+	void STATIC_IsUTracing();
+	void STATIC_SetUTracing();
+	void STATIC_GetFuncName();
+	void STATIC_DebugBreak();
+	void STATIC_GetScriptTrace();
+	void STATIC_ScriptTrace();
+	void STATIC_ParseLocalizedPropertyPath();
+	void STATIC_Localize();
+	void STATIC_WarnInternal();
+	void STATIC_LogInternal();
+	void STATIC_Subtract_LinearColorLinearColor();
+	void STATIC_Multiply_LinearColorFloat();
+	void STATIC_ColorToLinearColor();
+	void STATIC_MakeLinearColor();
+	void STATIC_LerpColor();
+	void STATIC_MakeColor();
+	void STATIC_Add_ColorColor();
+	void STATIC_Multiply_ColorFloat();
+	void STATIC_Multiply_FloatColor();
+	void STATIC_Subtract_ColorColor();
+	void STATIC_EvalInterpCurveVector2D();
+	void STATIC_EvalInterpCurveVector();
+	void STATIC_EvalInterpCurveFloat();
+	void STATIC_vect2d();
+	void STATIC_GetMappedRangeValue();
+	void STATIC_GetRangePctByValue();
+	void STATIC_GetRangeValueByPct();
+	void STATIC_SubtractEqual_Vector2DVector2D();
+	void STATIC_AddEqual_Vector2DVector2D();
+	void STATIC_DivideEqual_Vector2DFloat();
+	void STATIC_MultiplyEqual_Vector2DFloat();
+	void STATIC_Divide_Vector2DFloat();
+	void STATIC_Multiply_Vector2DFloat();
+	void STATIC_Subtract_Vector2DVector2D();
+	void STATIC_Add_Vector2DVector2D();
+	void STATIC_Subtract_QuatQuat();
+	void STATIC_Add_QuatQuat();
+	void STATIC_QuatSlerp();
+	void STATIC_QuatToRotator();
+	void STATIC_QuatFromRotator();
+	void STATIC_QuatFromAxisAndAngle();
+	void STATIC_QuatFindBetween();
+	void STATIC_QuatRotateVector();
+	void STATIC_QuatInvert();
+	void STATIC_QuatDot();
+	void STATIC_QuatProduct();
+	void STATIC_MatrixGetAxis();
+	void STATIC_MatrixGetOrigin();
+	void STATIC_MatrixGetRotator();
+	void STATIC_MakeRotationMatrix();
+	void STATIC_MakeRotationTranslationMatrix();
+	void STATIC_InverseTransformNormal();
+	void STATIC_TransformNormal();
+	void STATIC_InverseTransformVector();
+	void STATIC_TransformVector();
+	void STATIC_Multiply_MatrixMatrix();
+	void STATIC_NotEqual_NameName();
+	void STATIC_EqualEqual_NameName();
 	void IsA();
-	void ClassIsChildOf();
-	void NotEqual_InterfaceInterface();
-	void EqualEqual_InterfaceInterface();
-	void NotEqual_ObjectObject();
-	void EqualEqual_ObjectObject();
-	void PathName();
-	void SplitString();
-	void ParseStringIntoArray();
-	void JoinArray();
-	void GetRightMost();
+	void STATIC_ClassIsChildOf();
+	void STATIC_NotEqual_InterfaceInterface();
+	void STATIC_EqualEqual_InterfaceInterface();
+	void STATIC_NotEqual_ObjectObject();
+	void STATIC_EqualEqual_ObjectObject();
+	void STATIC_PathName();
+	void STATIC_SplitString();
+	void STATIC_ParseStringIntoArray();
+	void STATIC_JoinArray();
+	void STATIC_GetRightMost();
 	void STATIC_Split();
-	void Repl();
-	void Asc();
-	void Chr();
-	void Locs();
-	void Caps();
-	void Right();
-	void Left();
-	void Mid();
-	void InStr();
-	void Len();
-	void SubtractEqual_StrStr();
-	void AtEqual_StrStr();
-	void ConcatEqual_StrStr();
-	void ComplementEqual_StrStr();
-	void NotEqual_StrStr();
-	void EqualEqual_StrStr();
-	void GreaterEqual_StrStr();
-	void LessEqual_StrStr();
-	void Greater_StrStr();
-	void Less_StrStr();
-	void At_StrStr();
-	void Concat_StrStr();
-	void MakeRotator();
-	void SClampRotAxis();
-	void ClampRotAxisFromRange();
-	void ClampRotAxisFromBase();
-	void ClampRotAxis();
-	void RSize();
-	void RDiff();
-	void NormalizeRotAxis();
-	void RInterpTo();
-	void RTransform();
-	void RLerp();
-	void Normalize();
-	void OrthoRotation();
-	void RotRand();
-	void GetRotatorAxis();
-	void GetUnAxes();
-	void GetAxes();
-	void ClockwiseFrom_IntInt();
-	void SubtractEqual_RotatorRotator();
-	void AddEqual_RotatorRotator();
-	void Subtract_RotatorRotator();
-	void Add_RotatorRotator();
-	void DivideEqual_RotatorFloat();
-	void MultiplyEqual_RotatorFloat();
-	void Divide_RotatorFloat();
-	void Multiply_FloatRotator();
-	void Multiply_RotatorFloat();
-	void NotEqual_RotatorRotator();
-	void EqualEqual_RotatorRotator();
+	void STATIC_Repl();
+	void STATIC_Asc();
+	void STATIC_Chr();
+	void STATIC_Locs();
+	void STATIC_Caps();
+	void STATIC_Right();
+	void STATIC_Left();
+	void STATIC_Mid();
+	void STATIC_InStr();
+	void STATIC_Len();
+	void STATIC_SubtractEqual_StrStr();
+	void STATIC_AtEqual_StrStr();
+	void STATIC_ConcatEqual_StrStr();
+	void STATIC_ComplementEqual_StrStr();
+	void STATIC_NotEqual_StrStr();
+	void STATIC_EqualEqual_StrStr();
+	void STATIC_GreaterEqual_StrStr();
+	void STATIC_LessEqual_StrStr();
+	void STATIC_Greater_StrStr();
+	void STATIC_Less_StrStr();
+	void STATIC_At_StrStr();
+	void STATIC_Concat_StrStr();
+	void STATIC_MakeRotator();
+	void STATIC_SClampRotAxis();
+	void STATIC_ClampRotAxisFromRange();
+	void STATIC_ClampRotAxisFromBase();
+	void STATIC_ClampRotAxis();
+	void STATIC_RSize();
+	void STATIC_RDiff();
+	void STATIC_NormalizeRotAxis();
+	void STATIC_RInterpTo();
+	void STATIC_RTransform();
+	void STATIC_RLerp();
+	void STATIC_Normalize();
+	void STATIC_OrthoRotation();
+	void STATIC_RotRand();
+	void STATIC_GetRotatorAxis();
+	void STATIC_GetUnAxes();
+	void STATIC_GetAxes();
+	void STATIC_ClockwiseFrom_IntInt();
+	void STATIC_SubtractEqual_RotatorRotator();
+	void STATIC_AddEqual_RotatorRotator();
+	void STATIC_Subtract_RotatorRotator();
+	void STATIC_Add_RotatorRotator();
+	void STATIC_DivideEqual_RotatorFloat();
+	void STATIC_MultiplyEqual_RotatorFloat();
+	void STATIC_Divide_RotatorFloat();
+	void STATIC_Multiply_FloatRotator();
+	void STATIC_Multiply_RotatorFloat();
+	void STATIC_NotEqual_RotatorRotator();
+	void STATIC_EqualEqual_RotatorRotator();
 	void InCylinder();
-	void NoZDot();
-	void ClampLength();
-	void VInterpTo();
-	void IsZero();
-	void ProjectOnTo();
-	void MirrorVectorByNormal();
-	void VRandCone2();
-	void VRandCone();
-	void VRand();
-	void VLerp();
-	void Normal2D();
-	void Normal();
-	void VSizeSq2D();
-	void VSizeSq();
-	void VSize2D();
-	void VSize();
-	void SubtractEqual_VectorVector();
-	void AddEqual_VectorVector();
-	void DivideEqual_VectorFloat();
-	void MultiplyEqual_VectorVector();
-	void MultiplyEqual_VectorFloat();
-	void Cross_VectorVector();
-	void Dot_VectorVector();
-	void NotEqual_VectorVector();
-	void EqualEqual_VectorVector();
-	void GreaterGreater_VectorRotator();
-	void LessLess_VectorRotator();
-	void Subtract_VectorVector();
-	void Add_VectorVector();
-	void Divide_VectorFloat();
-	void Multiply_VectorVector();
-	void Multiply_FloatVector();
-	void Multiply_VectorFloat();
-	void Subtract_PreVector();
-	void FInterpConstantTo();
-	void FInterpTo();
-	void FPctByRange();
-	void RandRange();
-	void FInterpEaseInOut();
-	void FInterpEaseOut();
-	void FInterpEaseIn();
-	void FCubicInterp();
-	void FCeil();
-	void FFloor();
-	void Round();
-	void Lerp();
-	void FClamp();
-	void FMax();
-	void FMin();
-	void FRand();
-	void Square();
-	void Sqrt();
-	void Loge();
-	void Exp();
-	void Atan2();
-	void Atan();
-	void Tan();
-	void Acos();
-	void Cos();
-	void Asin();
-	void Sin();
-	void Abs();
-	void SubtractEqual_FloatFloat();
-	void AddEqual_FloatFloat();
-	void DivideEqual_FloatFloat();
-	void MultiplyEqual_FloatFloat();
-	void NotEqual_FloatFloat();
-	void ComplementEqual_FloatFloat();
-	void EqualEqual_FloatFloat();
-	void GreaterEqual_FloatFloat();
-	void LessEqual_FloatFloat();
-	void Greater_FloatFloat();
-	void Less_FloatFloat();
-	void Subtract_FloatFloat();
-	void Add_FloatFloat();
-	void Percent_FloatFloat();
-	void Divide_FloatFloat();
-	void Multiply_FloatFloat();
-	void MultiplyMultiply_FloatFloat();
-	void Subtract_PreFloat();
-	void ToHex();
-	void Clamp();
-	void Max();
-	void Min();
-	void Rand();
-	void SubtractSubtract_Int();
-	void AddAdd_Int();
-	void SubtractSubtract_PreInt();
-	void AddAdd_PreInt();
-	void SubtractEqual_IntInt();
-	void AddEqual_IntInt();
-	void DivideEqual_IntFloat();
-	void MultiplyEqual_IntFloat();
-	void Or_IntInt();
-	void Xor_IntInt();
-	void And_IntInt();
-	void NotEqual_IntInt();
-	void EqualEqual_IntInt();
-	void GreaterEqual_IntInt();
-	void LessEqual_IntInt();
-	void Greater_IntInt();
-	void Less_IntInt();
-	void GreaterGreaterGreater_IntInt();
-	void GreaterGreater_IntInt();
-	void LessLess_IntInt();
-	void Subtract_IntInt();
-	void Add_IntInt();
-	void Percent_IntInt();
-	void Divide_IntInt();
-	void Multiply_IntInt();
-	void Subtract_PreInt();
-	void Complement_PreInt();
-	void SubtractSubtract_Byte();
-	void AddAdd_Byte();
-	void SubtractSubtract_PreByte();
-	void AddAdd_PreByte();
-	void SubtractEqual_ByteByte();
-	void AddEqual_ByteByte();
-	void DivideEqual_ByteByte();
-	void MultiplyEqual_ByteFloat();
-	void MultiplyEqual_ByteByte();
-	void OrOr_BoolBool();
-	void XorXor_BoolBool();
-	void AndAnd_BoolBool();
-	void NotEqual_BoolBool();
-	void EqualEqual_BoolBool();
-	void Not_PreBool();
+	void STATIC_NoZDot();
+	void STATIC_ClampLength();
+	void STATIC_VInterpTo();
+	void STATIC_IsZero();
+	void STATIC_ProjectOnTo();
+	void STATIC_MirrorVectorByNormal();
+	void STATIC_VRandCone2();
+	void STATIC_VRandCone();
+	void STATIC_VRand();
+	void STATIC_VLerp();
+	void STATIC_Normal2D();
+	void STATIC_Normal();
+	void STATIC_VSizeSq2D();
+	void STATIC_VSizeSq();
+	void STATIC_VSize2D();
+	void STATIC_VSize();
+	void STATIC_SubtractEqual_VectorVector();
+	void STATIC_AddEqual_VectorVector();
+	void STATIC_DivideEqual_VectorFloat();
+	void STATIC_MultiplyEqual_VectorVector();
+	void STATIC_MultiplyEqual_VectorFloat();
+	void STATIC_Cross_VectorVector();
+	void STATIC_Dot_VectorVector();
+	void STATIC_NotEqual_VectorVector();
+	void STATIC_EqualEqual_VectorVector();
+	void STATIC_GreaterGreater_VectorRotator();
+	void STATIC_LessLess_VectorRotator();
+	void STATIC_Subtract_VectorVector();
+	void STATIC_Add_VectorVector();
+	void STATIC_Divide_VectorFloat();
+	void STATIC_Multiply_VectorVector();
+	void STATIC_Multiply_FloatVector();
+	void STATIC_Multiply_VectorFloat();
+	void STATIC_Subtract_PreVector();
+	void STATIC_FInterpConstantTo();
+	void STATIC_FInterpTo();
+	void STATIC_FPctByRange();
+	void STATIC_RandRange();
+	void STATIC_FInterpEaseInOut();
+	void STATIC_FInterpEaseOut();
+	void STATIC_FInterpEaseIn();
+	void STATIC_FCubicInterp();
+	void STATIC_FCeil();
+	void STATIC_FFloor();
+	void STATIC_Round();
+	void STATIC_Lerp();
+	void STATIC_FClamp();
+	void STATIC_FMax();
+	void STATIC_FMin();
+	void STATIC_FRand();
+	void STATIC_Square();
+	void STATIC_Sqrt();
+	void STATIC_Loge();
+	void STATIC_Exp();
+	void STATIC_Atan2();
+	void STATIC_Atan();
+	void STATIC_Tan();
+	void STATIC_Acos();
+	void STATIC_Cos();
+	void STATIC_Asin();
+	void STATIC_Sin();
+	void STATIC_Abs();
+	void STATIC_SubtractEqual_FloatFloat();
+	void STATIC_AddEqual_FloatFloat();
+	void STATIC_DivideEqual_FloatFloat();
+	void STATIC_MultiplyEqual_FloatFloat();
+	void STATIC_NotEqual_FloatFloat();
+	void STATIC_ComplementEqual_FloatFloat();
+	void STATIC_EqualEqual_FloatFloat();
+	void STATIC_GreaterEqual_FloatFloat();
+	void STATIC_LessEqual_FloatFloat();
+	void STATIC_Greater_FloatFloat();
+	void STATIC_Less_FloatFloat();
+	void STATIC_Subtract_FloatFloat();
+	void STATIC_Add_FloatFloat();
+	void STATIC_Percent_FloatFloat();
+	void STATIC_Divide_FloatFloat();
+	void STATIC_Multiply_FloatFloat();
+	void STATIC_MultiplyMultiply_FloatFloat();
+	void STATIC_Subtract_PreFloat();
+	void STATIC_ToHex();
+	void STATIC_Clamp();
+	void STATIC_Max();
+	void STATIC_Min();
+	void STATIC_Rand();
+	void STATIC_SubtractSubtract_Int();
+	void STATIC_AddAdd_Int();
+	void STATIC_SubtractSubtract_PreInt();
+	void STATIC_AddAdd_PreInt();
+	void STATIC_SubtractEqual_IntInt();
+	void STATIC_AddEqual_IntInt();
+	void STATIC_DivideEqual_IntFloat();
+	void STATIC_MultiplyEqual_IntFloat();
+	void STATIC_Or_IntInt();
+	void STATIC_Xor_IntInt();
+	void STATIC_And_IntInt();
+	void STATIC_NotEqual_IntInt();
+	void STATIC_EqualEqual_IntInt();
+	void STATIC_GreaterEqual_IntInt();
+	void STATIC_LessEqual_IntInt();
+	void STATIC_Greater_IntInt();
+	void STATIC_Less_IntInt();
+	void STATIC_GreaterGreaterGreater_IntInt();
+	void STATIC_GreaterGreater_IntInt();
+	void STATIC_LessLess_IntInt();
+	void STATIC_Subtract_IntInt();
+	void STATIC_Add_IntInt();
+	void STATIC_Percent_IntInt();
+	void STATIC_Divide_IntInt();
+	void STATIC_Multiply_IntInt();
+	void STATIC_Subtract_PreInt();
+	void STATIC_Complement_PreInt();
+	void STATIC_SubtractSubtract_Byte();
+	void STATIC_AddAdd_Byte();
+	void STATIC_SubtractSubtract_PreByte();
+	void STATIC_AddAdd_PreByte();
+	void STATIC_SubtractEqual_ByteByte();
+	void STATIC_AddEqual_ByteByte();
+	void STATIC_DivideEqual_ByteByte();
+	void STATIC_MultiplyEqual_ByteFloat();
+	void STATIC_MultiplyEqual_ByteByte();
+	void STATIC_OrOr_BoolBool();
+	void STATIC_XorXor_BoolBool();
+	void STATIC_AndAnd_BoolBool();
+	void STATIC_NotEqual_BoolBool();
+	void STATIC_EqualEqual_BoolBool();
+	void STATIC_Not_PreBool();
 };
 
 
@@ -439,25 +439,25 @@ public:
 class USystem : public USubsystem
 {
 public:
-	int                                                StaleCacheDays;                                           // 0x0060(0x0004)
-	int                                                MaxStaleCacheSize;                                        // 0x0064(0x0004)
-	int                                                MaxOverallCacheSize;                                      // 0x0068(0x0004)
-	int                                                PackageSizeSoftLimit;                                     // 0x006C(0x0004)
-	float                                              AsyncIOBandwidthLimit;                                    // 0x0070(0x0004)
-	struct FString                                     SavePath;                                                 // 0x0074(0x0010)
-	struct FString                                     CachePath;                                                // 0x0084(0x0010)
-	struct FString                                     CacheExt;                                                 // 0x0094(0x0010)
-	TArray<struct FString>                             Paths;                                                    // 0x00A4(0x0010)
-	TArray<struct FString>                             ReleaseCookedPaths;                                       // 0x00B4(0x0010)
-	TArray<struct FString>                             SeekFreePCPaths;                                          // 0x00C4(0x0010)
-	TArray<struct FString>                             ScriptPaths;                                              // 0x00D4(0x0010)
-	TArray<struct FString>                             FRScriptPaths;                                            // 0x00E4(0x0010)
-	TArray<struct FString>                             CutdownPaths;                                             // 0x00F4(0x0010)
-	TArray<struct FName>                               Suppress;                                                 // 0x0104(0x0010)
-	TArray<struct FString>                             Extensions;                                               // 0x0114(0x0010)
-	TArray<struct FString>                             SeekFreePCExtensions;                                     // 0x0124(0x0010)
-	TArray<struct FString>                             LocalizationPaths;                                        // 0x0134(0x0010)
-	struct FString                                     TextureFileCacheExtension;                                // 0x0144(0x0010)
+	int                                                StaleCacheDays;                                           // 0x0060(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	int                                                MaxStaleCacheSize;                                        // 0x0064(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	int                                                MaxOverallCacheSize;                                      // 0x0068(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	int                                                PackageSizeSoftLimit;                                     // 0x006C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	float                                              AsyncIOBandwidthLimit;                                    // 0x0070(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	struct FString                                     SavePath;                                                 // 0x0074(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	struct FString                                     CachePath;                                                // 0x0084(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	struct FString                                     CacheExt;                                                 // 0x0094(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             Paths;                                                    // 0x00A4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             ReleaseCookedPaths;                                       // 0x00B4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             SeekFreePCPaths;                                          // 0x00C4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             ScriptPaths;                                              // 0x00D4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             FRScriptPaths;                                            // 0x00E4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             CutdownPaths;                                             // 0x00F4(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FName>                               Suppress;                                                 // 0x0104(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             Extensions;                                               // 0x0114(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             SeekFreePCExtensions;                                     // 0x0124(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TArray<struct FString>                             LocalizationPaths;                                        // 0x0134(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	struct FString                                     TextureFileCacheExtension;                                // 0x0144(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
 
 	static UClass* StaticClass()
 	{
@@ -632,11 +632,11 @@ public:
 class UStruct : public UField
 {
 public:
-	unsigned char                                      UnknownData00[16];                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	class UField*                                      SuperField;                                               // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	class UField*                                      Children;                                                 // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	unsigned long                                      PropertySize;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	unsigned char                                      UnknownData01[76];                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	uint16_t                                           PropertySize;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData01[0x44];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	static UClass* StaticClass()
 	{
@@ -669,14 +669,14 @@ class UFunction : public UStruct
 {
 public:
 	uint32_t                                           FunctionFlags;                                            // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	char                                               UnknownData00[0x4];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	FName                                              FriendlyName;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t                                           iNative;                                                  // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t                                           RepOffset;                                                // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	uint8_t                                            OperPrecedence;                                           // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	FName                                              FriendlyName;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint8_t                                            NumParms;                                                 // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	uint16_t                                           ParmsSize;                                                // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	uint16_t                                           ReturnValueOffset;                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	void*                                              Func;                                                     // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	uint16_t*                                          ParmsSize;                                                // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	uint16_t*                                          ReturnValueOffset;                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	char*                                              UnknownData01[0x16];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	static UClass* StaticClass()
 	{
@@ -1037,7 +1037,7 @@ class UDistributionVector : public UComponent
 {
 public:
 	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008)
-	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide)
 	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
 
 	static UClass* StaticClass()
@@ -1057,7 +1057,7 @@ class UDistributionFloat : public UComponent
 {
 public:
 	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008)
-	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide)
 	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
 
 	static UClass* StaticClass()
@@ -1152,9 +1152,7 @@ public:
 class UClass : public UState
 {
 public:
-	unsigned char                                      UnknownData00[176];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	class UObject*                                     ClassDefaultObject;                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	unsigned char                                      UnknownData01[168];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData00[0x170];                                     // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	template<typename T>
 	inline T* CreateDefaultObject()

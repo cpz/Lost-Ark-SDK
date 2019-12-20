@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,7 +19,7 @@ namespace SDK
 class UActorFactoryAkAmbientSound : public UActorFactory
 {
 public:
-	class UAkEvent*                                    AmbientEvent;                                             // 0x0094(0x0008)
+	class UAkEvent*                                    AmbientEvent;                                             // 0x0094(0x0008) (RepNotify, Interp, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -38,12 +38,12 @@ public:
 	unsigned long                                      bAutoPlay : 1;                                            // 0x027C(0x0004)
 	unsigned long                                      bIsActive : 1;                                            // 0x027C(0x0004)
 	unsigned long                                      bRealPlay : 1;                                            // 0x027C(0x0004)
-	unsigned long                                      bDeactiveWhenRealPlayIsStop : 1;                          // 0x027C(0x0004)
-	unsigned long                                      bShowAkAmbientSoundRadius : 1;                            // 0x027C(0x0004)
-	unsigned long                                      StopWhenOwnerIsDestroyed : 1;                             // 0x027C(0x0004)
+	unsigned long                                      bDeactiveWhenRealPlayIsStop : 1;                          // 0x027C(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bShowAkAmbientSoundRadius : 1;                            // 0x027C(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      StopWhenOwnerIsDestroyed : 1;                             // 0x027C(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned long                                      bIsPlaying : 1;                                           // 0x027C(0x0004)
-	class UAkEvent*                                    PlayEvent;                                                // 0x0280(0x0008)
-	float                                              fSquaredRadius;                                           // 0x0288(0x0004)
+	class UAkEvent*                                    PlayEvent;                                                // 0x0280(0x0008) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              fSquaredRadius;                                           // 0x0288(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	class UDrawSphereComponent*                        PreviewSoundRadius;                                       // 0x028C(0x0008)
 	class UDrawSphereComponent*                        PreviewAkAmbientSoundRadius;                              // 0x0294(0x0008)
 
@@ -77,7 +77,7 @@ public:
 class UAkComponent : public UActorComponent
 {
 public:
-	struct FName                                       BoneName;                                                 // 0x0084(0x0008)
+	struct FName                                       BoneName;                                                 // 0x0084(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	class UAkEvent*                                    AutoPlayEvent;                                            // 0x008C(0x0008)
 	struct FVector                                     RelativeLoc;                                              // 0x0094(0x000C)
 	struct FVector                                     WorldLoc;                                                 // 0x00A0(0x000C)
@@ -99,7 +99,7 @@ public:
 class UInterpTrackAkEvent : public UInterpTrack
 {
 public:
-	TArray<struct FAkEventTrackKey>                    AkEvents;                                                 // 0x00B8(0x0010)
+	TArray<struct FAkEventTrackKey>                    AkEvents;                                                 // 0x00B8(0x0010) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive)
 
 	static UClass* StaticClass()
 	{
@@ -115,7 +115,7 @@ public:
 class UInterpTrackAkRTPC : public UInterpTrackFloatBase
 {
 public:
-	struct FString                                     Param;                                                    // 0x00D0(0x0010)
+	struct FString                                     Param;                                                    // 0x00D0(0x0010) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive)
 
 	static UClass* StaticClass()
 	{
@@ -177,9 +177,9 @@ public:
 class USeqAct_AkLoadBank : public USeqAct_Latent
 {
 public:
-	unsigned long                                      Async : 1;                                                // 0x0170(0x0004)
+	unsigned long                                      Async : 1;                                                // 0x0170(0x0004) (RepNotify, Interp, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned long                                      bWaitingCallback : 1;                                     // 0x0170(0x0004)
-	class UAkBank*                                     Bank;                                                     // 0x0174(0x0008)
+	class UAkBank*                                     Bank;                                                     // 0x0174(0x0008) (RepNotify, Interp, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	int                                                Signal;                                                   // 0x017C(0x0004)
 
 	static UClass* StaticClass()
@@ -197,7 +197,7 @@ class USeqAct_AkPostEvent : public USeqAct_Latent
 {
 public:
 	int                                                Signal;                                                   // 0x0170(0x0004)
-	class UAkEvent*                                    Event;                                                    // 0x0174(0x0008)
+	class UAkEvent*                                    Event;                                                    // 0x0174(0x0008) (RepNotify, NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -213,7 +213,7 @@ public:
 class USeqAct_AkPostTrigger : public USequenceAction
 {
 public:
-	struct FString                                     Trigger;                                                  // 0x0158(0x0010)
+	struct FString                                     Trigger;                                                  // 0x0158(0x0010) (RepNotify, Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -229,8 +229,8 @@ public:
 class USeqAct_AkSetRTPCValue : public USeqAct_Latent
 {
 public:
-	struct FString                                     Param;                                                    // 0x0170(0x0010)
-	float                                              Value;                                                    // 0x0180(0x0004)
+	struct FString                                     Param;                                                    // 0x0170(0x0010) (RepNotify, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              Value;                                                    // 0x0180(0x0004) (RepNotify, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned long                                      Running : 1;                                              // 0x0184(0x0004)
 
 	static UClass* StaticClass()
@@ -247,8 +247,8 @@ public:
 class USeqAct_AkSetState : public USequenceAction
 {
 public:
-	struct FString                                     StateGroup;                                               // 0x0158(0x0010)
-	struct FString                                     State;                                                    // 0x0168(0x0010)
+	struct FString                                     StateGroup;                                               // 0x0158(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     State;                                                    // 0x0168(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -264,8 +264,8 @@ public:
 class USeqAct_AkSetSwitch : public USequenceAction
 {
 public:
-	struct FString                                     SwitchGroup;                                              // 0x0158(0x0010)
-	struct FString                                     Switch;                                                   // 0x0168(0x0010)
+	struct FString                                     SwitchGroup;                                              // 0x0158(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     Switch;                                                   // 0x0168(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{

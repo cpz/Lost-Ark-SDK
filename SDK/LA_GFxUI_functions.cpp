@@ -1,4 +1,4 @@
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Function GFxUI.GFxFSCmdHandler.FSCommand
-// (Defined, Iterator, Latent, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxFSCmdHandler::FSCommand()
 {
@@ -30,7 +30,7 @@ void UGFxFSCmdHandler::FSCommand()
 
 
 // Function GFxUI.GFxInteraction.CloseAllMoviePlayers
-// (Final, Latent, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxInteraction::CloseAllMoviePlayers()
 {
@@ -48,15 +48,16 @@ void UGFxInteraction::CloseAllMoviePlayers()
 
 
 // Function GFxUI.GFxInteraction.NotifySplitscreenLayoutChanged
-// (Final, Defined, Latent, Singular, Net, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void UGFxInteraction::STATIC_NotifySplitscreenLayoutChanged()
+void UGFxInteraction::NotifySplitscreenLayoutChanged()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxInteraction.NotifySplitscreenLayoutChanged");
 
 	UGFxInteraction_NotifySplitscreenLayoutChanged_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -65,15 +66,16 @@ void UGFxInteraction::STATIC_NotifySplitscreenLayoutChanged()
 
 
 // Function GFxUI.GFxInteraction.NotifyPlayerRemoved
-// (Final, Iterator, Singular, Net, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void UGFxInteraction::STATIC_NotifyPlayerRemoved()
+void UGFxInteraction::NotifyPlayerRemoved()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxInteraction.NotifyPlayerRemoved");
 
 	UGFxInteraction_NotifyPlayerRemoved_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -82,15 +84,16 @@ void UGFxInteraction::STATIC_NotifyPlayerRemoved()
 
 
 // Function GFxUI.GFxInteraction.NotifyPlayerAdded
-// (Iterator, Singular, Net, Operator, Static, HasOptionalParms)
+// (Native, Public)
 
-void UGFxInteraction::STATIC_NotifyPlayerAdded()
+void UGFxInteraction::NotifyPlayerAdded()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxInteraction.NotifyPlayerAdded");
 
 	UGFxInteraction_NotifyPlayerAdded_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -99,7 +102,7 @@ void UGFxInteraction::STATIC_NotifyPlayerAdded()
 
 
 // Function GFxUI.GFxInteraction.NotifyGameSessionEnded
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, HasOptionalParms)
+// (Native, Public)
 
 void UGFxInteraction::NotifyGameSessionEnded()
 {
@@ -108,6 +111,7 @@ void UGFxInteraction::NotifyGameSessionEnded()
 	UGFxInteraction_NotifyGameSessionEnded_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -116,7 +120,7 @@ void UGFxInteraction::NotifyGameSessionEnded()
 
 
 // Function GFxUI.GFxInteraction.GetFocusMovie
-// (Defined, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxInteraction::GetFocusMovie()
 {
@@ -134,15 +138,16 @@ void UGFxInteraction::GetFocusMovie()
 
 
 // Function GFxUI.GFxMoviePlayer.UpdateSplitscreenLayout
-// (PreOperator, Singular, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_UpdateSplitscreenLayout()
+void UGFxMoviePlayer::UpdateSplitscreenLayout()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.UpdateSplitscreenLayout");
 
 	UGFxMoviePlayer_UpdateSplitscreenLayout_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -151,7 +156,7 @@ void UGFxMoviePlayer::STATIC_UpdateSplitscreenLayout()
 
 
 // Function GFxUI.GFxMoviePlayer.ApplyPriorityVisibilityEffect
-// (Defined, Iterator, PreOperator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Public)
 
 void UGFxMoviePlayer::ApplyPriorityVisibilityEffect()
 {
@@ -160,7 +165,6 @@ void UGFxMoviePlayer::ApplyPriorityVisibilityEffect()
 	UGFxMoviePlayer_ApplyPriorityVisibilityEffect_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -169,7 +173,7 @@ void UGFxMoviePlayer::ApplyPriorityVisibilityEffect()
 
 
 // Function GFxUI.GFxMoviePlayer.ApplyPriorityBlurEffect
-// (Final, Iterator, PreOperator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Public)
 
 void UGFxMoviePlayer::ApplyPriorityBlurEffect()
 {
@@ -178,7 +182,6 @@ void UGFxMoviePlayer::ApplyPriorityBlurEffect()
 	UGFxMoviePlayer_ApplyPriorityBlurEffect_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -187,7 +190,7 @@ void UGFxMoviePlayer::ApplyPriorityBlurEffect()
 
 
 // Function GFxUI.GFxMoviePlayer.ApplyPriorityEffect
-// (Defined, Latent, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxMoviePlayer::ApplyPriorityEffect()
 {
@@ -204,9 +207,9 @@ void UGFxMoviePlayer::ApplyPriorityEffect()
 
 
 // Function GFxUI.GFxMoviePlayer.PlaySoundFromTheme
-// (Defined, Iterator, Latent, Static, Const)
+// (Defined, HasOptionalParms, Public)
 
-void UGFxMoviePlayer::STATIC_PlaySoundFromTheme()
+void UGFxMoviePlayer::PlaySoundFromTheme()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.PlaySoundFromTheme");
 
@@ -221,7 +224,7 @@ void UGFxMoviePlayer::STATIC_PlaySoundFromTheme()
 
 
 // Function GFxUI.GFxMoviePlayer.OnFocusLost
-// (Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::OnFocusLost()
 {
@@ -238,7 +241,7 @@ void UGFxMoviePlayer::OnFocusLost()
 
 
 // Function GFxUI.GFxMoviePlayer.OnFocusGained
-// (Final, Defined, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::OnFocusGained()
 {
@@ -255,7 +258,7 @@ void UGFxMoviePlayer::OnFocusGained()
 
 
 // Function GFxUI.GFxMoviePlayer.ConsoleCommand
-// (Iterator, Net, Event, Operator, HasOptionalParms)
+// (Defined, Public)
 
 void UGFxMoviePlayer::ConsoleCommand()
 {
@@ -272,7 +275,7 @@ void UGFxMoviePlayer::ConsoleCommand()
 
 
 // Function GFxUI.GFxMoviePlayer.GetPC
-// (PreOperator, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxMoviePlayer::GetPC()
 {
@@ -289,7 +292,7 @@ void UGFxMoviePlayer::GetPC()
 
 
 // Function GFxUI.GFxMoviePlayer.GetLP
-// (Final, Defined, Iterator, Latent, Net, Exec, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxMoviePlayer::GetLP()
 {
@@ -306,7 +309,7 @@ void UGFxMoviePlayer::GetLP()
 
 
 // Function GFxUI.GFxMoviePlayer.Init
-// (Defined, Latent, PreOperator, Singular, Net, NetReliable, Exec)
+// (Defined, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::Init()
 {
@@ -323,15 +326,16 @@ void UGFxMoviePlayer::Init()
 
 
 // Function GFxUI.GFxMoviePlayer.SetWidgetPathBinding
-// (PreOperator, Net, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetWidgetPathBinding()
+void UGFxMoviePlayer::SetWidgetPathBinding()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetWidgetPathBinding");
 
 	UGFxMoviePlayer_SetWidgetPathBinding_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -340,7 +344,7 @@ void UGFxMoviePlayer::STATIC_SetWidgetPathBinding()
 
 
 // Function GFxUI.GFxMoviePlayer.PostWidgetInit
-// (Defined, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::PostWidgetInit()
 {
@@ -357,7 +361,7 @@ void UGFxMoviePlayer::PostWidgetInit()
 
 
 // Function GFxUI.GFxMoviePlayer.WidgetUnloaded
-// (Final, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::WidgetUnloaded()
 {
@@ -374,7 +378,7 @@ void UGFxMoviePlayer::WidgetUnloaded()
 
 
 // Function GFxUI.GFxMoviePlayer.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::WidgetInitialized()
 {
@@ -391,7 +395,7 @@ void UGFxMoviePlayer::WidgetInitialized()
 
 
 // Function GFxUI.GFxMoviePlayer.ActionScriptString
-// (Final, Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxMoviePlayer::ActionScriptString()
 {
@@ -409,7 +413,7 @@ void UGFxMoviePlayer::ActionScriptString()
 
 
 // Function GFxUI.GFxMoviePlayer.ActionScriptFloat
-// (Final, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxMoviePlayer::ActionScriptFloat()
 {
@@ -427,7 +431,7 @@ void UGFxMoviePlayer::ActionScriptFloat()
 
 
 // Function GFxUI.GFxMoviePlayer.ActionScriptInt
-// (Defined, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxMoviePlayer::ActionScriptInt()
 {
@@ -445,7 +449,7 @@ void UGFxMoviePlayer::ActionScriptInt()
 
 
 // Function GFxUI.GFxMoviePlayer.ActionScriptVoid
-// (Defined, Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxMoviePlayer::ActionScriptVoid()
 {
@@ -463,7 +467,7 @@ void UGFxMoviePlayer::ActionScriptVoid()
 
 
 // Function GFxUI.GFxMoviePlayer._Invoke
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::_Invoke()
 {
@@ -481,7 +485,7 @@ void UGFxMoviePlayer::_Invoke()
 
 
 // Function GFxUI.GFxMoviePlayer.ActionScriptSetFunction
-// (Final, Defined, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxMoviePlayer::ActionScriptSetFunction()
 {
@@ -499,7 +503,7 @@ void UGFxMoviePlayer::ActionScriptSetFunction()
 
 
 // Function GFxUI.GFxMoviePlayer.CreateArray
-// (Final, Defined, Latent, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::CreateArray()
 {
@@ -517,7 +521,7 @@ void UGFxMoviePlayer::CreateArray()
 
 
 // Function GFxUI.GFxMoviePlayer.CreateObject
-// (Iterator, Latent, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::CreateObject()
 {
@@ -535,15 +539,16 @@ void UGFxMoviePlayer::CreateObject()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableStringArray
-// (Final, Defined, Latent, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableStringArray()
+void UGFxMoviePlayer::SetVariableStringArray()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableStringArray");
 
 	UGFxMoviePlayer_SetVariableStringArray_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -552,15 +557,16 @@ void UGFxMoviePlayer::STATIC_SetVariableStringArray()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableFloatArray
-// (Final, Iterator, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableFloatArray()
+void UGFxMoviePlayer::SetVariableFloatArray()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableFloatArray");
 
 	UGFxMoviePlayer_SetVariableFloatArray_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -569,15 +575,16 @@ void UGFxMoviePlayer::STATIC_SetVariableFloatArray()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableIntArray
-// (Final, Defined, Iterator, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableIntArray()
+void UGFxMoviePlayer::SetVariableIntArray()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableIntArray");
 
 	UGFxMoviePlayer_SetVariableIntArray_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -586,15 +593,16 @@ void UGFxMoviePlayer::STATIC_SetVariableIntArray()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableArray
-// (Final, Defined, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableArray()
+void UGFxMoviePlayer::SetVariableArray()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableArray");
 
 	UGFxMoviePlayer_SetVariableArray_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -603,7 +611,7 @@ void UGFxMoviePlayer::STATIC_SetVariableArray()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableStringArray
-// (Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public, HasOutParms)
 
 void UGFxMoviePlayer::GetVariableStringArray()
 {
@@ -621,7 +629,7 @@ void UGFxMoviePlayer::GetVariableStringArray()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableFloatArray
-// (PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public, HasOutParms)
 
 void UGFxMoviePlayer::GetVariableFloatArray()
 {
@@ -639,7 +647,7 @@ void UGFxMoviePlayer::GetVariableFloatArray()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableIntArray
-// (Defined, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public, HasOutParms)
 
 void UGFxMoviePlayer::GetVariableIntArray()
 {
@@ -657,7 +665,7 @@ void UGFxMoviePlayer::GetVariableIntArray()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableArray
-// (Defined, Iterator, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public, HasOutParms)
 
 void UGFxMoviePlayer::GetVariableArray()
 {
@@ -675,15 +683,16 @@ void UGFxMoviePlayer::GetVariableArray()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableObject
-// (Final, Latent, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableObject()
+void UGFxMoviePlayer::SetVariableObject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableObject");
 
 	UGFxMoviePlayer_SetVariableObject_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -692,15 +701,16 @@ void UGFxMoviePlayer::STATIC_SetVariableObject()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableString
-// (Defined, Latent, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableString()
+void UGFxMoviePlayer::SetVariableString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableString");
 
 	UGFxMoviePlayer_SetVariableString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -709,15 +719,16 @@ void UGFxMoviePlayer::STATIC_SetVariableString()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableInt
-// (Defined, Iterator, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableInt()
+void UGFxMoviePlayer::SetVariableInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableInt");
 
 	UGFxMoviePlayer_SetVariableInt_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -726,15 +737,16 @@ void UGFxMoviePlayer::STATIC_SetVariableInt()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableNumber
-// (Latent, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableNumber()
+void UGFxMoviePlayer::SetVariableNumber()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableNumber");
 
 	UGFxMoviePlayer_SetVariableNumber_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -743,15 +755,16 @@ void UGFxMoviePlayer::STATIC_SetVariableNumber()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariableBool
-// (Iterator, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariableBool()
+void UGFxMoviePlayer::SetVariableBool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariableBool");
 
 	UGFxMoviePlayer_SetVariableBool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -760,15 +773,16 @@ void UGFxMoviePlayer::STATIC_SetVariableBool()
 
 
 // Function GFxUI.GFxMoviePlayer.SetVariable
-// (Defined, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetVariable()
+void UGFxMoviePlayer::SetVariable()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetVariable");
 
 	UGFxMoviePlayer_SetVariable_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -777,7 +791,7 @@ void UGFxMoviePlayer::STATIC_SetVariable()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableObject
-// (Iterator, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::GetVariableObject()
 {
@@ -795,7 +809,7 @@ void UGFxMoviePlayer::GetVariableObject()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableString
-// (Final, Iterator, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetVariableString()
 {
@@ -813,7 +827,7 @@ void UGFxMoviePlayer::GetVariableString()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableInt
-// (Final, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetVariableInt()
 {
@@ -831,7 +845,7 @@ void UGFxMoviePlayer::GetVariableInt()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableNumber
-// (Final, Defined, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetVariableNumber()
 {
@@ -849,7 +863,7 @@ void UGFxMoviePlayer::GetVariableNumber()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariableBool
-// (Final, Defined, Iterator, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetVariableBool()
 {
@@ -867,7 +881,7 @@ void UGFxMoviePlayer::GetVariableBool()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVariable
-// (Final, Iterator, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetVariable()
 {
@@ -885,7 +899,7 @@ void UGFxMoviePlayer::GetVariable()
 
 
 // Function GFxUI.GFxMoviePlayer.GetAVMVersion
-// (Final, Defined, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxMoviePlayer::GetAVMVersion()
 {
@@ -903,7 +917,7 @@ void UGFxMoviePlayer::GetAVMVersion()
 
 
 // Function GFxUI.GFxMoviePlayer.FilterButtonInput
-// (Final, Iterator, Latent, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::FilterButtonInput()
 {
@@ -920,15 +934,16 @@ void UGFxMoviePlayer::FilterButtonInput()
 
 
 // Function GFxUI.GFxMoviePlayer.FlushPlayerInput
-// (Defined, Iterator, Singular, NetReliable, Simulated, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_FlushPlayerInput()
+void UGFxMoviePlayer::FlushPlayerInput()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.FlushPlayerInput");
 
 	UGFxMoviePlayer_FlushPlayerInput_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -937,7 +952,7 @@ void UGFxMoviePlayer::STATIC_FlushPlayerInput()
 
 
 // Function GFxUI.GFxMoviePlayer.ClearFocusIgnoreKeys
-// (Latent, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::ClearFocusIgnoreKeys()
 {
@@ -955,7 +970,7 @@ void UGFxMoviePlayer::ClearFocusIgnoreKeys()
 
 
 // Function GFxUI.GFxMoviePlayer.AddFocusIgnoreKey
-// (Final, Latent, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::AddFocusIgnoreKey()
 {
@@ -973,7 +988,7 @@ void UGFxMoviePlayer::AddFocusIgnoreKey()
 
 
 // Function GFxUI.GFxMoviePlayer.ClearCaptureKeys
-// (Final, Defined, Iterator, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::ClearCaptureKeys()
 {
@@ -991,7 +1006,7 @@ void UGFxMoviePlayer::ClearCaptureKeys()
 
 
 // Function GFxUI.GFxMoviePlayer.AddCaptureKey
-// (Final, Defined, Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::AddCaptureKey()
 {
@@ -1009,15 +1024,16 @@ void UGFxMoviePlayer::AddCaptureKey()
 
 
 // Function GFxUI.GFxMoviePlayer.SetMovieCanReceiveInput
-// (Final, Defined, Latent, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetMovieCanReceiveInput()
+void UGFxMoviePlayer::SetMovieCanReceiveInput()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetMovieCanReceiveInput");
 
 	UGFxMoviePlayer_SetMovieCanReceiveInput_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1026,15 +1042,16 @@ void UGFxMoviePlayer::STATIC_SetMovieCanReceiveInput()
 
 
 // Function GFxUI.GFxMoviePlayer.SetMovieCanReceiveFocus
-// (Defined, Latent, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetMovieCanReceiveFocus()
+void UGFxMoviePlayer::SetMovieCanReceiveFocus()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetMovieCanReceiveFocus");
 
 	UGFxMoviePlayer_SetMovieCanReceiveFocus_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1043,15 +1060,16 @@ void UGFxMoviePlayer::STATIC_SetMovieCanReceiveFocus()
 
 
 // Function GFxUI.GFxMoviePlayer.SetPerspective3D
-// (Final, Iterator, Latent, PreOperator, Singular, Static, Const)
+// (Final, Native, Public, HasOutParms)
 
-void UGFxMoviePlayer::STATIC_SetPerspective3D()
+void UGFxMoviePlayer::SetPerspective3D()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetPerspective3D");
 
 	UGFxMoviePlayer_SetPerspective3D_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1060,15 +1078,16 @@ void UGFxMoviePlayer::STATIC_SetPerspective3D()
 
 
 // Function GFxUI.GFxMoviePlayer.SetView3D
-// (Iterator, Latent, Net, Static, Const)
+// (Final, Native, Public, HasOutParms)
 
-void UGFxMoviePlayer::STATIC_SetView3D()
+void UGFxMoviePlayer::SetView3D()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetView3D");
 
 	UGFxMoviePlayer_SetView3D_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1077,7 +1096,7 @@ void UGFxMoviePlayer::STATIC_SetView3D()
 
 
 // Function GFxUI.GFxMoviePlayer.GetVisibleFrameRect
-// (Final, Defined, Iterator, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public, HasOutParms)
 
 void UGFxMoviePlayer::GetVisibleFrameRect()
 {
@@ -1095,15 +1114,16 @@ void UGFxMoviePlayer::GetVisibleFrameRect()
 
 
 // Function GFxUI.GFxMoviePlayer.SetAlignment
-// (Iterator, Latent, PreOperator, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetAlignment()
+void UGFxMoviePlayer::SetAlignment()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetAlignment");
 
 	UGFxMoviePlayer_SetAlignment_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1112,15 +1132,16 @@ void UGFxMoviePlayer::STATIC_SetAlignment()
 
 
 // Function GFxUI.GFxMoviePlayer.SetViewScaleMode
-// (Defined, Iterator, Latent, Net, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetViewScaleMode()
+void UGFxMoviePlayer::SetViewScaleMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetViewScaleMode");
 
 	UGFxMoviePlayer_SetViewScaleMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1129,15 +1150,16 @@ void UGFxMoviePlayer::STATIC_SetViewScaleMode()
 
 
 // Function GFxUI.GFxMoviePlayer.SetViewport
-// (Final, Iterator, Latent, Net, Static, Const)
+// (Final, Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetViewport()
+void UGFxMoviePlayer::SetViewport()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetViewport");
 
 	UGFxMoviePlayer_SetViewport_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1146,7 +1168,7 @@ void UGFxMoviePlayer::STATIC_SetViewport()
 
 
 // Function GFxUI.GFxMoviePlayer.GetGameViewportClient
-// (Final, Defined, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::GetGameViewportClient()
 {
@@ -1164,15 +1186,16 @@ void UGFxMoviePlayer::GetGameViewportClient()
 
 
 // Function GFxUI.GFxMoviePlayer.SetPriority
-// (Defined, Iterator, Latent, PreOperator, Singular, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetPriority()
+void UGFxMoviePlayer::SetPriority()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetPriority");
 
 	UGFxMoviePlayer_SetPriority_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1181,15 +1204,16 @@ void UGFxMoviePlayer::STATIC_SetPriority()
 
 
 // Function GFxUI.GFxMoviePlayer.SetExternalTextureEx
-// (Final, Iterator, PreOperator, Singular, Static, Const)
+// (Native, HasOptionalParms, Public)
 
-void UGFxMoviePlayer::STATIC_SetExternalTextureEx()
+void UGFxMoviePlayer::SetExternalTextureEx()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetExternalTextureEx");
 
 	UGFxMoviePlayer_SetExternalTextureEx_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1198,15 +1222,16 @@ void UGFxMoviePlayer::STATIC_SetExternalTextureEx()
 
 
 // Function GFxUI.GFxMoviePlayer.SetExternalTexture
-// (Iterator, PreOperator, Singular, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetExternalTexture()
+void UGFxMoviePlayer::SetExternalTexture()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetExternalTexture");
 
 	UGFxMoviePlayer_SetExternalTexture_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1215,9 +1240,9 @@ void UGFxMoviePlayer::STATIC_SetExternalTexture()
 
 
 // Function GFxUI.GFxMoviePlayer.SetExternalInterface
-// (Final, Defined, PreOperator, Singular, Static, Const)
+// (Defined, Public)
 
-void UGFxMoviePlayer::STATIC_SetExternalInterface()
+void UGFxMoviePlayer::SetExternalInterface()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetExternalInterface");
 
@@ -1232,15 +1257,16 @@ void UGFxMoviePlayer::STATIC_SetExternalInterface()
 
 
 // Function GFxUI.GFxMoviePlayer.SetTimingMode
-// (Final, Net, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_SetTimingMode()
+void UGFxMoviePlayer::SetTimingMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetTimingMode");
 
 	UGFxMoviePlayer_SetTimingMode_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1249,9 +1275,9 @@ void UGFxMoviePlayer::STATIC_SetTimingMode()
 
 
 // Function GFxUI.GFxMoviePlayer.SetMovieInfo
-// (Iterator, Latent, PreOperator, Singular, Static, Const)
+// (Defined, Public)
 
-void UGFxMoviePlayer::STATIC_SetMovieInfo()
+void UGFxMoviePlayer::SetMovieInfo()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetMovieInfo");
 
@@ -1266,7 +1292,7 @@ void UGFxMoviePlayer::STATIC_SetMovieInfo()
 
 
 // Function GFxUI.GFxMoviePlayer.ConditionalClearPause
-// (Final, Defined, Latent, Net, Exec, HasOptionalParms)
+// (Final, Defined, Event, Public)
 
 void UGFxMoviePlayer::ConditionalClearPause()
 {
@@ -1283,7 +1309,7 @@ void UGFxMoviePlayer::ConditionalClearPause()
 
 
 // Function GFxUI.GFxMoviePlayer.OnCleanup
-// (Final, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::OnCleanup()
 {
@@ -1300,7 +1326,7 @@ void UGFxMoviePlayer::OnCleanup()
 
 
 // Function GFxUI.GFxMoviePlayer.OnClose
-// (Defined, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxMoviePlayer::OnClose()
 {
@@ -1317,7 +1343,7 @@ void UGFxMoviePlayer::OnClose()
 
 
 // Function GFxUI.GFxMoviePlayer.Close
-// (Defined, Iterator, PreOperator, Singular, Net, Native, Event, Operator)
+// (Final, Native, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::Close()
 {
@@ -1335,9 +1361,9 @@ void UGFxMoviePlayer::Close()
 
 
 // Function GFxUI.GFxMoviePlayer.SetPause
-// (Defined, Singular, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Native, HasOptionalParms, Public)
 
-void UGFxMoviePlayer::STATIC_SetPause()
+void UGFxMoviePlayer::SetPause()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.SetPause");
 
@@ -1353,7 +1379,7 @@ void UGFxMoviePlayer::STATIC_SetPause()
 
 
 // Function GFxUI.GFxMoviePlayer.OnPostAdvance
-// (Final, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Public, Delegate)
 
 void UGFxMoviePlayer::OnPostAdvance()
 {
@@ -1370,15 +1396,16 @@ void UGFxMoviePlayer::OnPostAdvance()
 
 
 // Function GFxUI.GFxMoviePlayer.PostAdvance
-// (PreOperator, Static, Const)
+// (Native, Public)
 
-void UGFxMoviePlayer::STATIC_PostAdvance()
+void UGFxMoviePlayer::PostAdvance()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxMoviePlayer.PostAdvance");
 
 	UGFxMoviePlayer_PostAdvance_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1387,7 +1414,7 @@ void UGFxMoviePlayer::STATIC_PostAdvance()
 
 
 // Function GFxUI.GFxMoviePlayer.Advance
-// (Defined, Latent, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxMoviePlayer::Advance()
 {
@@ -1405,7 +1432,7 @@ void UGFxMoviePlayer::Advance()
 
 
 // Function GFxUI.GFxMoviePlayer.Start
-// (Final, Defined, Iterator, PreOperator, Net, Exec, HasOptionalParms)
+// (Native, Event, HasOptionalParms, Public)
 
 void UGFxMoviePlayer::Start()
 {
@@ -1414,6 +1441,7 @@ void UGFxMoviePlayer::Start()
 	UGFxMoviePlayer_Start_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1422,7 +1450,7 @@ void UGFxMoviePlayer::Start()
 
 
 // Function GFxUI.GFxObject.DestroyGFxObject
-// (Final, Defined, Iterator, Latent, PreOperator, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::DestroyGFxObject()
 {
@@ -1440,7 +1468,7 @@ void UGFxObject::DestroyGFxObject()
 
 
 // Function GFxUI.GFxObject.WidgetUnloaded
-// (Final, Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxObject::WidgetUnloaded()
 {
@@ -1457,7 +1485,7 @@ void UGFxObject::WidgetUnloaded()
 
 
 // Function GFxUI.GFxObject.WidgetInitialized
-// (Latent, PreOperator, Net, Exec, HasOptionalParms)
+// (Event, Public)
 
 void UGFxObject::WidgetInitialized()
 {
@@ -1474,7 +1502,7 @@ void UGFxObject::WidgetInitialized()
 
 
 // Function GFxUI.GFxObject.GotoAndStopI
-// (Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GotoAndStopI()
 {
@@ -1492,7 +1520,7 @@ void UGFxObject::GotoAndStopI()
 
 
 // Function GFxUI.GFxObject.GotoAndStop
-// (Final, Defined, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GotoAndStop()
 {
@@ -1510,7 +1538,7 @@ void UGFxObject::GotoAndStop()
 
 
 // Function GFxUI.GFxObject.GotoAndPlayI
-// (Defined, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GotoAndPlayI()
 {
@@ -1528,7 +1556,7 @@ void UGFxObject::GotoAndPlayI()
 
 
 // Function GFxUI.GFxObject.GotoAndPlay
-// (Final, Iterator, Latent, PreOperator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GotoAndPlay()
 {
@@ -1546,7 +1574,7 @@ void UGFxObject::GotoAndPlay()
 
 
 // Function GFxUI.GFxObject.ActionScriptString
-// (Final, Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxObject::ActionScriptString()
 {
@@ -1564,7 +1592,7 @@ void UGFxObject::ActionScriptString()
 
 
 // Function GFxUI.GFxObject.ActionScriptFloat
-// (Final, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxObject::ActionScriptFloat()
 {
@@ -1582,7 +1610,7 @@ void UGFxObject::ActionScriptFloat()
 
 
 // Function GFxUI.GFxObject.ActionScriptInt
-// (Defined, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxObject::ActionScriptInt()
 {
@@ -1600,7 +1628,7 @@ void UGFxObject::ActionScriptInt()
 
 
 // Function GFxUI.GFxObject.ActionScriptVoid
-// (Defined, Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Native, Public)
 
 void UGFxObject::ActionScriptVoid()
 {
@@ -1618,7 +1646,7 @@ void UGFxObject::ActionScriptVoid()
 
 
 // Function GFxUI.GFxObject._Invoke
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::_Invoke()
 {
@@ -1636,7 +1664,7 @@ void UGFxObject::_Invoke()
 
 
 // Function GFxUI.GFxObject.ActionScriptSetFunctionOn
-// (Iterator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxObject::ActionScriptSetFunctionOn()
 {
@@ -1654,7 +1682,7 @@ void UGFxObject::ActionScriptSetFunctionOn()
 
 
 // Function GFxUI.GFxObject.ActionScriptSetFunction
-// (Final, Defined, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Protected)
 
 void UGFxObject::ActionScriptSetFunction()
 {
@@ -1672,15 +1700,16 @@ void UGFxObject::ActionScriptSetFunction()
 
 
 // Function GFxUI.GFxObject.SetElementMemberString
-// (Defined, Iterator, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMemberString()
+void UGFxObject::SetElementMemberString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMemberString");
 
 	UGFxObject_SetElementMemberString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1689,15 +1718,16 @@ void UGFxObject::STATIC_SetElementMemberString()
 
 
 // Function GFxUI.GFxObject.SetElementMemberInt
-// (Iterator, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMemberInt()
+void UGFxObject::SetElementMemberInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMemberInt");
 
 	UGFxObject_SetElementMemberInt_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1706,15 +1736,16 @@ void UGFxObject::STATIC_SetElementMemberInt()
 
 
 // Function GFxUI.GFxObject.SetElementMemberFloat
-// (Final, Defined, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMemberFloat()
+void UGFxObject::SetElementMemberFloat()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMemberFloat");
 
 	UGFxObject_SetElementMemberFloat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1723,15 +1754,16 @@ void UGFxObject::STATIC_SetElementMemberFloat()
 
 
 // Function GFxUI.GFxObject.SetElementMemberBool
-// (Defined, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMemberBool()
+void UGFxObject::SetElementMemberBool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMemberBool");
 
 	UGFxObject_SetElementMemberBool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1740,15 +1772,16 @@ void UGFxObject::STATIC_SetElementMemberBool()
 
 
 // Function GFxUI.GFxObject.SetElementMemberObject
-// (Final, Iterator, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMemberObject()
+void UGFxObject::SetElementMemberObject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMemberObject");
 
 	UGFxObject_SetElementMemberObject_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1757,15 +1790,16 @@ void UGFxObject::STATIC_SetElementMemberObject()
 
 
 // Function GFxUI.GFxObject.SetElementMember
-// (Final, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementMember()
+void UGFxObject::SetElementMember()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementMember");
 
 	UGFxObject_SetElementMember_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1774,7 +1808,7 @@ void UGFxObject::STATIC_SetElementMember()
 
 
 // Function GFxUI.GFxObject.GetElementMemberString
-// (Final, Iterator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementMemberString()
 {
@@ -1792,7 +1826,7 @@ void UGFxObject::GetElementMemberString()
 
 
 // Function GFxUI.GFxObject.GetElementMemberInt
-// (Defined, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementMemberInt()
 {
@@ -1810,7 +1844,7 @@ void UGFxObject::GetElementMemberInt()
 
 
 // Function GFxUI.GFxObject.GetElementMemberFloat
-// (Final, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementMemberFloat()
 {
@@ -1828,7 +1862,7 @@ void UGFxObject::GetElementMemberFloat()
 
 
 // Function GFxUI.GFxObject.GetElementMemberBool
-// (Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementMemberBool()
 {
@@ -1846,7 +1880,7 @@ void UGFxObject::GetElementMemberBool()
 
 
 // Function GFxUI.GFxObject.GetElementMemberObject
-// (Final, Defined, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, HasOptionalParms, Public)
 
 void UGFxObject::GetElementMemberObject()
 {
@@ -1864,7 +1898,7 @@ void UGFxObject::GetElementMemberObject()
 
 
 // Function GFxUI.GFxObject.GetElementMemberObjectEx
-// (Iterator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, HasOptionalParms, Public)
 
 void UGFxObject::GetElementMemberObjectEx()
 {
@@ -1882,7 +1916,7 @@ void UGFxObject::GetElementMemberObjectEx()
 
 
 // Function GFxUI.GFxObject.GetElementMember
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementMember()
 {
@@ -1900,15 +1934,16 @@ void UGFxObject::GetElementMember()
 
 
 // Function GFxUI.GFxObject.SetElementColorTransform
-// (Iterator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementColorTransform()
+void UGFxObject::SetElementColorTransform()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementColorTransform");
 
 	UGFxObject_SetElementColorTransform_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1917,15 +1952,16 @@ void UGFxObject::STATIC_SetElementColorTransform()
 
 
 // Function GFxUI.GFxObject.SetElementPosition
-// (PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementPosition()
+void UGFxObject::SetElementPosition()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementPosition");
 
 	UGFxObject_SetElementPosition_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1934,15 +1970,16 @@ void UGFxObject::STATIC_SetElementPosition()
 
 
 // Function GFxUI.GFxObject.SetElementVisible
-// (Defined, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementVisible()
+void UGFxObject::SetElementVisible()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementVisible");
 
 	UGFxObject_SetElementVisible_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1951,15 +1988,16 @@ void UGFxObject::STATIC_SetElementVisible()
 
 
 // Function GFxUI.GFxObject.SetElementDisplayMatrix
-// (Defined, Iterator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementDisplayMatrix()
+void UGFxObject::SetElementDisplayMatrix()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementDisplayMatrix");
 
 	UGFxObject_SetElementDisplayMatrix_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1968,15 +2006,16 @@ void UGFxObject::STATIC_SetElementDisplayMatrix()
 
 
 // Function GFxUI.GFxObject.SetElementDisplayInfo
-// (Final, Iterator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementDisplayInfo()
+void UGFxObject::SetElementDisplayInfo()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementDisplayInfo");
 
 	UGFxObject_SetElementDisplayInfo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -1985,7 +2024,7 @@ void UGFxObject::STATIC_SetElementDisplayInfo()
 
 
 // Function GFxUI.GFxObject.GetElementDisplayMatrix
-// (Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementDisplayMatrix()
 {
@@ -2003,7 +2042,7 @@ void UGFxObject::GetElementDisplayMatrix()
 
 
 // Function GFxUI.GFxObject.GetElementDisplayInfo
-// (Final, Defined, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementDisplayInfo()
 {
@@ -2021,15 +2060,16 @@ void UGFxObject::GetElementDisplayInfo()
 
 
 // Function GFxUI.GFxObject.SetElementString
-// (Final, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementString()
+void UGFxObject::SetElementString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementString");
 
 	UGFxObject_SetElementString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2038,15 +2078,16 @@ void UGFxObject::STATIC_SetElementString()
 
 
 // Function GFxUI.GFxObject.SetElementInt
-// (Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementInt()
+void UGFxObject::SetElementInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementInt");
 
 	UGFxObject_SetElementInt_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2055,15 +2096,16 @@ void UGFxObject::STATIC_SetElementInt()
 
 
 // Function GFxUI.GFxObject.SetElementFloat
-// (Final, Defined, Iterator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementFloat()
+void UGFxObject::SetElementFloat()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementFloat");
 
 	UGFxObject_SetElementFloat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2072,15 +2114,16 @@ void UGFxObject::STATIC_SetElementFloat()
 
 
 // Function GFxUI.GFxObject.SetElementBool
-// (Final, Defined, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementBool()
+void UGFxObject::SetElementBool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementBool");
 
 	UGFxObject_SetElementBool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2089,15 +2132,16 @@ void UGFxObject::STATIC_SetElementBool()
 
 
 // Function GFxUI.GFxObject.SetElementObject
-// (Final, Defined, Iterator, Latent, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElementObject()
+void UGFxObject::SetElementObject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElementObject");
 
 	UGFxObject_SetElementObject_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2106,15 +2150,16 @@ void UGFxObject::STATIC_SetElementObject()
 
 
 // Function GFxUI.GFxObject.SetElement
-// (Defined, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetElement()
+void UGFxObject::SetElement()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetElement");
 
 	UGFxObject_SetElement_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2123,7 +2168,7 @@ void UGFxObject::STATIC_SetElement()
 
 
 // Function GFxUI.GFxObject.GetElementString
-// (Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementString()
 {
@@ -2141,7 +2186,7 @@ void UGFxObject::GetElementString()
 
 
 // Function GFxUI.GFxObject.GetElementInt
-// (Defined, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementInt()
 {
@@ -2159,7 +2204,7 @@ void UGFxObject::GetElementInt()
 
 
 // Function GFxUI.GFxObject.GetElementFloat
-// (Final, Iterator, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementFloat()
 {
@@ -2177,7 +2222,7 @@ void UGFxObject::GetElementFloat()
 
 
 // Function GFxUI.GFxObject.GetElementBool
-// (Defined, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElementBool()
 {
@@ -2195,7 +2240,7 @@ void UGFxObject::GetElementBool()
 
 
 // Function GFxUI.GFxObject.GetElementObject
-// (Defined, Iterator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, HasOptionalParms, Public)
 
 void UGFxObject::GetElementObject()
 {
@@ -2213,7 +2258,7 @@ void UGFxObject::GetElementObject()
 
 
 // Function GFxUI.GFxObject.GetElementObjectEx
-// (Final, Defined, Iterator, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, HasOptionalParms, Public)
 
 void UGFxObject::GetElementObjectEx()
 {
@@ -2231,7 +2276,7 @@ void UGFxObject::GetElementObjectEx()
 
 
 // Function GFxUI.GFxObject.GetElement
-// (Final, Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetElement()
 {
@@ -2249,15 +2294,16 @@ void UGFxObject::GetElement()
 
 
 // Function GFxUI.GFxObject.SetText
-// (Net, Static, Const)
+// (Final, Native, HasOptionalParms, Public)
 
-void UGFxObject::STATIC_SetText()
+void UGFxObject::SetText()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetText");
 
 	UGFxObject_SetText_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2266,7 +2312,7 @@ void UGFxObject::STATIC_SetText()
 
 
 // Function GFxUI.GFxObject.GetText
-// (Iterator, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetText()
 {
@@ -2284,15 +2330,16 @@ void UGFxObject::GetText()
 
 
 // Function GFxUI.GFxObject.SetVisible
-// (Final, Defined, Iterator, Latent, Net, Static, Const)
+// (Native, Public)
 
-void UGFxObject::STATIC_SetVisible()
+void UGFxObject::SetVisible()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetVisible");
 
 	UGFxObject_SetVisible_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2301,15 +2348,16 @@ void UGFxObject::STATIC_SetVisible()
 
 
 // Function GFxUI.GFxObject.SetDisplayMatrix3D
-// (Final, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetDisplayMatrix3D()
+void UGFxObject::SetDisplayMatrix3D()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetDisplayMatrix3D");
 
 	UGFxObject_SetDisplayMatrix3D_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2318,15 +2366,16 @@ void UGFxObject::STATIC_SetDisplayMatrix3D()
 
 
 // Function GFxUI.GFxObject.SetDisplayMatrix
-// (Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetDisplayMatrix()
+void UGFxObject::SetDisplayMatrix()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetDisplayMatrix");
 
 	UGFxObject_SetDisplayMatrix_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2335,15 +2384,16 @@ void UGFxObject::STATIC_SetDisplayMatrix()
 
 
 // Function GFxUI.GFxObject.SetColorTransform
-// (Defined, Iterator, Latent, PreOperator, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetColorTransform()
+void UGFxObject::SetColorTransform()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetColorTransform");
 
 	UGFxObject_SetColorTransform_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2352,9 +2402,9 @@ void UGFxObject::STATIC_SetColorTransform()
 
 
 // Function GFxUI.GFxObject.SetPosition
-// (PreOperator, Singular, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetPosition()
+void UGFxObject::SetPosition()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetPosition");
 
@@ -2370,15 +2420,16 @@ void UGFxObject::STATIC_SetPosition()
 
 
 // Function GFxUI.GFxObject.SetDisplayInfo
-// (Final, Defined, Iterator, Latent, PreOperator, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetDisplayInfo()
+void UGFxObject::SetDisplayInfo()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetDisplayInfo");
 
 	UGFxObject_SetDisplayInfo_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2387,7 +2438,7 @@ void UGFxObject::STATIC_SetDisplayInfo()
 
 
 // Function GFxUI.GFxObject.GetDisplayMatrix3D
-// (Latent, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetDisplayMatrix3D()
 {
@@ -2405,7 +2456,7 @@ void UGFxObject::GetDisplayMatrix3D()
 
 
 // Function GFxUI.GFxObject.GetDisplayMatrix
-// (Final, Defined, Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetDisplayMatrix()
 {
@@ -2423,7 +2474,7 @@ void UGFxObject::GetDisplayMatrix()
 
 
 // Function GFxUI.GFxObject.GetColorTransform
-// (Final, Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetColorTransform()
 {
@@ -2441,9 +2492,9 @@ void UGFxObject::GetColorTransform()
 
 
 // Function GFxUI.GFxObject.GetPosition
-// (Latent, PreOperator, NetReliable, Native, Static, HasOptionalParms)
+// (Final, Native, Public, HasOutParms)
 
-void UGFxObject::STATIC_GetPosition()
+void UGFxObject::GetPosition()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.GetPosition");
 
@@ -2459,7 +2510,7 @@ void UGFxObject::STATIC_GetPosition()
 
 
 // Function GFxUI.GFxObject.GetDisplayInfo
-// (Defined, Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetDisplayInfo()
 {
@@ -2477,7 +2528,7 @@ void UGFxObject::GetDisplayInfo()
 
 
 // Function GFxUI.GFxObject.TranslateString
-// (Final, Iterator, Latent, Singular, Net, Static, Const)
+// (Native, Static, HasOptionalParms, Public)
 
 void UGFxObject::STATIC_TranslateString()
 {
@@ -2486,6 +2537,7 @@ void UGFxObject::STATIC_TranslateString()
 	UGFxObject_TranslateString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2494,15 +2546,16 @@ void UGFxObject::STATIC_TranslateString()
 
 
 // Function GFxUI.GFxObject.SetFunction
-// (Final, Defined, Iterator, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetFunction()
+void UGFxObject::SetFunction()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetFunction");
 
 	UGFxObject_SetFunction_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2511,9 +2564,9 @@ void UGFxObject::STATIC_SetFunction()
 
 
 // Function GFxUI.GFxObject.SetObject
-// (PreOperator, Simulated, Native, Event, Operator, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetObject()
+void UGFxObject::SetObject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetObject");
 
@@ -2529,15 +2582,16 @@ void UGFxObject::STATIC_SetObject()
 
 
 // Function GFxUI.GFxObject.SetString
-// (Final, Defined, Iterator, Latent, PreOperator, Singular, Static, Const)
+// (Final, Native, HasOptionalParms, Public)
 
-void UGFxObject::STATIC_SetString()
+void UGFxObject::SetString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetString");
 
 	UGFxObject_SetString_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2546,15 +2600,16 @@ void UGFxObject::STATIC_SetString()
 
 
 // Function GFxUI.GFxObject.SetInt
-// (Latent, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetInt()
+void UGFxObject::SetInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetInt");
 
 	UGFxObject_SetInt_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2563,15 +2618,16 @@ void UGFxObject::STATIC_SetInt()
 
 
 // Function GFxUI.GFxObject.SetFloat
-// (Defined, Iterator, PreOperator, Singular, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetFloat()
+void UGFxObject::SetFloat()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetFloat");
 
 	UGFxObject_SetFloat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2580,15 +2636,16 @@ void UGFxObject::STATIC_SetFloat()
 
 
 // Function GFxUI.GFxObject.SetBool
-// (Final, Iterator, Latent, PreOperator, Static, Const)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_SetBool()
+void UGFxObject::SetBool()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.SetBool");
 
 	UGFxObject_SetBool_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2597,9 +2654,9 @@ void UGFxObject::STATIC_SetBool()
 
 
 // Function GFxUI.GFxObject.Set
-// (Final, Defined, PreOperator, Singular, Native, Event, Operator, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_Set()
+void UGFxObject::Set()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.Set");
 
@@ -2615,7 +2672,7 @@ void UGFxObject::STATIC_Set()
 
 
 // Function GFxUI.GFxObject.IsObject
-// (Iterator, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::IsObject()
 {
@@ -2633,7 +2690,7 @@ void UGFxObject::IsObject()
 
 
 // Function GFxUI.GFxObject.IsString
-// (Final, Iterator, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::IsString()
 {
@@ -2651,7 +2708,7 @@ void UGFxObject::IsString()
 
 
 // Function GFxUI.GFxObject.IsInt
-// (Final, Defined, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::IsInt()
 {
@@ -2669,7 +2726,7 @@ void UGFxObject::IsInt()
 
 
 // Function GFxUI.GFxObject.IsFloat
-// (Defined, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::IsFloat()
 {
@@ -2687,7 +2744,7 @@ void UGFxObject::IsFloat()
 
 
 // Function GFxUI.GFxObject.IsBool
-// (Final, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::IsBool()
 {
@@ -2705,9 +2762,9 @@ void UGFxObject::IsBool()
 
 
 // Function GFxUI.GFxObject.GetObject
-// (Final, Iterator, Latent, Singular, Net, Native, Static, HasOptionalParms)
+// (Final, Native, HasOptionalParms, Public)
 
-void UGFxObject::STATIC_GetObject()
+void UGFxObject::GetObject()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.GetObject");
 
@@ -2723,9 +2780,9 @@ void UGFxObject::STATIC_GetObject()
 
 
 // Function GFxUI.GFxObject.GetString
-// (Final, Latent, PreOperator, Singular, Net, NetReliable, Native, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_GetString()
+void UGFxObject::GetString()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.GetString");
 
@@ -2741,9 +2798,9 @@ void UGFxObject::STATIC_GetString()
 
 
 // Function GFxUI.GFxObject.GetInt
-// (Singular, Native, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_GetInt()
+void UGFxObject::GetInt()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.GetInt");
 
@@ -2759,15 +2816,16 @@ void UGFxObject::STATIC_GetInt()
 
 
 // Function GFxUI.GFxObject.GetFloat
-// (Defined, PreOperator, Singular, Net, NetReliable, Simulated, Exec, Static, HasOptionalParms)
+// (Final, Native, Public)
 
-void UGFxObject::STATIC_GetFloat()
+void UGFxObject::GetFloat()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxObject.GetFloat");
 
 	UGFxObject_GetFloat_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2776,7 +2834,7 @@ void UGFxObject::STATIC_GetFloat()
 
 
 // Function GFxUI.GFxObject.GetBool
-// (Iterator, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::GetBool()
 {
@@ -2794,7 +2852,7 @@ void UGFxObject::GetBool()
 
 
 // Function GFxUI.GFxObject.Get
-// (Defined, PreOperator, Singular, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Native, Public)
 
 void UGFxObject::Get()
 {
@@ -2812,7 +2870,7 @@ void UGFxObject::Get()
 
 
 // Function GFxUI.GFxClikWidget.ASRemoveAllEventListeners
-// (Latent, Singular, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Defined, Private)
 
 void UGFxClikWidget::ASRemoveAllEventListeners()
 {
@@ -2821,7 +2879,6 @@ void UGFxClikWidget::ASRemoveAllEventListeners()
 	UGFxClikWidget_ASRemoveAllEventListeners_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2830,7 +2887,7 @@ void UGFxClikWidget::ASRemoveAllEventListeners()
 
 
 // Function GFxUI.GFxClikWidget.AS3AddEventListener
-// (Defined, Latent, PreOperator, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Defined, HasOptionalParms, Private)
 
 void UGFxClikWidget::AS3AddEventListener()
 {
@@ -2839,7 +2896,6 @@ void UGFxClikWidget::AS3AddEventListener()
 	UGFxClikWidget_AS3AddEventListener_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2848,7 +2904,7 @@ void UGFxClikWidget::AS3AddEventListener()
 
 
 // Function GFxUI.GFxClikWidget.ASAddEventListener
-// (Iterator, Singular, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Defined, Private)
 
 void UGFxClikWidget::ASAddEventListener()
 {
@@ -2857,7 +2913,6 @@ void UGFxClikWidget::ASAddEventListener()
 	UGFxClikWidget_ASAddEventListener_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2866,9 +2921,9 @@ void UGFxClikWidget::ASAddEventListener()
 
 
 // Function GFxUI.GFxClikWidget.SetListener
-// (Final, Latent, PreOperator, Singular, Static, Const)
+// (Final, Defined, Private)
 
-void UGFxClikWidget::STATIC_SetListener()
+void UGFxClikWidget::SetListener()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxClikWidget.SetListener");
 
@@ -2883,7 +2938,7 @@ void UGFxClikWidget::STATIC_SetListener()
 
 
 // Function GFxUI.GFxClikWidget.GetEventStringFromTypename
-// (Final, Latent, Net, NetReliable, Simulated, Exec, Native, Event, Operator, Const)
+// (Final, Defined, Private)
 
 void UGFxClikWidget::GetEventStringFromTypename()
 {
@@ -2892,7 +2947,6 @@ void UGFxClikWidget::GetEventStringFromTypename()
 	UGFxClikWidget_GetEventStringFromTypename_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2901,9 +2955,9 @@ void UGFxClikWidget::GetEventStringFromTypename()
 
 
 // Function GFxUI.GFxClikWidget.RemoveAllEventListeners
-// (Final, Defined, PreOperator, Static, Const)
+// (Defined, Public)
 
-void UGFxClikWidget::STATIC_RemoveAllEventListeners()
+void UGFxClikWidget::RemoveAllEventListeners()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function GFxUI.GFxClikWidget.RemoveAllEventListeners");
 
@@ -2918,7 +2972,7 @@ void UGFxClikWidget::STATIC_RemoveAllEventListeners()
 
 
 // Function GFxUI.GFxClikWidget.AddEventListener
-// (Latent, Net, Simulated, Exec, Native, Event, Operator, Const)
+// (Defined, HasOptionalParms, Public)
 
 void UGFxClikWidget::AddEventListener()
 {
@@ -2927,7 +2981,6 @@ void UGFxClikWidget::AddEventListener()
 	UGFxClikWidget_AddEventListener_Params params;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -2936,7 +2989,7 @@ void UGFxClikWidget::AddEventListener()
 
 
 // Function GFxUI.GFxClikWidget.EventListener
-// (Iterator, Latent, Net, Exec, HasOptionalParms)
+// (Public, Delegate)
 
 void UGFxClikWidget::EventListener()
 {
@@ -2953,7 +3006,7 @@ void UGFxClikWidget::EventListener()
 
 
 // Function GFxUI.GFxAction_CloseMovie.IsValidLevelSequenceObject
-// (Defined, Iterator, PreOperator, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxAction_CloseMovie::IsValidLevelSequenceObject()
 {
@@ -2970,7 +3023,7 @@ void UGFxAction_CloseMovie::IsValidLevelSequenceObject()
 
 
 // Function GFxUI.GFxAction_GetVariable.IsValidLevelSequenceObject
-// (Defined, Iterator, PreOperator, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxAction_GetVariable::IsValidLevelSequenceObject()
 {
@@ -2987,7 +3040,7 @@ void UGFxAction_GetVariable::IsValidLevelSequenceObject()
 
 
 // Function GFxUI.GFxAction_Invoke.IsValidLevelSequenceObject
-// (Defined, Iterator, PreOperator, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxAction_Invoke::IsValidLevelSequenceObject()
 {
@@ -3004,7 +3057,7 @@ void UGFxAction_Invoke::IsValidLevelSequenceObject()
 
 
 // Function GFxUI.GFxAction_OpenMovie.IsValidLevelSequenceObject
-// (Defined, Iterator, PreOperator, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxAction_OpenMovie::IsValidLevelSequenceObject()
 {
@@ -3021,7 +3074,7 @@ void UGFxAction_OpenMovie::IsValidLevelSequenceObject()
 
 
 // Function GFxUI.GFxAction_SetVariable.IsValidLevelSequenceObject
-// (Defined, Iterator, PreOperator, Net, NetReliable, HasOptionalParms)
+// (Defined, Event, Public)
 
 void UGFxAction_SetVariable::IsValidLevelSequenceObject()
 {
@@ -3038,7 +3091,7 @@ void UGFxAction_SetVariable::IsValidLevelSequenceObject()
 
 
 // Function GFxUI.GFxFSCmdHandler_Kismet.FSCommand
-// (Defined, Iterator, Latent, Net, Exec, HasOptionalParms)
+// (Native, Event, Public)
 
 void UGFxFSCmdHandler_Kismet::FSCommand()
 {
@@ -3047,6 +3100,7 @@ void UGFxFSCmdHandler_Kismet::FSCommand()
 	UGFxFSCmdHandler_Kismet_FSCommand_Params params;
 
 	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 

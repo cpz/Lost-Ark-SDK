@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.2.0.3) SDK
+// Lost Ark (1.12.11.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -64,9 +64,9 @@ public:
 
 
 	void CloseAllMoviePlayers();
-	void STATIC_NotifySplitscreenLayoutChanged();
-	void STATIC_NotifyPlayerRemoved();
-	void STATIC_NotifyPlayerAdded();
+	void NotifySplitscreenLayoutChanged();
+	void NotifyPlayerRemoved();
+	void NotifyPlayerAdded();
 	void NotifyGameSessionEnded();
 	void GetFocusMovie();
 };
@@ -110,13 +110,13 @@ public:
 	unsigned long                                      bIsPriorityHidden : 1;                                    // 0x010C(0x0004)
 	unsigned long                                      bIgnoreVisibilityEffect : 1;                              // 0x010C(0x0004)
 	unsigned long                                      bIgnoreBlurEffect : 1;                                    // 0x010C(0x0004)
-	class UTextureRenderTarget2D*                      RenderTexture;                                            // 0x0110(0x0008)
+	class UTextureRenderTarget2D*                      RenderTexture;                                            // 0x0110(0x0008) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	int                                                LocalPlayerOwnerIndex;                                    // 0x0118(0x0004)
 	class UObject*                                     ExternalInterface;                                        // 0x011C(0x0008)
 	TArray<struct FName>                               CaptureKeys;                                              // 0x0124(0x0010)
 	TArray<struct FName>                               FocusIgnoreKeys;                                          // 0x0134(0x0010)
 	TArray<struct FExternalTexture>                    ExternalTextures;                                         // 0x0144(0x0010)
-	TArray<struct FSoundThemeBinding>                  SoundThemes;                                              // 0x0154(0x0010)
+	TArray<struct FSoundThemeBinding>                  SoundThemes;                                              // 0x0154(0x0010) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	TEnumAsByte<EGFxTimingMode>                        TimingMode;                                               // 0x0164(0x0001)
 	TEnumAsByte<EGFxRenderTextureMode>                 RenderTextureMode;                                        // 0x0165(0x0001)
 	unsigned char                                      Priority;                                                 // 0x0166(0x0001)
@@ -126,8 +126,7 @@ public:
 	class UGFxObject*                                  SplitscreenLayoutObject;                                  // 0x01C0(0x0008)
 	int                                                SplitscreenLayoutYAdjust;                                 // 0x01C8(0x0004)
 	TArray<class UGFxObject*>                          DebugArray;                                               // 0x01CC(0x0010)
-	struct FScriptDelegate                             __OnPostAdvance__Delegate;                                // 0x01DC(0x000C)
-	unsigned char                                      UnknownData04[0x4];                                       // 0x01DC(0x0004) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FScriptDelegate                             __OnPostAdvance__Delegate;                                // 0x01DC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -136,18 +135,18 @@ public:
 	}
 
 
-	void STATIC_UpdateSplitscreenLayout();
+	void UpdateSplitscreenLayout();
 	void ApplyPriorityVisibilityEffect();
 	void ApplyPriorityBlurEffect();
 	void ApplyPriorityEffect();
-	void STATIC_PlaySoundFromTheme();
+	void PlaySoundFromTheme();
 	void OnFocusLost();
 	void OnFocusGained();
 	void ConsoleCommand();
 	void GetPC();
 	void GetLP();
 	void Init();
-	void STATIC_SetWidgetPathBinding();
+	void SetWidgetPathBinding();
 	void PostWidgetInit();
 	void WidgetUnloaded();
 	void WidgetInitialized();
@@ -159,20 +158,20 @@ public:
 	void ActionScriptSetFunction();
 	void CreateArray();
 	void CreateObject();
-	void STATIC_SetVariableStringArray();
-	void STATIC_SetVariableFloatArray();
-	void STATIC_SetVariableIntArray();
-	void STATIC_SetVariableArray();
+	void SetVariableStringArray();
+	void SetVariableFloatArray();
+	void SetVariableIntArray();
+	void SetVariableArray();
 	void GetVariableStringArray();
 	void GetVariableFloatArray();
 	void GetVariableIntArray();
 	void GetVariableArray();
-	void STATIC_SetVariableObject();
-	void STATIC_SetVariableString();
-	void STATIC_SetVariableInt();
-	void STATIC_SetVariableNumber();
-	void STATIC_SetVariableBool();
-	void STATIC_SetVariable();
+	void SetVariableObject();
+	void SetVariableString();
+	void SetVariableInt();
+	void SetVariableNumber();
+	void SetVariableBool();
+	void SetVariable();
 	void GetVariableObject();
 	void GetVariableString();
 	void GetVariableInt();
@@ -181,33 +180,33 @@ public:
 	void GetVariable();
 	void GetAVMVersion();
 	void FilterButtonInput();
-	void STATIC_FlushPlayerInput();
+	void FlushPlayerInput();
 	void ClearFocusIgnoreKeys();
 	void AddFocusIgnoreKey();
 	void ClearCaptureKeys();
 	void AddCaptureKey();
-	void STATIC_SetMovieCanReceiveInput();
-	void STATIC_SetMovieCanReceiveFocus();
-	void STATIC_SetPerspective3D();
-	void STATIC_SetView3D();
+	void SetMovieCanReceiveInput();
+	void SetMovieCanReceiveFocus();
+	void SetPerspective3D();
+	void SetView3D();
 	void GetVisibleFrameRect();
-	void STATIC_SetAlignment();
-	void STATIC_SetViewScaleMode();
-	void STATIC_SetViewport();
+	void SetAlignment();
+	void SetViewScaleMode();
+	void SetViewport();
 	void GetGameViewportClient();
-	void STATIC_SetPriority();
-	void STATIC_SetExternalTextureEx();
-	void STATIC_SetExternalTexture();
-	void STATIC_SetExternalInterface();
-	void STATIC_SetTimingMode();
-	void STATIC_SetMovieInfo();
+	void SetPriority();
+	void SetExternalTextureEx();
+	void SetExternalTexture();
+	void SetExternalInterface();
+	void SetTimingMode();
+	void SetMovieInfo();
 	void ConditionalClearPause();
 	void OnCleanup();
 	void OnClose();
 	void Close();
-	void STATIC_SetPause();
+	void SetPause();
 	void OnPostAdvance();
-	void STATIC_PostAdvance();
+	void PostAdvance();
 	void Advance();
 	void Start();
 };
@@ -244,12 +243,12 @@ public:
 	void _Invoke();
 	void ActionScriptSetFunctionOn();
 	void ActionScriptSetFunction();
-	void STATIC_SetElementMemberString();
-	void STATIC_SetElementMemberInt();
-	void STATIC_SetElementMemberFloat();
-	void STATIC_SetElementMemberBool();
-	void STATIC_SetElementMemberObject();
-	void STATIC_SetElementMember();
+	void SetElementMemberString();
+	void SetElementMemberInt();
+	void SetElementMemberFloat();
+	void SetElementMemberBool();
+	void SetElementMemberObject();
+	void SetElementMember();
 	void GetElementMemberString();
 	void GetElementMemberInt();
 	void GetElementMemberFloat();
@@ -257,19 +256,19 @@ public:
 	void GetElementMemberObject();
 	void GetElementMemberObjectEx();
 	void GetElementMember();
-	void STATIC_SetElementColorTransform();
-	void STATIC_SetElementPosition();
-	void STATIC_SetElementVisible();
-	void STATIC_SetElementDisplayMatrix();
-	void STATIC_SetElementDisplayInfo();
+	void SetElementColorTransform();
+	void SetElementPosition();
+	void SetElementVisible();
+	void SetElementDisplayMatrix();
+	void SetElementDisplayInfo();
 	void GetElementDisplayMatrix();
 	void GetElementDisplayInfo();
-	void STATIC_SetElementString();
-	void STATIC_SetElementInt();
-	void STATIC_SetElementFloat();
-	void STATIC_SetElementBool();
-	void STATIC_SetElementObject();
-	void STATIC_SetElement();
+	void SetElementString();
+	void SetElementInt();
+	void SetElementFloat();
+	void SetElementBool();
+	void SetElementObject();
+	void SetElement();
 	void GetElementString();
 	void GetElementInt();
 	void GetElementFloat();
@@ -277,36 +276,36 @@ public:
 	void GetElementObject();
 	void GetElementObjectEx();
 	void GetElement();
-	void STATIC_SetText();
+	void SetText();
 	void GetText();
-	void STATIC_SetVisible();
-	void STATIC_SetDisplayMatrix3D();
-	void STATIC_SetDisplayMatrix();
-	void STATIC_SetColorTransform();
-	void STATIC_SetPosition();
-	void STATIC_SetDisplayInfo();
+	void SetVisible();
+	void SetDisplayMatrix3D();
+	void SetDisplayMatrix();
+	void SetColorTransform();
+	void SetPosition();
+	void SetDisplayInfo();
 	void GetDisplayMatrix3D();
 	void GetDisplayMatrix();
 	void GetColorTransform();
-	void STATIC_GetPosition();
+	void GetPosition();
 	void GetDisplayInfo();
 	void STATIC_TranslateString();
-	void STATIC_SetFunction();
-	void STATIC_SetObject();
-	void STATIC_SetString();
-	void STATIC_SetInt();
-	void STATIC_SetFloat();
-	void STATIC_SetBool();
-	void STATIC_Set();
+	void SetFunction();
+	void SetObject();
+	void SetString();
+	void SetInt();
+	void SetFloat();
+	void SetBool();
+	void Set();
 	void IsObject();
 	void IsString();
 	void IsInt();
 	void IsFloat();
 	void IsBool();
-	void STATIC_GetObject();
-	void STATIC_GetString();
-	void STATIC_GetInt();
-	void STATIC_GetFloat();
+	void GetObject();
+	void GetString();
+	void GetInt();
+	void GetFloat();
 	void GetBool();
 	void Get();
 };
@@ -317,8 +316,7 @@ public:
 class UGFxClikWidget : public UGFxObject
 {
 public:
-	struct FScriptDelegate                             __EventListener__Delegate;                                // 0x00AC(0x000C)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00AC(0x0004) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FScriptDelegate                             __EventListener__Delegate;                                // 0x00AC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -330,9 +328,9 @@ public:
 	void ASRemoveAllEventListeners();
 	void AS3AddEventListener();
 	void ASAddEventListener();
-	void STATIC_SetListener();
+	void SetListener();
 	void GetEventStringFromTypename();
-	void STATIC_RemoveAllEventListeners();
+	void RemoveAllEventListeners();
 	void AddEventListener();
 	void EventListener();
 };
@@ -344,9 +342,9 @@ class UGFxRawData : public UObject
 {
 public:
 	TArray<unsigned char>                              RawData;                                                  // 0x0058(0x0010)
-	TArray<struct FString>                             ReferencedSwfs;                                           // 0x0068(0x0010)
-	TArray<class UObject*>                             References;                                               // 0x0078(0x0010)
-	TArray<class UObject*>                             UserReferences;                                           // 0x0088(0x0010)
+	TArray<struct FString>                             ReferencedSwfs;                                           // 0x0068(0x0010) (NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class UObject*>                             References;                                               // 0x0078(0x0010) (NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class UObject*>                             UserReferences;                                           // 0x0088(0x0010) (NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -362,16 +360,16 @@ public:
 class USwfMovie : public UGFxRawData
 {
 public:
-	unsigned long                                      bUsesFontlib : 1;                                         // 0x0098(0x0004)
-	unsigned long                                      bSetSRGBOnImportedTextures : 1;                           // 0x0098(0x0004)
-	unsigned long                                      bPackTextures : 1;                                        // 0x0098(0x0004)
-	unsigned long                                      bForceSquarePacking : 1;                                  // 0x0098(0x0004)
-	struct FString                                     SourceFile;                                               // 0x009C(0x0010)
-	int                                                PackTextureSize;                                          // 0x00AC(0x0004)
-	TEnumAsByte<EFlashTextureRescale>                  TextureRescale;                                           // 0x00B0(0x0001)
+	unsigned long                                      bUsesFontlib : 1;                                         // 0x0098(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bSetSRGBOnImportedTextures : 1;                           // 0x0098(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	unsigned long                                      bPackTextures : 1;                                        // 0x0098(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	unsigned long                                      bForceSquarePacking : 1;                                  // 0x0098(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	struct FString                                     SourceFile;                                               // 0x009C(0x0010) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	int                                                PackTextureSize;                                          // 0x00AC(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	TEnumAsByte<EFlashTextureRescale>                  TextureRescale;                                           // 0x00B0(0x0001) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x00B1(0x0003) MISSED OFFSET
-	struct FString                                     TextureFormat;                                            // 0x00B4(0x0010)
-	struct FString                                     SourceFileTimestamp;                                      // 0x00C4(0x0010)
+	struct FString                                     TextureFormat;                                            // 0x00B4(0x0010) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
+	struct FString                                     SourceFileTimestamp;                                      // 0x00C4(0x0010) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide)
 	int                                                RTTextures;                                               // 0x00D4(0x0004)
 	int                                                RTVideoTextures;                                          // 0x00D8(0x0004)
 	struct FQWord                                      ImportTimeStamp;                                          // 0x00DC(0x0008)
@@ -406,7 +404,7 @@ class UGFxAction_CloseMovie : public USequenceAction
 {
 public:
 	class UGFxMoviePlayer*                             Movie;                                                    // 0x0158(0x0008)
-	unsigned long                                      bUnload : 1;                                              // 0x0160(0x0004)
+	unsigned long                                      bUnload : 1;                                              // 0x0160(0x0004) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -425,7 +423,7 @@ class UGFxAction_GetVariable : public USequenceAction
 {
 public:
 	class UGFxMoviePlayer*                             Movie;                                                    // 0x0158(0x0008)
-	struct FString                                     Variable;                                                 // 0x0160(0x0010)
+	struct FString                                     Variable;                                                 // 0x0160(0x0010) (NonTransactional, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -444,8 +442,8 @@ class UGFxAction_Invoke : public USequenceAction
 {
 public:
 	class UGFxMoviePlayer*                             Movie;                                                    // 0x0158(0x0008)
-	struct FString                                     MethodName;                                               // 0x0160(0x0010)
-	TArray<struct FASValue>                            Arguments;                                                // 0x0170(0x0010)
+	struct FString                                     MethodName;                                               // 0x0160(0x0010) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	TArray<struct FASValue>                            Arguments;                                                // 0x0170(0x0010) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
 
 	static UClass* StaticClass()
 	{
@@ -463,19 +461,19 @@ public:
 class UGFxAction_OpenMovie : public USequenceAction
 {
 public:
-	class USwfMovie*                                   Movie;                                                    // 0x0158(0x0008)
-	class UClass*                                      MoviePlayerClass;                                         // 0x0160(0x0008)
+	class USwfMovie*                                   Movie;                                                    // 0x0158(0x0008) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	class UClass*                                      MoviePlayerClass;                                         // 0x0160(0x0008) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	class UGFxMoviePlayer*                             MoviePlayer;                                              // 0x0168(0x0008)
-	unsigned long                                      bTakeFocus : 1;                                           // 0x0170(0x0004)
-	unsigned long                                      bCaptureInput : 1;                                        // 0x0170(0x0004)
-	unsigned long                                      bStartPaused : 1;                                         // 0x0170(0x0004)
+	unsigned long                                      bTakeFocus : 1;                                           // 0x0170(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bCaptureInput : 1;                                        // 0x0170(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bStartPaused : 1;                                         // 0x0170(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned long                                      bEnableGammaCorrection : 1;                               // 0x0170(0x0004)
-	unsigned long                                      bDisplayWithHudOff : 1;                                   // 0x0170(0x0004)
-	TEnumAsByte<EGFxRenderTextureMode>                 RenderTextureMode;                                        // 0x0174(0x0001)
+	unsigned long                                      bDisplayWithHudOff : 1;                                   // 0x0170(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EGFxRenderTextureMode>                 RenderTextureMode;                                        // 0x0174(0x0001) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0175(0x0003) MISSED OFFSET
-	class UTextureRenderTarget2D*                      RenderTexture;                                            // 0x0178(0x0008)
-	TArray<struct FName>                               CaptureKeys;                                              // 0x0180(0x0010)
-	TArray<struct FName>                               FocusIgnoreKeys;                                          // 0x0190(0x0010)
+	class UTextureRenderTarget2D*                      RenderTexture;                                            // 0x0178(0x0008) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FName>                               CaptureKeys;                                              // 0x0180(0x0010) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FName>                               FocusIgnoreKeys;                                          // 0x0190(0x0010) (EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -494,7 +492,7 @@ class UGFxAction_SetCaptureKeys : public USequenceAction
 {
 public:
 	class UGFxMoviePlayer*                             Movie;                                                    // 0x0158(0x0008)
-	TArray<struct FName>                               CaptureKeys;                                              // 0x0160(0x0010)
+	TArray<struct FName>                               CaptureKeys;                                              // 0x0160(0x0010) (Interp, EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -511,7 +509,7 @@ class UGFxAction_SetVariable : public USequenceAction
 {
 public:
 	class UGFxMoviePlayer*                             Movie;                                                    // 0x0158(0x0008)
-	struct FString                                     Variable;                                                 // 0x0160(0x0010)
+	struct FString                                     Variable;                                                 // 0x0160(0x0010) (NonTransactional, EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 
 	static UClass* StaticClass()
 	{
@@ -529,8 +527,8 @@ public:
 class UGFxEvent_FSCommand : public USequenceEvent
 {
 public:
-	class USwfMovie*                                   Movie;                                                    // 0x0168(0x0008)
-	struct FString                                     FSCommand;                                                // 0x0170(0x0010)
+	class USwfMovie*                                   Movie;                                                    // 0x0168(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     FSCommand;                                                // 0x0170(0x0010) (Interp, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
 	class UGFxFSCmdHandler_Kismet*                     Handler;                                                  // 0x0180(0x0008)
 
 	static UClass* StaticClass()
