@@ -191,9 +191,8 @@ enum class ETextDrawMethod : uint8_t
 struct FRequiredMobileInputConfig
 {
 	struct FString                                     GroupName;                                                // 0x0000(0x0010)
-	TArray<struct FString>                             RequireZoneNames;                                         // 0x0000(0x0010)
-	unsigned long                                      bIsAttractModeGroup : 1;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	TArray<struct FString>                             RequireZoneNames;                                         // 0x0010(0x0010)
+	unsigned long                                      bIsAttractModeGroup : 1;                                  // 0x0020(0x0004)
 };
 
 // ScriptStruct GameFramework.GameTypes.AICmdHistoryItem
@@ -201,9 +200,8 @@ struct FRequiredMobileInputConfig
 struct FAICmdHistoryItem
 {
 	class UClass*                                      CmdClass;                                                 // 0x0000(0x0008)
-	float                                              TimeStamp;                                                // 0x0000(0x0004)
-	struct FString                                     VerboseString;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	float                                              TimeStamp;                                                // 0x0008(0x0004)
+	struct FString                                     VerboseString;                                            // 0x000C(0x0010)
 };
 
 // ScriptStruct GameFramework.GameTypes.CrowdSpawnerPlayerInfo
@@ -211,10 +209,9 @@ struct FAICmdHistoryItem
 struct FCrowdSpawnerPlayerInfo
 {
 	struct FVector                                     ViewLocation;                                             // 0x0000(0x000C)
-	struct FRotator                                    ViewRotation;                                             // 0x0000(0x000C)
-	struct FVector                                     PredictLocation;                                          // 0x0000(0x000C)
-	class APlayerController*                           PC;                                                       // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0008(0x0024) MISSED OFFSET
+	struct FRotator                                    ViewRotation;                                             // 0x000C(0x000C)
+	struct FVector                                     PredictLocation;                                          // 0x0018(0x000C)
+	class APlayerController*                           PC;                                                       // 0x0024(0x0008)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.BehaviorEntry
@@ -222,12 +219,11 @@ struct FCrowdSpawnerPlayerInfo
 struct FBehaviorEntry
 {
 	class UGameCrowdAgentBehavior*                     BehaviorArchetype;                                        // 0x0000(0x0008)
-	class AActor*                                      LookAtActor;                                              // 0x0000(0x0008)
-	float                                              BehaviorFrequency;                                        // 0x0000(0x0004)
-	unsigned long                                      bNeverRepeat : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bHasBeenUsed : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bCanBeUsed : 1;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	class AActor*                                      LookAtActor;                                              // 0x0008(0x0008)
+	float                                              BehaviorFrequency;                                        // 0x0010(0x0004)
+	unsigned long                                      bNeverRepeat : 1;                                         // 0x0014(0x0004)
+	unsigned long                                      bHasBeenUsed : 1;                                         // 0x0014(0x0004)
+	unsigned long                                      bCanBeUsed : 1;                                           // 0x0014(0x0004)
 };
 
 // ScriptStruct GameFramework.GameTypes.NearbyDynamicItem
@@ -242,9 +238,9 @@ struct FNearbyDynamicItem
 struct FAvoidOtherSampleItem
 {
 	int                                                RotOffset;                                                // 0x0000(0x0004)
-	unsigned char                                      NumMagSamples;                                            // 0x0000(0x0001)
-	unsigned long                                      bFallbackOnly : 1;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned char                                      NumMagSamples;                                            // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	unsigned long                                      bFallbackOnly : 1;                                        // 0x0008(0x0004)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.RecentInteraction
@@ -252,8 +248,7 @@ struct FAvoidOtherSampleItem
 struct FRecentInteraction
 {
 	struct FName                                       InteractionTag;                                           // 0x0000(0x0008)
-	float                                              InteractionDelay;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              InteractionDelay;                                         // 0x0008(0x0004)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgentSkeletal.GameCrowdAttachmentInfo
@@ -261,9 +256,8 @@ struct FRecentInteraction
 struct FGameCrowdAttachmentInfo
 {
 	class UStaticMesh*                                 StaticMesh;                                               // 0x0000(0x0008)
-	float                                              Chance;                                                   // 0x0000(0x0004)
-	struct FVector                                     Scale3D;                                                  // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	float                                              Chance;                                                   // 0x0008(0x0004)
+	struct FVector                                     Scale3D;                                                  // 0x000C(0x000C)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgentSkeletal.GameCrowdAttachmentList
@@ -271,8 +265,7 @@ struct FGameCrowdAttachmentInfo
 struct FGameCrowdAttachmentList
 {
 	struct FName                                       SocketName;                                               // 0x0000(0x0008)
-	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0008(0x0010)
 };
 
 // ScriptStruct GameFramework.GameTypes.AgentArchetypeInfo
@@ -280,11 +273,10 @@ struct FGameCrowdAttachmentList
 struct FAgentArchetypeInfo
 {
 	class UObject*                                     AgentArchetype;                                           // 0x0000(0x0008)
-	float                                              FrequencyModifier;                                        // 0x0000(0x0004)
-	int                                                MaxAllowed;                                               // 0x0000(0x0004)
-	int                                                CurrSpawned;                                              // 0x0000(0x0004)
-	TArray<class UObject*>                             GroupMembers;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	float                                              FrequencyModifier;                                        // 0x0008(0x0004)
+	int                                                MaxAllowed;                                               // 0x000C(0x0004)
+	int                                                CurrSpawned;                                              // 0x0010(0x0004)
+	TArray<class UObject*>                             GroupMembers;                                             // 0x0014(0x0010)
 };
 
 // ScriptStruct GameFramework.GameTypes.CrowdSpawnInfoItem
@@ -292,32 +284,31 @@ struct FAgentArchetypeInfo
 struct FCrowdSpawnInfoItem
 {
 	class USeqAct_GameCrowdPopulationManagerToggle*    SeqSpawner;                                               // 0x0000(0x0008)
-	unsigned long                                      bSpawningActive : 1;                                      // 0x0000(0x0004)
-	float                                              SpawnRate;                                                // 0x0000(0x0004)
-	int                                                SpawnNum;                                                 // 0x0000(0x0004)
-	float                                              Remainder;                                                // 0x0000(0x0004)
-	TArray<class AGameCrowdAgent*>                     ActiveAgents;                                             // 0x0000(0x0010)
-	TArray<struct FAgentArchetypeInfo>                 AgentArchetypes;                                          // 0x0000(0x0010)
-	float                                              AgentFrequencySum;                                        // 0x0000(0x0004)
-	float                                              MaxSpawnDist;                                             // 0x0000(0x0004)
-	float                                              MaxSpawnDistSq;                                           // 0x0000(0x0004)
-	float                                              MinBehindSpawnDist;                                       // 0x0000(0x0004)
-	float                                              MinBehindSpawnDistSq;                                     // 0x0000(0x0004)
-	float                                              AgentWarmupTime;                                          // 0x0000(0x0004)
-	unsigned long                                      bForceObstacleChecking : 1;                               // 0x0000(0x0004)
-	unsigned long                                      bForceNavMeshPathing : 1;                                 // 0x0000(0x0004)
-	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0000(0x0004)
-	unsigned long                                      bCastShadows : 1;                                         // 0x0000(0x0004)
-	struct FLightingChannelContainer                   AgentLightingChannel;                                     // 0x0000(0x0004)
-	int                                                NumAgentsToTickPerFrame;                                  // 0x0000(0x0004)
-	int                                                LastAgentTickedIndex;                                     // 0x0000(0x0004)
-	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x0000(0x0010)
-	float                                              SpawnPrioritizationInterval;                              // 0x0000(0x0004)
-	int                                                PrioritizationIndex;                                      // 0x0000(0x0004)
-	int                                                PrioritizationUpdateIndex;                                // 0x0000(0x0004)
-	TArray<class AGameCrowdDestination*>               PrioritizedSpawnPoints;                                   // 0x0000(0x0010)
-	float                                              PlayerPositionPredictionTime;                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8C];                                      // 0x0004(0x008C) MISSED OFFSET
+	unsigned long                                      bSpawningActive : 1;                                      // 0x0008(0x0004)
+	float                                              SpawnRate;                                                // 0x000C(0x0004)
+	int                                                SpawnNum;                                                 // 0x0010(0x0004)
+	float                                              Remainder;                                                // 0x0014(0x0004)
+	TArray<class AGameCrowdAgent*>                     ActiveAgents;                                             // 0x0018(0x0010)
+	TArray<struct FAgentArchetypeInfo>                 AgentArchetypes;                                          // 0x0028(0x0010)
+	float                                              AgentFrequencySum;                                        // 0x0038(0x0004)
+	float                                              MaxSpawnDist;                                             // 0x003C(0x0004)
+	float                                              MaxSpawnDistSq;                                           // 0x0040(0x0004)
+	float                                              MinBehindSpawnDist;                                       // 0x0044(0x0004)
+	float                                              MinBehindSpawnDistSq;                                     // 0x0048(0x0004)
+	float                                              AgentWarmupTime;                                          // 0x004C(0x0004)
+	unsigned long                                      bForceObstacleChecking : 1;                               // 0x0050(0x0004)
+	unsigned long                                      bForceNavMeshPathing : 1;                                 // 0x0050(0x0004)
+	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0050(0x0004)
+	unsigned long                                      bCastShadows : 1;                                         // 0x0050(0x0004)
+	struct FLightingChannelContainer                   AgentLightingChannel;                                     // 0x0054(0x0004)
+	int                                                NumAgentsToTickPerFrame;                                  // 0x0058(0x0004)
+	int                                                LastAgentTickedIndex;                                     // 0x005C(0x0004)
+	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x0060(0x0010)
+	float                                              SpawnPrioritizationInterval;                              // 0x0070(0x0004)
+	int                                                PrioritizationIndex;                                      // 0x0074(0x0004)
+	int                                                PrioritizationUpdateIndex;                                // 0x0078(0x0004)
+	TArray<class AGameCrowdDestination*>               PrioritizedSpawnPoints;                                   // 0x007C(0x0010)
+	float                                              PlayerPositionPredictionTime;                             // 0x008C(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileInputZone.TextureUVs
@@ -325,10 +316,9 @@ struct FCrowdSpawnInfoItem
 struct FTextureUVs
 {
 	float                                              U;                                                        // 0x0000(0x0004)
-	float                                              V;                                                        // 0x0000(0x0004)
-	float                                              UL;                                                       // 0x0000(0x0004)
-	float                                              VL;                                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              V;                                                        // 0x0004(0x0004)
+	float                                              UL;                                                       // 0x0008(0x0004)
+	float                                              VL;                                                       // 0x000C(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileMenuObject.UVCoords
@@ -336,11 +326,10 @@ struct FTextureUVs
 struct FUVCoords
 {
 	unsigned long                                      bCustomCoords : 1;                                        // 0x0000(0x0004)
-	float                                              U;                                                        // 0x0000(0x0004)
-	float                                              V;                                                        // 0x0000(0x0004)
-	float                                              UL;                                                       // 0x0000(0x0004)
-	float                                              VL;                                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              U;                                                        // 0x0004(0x0004)
+	float                                              V;                                                        // 0x0008(0x0004)
+	float                                              UL;                                                       // 0x000C(0x0004)
+	float                                              VL;                                                       // 0x0010(0x0004)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.TouchDataEvent
@@ -348,10 +337,10 @@ struct FUVCoords
 struct FTouchDataEvent
 {
 	TEnumAsByte<ETouchType>                            EventType;                                                // 0x0000(0x0001)
-	unsigned char                                      TouchpadIndex;                                            // 0x0000(0x0001)
-	struct FVector2D                                   Location;                                                 // 0x0000(0x0008)
-	struct FDouble                                     DeviceTime;                                               // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	unsigned char                                      TouchpadIndex;                                            // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	struct FVector2D                                   Location;                                                 // 0x0004(0x0008)
+	struct FDouble                                     DeviceTime;                                               // 0x000C(0x0008)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.TouchData
@@ -359,19 +348,20 @@ struct FTouchDataEvent
 struct FTouchData
 {
 	int                                                Handle;                                                   // 0x0000(0x0004)
-	unsigned char                                      TouchpadIndex;                                            // 0x0000(0x0001)
-	struct FVector2D                                   Location;                                                 // 0x0000(0x0008)
-	float                                              TotalMoveDistance;                                        // 0x0000(0x0004)
-	struct FDouble                                     InitialDeviceTime;                                        // 0x0000(0x0008)
-	float                                              TouchDuration;                                            // 0x0000(0x0004)
-	struct FDouble                                     MoveEventDeviceTime;                                      // 0x0000(0x0008)
-	float                                              MoveDeltaTime;                                            // 0x0000(0x0004)
-	unsigned long                                      bInUse : 1;                                               // 0x0000(0x0004)
-	class UMobileInputZone*                            Zone;                                                     // 0x0000(0x0008)
-	TEnumAsByte<ETouchType>                            State;                                                    // 0x0000(0x0001)
-	TArray<struct FTouchDataEvent>                     Events;                                                   // 0x0000(0x0010)
-	float                                              LastActiveTime;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0004(0x004C) MISSED OFFSET
+	unsigned char                                      TouchpadIndex;                                            // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	struct FVector2D                                   Location;                                                 // 0x0008(0x0008)
+	float                                              TotalMoveDistance;                                        // 0x0010(0x0004)
+	struct FDouble                                     InitialDeviceTime;                                        // 0x0014(0x0008)
+	float                                              TouchDuration;                                            // 0x001C(0x0004)
+	struct FDouble                                     MoveEventDeviceTime;                                      // 0x0020(0x0008)
+	float                                              MoveDeltaTime;                                            // 0x0028(0x0004)
+	unsigned long                                      bInUse : 1;                                               // 0x002C(0x0004)
+	class UMobileInputZone*                            Zone;                                                     // 0x0030(0x0008)
+	TEnumAsByte<ETouchType>                            State;                                                    // 0x0038(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
+	TArray<struct FTouchDataEvent>                     Events;                                                   // 0x003C(0x0010)
+	float                                              LastActiveTime;                                           // 0x004C(0x0004)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.MobileInputGroup
@@ -379,8 +369,7 @@ struct FTouchData
 struct FMobileInputGroup
 {
 	struct FString                                     GroupName;                                                // 0x0000(0x0010)
-	TArray<class UMobileInputZone*>                    AssociatedZones;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<class UMobileInputZone*>                    AssociatedZones;                                          // 0x0010(0x0010)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.MobileInputZoneClassMap
@@ -388,8 +377,7 @@ struct FMobileInputGroup
 struct FMobileInputZoneClassMap
 {
 	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	class UClass*                                      ClassType;                                                // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
+	class UClass*                                      ClassType;                                                // 0x0010(0x0008)
 };
 
 // ScriptStruct GameFramework.SeqAct_ModifyProperty.PropertyInfo
@@ -397,9 +385,8 @@ struct FMobileInputZoneClassMap
 struct FPropertyInfo
 {
 	struct FName                                       PropertyName;                                             // 0x0000(0x0008)
-	unsigned long                                      bModifyProperty : 1;                                      // 0x0000(0x0004)
-	struct FString                                     PropertyValue;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	unsigned long                                      bModifyProperty : 1;                                      // 0x0008(0x0004)
+	struct FString                                     PropertyValue;                                            // 0x000C(0x0010)
 };
 
 // ScriptStruct GameFramework.GameSkelCtrl_Recoil.RecoilParams
@@ -407,10 +394,9 @@ struct FPropertyInfo
 struct FRecoilParams
 {
 	TEnumAsByte<ERecoilStart>                          X;                                                        // 0x0000(0x0001)
-	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0000(0x0001)
-	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0000(0x0001)
-	unsigned char                                      Padding;                                                  // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0001(0x0001)
+	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0002(0x0001)
+	unsigned char                                      Padding;                                                  // 0x0003(0x0001)
 };
 
 // ScriptStruct GameFramework.GameSkelCtrl_Recoil.RecoilDef
@@ -418,18 +404,17 @@ struct FRecoilParams
 struct FRecoilDef
 {
 	float                                              TimeToGo;                                                 // 0x0000(0x0004)
-	float                                              TimeDuration;                                             // 0x0000(0x0004)
-	struct FVector                                     RotAmplitude;                                             // 0x0000(0x000C)
-	struct FVector                                     RotFrequency;                                             // 0x0000(0x000C)
-	struct FVector                                     RotSinOffset;                                             // 0x0000(0x000C)
-	struct FRecoilParams                               RotParams;                                                // 0x0000(0x0004)
-	struct FRotator                                    RotOffset;                                                // 0x0000(0x000C)
-	struct FVector                                     LocAmplitude;                                             // 0x0000(0x000C)
-	struct FVector                                     LocFrequency;                                             // 0x0000(0x000C)
-	struct FVector                                     LocSinOffset;                                             // 0x0000(0x000C)
-	struct FRecoilParams                               LocParams;                                                // 0x0000(0x0004)
-	struct FVector                                     LocOffset;                                                // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x64];                                      // 0x000C(0x0064) MISSED OFFSET
+	float                                              TimeDuration;                                             // 0x0004(0x0004)
+	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C)
+	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C)
+	struct FVector                                     RotSinOffset;                                             // 0x0020(0x000C)
+	struct FRecoilParams                               RotParams;                                                // 0x002C(0x0004)
+	struct FRotator                                    RotOffset;                                                // 0x0030(0x000C)
+	struct FVector                                     LocAmplitude;                                             // 0x003C(0x000C)
+	struct FVector                                     LocFrequency;                                             // 0x0048(0x000C)
+	struct FVector                                     LocSinOffset;                                             // 0x0054(0x000C)
+	struct FRecoilParams                               LocParams;                                                // 0x0060(0x0004)
+	struct FVector                                     LocOffset;                                                // 0x0064(0x000C)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCamera.CamFocusPointParams
@@ -437,16 +422,15 @@ struct FRecoilDef
 struct FCamFocusPointParams
 {
 	class AActor*                                      FocusActor;                                               // 0x0000(0x0008)
-	struct FName                                       FocusBoneName;                                            // 0x0000(0x0008)
-	struct FVector                                     FocusWorldLoc;                                            // 0x0000(0x000C)
-	float                                              CameraFOV;                                                // 0x0000(0x0004)
-	struct FVector2D                                   InterpSpeedRange;                                         // 0x0000(0x0008)
-	struct FVector2D                                   InFocusFOV;                                               // 0x0000(0x0008)
-	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bAdjustCamera : 1;                                        // 0x0000(0x0004)
-	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0000(0x0004)
-	float                                              FocusPitchOffsetDeg;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0004(0x0034) MISSED OFFSET
+	struct FName                                       FocusBoneName;                                            // 0x0008(0x0008)
+	struct FVector                                     FocusWorldLoc;                                            // 0x0010(0x000C)
+	float                                              CameraFOV;                                                // 0x001C(0x0004)
+	struct FVector2D                                   InterpSpeedRange;                                         // 0x0020(0x0008)
+	struct FVector2D                                   InFocusFOV;                                               // 0x0028(0x0008)
+	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0030(0x0004)
+	unsigned long                                      bAdjustCamera : 1;                                        // 0x0030(0x0004)
+	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0030(0x0004)
+	float                                              FocusPitchOffsetDeg;                                      // 0x0034(0x0004)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCamera.PenetrationAvoidanceFeeler
@@ -454,12 +438,11 @@ struct FCamFocusPointParams
 struct FPenetrationAvoidanceFeeler
 {
 	struct FRotator                                    AdjustmentRot;                                            // 0x0000(0x000C)
-	float                                              WorldWeight;                                              // 0x0000(0x0004)
-	float                                              PawnWeight;                                               // 0x0000(0x0004)
-	struct FVector                                     Extent;                                                   // 0x0000(0x000C)
-	int                                                TraceInterval;                                            // 0x0000(0x0004)
-	int                                                FramesUntilNextTrace;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0004(0x0024) MISSED OFFSET
+	float                                              WorldWeight;                                              // 0x000C(0x0004)
+	float                                              PawnWeight;                                               // 0x0010(0x0004)
+	struct FVector                                     Extent;                                                   // 0x0014(0x000C)
+	int                                                TraceInterval;                                            // 0x0020(0x0004)
+	int                                                FramesUntilNextTrace;                                     // 0x0024(0x0004)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCameraMode.ViewOffsetData
@@ -467,9 +450,8 @@ struct FPenetrationAvoidanceFeeler
 struct FViewOffsetData
 {
 	struct FVector                                     OffsetHigh;                                               // 0x0000(0x000C)
-	struct FVector                                     OffsetMid;                                                // 0x0000(0x000C)
-	struct FVector                                     OffsetLow;                                                // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x000C(0x0018) MISSED OFFSET
+	struct FVector                                     OffsetMid;                                                // 0x000C(0x000C)
+	struct FVector                                     OffsetLow;                                                // 0x0018(0x000C)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.AggregateEventMapping
@@ -477,9 +459,8 @@ struct FViewOffsetData
 struct FAggregateEventMapping
 {
 	int                                                EventID;                                                  // 0x0000(0x0004)
-	int                                                AggregateID;                                              // 0x0000(0x0004)
-	int                                                TargetAggregateID;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                AggregateID;                                              // 0x0004(0x0004)
+	int                                                TargetAggregateID;                                        // 0x0008(0x0004)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.GameEvents
@@ -494,8 +475,7 @@ struct FGameEvents
 struct FEventsBase
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	TArray<struct FGameEvents>                         EventsByClass;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0010(0x0048) MISSED OFFSET
+	TArray<struct FGameEvents>                         EventsByClass;                                            // 0x0048(0x0010)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.WeaponEvents
@@ -531,12 +511,11 @@ struct FPawnEvents : public FEventsBase
 struct FTeamEvents
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	struct FWeaponEvents                               WeaponEvents;                                             // 0x0000(0x0058)
-	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x0000(0x0058)
-	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x0000(0x0058)
-	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0000(0x0058)
-	struct FPawnEvents                                 PawnEvents;                                               // 0x0000(0x0058)
-	unsigned char                                      UnknownData00[0x1A8];                                     // 0x0058(0x01A8) MISSED OFFSET
+	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058)
+	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058)
+	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058)
+	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058)
+	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.PlayerEvents
@@ -544,12 +523,11 @@ struct FTeamEvents
 struct FPlayerEvents
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	struct FWeaponEvents                               WeaponEvents;                                             // 0x0000(0x0058)
-	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x0000(0x0058)
-	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x0000(0x0058)
-	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0000(0x0058)
-	struct FPawnEvents                                 PawnEvents;                                               // 0x0000(0x0058)
-	unsigned char                                      UnknownData00[0x1A8];                                     // 0x0058(0x01A8) MISSED OFFSET
+	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058)
+	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058)
+	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058)
+	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058)
+	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058)
 };
 
 // ScriptStruct GameFramework.GameTypes.SpecialMoveStruct
@@ -557,10 +535,9 @@ struct FPlayerEvents
 struct FSpecialMoveStruct
 {
 	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008)
-	class AGamePawn*                                   InteractionPawn;                                          // 0x0000(0x0008)
-	class AActor*                                      InteractionActor;                                         // 0x0000(0x0008)
-	int                                                Flags;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	class AGamePawn*                                   InteractionPawn;                                          // 0x0008(0x0008)
+	class AActor*                                      InteractionActor;                                         // 0x0010(0x0008)
+	int                                                Flags;                                                    // 0x0018(0x0004)
 };
 
 // ScriptStruct GameFramework.GameTypes.GameSpecialMoveInfo
@@ -568,9 +545,8 @@ struct FSpecialMoveStruct
 struct FGameSpecialMoveInfo
 {
 	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008)
-	class UClass*                                      SpecialMoveClass;                                         // 0x0000(0x0008)
-	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
+	class UClass*                                      SpecialMoveClass;                                         // 0x0008(0x0008)
+	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0010(0x0008)
 };
 
 // ScriptStruct GameFramework.GameTypes.TakeHitInfo
@@ -578,14 +554,14 @@ struct FGameSpecialMoveInfo
 struct FTakeHitInfo
 {
 	struct FVector                                     HitLocation;                                              // 0x0000(0x000C)
-	struct FVector                                     Momentum;                                                 // 0x0000(0x000C)
-	class UClass*                                      DamageType;                                               // 0x0000(0x0008)
-	class APawn*                                       InstigatedBy;                                             // 0x0000(0x0008)
-	unsigned char                                      HitBoneIndex;                                             // 0x0000(0x0001)
-	class UPhysicalMaterial*                           PhysicalMaterial;                                         // 0x0000(0x0008)
-	float                                              Damage;                                                   // 0x0000(0x0004)
-	struct FVector                                     RadialDamageOrigin;                                       // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x38];                                      // 0x000C(0x0038) MISSED OFFSET
+	struct FVector                                     Momentum;                                                 // 0x000C(0x000C)
+	class UClass*                                      DamageType;                                               // 0x0018(0x0008)
+	class APawn*                                       InstigatedBy;                                             // 0x0020(0x0008)
+	unsigned char                                      HitBoneIndex;                                             // 0x0028(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0029(0x0003) MISSED OFFSET
+	class UPhysicalMaterial*                           PhysicalMaterial;                                         // 0x002C(0x0008)
+	float                                              Damage;                                                   // 0x0034(0x0004)
+	struct FVector                                     RadialDamageOrigin;                                       // 0x0038(0x000C)
 };
 
 // ScriptStruct GameFramework.GameTypes.ShakeParams
@@ -593,10 +569,9 @@ struct FTakeHitInfo
 struct FShakeParams
 {
 	TEnumAsByte<EShakeParam>                           X;                                                        // 0x0000(0x0001)
-	TEnumAsByte<EShakeParam>                           Y;                                                        // 0x0000(0x0001)
-	TEnumAsByte<EShakeParam>                           Z;                                                        // 0x0000(0x0001)
-	unsigned char                                      Padding;                                                  // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TEnumAsByte<EShakeParam>                           Y;                                                        // 0x0001(0x0001)
+	TEnumAsByte<EShakeParam>                           Z;                                                        // 0x0002(0x0001)
+	unsigned char                                      Padding;                                                  // 0x0003(0x0001)
 };
 
 // ScriptStruct GameFramework.GameTypes.ScreenShakeStruct
@@ -604,23 +579,23 @@ struct FShakeParams
 struct FScreenShakeStruct
 {
 	float                                              TimeToGo;                                                 // 0x0000(0x0004)
-	float                                              TimeDuration;                                             // 0x0000(0x0004)
-	struct FVector                                     RotAmplitude;                                             // 0x0000(0x000C)
-	struct FVector                                     RotFrequency;                                             // 0x0000(0x000C)
-	struct FVector                                     RotSinOffset;                                             // 0x0000(0x000C)
-	struct FShakeParams                                RotParam;                                                 // 0x0000(0x0004)
-	struct FVector                                     LocAmplitude;                                             // 0x0000(0x000C)
-	struct FVector                                     LocFrequency;                                             // 0x0000(0x000C)
-	struct FVector                                     LocSinOffset;                                             // 0x0000(0x000C)
-	struct FShakeParams                                LocParam;                                                 // 0x0000(0x0004)
-	float                                              FOVAmplitude;                                             // 0x0000(0x0004)
-	float                                              FOVFrequency;                                             // 0x0000(0x0004)
-	float                                              FOVSinOffset;                                             // 0x0000(0x0004)
-	TEnumAsByte<EShakeParam>                           FOVParam;                                                 // 0x0000(0x0001)
-	struct FName                                       ShakeName;                                                // 0x0000(0x0008)
-	unsigned long                                      bOverrideTargetingDampening : 1;                          // 0x0000(0x0004)
-	float                                              TargetingDampening;                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x74];                                      // 0x0004(0x0074) MISSED OFFSET
+	float                                              TimeDuration;                                             // 0x0004(0x0004)
+	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C)
+	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C)
+	struct FVector                                     RotSinOffset;                                             // 0x0020(0x000C)
+	struct FShakeParams                                RotParam;                                                 // 0x002C(0x0004)
+	struct FVector                                     LocAmplitude;                                             // 0x0030(0x000C)
+	struct FVector                                     LocFrequency;                                             // 0x003C(0x000C)
+	struct FVector                                     LocSinOffset;                                             // 0x0048(0x000C)
+	struct FShakeParams                                LocParam;                                                 // 0x0054(0x0004)
+	float                                              FOVAmplitude;                                             // 0x0058(0x0004)
+	float                                              FOVFrequency;                                             // 0x005C(0x0004)
+	float                                              FOVSinOffset;                                             // 0x0060(0x0004)
+	TEnumAsByte<EShakeParam>                           FOVParam;                                                 // 0x0064(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0065(0x0003) MISSED OFFSET
+	struct FName                                       ShakeName;                                                // 0x0068(0x0008)
+	unsigned long                                      bOverrideTargetingDampening : 1;                          // 0x0070(0x0004)
+	float                                              TargetingDampening;                                       // 0x0074(0x0004)
 };
 
 // ScriptStruct GameFramework.GameTypes.ScreenShakeAnimStruct
@@ -628,18 +603,17 @@ struct FScreenShakeStruct
 struct FScreenShakeAnimStruct
 {
 	class UCameraAnim*                                 Anim;                                                     // 0x0000(0x0008)
-	unsigned long                                      bUseDirectionalAnimVariants : 1;                          // 0x0000(0x0004)
-	class UCameraAnim*                                 Anim_Left;                                                // 0x0000(0x0008)
-	class UCameraAnim*                                 Anim_Right;                                               // 0x0000(0x0008)
-	class UCameraAnim*                                 Anim_Rear;                                                // 0x0000(0x0008)
-	float                                              AnimPlayRate;                                             // 0x0000(0x0004)
-	float                                              AnimScale;                                                // 0x0000(0x0004)
-	float                                              AnimBlendInTime;                                          // 0x0000(0x0004)
-	float                                              AnimBlendOutTime;                                         // 0x0000(0x0004)
-	unsigned long                                      bRandomSegment : 1;                                       // 0x0000(0x0004)
-	float                                              RandomSegmentDuration;                                    // 0x0000(0x0004)
-	unsigned long                                      bSingleInstance : 1;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0004(0x003C) MISSED OFFSET
+	unsigned long                                      bUseDirectionalAnimVariants : 1;                          // 0x0008(0x0004)
+	class UCameraAnim*                                 Anim_Left;                                                // 0x000C(0x0008)
+	class UCameraAnim*                                 Anim_Right;                                               // 0x0014(0x0008)
+	class UCameraAnim*                                 Anim_Rear;                                                // 0x001C(0x0008)
+	float                                              AnimPlayRate;                                             // 0x0024(0x0004)
+	float                                              AnimScale;                                                // 0x0028(0x0004)
+	float                                              AnimBlendInTime;                                          // 0x002C(0x0004)
+	float                                              AnimBlendOutTime;                                         // 0x0030(0x0004)
+	unsigned long                                      bRandomSegment : 1;                                       // 0x0034(0x0004)
+	float                                              RandomSegmentDuration;                                    // 0x0038(0x0004)
+	unsigned long                                      bSingleInstance : 1;                                      // 0x003C(0x0004)
 };
 
 // ScriptStruct GameFramework.GameStateObject.TeamState
@@ -647,8 +621,7 @@ struct FScreenShakeAnimStruct
 struct FTeamState
 {
 	int                                                TeamIndex;                                                // 0x0000(0x0004)
-	TArray<int>                                        PlayerIndices;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<int>                                        PlayerIndices;                                            // 0x0004(0x0010)
 };
 
 // ScriptStruct GameFramework.GameStateObject.PlayerState
@@ -656,10 +629,9 @@ struct FTeamState
 struct FPlayerState
 {
 	int                                                PlayerIndex;                                              // 0x0000(0x0004)
-	int                                                CurrentTeamIndex;                                         // 0x0000(0x0004)
-	float                                              TimeSpawned;                                              // 0x0000(0x0004)
-	float                                              TimeAliveSinceLastDeath;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                CurrentTeamIndex;                                         // 0x0004(0x0004)
+	float                                              TimeSpawned;                                              // 0x0008(0x0004)
+	float                                              TimeAliveSinceLastDeath;                                  // 0x000C(0x0004)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.GameEvent
@@ -674,14 +646,13 @@ struct FGameEvent
 struct FDragElementInfo
 {
 	unsigned long                                      bIsDragging : 1;                                          // 0x0000(0x0004)
-	int                                                IndexFrom;                                                // 0x0000(0x0004)
-	unsigned long                                      bIsOver : 1;                                              // 0x0000(0x0004)
-	int                                                IndexOver;                                                // 0x0000(0x0004)
-	unsigned long                                      bCanDropInOver : 1;                                       // 0x0000(0x0004)
-	struct FVector2D                                   OrigTouch;                                                // 0x0000(0x0008)
-	struct FVector2D                                   CurTouch;                                                 // 0x0000(0x0008)
-	TEnumAsByte<ETouchType>                            EventType;                                                // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0001(0x0024) MISSED OFFSET
+	int                                                IndexFrom;                                                // 0x0004(0x0004)
+	unsigned long                                      bIsOver : 1;                                              // 0x0008(0x0004)
+	int                                                IndexOver;                                                // 0x000C(0x0004)
+	unsigned long                                      bCanDropInOver : 1;                                       // 0x0010(0x0004)
+	struct FVector2D                                   OrigTouch;                                                // 0x0014(0x0008)
+	struct FVector2D                                   CurTouch;                                                 // 0x001C(0x0008)
+	TEnumAsByte<ETouchType>                            EventType;                                                // 0x0024(0x0001)
 };
 
 // ScriptStruct GameFramework.MobileMenuInventory.RenderElementInfo
@@ -689,8 +660,7 @@ struct FDragElementInfo
 struct FRenderElementInfo
 {
 	unsigned long                                      bIsDragItem : 1;                                          // 0x0000(0x0004)
-	int                                                Index;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Index;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileMenuList.SelectedMenuItem
@@ -698,9 +668,8 @@ struct FRenderElementInfo
 struct FSelectedMenuItem
 {
 	int                                                Index;                                                    // 0x0000(0x0004)
-	float                                              Offset;                                                   // 0x0000(0x0004)
-	unsigned long                                      bEndOfList : 1;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              Offset;                                                   // 0x0004(0x0004)
+	unsigned long                                      bEndOfList : 1;                                           // 0x0008(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileMenuList.DragHistoryData
@@ -708,8 +677,7 @@ struct FSelectedMenuItem
 struct FDragHistoryData
 {
 	float                                              TouchTime;                                                // 0x0000(0x0004)
-	float                                              TouchCoord;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              TouchCoord;                                               // 0x0004(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileMenuList.MenuListDragInfo
@@ -717,16 +685,15 @@ struct FDragHistoryData
 struct FMenuListDragInfo
 {
 	unsigned long                                      bIsDragging : 1;                                          // 0x0000(0x0004)
-	class UMobileMenuListItem*                         TouchedItem;                                              // 0x0000(0x0008)
-	struct FSelectedMenuItem                           OrigSelectedItem;                                         // 0x0000(0x000C)
-	struct FVector2D                                   StartTouch;                                               // 0x0000(0x0008)
-	float                                              TouchTime;                                                // 0x0000(0x0004)
-	float                                              ScrollAmount;                                             // 0x0000(0x0004)
-	float                                              AbsScrollAmount;                                          // 0x0000(0x0004)
-	struct FDragHistoryData                            UpdateHistory[0x4];                                       // 0x0000(0x0008)
-	int                                                NumUpdates;                                               // 0x0000(0x0004)
-	unsigned long                                      bHasSelectedChanged : 1;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0004(0x0050) MISSED OFFSET
+	class UMobileMenuListItem*                         TouchedItem;                                              // 0x0004(0x0008)
+	struct FSelectedMenuItem                           OrigSelectedItem;                                         // 0x000C(0x000C)
+	struct FVector2D                                   StartTouch;                                               // 0x0018(0x0008)
+	float                                              TouchTime;                                                // 0x0020(0x0004)
+	float                                              ScrollAmount;                                             // 0x0024(0x0004)
+	float                                              AbsScrollAmount;                                          // 0x0028(0x0004)
+	struct FDragHistoryData                            UpdateHistory[0x4];                                       // 0x002C(0x0008)
+	int                                                NumUpdates;                                               // 0x004C(0x0004)
+	unsigned long                                      bHasSelectedChanged : 1;                                  // 0x0050(0x0004)
 };
 
 // ScriptStruct GameFramework.MobileMenuList.MenuListMovementInfo
@@ -734,11 +701,10 @@ struct FMenuListDragInfo
 struct FMenuListMovementInfo
 {
 	unsigned long                                      bIsMoving : 1;                                            // 0x0000(0x0004)
-	struct FSelectedMenuItem                           OrigSelectedItem;                                         // 0x0000(0x000C)
-	float                                              FullMovement;                                             // 0x0000(0x0004)
-	float                                              TotalTime;                                                // 0x0000(0x0004)
-	float                                              CurrentTime;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	struct FSelectedMenuItem                           OrigSelectedItem;                                         // 0x0004(0x000C)
+	float                                              FullMovement;                                             // 0x0010(0x0004)
+	float                                              TotalTime;                                                // 0x0014(0x0004)
+	float                                              CurrentTime;                                              // 0x0018(0x0004)
 };
 
 }

@@ -99,9 +99,8 @@ enum class EGFxRenderTextureMode : uint8_t
 struct FGCReference
 {
 	class UObject*                                     m_object;                                                 // 0x0000(0x0008)
-	int                                                m_count;                                                  // 0x0000(0x0004)
-	int                                                m_statid;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                m_count;                                                  // 0x0008(0x0004)
+	int                                                m_statid;                                                 // 0x000C(0x0004)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.ASValue
@@ -109,12 +108,12 @@ struct FGCReference
 struct FASValue
 {
 	TEnumAsByte<EASType>                               Type;                                                     // 0x0000(0x0001)
-	unsigned long                                      B : 1;                                                    // 0x0000(0x0004)
-	float                                              N;                                                        // 0x0000(0x0004)
-	int                                                I;                                                        // 0x0000(0x0004)
-	struct FString                                     S;                                                        // 0x0000(0x0010)
-	class UGFxObject*                                  O;                                                        // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0008(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	unsigned long                                      B : 1;                                                    // 0x0004(0x0004)
+	float                                              N;                                                        // 0x0008(0x0004)
+	int                                                I;                                                        // 0x000C(0x0004)
+	struct FString                                     S;                                                        // 0x0010(0x0010)
+	class UGFxObject*                                  O;                                                        // 0x0020(0x0008)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.ExternalTexture
@@ -122,8 +121,7 @@ struct FASValue
 struct FExternalTexture
 {
 	struct FString                                     Resource;                                                 // 0x0000(0x0010)
-	class UTexture*                                    Texture;                                                  // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
+	class UTexture*                                    Texture;                                                  // 0x0010(0x0008)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.SoundThemeBinding
@@ -131,9 +129,8 @@ struct FExternalTexture
 struct FSoundThemeBinding
 {
 	struct FName                                       ThemeName;                                                // 0x0000(0x0008)
-	class UUISoundTheme*                               Theme;                                                    // 0x0000(0x0008)
-	struct FString                                     ThemeClassName;                                           // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	class UUISoundTheme*                               Theme;                                                    // 0x0008(0x0008)
+	struct FString                                     ThemeClassName;                                           // 0x0010(0x0010)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.GFxWidgetBinding
@@ -141,8 +138,7 @@ struct FSoundThemeBinding
 struct FGFxWidgetBinding
 {
 	struct FName                                       WidgetName;                                               // 0x0000(0x0008)
-	class UClass*                                      WidgetClass;                                              // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
+	class UClass*                                      WidgetClass;                                              // 0x0008(0x0008)
 };
 
 // ScriptStruct GFxUI.GFxObject.ASColorTransform
@@ -150,8 +146,7 @@ struct FGFxWidgetBinding
 struct FASColorTransform
 {
 	struct FLinearColor                                Multiply;                                                 // 0x0000(0x0010)
-	struct FLinearColor                                Add;                                                      // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FLinearColor                                Add;                                                      // 0x0010(0x0010)
 };
 
 // ScriptStruct GFxUI.GFxObject.ASDisplayInfo
@@ -159,28 +154,27 @@ struct FASColorTransform
 struct FASDisplayInfo
 {
 	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0000(0x0004)
-	float                                              Z;                                                        // 0x0000(0x0004)
-	float                                              Rotation;                                                 // 0x0000(0x0004)
-	float                                              XRotation;                                                // 0x0000(0x0004)
-	float                                              YRotation;                                                // 0x0000(0x0004)
-	float                                              XScale;                                                   // 0x0000(0x0004)
-	float                                              YScale;                                                   // 0x0000(0x0004)
-	float                                              ZScale;                                                   // 0x0000(0x0004)
-	float                                              Alpha;                                                    // 0x0000(0x0004)
-	unsigned long                                      Visible : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      hasX : 1;                                                 // 0x0000(0x0004)
-	unsigned long                                      hasY : 1;                                                 // 0x0000(0x0004)
-	unsigned long                                      hasZ : 1;                                                 // 0x0000(0x0004)
-	unsigned long                                      hasRotation : 1;                                          // 0x0000(0x0004)
-	unsigned long                                      hasXRotation : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      hasYRotation : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      hasXScale : 1;                                            // 0x0000(0x0004)
-	unsigned long                                      hasYScale : 1;                                            // 0x0000(0x0004)
-	unsigned long                                      hasZScale : 1;                                            // 0x0000(0x0004)
-	unsigned long                                      hasAlpha : 1;                                             // 0x0000(0x0004)
-	unsigned long                                      hasVisible : 1;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0004(0x0028) MISSED OFFSET
+	float                                              Y;                                                        // 0x0004(0x0004)
+	float                                              Z;                                                        // 0x0008(0x0004)
+	float                                              Rotation;                                                 // 0x000C(0x0004)
+	float                                              XRotation;                                                // 0x0010(0x0004)
+	float                                              YRotation;                                                // 0x0014(0x0004)
+	float                                              XScale;                                                   // 0x0018(0x0004)
+	float                                              YScale;                                                   // 0x001C(0x0004)
+	float                                              ZScale;                                                   // 0x0020(0x0004)
+	float                                              Alpha;                                                    // 0x0024(0x0004)
+	unsigned long                                      Visible : 1;                                              // 0x0028(0x0004)
+	unsigned long                                      hasX : 1;                                                 // 0x0028(0x0004)
+	unsigned long                                      hasY : 1;                                                 // 0x0028(0x0004)
+	unsigned long                                      hasZ : 1;                                                 // 0x0028(0x0004)
+	unsigned long                                      hasRotation : 1;                                          // 0x0028(0x0004)
+	unsigned long                                      hasXRotation : 1;                                         // 0x0028(0x0004)
+	unsigned long                                      hasYRotation : 1;                                         // 0x0028(0x0004)
+	unsigned long                                      hasXScale : 1;                                            // 0x0028(0x0004)
+	unsigned long                                      hasYScale : 1;                                            // 0x0028(0x0004)
+	unsigned long                                      hasZScale : 1;                                            // 0x0028(0x0004)
+	unsigned long                                      hasAlpha : 1;                                             // 0x0028(0x0004)
+	unsigned long                                      hasVisible : 1;                                           // 0x0028(0x0004)
 };
 
 // ScriptStruct GFxUI.GFxClikWidget.EventData
@@ -188,14 +182,13 @@ struct FASDisplayInfo
 struct FEventData
 {
 	class UGFxObject*                                  _this;                                                    // 0x0000(0x0008)
-	class UGFxObject*                                  Target;                                                   // 0x0000(0x0008)
-	struct FString                                     Type;                                                     // 0x0000(0x0010)
-	int                                                Data;                                                     // 0x0000(0x0004)
-	int                                                mouseIndex;                                               // 0x0000(0x0004)
-	int                                                Button;                                                   // 0x0000(0x0004)
-	int                                                Index;                                                    // 0x0000(0x0004)
-	int                                                lastIndex;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0004(0x0030) MISSED OFFSET
+	class UGFxObject*                                  Target;                                                   // 0x0008(0x0008)
+	struct FString                                     Type;                                                     // 0x0010(0x0010)
+	int                                                Data;                                                     // 0x0020(0x0004)
+	int                                                mouseIndex;                                               // 0x0024(0x0004)
+	int                                                Button;                                                   // 0x0028(0x0004)
+	int                                                Index;                                                    // 0x002C(0x0004)
+	int                                                lastIndex;                                                // 0x0030(0x0004)
 };
 
 }

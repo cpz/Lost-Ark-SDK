@@ -217,10 +217,9 @@ enum class ELocObjectLanguageExtension : uint8_t
 struct FGuid
 {
 	int                                                A;                                                        // 0x0000(0x0004)
-	int                                                B;                                                        // 0x0000(0x0004)
-	int                                                C;                                                        // 0x0000(0x0004)
-	int                                                D;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                B;                                                        // 0x0004(0x0004)
+	int                                                C;                                                        // 0x0008(0x0004)
+	int                                                D;                                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.Rotator
@@ -228,9 +227,8 @@ struct FGuid
 struct FRotator
 {
 	int                                                Pitch;                                                    // 0x0000(0x0004)
-	int                                                Yaw;                                                      // 0x0000(0x0004)
-	int                                                Roll;                                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                Yaw;                                                      // 0x0004(0x0004)
+	int                                                Roll;                                                     // 0x0008(0x0004)
 };
 
 // ScriptStruct Core.Object.Vector
@@ -238,9 +236,8 @@ struct FRotator
 struct FVector
 {
 	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0000(0x0004)
-	float                                              Z;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              Y;                                                        // 0x0004(0x0004)
+	float                                              Z;                                                        // 0x0008(0x0004)
 };
 
 // ScriptStruct Core.Object.Vector2D
@@ -248,8 +245,7 @@ struct FVector
 struct FVector2D
 {
 	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              Y;                                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct Core.Object.LinearColor
@@ -257,10 +253,9 @@ struct FVector2D
 struct FLinearColor
 {
 	float                                              R;                                                        // 0x0000(0x0004)
-	float                                              G;                                                        // 0x0000(0x0004)
-	float                                              B;                                                        // 0x0000(0x0004)
-	float                                              A;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              G;                                                        // 0x0004(0x0004)
+	float                                              B;                                                        // 0x0008(0x0004)
+	float                                              A;                                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.Color
@@ -268,10 +263,9 @@ struct FLinearColor
 struct FColor
 {
 	unsigned char                                      B;                                                        // 0x0000(0x0001)
-	unsigned char                                      G;                                                        // 0x0000(0x0001)
-	unsigned char                                      R;                                                        // 0x0000(0x0001)
-	unsigned char                                      A;                                                        // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	unsigned char                                      G;                                                        // 0x0001(0x0001)
+	unsigned char                                      R;                                                        // 0x0002(0x0001)
+	unsigned char                                      A;                                                        // 0x0003(0x0001)
 
 	inline FColor()
 		: R(0), G(0), B(0), A(0)
@@ -291,11 +285,10 @@ struct FColor
 struct FInterpCurvePointVector2D
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FVector2D                                   OutVal;                                                   // 0x0000(0x0008)
-	struct FVector2D                                   ArriveTangent;                                            // 0x0000(0x0008)
-	struct FVector2D                                   LeaveTangent;                                             // 0x0000(0x0008)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0001(0x001C) MISSED OFFSET
+	struct FVector2D                                   OutVal;                                                   // 0x0004(0x0008)
+	struct FVector2D                                   ArriveTangent;                                            // 0x000C(0x0008)
+	struct FVector2D                                   LeaveTangent;                                             // 0x0014(0x0008)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x001C(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveVector2D
@@ -303,8 +296,7 @@ struct FInterpCurvePointVector2D
 struct FInterpCurveVector2D
 {
 	TArray<struct FInterpCurvePointVector2D>           Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurvePointVector
@@ -312,11 +304,10 @@ struct FInterpCurveVector2D
 struct FInterpCurvePointVector
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FVector                                     OutVal;                                                   // 0x0000(0x000C)
-	struct FVector                                     ArriveTangent;                                            // 0x0000(0x000C)
-	struct FVector                                     LeaveTangent;                                             // 0x0000(0x000C)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0001(0x0028) MISSED OFFSET
+	struct FVector                                     OutVal;                                                   // 0x0004(0x000C)
+	struct FVector                                     ArriveTangent;                                            // 0x0010(0x000C)
+	struct FVector                                     LeaveTangent;                                             // 0x001C(0x000C)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0028(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveVector
@@ -324,8 +315,7 @@ struct FInterpCurvePointVector
 struct FInterpCurveVector
 {
 	TArray<struct FInterpCurvePointVector>             Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurvePointFloat
@@ -333,11 +323,10 @@ struct FInterpCurveVector
 struct FInterpCurvePointFloat
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	float                                              OutVal;                                                   // 0x0000(0x0004)
-	float                                              ArriveTangent;                                            // 0x0000(0x0004)
-	float                                              LeaveTangent;                                             // 0x0000(0x0004)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	float                                              OutVal;                                                   // 0x0004(0x0004)
+	float                                              ArriveTangent;                                            // 0x0008(0x0004)
+	float                                              LeaveTangent;                                             // 0x000C(0x0004)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveFloat
@@ -345,8 +334,7 @@ struct FInterpCurvePointFloat
 struct FInterpCurveFloat
 {
 	TArray<struct FInterpCurvePointFloat>              Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.Quat
@@ -354,18 +342,16 @@ struct FInterpCurveFloat
 struct FQuat
 {
 	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0000(0x0004)
-	float                                              Z;                                                        // 0x0000(0x0004)
-	float                                              W;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              Y;                                                        // 0x0004(0x0004)
+	float                                              Z;                                                        // 0x0008(0x0004)
+	float                                              W;                                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.Plane
 // 0x0004 (0x0010 - 0x000C)
 struct FPlane : public FVector
 {
-	float                                              W;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              W;                                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.Matrix
@@ -373,10 +359,9 @@ struct FPlane : public FVector
 struct FMatrix
 {
 	struct FPlane                                      XPlane;                                                   // 0x0000(0x0010)
-	struct FPlane                                      YPlane;                                                   // 0x0000(0x0010)
-	struct FPlane                                      ZPlane;                                                   // 0x0000(0x0010)
-	struct FPlane                                      WPlane;                                                   // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0010(0x0030) MISSED OFFSET
+	struct FPlane                                      YPlane;                                                   // 0x0010(0x0010)
+	struct FPlane                                      ZPlane;                                                   // 0x0020(0x0010)
+	struct FPlane                                      WPlane;                                                   // 0x0030(0x0010)
 };
 
 // ScriptStruct Core.Object.Pointer
@@ -392,8 +377,7 @@ struct FPointer
 struct FQWord
 {
 	int                                                A;                                                        // 0x0000(0x0004)
-	int                                                B;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                B;                                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct Core.LocAssetRedirector.DestinationLocObject
@@ -408,9 +392,8 @@ struct FDestinationLocObject
 struct FArray_Mirror
 {
 	struct FPointer                                    Data;                                                     // 0x0000(0x0008)
-	int                                                ArrayNum;                                                 // 0x0000(0x0004)
-	int                                                ArrayMax;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                ArrayNum;                                                 // 0x0008(0x0004)
+	int                                                ArrayMax;                                                 // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.InlinePointerArray_Mirror
@@ -418,8 +401,7 @@ struct FArray_Mirror
 struct FInlinePointerArray_Mirror
 {
 	struct FPointer                                    InlineData;                                               // 0x0000(0x0008)
-	struct FArray_Mirror                               SecondaryData;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	struct FArray_Mirror                               SecondaryData;                                            // 0x0008(0x0010)
 };
 
 // ScriptStruct Core.Object.Vector4
@@ -427,10 +409,9 @@ struct FInlinePointerArray_Mirror
 struct FVector4
 {
 	float                                              X;                                                        // 0x0000(0x0004)
-	float                                              Y;                                                        // 0x0000(0x0004)
-	float                                              Z;                                                        // 0x0000(0x0004)
-	float                                              W;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              Y;                                                        // 0x0004(0x0004)
+	float                                              Z;                                                        // 0x0008(0x0004)
+	float                                              W;                                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.Cylinder
@@ -438,8 +419,7 @@ struct FVector4
 struct FCylinder
 {
 	float                                              Radius;                                                   // 0x0000(0x0004)
-	float                                              Height;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              Height;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct Core.Object.BoxSphereBounds
@@ -447,9 +427,8 @@ struct FCylinder
 struct FBoxSphereBounds
 {
 	struct FVector                                     Origin;                                                   // 0x0000(0x000C)
-	struct FVector                                     BoxExtent;                                                // 0x0000(0x000C)
-	float                                              SphereRadius;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	struct FVector                                     BoxExtent;                                                // 0x000C(0x000C)
+	float                                              SphereRadius;                                             // 0x0018(0x0004)
 };
 
 // ScriptStruct Core.Object.TwoVectors
@@ -457,8 +436,7 @@ struct FBoxSphereBounds
 struct FTwoVectors
 {
 	struct FVector                                     v1;                                                       // 0x0000(0x000C)
-	struct FVector                                     v2;                                                       // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	struct FVector                                     v2;                                                       // 0x000C(0x000C)
 };
 
 // ScriptStruct Core.Object.TAlphaBlend
@@ -466,12 +444,11 @@ struct FTwoVectors
 struct FTAlphaBlend
 {
 	float                                              AlphaIn;                                                  // 0x0000(0x0004)
-	float                                              AlphaOut;                                                 // 0x0000(0x0004)
-	float                                              AlphaTarget;                                              // 0x0000(0x0004)
-	float                                              BlendTime;                                                // 0x0000(0x0004)
-	float                                              BlendTimeToGo;                                            // 0x0000(0x0004)
-	TEnumAsByte<EAlphaBlendType>                       BlendType;                                                // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0001(0x0014) MISSED OFFSET
+	float                                              AlphaOut;                                                 // 0x0004(0x0004)
+	float                                              AlphaTarget;                                              // 0x0008(0x0004)
+	float                                              BlendTime;                                                // 0x000C(0x0004)
+	float                                              BlendTimeToGo;                                            // 0x0010(0x0004)
+	TEnumAsByte<EAlphaBlendType>                       BlendType;                                                // 0x0014(0x0001)
 };
 
 // ScriptStruct Core.Object.uint
@@ -486,11 +463,10 @@ struct Fuint
 struct FBoneAtom
 {
 	struct FQuat                                       Rotation;                                                 // 0x0000(0x0010)
-	struct FVector4                                    Translation;                                              // 0x0000(0x0010)
-	struct FVector4                                    Scale3D;                                                  // 0x0000(0x0010)
-	struct FVector4                                    ScaleShear;                                               // 0x0000(0x0010)
-	int                                                bScaleInheritance;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0004(0x0040) MISSED OFFSET
+	struct FVector4                                    Translation;                                              // 0x0010(0x0010)
+	struct FVector4                                    Scale3D;                                                  // 0x0020(0x0010)
+	struct FVector4                                    ScaleShear;                                               // 0x0030(0x0010)
+	int                                                bScaleInheritance;                                        // 0x0040(0x0004)
 };
 
 // ScriptStruct Core.Object.OctreeElementId
@@ -498,8 +474,7 @@ struct FBoneAtom
 struct FOctreeElementId
 {
 	struct FPointer                                    Node;                                                     // 0x0000(0x0008)
-	int                                                ElementIndex;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                ElementIndex;                                             // 0x0008(0x0004)
 };
 
 // ScriptStruct Core.Object.RenderCommandFence
@@ -514,13 +489,12 @@ struct FRenderCommandFence
 struct FRawDistribution
 {
 	unsigned char                                      Type;                                                     // 0x0000(0x0001)
-	unsigned char                                      Op;                                                       // 0x0000(0x0001)
-	unsigned char                                      LookupTableNumElements;                                   // 0x0000(0x0001)
-	unsigned char                                      LookupTableChunkSize;                                     // 0x0000(0x0001)
-	TArray<float>                                      LookupTable;                                              // 0x0000(0x0010)
-	float                                              LookupTableTimeScale;                                     // 0x0000(0x0004)
-	float                                              LookupTableStartTime;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	unsigned char                                      Op;                                                       // 0x0001(0x0001)
+	unsigned char                                      LookupTableNumElements;                                   // 0x0002(0x0001)
+	unsigned char                                      LookupTableChunkSize;                                     // 0x0003(0x0001)
+	TArray<float>                                      LookupTable;                                              // 0x0004(0x0010)
+	float                                              LookupTableTimeScale;                                     // 0x0014(0x0004)
+	float                                              LookupTableStartTime;                                     // 0x0018(0x0004)
 };
 
 // ScriptStruct Core.Object.InterpCurvePointLinearColor
@@ -528,11 +502,10 @@ struct FRawDistribution
 struct FInterpCurvePointLinearColor
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FLinearColor                                OutVal;                                                   // 0x0000(0x0010)
-	struct FLinearColor                                ArriveTangent;                                            // 0x0000(0x0010)
-	struct FLinearColor                                LeaveTangent;                                             // 0x0000(0x0010)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0001(0x0034) MISSED OFFSET
+	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010)
+	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010)
+	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveLinearColor
@@ -540,8 +513,7 @@ struct FInterpCurvePointLinearColor
 struct FInterpCurveLinearColor
 {
 	TArray<struct FInterpCurvePointLinearColor>        Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurvePointQuat
@@ -549,11 +521,11 @@ struct FInterpCurveLinearColor
 struct FInterpCurvePointQuat
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FQuat                                       OutVal;                                                   // 0x0000(0x0010)
-	struct FQuat                                       ArriveTangent;                                            // 0x0000(0x0010)
-	struct FQuat                                       LeaveTangent;                                             // 0x0000(0x0010)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0001(0x0040) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	struct FQuat                                       OutVal;                                                   // 0x0010(0x0010)
+	struct FQuat                                       ArriveTangent;                                            // 0x0020(0x0010)
+	struct FQuat                                       LeaveTangent;                                             // 0x0030(0x0010)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0040(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveQuat
@@ -561,8 +533,7 @@ struct FInterpCurvePointQuat
 struct FInterpCurveQuat
 {
 	TArray<struct FInterpCurvePointQuat>               Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurvePointTwoVectors
@@ -570,11 +541,10 @@ struct FInterpCurveQuat
 struct FInterpCurvePointTwoVectors
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FTwoVectors                                 OutVal;                                                   // 0x0000(0x0018)
-	struct FTwoVectors                                 ArriveTangent;                                            // 0x0000(0x0018)
-	struct FTwoVectors                                 LeaveTangent;                                             // 0x0000(0x0018)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0001(0x004C) MISSED OFFSET
+	struct FTwoVectors                                 OutVal;                                                   // 0x0004(0x0018)
+	struct FTwoVectors                                 ArriveTangent;                                            // 0x001C(0x0018)
+	struct FTwoVectors                                 LeaveTangent;                                             // 0x0034(0x0018)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x004C(0x0001)
 };
 
 // ScriptStruct Core.Object.InterpCurveTwoVectors
@@ -582,8 +552,7 @@ struct FInterpCurvePointTwoVectors
 struct FInterpCurveTwoVectors
 {
 	TArray<struct FInterpCurvePointTwoVectors>         Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct Core.Object.Box
@@ -591,9 +560,8 @@ struct FInterpCurveTwoVectors
 struct FBox
 {
 	struct FVector                                     Min;                                                      // 0x0000(0x000C)
-	struct FVector                                     Max;                                                      // 0x0000(0x000C)
-	unsigned char                                      IsValid;                                                  // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0001(0x0018) MISSED OFFSET
+	struct FVector                                     Max;                                                      // 0x000C(0x000C)
+	unsigned char                                      IsValid;                                                  // 0x0018(0x0001)
 };
 
 // ScriptStruct Core.Object.TPOV
@@ -601,9 +569,8 @@ struct FBox
 struct FTPOV
 {
 	struct FVector                                     Location;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	float                                              FOV;                                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	struct FRotator                                    Rotation;                                                 // 0x000C(0x000C)
+	float                                              FOV;                                                      // 0x0018(0x0004)
 };
 
 // ScriptStruct Core.Object.SHVector
@@ -611,8 +578,7 @@ struct FTPOV
 struct FSHVector
 {
 	float                                              V[0x9];                                                   // 0x0000(0x0004)
-	float                                              Padding[0x3];                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x000C(0x0024) MISSED OFFSET
+	float                                              Padding[0x3];                                             // 0x0024(0x0004)
 };
 
 // ScriptStruct Core.Object.SHVectorRGB
@@ -620,9 +586,8 @@ struct FSHVector
 struct FSHVectorRGB
 {
 	struct FSHVector                                   R;                                                        // 0x0000(0x0030)
-	struct FSHVector                                   G;                                                        // 0x0000(0x0030)
-	struct FSHVector                                   B;                                                        // 0x0000(0x0030)
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0030(0x0060) MISSED OFFSET
+	struct FSHVector                                   G;                                                        // 0x0030(0x0030)
+	struct FSHVector                                   B;                                                        // 0x0060(0x0030)
 };
 
 // ScriptStruct Core.Object.IntPoint
@@ -630,8 +595,7 @@ struct FSHVectorRGB
 struct FIntPoint
 {
 	int                                                X;                                                        // 0x0000(0x0004)
-	int                                                Y;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Y;                                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct Core.Object.PackedNormal
@@ -639,10 +603,9 @@ struct FIntPoint
 struct FPackedNormal
 {
 	unsigned char                                      X;                                                        // 0x0000(0x0001)
-	unsigned char                                      Y;                                                        // 0x0000(0x0001)
-	unsigned char                                      Z;                                                        // 0x0000(0x0001)
-	unsigned char                                      W;                                                        // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	unsigned char                                      Y;                                                        // 0x0001(0x0001)
+	unsigned char                                      Z;                                                        // 0x0002(0x0001)
+	unsigned char                                      W;                                                        // 0x0003(0x0001)
 };
 
 // ScriptStruct Core.Object.IndirectArray_Mirror
@@ -650,9 +613,8 @@ struct FPackedNormal
 struct FIndirectArray_Mirror
 {
 	struct FPointer                                    Data;                                                     // 0x0000(0x0008)
-	int                                                ArrayNum;                                                 // 0x0000(0x0004)
-	int                                                ArrayMax;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                ArrayNum;                                                 // 0x0008(0x0004)
+	int                                                ArrayMax;                                                 // 0x000C(0x0004)
 };
 
 // ScriptStruct Core.Object.FColorVertexBuffer_Mirror
@@ -660,11 +622,10 @@ struct FIndirectArray_Mirror
 struct FFColorVertexBuffer_Mirror
 {
 	struct FPointer                                    VfTable;                                                  // 0x0000(0x0008)
-	struct FPointer                                    VertexData;                                               // 0x0000(0x0008)
-	int                                                Data;                                                     // 0x0000(0x0004)
-	int                                                Stride;                                                   // 0x0000(0x0004)
-	int                                                NumVertices;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	struct FPointer                                    VertexData;                                               // 0x0008(0x0008)
+	int                                                Data;                                                     // 0x0010(0x0004)
+	int                                                Stride;                                                   // 0x0014(0x0004)
+	int                                                NumVertices;                                              // 0x0018(0x0004)
 };
 
 // ScriptStruct Core.Object.RenderCommandFence_Mirror
@@ -679,19 +640,18 @@ struct FRenderCommandFence_Mirror
 struct FUntypedBulkData_Mirror
 {
 	struct FPointer                                    VfTable;                                                  // 0x0000(0x0008)
-	int                                                BulkDataFlags;                                            // 0x0000(0x0004)
-	int                                                ElementCount;                                             // 0x0000(0x0004)
-	int                                                BulkDataOffsetInFile;                                     // 0x0000(0x0004)
-	int                                                BulkDataSizeOnDisk;                                       // 0x0000(0x0004)
-	int                                                SavedBulkDataFlags;                                       // 0x0000(0x0004)
-	int                                                SavedElementCount;                                        // 0x0000(0x0004)
-	int                                                SavedBulkDataOffsetInFile;                                // 0x0000(0x0004)
-	int                                                SavedBulkDataSizeOnDisk;                                  // 0x0000(0x0004)
-	struct FPointer                                    BulkData;                                                 // 0x0000(0x0008)
-	int                                                LockStatus;                                               // 0x0000(0x0004)
-	struct FPointer                                    AttachedAr;                                               // 0x0000(0x0008)
-	int                                                bShouldFreeOnEmpty;                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0004(0x003C) MISSED OFFSET
+	int                                                BulkDataFlags;                                            // 0x0008(0x0004)
+	int                                                ElementCount;                                             // 0x000C(0x0004)
+	int                                                BulkDataOffsetInFile;                                     // 0x0010(0x0004)
+	int                                                BulkDataSizeOnDisk;                                       // 0x0014(0x0004)
+	int                                                SavedBulkDataFlags;                                       // 0x0018(0x0004)
+	int                                                SavedElementCount;                                        // 0x001C(0x0004)
+	int                                                SavedBulkDataOffsetInFile;                                // 0x0020(0x0004)
+	int                                                SavedBulkDataSizeOnDisk;                                  // 0x0024(0x0004)
+	struct FPointer                                    BulkData;                                                 // 0x0028(0x0008)
+	int                                                LockStatus;                                               // 0x0030(0x0004)
+	struct FPointer                                    AttachedAr;                                               // 0x0034(0x0008)
+	int                                                bShouldFreeOnEmpty;                                       // 0x003C(0x0004)
 };
 
 // ScriptStruct Core.Object.BitArray_Mirror
@@ -699,10 +659,9 @@ struct FUntypedBulkData_Mirror
 struct FBitArray_Mirror
 {
 	struct FPointer                                    IndirectData;                                             // 0x0000(0x0008)
-	int                                                InlineData[0x4];                                          // 0x0000(0x0004)
-	int                                                NumBits;                                                  // 0x0000(0x0004)
-	int                                                MaxBits;                                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0004(0x001C) MISSED OFFSET
+	int                                                InlineData[0x4];                                          // 0x0008(0x0004)
+	int                                                NumBits;                                                  // 0x0018(0x0004)
+	int                                                MaxBits;                                                  // 0x001C(0x0004)
 };
 
 // ScriptStruct Core.Object.SparseArray_Mirror
@@ -710,10 +669,9 @@ struct FBitArray_Mirror
 struct FSparseArray_Mirror
 {
 	TArray<int>                                        Elements;                                                 // 0x0000(0x0010)
-	struct FBitArray_Mirror                            AllocationFlags;                                          // 0x0000(0x0020)
-	int                                                FirstFreeIndex;                                           // 0x0000(0x0004)
-	int                                                NumFreeIndices;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0004(0x0034) MISSED OFFSET
+	struct FBitArray_Mirror                            AllocationFlags;                                          // 0x0010(0x0020)
+	int                                                FirstFreeIndex;                                           // 0x0030(0x0004)
+	int                                                NumFreeIndices;                                           // 0x0034(0x0004)
 };
 
 // ScriptStruct Core.Object.Set_Mirror
@@ -721,10 +679,9 @@ struct FSparseArray_Mirror
 struct FSet_Mirror
 {
 	struct FSparseArray_Mirror                         Elements;                                                 // 0x0000(0x0038)
-	int                                                InlineHash;                                               // 0x0000(0x0004)
-	struct FPointer                                    Hash;                                                     // 0x0000(0x0008)
-	int                                                HashSize;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x44];                                      // 0x0004(0x0044) MISSED OFFSET
+	int                                                InlineHash;                                               // 0x0038(0x0004)
+	struct FPointer                                    Hash;                                                     // 0x003C(0x0008)
+	int                                                HashSize;                                                 // 0x0044(0x0004)
 };
 
 // ScriptStruct Core.Object.MultiMap_Mirror
@@ -753,33 +710,29 @@ struct FThreadSafeCounter
 struct FDouble
 {
 	int                                                A;                                                        // 0x0000(0x0004)
-	int                                                B;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                B;                                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct Core.DistributionFloat.RawDistributionFloat
 // 0x0008 (0x0024 - 0x001C)
 struct FRawDistributionFloat : public FRawDistribution
 {
-	class UDistributionFloat*                          Distribution;                                             // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0008(0x001C) MISSED OFFSET
+	class UDistributionFloat*                          Distribution;                                             // 0x001C(0x0008)
 };
 
 // ScriptStruct Core.DistributionFloat.MatineeRawDistributionFloat
 // 0x0008 (0x002C - 0x0024)
 struct FMatineeRawDistributionFloat : public FRawDistributionFloat
 {
-	float                                              MatineeValue;                                             // 0x0000(0x0004)
-	unsigned long                                      bInMatinee : 1;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0004(0x0028) MISSED OFFSET
+	float                                              MatineeValue;                                             // 0x0024(0x0004)
+	unsigned long                                      bInMatinee : 1;                                           // 0x0028(0x0004)
 };
 
 // ScriptStruct Core.DistributionVector.RawDistributionVector
 // 0x0008 (0x0024 - 0x001C)
 struct FRawDistributionVector : public FRawDistribution
 {
-	class UDistributionVector*                         Distribution;                                             // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0008(0x001C) MISSED OFFSET
+	class UDistributionVector*                         Distribution;                                             // 0x001C(0x0008)
 };
 
 }

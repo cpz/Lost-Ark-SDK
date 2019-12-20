@@ -19,7 +19,7 @@ namespace SDK
 class UActorFactoryAkAmbientSound : public UActorFactory
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0094(0x0008) MISSED OFFSET
+	class UAkEvent*                                    AmbientEvent;                                             // 0x0094(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -35,7 +35,17 @@ public:
 class AAkAmbientSound : public AKeypoint
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x027C(0x0020) MISSED OFFSET
+	unsigned long                                      bAutoPlay : 1;                                            // 0x027C(0x0004)
+	unsigned long                                      bIsActive : 1;                                            // 0x027C(0x0004)
+	unsigned long                                      bRealPlay : 1;                                            // 0x027C(0x0004)
+	unsigned long                                      bDeactiveWhenRealPlayIsStop : 1;                          // 0x027C(0x0004)
+	unsigned long                                      bShowAkAmbientSoundRadius : 1;                            // 0x027C(0x0004)
+	unsigned long                                      StopWhenOwnerIsDestroyed : 1;                             // 0x027C(0x0004)
+	unsigned long                                      bIsPlaying : 1;                                           // 0x027C(0x0004)
+	class UAkEvent*                                    PlayEvent;                                                // 0x0280(0x0008)
+	float                                              fSquaredRadius;                                           // 0x0288(0x0004)
+	class UDrawSphereComponent*                        PreviewSoundRadius;                                       // 0x028C(0x0008)
+	class UDrawSphereComponent*                        PreviewAkAmbientSoundRadius;                              // 0x0294(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -67,7 +77,13 @@ public:
 class UAkComponent : public UActorComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0084(0x003C) MISSED OFFSET
+	struct FName                                       BoneName;                                                 // 0x0084(0x0008)
+	class UAkEvent*                                    AutoPlayEvent;                                            // 0x008C(0x0008)
+	struct FVector                                     RelativeLoc;                                              // 0x0094(0x000C)
+	struct FVector                                     WorldLoc;                                                 // 0x00A0(0x000C)
+	struct FVector                                     WorldDir;                                                 // 0x00AC(0x000C)
+	unsigned long                                      bStopWhenOwnerDestroyed : 1;                              // 0x00B8(0x0004)
+	float                                              fLastCallTime;                                            // 0x00BC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -83,7 +99,7 @@ public:
 class UInterpTrackAkEvent : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00B8(0x0010) MISSED OFFSET
+	TArray<struct FAkEventTrackKey>                    AkEvents;                                                 // 0x00B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -99,7 +115,7 @@ public:
 class UInterpTrackAkRTPC : public UInterpTrackFloatBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00D0(0x0010) MISSED OFFSET
+	struct FString                                     Param;                                                    // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -115,7 +131,7 @@ public:
 class UInterpTrackInstAkEvent : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -161,7 +177,10 @@ public:
 class USeqAct_AkLoadBank : public USeqAct_Latent
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0170(0x0010) MISSED OFFSET
+	unsigned long                                      Async : 1;                                                // 0x0170(0x0004)
+	unsigned long                                      bWaitingCallback : 1;                                     // 0x0170(0x0004)
+	class UAkBank*                                     Bank;                                                     // 0x0174(0x0008)
+	int                                                Signal;                                                   // 0x017C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -177,7 +196,8 @@ public:
 class USeqAct_AkPostEvent : public USeqAct_Latent
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0170(0x000C) MISSED OFFSET
+	int                                                Signal;                                                   // 0x0170(0x0004)
+	class UAkEvent*                                    Event;                                                    // 0x0174(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -193,7 +213,7 @@ public:
 class USeqAct_AkPostTrigger : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	struct FString                                     Trigger;                                                  // 0x0158(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -209,7 +229,9 @@ public:
 class USeqAct_AkSetRTPCValue : public USeqAct_Latent
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0170(0x0018) MISSED OFFSET
+	struct FString                                     Param;                                                    // 0x0170(0x0010)
+	float                                              Value;                                                    // 0x0180(0x0004)
+	unsigned long                                      Running : 1;                                              // 0x0184(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -225,7 +247,8 @@ public:
 class USeqAct_AkSetState : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0158(0x0020) MISSED OFFSET
+	struct FString                                     StateGroup;                                               // 0x0158(0x0010)
+	struct FString                                     State;                                                    // 0x0168(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -241,7 +264,8 @@ public:
 class USeqAct_AkSetSwitch : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0158(0x0020) MISSED OFFSET
+	struct FString                                     SwitchGroup;                                              // 0x0158(0x0010)
+	struct FString                                     Switch;                                                   // 0x0168(0x0010)
 
 	static UClass* StaticClass()
 	{

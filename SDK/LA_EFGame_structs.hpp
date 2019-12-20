@@ -19553,68 +19553,67 @@ enum class EFWatchCameraMode : uint8_t
 struct FEFBeamParticleInfo
 {
 	TEnumAsByte<EFBP_SOURCETYPE>                       SourceType;                                               // 0x0000(0x0001)
-	TEnumAsByte<EFBP_TARGETTYPE>                       TargetType;                                               // 0x0000(0x0001)
-	struct FName                                       BeamSource;                                               // 0x0000(0x0008)
-	struct FName                                       BeamTarget;                                               // 0x0000(0x0008)
-	float                                              BeamDuration;                                             // 0x0000(0x0004)
-	float                                              BeamMoveSpeed;                                            // 0x0000(0x0004)
-	unsigned long                                      ApplyUserColor : 1;                                       // 0x0000(0x0004)
-	struct FVector                                     UserColor;                                                // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x000C(0x0020) MISSED OFFSET
+	TEnumAsByte<EFBP_TARGETTYPE>                       TargetType;                                               // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	struct FName                                       BeamSource;                                               // 0x0004(0x0008)
+	struct FName                                       BeamTarget;                                               // 0x000C(0x0008)
+	float                                              BeamDuration;                                             // 0x0014(0x0004)
+	float                                              BeamMoveSpeed;                                            // 0x0018(0x0004)
+	unsigned long                                      ApplyUserColor : 1;                                       // 0x001C(0x0004)
+	struct FVector                                     UserColor;                                                // 0x0020(0x000C)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFParticleSystemInfo
 // 0x0158
 struct FEFParticleSystemInfo
 {
-	unsigned long                                      bAttach : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x0000(0x0004)
-	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0000(0x0004)
-	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0000(0x0004)
-	float                                              ParticlePlayRate;                                         // 0x0000(0x0004)
-	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x0000(0x0004)
-	class UPostProcessChain*                           PPChain;                                                  // 0x0000(0x0008)
-	struct FName                                       MaterialParamName;                                        // 0x0000(0x0008)
-	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0000(0x0004)
-	float                                              MaterialFloatValue;                                       // 0x0000(0x0004)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0000(0x0010)
-	unsigned long                                      UnknownData00 : 3;                                        // 0x0000(0x0001)
-	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0000(0x0004)
-	struct FVector                                     RelativeWorldLocation;                                    // 0x0000(0x000C)
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    RelativeRotation;                                         // 0x0000(0x000C)
-	struct FVector                                     RelativeScale;                                            // 0x0000(0x000C)
-	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0000(0x0004)
-	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0000(0x0001)
-	int                                                iPartsMeshIndex;                                          // 0x0000(0x0004)
-	int                                                AttachPriority;                                           // 0x0000(0x0004)
-	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x0000(0x0010)
-	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x0000(0x0010)
-	TArray<TEnumAsByte<EPst_SpawnType>>                ParticleSpawnType;                                        // 0x0000(0x0010)
-	int                                                ParticleAttachRandomMaxCount;                             // 0x0000(0x0004)
 	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008)
-	float                                              AutoPlayRateTime;                                         // 0x0000(0x0004)
-	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x0000(0x0004)
-	float                                              ModifyParentVelocity;                                     // 0x0000(0x0004)
-	float                                              ModifyParentAcceleration;                                 // 0x0000(0x0004)
-	class UAkEvent*                                    AkEvent;                                                  // 0x0000(0x0008)
-	unsigned long                                      StopSound : 1;                                            // 0x0000(0x0004)
-	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0000(0x0004)
-	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x0000(0x0010)
-	struct FString                                     SpawnParticleName;                                        // 0x0000(0x0010)
-	class USkeletalMeshComponent*                      pSkeletalMeshComponent;                                   // 0x0000(0x0008)
-	struct FVector                                     TargetCastLocation;                                       // 0x0000(0x000C)
-	unsigned long                                      bEditing : 1;                                             // 0x0000(0x0004)
-	float                                              PlayRate;                                                 // 0x0000(0x0004)
-	float                                              GlobalScale;                                              // 0x0000(0x0004)
-	class AActor*                                      SoundActor;                                               // 0x0000(0x0008)
-	struct FVector                                     vOffsetValue;                                             // 0x0000(0x000C)
-	unsigned long                                      bHitParticle : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bBeamParticle : 1;                                        // 0x0000(0x0004)
-	struct FEFBeamParticleInfo                         BeamInformation;                                          // 0x0000(0x002C)
-	unsigned long                                      bUseCastShadow : 1;                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData01[0x154];                                     // 0x0004(0x0154) MISSED OFFSET
+	float                                              ParticlePlayRate;                                         // 0x0008(0x0004)
+	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x000C(0x0004)
+	class UPostProcessChain*                           PPChain;                                                  // 0x0010(0x0008)
+	struct FName                                       MaterialParamName;                                        // 0x0018(0x0008)
+	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0020(0x0004)
+	float                                              MaterialFloatValue;                                       // 0x0024(0x0004)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0028(0x0010)
+	unsigned long                                      bAttach : 1;                                              // 0x0038(0x0004)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0038(0x0004)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0038(0x0004)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0038(0x0004)
+	struct FVector                                     RelativeWorldLocation;                                    // 0x003C(0x000C)
+	struct FVector                                     RelativeLocation;                                         // 0x0048(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x0054(0x000C)
+	struct FVector                                     RelativeScale;                                            // 0x0060(0x000C)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x006C(0x0004)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0070(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0071(0x0003) MISSED OFFSET
+	int                                                iPartsMeshIndex;                                          // 0x0074(0x0004)
+	int                                                AttachPriority;                                           // 0x0078(0x0004)
+	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x007C(0x0010)
+	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x008C(0x0010)
+	TArray<TEnumAsByte<EPst_SpawnType>>                ParticleSpawnType;                                        // 0x009C(0x0010)
+	int                                                ParticleAttachRandomMaxCount;                             // 0x00AC(0x0004)
+	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x00B0(0x0004)
+	float                                              AutoPlayRateTime;                                         // 0x00B4(0x0004)
+	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x00B8(0x0004)
+	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x00B8(0x0004)
+	float                                              ModifyParentVelocity;                                     // 0x00BC(0x0004)
+	float                                              ModifyParentAcceleration;                                 // 0x00C0(0x0004)
+	class UAkEvent*                                    AkEvent;                                                  // 0x00C4(0x0008)
+	unsigned long                                      StopSound : 1;                                            // 0x00CC(0x0004)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x00CC(0x0004)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x00D0(0x0010)
+	struct FString                                     SpawnParticleName;                                        // 0x00E0(0x0010)
+	class USkeletalMeshComponent*                      pSkeletalMeshComponent;                                   // 0x00F0(0x0008)
+	struct FVector                                     TargetCastLocation;                                       // 0x00F8(0x000C)
+	unsigned long                                      bEditing : 1;                                             // 0x0104(0x0004)
+	float                                              PlayRate;                                                 // 0x0108(0x0004)
+	float                                              GlobalScale;                                              // 0x010C(0x0004)
+	class AActor*                                      SoundActor;                                               // 0x0110(0x0008)
+	struct FVector                                     vOffsetValue;                                             // 0x0118(0x000C)
+	unsigned long                                      bHitParticle : 1;                                         // 0x0124(0x0004)
+	unsigned long                                      bBeamParticle : 1;                                        // 0x0124(0x0004)
+	struct FEFBeamParticleInfo                         BeamInformation;                                          // 0x0128(0x002C)
+	unsigned long                                      bUseCastShadow : 1;                                       // 0x0154(0x0004)
 };
 
 // ScriptStruct EFGame.EFConsole.EFAutoCompleteCommand
@@ -19622,12 +19621,11 @@ struct FEFParticleSystemInfo
 struct FEFAutoCompleteCommand
 {
 	struct FString                                     Command;                                                  // 0x0000(0x0010)
-	struct FString                                     ParamDesc;                                                // 0x0000(0x0010)
-	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	struct FString                                     ParamSpecificDesc;                                        // 0x0000(0x0010)
-	struct FString                                     CommandWriter;                                            // 0x0000(0x0010)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0004(0x0050) MISSED OFFSET
+	struct FString                                     ParamDesc;                                                // 0x0010(0x0010)
+	struct FString                                     Desc;                                                     // 0x0020(0x0010)
+	struct FString                                     ParamSpecificDesc;                                        // 0x0030(0x0010)
+	struct FString                                     CommandWriter;                                            // 0x0040(0x0010)
+	int                                                Level;                                                    // 0x0050(0x0004)
 };
 
 // ScriptStruct EFGame.EFGameInfo.NameTagAlphaInfo
@@ -19635,10 +19633,9 @@ struct FEFAutoCompleteCommand
 struct FNameTagAlphaInfo
 {
 	int                                                iStartDistance;                                           // 0x0000(0x0004)
-	int                                                iStartAlphaValue;                                         // 0x0000(0x0004)
-	int                                                iEndDistance;                                             // 0x0000(0x0004)
-	int                                                iEndAlphaValue;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                iStartAlphaValue;                                         // 0x0004(0x0004)
+	int                                                iEndDistance;                                             // 0x0008(0x0004)
+	int                                                iEndAlphaValue;                                           // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFGameInfo.NameTagMonInfo
@@ -19646,10 +19643,9 @@ struct FNameTagAlphaInfo
 struct FNameTagMonInfo
 {
 	unsigned char                                      bLowMonShowMode;                                          // 0x0000(0x0001)
-	unsigned char                                      bNormalMonShowMode;                                       // 0x0000(0x0001)
-	unsigned char                                      bHighMonShowMode;                                         // 0x0000(0x0001)
-	unsigned char                                      bDummy;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	unsigned char                                      bNormalMonShowMode;                                       // 0x0001(0x0001)
+	unsigned char                                      bHighMonShowMode;                                         // 0x0002(0x0001)
+	unsigned char                                      bDummy;                                                   // 0x0003(0x0001)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.EFAnimDataItem
@@ -19657,19 +19653,18 @@ struct FNameTagMonInfo
 struct FEFAnimDataItem
 {
 	float                                              CurrentTime;                                              // 0x0000(0x0004)
-	unsigned long                                      bIsPlaying : 1;                                           // 0x0000(0x0004)
-	float                                              AnimPlayRate;                                             // 0x0000(0x0004)
-	unsigned long                                      PlayingAnimSeq : 1;                                       // 0x0000(0x0004)
-	struct FName                                       AnimSequenceName;                                         // 0x0000(0x0008)
-	int                                                LoopCount;                                                // 0x0000(0x0004)
-	float                                              StartAnimTime;                                            // 0x0000(0x0004)
-	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x0000(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x0000(0x0004)
-	TArray<struct FPointer>                            RefParticleList;                                          // 0x0000(0x0010)
-	TArray<struct FPointer>                            RefActionList;                                            // 0x0000(0x0010)
-	TArray<struct FPointer>                            PlayParticleList;                                         // 0x0000(0x0010)
-	TArray<struct FPointer>                            PlayActionList;                                           // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x54];                                      // 0x0010(0x0054) MISSED OFFSET
+	unsigned long                                      bIsPlaying : 1;                                           // 0x0004(0x0004)
+	float                                              AnimPlayRate;                                             // 0x0008(0x0004)
+	unsigned long                                      PlayingAnimSeq : 1;                                       // 0x000C(0x0004)
+	struct FName                                       AnimSequenceName;                                         // 0x0010(0x0008)
+	int                                                LoopCount;                                                // 0x0018(0x0004)
+	float                                              StartAnimTime;                                            // 0x001C(0x0004)
+	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x0020(0x0004)
+	unsigned long                                      bStarted : 1;                                             // 0x0020(0x0004)
+	TArray<struct FPointer>                            RefParticleList;                                          // 0x0024(0x0010)
+	TArray<struct FPointer>                            RefActionList;                                            // 0x0034(0x0010)
+	TArray<struct FPointer>                            PlayParticleList;                                         // 0x0044(0x0010)
+	TArray<struct FPointer>                            PlayActionList;                                           // 0x0054(0x0010)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.EFExtraSkelMeshInfo
@@ -19677,11 +19672,11 @@ struct FEFAnimDataItem
 struct FEFExtraSkelMeshInfo
 {
 	class USkeletalMeshComponent*                      SkeletalMesh;                                             // 0x0000(0x0008)
-	unsigned long                                      SourceIsSocket : 1;                                       // 0x0000(0x0004)
-	struct FString                                     SourceName;                                               // 0x0000(0x0010)
-	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x0000(0x0001)
-	int                                                PartIndex;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004)
+	struct FString                                     SourceName;                                               // 0x000C(0x0010)
+	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
+	int                                                PartIndex;                                                // 0x0020(0x0004)
 };
 
 // ScriptStruct EFGame.EFPawn.EFCharacterAfterImageEffectInfo
@@ -19689,18 +19684,17 @@ struct FEFExtraSkelMeshInfo
 struct FEFCharacterAfterImageEffectInfo
 {
 	float                                              Duration;                                                 // 0x0000(0x0004)
-	float                                              DeltaSecondsBetweenChildren;                              // 0x0000(0x0004)
-	float                                              PerChildLifetime;                                         // 0x0000(0x0004)
-	float                                              InitialAlpha;                                             // 0x0000(0x0004)
-	float                                              InitialAlphaDuration;                                     // 0x0000(0x0004)
-	float                                              SourceColorIntensity;                                     // 0x0000(0x0004)
-	struct FColor                                      AmbientGlowS;                                             // 0x0000(0x0004)
-	struct FColor                                      AmbientGlowE;                                             // 0x0000(0x0004)
-	struct FColor                                      RimLightColorS;                                           // 0x0000(0x0004)
-	struct FColor                                      RimLightColorE;                                           // 0x0000(0x0004)
-	float                                              TimeUntilNextChild;                                       // 0x0000(0x0004)
-	unsigned long                                      bForceRemoveChildrenOnFinish : 1;                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	float                                              DeltaSecondsBetweenChildren;                              // 0x0004(0x0004)
+	float                                              PerChildLifetime;                                         // 0x0008(0x0004)
+	float                                              InitialAlpha;                                             // 0x000C(0x0004)
+	float                                              InitialAlphaDuration;                                     // 0x0010(0x0004)
+	float                                              SourceColorIntensity;                                     // 0x0014(0x0004)
+	struct FColor                                      AmbientGlowS;                                             // 0x0018(0x0004)
+	struct FColor                                      AmbientGlowE;                                             // 0x001C(0x0004)
+	struct FColor                                      RimLightColorS;                                           // 0x0020(0x0004)
+	struct FColor                                      RimLightColorE;                                           // 0x0024(0x0004)
+	float                                              TimeUntilNextChild;                                       // 0x0028(0x0004)
+	unsigned long                                      bForceRemoveChildrenOnFinish : 1;                         // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFAction_Notify.EFBasedLocation
@@ -19708,8 +19702,7 @@ struct FEFCharacterAfterImageEffectInfo
 struct FEFBasedLocation
 {
 	struct Fuint                                       TransitIndex;                                             // 0x0000(0x0004)
-	struct FVector                                     Local;                                                    // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	struct FVector                                     Local;                                                    // 0x0004(0x000C)
 };
 
 // ScriptStruct EFGame.EFPawn.EFAfterImageChildInfo
@@ -19717,15 +19710,14 @@ struct FEFBasedLocation
 struct FEFAfterImageChildInfo
 {
 	TArray<class USkeletalMeshComponent*>              ChildComps;                                               // 0x0000(0x0010)
-	float                                              GivenLifetime;                                            // 0x0000(0x0004)
-	float                                              RemainingLifetime;                                        // 0x0000(0x0004)
-	float                                              InitialAlpha;                                             // 0x0000(0x0004)
-	float                                              InitialAlphaDuration;                                     // 0x0000(0x0004)
-	struct FColor                                      AmbientGlowS;                                             // 0x0000(0x0004)
-	struct FColor                                      AmbientGlowE;                                             // 0x0000(0x0004)
-	struct FColor                                      RimLightColorS;                                           // 0x0000(0x0004)
-	struct FColor                                      RimLightColorE;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	float                                              GivenLifetime;                                            // 0x0010(0x0004)
+	float                                              RemainingLifetime;                                        // 0x0014(0x0004)
+	float                                              InitialAlpha;                                             // 0x0018(0x0004)
+	float                                              InitialAlphaDuration;                                     // 0x001C(0x0004)
+	struct FColor                                      AmbientGlowS;                                             // 0x0020(0x0004)
+	struct FColor                                      AmbientGlowE;                                             // 0x0024(0x0004)
+	struct FColor                                      RimLightColorS;                                           // 0x0028(0x0004)
+	struct FColor                                      RimLightColorE;                                           // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFPlayerController.EFInputStateFlow
@@ -19733,8 +19725,7 @@ struct FEFAfterImageChildInfo
 struct FEFInputStateFlow
 {
 	int                                                Condition;                                                // 0x0000(0x0004)
-	int                                                NextState;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                NextState;                                                // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFPlayerController.EFInputState
@@ -19749,15 +19740,15 @@ struct FEFInputState
 struct FEFInputCommand
 {
 	TEnumAsByte<EFPlayerControlInputCommandType>       InputCommandType;                                         // 0x0000(0x0001)
-	struct FEFBasedLocation                            MoveDir;                                                  // 0x0000(0x0010)
-	struct FEFBasedLocation                            MovePos;                                                  // 0x0000(0x0010)
-	float                                              ArriveDistance;                                           // 0x0000(0x0004)
-	class AActor*                                      MoveTargetActor;                                          // 0x0000(0x0008)
-	int                                                HotKeyId;                                                 // 0x0000(0x0004)
-	int                                                InputEvent;                                               // 0x0000(0x0004)
-	int                                                SkillId;                                                  // 0x0000(0x0004)
-	int                                                CommonActionId;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0004(0x003C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FEFBasedLocation                            MoveDir;                                                  // 0x0004(0x0010)
+	struct FEFBasedLocation                            MovePos;                                                  // 0x0014(0x0010)
+	float                                              ArriveDistance;                                           // 0x0024(0x0004)
+	class AActor*                                      MoveTargetActor;                                          // 0x0028(0x0008)
+	int                                                HotKeyId;                                                 // 0x0030(0x0004)
+	int                                                InputEvent;                                               // 0x0034(0x0004)
+	int                                                SkillId;                                                  // 0x0038(0x0004)
+	int                                                CommonActionId;                                           // 0x003C(0x0004)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileTimerData
@@ -19765,10 +19756,9 @@ struct FEFInputCommand
 struct FEFProjectileTimerData
 {
 	float                                              TimerActiveTime;                                          // 0x0000(0x0004)
-	int                                                TimerActiveCount;                                         // 0x0000(0x0004)
-	float                                              TimerActiveTerm;                                          // 0x0000(0x0004)
-	struct FPointer                                    TimerData;                                                // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	int                                                TimerActiveCount;                                         // 0x0004(0x0004)
+	float                                              TimerActiveTerm;                                          // 0x0008(0x0004)
+	struct FPointer                                    TimerData;                                                // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileAkEventData
@@ -19776,8 +19766,7 @@ struct FEFProjectileTimerData
 struct FEFProjectileAkEventData
 {
 	int                                                AkEventPlayingID;                                         // 0x0000(0x0004)
-	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileMultiUseData
@@ -19785,9 +19774,8 @@ struct FEFProjectileAkEventData
 struct FEFProjectileMultiUseData
 {
 	TArray<int>                                        INTArray;                                                 // 0x0000(0x0010)
-	TArray<float>                                      floatArray;                                               // 0x0000(0x0010)
-	TArray<struct FName>                               NameArray;                                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	TArray<float>                                      floatArray;                                               // 0x0010(0x0010)
+	TArray<struct FName>                               NameArray;                                                // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileCustomData
@@ -19795,12 +19783,11 @@ struct FEFProjectileMultiUseData
 struct FEFProjectileCustomData
 {
 	float                                              fAddSpeed;                                                // 0x0000(0x0004)
-	float                                              fAddSpeedRate;                                            // 0x0000(0x0004)
-	float                                              fAddDist;                                                 // 0x0000(0x0004)
-	float                                              fAddDistRate;                                             // 0x0000(0x0004)
-	float                                              fAddProjectileScale;                                      // 0x0000(0x0004)
-	float                                              fAddProjectileScaleRate;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	float                                              fAddSpeedRate;                                            // 0x0004(0x0004)
+	float                                              fAddDist;                                                 // 0x0008(0x0004)
+	float                                              fAddDistRate;                                             // 0x000C(0x0004)
+	float                                              fAddProjectileScale;                                      // 0x0010(0x0004)
+	float                                              fAddProjectileScaleRate;                                  // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsProjectileFixArea.EFSummonsFixAreaStartIndexDecal
@@ -19808,16 +19795,15 @@ struct FEFProjectileCustomData
 struct FEFSummonsFixAreaStartIndexDecal
 {
 	int                                                DecalTableIndex;                                          // 0x0000(0x0004)
-	int                                                SkillEffectId;                                            // 0x0000(0x0004)
-	float                                              AdjustSize;                                               // 0x0000(0x0004)
-	float                                              DecalBlendInTime;                                         // 0x0000(0x0004)
-	float                                              DecalScaleTime;                                           // 0x0000(0x0004)
-	float                                              DecalFillTime;                                            // 0x0000(0x0004)
-	float                                              DecalBlendOutTime;                                        // 0x0000(0x0004)
-	float                                              Time;                                                     // 0x0000(0x0004)
-	float                                              Duration;                                                 // 0x0000(0x0004)
-	unsigned long                                      ForcedOutput : 1;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0004(0x0024) MISSED OFFSET
+	int                                                SkillEffectId;                                            // 0x0004(0x0004)
+	float                                              AdjustSize;                                               // 0x0008(0x0004)
+	float                                              DecalBlendInTime;                                         // 0x000C(0x0004)
+	float                                              DecalScaleTime;                                           // 0x0010(0x0004)
+	float                                              DecalFillTime;                                            // 0x0014(0x0004)
+	float                                              DecalBlendOutTime;                                        // 0x0018(0x0004)
+	float                                              Time;                                                     // 0x001C(0x0004)
+	float                                              Duration;                                                 // 0x0020(0x0004)
+	unsigned long                                      ForcedOutput : 1;                                         // 0x0024(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMaterialVariation
@@ -19825,15 +19811,14 @@ struct FEFSummonsFixAreaStartIndexDecal
 struct FEFMaterialVariation
 {
 	int                                                iTargetIndex;                                             // 0x0000(0x0004)
-	struct FLinearColor                                DiffuseColor;                                             // 0x0000(0x0010)
-	struct FLinearColor                                DiffuseColor_A;                                           // 0x0000(0x0010)
-	struct FLinearColor                                DiffuseColor_B;                                           // 0x0000(0x0010)
-	struct FLinearColor                                DiffuseColor_C;                                           // 0x0000(0x0010)
-	unsigned long                                      MaskVariation_2 : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      MaskVariation_3 : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      MaskVariation_4 : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      MaskVariation_5 : 1;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x44];                                      // 0x0004(0x0044) MISSED OFFSET
+	struct FLinearColor                                DiffuseColor;                                             // 0x0004(0x0010)
+	struct FLinearColor                                DiffuseColor_A;                                           // 0x0014(0x0010)
+	struct FLinearColor                                DiffuseColor_B;                                           // 0x0024(0x0010)
+	struct FLinearColor                                DiffuseColor_C;                                           // 0x0034(0x0010)
+	unsigned long                                      MaskVariation_2 : 1;                                      // 0x0044(0x0004)
+	unsigned long                                      MaskVariation_3 : 1;                                      // 0x0044(0x0004)
+	unsigned long                                      MaskVariation_4 : 1;                                      // 0x0044(0x0004)
+	unsigned long                                      MaskVariation_5 : 1;                                      // 0x0044(0x0004)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorPartMaterialInfo
@@ -19841,9 +19826,8 @@ struct FEFMaterialVariation
 struct FEFLookInfoSMActorPartMaterialInfo
 {
 	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010)
-	TArray<struct FEFMaterialVariation>                MaterialVariations;                                       // 0x0000(0x0010)
-	TArray<unsigned long>                              bSkipFlags;                                               // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	TArray<struct FEFMaterialVariation>                MaterialVariations;                                       // 0x0010(0x0010)
+	TArray<unsigned long>                              bSkipFlags;                                               // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorAdditionalPartInfo
@@ -19851,8 +19835,7 @@ struct FEFLookInfoSMActorPartMaterialInfo
 struct FEFLookInfoSMActorAdditionalPartInfo
 {
 	class USkeletalMeshComponent*                      PartComp;                                                 // 0x0000(0x0008)
-	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x0000(0x0030)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0030(0x0008) MISSED OFFSET
+	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x0008(0x0030)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorSocketAttachedPartInfo
@@ -19860,8 +19843,7 @@ struct FEFLookInfoSMActorAdditionalPartInfo
 struct FEFLookInfoSMActorSocketAttachedPartInfo
 {
 	struct FAttachment                                 AttachInfo;                                               // 0x0000(0x004C)
-	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x0000(0x0030)
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0030(0x004C) MISSED OFFSET
+	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x004C(0x0030)
 };
 
 // ScriptStruct EFGame.EFPawn.EFDynamicPhysicsParam
@@ -19871,12 +19853,11 @@ struct FEFDynamicPhysicsParam
 	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0000(0x0004)
 	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0000(0x0004)
 	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0000(0x0004)
-	float                                              PhysicsParamWeight;                                       // 0x0000(0x0004)
-	float                                              PhysicsParamDuration;                                     // 0x0000(0x0004)
-	float                                              PhysicsParamBlendInTime;                                  // 0x0000(0x0004)
-	float                                              PhysicsParamBlendOutTime;                                 // 0x0000(0x0004)
-	float                                              PhysicsParamTime;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	float                                              PhysicsParamWeight;                                       // 0x0004(0x0004)
+	float                                              PhysicsParamDuration;                                     // 0x0008(0x0004)
+	float                                              PhysicsParamBlendInTime;                                  // 0x000C(0x0004)
+	float                                              PhysicsParamBlendOutTime;                                 // 0x0010(0x0004)
+	float                                              PhysicsParamTime;                                         // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSocketUnit
@@ -19884,8 +19865,8 @@ struct FEFDynamicPhysicsParam
 struct FEFSocketUnit
 {
 	TEnumAsByte<EFSOCKET_STATE>                        eUnitState;                                               // 0x0000(0x0001)
-	struct FString                                     SocketName;                                               // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FString                                     SocketName;                                               // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSocketGroup
@@ -19893,9 +19874,8 @@ struct FEFSocketUnit
 struct FEFSocketGroup
 {
 	struct FString                                     strSocketGroupKey;                                        // 0x0000(0x0010)
-	struct FString                                     DefaultSocketName;                                        // 0x0000(0x0010)
-	TArray<struct FEFSocketUnit>                       SocketUnitArr;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	struct FString                                     DefaultSocketName;                                        // 0x0010(0x0010)
+	TArray<struct FEFSocketUnit>                       SocketUnitArr;                                            // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFGameEngine.AsyncMeshMergerInfo
@@ -19903,11 +19883,10 @@ struct FEFSocketGroup
 struct FAsyncMeshMergerInfo
 {
 	TArray<class USkeletalMesh*>                       SourceMeshList;                                           // 0x0000(0x0010)
-	class USkeletalMesh*                               MergedMesh;                                               // 0x0000(0x0008)
-	TArray<class AActor*>                              TargetActors;                                             // 0x0000(0x0010)
-	float                                              DistanceFromBaseLocation;                                 // 0x0000(0x0004)
-	unsigned long                                      bShareMergedMesh : 1;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	class USkeletalMesh*                               MergedMesh;                                               // 0x0010(0x0008)
+	TArray<class AActor*>                              TargetActors;                                             // 0x0018(0x0010)
+	float                                              DistanceFromBaseLocation;                                 // 0x0028(0x0004)
+	unsigned long                                      bShareMergedMesh : 1;                                     // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFGameEngine.MergedSkelMeshInfo
@@ -19915,9 +19894,8 @@ struct FAsyncMeshMergerInfo
 struct FMergedSkelMeshInfo
 {
 	TArray<struct FName>                               SourceMeshNames;                                          // 0x0000(0x0010)
-	class USkeletalMesh*                               MergedMesh;                                               // 0x0000(0x0008)
-	float                                              LastAccessedTime;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	class USkeletalMesh*                               MergedMesh;                                               // 0x0010(0x0008)
+	float                                              LastAccessedTime;                                         // 0x0018(0x0004)
 };
 
 // ScriptStruct EFGame.EFMapInfo.MAPINFO_CAMERAVALUE
@@ -19925,15 +19903,14 @@ struct FMergedSkelMeshInfo
 struct FMAPINFO_CAMERAVALUE
 {
 	float                                              DefaultFOV;                                               // 0x0000(0x0004)
-	unsigned long                                      bZoomInterpolation : 1;                                   // 0x0000(0x0004)
-	float                                              MaxZoomDist;                                              // 0x0000(0x0004)
-	float                                              MinZoomDist;                                              // 0x0000(0x0004)
-	float                                              IncrementZoom;                                            // 0x0000(0x0004)
-	float                                              CurrentZoomDist;                                          // 0x0000(0x0004)
-	float                                              CurrentYaw;                                               // 0x0000(0x0004)
-	float                                              CurrentPitch;                                             // 0x0000(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x000C(0x0020) MISSED OFFSET
+	unsigned long                                      bZoomInterpolation : 1;                                   // 0x0004(0x0004)
+	float                                              MaxZoomDist;                                              // 0x0008(0x0004)
+	float                                              MinZoomDist;                                              // 0x000C(0x0004)
+	float                                              IncrementZoom;                                            // 0x0010(0x0004)
+	float                                              CurrentZoomDist;                                          // 0x0014(0x0004)
+	float                                              CurrentYaw;                                               // 0x0018(0x0004)
+	float                                              CurrentPitch;                                             // 0x001C(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0020(0x000C)
 };
 
 // ScriptStruct EFGame.EFMapInfo.EFDMap_PathEngineData
@@ -19941,15 +19918,14 @@ struct FMAPINFO_CAMERAVALUE
 struct FEFDMap_PathEngineData
 {
 	int                                                max_step_height;                                          // 0x0000(0x0004)
-	int                                                max_slope;                                                // 0x0000(0x0004)
-	int                                                extrude_height;                                           // 0x0000(0x0004)
-	int                                                optimiseWithThreshold;                                    // 0x0000(0x0004)
-	unsigned long                                      stripTerrainHeightDetail : 1;                             // 0x0000(0x0004)
-	unsigned long                                      excludeDownwardFacingFromGroundResult : 1;                // 0x0000(0x0004)
-	int                                                voxel_size;                                               // 0x0000(0x0004)
-	int                                                subdivision_size;                                         // 0x0000(0x0004)
-	int                                                minimumFragmentSize;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0004(0x001C) MISSED OFFSET
+	int                                                max_slope;                                                // 0x0004(0x0004)
+	int                                                extrude_height;                                           // 0x0008(0x0004)
+	int                                                optimiseWithThreshold;                                    // 0x000C(0x0004)
+	unsigned long                                      stripTerrainHeightDetail : 1;                             // 0x0010(0x0004)
+	unsigned long                                      excludeDownwardFacingFromGroundResult : 1;                // 0x0010(0x0004)
+	int                                                voxel_size;                                               // 0x0014(0x0004)
+	int                                                subdivision_size;                                         // 0x0018(0x0004)
+	int                                                minimumFragmentSize;                                      // 0x001C(0x0004)
 };
 
 // ScriptStruct EFGame.EFTable.EFTable_Define
@@ -19957,9 +19933,9 @@ struct FEFDMap_PathEngineData
 struct FEFTable_Define
 {
 	TEnumAsByte<EFTableDataType>                       eDataType;                                                // 0x0000(0x0001)
-	unsigned char                                      bySubGroups;                                              // 0x0000(0x0001)
-	struct FString                                     strIdentityName;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      bySubGroups;                                              // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	struct FString                                     strIdentityName;                                          // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFTable.EFTable_DataRow
@@ -19974,10 +19950,9 @@ struct FEFTable_DataRow
 struct FCutomizingZoomStepInfo
 {
 	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              ZoomDist;                                                 // 0x0000(0x0004)
-	float                                              Pitch;                                                    // 0x0000(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	float                                              ZoomDist;                                                 // 0x0004(0x0004)
+	float                                              Pitch;                                                    // 0x0008(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x000C(0x000C)
 };
 
 // ScriptStruct EFGame.EFIsometricCamera.EFCameraOverrideFogSettings
@@ -19985,8 +19960,7 @@ struct FCutomizingZoomStepInfo
 struct FEFCameraOverrideFogSettings
 {
 	unsigned long                                      bOverride_FogDensity : 1;                                 // 0x0000(0x0004)
-	float                                              FogDensity;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              FogDensity;                                               // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFIsometricCamera.ZoomStepInfo
@@ -19994,18 +19968,17 @@ struct FEFCameraOverrideFogSettings
 struct FZoomStepInfo
 {
 	int                                                ClassID;                                                  // 0x0000(0x0004)
-	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              ZoomDist;                                                 // 0x0000(0x0004)
-	float                                              Pitch;                                                    // 0x0000(0x0004)
-	float                                              Yaw;                                                      // 0x0000(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0000(0x000C)
-	float                                              InterpolationRatio;                                       // 0x0000(0x0004)
-	int                                                CamPostProcessID;                                         // 0x0000(0x0004)
-	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0000(0x0174)
-	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x0000(0x0008)
-	float                                              AddZoomDist;                                              // 0x0000(0x0004)
-	unsigned long                                      SkipChangeContentsZoomDist : 1;                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1A8];                                     // 0x0004(0x01A8) MISSED OFFSET
+	float                                              FOV;                                                      // 0x0004(0x0004)
+	float                                              ZoomDist;                                                 // 0x0008(0x0004)
+	float                                              Pitch;                                                    // 0x000C(0x0004)
+	float                                              Yaw;                                                      // 0x0010(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0014(0x000C)
+	float                                              InterpolationRatio;                                       // 0x0020(0x0004)
+	int                                                CamPostProcessID;                                         // 0x0024(0x0004)
+	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0028(0x0174)
+	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x019C(0x0008)
+	float                                              AddZoomDist;                                              // 0x01A4(0x0004)
+	unsigned long                                      SkipChangeContentsZoomDist : 1;                           // 0x01A8(0x0004)
 };
 
 // ScriptStruct EFGame.EFIsometricCamera.OverrideZoomStepInfo
@@ -20013,9 +19986,8 @@ struct FZoomStepInfo
 struct FOverrideZoomStepInfo
 {
 	float                                              AddYaw;                                                   // 0x0000(0x0004)
-	float                                              AddZoomDist;                                              // 0x0000(0x0004)
-	int                                                LimitZoomStep;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              AddZoomDist;                                              // 0x0004(0x0004)
+	int                                                LimitZoomStep;                                            // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFIsometricCamera.FixedCameraInterpSpeed
@@ -20023,9 +19995,8 @@ struct FOverrideZoomStepInfo
 struct FFixedCameraInterpSpeed
 {
 	float                                              CameraInterpSpeedXY;                                      // 0x0000(0x0004)
-	float                                              CameraInterpSpeedZ;                                       // 0x0000(0x0004)
-	unsigned long                                      SetFixed : 1;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              CameraInterpSpeedZ;                                       // 0x0004(0x0004)
+	unsigned long                                      SetFixed : 1;                                             // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFTopViewCamera.ViewPointInfo
@@ -20033,19 +20004,18 @@ struct FFixedCameraInterpSpeed
 struct FViewPointInfo
 {
 	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              ZoomDist;                                                 // 0x0000(0x0004)
-	float                                              Pitch;                                                    // 0x0000(0x0004)
-	float                                              Yaw;                                                      // 0x0000(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0000(0x000C)
-	float                                              InterpolationRatio;                                       // 0x0000(0x0004)
-	unsigned long                                      bUseCamPostProcessSetting : 1;                            // 0x0000(0x0004)
-	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0000(0x0174)
-	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x0000(0x0008)
-	struct FString                                     CameraPostProcessKey;                                     // 0x0000(0x0010)
-	unsigned long                                      bUseFadeInOut : 1;                                        // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1B8];                                     // 0x0004(0x01B8) MISSED OFFSET
+	float                                              ZoomDist;                                                 // 0x0004(0x0004)
+	float                                              Pitch;                                                    // 0x0008(0x0004)
+	float                                              Yaw;                                                      // 0x000C(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0010(0x000C)
+	float                                              InterpolationRatio;                                       // 0x001C(0x0004)
+	unsigned long                                      bUseCamPostProcessSetting : 1;                            // 0x0020(0x0004)
+	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0024(0x0174)
+	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x0198(0x0008)
+	struct FString                                     CameraPostProcessKey;                                     // 0x01A0(0x0010)
+	unsigned long                                      bUseFadeInOut : 1;                                        // 0x01B0(0x0004)
+	float                                              FadeInTime;                                               // 0x01B4(0x0004)
+	float                                              FadeOutTime;                                              // 0x01B8(0x0004)
 };
 
 // ScriptStruct EFGame.EFTPSCamera.TPSCameraInfo
@@ -20053,18 +20023,17 @@ struct FViewPointInfo
 struct FTPSCameraInfo
 {
 	int                                                CameraID;                                                 // 0x0000(0x0004)
-	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              ZoomDist;                                                 // 0x0000(0x0004)
-	float                                              Pitch;                                                    // 0x0000(0x0004)
-	float                                              Yaw;                                                      // 0x0000(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0000(0x000C)
-	float                                              InterpolationRatio;                                       // 0x0000(0x0004)
-	struct FVector                                     OriginOffset;                                             // 0x0000(0x000C)
-	float                                              LimitAngleLeft;                                           // 0x0000(0x0004)
-	float                                              LimitAngleRight;                                          // 0x0000(0x0004)
-	float                                              LimitAngleUp;                                             // 0x0000(0x0004)
-	float                                              LimitAngleDown;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0004(0x003C) MISSED OFFSET
+	float                                              FOV;                                                      // 0x0004(0x0004)
+	float                                              ZoomDist;                                                 // 0x0008(0x0004)
+	float                                              Pitch;                                                    // 0x000C(0x0004)
+	float                                              Yaw;                                                      // 0x0010(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0014(0x000C)
+	float                                              InterpolationRatio;                                       // 0x0020(0x0004)
+	struct FVector                                     OriginOffset;                                             // 0x0024(0x000C)
+	float                                              LimitAngleLeft;                                           // 0x0030(0x0004)
+	float                                              LimitAngleRight;                                          // 0x0034(0x0004)
+	float                                              LimitAngleUp;                                             // 0x0038(0x0004)
+	float                                              LimitAngleDown;                                           // 0x003C(0x0004)
 };
 
 // ScriptStruct EFGame.EFWatchCamera.EFWatchCameraModeInfo
@@ -20072,10 +20041,9 @@ struct FTPSCameraInfo
 struct FEFWatchCameraModeInfo
 {
 	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              Patch;                                                    // 0x0000(0x0004)
-	float                                              Yaw;                                                      // 0x0000(0x0004)
-	float                                              ZoomDist;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              Patch;                                                    // 0x0004(0x0004)
+	float                                              Yaw;                                                      // 0x0008(0x0004)
+	float                                              ZoomDist;                                                 // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFCameraModifier_CameraShake.EFCameraViewShakePlayID
@@ -20090,39 +20058,39 @@ struct FEFCameraViewShakePlayID
 struct FEFShakeInstance
 {
 	int                                                ShakeID;                                                  // 0x0000(0x0004)
-	int                                                SourceAmplitudeSize;                                      // 0x0000(0x0004)
-	int                                                SourceGroupPriority;                                      // 0x0000(0x0004)
-	float                                              SourceDuration;                                           // 0x0000(0x0004)
-	float                                              SourcePlayRate;                                           // 0x0000(0x0004)
-	float                                              SourceBlendInTime;                                        // 0x0000(0x0004)
-	float                                              SourceBlendOutTime;                                       // 0x0000(0x0004)
-	struct FVOscillator                                SourceLocOscillation;                                     // 0x0000(0x0024)
-	struct FFOscillator                                SourceFOVOscillation;                                     // 0x0000(0x000C)
-	struct FROscillator                                SourceRotOscillation;                                     // 0x0000(0x0024)
-	float                                              MaxDistance;                                              // 0x0000(0x0004)
-	float                                              AttenuateStartDistance;                                   // 0x0000(0x0004)
-	float                                              CurrentDistance;                                          // 0x0000(0x0004)
-	struct FVector                                     StartLocation;                                            // 0x0000(0x000C)
-	int                                                ProvidedActorIndex;                                       // 0x0000(0x0004)
-	class AActor*                                      ProvidedActor;                                            // 0x0000(0x0008)
-	int                                                ActivatePriority;                                         // 0x0000(0x0004)
-	unsigned long                                      bOcillatorInfinite : 1;                                   // 0x0000(0x0004)
-	float                                              RemainOcillatorTime;                                      // 0x0000(0x0004)
-	unsigned long                                      bBlendingIn : 1;                                          // 0x0000(0x0004)
-	float                                              CurrentOcillatorBlendingInTime;                           // 0x0000(0x0004)
-	unsigned long                                      bBlendingOut : 1;                                         // 0x0000(0x0004)
-	float                                              CurrentOcillatorBlendingOutTime;                          // 0x0000(0x0004)
-	struct FVector                                     LocSinOffset;                                             // 0x0000(0x000C)
-	struct FVector                                     RotSinOffset;                                             // 0x0000(0x000C)
-	float                                              FOVSinOffset;                                             // 0x0000(0x0004)
-	unsigned long                                      bOcillatorFinished : 1;                                   // 0x0000(0x0004)
-	unsigned long                                      bAllFinished : 1;                                         // 0x0000(0x0004)
-	class UCameraAnimInst*                             AnimInst;                                                 // 0x0000(0x0008)
-	TEnumAsByte<ECameraAnimPlaySpace>                  PlaySpace;                                                // 0x0000(0x0001)
-	struct FMatrix                                     UserPlaySpaceMatrix;                                      // 0x0000(0x0040)
-	float                                              AttenuateScale;                                           // 0x0000(0x0004)
-	int                                                DesiredAmplitudeSize;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x124];                                     // 0x0004(0x0124) MISSED OFFSET
+	int                                                SourceAmplitudeSize;                                      // 0x0004(0x0004)
+	int                                                SourceGroupPriority;                                      // 0x0008(0x0004)
+	float                                              SourceDuration;                                           // 0x000C(0x0004)
+	float                                              SourcePlayRate;                                           // 0x0010(0x0004)
+	float                                              SourceBlendInTime;                                        // 0x0014(0x0004)
+	float                                              SourceBlendOutTime;                                       // 0x0018(0x0004)
+	struct FVOscillator                                SourceLocOscillation;                                     // 0x001C(0x0024)
+	struct FFOscillator                                SourceFOVOscillation;                                     // 0x0040(0x000C)
+	struct FROscillator                                SourceRotOscillation;                                     // 0x004C(0x0024)
+	float                                              MaxDistance;                                              // 0x0070(0x0004)
+	float                                              AttenuateStartDistance;                                   // 0x0074(0x0004)
+	float                                              CurrentDistance;                                          // 0x0078(0x0004)
+	struct FVector                                     StartLocation;                                            // 0x007C(0x000C)
+	int                                                ProvidedActorIndex;                                       // 0x0088(0x0004)
+	class AActor*                                      ProvidedActor;                                            // 0x008C(0x0008)
+	int                                                ActivatePriority;                                         // 0x0094(0x0004)
+	unsigned long                                      bOcillatorInfinite : 1;                                   // 0x0098(0x0004)
+	float                                              RemainOcillatorTime;                                      // 0x009C(0x0004)
+	unsigned long                                      bBlendingIn : 1;                                          // 0x00A0(0x0004)
+	float                                              CurrentOcillatorBlendingInTime;                           // 0x00A4(0x0004)
+	unsigned long                                      bBlendingOut : 1;                                         // 0x00A8(0x0004)
+	float                                              CurrentOcillatorBlendingOutTime;                          // 0x00AC(0x0004)
+	struct FVector                                     LocSinOffset;                                             // 0x00B0(0x000C)
+	struct FVector                                     RotSinOffset;                                             // 0x00BC(0x000C)
+	float                                              FOVSinOffset;                                             // 0x00C8(0x0004)
+	unsigned long                                      bOcillatorFinished : 1;                                   // 0x00CC(0x0004)
+	unsigned long                                      bAllFinished : 1;                                         // 0x00CC(0x0004)
+	class UCameraAnimInst*                             AnimInst;                                                 // 0x00D0(0x0008)
+	TEnumAsByte<ECameraAnimPlaySpace>                  PlaySpace;                                                // 0x00D8(0x0001)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x00D9(0x0007) MISSED OFFSET
+	struct FMatrix                                     UserPlaySpaceMatrix;                                      // 0x00E0(0x0040)
+	float                                              AttenuateScale;                                           // 0x0120(0x0004)
+	int                                                DesiredAmplitudeSize;                                     // 0x0124(0x0004)
 };
 
 // ScriptStruct EFGame.EFMacroCameraSplineActor.MacroCameraConnection
@@ -20130,8 +20098,7 @@ struct FEFShakeInstance
 struct FMacroCameraConnection
 {
 	class USplineComponent*                            SplineComponent;                                          // 0x0000(0x0008)
-	class AEFMacroCameraSplineActor*                   ConnectTo;                                                // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
+	class AEFMacroCameraSplineActor*                   ConnectTo;                                                // 0x0008(0x0008)
 };
 
 // ScriptStruct EFGame.EFPlayerCamera.OccludedActorInfo
@@ -20139,11 +20106,10 @@ struct FMacroCameraConnection
 struct FOccludedActorInfo
 {
 	class AActor*                                      Actor;                                                    // 0x0000(0x0008)
-	unsigned long                                      bBlendIn : 1;                                             // 0x0000(0x0004)
-	unsigned long                                      bIsHit : 1;                                               // 0x0000(0x0004)
-	float                                              Time;                                                     // 0x0000(0x0004)
-	unsigned long                                      bIsVolume : 1;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned long                                      bBlendIn : 1;                                             // 0x0008(0x0004)
+	unsigned long                                      bIsHit : 1;                                               // 0x0008(0x0004)
+	float                                              Time;                                                     // 0x000C(0x0004)
+	unsigned long                                      bIsVolume : 1;                                            // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFBeamActionBase.EFBeamSocketMoveInfo
@@ -20151,10 +20117,9 @@ struct FOccludedActorInfo
 struct FEFBeamSocketMoveInfo
 {
 	TArray<struct FName>                               SocketNameArr;                                            // 0x0000(0x0010)
-	float                                              fElapsedTime;                                             // 0x0000(0x0004)
-	float                                              fStartTime;                                               // 0x0000(0x0004)
-	unsigned long                                      bRandomActivity : 1;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	float                                              fElapsedTime;                                             // 0x0010(0x0004)
+	float                                              fStartTime;                                               // 0x0014(0x0004)
+	unsigned long                                      bRandomActivity : 1;                                      // 0x0018(0x0004)
 };
 
 // ScriptStruct EFGame.EFEmitterPool.LimitedPSCUnit
@@ -20169,10 +20134,9 @@ struct FLimitedPSCUnit
 struct FDelayedSpawnBakeDataReference
 {
 	int                                                ReferenceId;                                              // 0x0000(0x0004)
-	class AActor*                                      OwnerActor;                                               // 0x0000(0x0008)
-	class USkeletalMeshComponent*                      AttachSkelMeshComp;                                       // 0x0000(0x0008)
-	class AActor*                                      SoundActor;                                               // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0008(0x0014) MISSED OFFSET
+	class AActor*                                      OwnerActor;                                               // 0x0004(0x0008)
+	class USkeletalMeshComponent*                      AttachSkelMeshComp;                                       // 0x000C(0x0008)
+	class AActor*                                      SoundActor;                                               // 0x0014(0x0008)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFGroundParticleSystemInfo
@@ -20180,14 +20144,13 @@ struct FDelayedSpawnBakeDataReference
 struct FEFGroundParticleSystemInfo
 {
 	struct FString                                     Key;                                                      // 0x0000(0x0010)
-	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0000(0x0004)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008)
-	struct FLinearColor                                ActiveColorValue;                                         // 0x0000(0x0010)
-	struct FLinearColor                                DeactiveColorValue;                                       // 0x0000(0x0010)
-	float                                              DefaultWidth;                                             // 0x0000(0x0004)
-	float                                              DefaultHeight;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0004(0x0050) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0010(0x0010)
+	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0024(0x0008)
+	struct FLinearColor                                ActiveColorValue;                                         // 0x002C(0x0010)
+	struct FLinearColor                                DeactiveColorValue;                                       // 0x003C(0x0010)
+	float                                              DefaultWidth;                                             // 0x004C(0x0004)
+	float                                              DefaultHeight;                                            // 0x0050(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFGroundDecalSystemInfo
@@ -20195,18 +20158,17 @@ struct FEFGroundParticleSystemInfo
 struct FEFGroundDecalSystemInfo
 {
 	struct FString                                     Key;                                                      // 0x0000(0x0010)
-	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0000(0x0004)
-	class UMaterialInterface*                          DecalMI;                                                  // 0x0000(0x0008)
-	float                                              Width;                                                    // 0x0000(0x0004)
-	float                                              Height;                                                   // 0x0000(0x0004)
-	float                                              NearPlane;                                                // 0x0000(0x0004)
-	float                                              FarPlane;                                                 // 0x0000(0x0004)
-	float                                              Thickness;                                                // 0x0000(0x0004)
-	struct FLinearColor                                ActiveColorValue;                                         // 0x0000(0x0010)
-	struct FLinearColor                                DeactiveColorValue;                                       // 0x0000(0x0010)
-	struct FString                                     DecalMIPath;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0010(0x0060) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0010(0x0010)
+	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004)
+	class UMaterialInterface*                          DecalMI;                                                  // 0x0024(0x0008)
+	float                                              Width;                                                    // 0x002C(0x0004)
+	float                                              Height;                                                   // 0x0030(0x0004)
+	float                                              NearPlane;                                                // 0x0034(0x0004)
+	float                                              FarPlane;                                                 // 0x0038(0x0004)
+	float                                              Thickness;                                                // 0x003C(0x0004)
+	struct FLinearColor                                ActiveColorValue;                                         // 0x0040(0x0010)
+	struct FLinearColor                                DeactiveColorValue;                                       // 0x0050(0x0010)
+	struct FString                                     DecalMIPath;                                              // 0x0060(0x0010)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFMarkParticleSystemInfo
@@ -20214,10 +20176,9 @@ struct FEFGroundDecalSystemInfo
 struct FEFMarkParticleSystemInfo
 {
 	struct FString                                     strKey;                                                   // 0x0000(0x0010)
-	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008)
-	struct FLinearColor                                MaterialColorValue;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0010(0x0010)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0020(0x0008)
+	struct FLinearColor                                MaterialColorValue;                                       // 0x0028(0x0010)
 };
 
 // ScriptStruct EFGame.EFParticleDataModulePawnMaterialParam.EFParticlePawnMaterialParamData
@@ -20225,18 +20186,17 @@ struct FEFMarkParticleSystemInfo
 struct FEFParticlePawnMaterialParamData
 {
 	struct FName                                       MaterialParamName;                                        // 0x0000(0x0008)
-	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0000(0x0004)
-	float                                              MaterialFloatValue;                                       // 0x0000(0x0004)
-	float                                              MaterialFloatFadeOutValue;                                // 0x0000(0x0004)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0000(0x0010)
-	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0000(0x0010)
-	float                                              fFadeIn;                                                  // 0x0000(0x0004)
-	float                                              fFadeOut;                                                 // 0x0000(0x0004)
-	float                                              fDuration;                                                // 0x0000(0x0004)
-	unsigned long                                      ApplyOnlyWeaponParts : 1;                                 // 0x0000(0x0004)
-	int                                                PartsIndex;                                               // 0x0000(0x0004)
-	TEnumAsByte<EMICParamLoopType>                     LoopType;                                                 // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0001(0x0048) MISSED OFFSET
+	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0008(0x0004)
+	float                                              MaterialFloatValue;                                       // 0x000C(0x0004)
+	float                                              MaterialFloatFadeOutValue;                                // 0x0010(0x0004)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0014(0x0010)
+	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0024(0x0010)
+	float                                              fFadeIn;                                                  // 0x0034(0x0004)
+	float                                              fFadeOut;                                                 // 0x0038(0x0004)
+	float                                              fDuration;                                                // 0x003C(0x0004)
+	unsigned long                                      ApplyOnlyWeaponParts : 1;                                 // 0x0040(0x0004)
+	int                                                PartsIndex;                                               // 0x0044(0x0004)
+	TEnumAsByte<EMICParamLoopType>                     LoopType;                                                 // 0x0048(0x0001)
 };
 
 // ScriptStruct EFGame.EFParticleModuleLocationSkelVertSurface.SkelLocationData
@@ -20244,9 +20204,8 @@ struct FEFParticlePawnMaterialParamData
 struct FSkelLocationData
 {
 	int                                                Index;                                                    // 0x0000(0x0004)
-	struct FVector                                     Location;                                                 // 0x0000(0x000C)
-	struct FQuat                                       RotationQuat;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FVector                                     Location;                                                 // 0x0004(0x000C)
+	struct FQuat                                       RotationQuat;                                             // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFParticleModuleLocationStaticVertSurface.StaticLocationData
@@ -20254,9 +20213,8 @@ struct FSkelLocationData
 struct FStaticLocationData
 {
 	int                                                Index;                                                    // 0x0000(0x0004)
-	struct FVector                                     Location;                                                 // 0x0000(0x000C)
-	struct FQuat                                       RotationQuat;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FVector                                     Location;                                                 // 0x0004(0x000C)
+	struct FQuat                                       RotationQuat;                                             // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffect.EFPPMaterialScalarParam
@@ -20264,8 +20222,7 @@ struct FStaticLocationData
 struct FEFPPMaterialScalarParam
 {
 	struct FName                                       ParamName;                                                // 0x0000(0x0008)
-	float                                              Value;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              Value;                                                    // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffect.EFPPMaterialVectorParam
@@ -20273,8 +20230,7 @@ struct FEFPPMaterialScalarParam
 struct FEFPPMaterialVectorParam
 {
 	struct FName                                       ParamName;                                                // 0x0000(0x0008)
-	struct FLinearColor                                Value;                                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	struct FLinearColor                                Value;                                                    // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffect.EFPPMaterialTextureParam
@@ -20282,9 +20238,8 @@ struct FEFPPMaterialVectorParam
 struct FEFPPMaterialTextureParam
 {
 	struct FName                                       ParamName;                                                // 0x0000(0x0008)
-	class UTexture*                                    Value;                                                    // 0x0000(0x0008)
-	struct FString                                     ValuePath;                                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	class UTexture*                                    Value;                                                    // 0x0008(0x0008)
+	struct FString                                     ValuePath;                                                // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialChaosGateEffect.EFPPMEChaosGateValue
@@ -20292,11 +20247,10 @@ struct FEFPPMaterialTextureParam
 struct FEFPPMEChaosGateValue
 {
 	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              PlayTime;                                                 // 0x0000(0x0004)
-	float                                              InterruptTime;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              FadeInTime;                                               // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
+	float                                              PlayTime;                                                 // 0x000C(0x0004)
+	float                                              InterruptTime;                                            // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialDeadEffect.EFPPMEDeadValue
@@ -20304,9 +20258,8 @@ struct FEFPPMEChaosGateValue
 struct FEFPPMEDeadValue
 {
 	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              FadeInTime;                                               // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectHit.EFPPMEHitValue
@@ -20314,10 +20267,9 @@ struct FEFPPMEDeadValue
 struct FEFPPMEHitValue
 {
 	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              PlayTime;                                                 // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              PlayTime;                                                 // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
+	float                                              MaxOpacity;                                               // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectSkill.EFPPMESkillValue
@@ -20325,10 +20277,9 @@ struct FEFPPMEHitValue
 struct FEFPPMESkillValue
 {
 	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              PlayTime;                                                 // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              PlayTime;                                                 // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
+	float                                              MaxOpacity;                                               // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectStatus.EFPPMEStatusValue
@@ -20336,9 +20287,8 @@ struct FEFPPMESkillValue
 struct FEFPPMEStatusValue
 {
 	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              FadeInTime;                                               // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialHPEffect.EFPPMEHPPersentValue
@@ -20346,12 +20296,11 @@ struct FEFPPMEStatusValue
 struct FEFPPMEHPPersentValue
 {
 	float                                              EnablePersent;                                            // 0x0000(0x0004)
-	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              MinOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              PlayTime;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	float                                              MaxOpacity;                                               // 0x0004(0x0004)
+	float                                              MinOpacity;                                               // 0x0008(0x0004)
+	float                                              FadeInTime;                                               // 0x000C(0x0004)
+	float                                              FadeOutTime;                                              // 0x0010(0x0004)
+	float                                              PlayTime;                                                 // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialHPEffect.EFPPMEHPPersentValueCriticalHit
@@ -20359,11 +20308,10 @@ struct FEFPPMEHPPersentValue
 struct FEFPPMEHPPersentValueCriticalHit
 {
 	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              PlayTime;                                                 // 0x0000(0x0004)
-	float                                              InterruptTime;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              FadeInTime;                                               // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
+	float                                              PlayTime;                                                 // 0x000C(0x0004)
+	float                                              InterruptTime;                                            // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialShipWreckEffect.EFPPMEShipWreckValue
@@ -20371,9 +20319,8 @@ struct FEFPPMEHPPersentValueCriticalHit
 struct FEFPPMEShipWreckValue
 {
 	float                                              MaxOpacity;                                               // 0x0000(0x0004)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              FadeInTime;                                               // 0x0004(0x0004)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFSimpleParticleSystemInfo
@@ -20381,9 +20328,8 @@ struct FEFPPMEShipWreckValue
 struct FEFSimpleParticleSystemInfo
 {
 	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008)
-	struct FLinearColor                                MaterialColorValue;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0010(0x0018) MISSED OFFSET
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0010(0x0008)
+	struct FLinearColor                                MaterialColorValue;                                       // 0x0018(0x0010)
 };
 
 // ScriptStruct EFGame.EFSeqAct_NPCController.SNPC_MovingState
@@ -20391,15 +20337,16 @@ struct FEFSimpleParticleSystemInfo
 struct FSNPC_MovingState
 {
 	class AActor*                                      ArriveObject;                                             // 0x0000(0x0008)
-	float                                              SpeedRate;                                                // 0x0000(0x0004)
-	float                                              TrunSpeedRate;                                            // 0x0000(0x0004)
-	TEnumAsByte<ENUM_SNPC_PlayAnimState>               WhenPlayAnimation;                                        // 0x0000(0x0001)
-	unsigned long                                      RandStartFrame : 1;                                       // 0x0000(0x0004)
-	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           AnimName;                                                 // 0x0000(0x0001)
-	struct FString                                     ForcedAnimation;                                          // 0x0000(0x0010)
-	float                                              BlendTime;                                                // 0x0000(0x0004)
-	unsigned long                                      isLoop : 1;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0004(0x0030) MISSED OFFSET
+	float                                              SpeedRate;                                                // 0x0008(0x0004)
+	float                                              TrunSpeedRate;                                            // 0x000C(0x0004)
+	TEnumAsByte<ENUM_SNPC_PlayAnimState>               WhenPlayAnimation;                                        // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	unsigned long                                      RandStartFrame : 1;                                       // 0x0014(0x0004)
+	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           AnimName;                                                 // 0x0018(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
+	struct FString                                     ForcedAnimation;                                          // 0x001C(0x0010)
+	float                                              BlendTime;                                                // 0x002C(0x0004)
+	unsigned long                                      isLoop : 1;                                               // 0x0030(0x0004)
 };
 
 // ScriptStruct EFGame.EFEnvironmentInfoVolume.MICParamInfo
@@ -20407,9 +20354,8 @@ struct FSNPC_MovingState
 struct FMICParamInfo
 {
 	TArray<struct FScalarParameterValue>               ScalarParameterValues;                                    // 0x0000(0x0010)
-	TArray<struct FTextureParameterValue>              TextureParameterValues;                                   // 0x0000(0x0010)
-	TArray<struct FVectorParameterValue>               VectorParameterValues;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	TArray<struct FTextureParameterValue>              TextureParameterValues;                                   // 0x0010(0x0010)
+	TArray<struct FVectorParameterValue>               VectorParameterValues;                                    // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.stGameMsgID
@@ -20417,9 +20363,9 @@ struct FMICParamInfo
 struct FstGameMsgID
 {
 	struct FString                                     strMsg;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EFGAMEMSG_TYPE>                        eMsgType;                                                 // 0x0000(0x0001)
-	struct FString                                     strMsgID;                                                 // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	TEnumAsByte<EFGAMEMSG_TYPE>                        eMsgType;                                                 // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	struct FString                                     strMsgID;                                                 // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFGFxMoviePlayer.EFUIIniStruct
@@ -20427,8 +20373,7 @@ struct FstGameMsgID
 struct FEFUIIniStruct
 {
 	struct FString                                     Type;                                                     // 0x0000(0x0010)
-	struct FString                                     Value;                                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FString                                     Value;                                                    // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFSwfMovie.ExternalBind
@@ -20436,8 +20381,7 @@ struct FEFUIIniStruct
 struct FExternalBind
 {
 	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	class UTextureRenderTarget2D*                      External;                                                 // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
+	class UTextureRenderTarget2D*                      External;                                                 // 0x0010(0x0008)
 };
 
 // ScriptStruct EFGame.EFUIListItem.SVariableInfo
@@ -20445,8 +20389,8 @@ struct FExternalBind
 struct FSVariableInfo
 {
 	TEnumAsByte<EASType>                               VariableType;                                             // 0x0000(0x0001)
-	struct FString                                     VariableName;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FString                                     VariableName;                                             // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetBuddy.GroupExtendedInfo
@@ -20454,8 +20398,7 @@ struct FSVariableInfo
 struct FGroupExtendedInfo
 {
 	int                                                OwnerPcNumber;                                            // 0x0000(0x0004)
-	TArray<int>                                        ExtendedList;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<int>                                        ExtendedList;                                             // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetInteractionMail.UIMailInfo
@@ -20463,20 +20406,19 @@ struct FGroupExtendedInfo
 struct FUIMailInfo
 {
 	struct FString                                     MailIndex;                                                // 0x0000(0x0010)
-	int                                                Index;                                                    // 0x0000(0x0004)
-	unsigned long                                      MailType : 1;                                             // 0x0000(0x0004)
-	unsigned long                                      showMailType : 1;                                         // 0x0000(0x0004)
-	int                                                MailTag;                                                  // 0x0000(0x0004)
-	struct FString                                     ItemIndex;                                                // 0x0000(0x0010)
-	struct FString                                     Money;                                                    // 0x0000(0x0010)
-	struct FString                                     From;                                                     // 0x0000(0x0010)
-	struct FString                                     Date;                                                     // 0x0000(0x0010)
-	struct FString                                     Title;                                                    // 0x0000(0x0010)
-	unsigned long                                      Read : 1;                                                 // 0x0000(0x0004)
-	unsigned long                                      LessThanOneDays : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      isNew : 1;                                                // 0x0000(0x0004)
-	int                                                Count;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x70];                                      // 0x0004(0x0070) MISSED OFFSET
+	int                                                Index;                                                    // 0x0010(0x0004)
+	unsigned long                                      MailType : 1;                                             // 0x0014(0x0004)
+	unsigned long                                      showMailType : 1;                                         // 0x0014(0x0004)
+	int                                                MailTag;                                                  // 0x0018(0x0004)
+	struct FString                                     ItemIndex;                                                // 0x001C(0x0010)
+	struct FString                                     Money;                                                    // 0x002C(0x0010)
+	struct FString                                     From;                                                     // 0x003C(0x0010)
+	struct FString                                     Date;                                                     // 0x004C(0x0010)
+	struct FString                                     Title;                                                    // 0x005C(0x0010)
+	unsigned long                                      Read : 1;                                                 // 0x006C(0x0004)
+	unsigned long                                      LessThanOneDays : 1;                                      // 0x006C(0x0004)
+	unsigned long                                      isNew : 1;                                                // 0x006C(0x0004)
+	int                                                Count;                                                    // 0x0070(0x0004)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetInteractionMail.MailReceiverCategory
@@ -20491,9 +20433,9 @@ struct FMailReceiverCategory
 struct FCommonWidgetBinding
 {
 	TEnumAsByte<ECommonWidgetType>                     WidgetType;                                               // 0x0000(0x0001)
-	struct FName                                       WidgetName;                                               // 0x0000(0x0008)
-	class UGFxObject*                                  Widget;                                                   // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FName                                       WidgetName;                                               // 0x0004(0x0008)
+	class UGFxObject*                                  Widget;                                                   // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFGameViewportClient.EFRelativeTimeFadeInfo
@@ -20502,13 +20444,12 @@ struct FEFRelativeTimeFadeInfo
 {
 	unsigned long                                      ActivateFadeProcess : 1;                                  // 0x0000(0x0004)
 	unsigned long                                      ApplyFadeTime : 1;                                        // 0x0000(0x0004)
-	struct FColor                                      FadeColor;                                                // 0x0000(0x0004)
-	float                                              FadeStartTime;                                            // 0x0000(0x0004)
-	float                                              FadeEndTime;                                              // 0x0000(0x0004)
-	float                                              FadeDuration;                                             // 0x0000(0x0004)
-	float                                              FadeCurAlpha;                                             // 0x0000(0x0004)
-	struct FInterpCurveFloat                           FadeAlphaCurve;                                           // 0x0000(0x0014)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0014(0x0018) MISSED OFFSET
+	struct FColor                                      FadeColor;                                                // 0x0004(0x0004)
+	float                                              FadeStartTime;                                            // 0x0008(0x0004)
+	float                                              FadeEndTime;                                              // 0x000C(0x0004)
+	float                                              FadeDuration;                                             // 0x0010(0x0004)
+	float                                              FadeCurAlpha;                                             // 0x0014(0x0004)
+	struct FInterpCurveFloat                           FadeAlphaCurve;                                           // 0x0018(0x0014)
 };
 
 // ScriptStruct EFGame.EFGameViewportClient.EFCursorPresetInfo
@@ -20516,24 +20457,23 @@ struct FEFRelativeTimeFadeInfo
 struct FEFCursorPresetInfo
 {
 	struct FPointer                                    OriginalCursor;                                           // 0x0000(0x0008)
-	struct FPointer                                    OriginalLargeCursor;                                      // 0x0000(0x0008)
-	struct FPointer                                    OriginalFullCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset1Cursor;                                            // 0x0000(0x0008)
-	struct FPointer                                    Preset1LargeCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset1FullCursor;                                        // 0x0000(0x0008)
-	struct FPointer                                    Preset2Cursor;                                            // 0x0000(0x0008)
-	struct FPointer                                    Preset2LargeCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset2FullCursor;                                        // 0x0000(0x0008)
-	struct FPointer                                    Preset3Cursor;                                            // 0x0000(0x0008)
-	struct FPointer                                    Preset3LargeCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset3FullCursor;                                        // 0x0000(0x0008)
-	struct FPointer                                    Preset4Cursor;                                            // 0x0000(0x0008)
-	struct FPointer                                    Preset4LargeCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset4FullCursor;                                        // 0x0000(0x0008)
-	struct FPointer                                    Preset5Cursor;                                            // 0x0000(0x0008)
-	struct FPointer                                    Preset5LargeCursor;                                       // 0x0000(0x0008)
-	struct FPointer                                    Preset5FullCursor;                                        // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x88];                                      // 0x0008(0x0088) MISSED OFFSET
+	struct FPointer                                    OriginalLargeCursor;                                      // 0x0008(0x0008)
+	struct FPointer                                    OriginalFullCursor;                                       // 0x0010(0x0008)
+	struct FPointer                                    Preset1Cursor;                                            // 0x0018(0x0008)
+	struct FPointer                                    Preset1LargeCursor;                                       // 0x0020(0x0008)
+	struct FPointer                                    Preset1FullCursor;                                        // 0x0028(0x0008)
+	struct FPointer                                    Preset2Cursor;                                            // 0x0030(0x0008)
+	struct FPointer                                    Preset2LargeCursor;                                       // 0x0038(0x0008)
+	struct FPointer                                    Preset2FullCursor;                                        // 0x0040(0x0008)
+	struct FPointer                                    Preset3Cursor;                                            // 0x0048(0x0008)
+	struct FPointer                                    Preset3LargeCursor;                                       // 0x0050(0x0008)
+	struct FPointer                                    Preset3FullCursor;                                        // 0x0058(0x0008)
+	struct FPointer                                    Preset4Cursor;                                            // 0x0060(0x0008)
+	struct FPointer                                    Preset4LargeCursor;                                       // 0x0068(0x0008)
+	struct FPointer                                    Preset4FullCursor;                                        // 0x0070(0x0008)
+	struct FPointer                                    Preset5Cursor;                                            // 0x0078(0x0008)
+	struct FPointer                                    Preset5LargeCursor;                                       // 0x0080(0x0008)
+	struct FPointer                                    Preset5FullCursor;                                        // 0x0088(0x0008)
 };
 
 // ScriptStruct EFGame.EFAbilityEffectInfo.EFAbilityParticleEvent
@@ -20541,9 +20481,8 @@ struct FEFCursorPresetInfo
 struct FEFAbilityParticleEvent
 {
 	int                                                AbilityType;                                              // 0x0000(0x0004)
-	class UEFParticleData*                             EventParticleInfo;                                        // 0x0000(0x0008)
-	struct FPointer                                    EventParticleInfoPointer;                                 // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	class UEFParticleData*                             EventParticleInfo;                                        // 0x0004(0x0008)
+	struct FPointer                                    EventParticleInfoPointer;                                 // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamRootMotion
@@ -20551,9 +20490,8 @@ struct FEFAbilityParticleEvent
 struct FEFParamRootMotion
 {
 	float                                              cAccPosX;                                                 // 0x0000(0x0004)
-	float                                              cAccPosY;                                                 // 0x0000(0x0004)
-	float                                              cAccPosZ;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              cAccPosY;                                                 // 0x0004(0x0004)
+	float                                              cAccPosZ;                                                 // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamRootMotionBeHit
@@ -20561,12 +20499,11 @@ struct FEFParamRootMotion
 struct FEFParamRootMotionBeHit
 {
 	int                                                cBehitType;                                               // 0x0000(0x0004)
-	float                                              cTime;                                                    // 0x0000(0x0004)
-	float                                              cDistance;                                                // 0x0000(0x0004)
-	float                                              GetupSkillEnableTime;                                     // 0x0000(0x0004)
-	TArray<int>                                        RootMotionSeparation;                                     // 0x0000(0x0010)
-	TArray<struct FEFParamRootMotion>                  RootMotionArr;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	float                                              cTime;                                                    // 0x0004(0x0004)
+	float                                              cDistance;                                                // 0x0008(0x0004)
+	float                                              GetupSkillEnableTime;                                     // 0x000C(0x0004)
+	TArray<int>                                        RootMotionSeparation;                                     // 0x0010(0x0010)
+	TArray<struct FEFParamRootMotion>                  RootMotionArr;                                            // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamSpawnInfo
@@ -20574,9 +20511,9 @@ struct FEFParamRootMotionBeHit
 struct FEFParamSpawnInfo
 {
 	TEnumAsByte<ENPCSpawnAction>                       cSpawnAction;                                             // 0x0000(0x0001)
-	int                                                cInvincible;                                              // 0x0000(0x0004)
-	float                                              cTime;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                cInvincible;                                              // 0x0004(0x0004)
+	float                                              cTime;                                                    // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamActionInfo
@@ -20584,8 +20521,7 @@ struct FEFParamSpawnInfo
 struct FEFParamActionInfo
 {
 	TArray<struct FEFParamRootMotionBeHit>             RootMotionBeHitArray;                                     // 0x0000(0x0010)
-	TArray<struct FEFParamSpawnInfo>                   SpawnInfoArray;                                           // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<struct FEFParamSpawnInfo>                   SpawnInfoArray;                                           // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.CustomPartItemValue
@@ -20593,9 +20529,8 @@ struct FEFParamActionInfo
 struct FCustomPartItemValue
 {
 	struct FString                                     strCustomPartItemType;                                    // 0x0000(0x0010)
-	int                                                nPartItemType;                                            // 0x0000(0x0004)
-	struct FString                                     strCustomPartItemLook;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	int                                                nPartItemType;                                            // 0x0010(0x0004)
+	struct FString                                     strCustomPartItemLook;                                    // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stBoneMorphGroupWeight
@@ -20603,8 +20538,7 @@ struct FCustomPartItemValue
 struct FstBoneMorphGroupWeight
 {
 	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010)
-	float                                              fMorphGroupWeightFactor;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              fMorphGroupWeightFactor;                                  // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stBoneMorphWeight
@@ -20612,8 +20546,7 @@ struct FstBoneMorphGroupWeight
 struct FstBoneMorphWeight
 {
 	struct FName                                       SequenceName;                                             // 0x0000(0x0008)
-	float                                              fMorphWeightFactor;                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIconInfo
@@ -20621,9 +20554,8 @@ struct FstBoneMorphWeight
 struct FEFIconInfo
 {
 	struct FString                                     IconPackage;                                              // 0x0000(0x0010)
-	struct FString                                     IconName;                                                 // 0x0000(0x0010)
-	int                                                IconIndex;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	struct FString                                     IconName;                                                 // 0x0010(0x0010)
+	int                                                IconIndex;                                                // 0x0020(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMeshMorphWeight
@@ -20631,9 +20563,8 @@ struct FEFIconInfo
 struct FstMeshMorphWeight
 {
 	struct FName                                       MorphName;                                                // 0x0000(0x0008)
-	float                                              fMorphWeightFactor;                                       // 0x0000(0x0004)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0024(0x000C) MISSED OFFSET
+	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x000C(0x0024)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionParameterFactor
@@ -20647,26 +20578,24 @@ struct FstMaterialExpressionParameterFactor
 // 0x000C (0x0014 - 0x0008)
 struct FstMaterialExpressionScalarParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	float                                              fFactor;                                                  // 0x0000(0x0004)
-	float                                              fInterpolationMin;                                        // 0x0000(0x0004)
-	float                                              fInterpolationMax;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              fFactor;                                                  // 0x0008(0x0004)
+	float                                              fInterpolationMin;                                        // 0x000C(0x0004)
+	float                                              fInterpolationMax;                                        // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionVectorParameterFactor
 // 0x0064 (0x006C - 0x0008)
 struct FstMaterialExpressionVectorParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	struct FString                                     PaletteName;                                              // 0x0000(0x0010)
-	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
-	struct FString                                     strColorPicker;                                           // 0x0000(0x0010)
-	struct FVector2D                                   ColorPickerPosition;                                      // 0x0000(0x0008)
-	float                                              fBrightness;                                              // 0x0000(0x0004)
-	struct FLinearColor                                SwatchColor;                                              // 0x0000(0x0010)
-	unsigned long                                      bUseAlpha : 1;                                            // 0x0000(0x0004)
-	float                                              SwatchAlpha;                                              // 0x0000(0x0004)
-	struct FLinearColor                                DefaultColor;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x5C];                                      // 0x0010(0x005C) MISSED OFFSET
+	struct FString                                     PaletteName;                                              // 0x0008(0x0010)
+	struct FString                                     SwatchName;                                               // 0x0018(0x0010)
+	struct FString                                     strColorPicker;                                           // 0x0028(0x0010)
+	struct FVector2D                                   ColorPickerPosition;                                      // 0x0038(0x0008)
+	float                                              fBrightness;                                              // 0x0040(0x0004)
+	struct FLinearColor                                SwatchColor;                                              // 0x0044(0x0010)
+	unsigned long                                      bUseAlpha : 1;                                            // 0x0054(0x0004)
+	float                                              SwatchAlpha;                                              // 0x0058(0x0004)
+	struct FLinearColor                                DefaultColor;                                             // 0x005C(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.ObjectPath
@@ -20674,30 +20603,27 @@ struct FstMaterialExpressionVectorParameterFactor : public FstMaterialExpression
 struct FObjectPath
 {
 	struct FString                                     PathName;                                                 // 0x0000(0x0010)
-	struct FString                                     ClassName;                                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FString                                     ClassName;                                                // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionTextureSampleParameterFactor
 // 0x0054 (0x005C - 0x0008)
 struct FstMaterialExpressionTextureSampleParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	struct FString                                     PaletteName;                                              // 0x0000(0x0010)
-	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
-	class UTexture*                                    TextureFactor;                                            // 0x0000(0x0008)
-	struct FObjectPath                                 TexturePath;                                              // 0x0000(0x0020)
-	unsigned long                                      EnableColorOverlay : 1;                                   // 0x0000(0x0004)
-	unsigned long                                      EnableTextureTransform : 1;                               // 0x0000(0x0004)
-	class UTexture*                                    DefaultTexture;                                           // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x54];                                      // 0x0008(0x0054) MISSED OFFSET
+	struct FString                                     PaletteName;                                              // 0x0008(0x0010)
+	struct FString                                     SwatchName;                                               // 0x0018(0x0010)
+	class UTexture*                                    TextureFactor;                                            // 0x0028(0x0008)
+	struct FObjectPath                                 TexturePath;                                              // 0x0030(0x0020)
+	unsigned long                                      EnableColorOverlay : 1;                                   // 0x0050(0x0004)
+	unsigned long                                      EnableTextureTransform : 1;                               // 0x0050(0x0004)
+	class UTexture*                                    DefaultTexture;                                           // 0x0054(0x0008)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionBoolParameterFactor
 // 0x0004 (0x000C - 0x0008)
 struct FstMaterialExpressionBoolParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	unsigned long                                      bFactor : 1;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned long                                      bFactor : 1;                                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionParameterGroupFactor
@@ -20705,12 +20631,11 @@ struct FstMaterialExpressionBoolParameterFactor : public FstMaterialExpressionPa
 struct FstMaterialExpressionParameterGroupFactor
 {
 	struct FName                                       GroupName;                                                // 0x0000(0x0008)
-	TArray<struct FstMaterialExpressionScalarParameterFactor> arrScalarParameterFactor;                                 // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionVectorParameterFactor> arrVectorParameterFactor;                                 // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionTextureSampleParameterFactor> arrTextureParameterFactor;                                // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionBoolParameterFactor> arrBoolParameterFactor;                                   // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionBoolParameterFactor> arrPrivateBoolParameterFactor;                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0010(0x0048) MISSED OFFSET
+	TArray<struct FstMaterialExpressionScalarParameterFactor> arrScalarParameterFactor;                                 // 0x0008(0x0010)
+	TArray<struct FstMaterialExpressionVectorParameterFactor> arrVectorParameterFactor;                                 // 0x0018(0x0010)
+	TArray<struct FstMaterialExpressionTextureSampleParameterFactor> arrTextureParameterFactor;                                // 0x0028(0x0010)
+	TArray<struct FstMaterialExpressionBoolParameterFactor> arrBoolParameterFactor;                                   // 0x0038(0x0010)
+	TArray<struct FstMaterialExpressionBoolParameterFactor> arrPrivateBoolParameterFactor;                            // 0x0048(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomizingMotionActionItem
@@ -20718,8 +20643,7 @@ struct FstMaterialExpressionParameterGroupFactor
 struct FCustomizingMotionActionItem
 {
 	int                                                ActionIndex;                                              // 0x0000(0x0004)
-	struct FEFIconInfo                                 ActionIcon;                                               // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
+	struct FEFIconInfo                                 ActionIcon;                                               // 0x0004(0x0024)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomizingFaceActionItem
@@ -20727,8 +20651,7 @@ struct FCustomizingMotionActionItem
 struct FCustomizingFaceActionItem
 {
 	struct FString                                     AnimName;                                                 // 0x0000(0x0010)
-	struct FEFIconInfo                                 ActionIcon;                                               // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0024(0x0010) MISSED OFFSET
+	struct FEFIconInfo                                 ActionIcon;                                               // 0x0010(0x0024)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.PartItemLookData
@@ -20736,8 +20659,7 @@ struct FCustomizingFaceActionItem
 struct FPartItemLookData
 {
 	struct FString                                     strPartItemLook;                                          // 0x0000(0x0010)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0024(0x0010) MISSED OFFSET
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0010(0x0024)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomPartItemLook
@@ -20745,9 +20667,8 @@ struct FPartItemLookData
 struct FCustomPartItemLook
 {
 	struct FString                                     strPartItemType;                                          // 0x0000(0x0010)
-	TArray<struct FPartItemLookData>                   arrPartItemLook;                                          // 0x0000(0x0010)
-	int                                                nPartItemType;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	TArray<struct FPartItemLookData>                   arrPartItemLook;                                          // 0x0010(0x0010)
+	int                                                nPartItemType;                                            // 0x0020(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CostumeDataSet
@@ -20755,18 +20676,17 @@ struct FCustomPartItemLook
 struct FCostumeDataSet
 {
 	struct FString                                     strFaceItemLook;                                          // 0x0000(0x0010)
-	struct FString                                     strHairItemLook;                                          // 0x0000(0x0010)
-	struct FString                                     strHeadItemLook;                                          // 0x0000(0x0010)
-	struct FString                                     strChestItemLook;                                         // 0x0000(0x0010)
-	struct FString                                     strPantsItemLook;                                         // 0x0000(0x0010)
-	struct FString                                     strHandtemLook;                                           // 0x0000(0x0010)
-	struct FString                                     strShoulderItemLook;                                      // 0x0000(0x0010)
-	struct FString                                     strFaceDecoLook;                                          // 0x0000(0x0010)
-	struct FString                                     strWeaponItemLook;                                        // 0x0000(0x0010)
-	struct FString                                     strFaceAccLook;                                           // 0x0000(0x0010)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0xAB];                                      // 0x0024(0x00AB) MISSED OFFSET
-	struct FPointer                                    strArrayItemLooks[0xB];                                   // 0x00CF(0x0008)
+	struct FString                                     strHairItemLook;                                          // 0x0010(0x0010)
+	struct FString                                     strHeadItemLook;                                          // 0x0020(0x0010)
+	struct FString                                     strChestItemLook;                                         // 0x0030(0x0010)
+	struct FString                                     strPantsItemLook;                                         // 0x0040(0x0010)
+	struct FString                                     strHandtemLook;                                           // 0x0050(0x0010)
+	struct FString                                     strShoulderItemLook;                                      // 0x0060(0x0010)
+	struct FString                                     strFaceDecoLook;                                          // 0x0070(0x0010)
+	struct FString                                     strWeaponItemLook;                                        // 0x0080(0x0010)
+	struct FString                                     strFaceAccLook;                                           // 0x0090(0x0010)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x00A0(0x0024)
+	struct FPointer                                    strArrayItemLooks[0xB];                                   // 0x00C4(0x0008)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stSequenceName
@@ -20781,8 +20701,7 @@ struct FstSequenceName
 struct FstBoneMorphGroup
 {
 	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010)
-	TArray<struct FstSequenceName>                     arrBoneMorphTargets;                                      // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<struct FstSequenceName>                     arrBoneMorphTargets;                                      // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stBoneMorph
@@ -20790,10 +20709,9 @@ struct FstBoneMorphGroup
 struct FstBoneMorph
 {
 	struct FstGameMsgID                                MorphNameMsgID;                                           // 0x0000(0x0024)
-	struct FName                                       SequenceName;                                             // 0x0000(0x0008)
-	class UAnimSequence*                               AnimSeq;                                                  // 0x0000(0x0008)
-	struct FObjectPath                                 PATH_AnimSeq;                                             // 0x0000(0x0020)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0020(0x0034) MISSED OFFSET
+	struct FName                                       SequenceName;                                             // 0x0024(0x0008)
+	class UAnimSequence*                               AnimSeq;                                                  // 0x002C(0x0008)
+	struct FObjectPath                                 PATH_AnimSeq;                                             // 0x0034(0x0020)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.BoneMorphAnimData
@@ -20801,8 +20719,7 @@ struct FstBoneMorph
 struct FBoneMorphAnimData
 {
 	struct FName                                       SeqName;                                                  // 0x0000(0x0008)
-	TArray<struct FRawAnimSequenceTrack>               RawAnimData;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	TArray<struct FRawAnimSequenceTrack>               RawAnimData;                                              // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMeshMorphRule
@@ -20810,8 +20727,7 @@ struct FBoneMorphAnimData
 struct FstMeshMorphRule
 {
 	struct FName                                       MorphName;                                                // 0x0000(0x0008)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0024(0x0008) MISSED OFFSET
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0008(0x0024)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionParameter
@@ -20819,8 +20735,7 @@ struct FstMeshMorphRule
 struct FstMaterialExpressionParameter
 {
 	struct FstGameMsgID                                MaterialExpressionParameterMsgID;                         // 0x0000(0x0024)
-	struct FName                                       ExpressionParameterName;                                  // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0008(0x0024) MISSED OFFSET
+	struct FName                                       ExpressionParameterName;                                  // 0x0024(0x0008)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMeterialScalarInterpolationRange
@@ -20828,45 +20743,40 @@ struct FstMaterialExpressionParameter
 struct FstMeterialScalarInterpolationRange
 {
 	float                                              fInterpolationMin;                                        // 0x0000(0x0004)
-	float                                              fInterpolationMax;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              fInterpolationMax;                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionScalarParameter
 // 0x000C (0x0038 - 0x002C)
 struct FstMaterialExpressionScalarParameter : public FstMaterialExpressionParameter
 {
-	float                                              fDefault;                                                 // 0x0000(0x0004)
-	struct FstMeterialScalarInterpolationRange         InterpolationRange;                                       // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0008(0x0030) MISSED OFFSET
+	float                                              fDefault;                                                 // 0x002C(0x0004)
+	struct FstMeterialScalarInterpolationRange         InterpolationRange;                                       // 0x0030(0x0008)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionVectorParameter
 // 0x0024 (0x0050 - 0x002C)
 struct FstMaterialExpressionVectorParameter : public FstMaterialExpressionParameter
 {
-	struct FString                                     PaletteName;                                              // 0x0000(0x0010)
-	unsigned long                                      bUseAlpha : 1;                                            // 0x0000(0x0004)
-	struct FLinearColor                                DefaultColor;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0010(0x0040) MISSED OFFSET
+	struct FString                                     PaletteName;                                              // 0x002C(0x0010)
+	unsigned long                                      bUseAlpha : 1;                                            // 0x003C(0x0004)
+	struct FLinearColor                                DefaultColor;                                             // 0x0040(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionTextureSampleParameter
 // 0x0038 (0x0064 - 0x002C)
 struct FstMaterialExpressionTextureSampleParameter : public FstMaterialExpressionParameter
 {
-	struct FString                                     PaletteName;                                              // 0x0000(0x0010)
-	class UTexture*                                    DefaultTexture;                                           // 0x0000(0x0008)
-	struct FObjectPath                                 DefaultTexturePath;                                       // 0x0000(0x0020)
-	unsigned char                                      UnknownData00[0x44];                                      // 0x0020(0x0044) MISSED OFFSET
+	struct FString                                     PaletteName;                                              // 0x002C(0x0010)
+	class UTexture*                                    DefaultTexture;                                           // 0x003C(0x0008)
+	struct FObjectPath                                 DefaultTexturePath;                                       // 0x0044(0x0020)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionBoolParameter
 // 0x0004 (0x0030 - 0x002C)
 struct FstMaterialExpressionBoolParameter : public FstMaterialExpressionParameter
 {
-	unsigned long                                      bDefault : 1;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	unsigned long                                      bDefault : 1;                                             // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionParameterGroup
@@ -20874,13 +20784,12 @@ struct FstMaterialExpressionBoolParameter : public FstMaterialExpressionParamete
 struct FstMaterialExpressionParameterGroup
 {
 	struct FstGameMsgID                                MaterialExpressionParameterGroupMsgID;                    // 0x0000(0x0024)
-	struct FName                                       GroupName;                                                // 0x0000(0x0008)
-	TArray<struct FstMaterialExpressionScalarParameter> arrScalarParameter;                                       // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionVectorParameter> arrVectorParameter;                                       // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionTextureSampleParameter> arrTextureParameter;                                      // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionBoolParameter>  arrBoolParameter;                                         // 0x0000(0x0010)
-	TArray<struct FstMaterialExpressionBoolParameter>  arrPrivateBoolParameter;                                  // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x6C];                                      // 0x0010(0x006C) MISSED OFFSET
+	struct FName                                       GroupName;                                                // 0x0024(0x0008)
+	TArray<struct FstMaterialExpressionScalarParameter> arrScalarParameter;                                       // 0x002C(0x0010)
+	TArray<struct FstMaterialExpressionVectorParameter> arrVectorParameter;                                       // 0x003C(0x0010)
+	TArray<struct FstMaterialExpressionTextureSampleParameter> arrTextureParameter;                                      // 0x004C(0x0010)
+	TArray<struct FstMaterialExpressionBoolParameter>  arrBoolParameter;                                         // 0x005C(0x0010)
+	TArray<struct FstMaterialExpressionBoolParameter>  arrPrivateBoolParameter;                                  // 0x006C(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_CustomizeBoneScaleItem.EFCustomizeSkelControlValue
@@ -20888,8 +20797,7 @@ struct FstMaterialExpressionParameterGroup
 struct FEFCustomizeSkelControlValue
 {
 	struct FString                                     ControlName;                                              // 0x0000(0x0010)
-	float                                              ControlValue;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              ControlValue;                                             // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartExtentInfo
@@ -20897,8 +20805,8 @@ struct FEFCustomizeSkelControlValue
 struct FNpcPartExtentInfo
 {
 	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001)
-	struct FVector                                     Extent;                                                   // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FVector                                     Extent;                                                   // 0x0004(0x000C)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartExtentInfo
@@ -20913,9 +20821,9 @@ struct FActionNpcPartExtentInfo
 struct FNpcPartTransformInfo
 {
 	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001)
-	struct FVector                                     Position;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x000C(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FVector                                     Position;                                                 // 0x0004(0x000C)
+	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartTransformInfo
@@ -20923,8 +20831,7 @@ struct FNpcPartTransformInfo
 struct FActionNpcPartTransformInfo
 {
 	int                                                ActionId;                                                 // 0x0000(0x0004)
-	TArray<struct FNpcPartTransformInfo>               NpcPartTransformInfoArray;                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<struct FNpcPartTransformInfo>               NpcPartTransformInfoArray;                                // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartTransformInfoSet
@@ -20939,8 +20846,7 @@ struct FActionNpcPartTransformInfoSet
 struct FActionNpcMoveInfo
 {
 	int                                                StageId;                                                  // 0x0000(0x0004)
-	float                                              DefaultAnimMoveSpeed;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              DefaultAnimMoveSpeed;                                     // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartTransformSampleData
@@ -20948,8 +20854,7 @@ struct FActionNpcMoveInfo
 struct FNpcPartTransformSampleData
 {
 	struct FVector                                     Position;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	struct FRotator                                    Rotation;                                                 // 0x000C(0x000C)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartTransformSampleDatas
@@ -20957,8 +20862,7 @@ struct FNpcPartTransformSampleData
 struct FNpcPartTransformSampleDatas
 {
 	int                                                NpcPartType;                                              // 0x0000(0x0004)
-	TArray<struct FNpcPartTransformSampleData>         transforms;                                               // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<struct FNpcPartTransformSampleData>         transforms;                                               // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartSampleExportDataByAction
@@ -20966,10 +20870,9 @@ struct FNpcPartTransformSampleDatas
 struct FNpcPartSampleExportDataByAction
 {
 	int                                                ActionId;                                                 // 0x0000(0x0004)
-	int                                                stageLayerIdx;                                            // 0x0000(0x0004)
-	int                                                stageIdx;                                                 // 0x0000(0x0004)
-	TArray<struct FNpcPartTransformSampleDatas>        sampleDataByPartType;                                     // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	int                                                stageLayerIdx;                                            // 0x0004(0x0004)
+	int                                                stageIdx;                                                 // 0x0008(0x0004)
+	TArray<struct FNpcPartTransformSampleDatas>        sampleDataByPartType;                                     // 0x000C(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_ColorPaletteItem.ColorSwatchItem
@@ -20977,8 +20880,7 @@ struct FNpcPartSampleExportDataByAction
 struct FColorSwatchItem
 {
 	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
-	struct FLinearColor                                SwatchColor;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FLinearColor                                SwatchColor;                                              // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFData_TexturePaletteItem.TextureSwatchItem
@@ -20986,15 +20888,14 @@ struct FColorSwatchItem
 struct FTextureSwatchItem
 {
 	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
-	class UTexture*                                    SwatchTexture;                                            // 0x0000(0x0008)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0000(0x0024)
-	unsigned long                                      EnableColorOverlay : 1;                                   // 0x0000(0x0004)
-	unsigned long                                      EnableTextureTransform : 1;                               // 0x0000(0x0004)
-	float                                              DefaultUpdownTransformValue;                              // 0x0000(0x0004)
-	float                                              DefaultSideTransformValue;                                // 0x0000(0x0004)
-	float                                              DefaultScaleTransformValue;                               // 0x0000(0x0004)
-	float                                              DefaultRotateTransformValue;                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0004(0x004C) MISSED OFFSET
+	class UTexture*                                    SwatchTexture;                                            // 0x0010(0x0008)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0018(0x0024)
+	unsigned long                                      EnableColorOverlay : 1;                                   // 0x003C(0x0004)
+	unsigned long                                      EnableTextureTransform : 1;                               // 0x003C(0x0004)
+	float                                              DefaultUpdownTransformValue;                              // 0x0040(0x0004)
+	float                                              DefaultSideTransformValue;                                // 0x0044(0x0004)
+	float                                              DefaultScaleTransformValue;                               // 0x0048(0x0004)
+	float                                              DefaultRotateTransformValue;                              // 0x004C(0x0004)
 };
 
 // ScriptStruct EFGame.EFData_MaskInfo.EFMaskData
@@ -21002,10 +20903,9 @@ struct FTextureSwatchItem
 struct FEFMaskData
 {
 	TEnumAsByte<EFEQUIP_PART>                          eMainParts;                                               // 0x0000(0x0001)
-	TEnumAsByte<EFEQUIP_PART>                          eSubParts;                                                // 0x0000(0x0001)
-	TEnumAsByte<EFMASK_STAGE>                          eMaskTotalStage;                                          // 0x0000(0x0001)
-	unsigned char                                      Temp;                                                     // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          eSubParts;                                                // 0x0001(0x0001)
+	TEnumAsByte<EFMASK_STAGE>                          eMaskTotalStage;                                          // 0x0002(0x0001)
+	unsigned char                                      Temp;                                                     // 0x0003(0x0001)
 };
 
 // ScriptStruct EFGame.EFExcelShell.EFLookPreset
@@ -21013,13 +20913,12 @@ struct FEFMaskData
 struct FEFLookPreset
 {
 	struct FString                                     FontName;                                                 // 0x0000(0x0010)
-	int                                                FontSize;                                                 // 0x0000(0x0004)
-	int                                                FontColor;                                                // 0x0000(0x0004)
-	unsigned long                                      bFontBold : 1;                                            // 0x0000(0x0004)
-	unsigned long                                      bFontItalic : 1;                                          // 0x0000(0x0004)
-	int                                                BackgroundColor;                                          // 0x0000(0x0004)
-	unsigned long                                      bBorder : 1;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	int                                                FontSize;                                                 // 0x0010(0x0004)
+	int                                                FontColor;                                                // 0x0014(0x0004)
+	unsigned long                                      bFontBold : 1;                                            // 0x0018(0x0004)
+	unsigned long                                      bFontItalic : 1;                                          // 0x0018(0x0004)
+	int                                                BackgroundColor;                                          // 0x001C(0x0004)
+	unsigned long                                      bBorder : 1;                                              // 0x0020(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBeHittedPawnMaterial.EFInterpCurvePointLinearColor
@@ -21027,11 +20926,10 @@ struct FEFLookPreset
 struct FEFInterpCurvePointLinearColor
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	struct FLinearColor                                OutVal;                                                   // 0x0000(0x0010)
-	struct FLinearColor                                ArriveTangent;                                            // 0x0000(0x0010)
-	struct FLinearColor                                LeaveTangent;                                             // 0x0000(0x0010)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0001(0x0034) MISSED OFFSET
+	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010)
+	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010)
+	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBeHittedPawnMaterial.EFInterpCurveLinearColor
@@ -21039,8 +20937,7 @@ struct FEFInterpCurvePointLinearColor
 struct FEFInterpCurveLinearColor
 {
 	TArray<struct FEFInterpCurvePointLinearColor>      Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFInterpCurvePointFloat
@@ -21048,11 +20945,10 @@ struct FEFInterpCurveLinearColor
 struct FEFInterpCurvePointFloat
 {
 	float                                              InVal;                                                    // 0x0000(0x0004)
-	float                                              OutVal;                                                   // 0x0000(0x0004)
-	float                                              ArriveTangent;                                            // 0x0000(0x0004)
-	float                                              LeaveTangent;                                             // 0x0000(0x0004)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	float                                              OutVal;                                                   // 0x0004(0x0004)
+	float                                              ArriveTangent;                                            // 0x0008(0x0004)
+	float                                              LeaveTangent;                                             // 0x000C(0x0004)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFInterpCurveFloat
@@ -21060,8 +20956,7 @@ struct FEFInterpCurvePointFloat
 struct FEFInterpCurveFloat
 {
 	TArray<struct FEFInterpCurvePointFloat>            Points;                                                   // 0x0000(0x0010)
-	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) MISSED OFFSET
+	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBeHittedPawnMaterial.EFPawnMaterialBeHittedCurveInfo
@@ -21069,11 +20964,10 @@ struct FEFInterpCurveFloat
 struct FEFPawnMaterialBeHittedCurveInfo
 {
 	struct FString                                     ParamKey;                                                 // 0x0000(0x0010)
-	struct FInterpCurveLinearColor                     ColorParam;                                               // 0x0000(0x0014)
-	struct FInterpCurveFloat                           FloatParam;                                               // 0x0000(0x0014)
-	struct FEFInterpCurveLinearColor                   ColorParamData;                                           // 0x0000(0x0014)
-	struct FEFInterpCurveFloat                         FloatParamData;                                           // 0x0000(0x0014)
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0014(0x004C) MISSED OFFSET
+	struct FInterpCurveLinearColor                     ColorParam;                                               // 0x0010(0x0014)
+	struct FInterpCurveFloat                           FloatParam;                                               // 0x0024(0x0014)
+	struct FEFInterpCurveLinearColor                   ColorParamData;                                           // 0x0038(0x0014)
+	struct FEFInterpCurveFloat                         FloatParamData;                                           // 0x004C(0x0014)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBuffBeam.EFBeamUpdateInfo
@@ -21081,11 +20975,12 @@ struct FEFPawnMaterialBeHittedCurveInfo
 struct FEFBeamUpdateInfo
 {
 	int                                                EmitterIndex;                                             // 0x0000(0x0004)
-	TEnumAsByte<EBeam2SourceTargetMethod>              SourceMethod;                                             // 0x0000(0x0001)
-	struct FName                                       SourceName;                                               // 0x0000(0x0008)
-	TEnumAsByte<EBeam2SourceTargetMethod>              TargetMethod;                                             // 0x0000(0x0001)
-	struct FName                                       TargetName;                                               // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0008(0x0014) MISSED OFFSET
+	TEnumAsByte<EBeam2SourceTargetMethod>              SourceMethod;                                             // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	struct FName                                       SourceName;                                               // 0x0008(0x0008)
+	TEnumAsByte<EBeam2SourceTargetMethod>              TargetMethod;                                             // 0x0010(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	struct FName                                       TargetName;                                               // 0x0014(0x0008)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBuffFX.ScalarTimeVarying
@@ -21093,9 +20988,8 @@ struct FEFBeamUpdateInfo
 struct FScalarTimeVarying
 {
 	struct FName                                       MaterialName;                                             // 0x0000(0x0008)
-	struct FName                                       ParamName;                                                // 0x0000(0x0008)
-	float                                              ValueBase;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	struct FName                                       ParamName;                                                // 0x0008(0x0008)
+	float                                              ValueBase;                                                // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXAttacker
@@ -21103,11 +20997,10 @@ struct FScalarTimeVarying
 struct FEFParticleSoundWeaponFXAttacker
 {
 	float                                              DelayTime;                                                // 0x0000(0x0004)
-	float                                              Duration;                                                 // 0x0000(0x0004)
-	unsigned long                                      bSpawnAll : 1;                                            // 0x0000(0x0004)
-	class UEFParticleData*                             ParticleData;                                             // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataPointer;                                      // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0008(0x0014) MISSED OFFSET
+	float                                              Duration;                                                 // 0x0004(0x0004)
+	unsigned long                                      bSpawnAll : 1;                                            // 0x0008(0x0004)
+	class UEFParticleData*                             ParticleData;                                             // 0x000C(0x0008)
+	struct FPointer                                    ParticleDataPointer;                                      // 0x0014(0x0008)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXDelay
@@ -21115,9 +21008,8 @@ struct FEFParticleSoundWeaponFXAttacker
 struct FEFParticleSoundWeaponFXDelay
 {
 	float                                              DelayTime;                                                // 0x0000(0x0004)
-	class UEFParticleData*                             ParticleData;                                             // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataPointer;                                      // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	class UEFParticleData*                             ParticleData;                                             // 0x0004(0x0008)
+	struct FPointer                                    ParticleDataPointer;                                      // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXBlood
@@ -21125,9 +21017,8 @@ struct FEFParticleSoundWeaponFXDelay
 struct FEFParticleSoundWeaponFXBlood
 {
 	float                                              DelayTime;                                                // 0x0000(0x0004)
-	class UEFParticleData*                             BloodData;                                                // 0x0000(0x0008)
-	struct FPointer                                    BloodDataPointer;                                         // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	class UEFParticleData*                             BloodData;                                                // 0x0004(0x0008)
+	struct FPointer                                    BloodDataPointer;                                         // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXRandomBlood
@@ -21142,8 +21033,7 @@ struct FEFParticleSoundWeaponFXRandomBlood
 struct FEFLightBeamIntersectInfo
 {
 	unsigned long                                      bIntersect : 1;                                           // 0x0000(0x0004)
-	class AEFPawn*                                     Actor;                                                    // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0008(0x0004) MISSED OFFSET
+	class AEFPawn*                                     Actor;                                                    // 0x0004(0x0008)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectEventTimeInfo
@@ -21151,8 +21041,8 @@ struct FEFLightBeamIntersectInfo
 struct FEFDropItemEffectEventTimeInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	float                                              fTime;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              fTime;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectParticleInfo
@@ -21160,12 +21050,12 @@ struct FEFDropItemEffectEventTimeInfo
 struct FEFDropItemEffectParticleInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	class UParticleSystem*                             Particle;                                                 // 0x0000(0x0008)
-	unsigned long                                      bAttach : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      bContinue : 1;                                            // 0x0000(0x0004)
-	float                                              fSpawnPositionTime;                                       // 0x0000(0x0004)
-	struct FString                                     ParticlePath;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UParticleSystem*                             Particle;                                                 // 0x0004(0x0008)
+	unsigned long                                      bAttach : 1;                                              // 0x000C(0x0004)
+	unsigned long                                      bContinue : 1;                                            // 0x000C(0x0004)
+	float                                              fSpawnPositionTime;                                       // 0x0010(0x0004)
+	struct FString                                     ParticlePath;                                             // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectDominentLightInfo
@@ -21173,11 +21063,11 @@ struct FEFDropItemEffectParticleInfo
 struct FEFDropItemEffectDominentLightInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	float                                              fBrightness;                                              // 0x0000(0x0004)
-	float                                              fLifeTime;                                                // 0x0000(0x0004)
-	float                                              fGuaranteeTime;                                           // 0x0000(0x0004)
-	float                                              fReleaseTime;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              fBrightness;                                              // 0x0004(0x0004)
+	float                                              fLifeTime;                                                // 0x0008(0x0004)
+	float                                              fGuaranteeTime;                                           // 0x000C(0x0004)
+	float                                              fReleaseTime;                                             // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectMaterialColorInfo
@@ -21185,8 +21075,8 @@ struct FEFDropItemEffectDominentLightInfo
 struct FEFDropItemEffectMaterialColorInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	struct FLinearColor                                sValue;                                                   // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FLinearColor                                sValue;                                                   // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectMaterialFloatInfo
@@ -21194,8 +21084,8 @@ struct FEFDropItemEffectMaterialColorInfo
 struct FEFDropItemEffectMaterialFloatInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	float                                              fValue;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              fValue;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectSoundInfo
@@ -21203,9 +21093,9 @@ struct FEFDropItemEffectMaterialFloatInfo
 struct FEFDropItemEffectSoundInfo
 {
 	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001)
-	class UAkEvent*                                    cEvent;                                                   // 0x0000(0x0008)
-	struct FString                                     cEventPath;                                               // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UAkEvent*                                    cEvent;                                                   // 0x0004(0x0008)
+	struct FString                                     cEventPath;                                               // 0x000C(0x0010)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectGroup
@@ -21213,17 +21103,16 @@ struct FEFDropItemEffectSoundInfo
 struct FEFDropItemEffectGroup
 {
 	struct FEFDropItemEffectParticleInfo               DropParticle;                                             // 0x0000(0x0024)
-	struct FEFDropItemEffectParticleInfo               AirParticle;                                              // 0x0000(0x0024)
-	struct FEFDropItemEffectParticleInfo               GroundParticle;                                           // 0x0000(0x0024)
-	struct FEFDropItemEffectParticleInfo               ModelParticle;                                            // 0x0000(0x0024)
-	struct FEFDropItemEffectParticleInfo               PickupParticle;                                           // 0x0000(0x0024)
-	struct FEFDropItemEffectParticleInfo               TimeoutParticle;                                          // 0x0000(0x0024)
-	struct FEFDropItemEffectDominentLightInfo          LightEffect;                                              // 0x0000(0x0014)
-	struct FEFDropItemEffectMaterialColorInfo          MaterialColor;                                            // 0x0000(0x0014)
-	struct FEFDropItemEffectMaterialFloatInfo          MaterialFloat;                                            // 0x0000(0x0008)
-	struct FEFDropItemEffectSoundInfo                  AirSound;                                                 // 0x0000(0x001C)
-	struct FEFDropItemEffectSoundInfo                  GroundSound;                                              // 0x0000(0x001C)
-	unsigned char                                      UnknownData00[0x124];                                     // 0x001C(0x0124) MISSED OFFSET
+	struct FEFDropItemEffectParticleInfo               AirParticle;                                              // 0x0024(0x0024)
+	struct FEFDropItemEffectParticleInfo               GroundParticle;                                           // 0x0048(0x0024)
+	struct FEFDropItemEffectParticleInfo               ModelParticle;                                            // 0x006C(0x0024)
+	struct FEFDropItemEffectParticleInfo               PickupParticle;                                           // 0x0090(0x0024)
+	struct FEFDropItemEffectParticleInfo               TimeoutParticle;                                          // 0x00B4(0x0024)
+	struct FEFDropItemEffectDominentLightInfo          LightEffect;                                              // 0x00D8(0x0014)
+	struct FEFDropItemEffectMaterialColorInfo          MaterialColor;                                            // 0x00EC(0x0014)
+	struct FEFDropItemEffectMaterialFloatInfo          MaterialFloat;                                            // 0x0100(0x0008)
+	struct FEFDropItemEffectSoundInfo                  AirSound;                                                 // 0x0108(0x001C)
+	struct FEFDropItemEffectSoundInfo                  GroundSound;                                              // 0x0124(0x001C)
 };
 
 // ScriptStruct EFGame.EFActionNotify_AddClientStatusEffect.EFAddStatusEffectByAbilityInfo
@@ -21231,9 +21120,8 @@ struct FEFDropItemEffectGroup
 struct FEFAddStatusEffectByAbilityInfo
 {
 	int                                                StatusEffectIndex;                                        // 0x0000(0x0004)
-	int                                                AbilityType;                                              // 0x0000(0x0004)
-	int                                                AbilityLevel;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                AbilityType;                                              // 0x0004(0x0004)
+	int                                                AbilityLevel;                                             // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Anim.EFAnimInfo
@@ -21241,22 +21129,23 @@ struct FEFAddStatusEffectByAbilityInfo
 struct FEFAnimInfo
 {
 	float                                              Rate;                                                     // 0x0000(0x0004)
-	float                                              BlendInTime;                                              // 0x0000(0x0004)
-	float                                              BlendOutTime;                                             // 0x0000(0x0004)
-	unsigned char                                      bLooping;                                                 // 0x0000(0x0001)
-	unsigned long                                      IgnoreLoopingAnimBlending : 1;                            // 0x0000(0x0004)
-	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0000(0x0001)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisX;                                          // 0x0000(0x0001)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisY;                                          // 0x0000(0x0001)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisZ;                                          // 0x0000(0x0001)
-	TEnumAsByte<ERootMotionRotationMode>               RootMotionRotate;                                         // 0x0000(0x0001)
-	TEnumAsByte<ERootRotationOption>                   RootMotionRotX;                                           // 0x0000(0x0001)
-	TEnumAsByte<ERootRotationOption>                   RootMotionRotY;                                           // 0x0000(0x0001)
-	TEnumAsByte<ERootRotationOption>                   RootMotionRotZ;                                           // 0x0000(0x0001)
-	TEnumAsByte<EPhysics>                              Physics;                                                  // 0x0000(0x0001)
-	struct FVector                                     RootMotionMaxDelta;                                       // 0x0000(0x000C)
-	float                                              RootMotionMaxDist;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	float                                              BlendInTime;                                              // 0x0004(0x0004)
+	float                                              BlendOutTime;                                             // 0x0008(0x0004)
+	unsigned char                                      bLooping;                                                 // 0x000C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
+	unsigned long                                      IgnoreLoopingAnimBlending : 1;                            // 0x0010(0x0004)
+	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0014(0x0001)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisX;                                          // 0x0015(0x0001)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisY;                                          // 0x0016(0x0001)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisZ;                                          // 0x0017(0x0001)
+	TEnumAsByte<ERootMotionRotationMode>               RootMotionRotate;                                         // 0x0018(0x0001)
+	TEnumAsByte<ERootRotationOption>                   RootMotionRotX;                                           // 0x0019(0x0001)
+	TEnumAsByte<ERootRotationOption>                   RootMotionRotY;                                           // 0x001A(0x0001)
+	TEnumAsByte<ERootRotationOption>                   RootMotionRotZ;                                           // 0x001B(0x0001)
+	TEnumAsByte<EPhysics>                              Physics;                                                  // 0x001C(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
+	struct FVector                                     RootMotionMaxDelta;                                       // 0x0020(0x000C)
+	float                                              RootMotionMaxDist;                                        // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Effect.EFSkillEffectInfo
@@ -21264,17 +21153,17 @@ struct FEFAnimInfo
 struct FEFSkillEffectInfo
 {
 	unsigned long                                      bActive : 1;                                              // 0x0000(0x0004)
-	int                                                SkillEffectId;                                            // 0x0000(0x0004)
-	int                                                EffectAngle;                                              // 0x0000(0x0004)
-	TEnumAsByte<EFHitSegmentDirType>                   HitDirType;                                               // 0x0000(0x0001)
-	unsigned char                                      SequentialSkillEffectExecuteCount;                        // 0x0000(0x0001)
-	unsigned char                                      SequentialSkillEffectAreaRate;                            // 0x0000(0x0001)
-	float                                              AccumulationDamageRate;                                   // 0x0000(0x0004)
-	float                                              AccumulationDamageRateMax;                                // 0x0000(0x0004)
-	struct FString                                     MemoryNotifyName;                                         // 0x0000(0x0010)
-	struct FVector                                     ProjectileOffset;                                         // 0x0000(0x000C)
-	unsigned char                                      UniqueId;                                                 // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0001(0x0034) MISSED OFFSET
+	int                                                SkillEffectId;                                            // 0x0004(0x0004)
+	int                                                EffectAngle;                                              // 0x0008(0x0004)
+	TEnumAsByte<EFHitSegmentDirType>                   HitDirType;                                               // 0x000C(0x0001)
+	unsigned char                                      SequentialSkillEffectExecuteCount;                        // 0x000D(0x0001)
+	unsigned char                                      SequentialSkillEffectAreaRate;                            // 0x000E(0x0001)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x000F(0x0001) MISSED OFFSET
+	float                                              AccumulationDamageRate;                                   // 0x0010(0x0004)
+	float                                              AccumulationDamageRateMax;                                // 0x0014(0x0004)
+	struct FString                                     MemoryNotifyName;                                         // 0x0018(0x0010)
+	struct FVector                                     ProjectileOffset;                                         // 0x0028(0x000C)
+	unsigned char                                      UniqueId;                                                 // 0x0034(0x0001)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.EFMetarialDataModifier
@@ -21282,9 +21171,8 @@ struct FEFSkillEffectInfo
 struct FEFMetarialDataModifier
 {
 	struct FString                                     LookInfoKey;                                              // 0x0000(0x0010)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0010(0x0010)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.EFSkelMeshActorAnimSeq
@@ -21292,15 +21180,14 @@ struct FEFMetarialDataModifier
 struct FEFSkelMeshActorAnimSeq
 {
 	struct FString                                     AnimSequenceName;                                         // 0x0000(0x0010)
-	float                                              AnimPlayRate;                                             // 0x0000(0x0004)
-	TArray<class UEFAN_Params*>                        ParticleEffects;                                          // 0x0000(0x0010)
-	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0000(0x0010)
-	int                                                LoopCount;                                                // 0x0000(0x0004)
-	float                                              StartAnimTime;                                            // 0x0000(0x0004)
-	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x0000(0x0004)
-	TArray<struct FPointer>                            ParticleEffectsPointerArray;                              // 0x0000(0x0010)
-	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0010(0x0050) MISSED OFFSET
+	float                                              AnimPlayRate;                                             // 0x0010(0x0004)
+	TArray<class UEFAN_Params*>                        ParticleEffects;                                          // 0x0014(0x0010)
+	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0024(0x0010)
+	int                                                LoopCount;                                                // 0x0034(0x0004)
+	float                                              StartAnimTime;                                            // 0x0038(0x0004)
+	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x003C(0x0004)
+	TArray<struct FPointer>                            ParticleEffectsPointerArray;                              // 0x0040(0x0010)
+	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0050(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.SubPartData
@@ -21308,12 +21195,12 @@ struct FEFSkelMeshActorAnimSeq
 struct FSubPartData
 {
 	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0000(0x0008)
-	unsigned long                                      SourceIsSocket : 1;                                       // 0x0000(0x0004)
-	struct FString                                     SourceName;                                               // 0x0000(0x0010)
-	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x0000(0x0001)
-	int                                                PartIndex;                                                // 0x0000(0x0004)
-	struct FString                                     SkeletalMeshPath;                                         // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0010(0x0024) MISSED OFFSET
+	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004)
+	struct FString                                     SourceName;                                               // 0x000C(0x0010)
+	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
+	int                                                PartIndex;                                                // 0x0020(0x0004)
+	struct FString                                     SkeletalMeshPath;                                         // 0x0024(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.PlaySkeletalMeshActor
@@ -21321,20 +21208,19 @@ struct FSubPartData
 struct FPlaySkeletalMeshActor
 {
 	struct FName                                       Tag;                                                      // 0x0000(0x0008)
-	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0000(0x0008)
-	class UAnimSet*                                    AnimSet;                                                  // 0x0000(0x0008)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010)
-	TArray<struct FEFMetarialDataModifier>             MaterialLookSet;                                          // 0x0000(0x0010)
-	TArray<struct FEFSkelMeshActorAnimSeq>             AnimSeqInfos;                                             // 0x0000(0x0010)
-	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0000(0x0004)
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    RelativeRotation;                                         // 0x0000(0x000C)
-	struct FVector                                     RelativeScale;                                            // 0x0000(0x000C)
-	TArray<struct FSubPartData>                        SubParts;                                                 // 0x0000(0x0010)
-	struct FString                                     SkeletalMeshPath;                                         // 0x0000(0x0010)
-	struct FString                                     AnimSetPath;                                              // 0x0000(0x0010)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xA0];                                      // 0x0010(0x00A0) MISSED OFFSET
+	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0008(0x0008)
+	class UAnimSet*                                    AnimSet;                                                  // 0x0010(0x0008)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010)
+	TArray<struct FEFMetarialDataModifier>             MaterialLookSet;                                          // 0x0028(0x0010)
+	TArray<struct FEFSkelMeshActorAnimSeq>             AnimSeqInfos;                                             // 0x0038(0x0010)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0048(0x0004)
+	struct FVector                                     RelativeLocation;                                         // 0x004C(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x0058(0x000C)
+	struct FVector                                     RelativeScale;                                            // 0x0064(0x000C)
+	TArray<struct FSubPartData>                        SubParts;                                                 // 0x0070(0x0010)
+	struct FString                                     SkeletalMeshPath;                                         // 0x0080(0x0010)
+	struct FString                                     AnimSetPath;                                              // 0x0090(0x0010)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x00A0(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_EquipCommonActionTool.EFChangeMeshInfo
@@ -21342,8 +21228,7 @@ struct FPlaySkeletalMeshActor
 struct FEFChangeMeshInfo
 {
 	int                                                EquipShipSkin;                                            // 0x0000(0x0004)
-	TArray<struct FPlaySkeletalMeshActor>              AttachMeshs;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<struct FPlaySkeletalMeshActor>              AttachMeshs;                                              // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_EquipCommonActionTool.EFChageToolByAbilityInfo
@@ -21351,9 +21236,8 @@ struct FEFChangeMeshInfo
 struct FEFChageToolByAbilityInfo
 {
 	int                                                AbilityType;                                              // 0x0000(0x0004)
-	int                                                EquipItemId;                                              // 0x0000(0x0004)
-	struct FString                                     AttachToolLookInfo;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	int                                                EquipItemId;                                              // 0x0004(0x0004)
+	struct FString                                     AttachToolLookInfo;                                       // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_HidePawn.HideInfoUnit
@@ -21361,8 +21245,8 @@ struct FEFChageToolByAbilityInfo
 struct FHideInfoUnit
 {
 	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0000(0x0001)
-	int                                                iSubType;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                iSubType;                                                 // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_InputTiming.InputTimingInfo
@@ -21370,23 +21254,23 @@ struct FHideInfoUnit
 struct FInputTimingInfo
 {
 	TEnumAsByte<EInputEventType>                       InputEvent;                                               // 0x0000(0x0001)
-	TEnumAsByte<EInputTimingType>                      InputType;                                                // 0x0000(0x0001)
-	unsigned long                                      bInstant : 1;                                             // 0x0000(0x0004)
-	unsigned long                                      bOnlyReserveInput : 1;                                    // 0x0000(0x0004)
-	unsigned long                                      bSyncAnimEnd : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bAttackProhibit : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      bAttackProhibitByRepeatInput : 1;                         // 0x0000(0x0004)
-	int                                                NextStageIndex;                                           // 0x0000(0x0004)
-	unsigned long                                      bChangeStageServer : 1;                                   // 0x0000(0x0004)
-	unsigned long                                      bMoveCancelBySkillInput : 1;                              // 0x0000(0x0004)
-	unsigned long                                      bSkillCancelBySameSkill : 1;                              // 0x0000(0x0004)
-	TArray<int>                                        SkillCancelSkillIdArray;                                  // 0x0000(0x0010)
-	unsigned long                                      bEnable : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      bActivating : 1;                                          // 0x0000(0x0004)
-	unsigned long                                      bStartActivating : 1;                                     // 0x0000(0x0004)
-	unsigned long                                      bDelayActivating : 1;                                     // 0x0000(0x0004)
-	int                                                PerfectZoneNextStageIndex;                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0004(0x0024) MISSED OFFSET
+	TEnumAsByte<EInputTimingType>                      InputType;                                                // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	unsigned long                                      bInstant : 1;                                             // 0x0004(0x0004)
+	unsigned long                                      bOnlyReserveInput : 1;                                    // 0x0004(0x0004)
+	unsigned long                                      bSyncAnimEnd : 1;                                         // 0x0004(0x0004)
+	unsigned long                                      bAttackProhibit : 1;                                      // 0x0004(0x0004)
+	unsigned long                                      bAttackProhibitByRepeatInput : 1;                         // 0x0004(0x0004)
+	int                                                NextStageIndex;                                           // 0x0008(0x0004)
+	unsigned long                                      bChangeStageServer : 1;                                   // 0x000C(0x0004)
+	unsigned long                                      bMoveCancelBySkillInput : 1;                              // 0x000C(0x0004)
+	unsigned long                                      bSkillCancelBySameSkill : 1;                              // 0x000C(0x0004)
+	TArray<int>                                        SkillCancelSkillIdArray;                                  // 0x0010(0x0010)
+	unsigned long                                      bEnable : 1;                                              // 0x0020(0x0004)
+	unsigned long                                      bActivating : 1;                                          // 0x0020(0x0004)
+	unsigned long                                      bStartActivating : 1;                                     // 0x0020(0x0004)
+	unsigned long                                      bDelayActivating : 1;                                     // 0x0020(0x0004)
+	int                                                PerfectZoneNextStageIndex;                                // 0x0024(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_MonsterMoveNextStageConditionCheckArea.EFCheckAreaInfo
@@ -21394,12 +21278,12 @@ struct FInputTimingInfo
 struct FEFCheckAreaInfo
 {
 	TEnumAsByte<ENpcSkillConditionTarget>              TargetType;                                               // 0x0000(0x0001)
-	int                                                MinAngle;                                                 // 0x0000(0x0004)
-	int                                                MaxAngle;                                                 // 0x0000(0x0004)
-	int                                                MinDistance;                                              // 0x0000(0x0004)
-	int                                                MaxDistance;                                              // 0x0000(0x0004)
-	TEnumAsByte<ECheckMoveType>                        MoveType;                                                 // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0001(0x0014) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                MinAngle;                                                 // 0x0004(0x0004)
+	int                                                MaxAngle;                                                 // 0x0008(0x0004)
+	int                                                MinDistance;                                              // 0x000C(0x0004)
+	int                                                MaxDistance;                                              // 0x0010(0x0004)
+	TEnumAsByte<ECheckMoveType>                        MoveType;                                                 // 0x0014(0x0001)
 };
 
 // ScriptStruct EFGame.EFActionNotify_NpcLimbState.EFPartsHighlightInfo
@@ -21407,12 +21291,11 @@ struct FEFCheckAreaInfo
 struct FEFPartsHighlightInfo
 {
 	unsigned long                                      bPartsHighlight : 1;                                      // 0x0000(0x0004)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0000(0x0010)
-	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0000(0x0010)
-	float                                              FadeInTime;                                               // 0x0000(0x0004)
-	float                                              FadeOutTime;                                              // 0x0000(0x0004)
-	float                                              DurationTime;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0004(0x002C) MISSED OFFSET
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0004(0x0010)
+	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0014(0x0010)
+	float                                              FadeInTime;                                               // 0x0024(0x0004)
+	float                                              FadeOutTime;                                              // 0x0028(0x0004)
+	float                                              DurationTime;                                             // 0x002C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialChange.MaterialChangeUnit
@@ -21420,9 +21303,9 @@ struct FEFPartsHighlightInfo
 struct FMaterialChangeUnit
 {
 	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0000(0x0001)
-	struct FString                                     strMAUKey;                                                // 0x0000(0x0010)
-	float                                              fLifeTime;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FString                                     strMAUKey;                                                // 0x0004(0x0010)
+	float                                              fLifeTime;                                                // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialChange.MaterialLookChangeUnit
@@ -21430,8 +21313,7 @@ struct FMaterialChangeUnit
 struct FMaterialLookChangeUnit
 {
 	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010)
-	struct FMaterialChangeUnit                         sUnit;                                                    // 0x0000(0x0018)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0018(0x0010) MISSED OFFSET
+	struct FMaterialChangeUnit                         sUnit;                                                    // 0x0010(0x0018)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialParam.MaterialParamUnit
@@ -21439,16 +21321,16 @@ struct FMaterialLookChangeUnit
 struct FMaterialParamUnit
 {
 	TEnumAsByte<ECTE_MA_MERGE_METHOD>                  eMergeType;                                               // 0x0000(0x0001)
-	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0000(0x0001)
-	TArray<int>                                        DetailIndexArr;                                           // 0x0000(0x0010)
-	struct FString                                     strMAUKey;                                                // 0x0000(0x0010)
-	float                                              fLifeTime;                                                // 0x0000(0x0004)
-	float                                              fRandomStartTime;                                         // 0x0000(0x0004)
-	struct FInterpCurveLinearColor                     sStartParameterValueCurveLInearColor;                     // 0x0000(0x0014)
-	struct FInterpCurveLinearColor                     sEndParameterValueCurveLInearColor;                       // 0x0000(0x0014)
-	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0000(0x0014)
-	struct FInterpCurveFloat                           sEndParameterValueCurveFloat;                             // 0x0000(0x0014)
-	unsigned char                                      UnknownData00[0x68];                                      // 0x0014(0x0068) MISSED OFFSET
+	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	TArray<int>                                        DetailIndexArr;                                           // 0x0004(0x0010)
+	struct FString                                     strMAUKey;                                                // 0x0014(0x0010)
+	float                                              fLifeTime;                                                // 0x0024(0x0004)
+	float                                              fRandomStartTime;                                         // 0x0028(0x0004)
+	struct FInterpCurveLinearColor                     sStartParameterValueCurveLInearColor;                     // 0x002C(0x0014)
+	struct FInterpCurveLinearColor                     sEndParameterValueCurveLInearColor;                       // 0x0040(0x0014)
+	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0054(0x0014)
+	struct FInterpCurveFloat                           sEndParameterValueCurveFloat;                             // 0x0068(0x0014)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialParam.MaterialLookParamUnit
@@ -21456,8 +21338,7 @@ struct FMaterialParamUnit
 struct FMaterialLookParamUnit
 {
 	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010)
-	struct FMaterialParamUnit                          sUnit;                                                    // 0x0000(0x007C)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x007C(0x0010) MISSED OFFSET
+	struct FMaterialParamUnit                          sUnit;                                                    // 0x0010(0x007C)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PhysicsParam.PhysicsParam
@@ -21465,16 +21346,16 @@ struct FMaterialLookParamUnit
 struct FPhysicsParam
 {
 	float                                              Duration;                                                 // 0x0000(0x0004)
-	float                                              PhysicsWeight;                                            // 0x0000(0x0004)
-	float                                              BlendInTime;                                              // 0x0000(0x0004)
-	float                                              BlendOutTime;                                             // 0x0000(0x0004)
-	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0000(0x0001)
-	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0000(0x0004)
-	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0000(0x0004)
-	unsigned long                                      bTarget : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0000(0x0004)
-	TArray<struct FName>                               IgnoreBoneNames;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0010(0x0018) MISSED OFFSET
+	float                                              PhysicsWeight;                                            // 0x0004(0x0004)
+	float                                              BlendInTime;                                              // 0x0008(0x0004)
+	float                                              BlendOutTime;                                             // 0x000C(0x0004)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0014(0x0004)
+	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0014(0x0004)
+	unsigned long                                      bTarget : 1;                                              // 0x0014(0x0004)
+	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0014(0x0004)
+	TArray<struct FName>                               IgnoreBoneNames;                                          // 0x0018(0x0010)
 };
 
 // ScriptStruct EFGame.EFBeamActionBase.EFBeamActionParam
@@ -21482,10 +21363,9 @@ struct FPhysicsParam
 struct FEFBeamActionParam
 {
 	struct FName                                       ParamName;                                                // 0x0000(0x0008)
-	unsigned long                                      bUseBone : 1;                                             // 0x0000(0x0004)
-	struct FName                                       SocketName;                                               // 0x0000(0x0008)
-	int                                                BeamParamType;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	unsigned long                                      bUseBone : 1;                                             // 0x0008(0x0004)
+	struct FName                                       SocketName;                                               // 0x000C(0x0008)
+	int                                                BeamParamType;                                            // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.EFActionPSFloorInfo
@@ -21493,11 +21373,11 @@ struct FEFBeamActionParam
 struct FEFActionPSFloorInfo
 {
 	TEnumAsByte<EFMATERIAL_FOOTSTEP>                   FloorType;                                                // 0x0000(0x0001)
-	class UParticleSystem*                             ParticleSystemAdd;                                        // 0x0000(0x0008)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008)
-	struct FString                                     ParticleSystemAddPath;                                    // 0x0000(0x0010)
-	struct FString                                     ParticleSystemPath;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0010(0x0024) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UParticleSystem*                             ParticleSystemAdd;                                        // 0x0004(0x0008)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x000C(0x0008)
+	struct FString                                     ParticleSystemAddPath;                                    // 0x0014(0x0010)
+	struct FString                                     ParticleSystemPath;                                       // 0x0024(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.EFPSRandomVector
@@ -21505,8 +21385,7 @@ struct FEFActionPSFloorInfo
 struct FEFPSRandomVector
 {
 	struct FVector                                     Min;                                                      // 0x0000(0x000C)
-	struct FVector                                     Max;                                                      // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	struct FVector                                     Max;                                                      // 0x000C(0x000C)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.EFPSRandomRotator
@@ -21514,8 +21393,7 @@ struct FEFPSRandomVector
 struct FEFPSRandomRotator
 {
 	struct FRotator                                    Min;                                                      // 0x0000(0x000C)
-	struct FRotator                                    Max;                                                      // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x000C(0x000C) MISSED OFFSET
+	struct FRotator                                    Max;                                                      // 0x000C(0x000C)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMeshMaterialParam.ActionNotify_SM_AnimEventData
@@ -21523,10 +21401,9 @@ struct FEFPSRandomRotator
 struct FActionNotify_SM_AnimEventData
 {
 	struct FName                                       ObjectTag;                                                // 0x0000(0x0008)
-	struct FString                                     AnimSequenceName;                                         // 0x0000(0x0010)
-	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0000(0x0010)
-	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) MISSED OFFSET
+	struct FString                                     AnimSequenceName;                                         // 0x0008(0x0010)
+	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0018(0x0010)
+	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0028(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionConditionSelectNpcIdleType.ExceptionalNpcIdleData
@@ -21534,8 +21411,8 @@ struct FActionNotify_SM_AnimEventData
 struct FExceptionalNpcIdleData
 {
 	TEnumAsByte<EFNpcIdleType>                         IdleType;                                                 // 0x0000(0x0001)
-	int                                                OutputStageIndex;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                OutputStageIndex;                                         // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionObject.NpcPartInfo
@@ -21543,12 +21420,12 @@ struct FExceptionalNpcIdleData
 struct FNpcPartInfo
 {
 	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001)
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008)
-	struct FVector                                     Position;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	struct FVector                                     Extent;                                                   // 0x0000(0x000C)
-	float                                              Radius;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0004(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FName                                       BoneName;                                                 // 0x0004(0x0008)
+	struct FVector                                     Position;                                                 // 0x000C(0x000C)
+	struct FRotator                                    Rotation;                                                 // 0x0018(0x000C)
+	struct FVector                                     Extent;                                                   // 0x0024(0x000C)
+	float                                              Radius;                                                   // 0x0030(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionObject.EFStageLayer
@@ -21556,15 +21433,14 @@ struct FNpcPartInfo
 struct FEFStageLayer
 {
 	int                                                UniqueIndex;                                              // 0x0000(0x0004)
-	TArray<class UEFActionStage*>                      StageList;                                                // 0x0000(0x0010)
-	int                                                LayerIndex;                                               // 0x0000(0x0004)
-	struct FString                                     Comment;                                                  // 0x0000(0x0010)
-	int                                                SkillSubCostConsumeStageIndex;                            // 0x0000(0x0004)
-	float                                              SkillSubCostConsumeTime;                                  // 0x0000(0x0004)
-	unsigned long                                      MergeActionStage : 1;                                     // 0x0000(0x0004)
-	unsigned long                                      bZeroExtentLineCheck : 1;                                 // 0x0000(0x0004)
-	TArray<struct FPointer>                            StageListPointerArray;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0010(0x0034) MISSED OFFSET
+	TArray<class UEFActionStage*>                      StageList;                                                // 0x0004(0x0010)
+	int                                                LayerIndex;                                               // 0x0014(0x0004)
+	struct FString                                     Comment;                                                  // 0x0018(0x0010)
+	int                                                SkillSubCostConsumeStageIndex;                            // 0x0028(0x0004)
+	float                                              SkillSubCostConsumeTime;                                  // 0x002C(0x0004)
+	unsigned long                                      MergeActionStage : 1;                                     // 0x0030(0x0004)
+	unsigned long                                      bZeroExtentLineCheck : 1;                                 // 0x0030(0x0004)
+	TArray<struct FPointer>                            StageListPointerArray;                                    // 0x0034(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFNPCIdleSequenceInfo
@@ -21572,8 +21448,7 @@ struct FEFStageLayer
 struct FEFNPCIdleSequenceInfo
 {
 	struct FString                                     SequenceName;                                             // 0x0000(0x0010)
-	float                                              SequenceLength;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              SequenceLength;                                           // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFNPCIdleReferenceData
@@ -21581,9 +21456,8 @@ struct FEFNPCIdleSequenceInfo
 struct FEFNPCIdleReferenceData
 {
 	unsigned long                                      NPCIdleReferenceDataComplete : 1;                         // 0x0000(0x0004)
-	TArray<class UAnimSet*>                            UseAnimSetArray;                                          // 0x0000(0x0010)
-	TArray<struct FEFNPCIdleSequenceInfo>              IdleSequenceInfoArray;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	TArray<class UAnimSet*>                            UseAnimSetArray;                                          // 0x0004(0x0010)
+	TArray<struct FEFNPCIdleSequenceInfo>              IdleSequenceInfoArray;                                    // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFActionGroupReference
@@ -21591,14 +21465,13 @@ struct FEFNPCIdleReferenceData
 struct FEFActionGroupReference
 {
 	int                                                PrimaryKey;                                               // 0x0000(0x0004)
-	int                                                SecondaryKey;                                             // 0x0000(0x0004)
-	int                                                DataType;                                                 // 0x0000(0x0004)
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	struct FString                                     Grade;                                                    // 0x0000(0x0010)
-	struct FString                                     Model;                                                    // 0x0000(0x0010)
-	float                                              Scale;                                                    // 0x0000(0x0004)
-	struct FString                                     Comment;                                                  // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0010(0x0040) MISSED OFFSET
+	int                                                SecondaryKey;                                             // 0x0004(0x0004)
+	int                                                DataType;                                                 // 0x0008(0x0004)
+	struct FString                                     Name;                                                     // 0x000C(0x0010)
+	struct FString                                     Grade;                                                    // 0x001C(0x0010)
+	struct FString                                     Model;                                                    // 0x002C(0x0010)
+	float                                              Scale;                                                    // 0x003C(0x0004)
+	struct FString                                     Comment;                                                  // 0x0040(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionStage.EFSkill_NotifyGroup
@@ -21606,9 +21479,8 @@ struct FEFActionGroupReference
 struct FEFSkill_NotifyGroup
 {
 	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	unsigned long                                      expand : 1;                                               // 0x0000(0x0004)
-	struct FColor                                      RGB;                                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	unsigned long                                      expand : 1;                                               // 0x0010(0x0004)
+	struct FColor                                      RGB;                                                      // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionStage.EFStageTransitionInfo
@@ -21616,9 +21488,8 @@ struct FEFSkill_NotifyGroup
 struct FEFStageTransitionInfo
 {
 	int                                                PrevStageIndex;                                           // 0x0000(0x0004)
-	int                                                ConditionalNextStageIndex01;                              // 0x0000(0x0004)
-	int                                                ConditionalNextStageIndex02;                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                ConditionalNextStageIndex01;                              // 0x0004(0x0004)
+	int                                                ConditionalNextStageIndex02;                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFMatineePathNode.MatineePathNodeConnection
@@ -21626,8 +21497,7 @@ struct FEFStageTransitionInfo
 struct FMatineePathNodeConnection
 {
 	class ULineBatchComponent*                         LineComponent;                                            // 0x0000(0x0008)
-	class AEFMatineePathNode*                          ConnectTo;                                                // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
+	class AEFMatineePathNode*                          ConnectTo;                                                // 0x0008(0x0008)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataParticle
@@ -21635,9 +21505,9 @@ struct FMatineePathNodeConnection
 struct FEFSequenceSummonsActionBankDataParticle
 {
 	TEnumAsByte<EFSequenceSummonsActionBankDataParticleEnum> ParticleType;                                             // 0x0000(0x0001)
-	class UEFProjectileParticleData*                   ParticleDataFX;                                           // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataFXPointer;                                    // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UEFProjectileParticleData*                   ParticleDataFX;                                           // 0x0004(0x0008)
+	struct FPointer                                    ParticleDataFXPointer;                                    // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataFloatValue
@@ -21645,8 +21515,8 @@ struct FEFSequenceSummonsActionBankDataParticle
 struct FEFSequenceSummonsActionBankDataFloatValue
 {
 	TEnumAsByte<EFSequenceSummonsActionBankDataFloatValueEnum> ValueType;                                                // 0x0000(0x0001)
-	float                                              Value;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              Value;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataBOOLValue
@@ -21654,8 +21524,8 @@ struct FEFSequenceSummonsActionBankDataFloatValue
 struct FEFSequenceSummonsActionBankDataBOOLValue
 {
 	TEnumAsByte<EFSequenceSummonsActionBankDataBOOLValueEnum> ValueType;                                                // 0x0000(0x0001)
-	unsigned long                                      Value : 1;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	unsigned long                                      Value : 1;                                                // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataMultiUseValueData
@@ -21663,8 +21533,7 @@ struct FEFSequenceSummonsActionBankDataBOOLValue
 struct FEFSequenceSummonsActionBankDataMultiUseValueData
 {
 	int                                                IntData;                                                  // 0x0000(0x0004)
-	float                                              floatData;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              floatData;                                                // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataMultiUseValueDataArray
@@ -21672,9 +21541,9 @@ struct FEFSequenceSummonsActionBankDataMultiUseValueData
 struct FEFSequenceSummonsActionBankDataMultiUseValueDataArray
 {
 	int                                                ApplySkillEffectID;                                       // 0x0000(0x0004)
-	TEnumAsByte<EFSequenceSummonsActionBankDataMultiUseValueEnum> Type;                                                     // 0x0000(0x0001)
-	TArray<struct FEFSequenceSummonsActionBankDataMultiUseValueData> SkillEffectMultiUseDataArray;                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	TEnumAsByte<EFSequenceSummonsActionBankDataMultiUseValueEnum> Type;                                                     // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	TArray<struct FEFSequenceSummonsActionBankDataMultiUseValueData> SkillEffectMultiUseDataArray;                             // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionSetSkeletalMesh.EFProjectileActionSkeletalMeshMaterialParameter
@@ -21682,12 +21551,13 @@ struct FEFSequenceSummonsActionBankDataMultiUseValueDataArray
 struct FEFProjectileActionSkeletalMeshMaterialParameter
 {
 	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterDelayType> DelayType;                                                // 0x0000(0x0001)
-	float                                              DelayTypeValue;                                           // 0x0000(0x0004)
-	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterValueType> ValueType;                                                // 0x0000(0x0001)
-	float                                              TypeValue;                                                // 0x0000(0x0004)
-	struct FString                                     ParameterName;                                            // 0x0000(0x0010)
-	float                                              ParameterValue;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0004(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              DelayTypeValue;                                           // 0x0004(0x0004)
+	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterValueType> ValueType;                                                // 0x0008(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
+	float                                              TypeValue;                                                // 0x000C(0x0004)
+	struct FString                                     ParameterName;                                            // 0x0010(0x0010)
+	float                                              ParameterValue;                                           // 0x0020(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionTierChecker.EFSequenceSummonsActionTierCheckerData
@@ -21695,10 +21565,9 @@ struct FEFProjectileActionSkeletalMeshMaterialParameter
 struct FEFSequenceSummonsActionTierCheckerData
 {
 	unsigned long                                      Activate : 1;                                             // 0x0000(0x0004)
-	int                                                Tier1;                                                    // 0x0000(0x0004)
-	int                                                Tier2;                                                    // 0x0000(0x0004)
-	int                                                Tier3;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                Tier1;                                                    // 0x0004(0x0004)
+	int                                                Tier2;                                                    // 0x0008(0x0004)
+	int                                                Tier3;                                                    // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsProjectile.EFSummonsObjectMask
@@ -21717,8 +21586,8 @@ struct FEFSummonsObjectMask
 struct FEFSummonsJudgmentRotation
 {
 	TEnumAsByte<EFSummonsJudgmentRotationDir>          JudgmentRotationDir;                                      // 0x0000(0x0001)
-	float                                              JudgmentRotationSeconds;                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              JudgmentRotationSeconds;                                  // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsEditorFilter.SummonsEditorFilterData
@@ -21726,11 +21595,10 @@ struct FEFSummonsJudgmentRotation
 struct FSummonsEditorFilterData
 {
 	struct FString                                     FilterName;                                               // 0x0000(0x0010)
-	TArray<int>                                        SummonsIDs;                                               // 0x0000(0x0010)
-	TArray<struct FSummonsEditorFilterData>            SubFilters;                                               // 0x0000(0x0010)
-	int                                                PosX;                                                     // 0x0000(0x0004)
-	int                                                PosY;                                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0004(0x0034) MISSED OFFSET
+	TArray<int>                                        SummonsIDs;                                               // 0x0010(0x0010)
+	TArray<struct FSummonsEditorFilterData>            SubFilters;                                               // 0x0020(0x0010)
+	int                                                PosX;                                                     // 0x0030(0x0004)
+	int                                                PosY;                                                     // 0x0034(0x0004)
 };
 
 // ScriptStruct EFGame.EFInterpTrackPlayerClassAkEvent.EFPlayerClassAkEventTrackKey
@@ -21738,13 +21606,12 @@ struct FSummonsEditorFilterData
 struct FEFPlayerClassAkEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	class UAkEvent*                                    WarriorEvent;                                             // 0x0000(0x0008)
-	class UAkEvent*                                    MagicianEvent;                                            // 0x0000(0x0008)
-	class UAkEvent*                                    FighterEvent;                                             // 0x0000(0x0008)
-	class UAkEvent*                                    DelainEvent;                                              // 0x0000(0x0008)
-	class UAkEvent*                                    HunterEvent;                                              // 0x0000(0x0008)
-	class UAkEvent*                                    SpecialistEvent;                                          // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0008(0x002C) MISSED OFFSET
+	class UAkEvent*                                    WarriorEvent;                                             // 0x0004(0x0008)
+	class UAkEvent*                                    MagicianEvent;                                            // 0x000C(0x0008)
+	class UAkEvent*                                    FighterEvent;                                             // 0x0014(0x0008)
+	class UAkEvent*                                    DelainEvent;                                              // 0x001C(0x0008)
+	class UAkEvent*                                    HunterEvent;                                              // 0x0024(0x0008)
+	class UAkEvent*                                    SpecialistEvent;                                          // 0x002C(0x0008)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSoundSet.EFInterpTrackSoundSetInfo
@@ -21752,10 +21619,10 @@ struct FEFPlayerClassAkEventTrackKey
 struct FEFInterpTrackSoundSetInfo
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EInterpTrackSoundSetType>              SoundSetType;                                             // 0x0000(0x0001)
-	TEnumAsByte<EFSoundSetStuffType>                   StuffSoundSetType;                                        // 0x0000(0x0001)
-	struct FString                                     AttachBoneName;                                           // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	TEnumAsByte<EInterpTrackSoundSetType>              SoundSetType;                                             // 0x0004(0x0001)
+	TEnumAsByte<EFSoundSetStuffType>                   StuffSoundSetType;                                        // 0x0005(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0006(0x0002) MISSED OFFSET
+	struct FString                                     AttachBoneName;                                           // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSubtitle.EFSubtitleInfo
@@ -21763,11 +21630,11 @@ struct FEFInterpTrackSoundSetInfo
 struct FEFSubtitleInfo
 {
 	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001)
-	int                                                MsgID;                                                    // 0x0000(0x0004)
-	struct FString                                     strMsgID;                                                 // 0x0000(0x0010)
-	float                                              Duration;                                                 // 0x0000(0x0004)
-	float                                              Time;                                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0004(0x001C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                MsgID;                                                    // 0x0004(0x0004)
+	struct FString                                     strMsgID;                                                 // 0x0008(0x0010)
+	float                                              Duration;                                                 // 0x0018(0x0004)
+	float                                              Time;                                                     // 0x001C(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFFacialAnimInfo
@@ -21775,10 +21642,9 @@ struct FEFSubtitleInfo
 struct FEFFacialAnimInfo
 {
 	unsigned long                                      bUseFacialAnim : 1;                                       // 0x0000(0x0004)
-	float                                              AnimWeightMax;                                            // 0x0000(0x0004)
-	float                                              PlayRate;                                                 // 0x0000(0x0004)
-	float                                              BlendTime;                                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              AnimWeightMax;                                            // 0x0004(0x0004)
+	float                                              PlayRate;                                                 // 0x0008(0x0004)
+	float                                              BlendTime;                                                // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSubtitleBalloon.EFSubtitleBalloonInfo
@@ -21786,12 +21652,12 @@ struct FEFFacialAnimInfo
 struct FEFSubtitleBalloonInfo
 {
 	TEnumAsByte<ESubtitleBalloonType>                  BalloonType;                                              // 0x0000(0x0001)
-	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001)
-	int                                                MsgID;                                                    // 0x0000(0x0004)
-	struct FString                                     strMsgID;                                                 // 0x0000(0x0010)
-	float                                              Duration;                                                 // 0x0000(0x0004)
-	float                                              Time;                                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0004(0x001C) MISSED OFFSET
+	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0001(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
+	int                                                MsgID;                                                    // 0x0004(0x0004)
+	struct FString                                     strMsgID;                                                 // 0x0008(0x0010)
+	float                                              Duration;                                                 // 0x0018(0x0004)
+	float                                              Time;                                                     // 0x001C(0x0004)
 };
 
 // ScriptStruct EFGame.EFInterpTrackVoiceSet.EFInterpTrackVoiceSetInfo
@@ -21799,23 +21665,23 @@ struct FEFSubtitleBalloonInfo
 struct FEFInterpTrackVoiceSetInfo
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EInterpTrackVoiceSetType>              VoiceSetType;                                             // 0x0000(0x0001)
-	TEnumAsByte<EFCommonActionVoiceSetType>            CommonActionVoiceSetType;                                 // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetAdditionalType>              AdditionalVoiceSetType;                                   // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetAttackCastType>              AttackCastVoiceSetType;                                   // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetAttackCastLongType>          AttackCastLongVoiceSetType;                               // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetAttackExecType>              AttackExecVoiceSetType;                                   // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetAttackShotType>              AttackShotVoiceSetType;                                   // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetDamageType>                  DamageVoiceSetType;                                       // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetDeathType>                   DeathVoiceSetType;                                        // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetDownType>                    DownVoiceSetType;                                         // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetIdleType>                    IdleVoiceSetType;                                         // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetRunType>                     RunVoiceSetType;                                          // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetSpawnType>                   SpawnVoiceSetType;                                        // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetStandUpType>                 StandUpVoiceSetType;                                      // 0x0000(0x0001)
-	TEnumAsByte<EFVoiceSetWalkType>                    WalkVoiceSetType;                                         // 0x0000(0x0001)
-	struct FString                                     Keyword;                                                  // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	TEnumAsByte<EInterpTrackVoiceSetType>              VoiceSetType;                                             // 0x0004(0x0001)
+	TEnumAsByte<EFCommonActionVoiceSetType>            CommonActionVoiceSetType;                                 // 0x0005(0x0001)
+	TEnumAsByte<EFVoiceSetAdditionalType>              AdditionalVoiceSetType;                                   // 0x0006(0x0001)
+	TEnumAsByte<EFVoiceSetAttackCastType>              AttackCastVoiceSetType;                                   // 0x0007(0x0001)
+	TEnumAsByte<EFVoiceSetAttackCastLongType>          AttackCastLongVoiceSetType;                               // 0x0008(0x0001)
+	TEnumAsByte<EFVoiceSetAttackExecType>              AttackExecVoiceSetType;                                   // 0x0009(0x0001)
+	TEnumAsByte<EFVoiceSetAttackShotType>              AttackShotVoiceSetType;                                   // 0x000A(0x0001)
+	TEnumAsByte<EFVoiceSetDamageType>                  DamageVoiceSetType;                                       // 0x000B(0x0001)
+	TEnumAsByte<EFVoiceSetDeathType>                   DeathVoiceSetType;                                        // 0x000C(0x0001)
+	TEnumAsByte<EFVoiceSetDownType>                    DownVoiceSetType;                                         // 0x000D(0x0001)
+	TEnumAsByte<EFVoiceSetIdleType>                    IdleVoiceSetType;                                         // 0x000E(0x0001)
+	TEnumAsByte<EFVoiceSetRunType>                     RunVoiceSetType;                                          // 0x000F(0x0001)
+	TEnumAsByte<EFVoiceSetSpawnType>                   SpawnVoiceSetType;                                        // 0x0010(0x0001)
+	TEnumAsByte<EFVoiceSetStandUpType>                 StandUpVoiceSetType;                                      // 0x0011(0x0001)
+	TEnumAsByte<EFVoiceSetWalkType>                    WalkVoiceSetType;                                         // 0x0012(0x0001)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0013(0x0001) MISSED OFFSET
+	struct FString                                     Keyword;                                                  // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFTexture2D.EFTexture2DHitPixel
@@ -21830,10 +21696,9 @@ struct FEFTexture2DHitPixel
 struct FMinimapPeiceInfo
 {
 	struct FIntPoint                                   Index;                                                    // 0x0000(0x0008)
-	int                                                PieceIndex;                                               // 0x0000(0x0004)
-	struct FString                                     TextureName;                                              // 0x0000(0x0010)
-	struct FBox                                        BoudingBox;                                               // 0x0000(0x001C)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x001C(0x001C) MISSED OFFSET
+	int                                                PieceIndex;                                               // 0x0008(0x0004)
+	struct FString                                     TextureName;                                              // 0x000C(0x0010)
+	struct FBox                                        BoudingBox;                                               // 0x001C(0x001C)
 };
 
 // ScriptStruct EFGame.EFAction_Notify.ActionNotifyData
@@ -21841,89 +21706,79 @@ struct FMinimapPeiceInfo
 struct FActionNotifyData
 {
 	float                                              LastCheckTime;                                            // 0x0000(0x0004)
-	int                                                LastRepeatIndex;                                          // 0x0000(0x0004)
-	int                                                ActiveByMemoryPos;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                LastRepeatIndex;                                          // 0x0004(0x0004)
+	int                                                ActiveByMemoryPos;                                        // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_AKEvent.ActionNotifyAKEventData
 // 0x0010 (0x001C - 0x000C)
 struct FActionNotifyAKEventData : public FActionNotifyData
 {
-	TArray<int>                                        PlayAKEventList;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	TArray<int>                                        PlayAKEventList;                                          // 0x000C(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Anim.ActionNotifyAnimData
 // 0x0008 (0x0014 - 0x000C)
 struct FActionNotifyAnimData : public FActionNotifyData
 {
-	class UAnimNodeSequence*                           PlayedAnimNodeSeq;                                        // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	class UAnimNodeSequence*                           PlayedAnimNodeSeq;                                        // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFActionNotify_AnimBlendDirectional.ActionNotify_AnimBlendDirectionalData
 // 0x0004 (0x0010 - 0x000C)
 struct FActionNotify_AnimBlendDirectionalData : public FActionNotifyData
 {
-	float                                              IgnoreStayTime;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	float                                              IgnoreStayTime;                                           // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_MemoryPos.ActionNotifyMemoryPos
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyMemoryPos : public FActionNotifyData
 {
-	struct FEFBasedLocation                            CharPos;                                                  // 0x0000(0x0010)
-	struct FEFBasedLocation                            TargetCastPos;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0010(0x001C) MISSED OFFSET
+	struct FEFBasedLocation                            CharPos;                                                  // 0x000C(0x0010)
+	struct FEFBasedLocation                            TargetCastPos;                                            // 0x001C(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_ParticleControl.ActionNotifyParticleControlData
 // 0x0030 (0x003C - 0x000C)
 struct FActionNotifyParticleControlData : public FActionNotifyData
 {
-	struct FEFBasedLocation                            ParticleStartPos;                                         // 0x0000(0x0010)
-	struct FEFBasedLocation                            ParticleTargetPos;                                        // 0x0000(0x0010)
-	class UEFActionNotify_PlayParticleEffect*          ControlNotify;                                            // 0x0000(0x0008)
-	struct FPointer                                    ControlNotifyPointer;                                     // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0008(0x0034) MISSED OFFSET
+	struct FEFBasedLocation                            ParticleStartPos;                                         // 0x000C(0x0010)
+	struct FEFBasedLocation                            ParticleTargetPos;                                        // 0x001C(0x0010)
+	class UEFActionNotify_PlayParticleEffect*          ControlNotify;                                            // 0x002C(0x0008)
+	struct FPointer                                    ControlNotifyPointer;                                     // 0x0034(0x0008)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Physics.ActionNotifyPhysicsData
 // 0x0001 (0x000D - 0x000C)
 struct FActionNotifyPhysicsData : public FActionNotifyData
 {
-	TEnumAsByte<EPhysics>                              PrevPhysics;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0001(0x000C) MISSED OFFSET
+	TEnumAsByte<EPhysics>                              PrevPhysics;                                              // 0x000C(0x0001)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayBeamEffect.ActionNotifyPlayBeamData
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyPlayBeamData : public FActionNotifyData
 {
-	TArray<int>                                        PlayedBeamArr;                                            // 0x0000(0x0010)
-	TArray<int>                                        EditingPlayedBeamArr;                                     // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0010(0x001C) MISSED OFFSET
+	TArray<int>                                        PlayedBeamArr;                                            // 0x000C(0x0010)
+	TArray<int>                                        EditingPlayedBeamArr;                                     // 0x001C(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayCameraParticleEffect.ActionNotifyCameraParticleData
 // 0x0004 (0x0010 - 0x000C)
 struct FActionNotifyCameraParticleData : public FActionNotifyData
 {
-	int                                                PlayPSIndex;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                PlayPSIndex;                                              // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayDecalEffect.ActionNotifyPlayDecalEffectData
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyPlayDecalEffectData : public FActionNotifyData
 {
-	int                                                EffectId;                                                 // 0x0000(0x0004)
-	struct FVector                                     StartDir;                                                 // 0x0000(0x000C)
-	int                                                ActionEnum;                                               // 0x0000(0x0004)
-	struct FVector                                     MouseTargetPos;                                           // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x000C(0x0020) MISSED OFFSET
+	int                                                EffectId;                                                 // 0x000C(0x0004)
+	struct FVector                                     StartDir;                                                 // 0x0010(0x000C)
+	int                                                ActionEnum;                                               // 0x001C(0x0004)
+	struct FVector                                     MouseTargetPos;                                           // 0x0020(0x000C)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFActorLocationCycleMotion
@@ -21931,11 +21786,10 @@ struct FActionNotifyPlayDecalEffectData : public FActionNotifyData
 struct FEFActorLocationCycleMotion
 {
 	float                                              fTime;                                                    // 0x0000(0x0004)
-	struct FVector                                     vPreValue;                                                // 0x0000(0x000C)
-	float                                              fMotionRange;                                             // 0x0000(0x0004)
-	float                                              fMotionCycle;                                             // 0x0000(0x0004)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0001(0x0018) MISSED OFFSET
+	struct FVector                                     vPreValue;                                                // 0x0004(0x000C)
+	float                                              fMotionRange;                                             // 0x0010(0x0004)
+	float                                              fMotionCycle;                                             // 0x0014(0x0004)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFActorRotationAcyclicMotion
@@ -21943,8 +21797,7 @@ struct FEFActorLocationCycleMotion
 struct FEFActorRotationAcyclicMotion
 {
 	float                                              fMotionVel;                                               // 0x0000(0x0004)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0001(0x0004) MISSED OFFSET
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0004(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFActorRotationCyclicMotion
@@ -21952,11 +21805,10 @@ struct FEFActorRotationAcyclicMotion
 struct FEFActorRotationCyclicMotion
 {
 	float                                              fTime;                                                    // 0x0000(0x0004)
-	struct FRotator                                    vPreValue;                                                // 0x0000(0x000C)
-	float                                              fMotionRange;                                             // 0x0000(0x0004)
-	float                                              fMotionCycle;                                             // 0x0000(0x0004)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0001(0x0018) MISSED OFFSET
+	struct FRotator                                    vPreValue;                                                // 0x0004(0x000C)
+	float                                              fMotionRange;                                             // 0x0010(0x0004)
+	float                                              fMotionCycle;                                             // 0x0014(0x0004)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMoney
@@ -21964,8 +21816,8 @@ struct FEFActorRotationCyclicMotion
 struct FEFMoney
 {
 	TEnumAsByte<EMoneyType>                            Type;                                                     // 0x0000(0x0001)
-	int                                                Amount;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Amount;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFFaction
@@ -21973,8 +21825,8 @@ struct FEFMoney
 struct FEFFaction
 {
 	TEnumAsByte<EFactionType>                          Type;                                                     // 0x0000(0x0001)
-	int                                                SubFactionID;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                SubFactionID;                                             // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIntRange
@@ -21982,8 +21834,7 @@ struct FEFFaction
 struct FEFIntRange
 {
 	int                                                Min;                                                      // 0x0000(0x0004)
-	int                                                Max;                                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Max;                                                      // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.HittedSoundWeaponSetInfo
@@ -21991,8 +21842,7 @@ struct FEFIntRange
 struct FHittedSoundWeaponSetInfo
 {
 	int                                                Index;                                                    // 0x0000(0x0004)
-	struct FString                                     hittedSoundWeaponSetName;                                 // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	struct FString                                     hittedSoundWeaponSetName;                                 // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMatineeSyncMotionInfo
@@ -22000,8 +21850,7 @@ struct FHittedSoundWeaponSetInfo
 struct FEFMatineeSyncMotionInfo
 {
 	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010)
-	struct FString                                     MatineeSyncMotionName;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	struct FString                                     MatineeSyncMotionName;                                    // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTrackMoveTransform
@@ -22009,9 +21858,8 @@ struct FEFMatineeSyncMotionInfo
 struct FEFTrackMoveTransform
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	struct FVector                                     Location;                                                 // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x000C(0x0010) MISSED OFFSET
+	struct FVector                                     Location;                                                 // 0x0004(0x000C)
+	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTrackMoveInfo
@@ -22019,10 +21867,9 @@ struct FEFTrackMoveTransform
 struct FEFTrackMoveInfo
 {
 	int                                                TrackIndex;                                               // 0x0000(0x0004)
-	struct FVector                                     InitLocation;                                             // 0x0000(0x000C)
-	struct FRotator                                    InitRotation;                                             // 0x0000(0x000C)
-	TArray<struct FEFTrackMoveTransform>               MovementInfo;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0010(0x001C) MISSED OFFSET
+	struct FVector                                     InitLocation;                                             // 0x0004(0x000C)
+	struct FRotator                                    InitRotation;                                             // 0x0010(0x000C)
+	TArray<struct FEFTrackMoveTransform>               MovementInfo;                                             // 0x001C(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFDataUnitInputInfo
@@ -22030,8 +21877,7 @@ struct FEFTrackMoveInfo
 struct FEFDataUnitInputInfo
 {
 	struct FString                                     InputDesc;                                                // 0x0000(0x0010)
-	TArray<int>                                        PrevNodeIndexArray;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<int>                                        PrevNodeIndexArray;                                       // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFDataUnitOutputInfo
@@ -22039,8 +21885,7 @@ struct FEFDataUnitInputInfo
 struct FEFDataUnitOutputInfo
 {
 	struct FString                                     OutputDesc;                                               // 0x0000(0x0010)
-	TArray<int>                                        NextNodeIndexArray;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<int>                                        NextNodeIndexArray;                                       // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFLocationSyncInfo
@@ -22048,14 +21893,14 @@ struct FEFDataUnitOutputInfo
 struct FEFLocationSyncInfo
 {
 	TEnumAsByte<EFMatineeSyncTargetType>               TargetType;                                               // 0x0000(0x0001)
-	int                                                SpawnIndex;                                               // 0x0000(0x0004)
-	struct FVector                                     StartLocation;                                            // 0x0000(0x000C)
-	struct FVector                                     EndLocation;                                              // 0x0000(0x000C)
-	struct FVector                                     StartRotation;                                            // 0x0000(0x000C)
-	struct FVector                                     EndRotation;                                              // 0x0000(0x000C)
-	class AActor*                                      GroupActor;                                               // 0x0000(0x0008)
-	class UInterpGroup*                                Group;                                                    // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0008(0x0040) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                SpawnIndex;                                               // 0x0004(0x0004)
+	struct FVector                                     StartLocation;                                            // 0x0008(0x000C)
+	struct FVector                                     EndLocation;                                              // 0x0014(0x000C)
+	struct FVector                                     StartRotation;                                            // 0x0020(0x000C)
+	struct FVector                                     EndRotation;                                              // 0x002C(0x000C)
+	class AActor*                                      GroupActor;                                               // 0x0038(0x0008)
+	class UInterpGroup*                                Group;                                                    // 0x0040(0x0008)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMatineeSyncInfo
@@ -22063,8 +21908,7 @@ struct FEFLocationSyncInfo
 struct FEFMatineeSyncInfo
 {
 	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010)
-	TArray<struct FEFLocationSyncInfo>                 LocationSyncInfoList;                                     // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<struct FEFLocationSyncInfo>                 LocationSyncInfoList;                                     // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.SeqFrameInfo
@@ -22072,11 +21916,10 @@ struct FEFMatineeSyncInfo
 struct FSeqFrameInfo
 {
 	int                                                PosX;                                                     // 0x0000(0x0004)
-	int                                                PosY;                                                     // 0x0000(0x0004)
-	int                                                SizeX;                                                    // 0x0000(0x0004)
-	int                                                SizeY;                                                    // 0x0000(0x0004)
-	struct FString                                     Comment;                                                  // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	int                                                PosY;                                                     // 0x0004(0x0004)
+	int                                                SizeX;                                                    // 0x0008(0x0004)
+	int                                                SizeY;                                                    // 0x000C(0x0004)
+	struct FString                                     Comment;                                                  // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTargetPortalPoint
@@ -22084,8 +21927,7 @@ struct FSeqFrameInfo
 struct FEFTargetPortalPoint
 {
 	int                                                PointIndex;                                               // 0x0000(0x0004)
-	int                                                Weight;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Weight;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.DummySpotProperty
@@ -22093,12 +21935,12 @@ struct FEFTargetPortalPoint
 struct FDummySpotProperty
 {
 	int                                                DummyActorIndex;                                          // 0x0000(0x0004)
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x0000(0x000C)
-	TEnumAsByte<EDummyActorSpotType>                   eSpotType;                                                // 0x0000(0x0001)
-	int                                                SpawnRange;                                               // 0x0000(0x0004)
-	int                                                GroupID;                                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0004(0x0024) MISSED OFFSET
+	struct FVector                                     RelativeLocation;                                         // 0x0004(0x000C)
+	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C)
+	TEnumAsByte<EDummyActorSpotType>                   eSpotType;                                                // 0x001C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
+	int                                                SpawnRange;                                               // 0x0020(0x0004)
+	int                                                GroupID;                                                  // 0x0024(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.TowerSpawnPoint
@@ -22106,11 +21948,10 @@ struct FDummySpotProperty
 struct FTowerSpawnPoint
 {
 	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    RelativeRotation;                                         // 0x0000(0x000C)
-	int                                                NPCTableID;                                               // 0x0000(0x0004)
-	struct FName                                       SocketName;                                               // 0x0000(0x0008)
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0008(0x0024) MISSED OFFSET
+	struct FRotator                                    RelativeRotation;                                         // 0x000C(0x000C)
+	int                                                NPCTableID;                                               // 0x0018(0x0004)
+	struct FName                                       SocketName;                                               // 0x001C(0x0008)
+	struct FName                                       BoneName;                                                 // 0x0024(0x0008)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTownHaveVisibility
@@ -22118,9 +21959,8 @@ struct FTowerSpawnPoint
 struct FEFTownHaveVisibility
 {
 	unsigned long                                      bTemp : 1;                                                // 0x0000(0x0004)
-	TEnumAsByte<ETownHaveCheckType>                    Condition;                                                // 0x0000(0x0001)
-	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x5];                                       // 0x0001(0x0005) MISSED OFFSET
+	TEnumAsByte<ETownHaveCheckType>                    Condition;                                                // 0x0004(0x0001)
+	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIslandHeartVibility
@@ -22128,9 +21968,8 @@ struct FEFTownHaveVisibility
 struct FEFIslandHeartVibility
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	TEnumAsByte<EIslandHeartCheckType>                 Condition;                                                // 0x0000(0x0001)
-	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x5];                                       // 0x0001(0x0005) MISSED OFFSET
+	TEnumAsByte<EIslandHeartCheckType>                 Condition;                                                // 0x0004(0x0001)
+	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFQuestVisiblityInfo
@@ -22138,10 +21977,10 @@ struct FEFIslandHeartVibility
 struct FEFQuestVisiblityInfo
 {
 	TEnumAsByte<EQuestVisibilityType>                  eVisibilityType;                                          // 0x0000(0x0001)
-	int                                                QuestIndex;                                               // 0x0000(0x0004)
-	int                                                QuestStepIndex;                                           // 0x0000(0x0004)
-	int                                                EndConditionIndex;                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                QuestIndex;                                               // 0x0004(0x0004)
+	int                                                QuestStepIndex;                                           // 0x0008(0x0004)
+	int                                                EndConditionIndex;                                        // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.TransportSpawnPoint
@@ -22149,73 +21988,66 @@ struct FEFQuestVisiblityInfo
 struct FTransportSpawnPoint
 {
 	struct FString                                     Desc;                                                     // 0x0000(0x0010)
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    RelativeRotation;                                         // 0x0000(0x000C)
-	struct FName                                       SocketName;                                               // 0x0000(0x0008)
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008)
-	TArray<class AActor*>                              NPCArray;                                                 // 0x0000(0x0010)
-	TArray<class AActor*>                              PropArray;                                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0010(0x0058) MISSED OFFSET
+	struct FString                                     Name;                                                     // 0x0010(0x0010)
+	struct FVector                                     RelativeLocation;                                         // 0x0020(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x002C(0x000C)
+	struct FName                                       SocketName;                                               // 0x0038(0x0008)
+	struct FName                                       BoneName;                                                 // 0x0040(0x0008)
+	TArray<class AActor*>                              NPCArray;                                                 // 0x0048(0x0010)
+	TArray<class AActor*>                              PropArray;                                                // 0x0058(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.ActionNotifyParticleData
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyParticleData : public FActionNotifyData
 {
-	TArray<int>                                        PlayPSList;                                               // 0x0000(0x0010)
-	TArray<int>                                        EditingPSList;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0010(0x001C) MISSED OFFSET
+	TArray<int>                                        PlayPSList;                                               // 0x000C(0x0010)
+	TArray<int>                                        EditingPSList;                                            // 0x001C(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayProjectileDecalEffect.ActionNotifyPlayProjectileDecalEffectData
 // 0x0004 (0x0010 - 0x000C)
 struct FActionNotifyPlayProjectileDecalEffectData : public FActionNotifyData
 {
-	int                                                EffectId;                                                 // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                EffectId;                                                 // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PostProcessCrossHair.ActionNotifyPostProcessCrossHairData
 // 0x0004 (0x0010 - 0x000C)
 struct FActionNotifyPostProcessCrossHairData : public FActionNotifyData
 {
-	unsigned long                                      RangeOfMousePos : 1;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	unsigned long                                      RangeOfMousePos : 1;                                      // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_TargetPosControl.ActionNotifyTargetPosControl
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyTargetPosControl : public FActionNotifyData
 {
-	struct FEFBasedLocation                            StartPos;                                                 // 0x0000(0x0010)
-	struct FEFBasedLocation                            TargetPos;                                                // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0010(0x001C) MISSED OFFSET
+	struct FEFBasedLocation                            StartPos;                                                 // 0x000C(0x0010)
+	struct FEFBasedLocation                            TargetPos;                                                // 0x001C(0x0010)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Trails.ActionNotifyTrailData
 // 0x0008 (0x0014 - 0x000C)
 struct FActionNotifyTrailData : public FActionNotifyData
 {
-	class UAnimNotify_Trails*                          Trails;                                                   // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	class UAnimNotify_Trails*                          Trails;                                                   // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFActionNotify_ViewShake.ActionNotifyViewShake
 // 0x0008 (0x0014 - 0x000C)
 struct FActionNotifyViewShake : public FActionNotifyData
 {
-	unsigned char                                      PlayGroup;                                                // 0x0000(0x0001)
-	int                                                ShakeID;                                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned char                                      PlayGroup;                                                // 0x000C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
+	int                                                ShakeID;                                                  // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionNotify_WeaponMode.ActionNotifyWeaponMode
 // 0x0004 (0x0010 - 0x000C)
 struct FActionNotifyWeaponMode : public FActionNotifyData
 {
-	int                                                EquipStateWhenStart;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                EquipStateWhenStart;                                      // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFActionCustomGroup
@@ -22223,8 +22055,7 @@ struct FActionNotifyWeaponMode : public FActionNotifyData
 struct FEFActionCustomGroup
 {
 	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	unsigned long                                      expand : 1;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned long                                      expand : 1;                                               // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFBeamActionBase.EFBeamActionInstance
@@ -22232,28 +22063,27 @@ struct FEFActionCustomGroup
 struct FEFBeamActionInstance
 {
 	int                                                PSCIndex;                                                 // 0x0000(0x0004)
-	int                                                HitPSCIndex;                                              // 0x0000(0x0004)
-	int                                                HitEffectPSCIndex;                                        // 0x0000(0x0004)
-	TArray<int>                                        BeamInstIndexArr;                                         // 0x0000(0x0010)
-	struct FName                                       CurSourceSocket;                                          // 0x0000(0x0008)
-	struct FName                                       CurTargetSocket;                                          // 0x0000(0x0008)
-	float                                              MaxDistance;                                              // 0x0000(0x0004)
-	unsigned long                                      bTickable : 1;                                            // 0x0000(0x0004)
-	struct FQWord                                      SourceOID;                                                // 0x0000(0x0008)
-	struct FVector                                     SourceLocation;                                           // 0x0000(0x000C)
-	struct FVector                                     SourceOffset;                                             // 0x0000(0x000C)
-	TArray<struct FName>                               SourceMoveNameArr;                                        // 0x0000(0x0010)
-	float                                              SourceMoveNameNextTime;                                   // 0x0000(0x0004)
-	float                                              SourceMoveNamePerTime;                                    // 0x0000(0x0004)
-	struct FQWord                                      TargetOID;                                                // 0x0000(0x0008)
-	struct FVector                                     TargetLocation;                                           // 0x0000(0x000C)
-	struct FVector                                     TargetNormal;                                             // 0x0000(0x000C)
-	TArray<struct FName>                               TargetMoveNameArr;                                        // 0x0000(0x0010)
-	float                                              TargetMoveNameNextTime;                                   // 0x0000(0x0004)
-	float                                              TargetMoveNamePerTime;                                    // 0x0000(0x0004)
-	int                                                SkillEffectGroupID;                                       // 0x0000(0x0004)
-	struct FVector                                     MouseTargetPos;                                           // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0xA8];                                      // 0x000C(0x00A8) MISSED OFFSET
+	int                                                HitPSCIndex;                                              // 0x0004(0x0004)
+	int                                                HitEffectPSCIndex;                                        // 0x0008(0x0004)
+	TArray<int>                                        BeamInstIndexArr;                                         // 0x000C(0x0010)
+	struct FName                                       CurSourceSocket;                                          // 0x001C(0x0008)
+	struct FName                                       CurTargetSocket;                                          // 0x0024(0x0008)
+	float                                              MaxDistance;                                              // 0x002C(0x0004)
+	unsigned long                                      bTickable : 1;                                            // 0x0030(0x0004)
+	struct FQWord                                      SourceOID;                                                // 0x0034(0x0008)
+	struct FVector                                     SourceLocation;                                           // 0x003C(0x000C)
+	struct FVector                                     SourceOffset;                                             // 0x0048(0x000C)
+	TArray<struct FName>                               SourceMoveNameArr;                                        // 0x0054(0x0010)
+	float                                              SourceMoveNameNextTime;                                   // 0x0064(0x0004)
+	float                                              SourceMoveNamePerTime;                                    // 0x0068(0x0004)
+	struct FQWord                                      TargetOID;                                                // 0x006C(0x0008)
+	struct FVector                                     TargetLocation;                                           // 0x0074(0x000C)
+	struct FVector                                     TargetNormal;                                             // 0x0080(0x000C)
+	TArray<struct FName>                               TargetMoveNameArr;                                        // 0x008C(0x0010)
+	float                                              TargetMoveNameNextTime;                                   // 0x009C(0x0004)
+	float                                              TargetMoveNamePerTime;                                    // 0x00A0(0x0004)
+	int                                                SkillEffectGroupID;                                       // 0x00A4(0x0004)
+	struct FVector                                     MouseTargetPos;                                           // 0x00A8(0x000C)
 };
 
 // ScriptStruct EFGame.EFData.EFQword
@@ -22261,8 +22091,7 @@ struct FEFBeamActionInstance
 struct FEFQword
 {
 	int                                                A;                                                        // 0x0000(0x0004)
-	int                                                B;                                                        // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                B;                                                        // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFDataContainer_CharacterCustomizing.CharCustomizingCacheData
@@ -22270,8 +22099,7 @@ struct FEFQword
 struct FCharCustomizingCacheData
 {
 	TArray<class UEFData_CharacterCustomizing*>        ArtistPresets;                                            // 0x0000(0x0010)
-	TArray<class UEFData_CharacterCustomizing*>        FacePresets;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<class UEFData_CharacterCustomizing*>        FacePresets;                                              // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectSoundInfo
@@ -22279,8 +22107,7 @@ struct FCharCustomizingCacheData
 struct FEFTownOjectSoundInfo
 {
 	class UAkEvent*                                    cAkEvent;                                                 // 0x0000(0x0008)
-	struct FString                                     cAkEventPath;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	struct FString                                     cAkEventPath;                                             // 0x0008(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectEffectInfo
@@ -22288,8 +22115,7 @@ struct FEFTownOjectSoundInfo
 struct FEFTownOjectEffectInfo
 {
 	class UEFParticleData*                             EffectData;                                               // 0x0000(0x0008)
-	struct FPointer                                    EffectDataPointer;                                        // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
+	struct FPointer                                    EffectDataPointer;                                        // 0x0008(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectInfo
@@ -22297,10 +22123,9 @@ struct FEFTownOjectEffectInfo
 struct FEFTownOjectInfo
 {
 	class UAnimSet*                                    TownObjectAnimSet;                                        // 0x0000(0x0008)
-	struct FString                                     TownObjectAnimSetPath;                                    // 0x0000(0x0010)
-	TArray<struct FEFTownOjectSoundInfo>               SoundDataArr;                                             // 0x0000(0x0010)
-	TArray<struct FEFTownOjectEffectInfo>              EffectDataArr;                                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) MISSED OFFSET
+	struct FString                                     TownObjectAnimSetPath;                                    // 0x0008(0x0010)
+	TArray<struct FEFTownOjectSoundInfo>               SoundDataArr;                                             // 0x0018(0x0010)
+	TArray<struct FEFTownOjectEffectInfo>              EffectDataArr;                                            // 0x0028(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.OptimizeSection
@@ -22308,11 +22133,11 @@ struct FEFTownOjectInfo
 struct FOptimizeSection
 {
 	unsigned long                                      bUseExcludeByAngle : 1;                                   // 0x0000(0x0004)
-	TEnumAsByte<ESectionAxis>                          StandardAxis;                                             // 0x0000(0x0001)
-	struct FName                                       StandardBoneName;                                         // 0x0000(0x0008)
-	unsigned long                                      bUseExcludeByDistance : 1;                                // 0x0000(0x0004)
-	float                                              ViewDistance;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0004(0x0014) MISSED OFFSET
+	TEnumAsByte<ESectionAxis>                          StandardAxis;                                             // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	struct FName                                       StandardBoneName;                                         // 0x0008(0x0008)
+	unsigned long                                      bUseExcludeByDistance : 1;                                // 0x0010(0x0004)
+	float                                              ViewDistance;                                             // 0x0014(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSeatSlotInfo
@@ -22320,8 +22145,7 @@ struct FOptimizeSection
 struct FEFSeatSlotInfo
 {
 	struct FName                                       SlotName;                                                 // 0x0000(0x0008)
-	unsigned long                                      bUseSocket : 1;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned long                                      bUseSocket : 1;                                           // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerSoundInfo
@@ -22329,9 +22153,9 @@ struct FEFSeatSlotInfo
 struct FEFTowerSoundInfo
 {
 	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001)
-	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0000(0x0010)
-	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010)
+	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerCameraShakeInfo
@@ -22339,9 +22163,9 @@ struct FEFTowerSoundInfo
 struct FEFTowerCameraShakeInfo
 {
 	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001)
-	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0000(0x0008)
-	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008)
+	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerEffectInfo
@@ -22349,12 +22173,12 @@ struct FEFTowerCameraShakeInfo
 struct FEFTowerEffectInfo
 {
 	TEnumAsByte<ETowerAnimationType>                   TowerEffectInvokeType;                                    // 0x0000(0x0001)
-	class UEFParticleData*                             TowerEffectData;                                          // 0x0000(0x0008)
-	float                                              EffectOffset;                                             // 0x0000(0x0004)
-	float                                              DeplayTime;                                               // 0x0000(0x0004)
-	int                                                TranslucencySortPriority;                                 // 0x0000(0x0004)
-	struct FPointer                                    TowerEffectDataPointer;                                   // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0008(0x0018) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UEFParticleData*                             TowerEffectData;                                          // 0x0004(0x0008)
+	float                                              EffectOffset;                                             // 0x000C(0x0004)
+	float                                              DeplayTime;                                               // 0x0010(0x0004)
+	int                                                TranslucencySortPriority;                                 // 0x0014(0x0004)
+	struct FPointer                                    TowerEffectDataPointer;                                   // 0x0018(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sShipSoundInfo
@@ -22362,11 +22186,10 @@ struct FEFTowerEffectInfo
 struct FsShipSoundInfo
 {
 	class UAkEvent*                                    AkEvent;                                                  // 0x0000(0x0008)
-	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0000(0x0004)
-	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0000(0x0004)
-	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0000(0x0004)
-	struct FString                                     AkEventPath;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0008(0x0004)
+	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0008(0x0004)
+	float                                              StopWhenBaseDestroyFadeTime;                              // 0x000C(0x0004)
+	struct FString                                     AkEventPath;                                              // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sListInfo
@@ -22374,11 +22197,10 @@ struct FsShipSoundInfo
 struct FsListInfo
 {
 	float                                              fRollWeightByRotate;                                      // 0x0000(0x0004)
-	float                                              fCycleOfRollByRotate;                                     // 0x0000(0x0004)
-	float                                              fRollRangeByRotate;                                       // 0x0000(0x0004)
-	float                                              fCycleOfBounceWeightByRotate;                             // 0x0000(0x0004)
-	float                                              fCycleOfBounceByRotate;                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	float                                              fCycleOfRollByRotate;                                     // 0x0004(0x0004)
+	float                                              fRollRangeByRotate;                                       // 0x0008(0x0004)
+	float                                              fCycleOfBounceWeightByRotate;                             // 0x000C(0x0004)
+	float                                              fCycleOfBounceByRotate;                                   // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sMotionInfo
@@ -22386,8 +22208,7 @@ struct FsListInfo
 struct FsMotionInfo
 {
 	float                                              fDurationTime;                                            // 0x0000(0x0004)
-	float                                              fBoundsValue;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	float                                              fBoundsValue;                                             // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialActionParamValue
@@ -22395,8 +22216,7 @@ struct FsMotionInfo
 struct FEFPropMaterialActionParamValue
 {
 	float                                              Scalar;                                                   // 0x0000(0x0004)
-	struct FLinearColor                                Color;                                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	struct FLinearColor                                Color;                                                    // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialActionParam
@@ -22404,11 +22224,11 @@ struct FEFPropMaterialActionParamValue
 struct FEFPropMaterialActionParam
 {
 	int                                                MaterialIndex;                                            // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0000(0x0008)
-	TEnumAsByte<EPropMaterialActionParamType>          ParamType;                                                // 0x0000(0x0001)
-	struct FEFPropMaterialActionParamValue             StartValue;                                               // 0x0000(0x0014)
-	struct FEFPropMaterialActionParamValue             EndValue;                                                 // 0x0000(0x0014)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0014(0x0024) MISSED OFFSET
+	struct FName                                       Name;                                                     // 0x0004(0x0008)
+	TEnumAsByte<EPropMaterialActionParamType>          ParamType;                                                // 0x000C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
+	struct FEFPropMaterialActionParamValue             StartValue;                                               // 0x0010(0x0014)
+	struct FEFPropMaterialActionParamValue             EndValue;                                                 // 0x0024(0x0014)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialAction
@@ -22416,10 +22236,10 @@ struct FEFPropMaterialActionParam
 struct FEFPropMaterialAction
 {
 	TEnumAsByte<EPropAnimationType>                    eInvokeType;                                              // 0x0000(0x0001)
-	TArray<struct FEFPropMaterialActionParam>          Params;                                                   // 0x0000(0x0010)
-	float                                              Time;                                                     // 0x0000(0x0004)
-	float                                              StartDelay;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0004(0x0018) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TArray<struct FEFPropMaterialActionParam>          Params;                                                   // 0x0004(0x0010)
+	float                                              Time;                                                     // 0x0014(0x0004)
+	float                                              StartDelay;                                               // 0x0018(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSoundInfo
@@ -22427,9 +22247,9 @@ struct FEFPropMaterialAction
 struct FEFPropSoundInfo
 {
 	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001)
-	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0000(0x0010)
-	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010)
+	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropCameraShakeInfo
@@ -22437,9 +22257,9 @@ struct FEFPropSoundInfo
 struct FEFPropCameraShakeInfo
 {
 	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001)
-	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0000(0x0008)
-	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0008(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008)
+	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFRemoveHitSocketInfo
@@ -22447,8 +22267,8 @@ struct FEFPropCameraShakeInfo
 struct FEFRemoveHitSocketInfo
 {
 	TEnumAsByte<EPropAnimationType>                    RemoveAnimType;                                           // 0x0000(0x0001)
-	TArray<struct FString>                             HitSocketNameArray;                                       // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TArray<struct FString>                             HitSocketNameArray;                                       // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionElem
@@ -22456,27 +22276,25 @@ struct FEFRemoveHitSocketInfo
 struct FEFPropSubCollisionElem
 {
 	TEnumAsByte<EPropSubCollisionPrimitiveType>        PrimType;                                                 // 0x0000(0x0001)
-	struct FMatrix                                     TM;                                                       // 0x0000(0x0040)
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    RelativeRotation;                                         // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x5C];                                      // 0x000C(0x005C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xF];                                       // 0x0001(0x000F) MISSED OFFSET
+	struct FMatrix                                     TM;                                                       // 0x0010(0x0040)
+	struct FVector                                     RelativeLocation;                                         // 0x0050(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x005C(0x000C)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionBoxElem
 // 0x000C (0x0074 - 0x0068)
 struct FEFPropSubCollisionBoxElem : public FEFPropSubCollisionElem
 {
-	struct FVector                                     Extent;                                                   // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x68];                                      // 0x000C(0x0068) MISSED OFFSET
+	struct FVector                                     Extent;                                                   // 0x0068(0x000C)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionCylinderElem
 // 0x0008 (0x0070 - 0x0068)
 struct FEFPropSubCollisionCylinderElem : public FEFPropSubCollisionElem
 {
-	float                                              Radius;                                                   // 0x0000(0x0004)
-	float                                              Height;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x6C];                                      // 0x0004(0x006C) MISSED OFFSET
+	float                                              Radius;                                                   // 0x0068(0x0004)
+	float                                              Height;                                                   // 0x006C(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollision
@@ -22484,8 +22302,7 @@ struct FEFPropSubCollisionCylinderElem : public FEFPropSubCollisionElem
 struct FEFPropSubCollision
 {
 	TArray<struct FEFPropSubCollisionBoxElem>          BoxElems;                                                 // 0x0000(0x0010)
-	TArray<struct FEFPropSubCollisionCylinderElem>     CylElems;                                                 // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<struct FEFPropSubCollisionCylinderElem>     CylElems;                                                 // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropEffectInfo
@@ -22493,14 +22310,14 @@ struct FEFPropSubCollision
 struct FEFPropEffectInfo
 {
 	TEnumAsByte<EPropAnimationType>                    PropEffectInvokeType;                                     // 0x0000(0x0001)
-	TArray<TEnumAsByte<EPropAnimationType>>            PropEffectRemoveTypeArray;                                // 0x0000(0x0010)
-	unsigned long                                      bInteractorEffect : 1;                                    // 0x0000(0x0004)
-	class UEFParticleData*                             PropEffectData;                                           // 0x0000(0x0008)
-	float                                              EffectOffset;                                             // 0x0000(0x0004)
-	float                                              DeplayTime;                                               // 0x0000(0x0004)
-	int                                                TranslucencySortPriority;                                 // 0x0000(0x0004)
-	struct FPointer                                    PropEffectDataPointer;                                    // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0008(0x002C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TArray<TEnumAsByte<EPropAnimationType>>            PropEffectRemoveTypeArray;                                // 0x0004(0x0010)
+	unsigned long                                      bInteractorEffect : 1;                                    // 0x0014(0x0004)
+	class UEFParticleData*                             PropEffectData;                                           // 0x0018(0x0008)
+	float                                              EffectOffset;                                             // 0x0020(0x0004)
+	float                                              DeplayTime;                                               // 0x0024(0x0004)
+	int                                                TranslucencySortPriority;                                 // 0x0028(0x0004)
+	struct FPointer                                    PropEffectDataPointer;                                    // 0x002C(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFDestructionPartsMatActionUnit
@@ -22508,8 +22325,7 @@ struct FEFPropEffectInfo
 struct FEFDestructionPartsMatActionUnit
 {
 	struct FString                                     strMatParamName;                                          // 0x0000(0x0010)
-	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0000(0x0014)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0014(0x0010) MISSED OFFSET
+	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0010(0x0014)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFDestructionPartsMatActionInfo
@@ -22517,8 +22333,7 @@ struct FEFDestructionPartsMatActionUnit
 struct FEFDestructionPartsMatActionInfo
 {
 	struct FEFDestructionPartsMatActionUnit            DespawnMaterialAction;                                    // 0x0000(0x0024)
-	struct FEFDestructionPartsMatActionUnit            SpawnMaterialAction;                                      // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0024(0x0024) MISSED OFFSET
+	struct FEFDestructionPartsMatActionUnit            SpawnMaterialAction;                                      // 0x0024(0x0024)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPartsDestruction
@@ -22526,23 +22341,22 @@ struct FEFDestructionPartsMatActionInfo
 struct FEFPartsDestruction
 {
 	class UEFData_MeshLookInfo*                        cParts;                                                   // 0x0000(0x0008)
-	unsigned long                                      bDefaultHide : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bDestroyedPartsHide : 1;                                  // 0x0000(0x0004)
-	float                                              PartsActorDestroyDelay;                                   // 0x0000(0x0004)
-	struct FEFDestructionPartsMatActionInfo            MatActionInfo;                                            // 0x0000(0x0048)
-	class UEFCameraViewShake*                          CameraShakeData;                                          // 0x0000(0x0008)
-	class UAkEvent*                                    cAkEvent;                                                 // 0x0000(0x0008)
-	class UEFParticleData*                             ParticleDataParent;                                       // 0x0000(0x0008)
-	class UEFParticleData*                             ParticleDataChild;                                        // 0x0000(0x0008)
-	float                                              fImpulseSize;                                             // 0x0000(0x0004)
-	struct FString                                     strCommonFXSocket;                                        // 0x0000(0x0010)
-	unsigned long                                      bCommonFXNoSound : 1;                                     // 0x0000(0x0004)
-	struct FString                                     cAkEventPath;                                             // 0x0000(0x0010)
-	struct FPointer                                    cPartsPointer;                                            // 0x0000(0x0008)
-	struct FPointer                                    CameraShakeDataPointer;                                   // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataParentPointer;                                // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataChildPointer;                                 // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0xB8];                                      // 0x0008(0x00B8) MISSED OFFSET
+	unsigned long                                      bDefaultHide : 1;                                         // 0x0008(0x0004)
+	unsigned long                                      bDestroyedPartsHide : 1;                                  // 0x0008(0x0004)
+	float                                              PartsActorDestroyDelay;                                   // 0x000C(0x0004)
+	struct FEFDestructionPartsMatActionInfo            MatActionInfo;                                            // 0x0010(0x0048)
+	class UEFCameraViewShake*                          CameraShakeData;                                          // 0x0058(0x0008)
+	class UAkEvent*                                    cAkEvent;                                                 // 0x0060(0x0008)
+	class UEFParticleData*                             ParticleDataParent;                                       // 0x0068(0x0008)
+	class UEFParticleData*                             ParticleDataChild;                                        // 0x0070(0x0008)
+	float                                              fImpulseSize;                                             // 0x0078(0x0004)
+	struct FString                                     strCommonFXSocket;                                        // 0x007C(0x0010)
+	unsigned long                                      bCommonFXNoSound : 1;                                     // 0x008C(0x0004)
+	struct FString                                     cAkEventPath;                                             // 0x0090(0x0010)
+	struct FPointer                                    cPartsPointer;                                            // 0x00A0(0x0008)
+	struct FPointer                                    CameraShakeDataPointer;                                   // 0x00A8(0x0008)
+	struct FPointer                                    ParticleDataParentPointer;                                // 0x00B0(0x0008)
+	struct FPointer                                    ParticleDataChildPointer;                                 // 0x00B8(0x0008)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFOneShotBattleSoundInfo
@@ -22550,9 +22364,8 @@ struct FEFPartsDestruction
 struct FEFOneShotBattleSoundInfo
 {
 	int                                                iCharID;                                                  // 0x0000(0x0004)
-	class UAkEvent*                                    OneShotBattleSound;                                       // 0x0000(0x0008)
-	struct FString                                     OneShotBattleSoundPath;                                   // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0010(0x000C) MISSED OFFSET
+	class UAkEvent*                                    OneShotBattleSound;                                       // 0x0004(0x0008)
+	struct FString                                     OneShotBattleSoundPath;                                   // 0x000C(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFVoiceSetInfo
@@ -22560,8 +22373,7 @@ struct FEFOneShotBattleSoundInfo
 struct FEFVoiceSetInfo
 {
 	int                                                iCharID;                                                  // 0x0000(0x0004)
-	struct FString                                     VoiceSetKey;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	struct FString                                     VoiceSetKey;                                              // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFGibsGroup
@@ -22569,24 +22381,23 @@ struct FEFVoiceSetInfo
 struct FEFGibsGroup
 {
 	struct FString                                     strNormal;                                                // 0x0000(0x0010)
-	struct FString                                     strFire;                                                  // 0x0000(0x0010)
-	struct FString                                     strElectric;                                              // 0x0000(0x0010)
-	struct FString                                     strPoison;                                                // 0x0000(0x0010)
-	struct FString                                     strFreeze;                                                // 0x0000(0x0010)
-	struct FString                                     strStone;                                                 // 0x0000(0x0010)
-	struct FString                                     strWind;                                                  // 0x0000(0x0010)
-	struct FString                                     strDark;                                                  // 0x0000(0x0010)
-	struct FString                                     strHoly;                                                  // 0x0000(0x0010)
-	struct FString                                     strParticleNormal;                                        // 0x0000(0x0010)
-	struct FString                                     strParticleFire;                                          // 0x0000(0x0010)
-	struct FString                                     strParticleElectric;                                      // 0x0000(0x0010)
-	struct FString                                     strParticlePoison;                                        // 0x0000(0x0010)
-	struct FString                                     strParticleFreeze;                                        // 0x0000(0x0010)
-	struct FString                                     strParticleStone;                                         // 0x0000(0x0010)
-	struct FString                                     strParticleWind;                                          // 0x0000(0x0010)
-	struct FString                                     strParticleDark;                                          // 0x0000(0x0010)
-	struct FString                                     strParticleHoly;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x110];                                     // 0x0010(0x0110) MISSED OFFSET
+	struct FString                                     strFire;                                                  // 0x0010(0x0010)
+	struct FString                                     strElectric;                                              // 0x0020(0x0010)
+	struct FString                                     strPoison;                                                // 0x0030(0x0010)
+	struct FString                                     strFreeze;                                                // 0x0040(0x0010)
+	struct FString                                     strStone;                                                 // 0x0050(0x0010)
+	struct FString                                     strWind;                                                  // 0x0060(0x0010)
+	struct FString                                     strDark;                                                  // 0x0070(0x0010)
+	struct FString                                     strHoly;                                                  // 0x0080(0x0010)
+	struct FString                                     strParticleNormal;                                        // 0x0090(0x0010)
+	struct FString                                     strParticleFire;                                          // 0x00A0(0x0010)
+	struct FString                                     strParticleElectric;                                      // 0x00B0(0x0010)
+	struct FString                                     strParticlePoison;                                        // 0x00C0(0x0010)
+	struct FString                                     strParticleFreeze;                                        // 0x00D0(0x0010)
+	struct FString                                     strParticleStone;                                         // 0x00E0(0x0010)
+	struct FString                                     strParticleWind;                                          // 0x00F0(0x0010)
+	struct FString                                     strParticleDark;                                          // 0x0100(0x0010)
+	struct FString                                     strParticleHoly;                                          // 0x0110(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFMainEffectOption
@@ -22594,10 +22405,9 @@ struct FEFGibsGroup
 struct FEFMainEffectOption
 {
 	float                                              fElapsedTime;                                             // 0x0000(0x0004)
-	float                                              fStartTime;                                               // 0x0000(0x0004)
-	unsigned long                                      bRandomActivity : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      bIgnoreSocketWorldRotation : 1;                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	float                                              fStartTime;                                               // 0x0004(0x0004)
+	unsigned long                                      bRandomActivity : 1;                                      // 0x0008(0x0004)
+	unsigned long                                      bIgnoreSocketWorldRotation : 1;                           // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFMaskDataUnit
@@ -22605,11 +22415,12 @@ struct FEFMainEffectOption
 struct FEFMaskDataUnit
 {
 	TEnumAsByte<EFEQUIP_PART>                          ePartnerPartsNew;                                         // 0x0000(0x0001)
-	int                                                iMaxStage;                                                // 0x0000(0x0004)
-	TEnumAsByte<EFMASK_STAGE>                          eMaskStage;                                               // 0x0000(0x0001)
-	int                                                iMaskOwnLevel;                                            // 0x0000(0x0004)
-	struct FString                                     strParamName;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                iMaxStage;                                                // 0x0004(0x0004)
+	TEnumAsByte<EFMASK_STAGE>                          eMaskStage;                                               // 0x0008(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
+	int                                                iMaskOwnLevel;                                            // 0x000C(0x0004)
+	struct FString                                     strParamName;                                             // 0x0010(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTagetAttachInfo
@@ -22617,10 +22428,9 @@ struct FEFMaskDataUnit
 struct FEFTagetAttachInfo
 {
 	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001)
-	TEnumAsByte<EeDirectAttachType>                    eTargetSocket;                                            // 0x0000(0x0001)
-	unsigned char                                      dummy1;                                                   // 0x0000(0x0001)
-	unsigned char                                      dummy2;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TEnumAsByte<EeDirectAttachType>                    eTargetSocket;                                            // 0x0001(0x0001)
+	unsigned char                                      dummy1;                                                   // 0x0002(0x0001)
+	unsigned char                                      dummy2;                                                   // 0x0003(0x0001)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTargetMaskDataInfo
@@ -22628,10 +22438,9 @@ struct FEFTagetAttachInfo
 struct FEFTargetMaskDataInfo
 {
 	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001)
-	TEnumAsByte<EeDirectMaskType>                      eTargetMaskType;                                          // 0x0000(0x0001)
-	unsigned char                                      dummy1;                                                   // 0x0000(0x0001)
-	unsigned char                                      dummy2;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	TEnumAsByte<EeDirectMaskType>                      eTargetMaskType;                                          // 0x0001(0x0001)
+	unsigned char                                      dummy1;                                                   // 0x0002(0x0001)
+	unsigned char                                      dummy2;                                                   // 0x0003(0x0001)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFGibsUnit
@@ -22639,11 +22448,11 @@ struct FEFTargetMaskDataInfo
 struct FEFGibsUnit
 {
 	class USkeletalMesh*                               GibsMesh;                                                 // 0x0000(0x0008)
-	class UPhysicsAsset*                               GibsPhysics;                                              // 0x0000(0x0008)
-	TEnumAsByte<EPst_SpawnType>                        ePSSpawnType;                                             // 0x0000(0x0001)
-	struct FString                                     GibsMeshPath;                                             // 0x0000(0x0010)
-	struct FString                                     GibsPhysicsPath;                                          // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0010(0x0024) MISSED OFFSET
+	class UPhysicsAsset*                               GibsPhysics;                                              // 0x0008(0x0008)
+	TEnumAsByte<EPst_SpawnType>                        ePSSpawnType;                                             // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	struct FString                                     GibsMeshPath;                                             // 0x0014(0x0010)
+	struct FString                                     GibsPhysicsPath;                                          // 0x0024(0x0010)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFGibsSet
@@ -22658,38 +22467,38 @@ struct FEFGibsSet
 struct FEFDropModelInfo
 {
 	TEnumAsByte<EFDROPMODEL_SIZE>                      eModelSize;                                               // 0x0000(0x0001)
-	int                                                iDropCount;                                               // 0x0000(0x0004)
-	unsigned long                                      bCheckMoveOnDrop : 1;                                     // 0x0000(0x0004)
-	float                                              fMoveTime;                                                // 0x0000(0x0004)
-	class USkeletalMesh*                               cMesh;                                                    // 0x0000(0x0008)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010)
-	class UAnimSet*                                    cAnimSet;                                                 // 0x0000(0x0008)
-	class UAkEvent*                                    cAkEvent;                                                 // 0x0000(0x0008)
-	class UAkEvent*                                    cAkEventLanding;                                          // 0x0000(0x0008)
-	class UAkEvent*                                    AkEventPickup;                                            // 0x0000(0x0008)
-	int                                                iHideElapseTime;                                          // 0x0000(0x0004)
-	struct FVector                                     vNameTagOffset;                                           // 0x0000(0x000C)
-	class UEFParticleData*                             ParticleDataOnDrop;                                       // 0x0000(0x0008)
-	class UEFParticleData*                             ParticleDataOnModel;                                      // 0x0000(0x0008)
-	class UEFParticleData*                             ParticleDataOnPickup;                                     // 0x0000(0x0008)
-	class UEFParticleData*                             ParticleDataOnTimeOut;                                    // 0x0000(0x0008)
-	struct FString                                     cMeshPath;                                                // 0x0000(0x0010)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0000(0x0010)
-	struct FString                                     cAnimSetPath;                                             // 0x0000(0x0010)
-	struct FString                                     cAkEventPath;                                             // 0x0000(0x0010)
-	struct FString                                     cAkEventLandingPath;                                      // 0x0000(0x0010)
-	struct FString                                     AkEventPickupPath;                                        // 0x0000(0x0010)
-	struct FPointer                                    ParticleDataOnDropPointer;                                // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataOnModelPointer;                               // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataOnPickupPointer;                              // 0x0000(0x0008)
-	struct FPointer                                    ParticleDataOnTimeOutPointer;                             // 0x0000(0x0008)
-	struct FObjectPath                                 PATH_Mesh;                                                // 0x0000(0x0020)
-	TArray<struct FObjectPath>                         PATH_Material;                                            // 0x0000(0x0010)
-	struct FObjectPath                                 PATH_AnimSetTemplate;                                     // 0x0000(0x0020)
-	struct FObjectPath                                 PATH_AkEvent;                                             // 0x0000(0x0020)
-	struct FObjectPath                                 PATH_AkEventLanding;                                      // 0x0000(0x0020)
-	struct FObjectPath                                 PATH_AkEventPickup;                                       // 0x0000(0x0020)
-	unsigned char                                      UnknownData00[0x188];                                     // 0x0020(0x0188) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                iDropCount;                                               // 0x0004(0x0004)
+	unsigned long                                      bCheckMoveOnDrop : 1;                                     // 0x0008(0x0004)
+	float                                              fMoveTime;                                                // 0x000C(0x0004)
+	class USkeletalMesh*                               cMesh;                                                    // 0x0010(0x0008)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010)
+	class UAnimSet*                                    cAnimSet;                                                 // 0x0028(0x0008)
+	class UAkEvent*                                    cAkEvent;                                                 // 0x0030(0x0008)
+	class UAkEvent*                                    cAkEventLanding;                                          // 0x0038(0x0008)
+	class UAkEvent*                                    AkEventPickup;                                            // 0x0040(0x0008)
+	int                                                iHideElapseTime;                                          // 0x0048(0x0004)
+	struct FVector                                     vNameTagOffset;                                           // 0x004C(0x000C)
+	class UEFParticleData*                             ParticleDataOnDrop;                                       // 0x0058(0x0008)
+	class UEFParticleData*                             ParticleDataOnModel;                                      // 0x0060(0x0008)
+	class UEFParticleData*                             ParticleDataOnPickup;                                     // 0x0068(0x0008)
+	class UEFParticleData*                             ParticleDataOnTimeOut;                                    // 0x0070(0x0008)
+	struct FString                                     cMeshPath;                                                // 0x0078(0x0010)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0088(0x0010)
+	struct FString                                     cAnimSetPath;                                             // 0x0098(0x0010)
+	struct FString                                     cAkEventPath;                                             // 0x00A8(0x0010)
+	struct FString                                     cAkEventLandingPath;                                      // 0x00B8(0x0010)
+	struct FString                                     AkEventPickupPath;                                        // 0x00C8(0x0010)
+	struct FPointer                                    ParticleDataOnDropPointer;                                // 0x00D8(0x0008)
+	struct FPointer                                    ParticleDataOnModelPointer;                               // 0x00E0(0x0008)
+	struct FPointer                                    ParticleDataOnPickupPointer;                              // 0x00E8(0x0008)
+	struct FPointer                                    ParticleDataOnTimeOutPointer;                             // 0x00F0(0x0008)
+	struct FObjectPath                                 PATH_Mesh;                                                // 0x00F8(0x0020)
+	TArray<struct FObjectPath>                         PATH_Material;                                            // 0x0118(0x0010)
+	struct FObjectPath                                 PATH_AnimSetTemplate;                                     // 0x0128(0x0020)
+	struct FObjectPath                                 PATH_AkEvent;                                             // 0x0148(0x0020)
+	struct FObjectPath                                 PATH_AkEventLanding;                                      // 0x0168(0x0020)
+	struct FObjectPath                                 PATH_AkEventPickup;                                       // 0x0188(0x0020)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcFunctionTalkInfo
@@ -22697,14 +22506,15 @@ struct FEFDropModelInfo
 struct FEFNpcFunctionTalkInfo
 {
 	TEnumAsByte<ENpcFunctionTalk_FunctionType>         FunctionType;                                             // 0x0000(0x0001)
-	int                                                CoopQuestIndex;                                           // 0x0000(0x0004)
-	int                                                AISignalIndex;                                            // 0x0000(0x0004)
-	struct FString                                     AISignalString;                                           // 0x0000(0x0010)
-	int                                                FriendshipTalkRewardIndex;                                // 0x0000(0x0004)
-	TEnumAsByte<ETriggerContentType>                   ContentTriggerType;                                       // 0x0000(0x0001)
-	int                                                ContentTriggerZoneIndex;                                  // 0x0000(0x0004)
-	int                                                ContentTriggerSignalIndex;                                // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0004(0x0028) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                CoopQuestIndex;                                           // 0x0004(0x0004)
+	int                                                AISignalIndex;                                            // 0x0008(0x0004)
+	struct FString                                     AISignalString;                                           // 0x000C(0x0010)
+	int                                                FriendshipTalkRewardIndex;                                // 0x001C(0x0004)
+	TEnumAsByte<ETriggerContentType>                   ContentTriggerType;                                       // 0x0020(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0021(0x0003) MISSED OFFSET
+	int                                                ContentTriggerZoneIndex;                                  // 0x0024(0x0004)
+	int                                                ContentTriggerSignalIndex;                                // 0x0028(0x0004)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFTalkSelect
@@ -22712,11 +22522,10 @@ struct FEFNpcFunctionTalkInfo
 struct FEFTalkSelect
 {
 	int                                                NeedIntellect;                                            // 0x0000(0x0004)
-	int                                                NeedCourage;                                              // 0x0000(0x0004)
-	int                                                NeedCharm;                                                // 0x0000(0x0004)
-	int                                                NeedKindness;                                             // 0x0000(0x0004)
-	struct FstGameMsgID                                GameMsgIndex;                                             // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0024(0x0010) MISSED OFFSET
+	int                                                NeedCourage;                                              // 0x0004(0x0004)
+	int                                                NeedCharm;                                                // 0x0008(0x0004)
+	int                                                NeedKindness;                                             // 0x000C(0x0004)
+	struct FstGameMsgID                                GameMsgIndex;                                             // 0x0010(0x0024)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcClickServerEvent
@@ -22724,15 +22533,16 @@ struct FEFTalkSelect
 struct FEFNpcClickServerEvent
 {
 	TEnumAsByte<ENpcInteractionEventType>              EventType;                                                // 0x0000(0x0001)
-	int                                                SignalIndex;                                              // 0x0000(0x0004)
-	struct FString                                     AISignalString;                                           // 0x0000(0x0010)
-	TEnumAsByte<EFactionType>                          FactionType;                                              // 0x0000(0x0001)
-	int                                                SubFactionID;                                             // 0x0000(0x0004)
-	int                                                NpcId;                                                    // 0x0000(0x0004)
-	int                                                DespawnDelayTime;                                         // 0x0000(0x0004)
-	int                                                SpawnDelayTime;                                           // 0x0000(0x0004)
-	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0001(0x002C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                SignalIndex;                                              // 0x0004(0x0004)
+	struct FString                                     AISignalString;                                           // 0x0008(0x0010)
+	TEnumAsByte<EFactionType>                          FactionType;                                              // 0x0018(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
+	int                                                SubFactionID;                                             // 0x001C(0x0004)
+	int                                                NpcId;                                                    // 0x0020(0x0004)
+	int                                                DespawnDelayTime;                                         // 0x0024(0x0004)
+	int                                                SpawnDelayTime;                                           // 0x0028(0x0004)
+	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x002C(0x0001)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFQuestConditionInfo
@@ -22740,9 +22550,8 @@ struct FEFNpcClickServerEvent
 struct FEFQuestConditionInfo
 {
 	int                                                QuestIndex;                                               // 0x0000(0x0004)
-	int                                                StageIndex;                                               // 0x0000(0x0004)
-	int                                                SuccessCount;                                             // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                StageIndex;                                               // 0x0004(0x0004)
+	int                                                SuccessCount;                                             // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFSwitchInteractionInputCaseInfo
@@ -22750,11 +22559,11 @@ struct FEFQuestConditionInfo
 struct FEFSwitchInteractionInputCaseInfo
 {
 	TEnumAsByte<ESwitchInteractionInputCaseType>       InputCaseType;                                            // 0x0000(0x0001)
-	int                                                ZoneIndex;                                                // 0x0000(0x0004)
-	int                                                TriggerUnitIndex;                                         // 0x0000(0x0004)
-	struct FString                                     IconName;                                                 // 0x0000(0x0010)
-	struct FstGameMsgID                                IconText;                                                 // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0024(0x001C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                ZoneIndex;                                                // 0x0004(0x0004)
+	int                                                TriggerUnitIndex;                                         // 0x0008(0x0004)
+	struct FString                                     IconName;                                                 // 0x000C(0x0010)
+	struct FstGameMsgID                                IconText;                                                 // 0x001C(0x0024)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcTalkInfo
@@ -22769,10 +22578,9 @@ struct FEFNpcTalkInfo
 struct FVortexModuleInstancePayload
 {
 	struct FVector                                     OriginalLocation;                                         // 0x0000(0x000C)
-	unsigned long                                      isFirstUpdate : 1;                                        // 0x0000(0x0004)
-	struct FVector                                     OwnerLocation;                                            // 0x0000(0x000C)
-	float                                              PowerAcclerationValue;                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0004(0x001C) MISSED OFFSET
+	unsigned long                                      isFirstUpdate : 1;                                        // 0x000C(0x0004)
+	struct FVector                                     OwnerLocation;                                            // 0x0010(0x000C)
+	float                                              PowerAcclerationValue;                                    // 0x001C(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.ParticleSkeletalMeshParticleInstanceInfo
@@ -22780,14 +22588,13 @@ struct FVortexModuleInstancePayload
 struct FParticleSkeletalMeshParticleInstanceInfo
 {
 	class UEFAN_Params*                                pUParticleSkeletalMeshParticle;                           // 0x0000(0x0008)
-	struct FPointer                                    pParticleSkeletalMeshParticle;                            // 0x0000(0x0008)
-	unsigned long                                      IsPlaying : 1;                                            // 0x0000(0x0004)
-	float                                              CurrentTime;                                              // 0x0000(0x0004)
-	float                                              PlayStartTime;                                            // 0x0000(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x0000(0x0004)
-	TArray<int>                                        SpawnedParticles;                                         // 0x0000(0x0010)
-	unsigned long                                      bForceFiniteLoop : 1;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0004(0x0030) MISSED OFFSET
+	struct FPointer                                    pParticleSkeletalMeshParticle;                            // 0x0008(0x0008)
+	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004)
+	float                                              CurrentTime;                                              // 0x0014(0x0004)
+	float                                              PlayStartTime;                                            // 0x0018(0x0004)
+	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004)
+	TArray<int>                                        SpawnedParticles;                                         // 0x0020(0x0010)
+	unsigned long                                      bForceFiniteLoop : 1;                                     // 0x0030(0x0004)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.ParticleSkeletalMeshActionInstanceInfo
@@ -22795,14 +22602,13 @@ struct FParticleSkeletalMeshParticleInstanceInfo
 struct FParticleSkeletalMeshActionInstanceInfo
 {
 	class UEFActionNotify_AnimEvent*                   pUParticleSkeletalMeshAction;                             // 0x0000(0x0008)
-	struct FPointer                                    pParticleSkeletalMeshAction;                              // 0x0000(0x0008)
-	unsigned long                                      IsPlaying : 1;                                            // 0x0000(0x0004)
-	float                                              CurrentTime;                                              // 0x0000(0x0004)
-	float                                              PlayStartTime;                                            // 0x0000(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x0000(0x0004)
-	struct FLinearColor                                CurrentLinearColor;                                       // 0x0000(0x0010)
-	float                                              CurrentScalar;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0004(0x0030) MISSED OFFSET
+	struct FPointer                                    pParticleSkeletalMeshAction;                              // 0x0008(0x0008)
+	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004)
+	float                                              CurrentTime;                                              // 0x0014(0x0004)
+	float                                              PlayStartTime;                                            // 0x0018(0x0004)
+	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004)
+	struct FLinearColor                                CurrentLinearColor;                                       // 0x0020(0x0010)
+	float                                              CurrentScalar;                                            // 0x0030(0x0004)
 };
 
 // ScriptStruct EFGame.EFPlayerController.EFInputEvent
@@ -22810,18 +22616,17 @@ struct FParticleSkeletalMeshActionInstanceInfo
 struct FEFInputEvent
 {
 	struct FVector                                     MouseDir;                                                 // 0x0000(0x000C)
-	struct FVector                                     InputDir;                                                 // 0x0000(0x000C)
-	struct FEFBasedLocation                            MouseTargetPos;                                           // 0x0000(0x0010)
-	unsigned long                                      bMoveStart : 1;                                           // 0x0000(0x0004)
-	unsigned long                                      bMoving : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      bMoveEnd : 1;                                             // 0x0000(0x0004)
-	unsigned long                                      bMoveStop : 1;                                            // 0x0000(0x0004)
-	class AActor*                                      TargetActor;                                              // 0x0000(0x0008)
-	int                                                HotKeyId;                                                 // 0x0000(0x0004)
-	int                                                InputEvent;                                               // 0x0000(0x0004)
-	int                                                SkillId;                                                  // 0x0000(0x0004)
-	int                                                CommonActionId;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0004(0x0040) MISSED OFFSET
+	struct FVector                                     InputDir;                                                 // 0x000C(0x000C)
+	struct FEFBasedLocation                            MouseTargetPos;                                           // 0x0018(0x0010)
+	unsigned long                                      bMoveStart : 1;                                           // 0x0028(0x0004)
+	unsigned long                                      bMoving : 1;                                              // 0x0028(0x0004)
+	unsigned long                                      bMoveEnd : 1;                                             // 0x0028(0x0004)
+	unsigned long                                      bMoveStop : 1;                                            // 0x0028(0x0004)
+	class AActor*                                      TargetActor;                                              // 0x002C(0x0008)
+	int                                                HotKeyId;                                                 // 0x0034(0x0004)
+	int                                                InputEvent;                                               // 0x0038(0x0004)
+	int                                                SkillId;                                                  // 0x003C(0x0004)
+	int                                                CommonActionId;                                           // 0x0040(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalEndOption_GatherItem
@@ -22829,10 +22634,9 @@ struct FEFInputEvent
 struct FEFQuestAdditionalEndOption_GatherItem
 {
 	unsigned long                                      IsQuestItem : 1;                                          // 0x0000(0x0004)
-	int                                                ItemIndex;                                                // 0x0000(0x0004)
-	int                                                ItemAmount;                                               // 0x0000(0x0004)
-	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	int                                                ItemIndex;                                                // 0x0004(0x0004)
+	int                                                ItemAmount;                                               // 0x0008(0x0004)
+	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTokenItemAmount
@@ -22840,8 +22644,7 @@ struct FEFQuestAdditionalEndOption_GatherItem
 struct FEFTokenItemAmount
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Amount;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Amount;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalEndOption_TokenItem
@@ -22849,8 +22652,7 @@ struct FEFTokenItemAmount
 struct FEFQuestAdditionalEndOption_TokenItem
 {
 	struct FEFTokenItemAmount                          TokenAmount;                                              // 0x0000(0x0008)
-	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalEndOption_HonorTitle
@@ -22858,8 +22660,7 @@ struct FEFQuestAdditionalEndOption_TokenItem
 struct FEFQuestAdditionalEndOption_HonorTitle
 {
 	int                                                FirstTitle;                                               // 0x0000(0x0004)
-	int                                                SecondTitle;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                SecondTitle;                                              // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalOfferOption_Item
@@ -22867,9 +22668,8 @@ struct FEFQuestAdditionalEndOption_HonorTitle
 struct FEFQuestAdditionalOfferOption_Item
 {
 	int                                                ItemIndex;                                                // 0x0000(0x0004)
-	int                                                ItemAmount;                                               // 0x0000(0x0004)
-	unsigned long                                      CheckUnique : 1;                                          // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                ItemAmount;                                               // 0x0004(0x0004)
+	unsigned long                                      CheckUnique : 1;                                          // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownResearch
@@ -22877,8 +22677,7 @@ struct FEFQuestAdditionalOfferOption_Item
 struct FEFTownResearch
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Level;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestTriggerInfo
@@ -22886,8 +22685,7 @@ struct FEFTownResearch
 struct FEFQuestTriggerInfo
 {
 	int                                                ZoneIndex;                                                // 0x0000(0x0004)
-	int                                                TriggerUnitIndex;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                TriggerUnitIndex;                                         // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestOfferRootClassOptionData
@@ -22895,9 +22693,9 @@ struct FEFQuestTriggerInfo
 struct FEFQuestOfferRootClassOptionData
 {
 	TEnumAsByte<EPlayerClassDivision>                  eClassDivision;                                           // 0x0000(0x0001)
-	int                                                Index;                                                    // 0x0000(0x0004)
-	int                                                Amount;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Index;                                                    // 0x0004(0x0004)
+	int                                                Amount;                                                   // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EQuestOfferFailOption
@@ -22905,11 +22703,11 @@ struct FEFQuestOfferRootClassOptionData
 struct FEQuestOfferFailOption
 {
 	TEnumAsByte<EQuestOfferFailOption_GiveObjectType>  GiveObjectType;                                           // 0x0000(0x0001)
-	int                                                GiveObjectIndex;                                          // 0x0000(0x0004)
-	int                                                GatherPercentage;                                         // 0x0000(0x0004)
-	int                                                GatherMinAmount;                                          // 0x0000(0x0004)
-	int                                                GatherMaxAmount;                                          // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                GiveObjectIndex;                                          // 0x0004(0x0004)
+	int                                                GatherPercentage;                                         // 0x0008(0x0004)
+	int                                                GatherMinAmount;                                          // 0x000C(0x0004)
+	int                                                GatherMaxAmount;                                          // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFPointPerTarget
@@ -22917,8 +22715,7 @@ struct FEQuestOfferFailOption
 struct FEFPointPerTarget
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Point;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Point;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFProfessionPropCondition
@@ -22926,8 +22723,8 @@ struct FEFPointPerTarget
 struct FEFProfessionPropCondition
 {
 	TEnumAsByte<EProfessionType>                       eType;                                                    // 0x0000(0x0001)
-	int                                                Tier;                                                     // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Tier;                                                     // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFPrecedeQuestInfo
@@ -22935,9 +22732,8 @@ struct FEFProfessionPropCondition
 struct FEFPrecedeQuestInfo
 {
 	int                                                QuestIndex;                                               // 0x0000(0x0004)
-	int                                                StepIndex;                                                // 0x0000(0x0004)
-	int                                                RepeatCount;                                              // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0004(0x0008) MISSED OFFSET
+	int                                                StepIndex;                                                // 0x0004(0x0004)
+	int                                                RepeatCount;                                              // 0x0008(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFNpcFriendShipCondition
@@ -22945,8 +22741,7 @@ struct FEFPrecedeQuestInfo
 struct FEFNpcFriendShipCondition
 {
 	int                                                NpcId;                                                    // 0x0000(0x0004)
-	TEnumAsByte<EFriendshipGrade>                      eGrade;                                                   // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0001(0x0004) MISSED OFFSET
+	TEnumAsByte<EFriendshipGrade>                      eGrade;                                                   // 0x0004(0x0001)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownResourceCondition
@@ -22954,8 +22749,8 @@ struct FEFNpcFriendShipCondition
 struct FEFTownResourceCondition
 {
 	TEnumAsByte<ETownResourceType>                     eType;                                                    // 0x0000(0x0001)
-	int                                                Amount;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Amount;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownBuildingCondition
@@ -22963,8 +22758,8 @@ struct FEFTownResourceCondition
 struct FEFTownBuildingCondition
 {
 	TEnumAsByte<ETownBuildingType>                     eType;                                                    // 0x0000(0x0001)
-	int                                                Amount;                                                   // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Amount;                                                   // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownNpcLevelCondition
@@ -22972,8 +22767,7 @@ struct FEFTownBuildingCondition
 struct FEFTownNpcLevelCondition
 {
 	int                                                NPCIndex;                                                 // 0x0000(0x0004)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Level;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestUIOption
@@ -22989,8 +22783,7 @@ struct FEFQuestUIOption
 struct FEFAchievementCondition
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Level;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTendencyCondition
@@ -22998,8 +22791,8 @@ struct FEFAchievementCondition
 struct FEFTendencyCondition
 {
 	TEnumAsByte<ECharacterTendencyType>                eType;                                                    // 0x0000(0x0001)
-	int                                                Point;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                Point;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFVoyageSkillCondition
@@ -23007,8 +22800,7 @@ struct FEFTendencyCondition
 struct FEFVoyageSkillCondition
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Level;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFShipCondition
@@ -23016,8 +22808,7 @@ struct FEFVoyageSkillCondition
 struct FEFShipCondition
 {
 	int                                                Id;                                                       // 0x0000(0x0004)
-	int                                                Level;                                                    // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                Level;                                                    // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTalkNpcInfo
@@ -23025,8 +22816,7 @@ struct FEFShipCondition
 struct FEFTalkNpcInfo
 {
 	int                                                NpcId;                                                    // 0x0000(0x0004)
-	int                                                TalkNodeIndex;                                            // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	int                                                TalkNodeIndex;                                            // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestFailUIInfo
@@ -23034,9 +22824,8 @@ struct FEFTalkNpcInfo
 struct FEFQuestFailUIInfo
 {
 	unsigned long                                      bShow : 1;                                                // 0x0000(0x0004)
-	struct FEFIconInfo                                 Icon;                                                     // 0x0000(0x0024)
-	struct FstGameMsgID                                Message;                                                  // 0x0000(0x0024)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0024(0x0028) MISSED OFFSET
+	struct FEFIconInfo                                 Icon;                                                     // 0x0004(0x0024)
+	struct FstGameMsgID                                Message;                                                  // 0x0028(0x0024)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestEnd
@@ -23044,8 +22833,8 @@ struct FEFQuestFailUIInfo
 struct FEFQuestEnd
 {
 	TEnumAsByte<EQuestEndType>                         End_Type;                                                 // 0x0000(0x0001)
-	int                                                End_NextQuestIndex;                                       // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                End_NextQuestIndex;                                       // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestItemWithdrawInfo
@@ -23053,8 +22842,8 @@ struct FEFQuestEnd
 struct FEFQuestItemWithdrawInfo
 {
 	TEnumAsByte<EQuestStatus>                          QuestStatus;                                              // 0x0000(0x0001)
-	int                                                QuestItemIndex;                                           // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                QuestItemIndex;                                           // 0x0004(0x0004)
 };
 
 // ScriptStruct EFGame.EFSequence.Matrix2D
@@ -23076,8 +22865,7 @@ struct FSRTMatrix2D : public FMatrix2D
 struct FEFActiveAIInfo
 {
 	int                                                SpawnIndex;                                               // 0x0000(0x0004)
-	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0001(0x0004) MISSED OFFSET
+	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x0004(0x0001)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Input
@@ -23094,9 +22882,9 @@ struct FEFTriggerSceneEventInfo_Input
 struct FEFTriggerOutputInfo
 {
 	struct FString                                     OutputString;                                             // 0x0000(0x0010)
-	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0000(0x0001)
-	TArray<class USequenceObject*>                     TriggerNodeArray;                                         // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	TArray<class USequenceObject*>                     TriggerNodeArray;                                         // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFClientEventTriggerAction_Warp
@@ -23104,10 +22892,10 @@ struct FEFTriggerOutputInfo
 struct FEFClientEventTriggerAction_Warp
 {
 	int                                                ZoneIndex;                                                // 0x0000(0x0004)
-	TEnumAsByte<EZoneLevel>                            eZoneLevel;                                               // 0x0000(0x0001)
-	int                                                PortalIndex;                                              // 0x0000(0x0004)
-	unsigned long                                      bSourceZoneWarp : 1;                                      // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0004(0x000C) MISSED OFFSET
+	TEnumAsByte<EZoneLevel>                            eZoneLevel;                                               // 0x0004(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
+	int                                                PortalIndex;                                              // 0x0008(0x0004)
+	unsigned long                                      bSourceZoneWarp : 1;                                      // 0x000C(0x0004)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFClientEventTriggerAction_Teleport
@@ -23115,9 +22903,8 @@ struct FEFClientEventTriggerAction_Warp
 struct FEFClientEventTriggerAction_Teleport
 {
 	TArray<int>                                        TeleportIndexList;                                        // 0x0000(0x0010)
-	TArray<TEnumAsByte<EOceanAreaType>>                OceanAreaTypeList;                                        // 0x0000(0x0010)
-	TArray<struct FVector>                             PositionList;                                             // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) MISSED OFFSET
+	TArray<TEnumAsByte<EOceanAreaType>>                OceanAreaTypeList;                                        // 0x0010(0x0010)
+	TArray<struct FVector>                             PositionList;                                             // 0x0020(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerNodeOutputInfo
@@ -23125,9 +22912,9 @@ struct FEFClientEventTriggerAction_Teleport
 struct FEFTriggerNodeOutputInfo
 {
 	struct FString                                     OutputString;                                             // 0x0000(0x0010)
-	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0000(0x0001)
-	TArray<int>                                        NextTriggerNodeStepIndexArray;                            // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0010(0x0014) MISSED OFFSET
+	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	TArray<int>                                        NextTriggerNodeStepIndexArray;                            // 0x0014(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_UI
@@ -23135,11 +22922,10 @@ struct FEFTriggerNodeOutputInfo
 struct FEFTriggerSceneEventInfo_UI
 {
 	TArray<int>                                        UIWindowTypeArray;                                        // 0x0000(0x0010)
-	unsigned long                                      bHideUI : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      bHideBalloon : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      bHideQuestMark : 1;                                       // 0x0000(0x0004)
-	unsigned long                                      bHideNameTag : 1;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	unsigned long                                      bHideUI : 1;                                              // 0x0010(0x0004)
+	unsigned long                                      bHideBalloon : 1;                                         // 0x0010(0x0004)
+	unsigned long                                      bHideQuestMark : 1;                                       // 0x0010(0x0004)
+	unsigned long                                      bHideNameTag : 1;                                         // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Target
@@ -23154,10 +22940,9 @@ struct FEFTriggerSceneEventInfo_Target
 struct FEFPartyRemoteEventInfo
 {
 	struct FString                                     PartyMemberRemoteEvent1;                                  // 0x0000(0x0010)
-	struct FString                                     PartyMemberRemoteEvent2;                                  // 0x0000(0x0010)
-	struct FString                                     PartyMemberRemoteEvent3;                                  // 0x0000(0x0010)
-	struct FString                                     PartyMemberRemoteEvent4;                                  // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0010(0x0030) MISSED OFFSET
+	struct FString                                     PartyMemberRemoteEvent2;                                  // 0x0010(0x0010)
+	struct FString                                     PartyMemberRemoteEvent3;                                  // 0x0020(0x0010)
+	struct FString                                     PartyMemberRemoteEvent4;                                  // 0x0030(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Kismet
@@ -23170,17 +22955,17 @@ struct FEFTriggerSceneEventInfo_Kismet
 	unsigned long                                      bHideDropItem : 1;                                        // 0x0000(0x0004)
 	unsigned long                                      bHideNPC : 1;                                             // 0x0000(0x0004)
 	unsigned long                                      bHideMonster : 1;                                         // 0x0000(0x0004)
-	struct FString                                     KismetEvent;                                              // 0x0000(0x0010)
-	struct FEFPartyRemoteEventInfo                     PartyRemoteEventInfo;                                     // 0x0000(0x0040)
-	unsigned long                                      bUseSyncLocation : 1;                                     // 0x0000(0x0004)
-	unsigned long                                      bVehicleSync : 1;                                         // 0x0000(0x0004)
-	TEnumAsByte<ETriggerKismetCombatStateType>         eStartCombatState;                                        // 0x0000(0x0001)
-	TEnumAsByte<ETriggerKismetCombatStateType>         eEndCombatState;                                          // 0x0000(0x0001)
-	TArray<int>                                        HiddenObjectSpawnIndexList;                               // 0x0000(0x0010)
-	unsigned long                                      bPlayWinnerPose : 1;                                      // 0x0000(0x0004)
-	unsigned long                                      bSetPlayerCamera : 1;                                     // 0x0000(0x0004)
-	TArray<TEnumAsByte<ECinematicSyncType>>            CinematicSyncTypeList;                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x70];                                      // 0x0010(0x0070) MISSED OFFSET
+	struct FString                                     KismetEvent;                                              // 0x0004(0x0010)
+	struct FEFPartyRemoteEventInfo                     PartyRemoteEventInfo;                                     // 0x0014(0x0040)
+	unsigned long                                      bUseSyncLocation : 1;                                     // 0x0054(0x0004)
+	unsigned long                                      bVehicleSync : 1;                                         // 0x0054(0x0004)
+	TEnumAsByte<ETriggerKismetCombatStateType>         eStartCombatState;                                        // 0x0058(0x0001)
+	TEnumAsByte<ETriggerKismetCombatStateType>         eEndCombatState;                                          // 0x0059(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x005A(0x0002) MISSED OFFSET
+	TArray<int>                                        HiddenObjectSpawnIndexList;                               // 0x005C(0x0010)
+	unsigned long                                      bPlayWinnerPose : 1;                                      // 0x006C(0x0004)
+	unsigned long                                      bSetPlayerCamera : 1;                                     // 0x006C(0x0004)
+	TArray<TEnumAsByte<ECinematicSyncType>>            CinematicSyncTypeList;                                    // 0x0070(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Delay
@@ -23195,8 +22980,8 @@ struct FEFTriggerSceneEventInfo_Delay
 struct FEFSceneEventStringInfo
 {
 	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001)
-	struct FString                                     MsgID;                                                    // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FString                                     MsgID;                                                    // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_StringDispatcher
@@ -23211,14 +22996,15 @@ struct FEFTriggerSceneEventInfo_StringDispatcher
 struct FEFTriggerSceneEventInfo_Announce
 {
 	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001)
-	struct FString                                     MsgID;                                                    // 0x0000(0x0010)
-	TEnumAsByte<EAnnounceCategory>                     CategoryType;                                             // 0x0000(0x0001)
-	int                                                SubCategoryType;                                          // 0x0000(0x0004)
-	struct FString                                     IconPath;                                                 // 0x0000(0x0010)
-	int                                                IconIndex;                                                // 0x0000(0x0004)
-	struct FString                                     SoundTheme;                                               // 0x0000(0x0010)
-	struct FString                                     SoundEvent;                                               // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0010(0x0040) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	struct FString                                     MsgID;                                                    // 0x0004(0x0010)
+	TEnumAsByte<EAnnounceCategory>                     CategoryType;                                             // 0x0014(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0015(0x0003) MISSED OFFSET
+	int                                                SubCategoryType;                                          // 0x0018(0x0004)
+	struct FString                                     IconPath;                                                 // 0x001C(0x0010)
+	int                                                IconIndex;                                                // 0x002C(0x0004)
+	struct FString                                     SoundTheme;                                               // 0x0030(0x0010)
+	struct FString                                     SoundEvent;                                               // 0x0040(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_GameNote
@@ -23233,8 +23019,7 @@ struct FEFTriggerSceneEventInfo_GameNote
 struct FEFTriggerSceneEventInfo_MapSymbol
 {
 	int                                                MapSymbolIndex;                                           // 0x0000(0x0004)
-	TArray<int>                                        SpawnIndexList;                                           // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0010(0x0004) MISSED OFFSET
+	TArray<int>                                        SpawnIndexList;                                           // 0x0004(0x0010)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Fading
@@ -23242,9 +23027,9 @@ struct FEFTriggerSceneEventInfo_MapSymbol
 struct FEFTriggerSceneEventInfo_Fading
 {
 	TEnumAsByte<ETriggerKismetFadingType>              FadingType;                                               // 0x0000(0x0001)
-	float                                              FadingTime;                                               // 0x0000(0x0004)
-	TEnumAsByte<ETriggerSceneEventFlagType>            EventFlag;                                                // 0x0000(0x0001)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0001(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	float                                              FadingTime;                                               // 0x0004(0x0004)
+	TEnumAsByte<ETriggerSceneEventFlagType>            EventFlag;                                                // 0x0008(0x0001)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerRandomCaseInfo
@@ -23252,8 +23037,7 @@ struct FEFTriggerSceneEventInfo_Fading
 struct FEFTriggerRandomCaseInfo
 {
 	struct FString                                     OutputString;                                             // 0x0000(0x0010)
-	int                                                Percentage;                                               // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) MISSED OFFSET
+	int                                                Percentage;                                               // 0x0010(0x0004)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerTeleportNPCInfo
@@ -23261,10 +23045,9 @@ struct FEFTriggerRandomCaseInfo
 struct FEFTriggerTeleportNPCInfo
 {
 	int                                                SpawnIndex;                                               // 0x0000(0x0004)
-	int                                                TransitSpawnIndex;                                        // 0x0000(0x0004)
-	struct FVector                                     TeleportLocation;                                         // 0x0000(0x000C)
-	struct FRotator                                    TeleportRotation;                                         // 0x0000(0x000C)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x000C(0x0014) MISSED OFFSET
+	int                                                TransitSpawnIndex;                                        // 0x0004(0x0004)
+	struct FVector                                     TeleportLocation;                                         // 0x0008(0x000C)
+	struct FRotator                                    TeleportRotation;                                         // 0x0014(0x000C)
 };
 
 // ScriptStruct EFGame.EFUIDataDefine.UIControlBindingInfo
@@ -23272,11 +23055,10 @@ struct FEFTriggerTeleportNPCInfo
 struct FUIControlBindingInfo
 {
 	struct FString                                     InstanceName;                                             // 0x0000(0x0010)
-	struct FString                                     BindingDescription;                                       // 0x0000(0x0010)
-	class UClass*                                      SubWidgetBinding;                                         // 0x0000(0x0008)
-	struct FString                                     SubWidgetBindingPath;                                     // 0x0000(0x0010)
-	unsigned long                                      ComponentOff : 1;                                         // 0x0000(0x0004)
-	unsigned char                                      UnknownData00[0x38];                                      // 0x0004(0x0038) MISSED OFFSET
+	struct FString                                     BindingDescription;                                       // 0x0010(0x0010)
+	class UClass*                                      SubWidgetBinding;                                         // 0x0020(0x0008)
+	struct FString                                     SubWidgetBindingPath;                                     // 0x0028(0x0010)
+	unsigned long                                      ComponentOff : 1;                                         // 0x0038(0x0004)
 };
 
 // ScriptStruct EFGame.EFUIDataDefine.UIStructureInfo
@@ -23284,16 +23066,16 @@ struct FUIControlBindingInfo
 struct FUIStructureInfo
 {
 	TArray<struct FUIControlBindingInfo>               BindingInfo;                                              // 0x0000(0x0010)
-	struct FString                                     FrameName;                                                // 0x0000(0x0010)
-	unsigned long                                      OptionImmortal : 1;                                       // 0x0000(0x0004)
-	unsigned long                                      OptionShowWhenActive : 1;                                 // 0x0000(0x0004)
-	unsigned long                                      OptionHitTest : 1;                                        // 0x0000(0x0004)
-	TEnumAsByte<EFKEY_Function>                        OptionKeyBind;                                            // 0x0000(0x0001)
-	class UClass*                                      WidgetBinding;                                            // 0x0000(0x0008)
-	struct FString                                     WidgetBindingPath;                                        // 0x0000(0x0010)
-	unsigned long                                      OptionModal : 1;                                          // 0x0000(0x0004)
-	struct FString                                     KeyBindName;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x44];                                      // 0x0010(0x0044) MISSED OFFSET
+	struct FString                                     FrameName;                                                // 0x0010(0x0010)
+	unsigned long                                      OptionImmortal : 1;                                       // 0x0020(0x0004)
+	unsigned long                                      OptionShowWhenActive : 1;                                 // 0x0020(0x0004)
+	unsigned long                                      OptionHitTest : 1;                                        // 0x0020(0x0004)
+	TEnumAsByte<EFKEY_Function>                        OptionKeyBind;                                            // 0x0024(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0025(0x0003) MISSED OFFSET
+	class UClass*                                      WidgetBinding;                                            // 0x0028(0x0008)
+	struct FString                                     WidgetBindingPath;                                        // 0x0030(0x0010)
+	unsigned long                                      OptionModal : 1;                                          // 0x0040(0x0004)
+	struct FString                                     KeyBindName;                                              // 0x0044(0x0010)
 };
 
 }

@@ -21,18 +21,17 @@ class UObject
 public:
 	static TArray<UObject*>*                           GObjects;                                                 // 0x0000(0x0000)
 	struct FPointer                                    VfTableObject;                                            // 0x0000(0x0008)
-	struct FPointer                                    HashNext;                                                 // 0x0000(0x0008)
-	struct FQWord                                      ObjectFlags;                                              // 0x0000(0x0008)
-	struct FPointer                                    StateFrame;                                               // 0x0000(0x0008)
-	class UObject*                                     Linker;                                                   // 0x0000(0x0008)
-	struct FPointer                                    LinkerIndex;                                              // 0x0000(0x0008)
-	int                                                ObjectInternalInteger;                                    // 0x0000(0x0004)
-	int                                                NetIndex;                                                 // 0x0000(0x0004)
-	class UObject*                                     Outer;                                                    // 0x0000(0x0008)
-	struct FName                                       Name;                                                     // 0x0000(0x0008)
-	class UClass*                                      Class;                                                    // 0x0000(0x0008)
-	class UObject*                                     ObjectArchetype;                                          // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0008(0x0050) MISSED OFFSET
+	struct FPointer                                    HashNext;                                                 // 0x0008(0x0008)
+	struct FQWord                                      ObjectFlags;                                              // 0x0010(0x0008)
+	struct FPointer                                    StateFrame;                                               // 0x0018(0x0008)
+	class UObject*                                     Linker;                                                   // 0x0020(0x0008)
+	struct FPointer                                    LinkerIndex;                                              // 0x0028(0x0008)
+	int                                                ObjectInternalInteger;                                    // 0x0030(0x0004)
+	int                                                NetIndex;                                                 // 0x0034(0x0004)
+	class UObject*                                     Outer;                                                    // 0x0038(0x0008)
+	struct FName                                       Name;                                                     // 0x0040(0x0008)
+	class UClass*                                      Class;                                                    // 0x0048(0x0008)
+	class UObject*                                     ObjectArchetype;                                          // 0x0050(0x0008)
 
 	static inline TArray<UObject*>& GetGlobalObjects()
 	{
@@ -424,7 +423,7 @@ public:
 class USubsystem : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	struct FPointer                                    VfTable_FExec;                                            // 0x0058(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -440,7 +439,25 @@ public:
 class USystem : public USubsystem
 {
 public:
-	unsigned char                                      UnknownData00[0xF4];                                      // 0x0060(0x00F4) MISSED OFFSET
+	int                                                StaleCacheDays;                                           // 0x0060(0x0004)
+	int                                                MaxStaleCacheSize;                                        // 0x0064(0x0004)
+	int                                                MaxOverallCacheSize;                                      // 0x0068(0x0004)
+	int                                                PackageSizeSoftLimit;                                     // 0x006C(0x0004)
+	float                                              AsyncIOBandwidthLimit;                                    // 0x0070(0x0004)
+	struct FString                                     SavePath;                                                 // 0x0074(0x0010)
+	struct FString                                     CachePath;                                                // 0x0084(0x0010)
+	struct FString                                     CacheExt;                                                 // 0x0094(0x0010)
+	TArray<struct FString>                             Paths;                                                    // 0x00A4(0x0010)
+	TArray<struct FString>                             ReleaseCookedPaths;                                       // 0x00B4(0x0010)
+	TArray<struct FString>                             SeekFreePCPaths;                                          // 0x00C4(0x0010)
+	TArray<struct FString>                             ScriptPaths;                                              // 0x00D4(0x0010)
+	TArray<struct FString>                             FRScriptPaths;                                            // 0x00E4(0x0010)
+	TArray<struct FString>                             CutdownPaths;                                             // 0x00F4(0x0010)
+	TArray<struct FName>                               Suppress;                                                 // 0x0104(0x0010)
+	TArray<struct FString>                             Extensions;                                               // 0x0114(0x0010)
+	TArray<struct FString>                             SeekFreePCExtensions;                                     // 0x0124(0x0010)
+	TArray<struct FString>                             LocalizationPaths;                                        // 0x0134(0x0010)
+	struct FString                                     TextureFileCacheExtension;                                // 0x0144(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -504,7 +521,7 @@ public:
 class ULocAssetRedirector : public UObjectRedirector
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
+	TArray<struct FDestinationLocObject>               DestinationLocObjectInfoList;                             // 0x0060(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -615,11 +632,11 @@ public:
 class UStruct : public UField
 {
 public:
-	unsigned char                                      UnknownData00[0x08];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData00[16];                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	class UField*                                      SuperField;                                               // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	class UField*                                      Children;                                                 // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	unsigned long                                      PropertySize;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	unsigned char                                      UnknownData01[0x48];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData01[76];                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	static UClass* StaticClass()
 	{
@@ -943,7 +960,16 @@ public:
 class UFactory : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0058(0x0048) MISSED OFFSET
+	class UClass*                                      SupportedClass;                                           // 0x0058(0x0008)
+	class UClass*                                      ContextClass;                                             // 0x0060(0x0008)
+	struct FString                                     Description;                                              // 0x0068(0x0010)
+	TArray<struct FString>                             Formats;                                                  // 0x0078(0x0010)
+	unsigned long                                      bCreateNew : 1;                                           // 0x0088(0x0004)
+	unsigned long                                      bEditAfterNew : 1;                                        // 0x0088(0x0004)
+	unsigned long                                      bEditorImport : 1;                                        // 0x0088(0x0004)
+	unsigned long                                      bText : 1;                                                // 0x0088(0x0004)
+	int                                                AutoPriority;                                             // 0x008C(0x0004)
+	TArray<struct FString>                             ValidGameNames;                                           // 0x0090(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -974,7 +1000,10 @@ public:
 class UExporter : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0058(0x0034) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	TArray<struct FString>                             FormatExtension;                                          // 0x0060(0x0010)
+	TArray<struct FString>                             FormatDescription;                                        // 0x0070(0x0010)
+	unsigned char                                      UnknownData01[0xC];                                       // 0x0080(0x000C) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -990,7 +1019,8 @@ public:
 class UComponent : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	class UClass*                                      TemplateOwnerClass;                                       // 0x0058(0x0008)
+	struct FName                                       TemplateName;                                             // 0x0060(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1006,7 +1036,9 @@ public:
 class UDistributionVector : public UComponent
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0068(0x000C) MISSED OFFSET
+	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004)
+	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1024,7 +1056,9 @@ public:
 class UDistributionFloat : public UComponent
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0068(0x000C) MISSED OFFSET
+	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004)
+	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1042,7 +1076,16 @@ public:
 class UCommandlet : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x0058(0x0054) MISSED OFFSET
+	struct FString                                     HelpDescription;                                          // 0x0058(0x0010)
+	struct FString                                     HelpUsage;                                                // 0x0068(0x0010)
+	struct FString                                     HelpWebLink;                                              // 0x0078(0x0010)
+	TArray<struct FString>                             HelpParamNames;                                           // 0x0088(0x0010)
+	TArray<struct FString>                             HelpParamDescriptions;                                    // 0x0098(0x0010)
+	unsigned long                                      IsServer : 1;                                             // 0x00A8(0x0004)
+	unsigned long                                      IsClient : 1;                                             // 0x00A8(0x0004)
+	unsigned long                                      IsEditor : 1;                                             // 0x00A8(0x0004)
+	unsigned long                                      LogToConsole : 1;                                         // 0x00A8(0x0004)
+	unsigned long                                      ShowErrorCount : 1;                                       // 0x00A8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1109,9 +1152,9 @@ public:
 class UClass : public UState
 {
 public:
-	unsigned char                                      UnknownData00[0x88];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData00[176];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	class UObject*                                     ClassDefaultObject;                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	unsigned char                                      UnknownData01[0x70];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData01[168];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	template<typename T>
 	inline T* CreateDefaultObject()
@@ -1122,9 +1165,6 @@ public:
 	inline UObject* CreateDefaultObject()
 	{
 		using Fn = UObject*(__thiscall *)(UClass*, unsigned int);
-
-		//UClass::GetDefaultObject can be found with the sig
-		//74 ?? F7 86 ?? 00 00 00 00 00 00 10 75 ?? F6 05 ?? ?? ?? ?? 02 0F 84
 		static Fn fn = nullptr;
 		
 		return fn(this, 0);

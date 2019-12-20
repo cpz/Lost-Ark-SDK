@@ -19,7 +19,10 @@ namespace SDK
 class UEFActionNotify_AnimEvent : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0058(0x001C) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0058(0x0010)
+	unsigned long                                      IsActive : 1;                                             // 0x0068(0x0004)
+	float                                              StartTime;                                                // 0x006C(0x0004)
+	float                                              InterpTime;                                               // 0x0070(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -50,7 +53,9 @@ public:
 class UEFActionNotify_AnimEvent_MaterialParamterLinearColor : public UEFActionNotify_AnimEvent
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0074(0x0030) MISSED OFFSET
+	struct FString                                     ParamName;                                                // 0x0074(0x0010)
+	struct FLinearColor                                StartValue;                                               // 0x0084(0x0010)
+	struct FLinearColor                                EndValue;                                                 // 0x0094(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -66,7 +71,9 @@ public:
 class UEFActionNotify_AnimEvent_MaterialParamterScalar : public UEFActionNotify_AnimEvent
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0074(0x0018) MISSED OFFSET
+	struct FString                                     ParamName;                                                // 0x0074(0x0010)
+	float                                              StartValue;                                               // 0x0084(0x0004)
+	float                                              EndValue;                                                 // 0x0088(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -97,7 +104,11 @@ public:
 class UEFActorMotionLocationCycle : public UEFActorMotionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x19];                                      // 0x0058(0x0019) MISSED OFFSET
+	float                                              fTime;                                                    // 0x0058(0x0004)
+	struct FVector                                     vPreValue;                                                // 0x005C(0x000C)
+	float                                              fMotionRange;                                             // 0x0068(0x0004)
+	float                                              fMotionCycle;                                             // 0x006C(0x0004)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0070(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -113,7 +124,8 @@ public:
 class UEFActorMotionRotationAcyclic : public UEFActorMotionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x5];                                       // 0x0058(0x0005) MISSED OFFSET
+	float                                              fMotionVel;                                               // 0x0058(0x0004)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x005C(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -129,7 +141,11 @@ public:
 class UEFActorMotionRotationCyclic : public UEFActorMotionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x19];                                      // 0x0058(0x0019) MISSED OFFSET
+	float                                              fTime;                                                    // 0x0058(0x0004)
+	struct FRotator                                    vPreValue;                                                // 0x005C(0x000C)
+	float                                              fMotionRange;                                             // 0x0068(0x0004)
+	float                                              fMotionCycle;                                             // 0x006C(0x0004)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0070(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -176,7 +192,10 @@ public:
 class UEFAN_Params : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0058(0x001C) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0058(0x0010)
+	unsigned long                                      IsActive : 1;                                             // 0x0068(0x0004)
+	float                                              StartTime;                                                // 0x006C(0x0004)
+	float                                              InterpTime;                                               // 0x0070(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -192,7 +211,12 @@ public:
 class UEFAN_Particle : public UEFAN_Params
 {
 public:
-	unsigned char                                      UnknownData00[0x17C];                                     // 0x0074(0x017C) MISSED OFFSET
+	struct FString                                     LookInfoKey;                                              // 0x0074(0x0010)
+	float                                              RelativeSpawnTime;                                        // 0x0084(0x0004)
+	float                                              DurationTime;                                             // 0x0088(0x0004)
+	struct FEFParticleSystemInfo                       ParticleInfo;                                             // 0x008C(0x0158)
+	class UEFParticleData*                             ParticleDataInfo;                                         // 0x01E4(0x0008)
+	unsigned long                                      bSkipIfOwnerIsHidden : 1;                                 // 0x01EC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -208,7 +232,13 @@ public:
 class UEFAN_Trail : public UEFAN_Params
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0074(0x001C) MISSED OFFSET
+	float                                              RelativeSpawnTime;                                        // 0x0074(0x0004)
+	float                                              Duration;                                                 // 0x0078(0x0004)
+	class UAnimNotify_Trails*                          AnimTrails;                                               // 0x007C(0x0008)
+	TEnumAsByte<EFEQUIP_PART>                          TrailParts;                                               // 0x0084(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0085(0x0003) MISSED OFFSET
+	int                                                TrailPartsIndex;                                          // 0x0088(0x0004)
+	unsigned long                                      bSkipIfOwnerIsHidden : 1;                                 // 0x008C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -224,7 +254,7 @@ public:
 class AEFBarrier : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0274(0x0008) MISSED OFFSET
+	class UStaticMeshComponent*                        StaticMeshComponent;                                      // 0x0274(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -240,7 +270,12 @@ public:
 class AEFCharacterParts : public APawn
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0588(0x002C) MISSED OFFSET
+	struct FName                                       AttachSocketName;                                         // 0x0588(0x0008)
+	class UEFPartsSkelComponent*                       PartsMeshComponent;                                       // 0x0590(0x0008)
+	class APawn*                                       ParentPawn;                                               // 0x0598(0x0008)
+	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x05A0(0x0008)
+	int                                                AttachedPSIIndex;                                         // 0x05A8(0x0004)
+	class AEFPawn*                                     AttachOtherPawn;                                          // 0x05AC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -315,7 +350,8 @@ public:
 class UEFConsole : public UConsole
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0268(0x0014) MISSED OFFSET
+	TArray<struct FEFAutoCompleteCommand>              EFAutoCompleteCommandList;                                // 0x0268(0x0010)
+	unsigned long                                      bInputPaused : 1;                                         // 0x0278(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -335,7 +371,11 @@ public:
 class UEFDecalCollisionComponent : public UPrimitiveComponent
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0284(0x000C) MISSED OFFSET
+	float                                              ApplyOwnerSizeRate;                                       // 0x0284(0x0004)
+	struct FColor                                      DecalCollisionColor;                                      // 0x0288(0x0004)
+	unsigned long                                      bDrawBoundingBox : 1;                                     // 0x028C(0x0004)
+	unsigned long                                      bDrawNonColliding : 1;                                    // 0x028C(0x0004)
+	unsigned long                                      bAlwaysRenderIfSelected : 1;                              // 0x028C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -351,7 +391,11 @@ public:
 class UEFDecalComponent : public UDecalComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0410(0x0010) MISSED OFFSET
+	unsigned long                                      bSkipChangeLocation : 1;                                  // 0x0410(0x0004)
+	unsigned long                                      bFirstUpdate : 1;                                         // 0x0410(0x0004)
+	unsigned long                                      bSpawnedByParticleModule : 1;                             // 0x0410(0x0004)
+	unsigned long                                      bDropDistortion : 1;                                      // 0x0410(0x0004)
+	struct FVector                                     SpawnLocation;                                            // 0x0414(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -367,7 +411,8 @@ public:
 class AEFDecalFloorActor : public ADecalActor
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0284(0x000C) MISSED OFFSET
+	unsigned long                                      bUseFloorChecks : 1;                                      // 0x0284(0x0004)
+	class UEFDecalCollisionComponent*                  FloorCollisionComponent;                                  // 0x0288(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -402,7 +447,7 @@ public:
 class AEFFracturedStaticMeshActor : public AFracturedStaticMeshActor
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0310(0x0004) MISSED OFFSET
+	int                                                FracturedId;                                              // 0x0310(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -418,7 +463,59 @@ public:
 class AEFGameInfo : public AGameInfo
 {
 public:
-	unsigned char                                      UnknownData00[0x248];                                     // 0x04C0(0x0248) MISSED OFFSET
+	unsigned long                                      bShowLikeMouseOver : 1;                                   // 0x04C0(0x0004)
+	unsigned long                                      bNameTagAlpha : 1;                                        // 0x04C0(0x0004)
+	unsigned long                                      bNameTagMonShowAll : 1;                                   // 0x04C0(0x0004)
+	unsigned long                                      bIsPIE : 1;                                               // 0x04C0(0x0004)
+	unsigned long                                      bIsMapLoaded : 1;                                         // 0x04C0(0x0004)
+	struct FNameTagAlphaInfo                           sNameTagAlpha;                                            // 0x04C4(0x0010)
+	struct FNameTagMonInfo                             sDefaultNameTagMon;                                       // 0x04D4(0x0004)
+	struct FNameTagMonInfo                             sMouseOverNameTagMon;                                     // 0x04D8(0x0004)
+	float                                              fNameTagHeight;                                           // 0x04DC(0x0004)
+	struct FString                                     DefaultServerAddress;                                     // 0x04E0(0x0010)
+	int                                                DefaultServerPort;                                        // 0x04F0(0x0004)
+	int                                                DefaultPCClassId;                                         // 0x04F4(0x0004)
+	struct FString                                     DefaultPCName;                                            // 0x04F8(0x0010)
+	struct FString                                     DefaultLoginID;                                           // 0x0508(0x0010)
+	struct FString                                     DefaultLoginPass;                                         // 0x0518(0x0010)
+	int                                                DefaultMapID;                                             // 0x0528(0x0004)
+	int                                                CurrentMapIndex;                                          // 0x052C(0x0004)
+	TEnumAsByte<EZoneLevel>                            MapLevel;                                                 // 0x0530(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0531(0x0003) MISSED OFFSET
+	struct FString                                     QuestBalloonTalkFxPath;                                   // 0x0534(0x0010)
+	struct FString                                     FriendshipFxPath;                                         // 0x0544(0x0010)
+	struct FString                                     QuestUnableStartFxPath;                                   // 0x0554(0x0010)
+	struct FString                                     QuestReadyFxPath;                                         // 0x0564(0x0010)
+	struct FString                                     QuestStartFxPath;                                         // 0x0574(0x0010)
+	struct FString                                     QuestProgressFxPath;                                      // 0x0584(0x0010)
+	struct FString                                     QuestCompleteFxPath;                                      // 0x0594(0x0010)
+	struct FString                                     StartQuestPropFxPath;                                     // 0x05A4(0x0010)
+	struct FString                                     QuestBasicInteractionFxPath;                              // 0x05B4(0x0010)
+	struct FString                                     QuestEmptyMeshInteractionFxPath;                          // 0x05C4(0x0010)
+	struct FString                                     QuestVolumeInteractionFxPath;                             // 0x05D4(0x0010)
+	struct FString                                     QuestLifeProfessionInteractionFxPath;                     // 0x05E4(0x0010)
+	struct FString                                     StaticIslandWithContinentQuestFxPath;                     // 0x05F4(0x0010)
+	struct FString                                     LifeProfessionMonsterHuntingMarkFxPath;                   // 0x0604(0x0010)
+	struct FString                                     QuestFxAttachBoneName;                                    // 0x0614(0x0010)
+	struct FVector                                     QuestRelativeLoc;                                         // 0x0624(0x000C)
+	struct FString                                     AnchorModeCamAnim;                                        // 0x0630(0x0010)
+	float                                              AnchorModeCamDegree;                                      // 0x0640(0x0004)
+	struct FString                                     InteractionCamAnim_Ship;                                  // 0x0644(0x0010)
+	int                                                InteractionDistance_Ship;                                 // 0x0654(0x0004)
+	struct FString                                     InteractionCamAnim_Low;                                   // 0x0658(0x0010)
+	int                                                InteractionDistance_Low;                                  // 0x0668(0x0004)
+	struct FString                                     InteractionCamAnim_Middle;                                // 0x066C(0x0010)
+	int                                                InteractionDistance_Middle;                               // 0x067C(0x0004)
+	struct FString                                     InteractionCamAnim_High;                                  // 0x0680(0x0010)
+	int                                                InteractionDistance_High;                                 // 0x0690(0x0004)
+	int                                                ApproachEvent_Distance;                                   // 0x0694(0x0004)
+	struct FString                                     InteractionNextLinkSound;                                 // 0x0698(0x0010)
+	TArray<class UMaterialInstanceConstant*>           EffectFenceMICs;                                          // 0x06A8(0x0010)
+	TArray<class AEFSceneCapture2DActor*>              CaptureActors;                                            // 0x06B8(0x0010)
+	TArray<class AEFSceneCaptureObjectLocation*>       CaptureObjectLocations;                                   // 0x06C8(0x0010)
+	TArray<class AActor*>                              HeadStatusActors;                                         // 0x06D8(0x0010)
+	TArray<int>                                        HeadStatusActorIndexPools;                                // 0x06E8(0x0010)
+	TArray<class AActor*>                              PoolBindActors;                                           // 0x06F8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -447,7 +544,11 @@ public:
 class AEFMotionSkeletalMeshActor : public ASkeletalMeshActor
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0310(0x002C) MISSED OFFSET
+	struct FVector                                     vOriginLocation;                                          // 0x0310(0x000C)
+	struct FRotator                                    vOriginRotation;                                          // 0x031C(0x000C)
+	unsigned long                                      bSaveSMCLocNRot : 1;                                      // 0x0328(0x0004)
+	unsigned long                                      bMotionToggle : 1;                                        // 0x0328(0x0004)
+	TArray<class UEFActorMotionBase*>                  MotionArr;                                                // 0x032C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -463,7 +564,11 @@ public:
 class AEFMotionStaticMeshActor : public AInterpActor
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0310(0x002C) MISSED OFFSET
+	struct FVector                                     vOriginLocation;                                          // 0x0310(0x000C)
+	struct FRotator                                    vOriginRotation;                                          // 0x031C(0x000C)
+	unsigned long                                      bSaveSMCLocNRot : 1;                                      // 0x0328(0x0004)
+	unsigned long                                      bMotionToggle : 1;                                        // 0x0328(0x0004)
+	TArray<class UEFActorMotionBase*>                  MotionArr;                                                // 0x032C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -479,7 +584,22 @@ public:
 class AEFParticleSkeletalMeshActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x94];                                      // 0x0274(0x0094) MISSED OFFSET
+	TArray<struct FEFAnimDataItem>                     AnimDataList;                                             // 0x0274(0x0010)
+	int                                                CurAnimDataIndex;                                         // 0x0284(0x0004)
+	struct FName                                       CurAnimSeqName;                                           // 0x0288(0x0008)
+	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x0290(0x0008)
+	class UEFSkeletalMeshComponent*                    Mesh;                                                     // 0x0298(0x0008)
+	TArray<class UEFSkeletalMeshComponent*>            ManagedPartMeshs;                                         // 0x02A0(0x0010)
+	TArray<struct FEFExtraSkelMeshInfo>                ExtraSkelMeshList;                                        // 0x02B0(0x0010)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x02C0(0x0010)
+	class AActor*                                      OwnerActor;                                               // 0x02D0(0x0008)
+	struct FString                                     OwnerLookInfoKey;                                         // 0x02D8(0x0010)
+	float                                              NonAniGuaranteeDuration;                                  // 0x02E8(0x0004)
+	unsigned long                                      bActionSpawned : 1;                                       // 0x02EC(0x0004)
+	unsigned long                                      NeedStopAction : 1;                                       // 0x02EC(0x0004)
+	TArray<struct FString>                             ActionNotifyTagList;                                      // 0x02F0(0x0010)
+	float                                              PlayRate;                                                 // 0x0300(0x0004)
+	int                                                AttachedPSIIndex;                                         // 0x0304(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -495,7 +615,92 @@ public:
 class AEFPawn : public APawn
 {
 public:
-	unsigned char                                      UnknownData00[0x31C];                                     // 0x0588(0x031C) MISSED OFFSET
+	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x0588(0x0008)
+	class UEFActionObjectGroup*                        ActionObjectGroup;                                        // 0x0590(0x0008)
+	unsigned long                                      bDefaultMeshHide : 1;                                     // 0x0598(0x0004)
+	unsigned long                                      bRootMotionFallingCheck : 1;                              // 0x0598(0x0004)
+	unsigned long                                      bCanDoFloorConform : 1;                                   // 0x0598(0x0004)
+	unsigned long                                      bCanDoStepsSmoothing : 1;                                 // 0x0598(0x0004)
+	unsigned long                                      IsMatineePlay : 1;                                        // 0x0598(0x0004)
+	unsigned long                                      PhysFallingByAction : 1;                                  // 0x0598(0x0004)
+	unsigned long                                      bMergeAction : 1;                                         // 0x0598(0x0004)
+	unsigned long                                      bIgnoreBlockActors : 1;                                   // 0x0598(0x0004)
+	unsigned long                                      bEnableMaxRootMotionDistance : 1;                         // 0x0598(0x0004)
+	unsigned long                                      RootMotionBeHitControlHeight : 1;                         // 0x0598(0x0004)
+	unsigned long                                      bForceUniformVelocity : 1;                                // 0x0598(0x0004)
+	unsigned long                                      bNeedMoveChangedBase : 1;                                 // 0x0598(0x0004)
+	unsigned long                                      IsJustFinishedCinematicAnim : 1;                          // 0x0598(0x0004)
+	unsigned long                                      bUseDynamicFoliage : 1;                                   // 0x0598(0x0004)
+	unsigned long                                      bValidCurrentFloorTypeCheck : 1;                          // 0x0598(0x0004)
+	unsigned long                                      bUseMeshMerge : 1;                                        // 0x0598(0x0004)
+	unsigned long                                      bHideOnNextMeshMergeRequest : 1;                          // 0x0598(0x0004)
+	unsigned long                                      bDisableJumpOffPawn : 1;                                  // 0x0598(0x0004)
+	unsigned long                                      bGrabbed : 1;                                             // 0x0598(0x0004)
+	unsigned long                                      bIgnoreStartFalling : 1;                                  // 0x0598(0x0004)
+	unsigned long                                      bCinematicUnfixed : 1;                                    // 0x0598(0x0004)
+	unsigned long                                      bCinematicChangeAngularSpring : 1;                        // 0x0598(0x0004)
+	class UEFSkeletalMeshComponent*                    ExtendMesh;                                               // 0x059C(0x0008)
+	TEnumAsByte<ERootBoneAxis>                         RootBoneOption[0x3];                                      // 0x05A4(0x0001)
+	TEnumAsByte<EPhysics>                              ForceActionPhysics;                                       // 0x05A7(0x0001)
+	TEnumAsByte<EBlockPCRootMotionSkillPenetrateType>  BlockPCRootMotionSkillPenetrate;                          // 0x05A8(0x0001)
+	TEnumAsByte<EFMATERIAL_FOOTSTEP>                   CurrentFloorType;                                         // 0x05A9(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x05AA(0x0002) MISSED OFFSET
+	struct FVector                                     LastFloorConformLocation;                                 // 0x05AC(0x000C)
+	float                                              MTO_FloorConformZTranslation;                             // 0x05B8(0x0004)
+	float                                              MTO_BlendedFloorConformZTranslation;                      // 0x05BC(0x0004)
+	struct FVector                                     MRO_FloorConformRotationAxis;                             // 0x05C0(0x000C)
+	float                                              MRO_FloorConformRotationAngle;                            // 0x05CC(0x0004)
+	float                                              MRO_BlendedFloorConformRotationAngle;                     // 0x05D0(0x0004)
+	float                                              MTO_MeshLocSmootherZOffset;                               // 0x05D4(0x0004)
+	struct FVector                                     MeshOffset;                                               // 0x05D8(0x000C)
+	struct FVector                                     LastLocation;                                             // 0x05E4(0x000C)
+	float                                              DefaultGroundSpeed;                                       // 0x05F0(0x0004)
+	float                                              GravityFactor;                                            // 0x05F4(0x0004)
+	struct FVector                                     SkillStartPos;                                            // 0x05F8(0x000C)
+	struct FVector                                     HitReactionPushLoc;                                       // 0x0604(0x000C)
+	struct FVector                                     LastRootMotionAccumTranslation;                           // 0x0610(0x000C)
+	struct FVector                                     RootMotionStartLoc;                                       // 0x061C(0x000C)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0628(0x0008) MISSED OFFSET
+	struct FMatrix                                     RootMotionStartRot;                                       // 0x0630(0x0040)
+	struct FVector                                     TargetRootMotionLoc;                                      // 0x0670(0x000C)
+	float                                              MaxRootMotionDistance;                                    // 0x067C(0x0004)
+	float                                              MaxRootMotionSquaredDistance;                             // 0x0680(0x0004)
+	int                                                ChangeRootMotion;                                         // 0x0684(0x0004)
+	int                                                PrevChangeRootMotion;                                     // 0x0688(0x0004)
+	float                                              RootMotionBeHitControlSetTime;                            // 0x068C(0x0004)
+	float                                              RootMotionBeHitControlDuration;                           // 0x0690(0x0004)
+	float                                              RootMotionBeHitMaxHeight;                                 // 0x0694(0x0004)
+	struct FRotator                                    MoveRotation;                                             // 0x0698(0x000C)
+	class AEFPawn*                                     BlockedPawnWhenSkillStart;                                // 0x06A4(0x0008)
+	class AActor*                                      CinematicActor;                                           // 0x06AC(0x0008)
+	struct FBasedPosition                              CachedBasePositionBySelf;                                 // 0x06B4(0x0038)
+	struct FBasedPosition                              CachedBasePositionByTarget;                               // 0x06EC(0x0038)
+	struct FVector                                     SyncDeltaMove;                                            // 0x0724(0x000C)
+	struct FVector                                     SaveLocation;                                             // 0x0730(0x000C)
+	struct FRotator                                    SaveRotation;                                             // 0x073C(0x000C)
+	struct FPlayerLocationInfo                         CinematicPlayerLocation;                                  // 0x0748(0x0008)
+	struct FVector                                     UniformVelocity;                                          // 0x0750(0x000C)
+	class AEFPawn*                                     DrivenEFVehicle;                                          // 0x075C(0x0008)
+	struct FQWord                                      TryNextMoveTransitIndex;                                  // 0x0764(0x0008)
+	TArray<class UMaterialInstanceConstant*>           AffectedFoliageMICs;                                      // 0x076C(0x0010)
+	int                                                AttachedPSIIndex;                                         // 0x077C(0x0004)
+	struct FEFBasedLocation                            PrevFloorCheckLocation;                                   // 0x0780(0x0010)
+	struct FVector                                     LastRootMotionPosition;                                   // 0x0790(0x000C)
+	float                                              LastRootMotionRecordedTime;                               // 0x079C(0x0004)
+	class UEFMainSkelComponent*                        OriginMesh;                                               // 0x07A0(0x0008)
+	struct FPointer                                    MeshMergeSourceLookInfoPointer;                           // 0x07A8(0x0008)
+	TArray<struct FPointer>                            MeshMergeSourcePartsArray;                                // 0x07B0(0x0010)
+	struct FVector                                     Momentum;                                                 // 0x07C0(0x000C)
+	unsigned char                                      UnknownData02[0x48];                                      // 0x07CC(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFPawn.TrailNotifyToParticleSystemMap
+	class UAnimNodeAimOffset*                          AimOffsetAnimNode;                                        // 0x0814(0x0008)
+	TArray<class AEFParticleSkeletalMeshActor*>        ActionParticleSkeletalMeshActors;                         // 0x081C(0x0010)
+	struct FEFCharacterAfterImageEffectInfo            AfterImageInfo;                                           // 0x082C(0x0030)
+	TArray<struct FEFAfterImageChildInfo>              AfterImageChildren;                                       // 0x085C(0x0010)
+	class UEFActionObjectGroup*                        ActionGroup;                                              // 0x086C(0x0008)
+	class UEFData_SkelControlGroup*                    SkelControlGroup;                                         // 0x0874(0x0008)
+	struct FActorTickDropRate                          TickDropRate;                                             // 0x087C(0x0014)
+	int                                                TickDropRatePriority;                                     // 0x0890(0x0004)
+	TArray<int>                                        CinematicUnfixedBodyIndices;                              // 0x0894(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -599,7 +804,11 @@ public:
 class AEFPlayer : public AEFPawn
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x08A4(0x0014) MISSED OFFSET
+	class ULightEnvironmentComponent*                  PickupPropLightEnvironment;                               // 0x08A4(0x0008)
+	int                                                PickupPropLightEnvironmentCount;                          // 0x08AC(0x0004)
+	unsigned long                                      ControlledByTrackMove : 1;                                // 0x08B0(0x0004)
+	unsigned long                                      ControlledByTrackMoveOnServer : 1;                        // 0x08B0(0x0004)
+	float                                              TrackMoveStartPosition;                                   // 0x08B4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -633,7 +842,8 @@ public:
 class AEFTransit : public AEFPawn
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x08A4(0x0010) MISSED OFFSET
+	int                                                TransitIndex;                                             // 0x08A4(0x0004)
+	struct FVector                                     CollisionBoxExtent;                                       // 0x08A8(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -681,7 +891,7 @@ public:
 class UEFPhysicalMaterialProperty : public UPhysicalMaterialPropertyBase
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0058(0x0001) MISSED OFFSET
+	TEnumAsByte<EFMATERIAL_FOOTSTEP>                   MaterialFootstep;                                         // 0x0058(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -697,7 +907,46 @@ public:
 class AEFPlayerController : public AGamePlayerController
 {
 public:
-	unsigned char                                      UnknownData00[0x298];                                     // 0x0790(0x0298) MISSED OFFSET
+	TArray<struct FEFInputState>                       m_InputStateFlow;                                         // 0x0790(0x0010)
+	unsigned long                                      bGamePadInput : 1;                                        // 0x07A0(0x0004)
+	unsigned long                                      bInteractionMode : 1;                                     // 0x07A0(0x0004)
+	unsigned long                                      bCallFromTargetCastMode : 1;                              // 0x07A0(0x0004)
+	unsigned long                                      bHideSwitch : 1;                                          // 0x07A0(0x0004)
+	unsigned long                                      bPickMe : 1;                                              // 0x07A0(0x0004)
+	unsigned long                                      bForceMoveReservation : 1;                                // 0x07A0(0x0004)
+	unsigned long                                      bForceMoveRelease : 1;                                    // 0x07A0(0x0004)
+	unsigned long                                      bCruiseMode : 1;                                          // 0x07A0(0x0004)
+	unsigned long                                      bCruiseBoostMode : 1;                                     // 0x07A0(0x0004)
+	unsigned long                                      bPrevCruiseMode : 1;                                      // 0x07A0(0x0004)
+	struct FEFInputCommand                             m_CurInputCommand;                                        // 0x07A4(0x0040)
+	TEnumAsByte<EFPlayerControlInputCondition>         m_CurInputCondition;                                      // 0x07E4(0x0001)
+	TEnumAsByte<ETargetCastMode>                       TargetCastMode;                                           // 0x07E5(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x07E6(0x0002) MISSED OFFSET
+	float                                              fCheckPathTime;                                           // 0x07E8(0x0004)
+	float                                              fCheckPickEffectTime;                                     // 0x07EC(0x0004)
+	float                                              fUpdateMaxPathTime;                                       // 0x07F0(0x0004)
+	class AActor*                                      HitWorldActor;                                            // 0x07F4(0x0008)
+	class AActor*                                      HitActor;                                                 // 0x07FC(0x0008)
+	struct FVector                                     HitWorldLocation;                                         // 0x0804(0x000C)
+	struct FVector                                     HitActorLocation;                                         // 0x0810(0x000C)
+	class AEmitter*                                    PickingEffect;                                            // 0x081C(0x0008)
+	TArray<class AEFPickingEmitter*>                   PickingEffectArr;                                         // 0x0824(0x0010)
+	TArray<class AEFPickingEmitter*>                   PickingEffectUseArr;                                      // 0x0834(0x0010)
+	int                                                PickingEffectCount;                                       // 0x0844(0x0004)
+	class UEFPlayerInput*                              EFPlayerInput;                                            // 0x0848(0x0008)
+	class AActor*                                      SelectedActor;                                            // 0x0850(0x0008)
+	class AActor*                                      PreSelectedActor;                                         // 0x0858(0x0008)
+	class AActor*                                      OverActor;                                                // 0x0860(0x0008)
+	struct FVector                                     OverActorHitLocation;                                     // 0x0868(0x000C)
+	float                                              SelectedMaxDistance;                                      // 0x0874(0x0004)
+	struct FVector                                     ForceMoveReservationPos;                                  // 0x0878(0x000C)
+	struct FQWord                                      DebugOverObjectId;                                        // 0x0884(0x0008)
+	struct FEFBasedLocation                            LastMoveToPos;                                            // 0x088C(0x0010)
+	struct FVector                                     CruiseModeDirection;                                      // 0x089C(0x000C)
+	float                                              fPressedMoveIgnoreRadius;                                 // 0x08A8(0x0004)
+	float                                              fPressedMoveIgnoreAngle;                                  // 0x08AC(0x0004)
+	struct FPostProcessSettings                        WithOutDominantLightPPSettings;                           // 0x08B0(0x0174)
+	float                                              WithOutDominantLightPPAlpha;                              // 0x0A24(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -729,7 +978,27 @@ public:
 class UEFPlayerInput : public UPlayerInput
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x02B8(0x0030) MISSED OFFSET
+	struct FVector2D                                   CurMouseDeltaPos;                                         // 0x02B8(0x0008)
+	struct FVector2D                                   OldMouseDeltaPos;                                         // 0x02C0(0x0008)
+	struct FIntPoint                                   CurMousePos;                                              // 0x02C8(0x0008)
+	struct FIntPoint                                   OldMousePos;                                              // 0x02D0(0x0008)
+	unsigned long                                      bCtrl : 1;                                                // 0x02D8(0x0004)
+	unsigned long                                      bShift : 1;                                               // 0x02D8(0x0004)
+	unsigned long                                      bAlt : 1;                                                 // 0x02D8(0x0004)
+	unsigned long                                      bMouseLButton_Pressed : 1;                                // 0x02D8(0x0004)
+	unsigned long                                      bMouseLButton_Released : 1;                               // 0x02D8(0x0004)
+	unsigned long                                      bMouseLButton_Repeated : 1;                               // 0x02D8(0x0004)
+	unsigned long                                      bMouseRButton_Pressed : 1;                                // 0x02D8(0x0004)
+	unsigned long                                      bMouseRButton_Released : 1;                               // 0x02D8(0x0004)
+	unsigned long                                      bMouseRButton_Repeated : 1;                               // 0x02D8(0x0004)
+	unsigned long                                      bMouseButtonSwap : 1;                                     // 0x02D8(0x0004)
+	unsigned long                                      bMoveKey_Pressed : 1;                                     // 0x02D8(0x0004)
+	unsigned long                                      bMoveKey_Released : 1;                                    // 0x02D8(0x0004)
+	unsigned long                                      bMoveKey_Repeated : 1;                                    // 0x02D8(0x0004)
+	unsigned char                                      bRotateButton;                                            // 0x02DC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x02DD(0x0003) MISSED OFFSET
+	float                                              MouseDeltaX;                                              // 0x02E0(0x0004)
+	float                                              MouseDeltaY;                                              // 0x02E4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -753,7 +1022,65 @@ public:
 class AEFProjectile : public AProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x208];                                     // 0x02D0(0x0208) MISSED OFFSET
+	struct FQWord                                      CasterId;                                                 // 0x02D0(0x0008)
+	int                                                ProjectileId;                                             // 0x02D8(0x0004)
+	struct FPointer                                    ProjectileData;                                           // 0x02DC(0x0008)
+	struct FPointer                                    ProjectileBankData;                                       // 0x02E4(0x0008)
+	float                                              InstigatorModelScaleRate;                                 // 0x02EC(0x0004)
+	int                                                TrailEmitterPSGroupIndex;                                 // 0x02F0(0x0004)
+	int                                                AttachedPSIIndex;                                         // 0x02F4(0x0004)
+	struct FSet_Mirror                                 TouchedActorList;                                         // 0x02F8(0x0048)
+	struct FEFBasedLocation                            StartLocation;                                            // 0x0340(0x0010)
+	struct FEFBasedLocation                            TargetLocation;                                           // 0x0350(0x0010)
+	float                                              Lifetime;                                                 // 0x0360(0x0004)
+	float                                              CurTime;                                                  // 0x0364(0x0004)
+	float                                              CurSpeed;                                                 // 0x0368(0x0004)
+	float                                              MaxDistance;                                              // 0x036C(0x0004)
+	float                                              CreateDelay;                                              // 0x0370(0x0004)
+	unsigned long                                      PlayerControl : 1;                                        // 0x0374(0x0004)
+	unsigned long                                      SendedRemovePacket : 1;                                   // 0x0374(0x0004)
+	unsigned long                                      HitSkip : 1;                                              // 0x0374(0x0004)
+	unsigned long                                      DestroyCalled : 1;                                        // 0x0374(0x0004)
+	unsigned long                                      RemoveCalled : 1;                                         // 0x0374(0x0004)
+	unsigned long                                      ArriveMaxDistance : 1;                                    // 0x0374(0x0004)
+	unsigned long                                      TimerStopWhenBaseDestroy : 1;                             // 0x0374(0x0004)
+	unsigned long                                      CycleHitFalg : 1;                                         // 0x0374(0x0004)
+	unsigned long                                      AmITarget : 1;                                            // 0x0374(0x0004)
+	TEnumAsByte<EUnpublishReason>                      DestroyReasonforPacket;                                   // 0x0378(0x0001)
+	TEnumAsByte<ESkillEffectTarget>                    TargetType;                                               // 0x0379(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x037A(0x0002) MISSED OFFSET
+	class AActor*                                      TargetActor;                                              // 0x037C(0x0008)
+	int                                                TargetActorLimbId;                                        // 0x0384(0x0004)
+	class AActor*                                      HitActor;                                                 // 0x0388(0x0008)
+	int                                                HitNpcPartMask;                                           // 0x0390(0x0004)
+	float                                              DestroyAfterTime;                                         // 0x0394(0x0004)
+	struct FVector                                     BaseVelocity;                                             // 0x0398(0x000C)
+	class AActor*                                      MoveBasedActor;                                           // 0x03A4(0x0008)
+	struct FVector                                     PrevMoveBasedLocation;                                    // 0x03AC(0x000C)
+	struct FRotator                                    PrevMoveBasedRotation;                                    // 0x03B8(0x000C)
+	float                                              RevScale;                                                 // 0x03C4(0x0004)
+	int                                                JudgmentRotationSpeed;                                    // 0x03C8(0x0004)
+	struct FRotator                                    RelativeJudgmentRotation;                                 // 0x03CC(0x000C)
+	float                                              ElapsedTime;                                              // 0x03D8(0x0004)
+	int                                                AccelType;                                                // 0x03DC(0x0004)
+	float                                              AccelStartValue;                                          // 0x03E0(0x0004)
+	float                                              AccelMaxSpeedElapseTime;                                  // 0x03E4(0x0004)
+	TArray<struct FEFProjectileTimerData>              Timer;                                                    // 0x03E8(0x0010)
+	TArray<struct FEFProjectileAkEventData>            AkEventDatas;                                             // 0x03F8(0x0010)
+	class USkeletalMeshComponent*                      SkeletalMeshComponentData;                                // 0x0408(0x0008)
+	TArray<struct FEFProjectileMultiUseData>           SkeletalMeshMaterialParameterArray;                       // 0x0410(0x0010)
+	int                                                FromSkillLV;                                              // 0x0420(0x0004)
+	int                                                FromSkillID;                                              // 0x0424(0x0004)
+	int                                                FromSkillStageIndex;                                      // 0x0428(0x0004)
+	int                                                FromEffectID;                                             // 0x042C(0x0004)
+	int                                                Tier[0x3];                                                // 0x0430(0x0004)
+	struct FEFProjectileCustomData                     CustomData;                                               // 0x043C(0x0018)
+	float                                              CycleHitLife;                                             // 0x0454(0x0004)
+	struct FVector                                     CycleHitBeforeLoc;                                        // 0x0458(0x000C)
+	struct FSet_Mirror                                 HittedCycleHitTargetList;                                 // 0x0464(0x0048)
+	struct FVector                                     BeforeLocation;                                           // 0x04AC(0x000C)
+	TArray<class AEFParticleSkeletalMeshActor*>        ActionParticleSkeletalMeshActors;                         // 0x04B8(0x0010)
+	TArray<int>                                        Lineage;                                                  // 0x04C8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -775,7 +1102,19 @@ public:
 class AEFProjectileFixArea : public AEFProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x04D8(0x0048) MISSED OFFSET
+	int                                                SpawnedStartFX;                                           // 0x04D8(0x0004)
+	int                                                SpawnedStartDecalFX;                                      // 0x04DC(0x0004)
+	int                                                SpawnedLoopFX;                                            // 0x04E0(0x0004)
+	int                                                SpawnedLoopDecalFX;                                       // 0x04E4(0x0004)
+	struct FRotator                                    RandomRotate;                                             // 0x04E8(0x000C)
+	unsigned long                                      PlayEndEffect : 1;                                        // 0x04F4(0x0004)
+	float                                              LastRepeatTime;                                           // 0x04F8(0x0004)
+	float                                              StartFXParticleOriginDrawScale;                           // 0x04FC(0x0004)
+	float                                              StartDecalParticleOriginDrawScale;                        // 0x0500(0x0004)
+	float                                              LoopFXParticleOriginDrawScale;                            // 0x0504(0x0004)
+	float                                              LoopDecalParticleOriginDrawScale;                         // 0x0508(0x0004)
+	float                                              StartIndexDecalOriginDrawScale;                           // 0x050C(0x0004)
+	TArray<struct FEFSummonsFixAreaStartIndexDecal>    StartIndexDecalInfos;                                     // 0x0510(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -791,7 +1130,8 @@ public:
 class AEFProjectileGrenade : public AEFProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x04D8(0x0008) MISSED OFFSET
+	float                                              ExplodeUpperHeight;                                       // 0x04D8(0x0004)
+	float                                              TimeTilNextGravUpdate;                                    // 0x04DC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -822,7 +1162,19 @@ public:
 class AEFProjectileTrace : public AEFProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x04D8(0x0024) MISSED OFFSET
+	float                                              TargetSearchRadius;                                       // 0x04D8(0x0004)
+	float                                              TargetSearchStartTime;                                    // 0x04DC(0x0004)
+	float                                              TurnVelocity;                                             // 0x04E0(0x0004)
+	float                                              TargetSearchAngle;                                        // 0x04E4(0x0004)
+	unsigned long                                      bEnableTraceGiveUp : 1;                                   // 0x04E8(0x0004)
+	unsigned long                                      bTargetChanged : 1;                                       // 0x04E8(0x0004)
+	unsigned long                                      bTraceGiveUpFinish : 1;                                   // 0x04E8(0x0004)
+	unsigned long                                      bEnableTraceDuration : 1;                                 // 0x04E8(0x0004)
+	float                                              TraceGiveUpAngle;                                         // 0x04EC(0x0004)
+	float                                              TraceGiveUpRadius;                                        // 0x04F0(0x0004)
+	TEnumAsByte<ETraceProjectileState>                 TraceState;                                               // 0x04F4(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x04F5(0x0003) MISSED OFFSET
+	float                                              TraceDurationRemain;                                      // 0x04F8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -838,7 +1190,8 @@ public:
 class AEFSkeletalMeshActor : public ASkeletalMeshActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0310(0x0008) MISSED OFFSET
+	int                                                AttachedPSIIndex;                                         // 0x0310(0x0004)
+	unsigned long                                      bTraceGameLand : 1;                                       // 0x0314(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -859,7 +1212,21 @@ public:
 class AEFSkeletalMeshActorLookInfoMAT : public ASkeletalMeshActorMAT
 {
 public:
-	unsigned char                                      UnknownData00[0xA0];                                      // 0x0320(0x00A0) MISSED OFFSET
+	struct FString                                     LookInfoKey;                                              // 0x0320(0x0010)
+	class UEFData_SkelControlGroup*                    SkelControlGroup;                                         // 0x0330(0x0008)
+	struct FEFLookInfoSMActorPartMaterialInfo          DefaultMeshMaterialInfo;                                  // 0x0338(0x0030)
+	TArray<struct FEFLookInfoSMActorAdditionalPartInfo> AdditionalPartsEx;                                        // 0x0368(0x0010)
+	TArray<struct FEFLookInfoSMActorSocketAttachedPartInfo> AdditionalPartsAttachedToSocketEx;                        // 0x0378(0x0010)
+	TArray<class USkeletalMeshComponent*>              AdditionalParts;                                          // 0x0388(0x0010)
+	TArray<struct FAttachment>                         AdditionalPartsAttachedToSocket;                          // 0x0398(0x0010)
+	int                                                SpawnedParticleGroupID;                                   // 0x03A8(0x0004)
+	unsigned long                                      bApplyLookInfoOnLoad : 1;                                 // 0x03AC(0x0004)
+	unsigned long                                      bLookInfoApplied : 1;                                     // 0x03AC(0x0004)
+	unsigned long                                      bSpawnDefaultParticles : 1;                               // 0x03AC(0x0004)
+	unsigned long                                      bLowerFidelity : 1;                                       // 0x03AC(0x0004)
+	unsigned long                                      bCinematicUnfixed : 1;                                    // 0x03AC(0x0004)
+	unsigned long                                      bCinematicChangeAngularSpring : 1;                        // 0x03AC(0x0004)
+	TArray<int>                                        CinematicUnfixedBodyIndices;                              // 0x03B0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -875,7 +1242,10 @@ public:
 class AEFSkeletalMeshActorPCLookInfoMAT : public AEFSkeletalMeshActorLookInfoMAT
 {
 public:
-	unsigned char                                      UnknownData00[0x15];                                      // 0x03C0(0x0015) MISSED OFFSET
+	unsigned long                                      bAttachWeaponToBattleStateSockeet : 1;                    // 0x03C0(0x0004)
+	unsigned long                                      bNameTagAdded : 1;                                        // 0x03C0(0x0004)
+	struct FString                                     NameTagString;                                            // 0x03C4(0x0010)
+	TEnumAsByte<EPCLookInfoActorNameTagType>           NameTagType;                                              // 0x03D4(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -891,7 +1261,13 @@ public:
 class UEFSkeletalMeshComponent : public USkeletalMeshComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x8C];                                      // 0x08E8(0x008C) MISSED OFFSET
+	unsigned long                                      bMeshHide : 1;                                            // 0x08E8(0x0004)
+	unsigned long                                      bDynamicPhysicsParamEnable : 1;                           // 0x08E8(0x0004)
+	struct FEFDynamicPhysicsParam                      DynamicPhysicsParamInfo;                                  // 0x08EC(0x0018)
+	TArray<class UMaterialInterface*>                  DefaultMaterialsMIC;                                      // 0x0904(0x0010)
+	TArray<struct FEFMaterialVariation>                MaterialsVariation;                                       // 0x0914(0x0010)
+	class USkeletalMesh*                               SkeletalMeshForSocket;                                    // 0x0924(0x0008)
+	unsigned char                                      UnknownData00[0x48];                                      // 0x092C(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFSkeletalMeshComponent.SocketInfoMap
 
 	static UClass* StaticClass()
 	{
@@ -907,7 +1283,12 @@ public:
 class UEFMainSkelComponent : public UEFSkeletalMeshComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0974(0x0048) MISSED OFFSET
+	unsigned long                                      bDefaultMeshHide : 1;                                     // 0x0974(0x0004)
+	int                                                LODIndexForPhysics;                                       // 0x0978(0x0004)
+	TArray<struct FName>                               PhysicsBoneListForPhysics;                                // 0x097C(0x0010)
+	TArray<unsigned char>                              PhysicsBoneIndexListForPhysics;                           // 0x098C(0x0010)
+	TArray<struct FName>                               RequiredBoneListForPhysics;                               // 0x099C(0x0010)
+	TArray<struct FName>                               FixedBoneListForPhysics;                                  // 0x09AC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -923,7 +1304,22 @@ public:
 class UEFPartsSkelComponent : public UEFSkeletalMeshComponent
 {
 public:
-	unsigned char                                      UnknownData00[0xE4];                                      // 0x0974(0x00E4) MISSED OFFSET
+	class AEFPawn*                                     ParentPawn;                                               // 0x0974(0x0008)
+	struct FPointer                                    PartsMeshPointer;                                         // 0x097C(0x0008)
+	struct FEFSocketGroup                              SocketGroup;                                              // 0x0984(0x0030)
+	struct FName                                       AttachSocketName;                                         // 0x09B4(0x0008)
+	class UAnimNodeSlot*                               CustomAnimNode;                                           // 0x09BC(0x0008)
+	class UMorphNodeMultiPose*                         MorphNodePose;                                            // 0x09C4(0x0008)
+	TArray<int>                                        DefaultParticleSystemList;                                // 0x09CC(0x0010)
+	TArray<struct FPointer>                            DefaultParticleDataArray;                                 // 0x09DC(0x0010)
+	TArray<class UEFParticleData*>                     DefaultParticleDataArr;                                   // 0x09EC(0x0010)
+	TArray<int>                                        AttributeParticleSystemList;                              // 0x09FC(0x0010)
+	TArray<class UEFParticleData*>                     AttributeParticleDataArr;                                 // 0x0A0C(0x0010)
+	TArray<int>                                        AttributeBaseDefaultParticleSpawnIndexArr;                // 0x0A1C(0x0010)
+	TArray<struct FPointer>                            AttributeBaseDefaultParticleDataArray;                    // 0x0A2C(0x0010)
+	TArray<class UEFParticleData*>                     AttributeBaseDefaultParticleDataArr;                      // 0x0A3C(0x0010)
+	float                                              TranslucencySortKeyFactor;                                // 0x0A4C(0x0004)
+	class UTexture*                                    AOTexture;                                                // 0x0A50(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -939,7 +1335,9 @@ public:
 class UEFTexture2DComposite : public UTexture2DComposite
 {
 public:
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0140(0x0003) MISSED OFFSET
+	TEnumAsByte<ETextureAddress>                       SamplerAddressX;                                          // 0x0140(0x0001)
+	TEnumAsByte<ETextureAddress>                       SamplerAddressY;                                          // 0x0141(0x0001)
+	TEnumAsByte<ETextureAddress>                       SamplerAddressZ;                                          // 0x0142(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -955,7 +1353,8 @@ public:
 class AEFVolume : public AVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x02B0(0x0008) MISSED OFFSET
+	unsigned long                                      bCollisionEnable : 1;                                     // 0x02B0(0x0004)
+	float                                              fLastTimeInVolume;                                        // 0x02B4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -974,7 +1373,16 @@ public:
 class AEFVolumeProp : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x2D];                                      // 0x02B8(0x002D) MISSED OFFSET
+	int                                                SpawnIndex;                                               // 0x02B8(0x0004)
+	class AActor*                                      DeployPropActor;                                          // 0x02BC(0x0008)
+	class AEFMacroCameraActor*                         MacroCameraActor;                                         // 0x02C4(0x0008)
+	unsigned long                                      bUseMacroCamera : 1;                                      // 0x02CC(0x0004)
+	unsigned long                                      bPendingOnEnter : 1;                                      // 0x02CC(0x0004)
+	float                                              TargetPointDistance;                                      // 0x02D0(0x0004)
+	float                                              EnterElapsedTime;                                         // 0x02D4(0x0004)
+	float                                              LeaveElapsedTime;                                         // 0x02D8(0x0004)
+	class USeqAct_Interp*                              Matinee;                                                  // 0x02DC(0x0008)
+	TEnumAsByte<EPropVolumeType>                       VolumePropType;                                           // 0x02E4(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -990,7 +1398,18 @@ public:
 class UEFGameEngine : public UGameEngine
 {
 public:
-	unsigned char                                      UnknownData00[0xD4];                                      // 0x0AD4(0x00D4) MISSED OFFSET
+	unsigned long                                      bStandalone : 1;                                          // 0x0AD4(0x0004)
+	unsigned long                                      bCreateServerObjectPC : 1;                                // 0x0AD4(0x0004)
+	unsigned long                                      bCreateServerObjectNPC : 1;                               // 0x0AD4(0x0004)
+	struct FMap_Mirror                                 GroundHeightCache;                                        // 0x0AD8(0x0048)
+	TArray<class AInstancedFoliageActor*>              InstancedFoliageActorsCache;                              // 0x0B20(0x0010)
+	TArray<class AEFCharPerfOptionOverrideVolume*>     CachedCharPerfOptionOverrideVolumes;                      // 0x0B30(0x0010)
+	struct FPointer                                    AsyncMeshMerger;                                          // 0x0B40(0x0008)
+	struct FAsyncMeshMergerInfo                        CurrentMeshMergeInfo;                                     // 0x0B48(0x0030)
+	TArray<struct FAsyncMeshMergerInfo>                AsyncMeshMergers;                                         // 0x0B78(0x0010)
+	TArray<struct FMergedSkelMeshInfo>                 CachedMergedSkelMeshes;                                   // 0x0B88(0x0010)
+	struct FVector                                     AsyncMeshMergeBaseLocation;                               // 0x0B98(0x000C)
+	float                                              ParticleLODDistance;                                      // 0x0BA4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1009,7 +1428,20 @@ public:
 class UEFMapInfo : public UMapInfo
 {
 public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x0058(0x0080) MISSED OFFSET
+	struct FMAPINFO_CAMERAVALUE                        DefaultCameraValue;                                       // 0x0058(0x002C)
+	class UTexture*                                    IBLTexture;                                               // 0x0084(0x0008)
+	unsigned long                                      CPL_bEnabled : 1;                                         // 0x008C(0x0004)
+	unsigned long                                      bConvert : 1;                                             // 0x008C(0x0004)
+	unsigned long                                      bOverrideGlobalMaxDrawDistance : 1;                       // 0x008C(0x0004)
+	float                                              CPL_Brightness;                                           // 0x0090(0x0004)
+	struct FColor                                      CPL_LightColor;                                           // 0x0094(0x0004)
+	float                                              CPL_Radius;                                               // 0x0098(0x0004)
+	float                                              CPL_FalloffExponent;                                      // 0x009C(0x0004)
+	float                                              CPL_ShadowFalloffExponent;                                // 0x00A0(0x0004)
+	struct FVector                                     CPL_Translation;                                          // 0x00A4(0x000C)
+	struct FLightingChannelContainer                   CPL_LightingChannels;                                     // 0x00B0(0x0004)
+	struct FEFDMap_PathEngineData                      PathEngineData;                                           // 0x00B4(0x0020)
+	float                                              GlobalMaxDrawDistance;                                    // 0x00D4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1028,7 +1460,9 @@ public:
 class UEFAnimNodeAim : public UAnimNodeBlendBase
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x01AD(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x01AD(0x0003) MISSED OFFSET
+	int                                                PrevAimMode;                                              // 0x01B0(0x0004)
+	TEnumAsByte<EFAnimNodeAimMode>                     AimMode;                                                  // 0x01B4(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -1044,7 +1478,7 @@ public:
 class UEFAnimNodeBlendDirectional : public UAnimNodeBlendDirectional
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x01CC(0x000C) MISSED OFFSET
+	struct FVector                                     MoveDir;                                                  // 0x01CC(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -1060,7 +1494,9 @@ public:
 class UEFAnimNodeBlendPerBone : public UAnimNodeBlendPerBone
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x01F4(0x000C) MISSED OFFSET
+	int                                                iForceActiveIndex;                                        // 0x01F4(0x0004)
+	int                                                iNextForceActiveIndex;                                    // 0x01F8(0x0004)
+	float                                              fSkipBlendInTime;                                         // 0x01FC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1076,7 +1512,9 @@ public:
 class UEFAnimNodeLookAt : public UAnimNodeAimOffset
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0208(0x0010) MISSED OFFSET
+	float                                              InterpolateFactor;                                        // 0x0208(0x0004)
+	unsigned long                                      bActiveLookAt : 1;                                        // 0x020C(0x0004)
+	struct FVector2D                                   TargetLookDir;                                            // 0x0210(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1092,7 +1530,10 @@ public:
 class UEFAnimNotify_AkEvent : public UAnimNotify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0060(0x0014) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x0060(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0068(0x0004)
+	unsigned long                                      bFollowActor : 1;                                         // 0x0068(0x0004)
+	struct FName                                       BoneName;                                                 // 0x006C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1108,7 +1549,10 @@ public:
 class UEFAnimNotify_AkEventSwitchFloorMaterial : public UAnimNotify
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0060(0x0018) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x0060(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0068(0x0004)
+	struct FName                                       BoneName;                                                 // 0x006C(0x0008)
+	int                                                Probability;                                              // 0x0074(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1124,7 +1568,8 @@ public:
 class UEFAnimNotify_DropItemEvent : public UAnimNotify
 {
 public:
-	unsigned char                                      UnknownData00[0x9];                                       // 0x0060(0x0009) MISSED OFFSET
+	struct FName                                       NotifyName;                                               // 0x0060(0x0008)
+	TEnumAsByte<EFDropItemEventType>                   DropItemEvent;                                            // 0x0068(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -1170,7 +1615,19 @@ public:
 class UEFSkelControl_Spring : public USkelControlBase
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x00EC(0x0030) MISSED OFFSET
+	unsigned long                                      bLimitDisplacement : 1;                                   // 0x00EC(0x0004)
+	unsigned long                                      bNoZSpring : 1;                                           // 0x00EC(0x0004)
+	unsigned long                                      bRotateX : 1;                                             // 0x00EC(0x0004)
+	unsigned long                                      bRotateY : 1;                                             // 0x00EC(0x0004)
+	unsigned long                                      bRotateZ : 1;                                             // 0x00EC(0x0004)
+	unsigned long                                      bHadValidStrength : 1;                                    // 0x00EC(0x0004)
+	float                                              MaxDisplacement;                                          // 0x00F0(0x0004)
+	float                                              SpringStiffness;                                          // 0x00F4(0x0004)
+	float                                              SpringDamping;                                            // 0x00F8(0x0004)
+	float                                              ErrorResetThresh;                                         // 0x00FC(0x0004)
+	float                                              ThisTimstep;                                              // 0x0100(0x0004)
+	struct FVector                                     BoneLocation;                                             // 0x0104(0x000C)
+	struct FVector                                     BoneVelocity;                                             // 0x0110(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -1186,7 +1643,7 @@ public:
 class UEFSkelControlSingleBoneOnlyScale : public USkelControlBase
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00EC(0x0004) MISSED OFFSET
+	float                                              BaseBoneScale;                                            // 0x00EC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1202,7 +1659,13 @@ public:
 class UEFTable : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0058(0x004C) MISSED OFFSET
+	int                                                nDB_ID;                                                   // 0x0058(0x0004)
+	int                                                nFieldCount;                                              // 0x005C(0x0004)
+	int                                                nDataCount;                                               // 0x0060(0x0004)
+	TArray<struct FEFTable_Define>                     aDataDefine;                                              // 0x0064(0x0010)
+	TArray<struct FEFTable_DataRow>                    aDataRows;                                                // 0x0074(0x0010)
+	struct FString                                     SourceFilePath;                                           // 0x0084(0x0010)
+	struct FString                                     SourceFileTimestamp;                                      // 0x0094(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -1218,7 +1681,22 @@ public:
 class UEFCameraBase : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0058(0x0050) MISSED OFFSET
+	class AEFPlayerCamera*                             PlayerCamera;                                             // 0x0058(0x0008)
+	float                                              DefaultFOV;                                               // 0x0060(0x0004)
+	unsigned long                                      bZoomInterpolation : 1;                                   // 0x0064(0x0004)
+	unsigned long                                      ApplySkeletalMeshForceLOD : 1;                            // 0x0064(0x0004)
+	unsigned long                                      bResetCameraInterpolation : 1;                            // 0x0064(0x0004)
+	float                                              MaxZoomDist;                                              // 0x0068(0x0004)
+	float                                              MinZoomDist;                                              // 0x006C(0x0004)
+	float                                              IncrementZoom;                                            // 0x0070(0x0004)
+	float                                              CurrentZoomDist;                                          // 0x0074(0x0004)
+	float                                              DesiredZoomDist;                                          // 0x0078(0x0004)
+	float                                              CurrentYaw;                                               // 0x007C(0x0004)
+	float                                              CurrentPitch;                                             // 0x0080(0x0004)
+	float                                              CurrentFOV;                                               // 0x0084(0x0004)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0088(0x000C)
+	struct FVector                                     CurrentRelativeCenterPos;                                 // 0x0094(0x000C)
+	struct FName                                       CameraTargetBoneName;                                     // 0x00A0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1255,7 +1733,10 @@ public:
 class UEFBackViewCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00A8(0x0010) MISSED OFFSET
+	float                                              BackDistance;                                             // 0x00A8(0x0004)
+	float                                              FrontDistance;                                            // 0x00AC(0x0004)
+	float                                              RightDistance;                                            // 0x00B0(0x0004)
+	float                                              UpDistance;                                               // 0x00B4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1273,7 +1754,10 @@ public:
 class UEFCustomizingCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x00A8(0x001C) MISSED OFFSET
+	TArray<struct FCutomizingZoomStepInfo>             ZoomStepInfos;                                            // 0x00A8(0x0010)
+	int                                                CurrentZoomStep;                                          // 0x00B8(0x0004)
+	float                                              InterpolationRatio;                                       // 0x00BC(0x0004)
+	float                                              InZoomStepDiff;                                           // 0x00C0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1294,7 +1778,15 @@ public:
 class UEFEditorViewCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x44];                                      // 0x00A8(0x0044) MISSED OFFSET
+	struct FVector                                     FinalViewLocation;                                        // 0x00A8(0x000C)
+	struct FRotator                                    FinalViewRotation;                                        // 0x00B4(0x000C)
+	float                                              FinalViewFOV;                                             // 0x00C0(0x0004)
+	unsigned long                                      bIsTracking : 1;                                          // 0x00C4(0x0004)
+	struct FVector                                     TrackingStart;                                            // 0x00C8(0x000C)
+	struct FVector                                     TrackingEnd;                                              // 0x00D4(0x000C)
+	float                                              OriginalFOVForRecoil;                                     // 0x00E0(0x0004)
+	float                                              FOVVelocity;                                              // 0x00E4(0x0004)
+	float                                              CameraSpeed;                                              // 0x00E8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1316,7 +1808,21 @@ public:
 class UEFFreeCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x00A8(0x004C) MISSED OFFSET
+	float                                              DesiredFOV;                                               // 0x00A8(0x0004)
+	float                                              DesiredYaw;                                               // 0x00AC(0x0004)
+	float                                              MinimumYaw;                                               // 0x00B0(0x0004)
+	float                                              MaximumYaw;                                               // 0x00B4(0x0004)
+	float                                              DesiredPitch;                                             // 0x00B8(0x0004)
+	float                                              MinimumPitch;                                             // 0x00BC(0x0004)
+	float                                              MaximumPitch;                                             // 0x00C0(0x0004)
+	struct FVector                                     DesiredLocation;                                          // 0x00C4(0x000C)
+	struct FVector                                     CurrentLocation;                                          // 0x00D0(0x000C)
+	float                                              RotationSensitivity;                                      // 0x00DC(0x0004)
+	float                                              MoveSensitivity;                                          // 0x00E0(0x0004)
+	float                                              FovBlendTime;                                             // 0x00E4(0x0004)
+	float                                              RotationBlendTime;                                        // 0x00E8(0x0004)
+	float                                              MoveBlendTime;                                            // 0x00EC(0x0004)
+	unsigned long                                      bInitialize : 1;                                          // 0x00F0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1358,7 +1864,31 @@ public:
 class UEFIsometricCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0xA4];                                      // 0x00A8(0x00A4) MISSED OFFSET
+	TArray<struct FZoomStepInfo>                       IsometricZoomStepInfos;                                   // 0x00A8(0x0010)
+	TArray<struct FZoomStepInfo>                       CurIsometricZoomStepInfos;                                // 0x00B8(0x0010)
+	struct FOverrideZoomStepInfo                       OverrideZoomStep;                                         // 0x00C8(0x000C)
+	float                                              ChangeSkeletalMeshForceLODZoomDistance;                   // 0x00D4(0x0004)
+	int                                                ZoomOutAdditionSkeletalMeshForceLODIndex;                 // 0x00D8(0x0004)
+	TArray<float>                                      BoostFactorForMipmaps;                                    // 0x00DC(0x0010)
+	int                                                CurrentZoomStep;                                          // 0x00EC(0x0004)
+	float                                              InterpolationRatio;                                       // 0x00F0(0x0004)
+	float                                              ZoomOutInterpolationRatio;                                // 0x00F4(0x0004)
+	float                                              InZoomStepDiff;                                           // 0x00F8(0x0004)
+	unsigned long                                      bUseLookAtBlend : 1;                                      // 0x00FC(0x0004)
+	unsigned long                                      bInitLookAtBlend : 1;                                     // 0x00FC(0x0004)
+	unsigned long                                      bShowLookAtBlend : 1;                                     // 0x00FC(0x0004)
+	float                                              LookAtBlendDiv;                                           // 0x0100(0x0004)
+	float                                              LookAtBlendMul;                                           // 0x0104(0x0004)
+	struct FVector                                     InterpLookAt;                                             // 0x0108(0x000C)
+	struct FVector                                     LastCenterPos;                                            // 0x0114(0x000C)
+	float                                              LastCameraInterpSpeedXY;                                  // 0x0120(0x0004)
+	float                                              LastCameraInterpSpeedZ;                                   // 0x0124(0x0004)
+	struct FVector                                     FixedLookAtPos;                                           // 0x0128(0x000C)
+	struct FFixedCameraInterpSpeed                     FixedCameraInterpInfo;                                    // 0x0134(0x000C)
+	int                                                CurrCamPostProcessID;                                     // 0x0140(0x0004)
+	TEnumAsByte<EISOCamPPMethod>                       ChangePostProcessMethod;                                  // 0x0144(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0145(0x0003) MISSED OFFSET
+	float                                              CurrOverridePostProcessAlpha;                             // 0x0148(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1393,7 +1923,21 @@ public:
 class UEFMacroCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x00A8(0x0080) MISSED OFFSET
+	class AEFVolumeProp*                               LastVolumeProp;                                           // 0x00A8(0x0008)
+	class AEFVolumeProp*                               VolumeProp;                                               // 0x00B0(0x0008)
+	TArray<class AEFMacroCameraActor*>                 CameraList;                                               // 0x00B8(0x0010)
+	float                                              CameraPosValue;                                           // 0x00C8(0x0004)
+	float                                              TargetCameraPosValue;                                     // 0x00CC(0x0004)
+	class UEFCameraBase*                               PrevCamera;                                               // 0x00D0(0x0008)
+	unsigned long                                      StartTransition : 1;                                      // 0x00D8(0x0004)
+	unsigned long                                      EndTransition : 1;                                        // 0x00D8(0x0004)
+	float                                              StartTime;                                                // 0x00DC(0x0004)
+	float                                              EndTime;                                                  // 0x00E0(0x0004)
+	struct FTPOV                                       StartPOV;                                                 // 0x00E4(0x001C)
+	struct FTPOV                                       EndPOV;                                                   // 0x0100(0x001C)
+	float                                              ConstraintPitch;                                          // 0x011C(0x0004)
+	float                                              maxPitch;                                                 // 0x0120(0x0004)
+	float                                              IncrementRot;                                             // 0x0124(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1414,7 +1958,23 @@ public:
 class UEFPanningCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x5C];                                      // 0x00A8(0x005C) MISSED OFFSET
+	float                                              DesiredFOV;                                               // 0x00A8(0x0004)
+	float                                              DesiredYaw;                                               // 0x00AC(0x0004)
+	float                                              MinimumYaw;                                               // 0x00B0(0x0004)
+	float                                              MaximumYaw;                                               // 0x00B4(0x0004)
+	float                                              DesiredPitch;                                             // 0x00B8(0x0004)
+	float                                              MinimumPitch;                                             // 0x00BC(0x0004)
+	float                                              MaximumPitch;                                             // 0x00C0(0x0004)
+	struct FVector                                     DesiredLocation;                                          // 0x00C4(0x000C)
+	struct FVector                                     CurrentLocation;                                          // 0x00D0(0x000C)
+	float                                              RotationSensitivity;                                      // 0x00DC(0x0004)
+	float                                              MoveSensitivity;                                          // 0x00E0(0x0004)
+	float                                              FovBlendTime;                                             // 0x00E4(0x0004)
+	float                                              RotationBlendTime;                                        // 0x00E8(0x0004)
+	float                                              MoveBlendTime;                                            // 0x00EC(0x0004)
+	unsigned long                                      bInitialize : 1;                                          // 0x00F0(0x0004)
+	float                                              MoveSpeed;                                                // 0x00F4(0x0004)
+	struct FVector                                     CharacterDesiredLocation;                                 // 0x00F8(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -1438,7 +1998,8 @@ public:
 class UEFThirdPersonCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A8(0x0008) MISSED OFFSET
+	float                                              maxPitch;                                                 // 0x00A8(0x0004)
+	float                                              IncrementRot;                                             // 0x00AC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1460,7 +2021,9 @@ public:
 class UEFTopViewCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00A8(0x0024) MISSED OFFSET
+	TArray<struct FViewPointInfo>                      ViewPoints;                                               // 0x00A8(0x0010)
+	int                                                ActivateCameraCutDistanceSeq;                             // 0x00B8(0x0004)
+	struct FString                                     PlayedCameraPostProcessKey;                               // 0x00BC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -1491,7 +2054,15 @@ public:
 class UEFTPSCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x00A8(0x0080) MISSED OFFSET
+	struct FTPSCameraInfo                              StartCameraInfo;                                          // 0x00A8(0x0040)
+	float                                              ChangeSkeletalMeshForceLODZoomDistance;                   // 0x00E8(0x0004)
+	int                                                ZoomOutAdditionSkeletalMeshForceLODIndex;                 // 0x00EC(0x0004)
+	struct FRotator                                    LastRot;                                                  // 0x00F0(0x000C)
+	struct FVector                                     LastCenterPos;                                            // 0x00FC(0x000C)
+	float                                              LastCameraInterpSpeedXY;                                  // 0x0108(0x0004)
+	float                                              LastCameraInterpSpeedZ;                                   // 0x010C(0x0004)
+	struct FVector                                     FixedLookAtPos;                                           // 0x0110(0x000C)
+	struct FFixedCameraInterpSpeed                     FixedCameraInterpInfo;                                    // 0x011C(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -1523,7 +2094,11 @@ public:
 class UEFWatchCamera : public UEFCameraBase
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x00A8(0x0030) MISSED OFFSET
+	TArray<struct FEFWatchCameraModeInfo>              WatchCameraModeTypes;                                     // 0x00A8(0x0010)
+	struct FEFWatchCameraModeInfo                      ApplyCameraModeType;                                      // 0x00B8(0x0010)
+	TEnumAsByte<EFWatchCameraMode>                     WatchCameraMode;                                          // 0x00C8(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00C9(0x0003) MISSED OFFSET
+	struct FVector                                     FixedLookAtPos;                                           // 0x00CC(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -1546,7 +2121,8 @@ public:
 class UEFCameraModifier_CameraShake : public UCameraModifier_CameraShake
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x008C(0x000C) MISSED OFFSET
+	class UEFCameraShakePlayGroup*                     EFShakeGroup;                                             // 0x008C(0x0008)
+	int                                                MaxShakeAmplitudeSize;                                    // 0x0094(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1572,7 +2148,9 @@ public:
 class UEFCameraShakePlayGroup : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0058(0x0018) MISSED OFFSET
+	int                                                NextActivateShakeID;                                      // 0x0058(0x0004)
+	TArray<struct FEFShakeInstance>                    ActivateShakeInstances;                                   // 0x005C(0x0010)
+	int                                                MaxAmplitudeSize;                                         // 0x006C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1595,7 +2173,15 @@ public:
 class UEFCameraViewShake : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x6C];                                      // 0x0058(0x006C) MISSED OFFSET
+	int                                                GroupPriority;                                            // 0x0058(0x0004)
+	float                                              MaxDistance;                                              // 0x005C(0x0004)
+	float                                              AttenuateStartDistance;                                   // 0x0060(0x0004)
+	float                                              Duration;                                                 // 0x0064(0x0004)
+	float                                              BlendInTime;                                              // 0x0068(0x0004)
+	float                                              BlendOutTime;                                             // 0x006C(0x0004)
+	struct FVOscillator                                LocOscillation;                                           // 0x0070(0x0024)
+	struct FFOscillator                                FOVOscillation;                                           // 0x0094(0x000C)
+	struct FROscillator                                RotOscillation;                                           // 0x00A0(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -1613,7 +2199,14 @@ public:
 class UEFCameraViewShakeAnim : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0058(0x0020) MISSED OFFSET
+	class UCameraAnim*                                 Anim;                                                     // 0x0058(0x0008)
+	float                                              AnimPlayRate;                                             // 0x0060(0x0004)
+	float                                              AnimScale;                                                // 0x0064(0x0004)
+	float                                              AnimBlendInTime;                                          // 0x0068(0x0004)
+	float                                              AnimBlendOutTime;                                         // 0x006C(0x0004)
+	unsigned long                                      bRandomAnimSegment : 1;                                   // 0x0070(0x0004)
+	unsigned long                                      bForceFinished : 1;                                       // 0x0070(0x0004)
+	float                                              RandomAnimSegmentDuration;                                // 0x0074(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1629,7 +2222,19 @@ public:
 class AEFInputRotCameraActor : public ACameraActor
 {
 public:
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0450(0x003C) MISSED OFFSET
+	unsigned long                                      bActivateInputRotMode : 1;                                // 0x0450(0x0004)
+	unsigned long                                      bBlendOutRotMode : 1;                                     // 0x0450(0x0004)
+	unsigned long                                      bMouseRotation : 1;                                       // 0x0450(0x0004)
+	unsigned long                                      bMouseRestore : 1;                                        // 0x0450(0x0004)
+	unsigned long                                      MouseDoubleClickCheckStart : 1;                           // 0x0450(0x0004)
+	float                                              BlendOutTime;                                             // 0x0454(0x0004)
+	float                                              BlendOutToGo;                                             // 0x0458(0x0004)
+	struct FRotator                                    InputOffsetRot;                                           // 0x045C(0x000C)
+	struct FVector                                     InputOffsetLoc;                                           // 0x0468(0x000C)
+	float                                              RestorePlayTime;                                          // 0x0474(0x0004)
+	float                                              RestoreTime;                                              // 0x0478(0x0004)
+	struct FDouble                                     MouseDoubleClickStartTime;                                // 0x047C(0x0008)
+	struct FIntPoint                                   MouseDoubleClickStartPos;                                 // 0x0484(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1665,7 +2270,8 @@ public:
 class UEFInterpTrackMacroCamera : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x00B8(0x0018) MISSED OFFSET
+	class AEFVolumeProp*                               VolumeProp;                                               // 0x00B8(0x0008)
+	TArray<class AEFMacroCameraActor*>                 CameraList;                                               // 0x00C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -1681,7 +2287,10 @@ public:
 class AEFMacroCameraActor : public ACameraActor
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0450(0x001C) MISSED OFFSET
+	class AEFVolumeProp*                               VolumeProp;                                               // 0x0450(0x0008)
+	class AEFMacroCameraActor*                         PrevCamera;                                               // 0x0458(0x0008)
+	class AEFMacroCameraActor*                         NextCamera;                                               // 0x0460(0x0008)
+	float                                              MoveDuration;                                             // 0x0468(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1697,7 +2306,15 @@ public:
 class AEFMacroCameraSplineActor : public AEFMacroCameraActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8C];                                      // 0x046C(0x008C) MISSED OFFSET
+	TArray<struct FMacroCameraConnection>              Connections;                                              // 0x046C(0x0010)
+	struct FVector                                     SplineActorTangent;                                       // 0x047C(0x000C)
+	TArray<class AEFMacroCameraSplineActor*>           LinksFrom;                                                // 0x0488(0x0010)
+	struct FVector                                     TargetPoint;                                              // 0x0498(0x000C)
+	unsigned char                                      UnknownData00[0xC];                                       // 0x04A4(0x000C) MISSED OFFSET
+	struct FMatrix                                     BaseMatrix;                                               // 0x04B0(0x0040)
+	unsigned long                                      LockRotationToTargetPoint : 1;                            // 0x04F0(0x0004)
+	unsigned long                                      MoveWithTargetPoint : 1;                                  // 0x04F0(0x0004)
+	float                                              DistanceFromTargetPoint;                                  // 0x04F4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1735,7 +2352,61 @@ public:
 class AEFPlayerCamera : public ACamera
 {
 public:
-	unsigned char                                      UnknownData00[0x170];                                     // 0x05D4(0x0170) MISSED OFFSET
+	class UEFCameraBase*                               IsometricCamera;                                          // 0x05D4(0x0008)
+	class UClass*                                      IsometricCameraClass;                                     // 0x05DC(0x0008)
+	class UEFCameraBase*                               ThridPersonCamera;                                        // 0x05E4(0x0008)
+	class UClass*                                      ThridPersonCameraClass;                                   // 0x05EC(0x0008)
+	class UEFCameraBase*                               MacroCamera;                                              // 0x05F4(0x0008)
+	class UClass*                                      MacroCameraClass;                                         // 0x05FC(0x0008)
+	class UEFCameraBase*                               CustomizingCamera;                                        // 0x0604(0x0008)
+	class UClass*                                      CustomizingCameraClass;                                   // 0x060C(0x0008)
+	class UEFCameraBase*                               InteractionCamera;                                        // 0x0614(0x0008)
+	class UClass*                                      InteractionCameraClass;                                   // 0x061C(0x0008)
+	class UEFCameraBase*                               FreeCamera;                                               // 0x0624(0x0008)
+	class UClass*                                      FreeCameraClass;                                          // 0x062C(0x0008)
+	class UEFCameraBase*                               WatchCamera;                                              // 0x0634(0x0008)
+	class UClass*                                      WatchCameraClass;                                         // 0x063C(0x0008)
+	class UEFCameraBase*                               BackViewCamera;                                           // 0x0644(0x0008)
+	class UClass*                                      BackViewCameraClass;                                      // 0x064C(0x0008)
+	class UEFCameraBase*                               PanningCamera;                                            // 0x0654(0x0008)
+	class UClass*                                      PanningCameraClass;                                       // 0x065C(0x0008)
+	class UEFCameraBase*                               TPSCamera;                                                // 0x0664(0x0008)
+	class UClass*                                      TPSCameraClass;                                           // 0x066C(0x0008)
+	class UEFCameraBase*                               EditorViewCamera;                                         // 0x0674(0x0008)
+	class UClass*                                      EditorViewCameraClass;                                    // 0x067C(0x0008)
+	class UEFCameraBase*                               TopViewCamera;                                            // 0x0684(0x0008)
+	class UClass*                                      TopViewCameraClass;                                       // 0x068C(0x0008)
+	class UEFCameraBase*                               CurrentCamera;                                            // 0x0694(0x0008)
+	class UEFCameraBase*                               LastCamera;                                               // 0x069C(0x0008)
+	int                                                DefaultGameSkeletalMeshForceLOD;                          // 0x06A4(0x0004)
+	unsigned long                                      bUpdateOccludedActor : 1;                                 // 0x06A8(0x0004)
+	unsigned long                                      bUpdateTranslucentActor : 1;                              // 0x06A8(0x0004)
+	unsigned long                                      bDebugOccludedActorCollisionLine : 1;                     // 0x06A8(0x0004)
+	unsigned long                                      bRequiredClearBackupMatineeCamera : 1;                    // 0x06A8(0x0004)
+	unsigned long                                      bUseTargetBlend : 1;                                      // 0x06A8(0x0004)
+	unsigned long                                      bPossessViewTargetChangeMode : 1;                         // 0x06A8(0x0004)
+	unsigned long                                      bUseVehicleFOVAngle : 1;                                  // 0x06A8(0x0004)
+	float                                              OccludedActorBlendMaxTime;                                // 0x06AC(0x0004)
+	TArray<struct FOccludedActorInfo>                  OccludedStaticActors;                                     // 0x06B0(0x0010)
+	TArray<struct FOccludedActorInfo>                  OccludedDynamicActors;                                    // 0x06C0(0x0010)
+	float                                              fOccludedOutlineWidth;                                    // 0x06D0(0x0004)
+	float                                              fOccludedOutlineColorScale;                               // 0x06D4(0x0004)
+	struct FVector                                     vOccludedOutlineColor;                                    // 0x06D8(0x000C)
+	class ACameraActor*                                AttachCameraActor;                                        // 0x06E4(0x0008)
+	struct FVector                                     LastTargetLocation;                                       // 0x06EC(0x000C)
+	class APawn*                                       OverTarget;                                               // 0x06F8(0x0008)
+	TArray<struct FString>                             OverTargetList;                                           // 0x0700(0x0010)
+	int                                                OverCurTargetIndex;                                       // 0x0710(0x0004)
+	class ACameraActor*                                OverBackupMatineeCamera;                                  // 0x0714(0x0008)
+	float                                              OverTargetBlendTime;                                      // 0x071C(0x0004)
+	float                                              OverTargetBlendExp;                                       // 0x0720(0x0004)
+	float                                              TargetBlendDiv;                                           // 0x0724(0x0004)
+	float                                              TargetBlendMul;                                           // 0x0728(0x0004)
+	struct FEFCameraOverrideFogSettings                CamOverrideFogSettings;                                   // 0x072C(0x0008)
+	float                                              CamOverrideFogAlpha;                                      // 0x0734(0x0004)
+	float                                              VehicleFOVAngle;                                          // 0x0738(0x0004)
+	int                                                CameraSettingID;                                          // 0x073C(0x0004)
+	int                                                CameraContentsSettingID;                                  // 0x0740(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1799,7 +2470,14 @@ public:
 class UEFActionParticleData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0058(0x0024) MISSED OFFSET
+	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x0058(0x0004)
+	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x0058(0x0004)
+	unsigned long                                      bApplayScaleByCharge : 1;                                 // 0x0058(0x0004)
+	float                                              ParticlePlayRate;                                         // 0x005C(0x0004)
+	int                                                TranslucencySortPriority;                                 // 0x0060(0x0004)
+	float                                              ScalarScaleByCharge;                                      // 0x0064(0x0004)
+	struct FVector                                     VectorScaleByCharge;                                      // 0x0068(0x000C)
+	class UEFParticleData*                             ParticleData;                                             // 0x0074(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1830,7 +2508,19 @@ public:
 class UEFBeamActionDirection : public UEFBeamActionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x2CC];                                     // 0x0058(0x02CC) MISSED OFFSET
+	unsigned long                                      bUseHitTest : 1;                                          // 0x0058(0x0004)
+	unsigned long                                      bApplySkillEffectDistance : 1;                            // 0x0058(0x0004)
+	unsigned long                                      bApplyPosCurve : 1;                                       // 0x0058(0x0004)
+	unsigned long                                      bApplyAlwaysShowHitEffect : 1;                            // 0x0058(0x0004)
+	unsigned long                                      bApplyShowHitEffect : 1;                                  // 0x0058(0x0004)
+	unsigned long                                      bApplyHitNormal : 1;                                      // 0x0058(0x0004)
+	unsigned long                                      bApplyHitNormalOwner : 1;                                 // 0x0058(0x0004)
+	float                                              MaxBeamDistance;                                          // 0x005C(0x0004)
+	int                                                AddBeamRotationAngle;                                     // 0x0060(0x0004)
+	struct FEFParticleSystemInfo                       HitPSInfo;                                                // 0x0064(0x0158)
+	struct FEFParticleSystemInfo                       HitEffectPSInfo;                                          // 0x01BC(0x0158)
+	class UEFParticleData*                             HitPSDataInfo;                                            // 0x0314(0x0008)
+	class UEFParticleData*                             HitEffectPSDataInfo;                                      // 0x031C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1846,7 +2536,9 @@ public:
 class UEFBeamActionSelf : public UEFBeamActionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x0058(0x003C) MISSED OFFSET
+	unsigned long                                      bUseSocketMove : 1;                                       // 0x0058(0x0004)
+	struct FEFBeamSocketMoveInfo                       StartSocketMoveInfo;                                      // 0x005C(0x001C)
+	struct FEFBeamSocketMoveInfo                       EndSocketMoveInfo;                                        // 0x0078(0x001C)
 
 	static UClass* StaticClass()
 	{
@@ -1862,7 +2554,15 @@ public:
 class UEFBeamActionTargetPos : public UEFBeamActionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x2C4];                                     // 0x0058(0x02C4) MISSED OFFSET
+	unsigned long                                      bUseHitTest : 1;                                          // 0x0058(0x0004)
+	unsigned long                                      bApplyAlwaysShowHitEffect : 1;                            // 0x0058(0x0004)
+	unsigned long                                      bApplyShowHitEffect : 1;                                  // 0x0058(0x0004)
+	unsigned long                                      bApplyHitNormal : 1;                                      // 0x0058(0x0004)
+	unsigned long                                      bApplyHitNormalOwner : 1;                                 // 0x0058(0x0004)
+	struct FEFParticleSystemInfo                       HitPSInfo;                                                // 0x005C(0x0158)
+	struct FEFParticleSystemInfo                       HitEffectPSInfo;                                          // 0x01B4(0x0158)
+	class UEFParticleData*                             HitPSDataInfo;                                            // 0x030C(0x0008)
+	class UEFParticleData*                             HitEffectPSDataInfo;                                      // 0x0314(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1910,7 +2610,7 @@ public:
 class UEFEffectSpawn : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	TArray<class UEFParticleDataBase*>                 ParticleDataSet;                                          // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -1926,7 +2626,8 @@ public:
 class AEFEmitter : public AEmitter
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x02A8(0x0010) MISSED OFFSET
+	class USoundCue*                                   Sound;                                                    // 0x02A8(0x0008)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x02B0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1945,7 +2646,9 @@ public:
 class AEFEnvironmentActionEmitter : public AEFEmitter
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x02B8(0x0010) MISSED OFFSET
+	float                                              CameraOffset;                                             // 0x02B8(0x0004)
+	float                                              BaseFOV;                                                  // 0x02BC(0x0004)
+	class ACamera*                                     PlayerCamera;                                             // 0x02C0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -1983,7 +2686,14 @@ public:
 class AEFEmitterPool : public AEmitterPool
 {
 public:
-	unsigned char                                      UnknownData00[0xB8];                                      // 0x02E4(0x00B8) MISSED OFFSET
+	TArray<class UParticleSystemComponent*>            PoolPSInfoComponents;                                     // 0x02E4(0x0010)
+	TArray<class UPointLightComponent*>                PoolPointLightComponents;                                 // 0x02F4(0x0010)
+	TArray<class UParticleSystemComponent*>            ActivePSInfoComponents;                                   // 0x0304(0x0010)
+	TArray<class UParticleSystemComponent*>            ManagedPSCs;                                              // 0x0314(0x0010)
+	TArray<int>                                        PoolManagedPSCIndexs;                                     // 0x0324(0x0010)
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0334(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFEmitterPool.LimitedPSCInfoMap
+	TArray<struct FLimitedPSCUnit>                     LimitedPSCInfoArr;                                        // 0x037C(0x0010)
+	TArray<struct FDelayedSpawnBakeDataReference>      DelayedSpawnBakeDataRefs;                                 // 0x038C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2003,7 +2713,8 @@ public:
 class AEFEnvironmentEmitter : public AEmitter
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x02A8(0x000C) MISSED OFFSET
+	float                                              CameraOffset;                                             // 0x02A8(0x0004)
+	class ACamera*                                     PlayerCamera;                                             // 0x02AC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2019,7 +2730,9 @@ public:
 class UEFGroundEffect : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	TArray<class UEFParticleGroundData*>               ParticleDataSet;                                          // 0x0058(0x0010)
+	TArray<struct FEFGroundParticleSystemInfo>         ParticleSet;                                              // 0x0068(0x0010)
+	TArray<struct FEFGroundDecalSystemInfo>            DecalSet;                                                 // 0x0078(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2035,7 +2748,9 @@ public:
 class UEFGroundEffectContainer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0058(0x0058) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0058(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFGroundEffectContainer.DataMap
+	class UEFGroundEffect*                             DefaultRange;                                             // 0x00A0(0x0008)
+	class UEFGroundEffect*                             DefaultTarget;                                            // 0x00A8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2051,7 +2766,7 @@ public:
 class AEFLoopingEmitter : public AEmitter
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x02A8(0x0004) MISSED OFFSET
+	unsigned long                                      bLoop : 1;                                                // 0x02A8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2067,7 +2782,7 @@ public:
 class AEFMarkEffect : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0274(0x0010) MISSED OFFSET
+	TArray<struct FEFMarkParticleSystemInfo>           ParticleSystemSet;                                        // 0x0274(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2083,7 +2798,12 @@ public:
 class UEFParticleDataBase : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0058(0x0020) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0058(0x0010)
+	int                                                FXLod;                                                    // 0x0068(0x0004)
+	TEnumAsByte<EF_PARTICLE_DATA_TYPE>                 ParticleDataType;                                         // 0x006C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x006D(0x0003) MISSED OFFSET
+	int                                                DataIndex;                                                // 0x0070(0x0004)
+	unsigned long                                      EditorDirty : 1;                                          // 0x0074(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2099,7 +2819,33 @@ public:
 class UEFParticleData : public UEFParticleDataBase
 {
 public:
-	unsigned char                                      UnknownData00[0xA0];                                      // 0x0078(0x00A0) MISSED OFFSET
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0078(0x0008)
+	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x0080(0x0004)
+	unsigned long                                      bSpawnedEmitterAbsoluteRotation : 1;                      // 0x0080(0x0004)
+	unsigned long                                      bAttach : 1;                                              // 0x0080(0x0004)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0080(0x0004)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0080(0x0004)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0080(0x0004)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0080(0x0004)
+	unsigned long                                      bApplyPawnRotation : 1;                                   // 0x0080(0x0004)
+	unsigned long                                      bUseCastShadow : 1;                                       // 0x0080(0x0004)
+	unsigned long                                      bBeamParticle : 1;                                        // 0x0080(0x0004)
+	TEnumAsByte<EFEQUIP_PART>                          OwnerPartsType;                                           // 0x0084(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0085(0x0003) MISSED OFFSET
+	int                                                OwnerPartsMeshIndex;                                      // 0x0088(0x0004)
+	TArray<struct FString>                             OwnerBoneName;                                            // 0x008C(0x0010)
+	TArray<struct FString>                             OwnerSoketName;                                           // 0x009C(0x0010)
+	TArray<TEnumAsByte<EFPBS_SpawnType>>               OwnerBoneSocketSpawnType;                                 // 0x00AC(0x0010)
+	int                                                OwnerBoneSocketRandomMaxCount;                            // 0x00BC(0x0004)
+	float                                              ModifyParentVelocity;                                     // 0x00C0(0x0004)
+	float                                              ModifyParentAcceleration;                                 // 0x00C4(0x0004)
+	struct FVector                                     RelativeLocation;                                         // 0x00C8(0x000C)
+	struct FVector                                     RelativeWorldLocation;                                    // 0x00D4(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x00E0(0x000C)
+	struct FVector                                     RelativeScale;                                            // 0x00EC(0x000C)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x00F8(0x0010)
+	class UEFParticleDataModuleSoundBase*              SoundModule;                                              // 0x0108(0x0008)
+	class UEFParticleDataModulePawnMaterialParam*      OwnerMaterialParamModule;                                 // 0x0110(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2115,7 +2861,21 @@ public:
 class UEFParticleDataIdentity : public UEFParticleDataBase
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0078(0x0058) MISSED OFFSET
+	int                                                IdentityIndex;                                            // 0x0078(0x0004)
+	int                                                IdentityPoint;                                            // 0x007C(0x0004)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0080(0x0008)
+	TEnumAsByte<EFEQUIP_PART>                          OwnerPartsType;                                           // 0x0088(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
+	int                                                OwnerPartsMeshIndex;                                      // 0x008C(0x0004)
+	TArray<struct FString>                             OwnerBoneName;                                            // 0x0090(0x0010)
+	TArray<struct FString>                             OwnerSoketName;                                           // 0x00A0(0x0010)
+	TArray<TEnumAsByte<EFPBS_SpawnType>>               OwnerBoneSocketSpawnType;                                 // 0x00B0(0x0010)
+	int                                                OwnerBoneSocketRandomMaxCount;                            // 0x00C0(0x0004)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x00C4(0x0004)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x00C4(0x0004)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x00C4(0x0004)
+	float                                              ModifyParentVelocity;                                     // 0x00C8(0x0004)
+	float                                              ModifyParentAcceleration;                                 // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2131,7 +2891,8 @@ public:
 class UEFParticleDataSimple : public UEFParticleDataBase
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0078(0x0018) MISSED OFFSET
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0078(0x0008)
+	struct FLinearColor                                MaterialColorValue;                                       // 0x0080(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2147,7 +2908,10 @@ public:
 class UEFParticleDataModifier : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0058(0x002C) MISSED OFFSET
+	struct FString                                     Key;                                                      // 0x0058(0x0010)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0068(0x0008)
+	unsigned long                                      bUseChangeParticleParam : 1;                              // 0x0070(0x0004)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x0074(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2163,7 +2927,7 @@ public:
 class UEFParticleDataModulePawnMaterialParam : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0058(0x004C) MISSED OFFSET
+	struct FEFParticlePawnMaterialParamData            MaterialParamData;                                        // 0x0058(0x004C)
 
 	static UClass* StaticClass()
 	{
@@ -2179,7 +2943,11 @@ public:
 class UEFParticleDataModuleSoundBase : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0058(0x001C) MISSED OFFSET
+	struct FString                                     VoiceKeyWord;                                             // 0x0058(0x0010)
+	TEnumAsByte<EF_PARTICLE_DATAMODULE_TYPE>           DataModuleType;                                           // 0x0068(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0069(0x0003) MISSED OFFSET
+	int                                                DataIndex;                                                // 0x006C(0x0004)
+	unsigned long                                      EditorDirty : 1;                                          // 0x0070(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2195,7 +2963,9 @@ public:
 class UEFParticleDataModuleSingleAKEvent : public UEFParticleDataModuleSoundBase
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0074(0x000C) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x0074(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x007C(0x0004)
+	unsigned long                                      bSwitchHittedAKEvent : 1;                                 // 0x007C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2211,7 +2981,15 @@ public:
 class UEFParticleGroundData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0058(0x0058) MISSED OFFSET
+	struct FString                                     Key;                                                      // 0x0058(0x0010)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0068(0x0008)
+	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0070(0x0004)
+	struct FLinearColor                                ActiveColorValue;                                         // 0x0074(0x0010)
+	struct FLinearColor                                DeactiveColorValue;                                       // 0x0084(0x0010)
+	float                                              DefaultWidth;                                             // 0x0094(0x0004)
+	float                                              DefaultHeight;                                            // 0x0098(0x0004)
+	struct FString                                     Desc;                                                     // 0x009C(0x0010)
+	int                                                FXLod;                                                    // 0x00AC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2242,7 +3020,8 @@ public:
 class UEFParticleModuleAkEvent : public UEFParticleModuleAkEventBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0064(0x0010) MISSED OFFSET
+	class UAkEvent*                                    StartSound;                                               // 0x0064(0x0008)
+	class UAkEvent*                                    EndSound;                                                 // 0x006C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2258,7 +3037,8 @@ public:
 class UEFParticleModuleKillLength : public UParticleModuleKillBase
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0064(0x0028) MISSED OFFSET
+	struct FRawDistributionFloat                       Length;                                                   // 0x0064(0x0024)
+	unsigned long                                      bApplyPSysScale : 1;                                      // 0x0088(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2274,7 +3054,15 @@ public:
 class UEFParticleModuleLocationCircleSurface : public UParticleModuleLocationBase
 {
 public:
-	unsigned char                                      UnknownData00[0x78];                                      // 0x0064(0x0078) MISSED OFFSET
+	TEnumAsByte<ECircleSurfaceAxis>                    SurfaceAxis;                                              // 0x0064(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0065(0x0003) MISSED OFFSET
+	unsigned long                                      bNegativeAxis : 1;                                        // 0x0068(0x0004)
+	unsigned long                                      bHalfMode : 1;                                            // 0x0068(0x0004)
+	unsigned long                                      Velocity : 1;                                             // 0x0068(0x0004)
+	struct FRawDistributionFloat                       VelocityScale;                                            // 0x006C(0x0024)
+	struct FRawDistributionVector                      StartLocation;                                            // 0x0090(0x0024)
+	struct FRawDistributionFloat                       StartRadius;                                              // 0x00B4(0x0024)
+	int                                                SplitCircleCount;                                         // 0x00D8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2305,7 +3093,7 @@ public:
 class UEFParticleModuleLocationEmitterDirect : public UParticleModuleLocationEmitterDirect
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x006C(0x000C) MISSED OFFSET
+	struct FVector                                     OffsetPos;                                                // 0x006C(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -2321,7 +3109,14 @@ public:
 class UEFParticleModuleLocationOnGround : public UParticleModuleLocationBase
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0064(0x0058) MISSED OFFSET
+	float                                              fCheckBounds;                                             // 0x0064(0x0004)
+	float                                              fOffsetHeight;                                            // 0x0068(0x0004)
+	unsigned long                                      bEnableSkipHeight : 1;                                    // 0x006C(0x0004)
+	unsigned long                                      bContinousCheck : 1;                                      // 0x006C(0x0004)
+	unsigned long                                      bTickUpdate : 1;                                          // 0x006C(0x0004)
+	float                                              fSkipHeight;                                              // 0x0070(0x0004)
+	struct FRawDistributionVector                      AdjustLocation;                                           // 0x0074(0x0024)
+	struct FRawDistributionFloat                       SkipLocation;                                             // 0x0098(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -2337,7 +3132,11 @@ public:
 class UEFParticleModuleLocationPath : public UParticleModuleLocationBase
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0064(0x0020) MISSED OFFSET
+	class UPrefab*                                     PathPrefab;                                               // 0x0064(0x0008)
+	int                                                LoopCount;                                                // 0x006C(0x0004)
+	struct FVector                                     StartLocation;                                            // 0x0070(0x000C)
+	float                                              StartTime;                                                // 0x007C(0x0004)
+	float                                              SleepTime;                                                // 0x0080(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2353,7 +3152,14 @@ public:
 class UEFParticleModuleLocationPrimitiveCylinderSpin : public UParticleModuleLocationPrimitiveBase
 {
 public:
-	unsigned char                                      UnknownData00[0x98];                                      // 0x00B0(0x0098) MISSED OFFSET
+	unsigned long                                      RadialVelocity : 1;                                       // 0x00B0(0x0004)
+	unsigned long                                      bAdjustForWorldSpace : 1;                                 // 0x00B0(0x0004)
+	struct FRawDistributionFloat                       StartRadius;                                              // 0x00B4(0x0024)
+	struct FRawDistributionFloat                       StartHeight;                                              // 0x00D8(0x0024)
+	struct FRawDistributionFloat                       StartCylinderRot;                                         // 0x00FC(0x0024)
+	TEnumAsByte<ECylinderSpinAxis>                     SpinAxis;                                                 // 0x0120(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0121(0x0003) MISSED OFFSET
+	struct FRawDistributionFloat                       SpinAngle;                                                // 0x0124(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -2369,7 +3175,7 @@ public:
 class UEFParticleModuleLocationPrimitiveCylinderSpin_Seeded : public UEFParticleModuleLocationPrimitiveCylinderSpin
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x0148(0x001C) MISSED OFFSET
+	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0148(0x001C)
 
 	static UClass* StaticClass()
 	{
@@ -2385,7 +3191,7 @@ public:
 class UEFParticleModuleLocationPrimitiveMesh : public UParticleModuleLocationPrimitiveBase
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
+	class UStaticMesh*                                 Mesh;                                                     // 0x00B0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2401,7 +3207,7 @@ public:
 class UEFParticleModuleLocationPrimitiveSphere : public UParticleModuleLocationPrimitiveBase
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00B0(0x0024) MISSED OFFSET
+	struct FRawDistributionFloat                       StartRadius;                                              // 0x00B0(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -2417,7 +3223,11 @@ public:
 class UEFParticleModuleLocationSkelVertSurface : public UParticleModuleLocationSkelVertSurface
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00BC(0x0028) MISSED OFFSET
+	TEnumAsByte<EFPS_SORTDIRECTION>                    SortDirection;                                            // 0x00BC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00BD(0x0003) MISSED OFFSET
+	int                                                MaxSamples;                                               // 0x00C0(0x0004)
+	TArray<struct FSkelLocationData>                   SampleSourceDataTable;                                    // 0x00C4(0x0010)
+	struct FString                                     RefSkeletalMeshName;                                      // 0x00D4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2433,7 +3243,11 @@ public:
 class UEFParticleModuleLocationStaticVertSurface : public UParticleModuleLocationStaticVertSurface
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00AC(0x0028) MISSED OFFSET
+	TEnumAsByte<EFPS_SORTDIRECTION>                    SortDirection;                                            // 0x00AC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00AD(0x0003) MISSED OFFSET
+	int                                                MaxSamples;                                               // 0x00B0(0x0004)
+	TArray<struct FStaticLocationData>                 SampleSourceDataTable;                                    // 0x00B4(0x0010)
+	struct FString                                     RefStaticMeshName;                                        // 0x00C4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2449,7 +3263,14 @@ public:
 class UEFParticleModuleTypeDataDecal : public UParticleModuleTypeDataBase
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0064(0x0028) MISSED OFFSET
+	struct FVector2D                                   DefaultSize;                                              // 0x0064(0x0008)
+	float                                              NearPlane;                                                // 0x006C(0x0004)
+	float                                              FarPlane;                                                 // 0x0070(0x0004)
+	struct FRotator                                    Rotation;                                                 // 0x0074(0x000C)
+	struct FVector2D                                   BlendRange;                                               // 0x0080(0x0008)
+	unsigned long                                      bUsePlayerCharacterRotation : 1;                          // 0x0088(0x0004)
+	unsigned long                                      bAlwaysDecalUpdate : 1;                                   // 0x0088(0x0004)
+	unsigned long                                      bOnlyCalcRotationYaw : 1;                                 // 0x0088(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2465,7 +3286,7 @@ public:
 class UEFParticleModuleTypeDataLight : public UParticleModuleTypeDataBase
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0064(0x0008) MISSED OFFSET
+	class UPointLightComponent*                        PointLightComponent;                                      // 0x0064(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2481,7 +3302,8 @@ public:
 class UEFParticleModuleVelocityOverLifetime : public UParticleModuleVelocityBase
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0068(0x0028) MISSED OFFSET
+	struct FRawDistributionVector                      VelOverLife;                                              // 0x0068(0x0024)
+	unsigned long                                      Absolute : 1;                                             // 0x008C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2497,7 +3319,14 @@ public:
 class UEFParticleModuleVortex : public UParticleModuleOrbitBase
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0068(0x0040) MISSED OFFSET
+	float                                              DirX;                                                     // 0x0068(0x0004)
+	float                                              DirY;                                                     // 0x006C(0x0004)
+	float                                              DirZ;                                                     // 0x0070(0x0004)
+	float                                              PosX;                                                     // 0x0074(0x0004)
+	float                                              PosY;                                                     // 0x0078(0x0004)
+	float                                              PosZ;                                                     // 0x007C(0x0004)
+	float                                              Power;                                                    // 0x0080(0x0004)
+	struct FRawDistributionFloat                       PowerAcceleration;                                        // 0x0084(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -2528,7 +3357,43 @@ public:
 class UEFParticleSystemData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xC8];                                      // 0x0058(0x00C8) MISSED OFFSET
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0058(0x0008)
+	float                                              ParticlePlayRate;                                         // 0x0060(0x0004)
+	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x0064(0x0004)
+	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0064(0x0004)
+	unsigned long                                      bAttach : 1;                                              // 0x0064(0x0004)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0064(0x0004)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0064(0x0004)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0064(0x0004)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0064(0x0004)
+	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x0064(0x0004)
+	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x0064(0x0004)
+	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x0064(0x0004)
+	unsigned long                                      StopSound : 1;                                            // 0x0064(0x0004)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0064(0x0004)
+	unsigned long                                      bBeamParticle : 1;                                        // 0x0064(0x0004)
+	unsigned long                                      bUseCastShadow : 1;                                       // 0x0064(0x0004)
+	class UPostProcessChain*                           PPChain;                                                  // 0x0068(0x0008)
+	struct FName                                       MaterialParamName;                                        // 0x0070(0x0008)
+	float                                              MaterialFloatValue;                                       // 0x0078(0x0004)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x007C(0x0010)
+	struct FVector                                     RelativeWorldLocation;                                    // 0x008C(0x000C)
+	struct FVector                                     RelativeLocation;                                         // 0x0098(0x000C)
+	struct FRotator                                    RelativeRotation;                                         // 0x00A4(0x000C)
+	struct FVector                                     RelativeScale;                                            // 0x00B0(0x000C)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x00BC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00BD(0x0003) MISSED OFFSET
+	int                                                iPartsMeshIndex;                                          // 0x00C0(0x0004)
+	int                                                AttachPriority;                                           // 0x00C4(0x0004)
+	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x00C8(0x0010)
+	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x00D8(0x0010)
+	TArray<TEnumAsByte<EPst_SpawnType>>                ParticleSpawnType;                                        // 0x00E8(0x0010)
+	int                                                ParticleAttachRandomMaxCount;                             // 0x00F8(0x0004)
+	float                                              AutoPlayRateTime;                                         // 0x00FC(0x0004)
+	float                                              ModifyParentVelocity;                                     // 0x0100(0x0004)
+	float                                              ModifyParentAcceleration;                                 // 0x0104(0x0004)
+	class UAkEvent*                                    AkEvent;                                                  // 0x0108(0x0008)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x0110(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2559,7 +3424,8 @@ public:
 class AEFPickingEmitter : public AEmitter
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x02A8(0x0004) MISSED OFFSET
+	unsigned long                                      bActivatePicking : 1;                                     // 0x02A8(0x0004)
+	unsigned long                                      bTryParticleActivate : 1;                                 // 0x02A8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2580,7 +3446,11 @@ public:
 class UEFPostProcessMaterialContainer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	class UEFPostProcessMaterialHPEffect*              HPEffect;                                                 // 0x0058(0x0008)
+	class UEFPostProcessMaterialDeadEffect*            DeadEffect;                                               // 0x0060(0x0008)
+	class UEFPostProcessMaterialShipWreckEffect*       ShipWreckEffect;                                          // 0x0068(0x0008)
+	class UEFPostProcessMaterialChaosGateEffect*       ChaosGateEffect;                                          // 0x0070(0x0008)
+	TArray<class UEFPostProcessMaterialEffect*>        GlobalMaterialEffects;                                    // 0x0078(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2596,7 +3466,11 @@ public:
 class UEFPostProcessMaterialEffect : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x39];                                      // 0x0058(0x0039) MISSED OFFSET
+	class UMaterialInterface*                          Material;                                                 // 0x0058(0x0008)
+	TArray<struct FEFPPMaterialScalarParam>            ScalarParamArr;                                           // 0x0060(0x0010)
+	TArray<struct FEFPPMaterialVectorParam>            VectorParamArr;                                           // 0x0070(0x0010)
+	TArray<struct FEFPPMaterialTextureParam>           TextureParamArr;                                          // 0x0080(0x0010)
+	TEnumAsByte<EF_POSTPROCESS_MATERIALEFFECT_TYPE>    MaterialEffectType;                                       // 0x0090(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -2612,7 +3486,8 @@ public:
 class UEFPostProcessMaterialChaosGateEffect : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x17];                                      // 0x0091(0x0017) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FEFPPMEChaosGateValue                       ChaosGateValue;                                           // 0x0094(0x0014)
 
 	static UClass* StaticClass()
 	{
@@ -2628,7 +3503,8 @@ public:
 class UEFPostProcessMaterialDeadEffect : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0xF];                                       // 0x0091(0x000F) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FEFPPMEDeadValue                            DeadValue;                                                // 0x0094(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -2644,7 +3520,11 @@ public:
 class UEFPostProcessMaterialEffectCamera : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x1F];                                      // 0x0091(0x001F) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FString                                     EffectDesc;                                               // 0x0094(0x0010)
+	float                                              FadeInTime;                                               // 0x00A4(0x0004)
+	float                                              FadeOutTime;                                              // 0x00A8(0x0004)
+	float                                              MaxOpacity;                                               // 0x00AC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2660,7 +3540,8 @@ public:
 class UEFPostProcessMaterialEffectHit : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x13];                                      // 0x0091(0x0013) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FEFPPMEHitValue                             SkillValue;                                               // 0x0094(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2676,7 +3557,12 @@ public:
 class UEFPostProcessMaterialEffectSkill : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x3B];                                      // 0x0091(0x003B) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FString                                     EffectDesc;                                               // 0x0094(0x0010)
+	int                                                GroupPriority;                                            // 0x00A4(0x0004)
+	struct FString                                     Keyword;                                                  // 0x00A8(0x0010)
+	unsigned long                                      bOnlyPlayLocalPlayer : 1;                                 // 0x00B8(0x0004)
+	struct FEFPPMESkillValue                           SkillValue;                                               // 0x00BC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2692,7 +3578,9 @@ public:
 class UEFPostProcessMaterialEffectStatus : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x1F];                                      // 0x0091(0x001F) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FString                                     EffectDesc;                                               // 0x0094(0x0010)
+	struct FEFPPMEStatusValue                          StatusValue;                                              // 0x00A4(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -2708,7 +3596,9 @@ public:
 class UEFPostProcessMaterialHPEffect : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x27];                                      // 0x0091(0x0027) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	TArray<struct FEFPPMEHPPersentValue>               HPPersentValues;                                          // 0x0094(0x0010)
+	struct FEFPPMEHPPersentValueCriticalHit            HPCriticalHitValue;                                       // 0x00A4(0x0014)
 
 	static UClass* StaticClass()
 	{
@@ -2724,7 +3614,8 @@ public:
 class UEFPostProcessMaterialShipWreckEffect : public UEFPostProcessMaterialEffect
 {
 public:
-	unsigned char                                      UnknownData00[0xF];                                       // 0x0091(0x000F) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FEFPPMEShipWreckValue                       ShipWreckValue;                                           // 0x0094(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -2740,7 +3631,15 @@ public:
 class UEFProjectileParticleData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	float                                              ParticlePlayRate;                                         // 0x0058(0x0004)
+	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x005C(0x0004)
+	unsigned long                                      ApplyEFSkeletalMeshActorDLE : 1;                          // 0x005C(0x0004)
+	float                                              AutoPlayRateTime;                                         // 0x0060(0x0004)
+	float                                              AutoPlayMaxRate;                                          // 0x0064(0x0004)
+	float                                              AutoPlayMinRate;                                          // 0x0068(0x0004)
+	int                                                TranslucencySortPriority;                                 // 0x006C(0x0004)
+	class UEFParticleData*                             ParticleData;                                             // 0x0070(0x0008)
+	TArray<class UEFParticleData*>                     AdditionalParticleDataArr;                                // 0x0078(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2756,7 +3655,8 @@ public:
 class AEFSimpleEffect : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0274(0x0020) MISSED OFFSET
+	TArray<struct FEFSimpleParticleSystemInfo>         ParticleSystemSet;                                        // 0x0274(0x0010)
+	TArray<class UEFParticleDataBase*>                 ParticleDataSet;                                          // 0x0284(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2772,7 +3672,8 @@ public:
 class AEFSpawnEffect : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0274(0x0020) MISSED OFFSET
+	TArray<struct FEFParticleSystemInfo>               ParticleSystemSet;                                        // 0x0274(0x0010)
+	TArray<class UEFParticleDataBase*>                 ParticleDataSet;                                          // 0x0284(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -2818,7 +3719,11 @@ public:
 class UEFSeqAct_ChangeCullDistance : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0158(0x0014) MISSED OFFSET
+	float                                              CullDistanceScaleOverride;                                // 0x0158(0x0004)
+	unsigned long                                      bIsScaleOverridden : 1;                                   // 0x015C(0x0004)
+	float                                              SavedDecalCullDistanceScale;                              // 0x0160(0x0004)
+	float                                              SavedFractureCullDistanceScale;                           // 0x0164(0x0004)
+	float                                              SavedMaxDrawDistanceScale;                                // 0x0168(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2834,7 +3739,7 @@ public:
 class UEFSeqAct_EndRemoteEvent : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0158(0x0008) MISSED OFFSET
+	struct FName                                       EventName;                                                // 0x0158(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2865,7 +3770,17 @@ public:
 class UEFSeqAct_Matinee : public USeqAct_Interp
 {
 public:
-	unsigned char                                      UnknownData00[0x31];                                      // 0x026C(0x0031) MISSED OFFSET
+	class AActor*                                      Activator;                                                // 0x026C(0x0008)
+	TArray<class UObject*>                             ObjListInGame;                                            // 0x0274(0x0010)
+	int                                                MatineeIndex;                                             // 0x0284(0x0004)
+	unsigned long                                      bSkipJump : 1;                                            // 0x0288(0x0004)
+	unsigned long                                      bUsingMuteEvent : 1;                                      // 0x0288(0x0004)
+	unsigned long                                      bUsingMuteEvent_WithoutAmbient : 1;                       // 0x0288(0x0004)
+	unsigned long                                      bIsApplyMuteEvent : 1;                                    // 0x0288(0x0004)
+	unsigned long                                      bNeedApplySkipSoundEvent : 1;                             // 0x0288(0x0004)
+	class UAkEvent*                                    SkipEffectSoundEvent;                                     // 0x028C(0x0008)
+	class UAkEvent*                                    SkipBGMEvent;                                             // 0x0294(0x0008)
+	TEnumAsByte<EFAutoBlendState>                      eAutoBlendState;                                          // 0x029C(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -2881,7 +3796,12 @@ public:
 class UEFSeqAct_MovePlayer : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0158(0x0018) MISSED OFFSET
+	unsigned long                                      bUseDefaultMoveSpeed : 1;                                 // 0x0158(0x0004)
+	unsigned long                                      bDelayMoveTime : 1;                                       // 0x0158(0x0004)
+	unsigned long                                      bRestoreInputLock : 1;                                    // 0x0158(0x0004)
+	float                                              MoveTime;                                                 // 0x015C(0x0004)
+	struct FVector                                     DestLocation;                                             // 0x0160(0x000C)
+	float                                              RemainingTime;                                            // 0x016C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2897,7 +3817,38 @@ public:
 class UEFSeqAct_NPCController : public USeqAct_Latent
 {
 public:
-	unsigned char                                      UnknownData00[0xE8];                                      // 0x0170(0x00E8) MISSED OFFSET
+	class AActor*                                      Target;                                                   // 0x0170(0x0008)
+	struct FName                                       AnimListName;                                             // 0x0178(0x0008)
+	class UAnimNodeBlendList*                          AnimList;                                                 // 0x0180(0x0008)
+	class UAnimNodeSequence*                           sAnimeNodeSeq;                                            // 0x0188(0x0008)
+	class UAnimNodeSequence*                           eAnimeNodeSeq;                                            // 0x0190(0x0008)
+	unsigned long                                      bForEverLoop : 1;                                         // 0x0198(0x0004)
+	unsigned long                                      isEventMove : 1;                                          // 0x0198(0x0004)
+	unsigned long                                      isWaitTime : 1;                                           // 0x0198(0x0004)
+	float                                              PosOffset;                                                // 0x019C(0x0004)
+	float                                              RandomPosOffset;                                          // 0x01A0(0x0004)
+	TArray<struct FSNPC_MovingState>                   MovePoints;                                               // 0x01A4(0x0010)
+	TArray<struct FSNPC_MovingState>                   EventMovePoints;                                          // 0x01B4(0x0010)
+	TEnumAsByte<EUNM_SNPC_workCompletedState>          emCompledted_Work;                                        // 0x01C4(0x0001)
+	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           ewWaitAnimation;                                          // 0x01C5(0x0001)
+	TEnumAsByte<EUNM_SNPC_workCompletedState>          ewCompledted_Work;                                        // 0x01C6(0x0001)
+	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           BackUpAnimName;                                           // 0x01C7(0x0001)
+	TEnumAsByte<ENUM_SNPC_NPCState>                    EN_MoveState;                                             // 0x01C8(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x01C9(0x0003) MISSED OFFSET
+	float                                              ewWaitTime;                                               // 0x01CC(0x0004)
+	float                                              ewBlendTime;                                              // 0x01D0(0x0004)
+	struct FString                                     ewForcedAnim;                                             // 0x01D4(0x0010)
+	float                                              CheckWaitTime;                                            // 0x01E4(0x0004)
+	int                                                BackUpCurrentCount;                                       // 0x01E8(0x0004)
+	int                                                MainCount;                                                // 0x01EC(0x0004)
+	int                                                CurrentCount;                                             // 0x01F0(0x0004)
+	struct FSNPC_MovingState                           MainState;                                                // 0x01F4(0x0034)
+	struct FVector                                     vC;                                                       // 0x0228(0x000C)
+	struct FVector                                     vB;                                                       // 0x0234(0x000C)
+	float                                              vD;                                                       // 0x0240(0x0004)
+	float                                              CurrentTime;                                              // 0x0244(0x0004)
+	struct FRotator                                    PendingRotator;                                           // 0x0248(0x000C)
+	float                                              MainSPEED;                                                // 0x0254(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2939,7 +3890,10 @@ public:
 class UEFSeqAct_PlaySwf : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0158(0x0018) MISSED OFFSET
+	class UEFSwfMovie*                                 SwfObject;                                                // 0x0158(0x0008)
+	float                                              UnLoadTime;                                               // 0x0160(0x0004)
+	float                                              RemainingTime;                                            // 0x0164(0x0004)
+	class UEFGFxMovieWidget*                           LoadedWidget;                                             // 0x0168(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2955,7 +3909,17 @@ public:
 class UEFSeqAct_SetRagdoll : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x34];                                      // 0x0158(0x0034) MISSED OFFSET
+	struct FVector                                     VelocityDir;                                              // 0x0158(0x000C)
+	float                                              VelocityMag;                                              // 0x0164(0x0004)
+	struct FName                                       BoneName;                                                 // 0x0168(0x0008)
+	unsigned long                                      bRagdoll : 1;                                             // 0x0170(0x0004)
+	unsigned long                                      bVelocityRelativeToActorRotation : 1;                     // 0x0170(0x0004)
+	unsigned long                                      bUseBoneImpulse : 1;                                      // 0x0170(0x0004)
+	unsigned long                                      bLocalPlayer : 1;                                         // 0x0170(0x0004)
+	float                                              ApexDamage;                                               // 0x0174(0x0004)
+	float                                              ApexRadius;                                               // 0x0178(0x0004)
+	class UObject*                                     Target;                                                   // 0x017C(0x0008)
+	class UObject*                                     HitLocaiton;                                              // 0x0184(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -2971,7 +3935,7 @@ public:
 class UEFSeqAct_SetWorldGravityZ : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0158(0x0004) MISSED OFFSET
+	float                                              GravityZ;                                                 // 0x0158(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -2987,7 +3951,7 @@ public:
 class UEFSeqAct_StopParticle : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0158(0x0004) MISSED OFFSET
+	unsigned long                                      bIsStop : 1;                                              // 0x0158(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3003,7 +3967,8 @@ public:
 class UEFSeqAct_UIWindowClientEvent : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0158(0x0014) MISSED OFFSET
+	struct FName                                       EventName;                                                // 0x0158(0x0008)
+	int                                                EventParams[0x3];                                         // 0x0160(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3019,7 +3984,8 @@ public:
 class UEFSeqAct_WeaponOnOff : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0158(0x0004) MISSED OFFSET
+	unsigned long                                      bIsOnOff : 1;                                             // 0x0158(0x0004)
+	unsigned long                                      bPartyAll : 1;                                            // 0x0158(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3035,7 +4001,7 @@ public:
 class UEFSequence : public USequence
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x01B4(0x0008) MISSED OFFSET
+	class UClass*                                      DefaultChildClass;                                        // 0x01B4(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3051,7 +4017,8 @@ public:
 class UEFSeqVar_SpawnedObject : public USeqVar_Object
 {
 public:
-	unsigned char                                      UnknownData00[0x5];                                       // 0x00F4(0x0005) MISSED OFFSET
+	int                                                SpawnIndex;                                               // 0x00F4(0x0004)
+	TEnumAsByte<ENameplatetype>                        eNamePlateType;                                           // 0x00F8(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -3112,7 +4079,9 @@ public:
 class AEFPCSelectStart : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x9];                                       // 0x0274(0x0009) MISSED OFFSET
+	int                                                WallPaperPirmaryKey;                                      // 0x0274(0x0004)
+	int                                                PCSelectPositionIndex;                                    // 0x0278(0x0004)
+	TEnumAsByte<EPCSelectStartActionType>              PCSelectActionType;                                       // 0x027C(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -3143,7 +4112,12 @@ public:
 class AEFSceneCapture2DActor : public ASceneCapture2DActor
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0284(0x0018) MISSED OFFSET
+	TEnumAsByte<EBindCaptureType>                      BindType;                                                 // 0x0284(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0285(0x0003) MISSED OFFSET
+	class AActor*                                      FocusActor;                                               // 0x0288(0x0008)
+	int                                                SnapShotEventStep;                                        // 0x0290(0x0004)
+	int                                                SnapShotNextEventStepFrame;                               // 0x0294(0x0004)
+	float                                              SnapShotLastRenderTimeseconds;                            // 0x0298(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3159,7 +4133,15 @@ public:
 class UEFSceneCapture2DComponent : public USceneCapture2DComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0170(0x0030) MISSED OFFSET
+	unsigned long                                      bKeepOriginalSurface : 1;                                 // 0x0170(0x0004)
+	unsigned long                                      bParticleCapture : 1;                                     // 0x0170(0x0004)
+	unsigned long                                      bUseCustomView : 1;                                       // 0x0170(0x0004)
+	unsigned long                                      bEnablePostProcessAA : 1;                                 // 0x0170(0x0004)
+	unsigned long                                      bEnableOpacityCapture : 1;                                // 0x0170(0x0004)
+	struct FVector                                     ViewOriginOffset;                                         // 0x0174(0x000C)
+	struct FVector                                     CustomCameraLocation;                                     // 0x0180(0x000C)
+	struct FRotator                                    CustomCameraRotation;                                     // 0x018C(0x000C)
+	class UTexture2D*                                  BackgroundTexture;                                        // 0x0198(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3175,7 +4157,11 @@ public:
 class AEFSceneCaptureObjectLocation : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0274(0x0014) MISSED OFFSET
+	TEnumAsByte<EBindCaptureType>                      BindType;                                                 // 0x0274(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0275(0x0003) MISSED OFFSET
+	struct FColor                                      OriPointColor;                                            // 0x0278(0x0004)
+	class APointLightMovable*                          BindLight;                                                // 0x027C(0x0008)
+	struct FLightingChannelContainer                   LightingChannels;                                         // 0x0284(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3191,7 +4177,48 @@ public:
 class UEFEnvironmentInfoData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xC4];                                      // 0x0058(0x00C4) MISSED OFFSET
+	unsigned long                                      EHF_Override : 1;                                         // 0x0058(0x0004)
+	unsigned long                                      CPL_Override : 1;                                         // 0x0058(0x0004)
+	unsigned long                                      CPL_bEnabled : 1;                                         // 0x0058(0x0004)
+	unsigned long                                      CPL_OverrideLightingChannels : 1;                         // 0x0058(0x0004)
+	unsigned long                                      WLE_Override : 1;                                         // 0x0058(0x0004)
+	unsigned long                                      DDL_Override : 1;                                         // 0x0058(0x0004)
+	float                                              EHF_FogDensity;                                           // 0x005C(0x0004)
+	float                                              EHF_FogHeightFalloff;                                     // 0x0060(0x0004)
+	float                                              EHF_FogMaxOpacity;                                        // 0x0064(0x0004)
+	float                                              EHF_StartDistance;                                        // 0x0068(0x0004)
+	float                                              EHF_LightTerminatorAngle;                                 // 0x006C(0x0004)
+	float                                              EHF_OppositeLightBrightness;                              // 0x0070(0x0004)
+	struct FColor                                      EHF_OppositeLightColor;                                   // 0x0074(0x0004)
+	float                                              EHF_LightInscatteringBrightness;                          // 0x0078(0x0004)
+	struct FColor                                      EHF_LightInscatteringColor;                               // 0x007C(0x0004)
+	float                                              CPL_Brightness;                                           // 0x0080(0x0004)
+	struct FColor                                      CPL_LightColor;                                           // 0x0084(0x0004)
+	float                                              CPL_Radius;                                               // 0x0088(0x0004)
+	float                                              CPL_FalloffExponent;                                      // 0x008C(0x0004)
+	float                                              CPL_ShadowFalloffExponent;                                // 0x0090(0x0004)
+	struct FVector                                     CPL_Translation;                                          // 0x0094(0x000C)
+	struct FLightingChannelContainer                   CPL_LightingChannels;                                     // 0x00A0(0x0004)
+	float                                              WLE_CharacterLitIndirectBrightness;                       // 0x00A4(0x0004)
+	float                                              WLE_CharacterLitIndirectContrastFactor;                   // 0x00A8(0x0004)
+	float                                              WLE_CharacterShadowedIndirectBrightness;                  // 0x00AC(0x0004)
+	float                                              WLE_CharacterShadowedIndirectContrastFactor;              // 0x00B0(0x0004)
+	float                                              WLE_CharacterLightingContrastFactor;                      // 0x00B4(0x0004)
+	float                                              DDL_Brightness;                                           // 0x00B8(0x0004)
+	struct FColor                                      DDL_LightColor;                                           // 0x00BC(0x0004)
+	class AEmitter*                                    Emitter_Actor;                                            // 0x00C0(0x0008)
+	float                                              CamOffset;                                                // 0x00C8(0x0004)
+	class UMaterialInstanceConstant*                   MIC_Original;                                             // 0x00CC(0x0008)
+	class UMaterialInstanceConstant*                   MIC_Target;                                               // 0x00D4(0x0008)
+	class UEFCameraViewShake*                          CameraViewShakeParam;                                     // 0x00DC(0x0008)
+	class UEFCameraViewShakeAnim*                      CameraViewShakeAnim;                                      // 0x00E4(0x0008)
+	float                                              PlayRate;                                                 // 0x00EC(0x0004)
+	class UMaterialInstanceConstant*                   PPM_Material;                                             // 0x00F0(0x0008)
+	float                                              PPM_Opacity;                                              // 0x00F8(0x0004)
+	class UAkEvent*                                    InAkEvent_Music;                                          // 0x00FC(0x0008)
+	class UAkEvent*                                    OutAkEvent_Music;                                         // 0x0104(0x0008)
+	class UAkEvent*                                    InAkEvent_Ambient;                                        // 0x010C(0x0008)
+	class UAkEvent*                                    OutAkEvent_Ambient;                                       // 0x0114(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3207,7 +4234,37 @@ public:
 class AEFEnvironmentInfoVolume : public APostProcessVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x124];                                     // 0x0434(0x0124) MISSED OFFSET
+	struct FPointer                                    VfTable_FCallbackEventDevice;                             // 0x0434(0x0008)
+	int                                                VolumeIndex;                                              // 0x043C(0x0004)
+	class UEFEnvironmentInfoData*                      EnviromentValue;                                          // 0x0440(0x0008)
+	float                                              BlendTimeIn;                                              // 0x0448(0x0004)
+	float                                              BlendTimeOut;                                             // 0x044C(0x0004)
+	unsigned long                                      bCastDynamicShadow : 1;                                   // 0x0450(0x0004)
+	unsigned long                                      bActivateByPlayerLocation : 1;                            // 0x0450(0x0004)
+	unsigned long                                      bIsInit : 1;                                              // 0x0450(0x0004)
+	unsigned long                                      bPlayInEditor : 1;                                        // 0x0450(0x0004)
+	unsigned long                                      bEnableMIC : 1;                                           // 0x0450(0x0004)
+	TArray<class AStaticMeshActor*>                    ExcludedActors;                                           // 0x0454(0x0010)
+	class UTexture*                                    IBL_Texture;                                              // 0x0464(0x0008)
+	TEnumAsByte<EnvVolumeState>                        eVolumeState;                                             // 0x046C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x046D(0x0003) MISSED OFFSET
+	float                                              BlendTime;                                                // 0x0470(0x0004)
+	float                                              LastBlendTime;                                            // 0x0474(0x0004)
+	float                                              LastAlpha;                                                // 0x0478(0x0004)
+	float                                              fAlpha;                                                   // 0x047C(0x0004)
+	class UEFEnvironmentInfoData*                      TargetEnvData;                                            // 0x0480(0x0008)
+	class UEFEnvironmentInfoData*                      OriginalEnvData;                                          // 0x0488(0x0008)
+	class UEFEnvironmentInfoData*                      CurrentEnvData;                                           // 0x0490(0x0008)
+	class AExponentialHeightFog*                       EHFogActor;                                               // 0x0498(0x0008)
+	class ADominantDirectionalLight*                   DDLightActor;                                             // 0x04A0(0x0008)
+	class UFunction*                                   DDLColorFucntion;                                         // 0x04A8(0x0008)
+	struct FMICParamInfo                               OriginalMICParamData;                                     // 0x04B0(0x0030)
+	struct FMICParamInfo                               CurrentMICParamData;                                      // 0x04E0(0x0030)
+	struct FMICParamInfo                               TargetMICParamData;                                       // 0x0510(0x0030)
+	int                                                CameraShakeGroupType;                                     // 0x0540(0x0004)
+	int                                                CameraShakePlayId;                                        // 0x0544(0x0004)
+	class UMaterialEffect*                             EnvMaterialEffect;                                        // 0x0548(0x0008)
+	class UMaterialInterface*                          PrevMaterialEffectMIC;                                    // 0x0550(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3228,7 +4285,7 @@ public:
 class AEFLevelStreamingVolume : public ALevelStreamingVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x02CC(0x0010) MISSED OFFSET
+	struct FString                                     VolumeName;                                               // 0x02CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -3244,7 +4301,7 @@ public:
 class AEFAreaNameVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x02B8(0x0024) MISSED OFFSET
+	struct FstGameMsgID                                AreaName;                                                 // 0x02B8(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -3260,7 +4317,22 @@ public:
 class AEFCharPerfOptionOverrideVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x02B8(0x0004) MISSED OFFSET
+	unsigned long                                      bSynthesizeSHLight : 1;                                   // 0x02B8(0x0004)
+	unsigned long                                      bUseBooleanEnvironmentShadowing : 1;                      // 0x02B8(0x0004)
+	unsigned long                                      bAllowDynamicShadowsOnTranslucency : 1;                   // 0x02B8(0x0004)
+	unsigned long                                      bEnableLineCheckWithBounds : 1;                           // 0x02B8(0x0004)
+	unsigned long                                      bUpdateSkelWhenNotRendered : 1;                           // 0x02B8(0x0004)
+	unsigned long                                      bIgnoreControllersWhenNotRendered : 1;                    // 0x02B8(0x0004)
+	unsigned long                                      bTickAnimNodesWhenNotRendered : 1;                        // 0x02B8(0x0004)
+	unsigned long                                      bAcceptsStaticDecals : 1;                                 // 0x02B8(0x0004)
+	unsigned long                                      bAcceptsDynamicDecals : 1;                                // 0x02B8(0x0004)
+	unsigned long                                      bPerBoneMotionBlur : 1;                                   // 0x02B8(0x0004)
+	unsigned long                                      bPC : 1;                                                  // 0x02B8(0x0004)
+	unsigned long                                      bNPC : 1;                                                 // 0x02B8(0x0004)
+	unsigned long                                      bMonster : 1;                                             // 0x02B8(0x0004)
+	unsigned long                                      bBossMonster : 1;                                         // 0x02B8(0x0004)
+	unsigned long                                      bVehicle : 1;                                             // 0x02B8(0x0004)
+	unsigned long                                      bItem : 1;                                                // 0x02B8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3321,7 +4393,18 @@ public:
 class AEFMatineePathNodeVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x02B8(0x0060) MISSED OFFSET
+	struct FString                                     TLinkMatinee_Matinee;                                     // 0x02B8(0x0010)
+	class AEFMatineePathNode*                          MatineePathNode;                                          // 0x02C8(0x0008)
+	unsigned long                                      bEnableRewind : 1;                                        // 0x02D0(0x0004)
+	unsigned long                                      bActivate : 1;                                            // 0x02D0(0x0004)
+	class USeqAct_Interp*                              Matinee;                                                  // 0x02D4(0x0008)
+	struct FQWord                                      m_PlayerUid;                                              // 0x02DC(0x0008)
+	float                                              m_fPathTotalLength;                                       // 0x02E4(0x0004)
+	float                                              m_fMatineeTotalTime;                                      // 0x02E8(0x0004)
+	TArray<class AEFMatineePathNode*>                  m_MatineePathNodeArr;                                     // 0x02EC(0x0010)
+	int                                                m_iClosestPathNode;                                       // 0x02FC(0x0004)
+	struct FVector                                     m_vClosestLoc;                                            // 0x0300(0x000C)
+	struct FVector                                     m_vPlayerLoc;                                             // 0x030C(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -3352,7 +4435,7 @@ public:
 class AEFNamingVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x02B8(0x0010) MISSED OFFSET
+	struct FString                                     Naming;                                                   // 0x02B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -3430,7 +4513,10 @@ public:
 class AEFSoundMusicVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x02B8(0x0024) MISSED OFFSET
+	struct FString                                     VolumeName;                                               // 0x02B8(0x0010)
+	class UAkEvent*                                    InAkEvent;                                                // 0x02C8(0x0008)
+	class UAkEvent*                                    OutAkEvent;                                               // 0x02D0(0x0008)
+	int                                                Priority;                                                 // 0x02D8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3461,7 +4547,10 @@ public:
 class AEFSoundReverbVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x02B8(0x0028) MISSED OFFSET
+	struct FString                                     Auxilliary;                                               // 0x02B8(0x0010)
+	float                                              AuxilliaryValue;                                          // 0x02C8(0x0004)
+	TArray<struct FString>                             IncludedAmbientsSounds;                                   // 0x02CC(0x0010)
+	int                                                Priority;                                                 // 0x02DC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3477,7 +4566,7 @@ public:
 class AEFTranslucentVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x02B8(0x0004) MISSED OFFSET
+	unsigned long                                      bPendingOnEnter : 1;                                      // 0x02B8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3493,7 +4582,99 @@ public:
 class UEFCursorData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x3B4];                                     // 0x0058(0x03B4) MISSED OFFSET
+	struct FString                                     SourceDirectoryPath;                                      // 0x0058(0x0010)
+	struct FString                                     SourceFileName;                                           // 0x0068(0x0010)
+	unsigned char                                      NormalHotSpotX;                                           // 0x0078(0x0001)
+	unsigned char                                      NormalHotSpotY;                                           // 0x0079(0x0001)
+	unsigned char                                      LargeHotSpotX;                                            // 0x007A(0x0001)
+	unsigned char                                      LargeHotSpotY;                                            // 0x007B(0x0001)
+	unsigned char                                      FullHotSpotX;                                             // 0x007C(0x0001)
+	unsigned char                                      FullHotSpotY;                                             // 0x007D(0x0001)
+	unsigned char                                      Preset1HotSpotX;                                          // 0x007E(0x0001)
+	unsigned char                                      Preset1HotSpotY;                                          // 0x007F(0x0001)
+	unsigned char                                      Preset2HotSpotX;                                          // 0x0080(0x0001)
+	unsigned char                                      Preset2HotSpotY;                                          // 0x0081(0x0001)
+	unsigned char                                      Preset3HotSpotX;                                          // 0x0082(0x0001)
+	unsigned char                                      Preset3HotSpotY;                                          // 0x0083(0x0001)
+	unsigned char                                      Preset4HotSpotX;                                          // 0x0084(0x0001)
+	unsigned char                                      Preset4HotSpotY;                                          // 0x0085(0x0001)
+	unsigned char                                      Preset5HotSpotX;                                          // 0x0086(0x0001)
+	unsigned char                                      Preset5HotSpotY;                                          // 0x0087(0x0001)
+	unsigned char                                      LargePreset1HotSpotX;                                     // 0x0088(0x0001)
+	unsigned char                                      LargePreset1HotSpotY;                                     // 0x0089(0x0001)
+	unsigned char                                      LargePreset2HotSpotX;                                     // 0x008A(0x0001)
+	unsigned char                                      LargePreset2HotSpotY;                                     // 0x008B(0x0001)
+	unsigned char                                      LargePreset3HotSpotX;                                     // 0x008C(0x0001)
+	unsigned char                                      LargePreset3HotSpotY;                                     // 0x008D(0x0001)
+	unsigned char                                      LargePreset4HotSpotX;                                     // 0x008E(0x0001)
+	unsigned char                                      LargePreset4HotSpotY;                                     // 0x008F(0x0001)
+	unsigned char                                      LargePreset5HotSpotX;                                     // 0x0090(0x0001)
+	unsigned char                                      LargePreset5HotSpotY;                                     // 0x0091(0x0001)
+	unsigned char                                      FullPreset1HotSpotX;                                      // 0x0092(0x0001)
+	unsigned char                                      FullPreset1HotSpotY;                                      // 0x0093(0x0001)
+	unsigned char                                      FullPreset2HotSpotX;                                      // 0x0094(0x0001)
+	unsigned char                                      FullPreset2HotSpotY;                                      // 0x0095(0x0001)
+	unsigned char                                      FullPreset3HotSpotX;                                      // 0x0096(0x0001)
+	unsigned char                                      FullPreset3HotSpotY;                                      // 0x0097(0x0001)
+	unsigned char                                      FullPreset4HotSpotX;                                      // 0x0098(0x0001)
+	unsigned char                                      FullPreset4HotSpotY;                                      // 0x0099(0x0001)
+	unsigned char                                      FullPreset5HotSpotX;                                      // 0x009A(0x0001)
+	unsigned char                                      FullPreset5HotSpotY;                                      // 0x009B(0x0001)
+	struct FString                                     NormalSize;                                               // 0x009C(0x0010)
+	struct FString                                     SourceFileName_Large;                                     // 0x00AC(0x0010)
+	struct FString                                     LargeSize;                                                // 0x00BC(0x0010)
+	struct FString                                     SourceFileName_Full;                                      // 0x00CC(0x0010)
+	struct FString                                     FullSize;                                                 // 0x00DC(0x0010)
+	struct FString                                     CursorDescription;                                        // 0x00EC(0x0010)
+	TArray<unsigned char>                              CursorData;                                               // 0x00FC(0x0010)
+	TArray<unsigned char>                              CursorData_Large;                                         // 0x010C(0x0010)
+	TArray<unsigned char>                              CursorData_Full;                                          // 0x011C(0x0010)
+	struct FString                                     ResourceTimeStamp;                                        // 0x012C(0x0010)
+	struct FString                                     SourceFileName_Preset1;                                   // 0x013C(0x0010)
+	struct FString                                     Preset1Size;                                              // 0x014C(0x0010)
+	struct FString                                     SourceFileName_Preset2;                                   // 0x015C(0x0010)
+	struct FString                                     Preset2Size;                                              // 0x016C(0x0010)
+	struct FString                                     SourceFileName_Preset3;                                   // 0x017C(0x0010)
+	struct FString                                     Preset3Size;                                              // 0x018C(0x0010)
+	struct FString                                     SourceFileName_Preset4;                                   // 0x019C(0x0010)
+	struct FString                                     Preset4Size;                                              // 0x01AC(0x0010)
+	struct FString                                     SourceFileName_Preset5;                                   // 0x01BC(0x0010)
+	struct FString                                     Preset5Size;                                              // 0x01CC(0x0010)
+	TArray<unsigned char>                              CursorData_Preset1;                                       // 0x01DC(0x0010)
+	TArray<unsigned char>                              CursorData_Preset2;                                       // 0x01EC(0x0010)
+	TArray<unsigned char>                              CursorData_Preset3;                                       // 0x01FC(0x0010)
+	TArray<unsigned char>                              CursorData_Preset4;                                       // 0x020C(0x0010)
+	TArray<unsigned char>                              CursorData_Preset5;                                       // 0x021C(0x0010)
+	struct FString                                     SourceFileName_LargePreset1;                              // 0x022C(0x0010)
+	struct FString                                     LargePreset1Size;                                         // 0x023C(0x0010)
+	struct FString                                     SourceFileName_LargePreset2;                              // 0x024C(0x0010)
+	struct FString                                     LargePreset2Size;                                         // 0x025C(0x0010)
+	struct FString                                     SourceFileName_LargePreset3;                              // 0x026C(0x0010)
+	struct FString                                     LargePreset3Size;                                         // 0x027C(0x0010)
+	struct FString                                     SourceFileName_LargePreset4;                              // 0x028C(0x0010)
+	struct FString                                     LargePreset4Size;                                         // 0x029C(0x0010)
+	struct FString                                     SourceFileName_LargePreset5;                              // 0x02AC(0x0010)
+	struct FString                                     LargePreset5Size;                                         // 0x02BC(0x0010)
+	TArray<unsigned char>                              CursorData_LargePreset1;                                  // 0x02CC(0x0010)
+	TArray<unsigned char>                              CursorData_LargePreset2;                                  // 0x02DC(0x0010)
+	TArray<unsigned char>                              CursorData_LargePreset3;                                  // 0x02EC(0x0010)
+	TArray<unsigned char>                              CursorData_LargePreset4;                                  // 0x02FC(0x0010)
+	TArray<unsigned char>                              CursorData_LargePreset5;                                  // 0x030C(0x0010)
+	struct FString                                     SourceFileName_FullPreset1;                               // 0x031C(0x0010)
+	struct FString                                     FullPreset1Size;                                          // 0x032C(0x0010)
+	struct FString                                     SourceFileName_FullPreset2;                               // 0x033C(0x0010)
+	struct FString                                     FullPreset2Size;                                          // 0x034C(0x0010)
+	struct FString                                     SourceFileName_FullPreset3;                               // 0x035C(0x0010)
+	struct FString                                     FullPreset3Size;                                          // 0x036C(0x0010)
+	struct FString                                     SourceFileName_FullPreset4;                               // 0x037C(0x0010)
+	struct FString                                     FullPreset4Size;                                          // 0x038C(0x0010)
+	struct FString                                     SourceFileName_FullPreset5;                               // 0x039C(0x0010)
+	struct FString                                     FullPreset5Size;                                          // 0x03AC(0x0010)
+	TArray<unsigned char>                              CursorData_FullPreset1;                                   // 0x03BC(0x0010)
+	TArray<unsigned char>                              CursorData_FullPreset2;                                   // 0x03CC(0x0010)
+	TArray<unsigned char>                              CursorData_FullPreset3;                                   // 0x03DC(0x0010)
+	TArray<unsigned char>                              CursorData_FullPreset4;                                   // 0x03EC(0x0010)
+	TArray<unsigned char>                              CursorData_FullPreset5;                                   // 0x03FC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -3524,7 +4705,10 @@ public:
 class UEFGFxMoviePlayer : public UGFxMoviePlayer
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x01EC(0x001C) MISSED OFFSET
+	TArray<struct FEFUIIniStruct>                      EFUIIniList;                                              // 0x01EC(0x0010)
+	float                                              MinAppliedAdvanceTime;                                    // 0x01FC(0x0004)
+	float                                              AppliedAdvanceTime;                                       // 0x0200(0x0004)
+	float                                              MaxAppliedAdvanceTime;                                    // 0x0204(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3565,7 +4749,7 @@ public:
 class UEFGFxMovieWidget : public UEFGFxMoviePlayer
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0208(0x0010) MISSED OFFSET
+	TArray<class UGFxObject*>                          GFxObjectBinding;                                         // 0x0208(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -3616,7 +4800,9 @@ public:
 class UEFSwfMovie : public USwfMovie
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00E4(0x0014) MISSED OFFSET
+	TArray<struct FExternalBind>                       ExternalBinding;                                          // 0x00E4(0x0010)
+	unsigned long                                      bSetAlwaysNoMipsTexture : 1;                              // 0x00F4(0x0004)
+	unsigned long                                      SetVectorDisplacement : 1;                                // 0x00F4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3743,7 +4929,7 @@ public:
 class UEFUISlot : public UEFUIButton
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00BC(0x0008) MISSED OFFSET
+	class UEFUISlotData*                               SlotData;                                                 // 0x00BC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3797,7 +4983,7 @@ public:
 class UEFUIChatTabControl : public UEFUIControl
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00BC(0x0004) MISSED OFFSET
+	int                                                TabID;                                                    // 0x00BC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -3925,7 +5111,7 @@ public:
 class UEFUIList : public UEFUIControl
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00BC(0x0008) MISSED OFFSET
+	class UEFGFxDataProvider*                          ListDataProvider;                                         // 0x00BC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -3990,7 +5176,7 @@ public:
 class UEFUIListItem : public UEFUIControl
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00BC(0x0010) MISSED OFFSET
+	TArray<struct FSVariableInfo>                      VariableNameData;                                         // 0x00BC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -4270,7 +5456,7 @@ public:
 class UEFGFxWidgetBuddy : public UEFUIWindowContent
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00BC(0x0010) MISSED OFFSET
+	TArray<struct FGroupExtendedInfo>                  ExtendedInfo;                                             // 0x00BC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -4563,7 +5749,9 @@ public:
 class UEFGFxWidgetInteractionMail : public UEFUIWindowContent
 {
 public:
-	unsigned char                                      UnknownData00[0x68];                                      // 0x00BC(0x0068) MISSED OFFSET
+	TArray<struct FUIMailInfo>                         MailInfoArr;                                              // 0x00BC(0x0010)
+	TArray<struct FMailReceiverCategory>               MailReceiverCategoryArr;                                  // 0x00CC(0x0010)
+	unsigned char                                      UnknownData00[0x48];                                      // 0x00DC(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFGFxWidgetInteractionMail.MailReceiverIndexingList
 
 	static UClass* StaticClass()
 	{
@@ -5068,7 +6256,7 @@ public:
 class UEFUIFrame : public UEFUIComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00BC(0x0004) MISSED OFFSET
+	unsigned long                                      OnlyModal : 1;                                            // 0x00BC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -5130,7 +6318,7 @@ public:
 class UEFGFxWidgetClassPreview : public UEFUIFrame
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00C0(0x0010) MISSED OFFSET
+	TArray<int>                                        ClassPreviewClassArr;                                     // 0x00C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -5186,7 +6374,7 @@ public:
 class UEFGFxWidgetCommon : public UEFUIFrame
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00C0(0x0010) MISSED OFFSET
+	TArray<struct FCommonWidgetBinding>                CommonWidgetBindings;                                     // 0x00C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -5262,7 +6450,21 @@ public:
 class UEFGFxWidgetFishingNetMiniGame : public UEFUIFrame
 {
 public:
-	unsigned char                                      UnknownData00[0x3C];                                      // 0x00C0(0x003C) MISSED OFFSET
+	int                                                UpValue1;                                                 // 0x00C0(0x0004)
+	int                                                DownValuePerSec1;                                         // 0x00C4(0x0004)
+	int                                                UpValue2;                                                 // 0x00C8(0x0004)
+	int                                                DownValuePerSec2;                                         // 0x00CC(0x0004)
+	int                                                UpValue3;                                                 // 0x00D0(0x0004)
+	int                                                DownValuePerSec3;                                         // 0x00D4(0x0004)
+	int                                                InputPower1;                                              // 0x00D8(0x0004)
+	int                                                InputPower2;                                              // 0x00DC(0x0004)
+	int                                                InputPower3;                                              // 0x00E0(0x0004)
+	int                                                InputStamina1;                                            // 0x00E4(0x0004)
+	int                                                InputStamina2;                                            // 0x00E8(0x0004)
+	int                                                InputStamina3;                                            // 0x00EC(0x0004)
+	int                                                MaxPower1;                                                // 0x00F0(0x0004)
+	int                                                MaxPower2;                                                // 0x00F4(0x0004)
+	int                                                MaxPower3;                                                // 0x00F8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -5369,7 +6571,8 @@ public:
 class UEFGFxWidgetInteraction : public UEFUIFrame
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00C0(0x0010) MISSED OFFSET
+	class UEFGFxWidgetInteractionWarehouse*            InteractionWarehouse;                                     // 0x00C0(0x0008)
+	class UEFGFxWidgetInteractionColosseum*            InteractionColosseum;                                     // 0x00C8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -5735,7 +6938,7 @@ public:
 class UEFUIWindow : public UEFUIFrame
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00C0(0x0008) MISSED OFFSET
+	class UEFUIWindowContent*                          Content;                                                  // 0x00C0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -5816,7 +7019,8 @@ public:
 class UEFInterpGroupSpawn : public UInterpGroup
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00A0(0x0010) MISSED OFFSET
+	class UInterpGroupInst*                            GroupInst;                                                // 0x00A0(0x0008)
+	class AEFSpawnMatineeActor*                        SpawnMatineeActor;                                        // 0x00A8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -5832,7 +7036,10 @@ public:
 class UEFInterpGroupSpawnInfo : public UInterpGroup
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00A0(0x0028) MISSED OFFSET
+	struct FString                                     NpcName;                                                  // 0x00A0(0x0010)
+	int                                                NpcKey;                                                   // 0x00B0(0x0004)
+	int                                                NpcCount;                                                 // 0x00B4(0x0004)
+	TArray<class UEFInterpGroupSpawn*>                 SpawnGroup;                                               // 0x00B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -5848,7 +7055,7 @@ public:
 class UEFInterpTrackSpawnAnimControl : public UInterpTrackAnimControl
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00FC(0x0008) MISSED OFFSET
+	struct FPointer                                    m_pLastPlayAnimKey;                                       // 0x00FC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -5894,7 +7101,9 @@ public:
 class UEFInterpTrackSpawnMove : public UInterpTrackMove
 {
 public:
-	unsigned char                                      UnknownData00[0x1A];                                      // 0x0106(0x001A) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0106(0x0002) MISSED OFFSET
+	struct FRotator                                    SpawnRotation;                                            // 0x0108(0x000C)
+	struct FVector                                     PrevMovePos;                                              // 0x0114(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -5910,7 +7119,27 @@ public:
 class AEFSpawnEnvirNpc : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x74];                                      // 0x0274(0x0074) MISSED OFFSET
+	class USkeletalMesh*                               EN_SkelMesh;                                              // 0x0274(0x0008)
+	class UAnimSet*                                    EN_AnimSet;                                               // 0x027C(0x0008)
+	TEnumAsByte<EN_AI_Type>                            EN_eAiType;                                               // 0x0284(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0285(0x0003) MISSED OFFSET
+	class UAkEvent*                                    EN_SoundEvent;                                            // 0x0288(0x0008)
+	unsigned long                                      EN_Air : 1;                                               // 0x0290(0x0004)
+	unsigned long                                      EN_DieAfterMove : 1;                                      // 0x0290(0x0004)
+	unsigned long                                      EN_UseInitRot : 1;                                        // 0x0290(0x0004)
+	float                                              EN_EscapeDistance;                                        // 0x0294(0x0004)
+	struct FVector2D                                   EN_vIdleSecond;                                           // 0x0298(0x0008)
+	float                                              EN_fRadiusForDeath;                                       // 0x02A0(0x0004)
+	float                                              EN_fHeightForDeath;                                       // 0x02A4(0x0004)
+	float                                              EN_fInitScale;                                            // 0x02A8(0x0004)
+	int                                                EN_iMovingChance;                                         // 0x02AC(0x0004)
+	struct FVector2D                                   EN_vMovingDistance;                                       // 0x02B0(0x0008)
+	struct FVector2D                                   EN_vMovingHeight;                                         // 0x02B8(0x0008)
+	struct FVector2D                                   EN_vMovingRot;                                            // 0x02C0(0x0008)
+	float                                              EN_fMovingVelocity;                                       // 0x02C8(0x0004)
+	float                                              EN_fEscapeVelocity;                                       // 0x02CC(0x0004)
+	struct FVector                                     EN_LastLocation;                                          // 0x02D0(0x000C)
+	struct FRotator                                    EN_LastRotation;                                          // 0x02DC(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -5926,7 +7155,9 @@ public:
 class AEFSpawnMatineeActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0274(0x0014) MISSED OFFSET
+	class USequence*                                   Sequence;                                                 // 0x0274(0x0008)
+	class USeqAct_Interp*                              Matinee;                                                  // 0x027C(0x0008)
+	unsigned long                                      SpawnInAHiddenState : 1;                                  // 0x0284(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -5942,7 +7173,27 @@ public:
 class UEFGameViewportClient : public UGameViewportClient
 {
 public:
-	unsigned char                                      UnknownData00[0xF8];                                      // 0x01A0(0x00F8) MISSED OFFSET
+	float                                              last_time_seconds;                                        // 0x01A0(0x0004)
+	TEnumAsByte<EFCursor>                              CurrentMouseCursor;                                       // 0x01A4(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x01A5(0x0003) MISSED OFFSET
+	TArray<class UEFCursorData*>                       EFMouseCursorData;                                        // 0x01A8(0x0010)
+	TArray<struct FPointer>                            MouseCursorResource;                                      // 0x01B8(0x0010)
+	TArray<class UTextureRenderTarget2D*>              RenderTargetArr;                                          // 0x01C8(0x0010)
+	unsigned long                                      bReady : 1;                                               // 0x01D8(0x0004)
+	unsigned long                                      bActivateFade : 1;                                        // 0x01D8(0x0004)
+	unsigned long                                      bInfinityFadeOut : 1;                                     // 0x01D8(0x0004)
+	struct FColor                                      FadeColor;                                                // 0x01DC(0x0004)
+	float                                              FadeCurrAlpha;                                            // 0x01E0(0x0004)
+	float                                              FadeEndTime;                                              // 0x01E4(0x0004)
+	struct FInterpCurveFloat                           FadeAlphaValue;                                           // 0x01E8(0x0014)
+	struct FEFRelativeTimeFadeInfo                     RelativeTimeFadeInfo;                                     // 0x01FC(0x002C)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0228(0x0008) MISSED OFFSET
+	struct FMatrix                                     CachedViewProjectionMatrix;                               // 0x0230(0x0040)
+	struct FVector2D                                   CachedViewportSize;                                       // 0x0270(0x0008)
+	struct FQWord                                      CachedFrameNumber;                                        // 0x0278(0x0008)
+	int                                                CurrentMouseCursorPreset;                                 // 0x0280(0x0004)
+	TArray<struct FEFCursorPresetInfo>                 MouseCursorPreset;                                        // 0x0284(0x0010)
+	int                                                CurrentMouseCursorSize;                                   // 0x0294(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -5992,7 +7243,7 @@ public:
 class UEFAbilityEffectInfo : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	TArray<struct FEFAbilityParticleEvent>             ParticleDataList;                                         // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6023,7 +7274,10 @@ public:
 class UEFData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0058(0x000C) MISSED OFFSET
+	int                                                PrimaryKey;                                               // 0x0058(0x0004)
+	int                                                SecondaryKey;                                             // 0x005C(0x0004)
+	unsigned long                                      bUpdatedObjectsFromPaths : 1;                             // 0x0060(0x0004)
+	unsigned long                                      bPostUpdateObjectsFromPaths : 1;                          // 0x0060(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6039,7 +7293,7 @@ public:
 class UEFData_Action : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0064(0x0010) MISSED OFFSET
+	TArray<struct FEFParamActionInfo>                  ActionInfoArray;                                          // 0x0064(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6055,7 +7309,20 @@ public:
 class UEFData_CharacterCustomizing : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0xDC];                                      // 0x0064(0x00DC) MISSED OFFSET
+	int                                                CharacterClass;                                           // 0x0064(0x0004)
+	struct FString                                     strCustomizingName;                                       // 0x0068(0x0010)
+	struct FString                                     strCustomizingRuleName;                                   // 0x0078(0x0010)
+	class UEFData_CharacterCustomizingRule*            pCustomizingRule;                                         // 0x0088(0x0008)
+	struct FString                                     strFullName;                                              // 0x0090(0x0010)
+	TArray<struct FCustomPartItemValue>                arrCustomPartItem;                                        // 0x00A0(0x0010)
+	TArray<struct FstBoneMorphGroupWeight>             arrBoneMorphGroupWeight;                                  // 0x00B0(0x0010)
+	TArray<struct FstBoneMorphWeight>                  arrBoneMorphWeight;                                       // 0x00C0(0x0010)
+	TArray<struct FstMeshMorphWeight>                  arrMeshMorphWeight;                                       // 0x00D0(0x0010)
+	TArray<struct FstMaterialExpressionParameterGroupFactor> arrMaterialExpressionParamGroupFactor;                    // 0x00E0(0x0010)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x00F0(0x0024)
+	unsigned long                                      bUseFacePreset : 1;                                       // 0x0114(0x0004)
+	int                                                FacePresetID;                                             // 0x0118(0x0004)
+	struct FEFIconInfo                                 FaceGameIcon;                                             // 0x011C(0x0024)
 
 	static UClass* StaticClass()
 	{
@@ -6071,7 +7338,24 @@ public:
 class UEFData_CharacterCustomizingRule : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x13C];                                     // 0x0064(0x013C) MISSED OFFSET
+	int                                                CharacterClass;                                           // 0x0064(0x0004)
+	struct FString                                     strCustomizingRuleName;                                   // 0x0068(0x0010)
+	struct FString                                     strFullName;                                              // 0x0078(0x0010)
+	TArray<struct FCustomizingMotionActionItem>        MotionActionArr;                                          // 0x0088(0x0010)
+	class UAnimSet*                                    FaceActionAnimSet;                                        // 0x0098(0x0008)
+	TArray<struct FCustomizingFaceActionItem>          FaceActionArr;                                            // 0x00A0(0x0010)
+	struct FEFIconInfo                                 LeftEyeIcon;                                              // 0x00B0(0x0024)
+	struct FEFIconInfo                                 RightEyeIcon;                                             // 0x00D4(0x0024)
+	TArray<struct FCustomPartItemLook>                 arrCustomPartItemLook;                                    // 0x00F8(0x0010)
+	TArray<struct FCostumeDataSet>                     arrCostumeDataSet;                                        // 0x0108(0x0010)
+	struct FString                                     strCostumePreview;                                        // 0x0118(0x0010)
+	class UAnimSet*                                    BoneMorphAnimset;                                         // 0x0128(0x0008)
+	TArray<struct FstBoneMorphGroup>                   arrBoneMorphTargetGroup;                                  // 0x0130(0x0010)
+	TArray<struct FstBoneMorph>                        arrBoneMorphTarget;                                       // 0x0140(0x0010)
+	struct FObjectPath                                 PATH_BoneMorphAnimSet;                                    // 0x0150(0x0020)
+	TArray<struct FBoneMorphAnimData>                  arrBoneMorphAnimData;                                     // 0x0170(0x0010)
+	TArray<struct FstMeshMorphRule>                    arrMeshMorphRuleArray;                                    // 0x0180(0x0010)
+	TArray<struct FstMaterialExpressionParameterGroup> arrMaterialExpressionParamGroup;                          // 0x0190(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6087,7 +7371,8 @@ public:
 class UEFData_CustomizeBoneScaleItem : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0064(0x0020) MISSED OFFSET
+	struct FString                                     CustomizeBoneScalePresetName;                             // 0x0064(0x0010)
+	TArray<struct FEFCustomizeSkelControlValue>        SkelControlValueArr;                                      // 0x0074(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6103,7 +7388,9 @@ public:
 class UEFData_MeshLookInfo : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0064(0x0030) MISSED OFFSET
+	class UEFData_PartsMesh*                           PartsMesh;                                                // 0x0064(0x0008)
+	class UObject*                                     DefaultEFEffectSpawn;                                     // 0x006C(0x0008)
+	struct FObjectPath                                 PATH_DefaultEFEffectSpawn;                                // 0x0074(0x0020)
 
 	static UClass* StaticClass()
 	{
@@ -6119,7 +7406,10 @@ public:
 class UEFData_NpcPartInfo : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0064(0x0040) MISSED OFFSET
+	TArray<struct FActionNpcPartExtentInfo>            ActionNpcPartExtentInfoArray;                             // 0x0064(0x0010)
+	TArray<struct FActionNpcPartTransformInfoSet>      ActionNpcPartTransformInfoSetArray;                       // 0x0074(0x0010)
+	TArray<struct FActionNpcMoveInfo>                  ActionNpcMoveInfoArray;                                   // 0x0084(0x0010)
+	TArray<struct FNpcPartSampleExportDataByAction>    partSampleDatas;                                          // 0x0094(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6135,7 +7425,7 @@ public:
 class UEFData_PaletteItemBase : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0064(0x0010) MISSED OFFSET
+	struct FString                                     PaletteName;                                              // 0x0064(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6151,7 +7441,12 @@ public:
 class UEFData_ColorPaletteItem : public UEFData_PaletteItemBase
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0074(0x0030) MISSED OFFSET
+	TArray<struct FColorSwatchItem>                    SwatchList;                                               // 0x0074(0x0010)
+	float                                              SaturationMin;                                            // 0x0084(0x0004)
+	float                                              SaturationMax;                                            // 0x0088(0x0004)
+	float                                              LightnessMin;                                             // 0x008C(0x0004)
+	float                                              LightnessMax;                                             // 0x0090(0x0004)
+	TArray<struct FColor>                              ColorPalettePixelData;                                    // 0x0094(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6167,7 +7462,7 @@ public:
 class UEFData_TexturePaletteItem : public UEFData_PaletteItemBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0074(0x0010) MISSED OFFSET
+	TArray<struct FTextureSwatchItem>                  SwatchList;                                               // 0x0074(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6183,7 +7478,30 @@ public:
 class UEFData_PartsMesh : public UEFData
 {
 public:
-	unsigned char                                      UnknownData00[0x124];                                     // 0x0064(0x0124) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          eMeshPartsType;                                           // 0x0064(0x0001)
+	unsigned char                                      RequireStance;                                            // 0x0065(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0066(0x0002) MISSED OFFSET
+	class USkeletalMesh*                               PartsMesh;                                                // 0x0068(0x0008)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0070(0x0010)
+	TArray<struct FEFMaterialVariation>                MaterialsVariation;                                       // 0x0080(0x0010)
+	class UAnimSet*                                    AnimSetTemplate;                                          // 0x0090(0x0008)
+	class UPhysicsAsset*                               PhysicsAsset;                                             // 0x0098(0x0008)
+	struct FString                                     SocketGroupName;                                          // 0x00A0(0x0010)
+	TArray<class UEFActionSkelControl*>                SkelControlList;                                          // 0x00B0(0x0010)
+	class UEFData_SkelControlGroup*                    SkelControllGroup;                                        // 0x00C0(0x0008)
+	class UEFData_SkelControlGroup*                    SkelControlGroup;                                         // 0x00C8(0x0008)
+	class UMorphTargetSet*                             MorphSet;                                                 // 0x00D0(0x0008)
+	class UAnimNotify_Trails*                          Trail_Default;                                            // 0x00D8(0x0008)
+	class UEFData_AnimNotify_Trails*                   Trails_Default;                                           // 0x00E0(0x0008)
+	struct FObjectPath                                 PATH_PartsMesh;                                           // 0x00E8(0x0020)
+	TArray<struct FObjectPath>                         PATH_Material;                                            // 0x0108(0x0010)
+	struct FObjectPath                                 PATH_AnimSetTemplate;                                     // 0x0118(0x0020)
+	struct FObjectPath                                 PATH_PhysicsAsset;                                        // 0x0138(0x0020)
+	struct FObjectPath                                 PATH_MorphTargetSet;                                      // 0x0158(0x0020)
+	unsigned long                                      bUseOnePassLightingOnTranslucency : 1;                    // 0x0178(0x0004)
+	float                                              fPartsScale;                                              // 0x017C(0x0004)
+	float                                              TranslucencySortKeyFactor;                                // 0x0180(0x0004)
+	int                                                TranslucencySortPriority;                                 // 0x0184(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6199,7 +7517,7 @@ public:
 class UEFData_AnimNotify_Trails : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	class UAnimNotify_Trails*                          Trail_Default;                                            // 0x0058(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6215,7 +7533,7 @@ public:
 class UEFData_MaskInfo : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	TArray<struct FEFMaskData>                         m_MaskDataArr;                                            // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6233,7 +7551,7 @@ public:
 class UEFData_SkelControlGroup : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	TArray<class UEFActionSkelControl*>                SkelControlList;                                          // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6249,7 +7567,13 @@ public:
 class UEFExcelShell : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0058(0x0058) MISSED OFFSET
+	TArray<struct FEFLookPreset>                       LookPresets;                                              // 0x0058(0x0010)
+	int                                                CurRow;                                                   // 0x0068(0x0004)
+	int                                                StartCol;                                                 // 0x006C(0x0004)
+	TArray<struct FString>                             ColumnTitles;                                             // 0x0070(0x0010)
+	TArray<struct FString>                             ColumnDataTypes;                                          // 0x0080(0x0010)
+	TArray<struct FString>                             ColumnDataMinMax;                                         // 0x0090(0x0010)
+	TArray<struct FString>                             DataArr;                                                  // 0x00A0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6291,7 +7615,9 @@ public:
 class UEFKismetData_Pack : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0058(0x0028) MISSED OFFSET
+	struct FString                                     PackName;                                                 // 0x0058(0x0010)
+	class UEFKismetData_Unit*                          KismetUnit;                                               // 0x0068(0x0008)
+	TArray<class UEFKismetData_Unit*>                  KismetUnits;                                              // 0x0070(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6307,7 +7633,13 @@ public:
 class UEFKismetData_Unit : public USequence
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x01B4(0x0030) MISSED OFFSET
+	int                                                UniqueId;                                                 // 0x01B4(0x0004)
+	int                                                UnitIndex;                                                // 0x01B8(0x0004)
+	struct FString                                     UnitName;                                                 // 0x01BC(0x0010)
+	struct FString                                     UnitDesc;                                                 // 0x01CC(0x0010)
+	int                                                Editor_Version;                                           // 0x01DC(0x0004)
+	unsigned long                                      Editor_IsUpdate : 1;                                      // 0x01E0(0x0004)
+	unsigned long                                      Editor_IsExist : 1;                                       // 0x01E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6323,7 +7655,9 @@ public:
 class UEFKismetMapData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0058(0x0024) MISSED OFFSET
+	struct FString                                     MapName;                                                  // 0x0058(0x0010)
+	int                                                MapIndex;                                                 // 0x0068(0x0004)
+	TArray<class UEFKismetData_Unit*>                  KismetUnitArray;                                          // 0x006C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6339,7 +7673,7 @@ public:
 class AEFLocalTrigger : public ATrigger
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0284(0x0004) MISSED OFFSET
+	unsigned long                                      bCinematicControl : 1;                                    // 0x0284(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6360,7 +7694,7 @@ public:
 class AEFLocalTriggerVolume : public ATriggerVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x02B0(0x0004) MISSED OFFSET
+	unsigned long                                      bCinematicControl : 1;                                    // 0x02B0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6381,7 +7715,7 @@ public:
 class UEFParticleBuffInfoBase : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0058(0x0001) MISSED OFFSET
+	TEnumAsByte<EF_PARTICLE_BUFF_INFO_TYPE>            BuffInfoType;                                             // 0x0058(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -6397,7 +7731,10 @@ public:
 class UEFParticleBuffInfo : public UEFParticleBuffInfoBase
 {
 public:
-	unsigned char                                      UnknownData00[0x27];                                      // 0x0059(0x0027) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0059(0x0003) MISSED OFFSET
+	float                                              DelayTime;                                                // 0x005C(0x0004)
+	TArray<class UEFParticleData*>                     PSData;                                                   // 0x0060(0x0010)
+	TArray<int>                                        BuffParticleType;                                         // 0x0070(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6413,7 +7750,9 @@ public:
 class UEFParticleStackBuffInfo : public UEFParticleBuffInfo
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+	TEnumAsByte<EeParticleStackBuffInfoAddType>        AddType;                                                  // 0x0080(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0081(0x0003) MISSED OFFSET
+	int                                                ApplyStackCount;                                          // 0x0084(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6429,7 +7768,12 @@ public:
 class UEFParticleSoundContainer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x38];                                      // 0x0058(0x0038) MISSED OFFSET
+	TArray<class UEFParticleSoundData*>                TempEditorChildData;                                      // 0x0058(0x0010)
+	TArray<class UEFParticleSoundDataComment*>         CommentList;                                              // 0x0068(0x0010)
+	struct FString                                     ContainerName;                                            // 0x0078(0x0010)
+	TEnumAsByte<EF_PARTICLE_SOUND_TYPE>                ParticleSoundType;                                        // 0x0088(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
+	unsigned long                                      EditorDirty : 1;                                          // 0x008C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6445,7 +7789,8 @@ public:
 class UEFParticleSoundContainerArmorHitSet : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0090(0x0010) MISSED OFFSET
+	class UEFParticleSoundDataHittedArmorSet*          Default;                                                  // 0x0090(0x0008)
+	class UTexture2D*                                  EditorImage_Armor;                                        // 0x0098(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6461,7 +7806,9 @@ public:
 class UEFParticleSoundContainerBeHittedSet : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0090(0x0060) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerBeHittedSet.PawnMaterialBeHittedMap
+	TArray<class UEFParticleSoundDataBeHittedPawnMaterial*> PawnMaterialBeHittedArr;                                  // 0x00D8(0x0010)
+	class UTexture2D*                                  EditorImage_BeHitted;                                     // 0x00E8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6477,7 +7824,9 @@ public:
 class UEFParticleSoundContainerBuffSet : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0090(0x0060) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerBuffSet.BuffFXMap
+	TArray<class UEFParticleSoundDataBuffFX*>          BuffFXArr;                                                // 0x00D8(0x0010)
+	class UTexture2D*                                  EditorImage_Buff;                                         // 0x00E8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6493,7 +7842,11 @@ public:
 class UEFParticleSoundContainerCommon : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x70];                                      // 0x0090(0x0070) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerCommon.CommonFXMap
+	TArray<class UEFParticleSoundDataCommon*>          CommonFXArr;                                              // 0x00D8(0x0010)
+	class UEFDropItemEffectInfo*                       DropItemEffect;                                           // 0x00E8(0x0008)
+	class UEFAbilityEffectInfo*                        AbilityEffect;                                            // 0x00F0(0x0008)
+	class UTexture2D*                                  EditorImage_Common;                                       // 0x00F8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6509,7 +7862,14 @@ public:
 class UEFParticleSoundContainerDown : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0090(0x0040) MISSED OFFSET
+	class UEFParticleSoundDataFloorMaterial*           Small;                                                    // 0x0090(0x0008)
+	class UEFParticleSoundDataFloorMaterial*           Medium;                                                   // 0x0098(0x0008)
+	class UEFParticleSoundDataFloorMaterial*           SpingBound_Small;                                         // 0x00A0(0x0008)
+	class UEFParticleSoundDataFloorMaterial*           SpingBound_Medium;                                        // 0x00A8(0x0008)
+	class UTexture2D*                                  EditorImage_Small;                                        // 0x00B0(0x0008)
+	class UTexture2D*                                  EditorImage_Medium;                                       // 0x00B8(0x0008)
+	class UTexture2D*                                  EditorImage_SpingBound_Small;                             // 0x00C0(0x0008)
+	class UTexture2D*                                  EditorImage_SpingBound_Medium;                            // 0x00C8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6525,7 +7885,12 @@ public:
 class UEFParticleSoundContainerFootStep : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0090(0x0030) MISSED OFFSET
+	class UEFParticleSoundDataFloorMaterial*           Left;                                                     // 0x0090(0x0008)
+	class UEFParticleSoundDataFloorMaterial*           Right;                                                    // 0x0098(0x0008)
+	class UEFParticleSoundDataArmorMaterial*           ArmorEffect;                                              // 0x00A0(0x0008)
+	class UTexture2D*                                  EditorImage_Left;                                         // 0x00A8(0x0008)
+	class UTexture2D*                                  EditorImage_Right;                                        // 0x00B0(0x0008)
+	class UTexture2D*                                  EditorImage_ArmorEffect;                                  // 0x00B8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6541,7 +7906,11 @@ public:
 class UEFParticleSoundContainerGroundEffect : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x70];                                      // 0x0090(0x0070) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerGroundEffect.GroundEffectMap
+	TArray<class UEFParticleSoundDataGroundEffect*>    GroundEffectArr;                                          // 0x00D8(0x0010)
+	class UEFParticleSoundDataGroundEffect*            DefaultRange;                                             // 0x00E8(0x0008)
+	class UEFParticleSoundDataGroundEffect*            DefaultTarget;                                            // 0x00F0(0x0008)
+	class UTexture2D*                                  EditorImage_GroundEffect;                                 // 0x00F8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6557,7 +7926,8 @@ public:
 class UEFParticleSoundContainerKnockback : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0090(0x0010) MISSED OFFSET
+	class UEFParticleSoundDataFloorMaterial*           KnockbackEffect;                                          // 0x0090(0x0008)
+	class UTexture2D*                                  EditorImage_Knockback;                                    // 0x0098(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6573,7 +7943,7 @@ public:
 class UEFParticleSoundContainerPostProcessEffectCamera : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
+	class UEFPostProcessMaterialEffectCamera*          CameraEffect;                                             // 0x0090(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6589,7 +7959,9 @@ public:
 class UEFParticleSoundContainerSkillHitSet : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0090(0x0060) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerSkillHitSet.SkillMap
+	TArray<class UEFParticleSoundDataHittedSkillSet*>  SkillSetEffectArr;                                        // 0x00D8(0x0010)
+	class UTexture2D*                                  EditorImage_Skill;                                        // 0x00E8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6605,7 +7977,29 @@ public:
 class UEFParticleSoundContainerWeaponAttributeEffect : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x108];                                     // 0x0090(0x0108) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0090(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFParticleSoundContainerWeaponAttributeEffect.WeaponAttributeEffectMap
+	TArray<class UEFParticleSoundDataWeaponAttributeEffect*> WeaponAttributeEffectArr;                                 // 0x00D8(0x0010)
+	class UTexture2D*                                  EditorImage_WeaponAttributeEffect;                        // 0x00E8(0x0008)
+	TArray<class UEFParticleSoundDataWeaponAttributeEffect*> DefaultAttributeEffectArr;                                // 0x00F0(0x0010)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Sword;                                                    // 0x0100(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Bow;                                                      // 0x0108(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Gun;                                                      // 0x0110(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Spear;                                                    // 0x0118(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Gauntlet;                                                 // 0x0120(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Instrument;                                               // 0x0128(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Hammer;                                                   // 0x0130(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Dagger;                                                   // 0x0138(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Wand;                                                     // 0x0140(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Carddeck;                                                 // 0x0148(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Symbol;                                                   // 0x0150(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Longlance;                                                // 0x0158(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   Shortlance;                                               // 0x0160(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   DemonicWeapon;                                            // 0x0168(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   DemonClow;                                                // 0x0170(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   BladeDuelSword;                                           // 0x0178(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   BladeLongSword;                                           // 0x0180(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   HolySword;                                                // 0x0188(0x0008)
+	class UEFParticleSoundDataWeaponAttributeEffect*   HolySwordEnhanced;                                        // 0x0190(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6621,7 +8015,9 @@ public:
 class UEFParticleSoundContainerWeaponFX : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0090(0x0020) MISSED OFFSET
+	class UParticleSystem*                             Defaul_Trail;                                             // 0x0090(0x0008)
+	TArray<class UEFParticleSoundDataWeaponFXDir*>     WeaponDir;                                                // 0x0098(0x0010)
+	class UTexture2D*                                  EditorImage_Weapon;                                       // 0x00A8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6637,7 +8033,28 @@ public:
 class UEFParticleSoundContainerWeaponHitSet : public UEFParticleSoundContainer
 {
 public:
-	unsigned char                                      UnknownData00[0xB8];                                      // 0x0090(0x00B8) MISSED OFFSET
+	TArray<class UEFParticleSoundDataHittedWeaponSet*> WeaponSetEffectArr;                                       // 0x0090(0x0010)
+	class UEFParticleSoundDataHittedWeaponSet*         Default;                                                  // 0x00A0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Sword;                                                    // 0x00A8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Bow;                                                      // 0x00B0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Gun;                                                      // 0x00B8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Spear;                                                    // 0x00C0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Gauntlet;                                                 // 0x00C8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Instrument;                                               // 0x00D0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Hammer;                                                   // 0x00D8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Dagger;                                                   // 0x00E0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Wand;                                                     // 0x00E8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Carddeck;                                                 // 0x00F0(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Symbol;                                                   // 0x00F8(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Longlance;                                                // 0x0100(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         Shortlance;                                               // 0x0108(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         DemonicWeapon;                                            // 0x0110(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         DemonClow;                                                // 0x0118(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         BladeDuelSword;                                           // 0x0120(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         BladeLongSword;                                           // 0x0128(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         HolySword;                                                // 0x0130(0x0008)
+	class UEFParticleSoundDataHittedWeaponSet*         HolySwordEnhanced;                                        // 0x0138(0x0008)
+	class UTexture2D*                                  EditorImage_Weapon;                                       // 0x0140(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6653,7 +8070,8 @@ public:
 class UEFParticleSoundContainerSetBase : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0058(0x0014) MISSED OFFSET
+	struct FString                                     Desc;                                                     // 0x0058(0x0010)
+	unsigned long                                      EditorDirty : 1;                                          // 0x0068(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6669,7 +8087,14 @@ public:
 class UEFGameObjectParticleSoundContainerSet : public UEFParticleSoundContainerSetBase
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x006C(0x0040) MISSED OFFSET
+	class UEFParticleSoundContainerFootStep*           Footstep;                                                 // 0x006C(0x0008)
+	class UEFParticleSoundContainerKnockback*          Knockback;                                                // 0x0074(0x0008)
+	class UEFParticleSoundContainerDown*               Down;                                                     // 0x007C(0x0008)
+	class UEFParticleSoundContainerSkillHitSet*        SkillHitSet;                                              // 0x0084(0x0008)
+	class UEFParticleSoundContainerWeaponHitSet*       WeaponHitSet;                                             // 0x008C(0x0008)
+	class UEFParticleSoundContainerArmorHitSet*        ArmorHitSet;                                              // 0x0094(0x0008)
+	class UEFParticleSoundContainerWeaponFX*           WeaponFX;                                                 // 0x009C(0x0008)
+	class UEFParticleSoundContainerBeHittedSet*        BeHittedSet;                                              // 0x00A4(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6685,7 +8110,21 @@ public:
 class UEFParticleSoundContainerSet : public UEFParticleSoundContainerSetBase
 {
 public:
-	unsigned char                                      UnknownData00[0xF0];                                      // 0x006C(0x00F0) MISSED OFFSET
+	struct FString                                     ContainerSetName;                                         // 0x006C(0x0010)
+	TArray<struct FString>                             FootstepArrays;                                           // 0x007C(0x0010)
+	TArray<struct FString>                             DownArrays;                                               // 0x008C(0x0010)
+	TArray<struct FString>                             SkillHitSetArrays;                                        // 0x009C(0x0010)
+	TArray<struct FString>                             WeaponHitSetArrays;                                       // 0x00AC(0x0010)
+	TArray<struct FString>                             ArmorHitSetArrays;                                        // 0x00BC(0x0010)
+	TArray<struct FString>                             WeaponFXArrays;                                           // 0x00CC(0x0010)
+	TArray<struct FString>                             BeHittedSetArrays;                                        // 0x00DC(0x0010)
+	struct FString                                     Footstep;                                                 // 0x00EC(0x0010)
+	struct FString                                     Down;                                                     // 0x00FC(0x0010)
+	struct FString                                     SkillHitSet;                                              // 0x010C(0x0010)
+	struct FString                                     WeaponHitSet;                                             // 0x011C(0x0010)
+	struct FString                                     ArmorHitSet;                                              // 0x012C(0x0010)
+	struct FString                                     WeaponFX;                                                 // 0x013C(0x0010)
+	struct FString                                     BeHittedSet;                                              // 0x014C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6701,7 +8140,14 @@ public:
 class UEFParticleSoundData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0058(0x0048) MISSED OFFSET
+	int                                                X;                                                        // 0x0058(0x0004)
+	int                                                Y;                                                        // 0x005C(0x0004)
+	class UTexture2D*                                  Image;                                                    // 0x0060(0x0008)
+	struct FString                                     Desc;                                                     // 0x0068(0x0010)
+	struct FString                                     Keyword;                                                  // 0x0078(0x0010)
+	unsigned long                                      EditorDirty : 1;                                          // 0x0088(0x0004)
+	int                                                DataIndex;                                                // 0x008C(0x0004)
+	struct FString                                     ParticleSoundDataName;                                    // 0x0090(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6717,7 +8163,19 @@ public:
 class UEFParticleSoundDataArmorMaterial : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x70];                                      // 0x00A0(0x0070) MISSED OFFSET
+	TArray<class UEFParticleData*>                     ArmorMaterialEffectDataArr;                               // 0x00A0(0x0010)
+	class UEFParticleData*                             Data_Water;                                               // 0x00B0(0x0008)
+	class UEFParticleData*                             Data_Air;                                                 // 0x00B8(0x0008)
+	class UEFParticleData*                             Data_Stone;                                               // 0x00C0(0x0008)
+	class UEFParticleData*                             Data_Flesh1;                                              // 0x00C8(0x0008)
+	class UEFParticleData*                             Data_Flesh2;                                              // 0x00D0(0x0008)
+	class UEFParticleData*                             Data_Metal;                                               // 0x00D8(0x0008)
+	class UEFParticleData*                             Data_Wood;                                                // 0x00E0(0x0008)
+	class UEFParticleData*                             Data_Leather;                                             // 0x00E8(0x0008)
+	class UEFParticleData*                             Data_Ice;                                                 // 0x00F0(0x0008)
+	class UEFParticleData*                             Data_Lava;                                                // 0x00F8(0x0008)
+	class UEFParticleData*                             Data_Mucus;                                               // 0x0100(0x0008)
+	class UEFParticleData*                             Data_Exoskeletal;                                         // 0x0108(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6733,7 +8191,15 @@ public:
 class UEFParticleSoundDataBeHittedPawnMaterial : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x88];                                      // 0x00A0(0x0088) MISSED OFFSET
+	struct FString                                     LookInfoKey;                                              // 0x00A0(0x0010)
+	struct FEFPawnMaterialBeHittedCurveInfo            PawnMaterialHittedInfo;                                   // 0x00B0(0x0060)
+	unsigned long                                      bSkipAttackerEffect : 1;                                  // 0x0110(0x0004)
+	unsigned long                                      bSkipDirectionEffect : 1;                                 // 0x0110(0x0004)
+	unsigned long                                      bSkipBloodEffect : 1;                                     // 0x0110(0x0004)
+	unsigned long                                      bUseHitDirection : 1;                                     // 0x0110(0x0004)
+	TEnumAsByte<EParticleSoundDataBeHittedPawnMaterial_HitParticleType> HitEffectType;                                            // 0x0114(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0115(0x0003) MISSED OFFSET
+	TArray<class UEFParticleData*>                     HitEffectData;                                            // 0x0118(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6749,7 +8215,18 @@ public:
 class UEFParticleSoundDataBuffBeam : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x8C];                                      // 0x00A0(0x008C) MISSED OFFSET
+	struct FString                                     BuffKey;                                                  // 0x00A0(0x0010)
+	float                                              DelayTime;                                                // 0x00B0(0x0004)
+	class UParticleSystem*                             BeamParticleSystem;                                       // 0x00B4(0x0008)
+	TArray<struct FParticleSysParam>                   BeamParticleSystemParamList;                              // 0x00BC(0x0010)
+	class UParticleSystem*                             BeamSourceParticleSystem;                                 // 0x00CC(0x0008)
+	TArray<struct FParticleSysParam>                   BeamSourceParticleSystemParamList;                        // 0x00D4(0x0010)
+	class UParticleSystem*                             BeamCasterParticleSystem;                                 // 0x00E4(0x0008)
+	TArray<struct FParticleSysParam>                   BeamCasterParticleSystemParamList;                        // 0x00EC(0x0010)
+	struct FName                                       BeamCasterSocketName;                                     // 0x00FC(0x0008)
+	struct FVector                                     BeamCasterOffset;                                         // 0x0104(0x000C)
+	struct FVector                                     BeamScale;                                                // 0x0110(0x000C)
+	TArray<struct FEFBeamUpdateInfo>                   BeamEmitterUpdateInfos;                                   // 0x011C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6765,7 +8242,45 @@ public:
 class UEFParticleSoundDataBuffFX : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x130];                                     // 0x00A0(0x0130) MISSED OFFSET
+	struct FString                                     BuffKey;                                                  // 0x00A0(0x0010)
+	unsigned long                                      bUseBloodColor : 1;                                       // 0x00B0(0x0004)
+	unsigned long                                      bDefaultParticleRemove : 1;                               // 0x00B0(0x0004)
+	unsigned long                                      bBuffEndShake : 1;                                        // 0x00B0(0x0004)
+	unsigned long                                      bLocalPlayerOnly : 1;                                     // 0x00B0(0x0004)
+	unsigned long                                      bUseHitDirection : 1;                                     // 0x00B0(0x0004)
+	unsigned long                                      bSkipAttackerEffect : 1;                                  // 0x00B0(0x0004)
+	unsigned long                                      bSkipDirectionEffect : 1;                                 // 0x00B0(0x0004)
+	unsigned long                                      bSkipBloodEffect : 1;                                     // 0x00B0(0x0004)
+	TEnumAsByte<EParticleSoundDataBuffFX_ScaleOption>  BuffScaleOption;                                          // 0x00B4(0x0001)
+	TEnumAsByte<EParticleSoundDataBuffFXSet_HitParticleType> HitEffectType;                                            // 0x00B5(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x00B6(0x0002) MISSED OFFSET
+	TArray<class UEFParticleBuffInfoBase*>             StartEffect;                                              // 0x00B8(0x0010)
+	class UEFParticleDataModuleSingleAKEvent*          StartSound;                                               // 0x00C8(0x0008)
+	TArray<class UEFParticleBuffInfoBase*>             LoopEffect;                                               // 0x00D0(0x0010)
+	class UEFParticleDataModuleSingleAKEvent*          LoopSound;                                                // 0x00E0(0x0008)
+	TArray<class UEFParticleBuffInfoBase*>             EndEffect;                                                // 0x00E8(0x0010)
+	float                                              EndSoundFadeOutTime;                                      // 0x00F8(0x0004)
+	TArray<class UEFParticleBuffInfoBase*>             ForcedEndEffect;                                          // 0x00FC(0x0010)
+	class UEFParticleDataModuleSingleAKEvent*          ForcedEndSound;                                           // 0x010C(0x0008)
+	TArray<class UEFParticleBuffInfoBase*>             SkillEffectUnitParticle;                                  // 0x0114(0x0010)
+	class UEFParticleDataModuleSingleAKEvent*          SkillEffectUnitSound;                                     // 0x0124(0x0008)
+	float                                              FadeIn;                                                   // 0x012C(0x0004)
+	float                                              FadeOut;                                                  // 0x0130(0x0004)
+	class UPostProcessChain*                           PPChain;                                                  // 0x0134(0x0008)
+	TArray<struct FScalarTimeVarying>                  ScalarParameterList;                                      // 0x013C(0x0010)
+	class UEFPostProcessMaterialEffectStatus*          BuffPostProcessMaterialData;                              // 0x014C(0x0008)
+	class UEFCameraViewShake*                          NewViewShake;                                             // 0x0154(0x0008)
+	class UEFParticleData*                             CameraEffect;                                             // 0x015C(0x0008)
+	float                                              BuffHitOffsetScale;                                       // 0x0164(0x0004)
+	TArray<class UEFParticleData*>                     BuffHitEffectData;                                        // 0x0168(0x0010)
+	class UEFParticleDataModuleSingleAKEvent*          BuffHitSoundData;                                         // 0x0178(0x0008)
+	class UEFPostProcessMaterialEffectHit*             BuffBeHittedProcessMaterialData;                          // 0x0180(0x0008)
+	class UEFCameraViewShake*                          NewBuffBeHittedCameraShakeParams;                         // 0x0188(0x0008)
+	TArray<class UEFParticleSoundDataBuffWeaponFXDir*> BuffHitChangeWeaponDirArr;                                // 0x0190(0x0010)
+	struct FString                                     CommonHittedSkillKey;                                     // 0x01A0(0x0010)
+	class UEFPostProcessMaterialEffectHit*             BuffWeaponHittedProcessMaterialData;                      // 0x01B0(0x0008)
+	class UEFCameraViewShake*                          NewBuffWeaponHittedCameraShakeParams;                     // 0x01B8(0x0008)
+	TArray<class UEFParticleSoundDataWeaponFXDir*>     CacheHitChangeWeaponDir;                                  // 0x01C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6781,7 +8296,16 @@ public:
 class UEFParticleSoundDataComment : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x38];                                      // 0x00A0(0x0038) MISSED OFFSET
+	struct FString                                     Comment;                                                  // 0x00A0(0x0010)
+	int                                                SizeX;                                                    // 0x00B0(0x0004)
+	int                                                SizeY;                                                    // 0x00B4(0x0004)
+	int                                                BorderWidth;                                              // 0x00B8(0x0004)
+	unsigned long                                      bDrawBox : 1;                                             // 0x00BC(0x0004)
+	unsigned long                                      bFilled : 1;                                              // 0x00BC(0x0004)
+	unsigned long                                      bTileFill : 1;                                            // 0x00BC(0x0004)
+	struct FColor                                      BorderColor;                                              // 0x00C0(0x0004)
+	struct FColor                                      FillColor;                                                // 0x00C4(0x0004)
+	TArray<class UEFParticleSoundData*>                GroupDataArr;                                             // 0x00C8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6797,7 +8321,9 @@ public:
 class UEFParticleSoundDataCommon : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00A0(0x0024) MISSED OFFSET
+	struct FString                                     Key;                                                      // 0x00A0(0x0010)
+	TArray<class UEFParticleDataBase*>                 ParticleDataSet;                                          // 0x00B0(0x0010)
+	unsigned long                                      bUseAbsoluteScale : 1;                                    // 0x00C0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6813,7 +8339,21 @@ public:
 class UEFParticleSoundDataFloorMaterial : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x00A0(0x0080) MISSED OFFSET
+	TArray<class UEFParticleData*>                     FloorTypeEffectDataArr;                                   // 0x00A0(0x0010)
+	class UEFParticleData*                             Data_Default;                                             // 0x00B0(0x0008)
+	class UEFParticleData*                             Data_Dirt;                                                // 0x00B8(0x0008)
+	class UEFParticleData*                             Data_Grass;                                               // 0x00C0(0x0008)
+	class UEFParticleData*                             Data_WaterDeep;                                           // 0x00C8(0x0008)
+	class UEFParticleData*                             Data_WaterSwamp;                                          // 0x00D0(0x0008)
+	class UEFParticleData*                             Data_WoodFloor;                                           // 0x00D8(0x0008)
+	class UEFParticleData*                             Data_WoodTree;                                            // 0x00E0(0x0008)
+	class UEFParticleData*                             Data_MetalHeavy;                                          // 0x00E8(0x0008)
+	class UEFParticleData*                             Data_MetalLight;                                          // 0x00F0(0x0008)
+	class UEFParticleData*                             Data_Stone;                                               // 0x00F8(0x0008)
+	class UEFParticleData*                             Data_Mud;                                                 // 0x0100(0x0008)
+	class UEFParticleData*                             Data_Carpet;                                              // 0x0108(0x0008)
+	class UEFParticleData*                             Data_Snow;                                                // 0x0110(0x0008)
+	class UEFParticleData*                             Data_Magic01;                                             // 0x0118(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6829,7 +8369,21 @@ public:
 class UEFParticleSoundDataFloorMaterialSound : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x00A0(0x0080) MISSED OFFSET
+	TArray<class UEFParticleDataModuleSoundBase*>      FloorTypeEffectDataArr;                                   // 0x00A0(0x0010)
+	class UEFParticleDataModuleSoundBase*              Data_Default;                                             // 0x00B0(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Dirt;                                                // 0x00B8(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Grass;                                               // 0x00C0(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_WaterDeep;                                           // 0x00C8(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_WaterSwamp;                                          // 0x00D0(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_WoodFloor;                                           // 0x00D8(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_WoodTree;                                            // 0x00E0(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_MetalHeavy;                                          // 0x00E8(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_MetalLight;                                          // 0x00F0(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Stone;                                               // 0x00F8(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Mud;                                                 // 0x0100(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Carpet;                                              // 0x0108(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Snow;                                                // 0x0110(0x0008)
+	class UEFParticleDataModuleSoundBase*              Data_Magic01;                                             // 0x0118(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6845,7 +8399,9 @@ public:
 class UEFParticleSoundDataGroundEffect : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x00A0(0x0030) MISSED OFFSET
+	struct FString                                     Key;                                                      // 0x00A0(0x0010)
+	TArray<class UEFParticleGroundData*>               ParticleDataSet;                                          // 0x00B0(0x0010)
+	TArray<struct FEFGroundDecalSystemInfo>            DecalSet;                                                 // 0x00C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6861,7 +8417,7 @@ public:
 class UEFParticleSoundDataHittedArmorSet : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	class UEFParticleSoundDataArmorMaterial*           TargetArmorEffect;                                        // 0x00A0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6877,7 +8433,9 @@ public:
 class UEFParticleSoundDataHittedSkillSet : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00A0(0x0020) MISSED OFFSET
+	struct FString                                     Key;                                                      // 0x00A0(0x0010)
+	class UEFParticleSystemData*                       Default;                                                  // 0x00B0(0x0008)
+	class UEFParticleData*                             DefaultData;                                              // 0x00B8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6893,7 +8451,12 @@ public:
 class UEFParticleSoundDataHittedWeaponSet : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00A0(0x0024) MISSED OFFSET
+	TEnumAsByte<EMaterialWeapon>                       Key;                                                      // 0x00A0(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00A1(0x0003) MISSED OFFSET
+	class UEFParticleSoundDataWeaponAttribute*         AttackerWeaponEffect;                                     // 0x00A4(0x0008)
+	class UEFParticleSoundDataWeaponAttribute*         AttackerWeaponCriticalEffect;                             // 0x00AC(0x0008)
+	class UEFParticleSoundDataWeaponAttribute*         AttackerWeaponBackAttackEffect;                           // 0x00B4(0x0008)
+	class UEFParticleSoundDataWeaponAttribute*         AttackerWeaponBackAttackCriticalEffect;                   // 0x00BC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6909,7 +8472,17 @@ public:
 class UEFParticleSoundDataWeaponAttribute : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x00A0(0x0060) MISSED OFFSET
+	TArray<class UEFParticleData*>                     WeaponAttributeEffectDataArr;                             // 0x00A0(0x0010)
+	class UEFParticleData*                             Data_Default;                                             // 0x00B0(0x0008)
+	class UEFParticleData*                             Data_Fire;                                                // 0x00B8(0x0008)
+	class UEFParticleData*                             Data_Ice;                                                 // 0x00C0(0x0008)
+	class UEFParticleData*                             Data_Electric;                                            // 0x00C8(0x0008)
+	class UEFParticleData*                             Data_Wind;                                                // 0x00D0(0x0008)
+	class UEFParticleData*                             Data_Earth;                                               // 0x00D8(0x0008)
+	class UEFParticleData*                             Data_Dark;                                                // 0x00E0(0x0008)
+	class UEFParticleData*                             Data_Holy;                                                // 0x00E8(0x0008)
+	class UEFParticleData*                             Data_Water;                                               // 0x00F0(0x0008)
+	class UEFParticleData*                             Data_Lava;                                                // 0x00F8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6925,7 +8498,17 @@ public:
 class UEFParticleSoundDataWeaponAttributeEffect : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0xA8];                                      // 0x00A0(0x00A8) MISSED OFFSET
+	struct FName                                       EffectKey;                                                // 0x00A0(0x0008)
+	TArray<struct FPointer>                            Attribute;                                                // 0x00A8(0x0010)
+	TArray<class UEFParticleData*>                     Fire;                                                     // 0x00B8(0x0010)
+	TArray<class UEFParticleData*>                     Ice;                                                      // 0x00C8(0x0010)
+	TArray<class UEFParticleData*>                     Electric;                                                 // 0x00D8(0x0010)
+	TArray<class UEFParticleData*>                     Wind;                                                     // 0x00E8(0x0010)
+	TArray<class UEFParticleData*>                     Earth;                                                    // 0x00F8(0x0010)
+	TArray<class UEFParticleData*>                     Dark;                                                     // 0x0108(0x0010)
+	TArray<class UEFParticleData*>                     Holy;                                                     // 0x0118(0x0010)
+	TArray<class UEFParticleData*>                     Water;                                                    // 0x0128(0x0010)
+	TArray<class UEFParticleData*>                     BaseDefault;                                              // 0x0138(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -6941,7 +8524,13 @@ public:
 class UEFParticleSoundDataWeaponFXDir : public UEFParticleSoundData
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x00A0(0x0054) MISSED OFFSET
+	int                                                MaxSpawn;                                                 // 0x00A0(0x0004)
+	int                                                FXIndex;                                                  // 0x00A4(0x0004)
+	TArray<struct FEFParticleSoundWeaponFXAttacker>    AttackerParticles;                                        // 0x00A8(0x0010)
+	TArray<struct FEFParticleSoundWeaponFXDelay>       Particles;                                                // 0x00B8(0x0010)
+	struct FEFParticleSoundWeaponFXBlood               BloodParticle;                                            // 0x00C8(0x0014)
+	struct FEFParticleSoundWeaponFXRandomBlood         RandomBloods;                                             // 0x00DC(0x0010)
+	class UEFCameraViewShake*                          NewHitCameraShake;                                        // 0x00EC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6957,7 +8546,7 @@ public:
 class UEFParticleSoundDataBuffWeaponFXDir : public UEFParticleSoundDataWeaponFXDir
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00F4(0x0004) MISSED OFFSET
+	int                                                ChangeFXIndex;                                            // 0x00F4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -6973,7 +8562,10 @@ public:
 class UEFParticleSoundDataWeaponFXAttacker : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0058(0x0014) MISSED OFFSET
+	float                                              DelayTime;                                                // 0x0058(0x0004)
+	float                                              Duration;                                                 // 0x005C(0x0004)
+	unsigned long                                      bSpawnAll : 1;                                            // 0x0060(0x0004)
+	class UEFParticleData*                             ParticleData;                                             // 0x0064(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -6989,7 +8581,8 @@ public:
 class UEFParticleSoundDataWeaponFXDelay : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0058(0x000C) MISSED OFFSET
+	float                                              DelayTime;                                                // 0x0058(0x0004)
+	class UEFParticleData*                             ParticleData;                                             // 0x005C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7005,7 +8598,9 @@ public:
 class UEFParticleSoundSet : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	TArray<class UEFParticleSoundContainerSet*>        ParticleSoundContainerSetArr;                             // 0x0058(0x0010)
+	TArray<class UEFParticleSoundContainer*>           ParticleSoundContainerArr;                                // 0x0068(0x0010)
+	struct FString                                     strName;                                                  // 0x0078(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7021,7 +8616,7 @@ public:
 class AEFTeleportLocationActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0274(0x0004) MISSED OFFSET
+	int                                                TeleportIndex;                                            // 0x0274(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7037,7 +8632,11 @@ public:
 class UEFDataContainer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0058(0x0060) MISSED OFFSET
+	TArray<class UObject*>                             DataList;                                                 // 0x0058(0x0010)
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0068(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer.DataListCache
+	TEnumAsByte<EUPKDataType>                          DataType;                                                 // 0x00B0(0x0001)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x00B1(0x0003) MISSED OFFSET
+	unsigned long                                      bCanXlsImport : 1;                                        // 0x00B4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7057,7 +8656,8 @@ public:
 class UEFDataContainer_Action : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00B8(0x0020) MISSED OFFSET
+	struct FString                                     CategoryName;                                             // 0x00B8(0x0010)
+	TArray<class UEFActionObjectGroup*>                ActionObjectGroupList;                                    // 0x00C8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7073,7 +8673,9 @@ public:
 class UEFDataContainer_CharacterCustomizing : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0xD8];                                      // 0x00B8(0x00D8) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_CharacterCustomizing.DataListCache0
+	unsigned char                                      UnknownData01[0x48];                                      // 0x0100(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_CharacterCustomizing.DataListCache1
+	unsigned char                                      UnknownData02[0x48];                                      // 0x0148(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_CharacterCustomizing.CachedCustomDataArrayMap
 
 	static UClass* StaticClass()
 	{
@@ -7091,7 +8693,7 @@ public:
 class UEFDataContainer_ColorPalette : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_ColorPalette.CachedPaletteItemsByName
 
 	static UClass* StaticClass()
 	{
@@ -7109,7 +8711,7 @@ public:
 class UEFDataContainer_CustomizeBoneScale : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_CustomizeBoneScale.CachedCustomizeBoneScaleByName
 
 	static UClass* StaticClass()
 	{
@@ -7127,7 +8729,7 @@ public:
 class UEFDataContainer_LookInfos : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00B8(0x0001) MISSED OFFSET
+	unsigned char                                      DataUnitType;                                             // 0x00B8(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -7177,7 +8779,17 @@ public:
 class UEFDataContainer_NpcFunction : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x00B8(0x0050) MISSED OFFSET
+	TArray<class UEFKismetMapData*>                    NpcFunctionMapDataArray;                                  // 0x00B8(0x0010)
+	class UCameraAnim*                                 InteractionCamAnim_Low;                                   // 0x00C8(0x0008)
+	int                                                InteractionDistance_Low;                                  // 0x00D0(0x0004)
+	class UCameraAnim*                                 InteractionCamAnim_Middle;                                // 0x00D4(0x0008)
+	int                                                InteractionDistance_Middle;                               // 0x00DC(0x0004)
+	class UCameraAnim*                                 InteractionCamAnim_High;                                  // 0x00E0(0x0008)
+	int                                                InteractionDistance_High;                                 // 0x00E8(0x0004)
+	int                                                ApproachEvent_Distance;                                   // 0x00EC(0x0004)
+	class UAkEvent*                                    InteractionStartSound;                                    // 0x00F0(0x0008)
+	class UAkEvent*                                    InteractionEndSound;                                      // 0x00F8(0x0008)
+	class UAkEvent*                                    InteractionNextLinkSound;                                 // 0x0100(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7195,7 +8807,25 @@ public:
 class UEFDataContainer_Quest : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0xF0];                                      // 0x00B8(0x00F0) MISSED OFFSET
+	TArray<class UEFKismetMapData*>                    QuestMapDataArray;                                        // 0x00B8(0x0010)
+	unsigned long                                      RootQuestDataContainer : 1;                               // 0x00C8(0x0004)
+	class UAkEvent*                                    StartSound;                                               // 0x00CC(0x0008)
+	class UAkEvent*                                    CompleteSound;                                            // 0x00D4(0x0008)
+	class UAkEvent*                                    ObjectiveCountingSound;                                   // 0x00DC(0x0008)
+	class UAkEvent*                                    SuccessSound;                                             // 0x00E4(0x0008)
+	class UAkEvent*                                    GiveUpSound;                                              // 0x00EC(0x0008)
+	class UAkEvent*                                    FailSound;                                                // 0x00F4(0x0008)
+	struct FString                                     UnableStartFxPath;                                        // 0x00FC(0x0010)
+	struct FString                                     StartFxPath;                                              // 0x010C(0x0010)
+	struct FString                                     ProgressFxPath;                                           // 0x011C(0x0010)
+	struct FString                                     CompleteFxPath;                                           // 0x012C(0x0010)
+	struct FString                                     BalloonTalkFxPath;                                        // 0x013C(0x0010)
+	struct FString                                     BasicInteractionFxPath;                                   // 0x014C(0x0010)
+	struct FString                                     EmptyMeshInteractionFxPath;                               // 0x015C(0x0010)
+	struct FString                                     VolumeInteractionFxPath;                                  // 0x016C(0x0010)
+	struct FString                                     LifeLevelInteractionFxPath;                               // 0x017C(0x0010)
+	struct FString                                     FxAttachBoneName;                                         // 0x018C(0x0010)
+	struct FVector                                     RelativeLocation;                                         // 0x019C(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -7213,7 +8843,7 @@ public:
 class UEFDataContainer_TexturePalette : public UEFDataContainer
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x00B8(0x0048) UNKNOWN PROPERTY: MapProperty EFGame.EFDataContainer_TexturePalette.CachedPaletteItemsByName
 
 	static UClass* StaticClass()
 	{
@@ -7231,7 +8861,14 @@ public:
 class UEFEnvironmentInfo : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x78];                                      // 0x0058(0x0078) MISSED OFFSET
+	class UDominantDirectionalLightComponent*          LightComponent;                                           // 0x0058(0x0008)
+	unsigned long                                      bUseGlobalIllumination : 1;                               // 0x0060(0x0004)
+	unsigned long                                      bForceNoPrecomputedLighting : 1;                          // 0x0060(0x0004)
+	struct FLightmassWorldInfoSettings                 LightmassSettings;                                        // 0x0064(0x0058)
+	TEnumAsByte<ELightingBuildQuality>                 LevelLightingQuality;                                     // 0x00BC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00BD(0x0003) MISSED OFFSET
+	class UExponentialHeightFogComponent*              FogComponent;                                             // 0x00C0(0x0008)
+	class UPostProcessChain*                           WorldPostProcessChain;                                    // 0x00C8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7247,7 +8884,12 @@ public:
 class AEFLightBeam : public ASpotLightMovable
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0280(0x0028) MISSED OFFSET
+	class UStaticMeshComponent*                        BeamMesh;                                                 // 0x0280(0x0008)
+	float                                              BeamMeshRadius;                                           // 0x0288(0x0004)
+	float                                              BeamMeshHeight;                                           // 0x028C(0x0004)
+	float                                              AutoRotation;                                             // 0x0290(0x0004)
+	unsigned long                                      bActive : 1;                                              // 0x0294(0x0004)
+	TArray<struct FEFLightBeamIntersectInfo>           IntersectInfos;                                           // 0x0298(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7280,7 +8922,14 @@ public:
 class UEFDropItemEffectInfo : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x794];                                     // 0x0058(0x0794) MISSED OFFSET
+	float                                              TopGradePlayRate;                                         // 0x0058(0x0004)
+	TArray<struct FEFDropItemEffectEventTimeInfo>      EventInfoArr;                                             // 0x005C(0x0010)
+	struct FEFDropItemEffectGroup                      NormalItem;                                               // 0x006C(0x0140)
+	struct FEFDropItemEffectGroup                      RareItem;                                                 // 0x01AC(0x0140)
+	struct FEFDropItemEffectGroup                      EliteItem;                                                // 0x02EC(0x0140)
+	struct FEFDropItemEffectGroup                      EpicItem;                                                 // 0x042C(0x0140)
+	struct FEFDropItemEffectGroup                      UniqueItem;                                               // 0x056C(0x0140)
+	struct FEFDropItemEffectGroup                      LegendItem;                                               // 0x06AC(0x0140)
 
 	static UClass* StaticClass()
 	{
@@ -7319,7 +8968,15 @@ public:
 class AEFInteractiveFoliageActor : public AInteractiveFoliageActor
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x02F8(0x001C) MISSED OFFSET
+	class UParticleSystem*                             BurnParticleSystem;                                       // 0x02F8(0x0008)
+	unsigned long                                      bStateMaterialMIC : 1;                                    // 0x0300(0x0004)
+	unsigned long                                      bState : 1;                                               // 0x0300(0x0004)
+	unsigned long                                      bUpdateStateMaterial : 1;                                 // 0x0300(0x0004)
+	unsigned long                                      bJustTickStateMaterial : 1;                               // 0x0300(0x0004)
+	float                                              CurStateTime;                                             // 0x0304(0x0004)
+	float                                              MaxStateTime;                                             // 0x0308(0x0004)
+	float                                              CurDissolveTime;                                          // 0x030C(0x0004)
+	float                                              MaxDissolveTime;                                          // 0x0310(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7337,7 +8994,14 @@ public:
 class UEFDebugTransportComponent : public UPrimitiveComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x0284(0x004C) MISSED OFFSET
+	class USkeletalMeshComponent*                      DebugSkeletalMeshComponent;                               // 0x0284(0x0008)
+	class UPhysicsAsset*                               DebugPhysicAsset;                                         // 0x028C(0x0008)
+	class USkeletalMesh*                               DebugSkeletalMesh;                                        // 0x0294(0x0008)
+	class UMaterialInterface*                          DebugPhysicAssetMaterial;                                 // 0x029C(0x0008)
+	class UMaterialInterface*                          DebugNavMeshAssetMaterial;                                // 0x02A4(0x0008)
+	int                                                DebugTransitIndex;                                        // 0x02AC(0x0004)
+	TArray<struct FBoneAtom>                           DebugSpaceBases;                                          // 0x02B0(0x0010)
+	TArray<struct FVector>                             DebugNavMeshVertexes;                                     // 0x02C0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7353,7 +9017,27 @@ public:
 class UEFAction_Notify : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x74];                                      // 0x0058(0x0074) MISSED OFFSET
+	int                                                TriggerSkillEffectId;                                     // 0x0058(0x0004)
+	unsigned long                                      ActiveByMemoryPos : 1;                                    // 0x005C(0x0004)
+	unsigned long                                      FullRange : 1;                                            // 0x005C(0x0004)
+	unsigned long                                      Enable : 1;                                               // 0x005C(0x0004)
+	unsigned long                                      PrivateTemplate : 1;                                      // 0x005C(0x0004)
+	unsigned long                                      OverwriteTemplate : 1;                                    // 0x005C(0x0004)
+	float                                              Time;                                                     // 0x0060(0x0004)
+	float                                              OriginalTime;                                             // 0x0064(0x0004)
+	float                                              Duration;                                                 // 0x0068(0x0004)
+	TEnumAsByte<ECTE_NOTIFY_ACTIVATE_TYPE>             NotifyType;                                               // 0x006C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x006D(0x0003) MISSED OFFSET
+	int                                                RepeatCount;                                              // 0x0070(0x0004)
+	float                                              RepeatTerm;                                               // 0x0074(0x0004)
+	struct FString                                     ToolTip;                                                  // 0x0078(0x0010)
+	struct FString                                     NotifyName;                                               // 0x0088(0x0010)
+	int                                                SortPriority;                                             // 0x0098(0x0004)
+	struct FColor                                      NotifyColor;                                              // 0x009C(0x0004)
+	struct FString                                     GroupName;                                                // 0x00A0(0x0010)
+	TArray<struct FString>                             ViewGroupList;                                            // 0x00B0(0x0010)
+	struct FPointer                                    TmpActionNotifyData;                                      // 0x00C0(0x0008)
+	int                                                Probability;                                              // 0x00C8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7369,7 +9053,8 @@ public:
 class UEFActionNotify_AddClientStatusEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	unsigned long                                      bRemoveNotifyEnd : 1;                                     // 0x00CC(0x0004)
+	TArray<struct FEFAddStatusEffectByAbilityInfo>     ChangeToolInfo;                                           // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7385,7 +9070,19 @@ public:
 class UEFActionNotify_AKEvent : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00CC(0x0028) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x00CC(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x00D4(0x0004)
+	unsigned long                                      bFollowActor : 1;                                         // 0x00D4(0x0004)
+	unsigned long                                      bStopWhenNotifyEnd : 1;                                   // 0x00D4(0x0004)
+	unsigned long                                      bMute : 1;                                                // 0x00D4(0x0004)
+	unsigned long                                      bStopWhenChangeAction : 1;                                // 0x00D4(0x0004)
+	struct FName                                       BoneName;                                                 // 0x00D8(0x0008)
+	float                                              StopWhenNotifyEndFadeTime;                                // 0x00E0(0x0004)
+	float                                              StopWhenChangeActionFadeTime;                             // 0x00E4(0x0004)
+	TEnumAsByte<EFActionNotifyFixSoundPosType>         FixSoundPosType;                                          // 0x00E8(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00E9(0x0003) MISSED OFFSET
+	float                                              AkEventDuration;                                          // 0x00EC(0x0004)
+	int                                                AkEventPlayingID;                                         // 0x00F0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7401,7 +9098,9 @@ public:
 class UEFActionNotify_AkEventSwitchFloorMaterial : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x00CC(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x00D4(0x0004)
+	struct FName                                       AttachBoneName;                                           // 0x00D8(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7417,7 +9116,24 @@ public:
 class UEFActionNotify_Anim : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x78];                                      // 0x00CC(0x0078) MISSED OFFSET
+	struct FName                                       anim_name;                                                // 0x00CC(0x0008)
+	int                                                MoveSpeed_Anim1;                                          // 0x00D4(0x0004)
+	struct FName                                       anim_name2;                                               // 0x00D8(0x0008)
+	int                                                MoveSpeed_Anim2;                                          // 0x00E0(0x0004)
+	struct FName                                       anim_name3;                                               // 0x00E4(0x0008)
+	int                                                MoveSpeed_Anim3;                                          // 0x00EC(0x0004)
+	struct FString                                     landstage_name;                                           // 0x00F0(0x0010)
+	struct FEFAnimInfo                                 anim_info;                                                // 0x0100(0x0030)
+	unsigned long                                      AnimErrorAlert : 1;                                       // 0x0130(0x0004)
+	unsigned long                                      DurationFitFromAni : 1;                                   // 0x0130(0x0004)
+	unsigned long                                      DurationFitFromStageEnd : 1;                              // 0x0130(0x0004)
+	unsigned long                                      StageDurationFitToEnd : 1;                                // 0x0130(0x0004)
+	unsigned long                                      ValidAnimName1 : 1;                                       // 0x0130(0x0004)
+	unsigned long                                      ValidAnimName2 : 1;                                       // 0x0130(0x0004)
+	unsigned long                                      ValidAnimName3 : 1;                                       // 0x0130(0x0004)
+	struct FName                                       AnimName;                                                 // 0x0134(0x0008)
+	float                                              StageRootMotionMoveDistance;                              // 0x013C(0x0004)
+	float                                              StageRootMotionMaxMoveDistance;                           // 0x0140(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7433,7 +9149,12 @@ public:
 class UEFActionNotify_Stance_Anim : public UEFActionNotify_Anim
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x0144(0x0024) MISSED OFFSET
+	unsigned long                                      WeaponMode : 1;                                           // 0x0144(0x0004)
+	unsigned long                                      IgnoreWeaponMode : 1;                                     // 0x0144(0x0004)
+	struct FName                                       stance00_anim_name;                                       // 0x0148(0x0008)
+	struct FName                                       stance01_anim_name;                                       // 0x0150(0x0008)
+	struct FName                                       stance02_anim_name;                                       // 0x0158(0x0008)
+	struct FName                                       stance03_anim_name;                                       // 0x0160(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7449,7 +9170,12 @@ public:
 class UEFActionNotify_AnimBlendDirectional : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00CC(0x0028) MISSED OFFSET
+	float                                              BlendingTime;                                             // 0x00CC(0x0004)
+	float                                              DirDegreesPerSecond;                                      // 0x00D0(0x0004)
+	struct FName                                       AnimName_Front;                                           // 0x00D4(0x0008)
+	struct FName                                       AnimName_Back;                                            // 0x00DC(0x0008)
+	struct FName                                       AnimName_Left;                                            // 0x00E4(0x0008)
+	struct FName                                       AnimName_Right;                                           // 0x00EC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7465,7 +9191,10 @@ public:
 class UEFActionNotify_ChangeFigurePropState : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EPropState>                            ePropState;                                               // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	unsigned long                                      bLoopAnimation : 1;                                       // 0x00D0(0x0004)
+	unsigned long                                      bDespawnNotify : 1;                                       // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7481,7 +9210,7 @@ public:
 class UEFActionNotify_ClientProjectile : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	TArray<struct FEFSkillEffectInfo>                  SkillEffectInfoList;                                      // 0x00CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7512,7 +9241,9 @@ public:
 class UEFActionNotify_CommonActionVoiceSet : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	TEnumAsByte<EFCommonActionVoiceSetType>            CommonActionType;                                         // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	struct FString                                     Keyword;                                                  // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7528,7 +9259,9 @@ public:
 class UEFActionNotify_Condition : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x00CC(0x001C) MISSED OFFSET
+	class UEFActionCondition*                          Condition;                                                // 0x00CC(0x0008)
+	int                                                ConditionOutputCount;                                     // 0x00D4(0x0004)
+	TArray<struct FString>                             ConditionOutputDesc;                                      // 0x00D8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7559,7 +9292,9 @@ public:
 class UEFActionNotify_DefaultParticle : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	TArray<int>                                        SelectDPIndexArr;                                         // 0x00CC(0x0010)
+	unsigned long                                      bDeactivate : 1;                                          // 0x00DC(0x0004)
+	unsigned long                                      bActivate : 1;                                            // 0x00DC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7575,7 +9310,11 @@ public:
 class UEFActionNotify_DetachParts : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00CC(0x0020) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	struct FVector                                     Velocity;                                                 // 0x00D0(0x000C)
+	class UParticleSystem*                             PSTemplate;                                               // 0x00DC(0x0008)
+	struct FName                                       SocketName;                                               // 0x00E4(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -7591,7 +9330,16 @@ public:
 class UEFActionNotify_DominantDirectionalLight_Control : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x00CC(0x0018) MISSED OFFSET
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      RollBackOrigin : 1;                                       // 0x00CC(0x0004)
+	unsigned long                                      EndIsRelease : 1;                                         // 0x00CC(0x0004)
+	unsigned long                                      EnableBrightness : 1;                                     // 0x00CC(0x0004)
+	unsigned long                                      EnableLightColor : 1;                                     // 0x00CC(0x0004)
+	float                                              ChangeTime;                                               // 0x00D0(0x0004)
+	float                                              DirectionGuaranteeTime;                                   // 0x00D4(0x0004)
+	float                                              ReleaseTime;                                              // 0x00D8(0x0004)
+	float                                              Brightness;                                               // 0x00DC(0x0004)
+	struct FColor                                      LightColor;                                               // 0x00E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7607,7 +9355,10 @@ public:
 class UEFActionNotify_Down : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00CC(0x0024) MISSED OFFSET
+	TEnumAsByte<EPARTICLE_SOUND_DOWN_DATA_TYPE>        ParticleDownType;                                         // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x00D0(0x0010)
+	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x00E0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7623,7 +9374,14 @@ public:
 class UEFActionNotify_Effect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x44];                                      // 0x00CC(0x0044) MISSED OFFSET
+	TArray<struct FEFSkillEffectInfo>                  SkillEffectInfoList;                                      // 0x00CC(0x0010)
+	struct FString                                     TestParticleSoundHittedKeyword;                           // 0x00DC(0x0010)
+	class UEFParticleSoundContainerSkillHitSet*        TestUsedSkillHitSetContainer;                             // 0x00EC(0x0008)
+	TEnumAsByte<EFTestBuffMode>                        TestParticleSoundBuffMode;                                // 0x00F4(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00F5(0x0003) MISSED OFFSET
+	struct FString                                     TestParticleSoundBuffKeyword;                             // 0x00F8(0x0010)
+	float                                              TestParticleSoundBuffLifeTime;                            // 0x0108(0x0004)
+	float                                              TestParticleSoundBuffValue;                               // 0x010C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7639,7 +9397,7 @@ public:
 class UEFActionNotify_EmitTriggerSignal : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	struct FString                                     SignalString;                                             // 0x00CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7655,7 +9413,14 @@ public:
 class UEFActionNotify_EquipCommonActionTool : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x00CC(0x0050) MISSED OFFSET
+	TEnumAsByte<ECommonActionAttachType>               AttachType;                                               // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	TArray<struct FPlaySkeletalMeshActor>              SkeletalMeshActors;                                       // 0x00D0(0x0010)
+	struct FName                                       AttachName;                                               // 0x00E0(0x0008)
+	TArray<struct FEFChangeMeshInfo>                   ChangeMeshInfo;                                           // 0x00E8(0x0010)
+	unsigned long                                      bNotifyEndDetach : 1;                                     // 0x00F8(0x0004)
+	struct FString                                     strAttachToolLookInfo;                                    // 0x00FC(0x0010)
+	TArray<struct FEFChageToolByAbilityInfo>           ChangeToolInfo;                                           // 0x010C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7671,7 +9436,7 @@ public:
 class UEFActionNotify_FakeEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	TArray<struct FEFSkillEffectInfo>                  SkillEffectInfoList;                                      // 0x00CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7687,7 +9452,9 @@ public:
 class UEFActionNotify_Footstep : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00CC(0x0024) MISSED OFFSET
+	int                                                FootDown;                                                 // 0x00CC(0x0004)
+	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x00D0(0x0010)
+	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x00E0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7718,7 +9485,7 @@ public:
 class UEFActionNotify_GameNote : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	int                                                GameNoteTableIndex;                                       // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7734,7 +9501,11 @@ public:
 class UEFActionNotify_HidePawn : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	unsigned long                                      HidePawn : 1;                                             // 0x00CC(0x0004)
+	unsigned long                                      bWeaponTypeIgnoresGadget : 1;                             // 0x00CC(0x0004)
+	unsigned long                                      bHideBaseMeshWithFX : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      bExecuteNotifyEnd : 1;                                    // 0x00CC(0x0004)
+	TArray<struct FHideInfoUnit>                       sHideInfoUnitArr;                                         // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7750,7 +9521,9 @@ public:
 class UEFActionNotify_IdentityParts : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	unsigned long                                      MakeParts : 1;                                            // 0x00CC(0x0004)
+	unsigned long                                      FailCompleteCancel : 1;                                   // 0x00CC(0x0004)
+	int                                                changeStance;                                             // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7766,7 +9539,15 @@ public:
 class UEFActionNotify_InputTiming : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x00CC(0x004C) MISSED OFFSET
+	struct FInputTimingInfo                            InputTiming;                                              // 0x00CC(0x0028)
+	TArray<struct FInputTimingInfo>                    InputTimings;                                             // 0x00F4(0x0010)
+	TArray<int>                                        StartHotKeyIdArray;                                       // 0x0104(0x0010)
+	unsigned long                                      TriggerDelayMoveCancel : 1;                               // 0x0114(0x0004)
+	unsigned long                                      TriggerMoveCancel : 1;                                    // 0x0114(0x0004)
+	unsigned long                                      TriggerDelaySkillCancel : 1;                              // 0x0114(0x0004)
+	unsigned long                                      TriggerSkillCancel : 1;                                   // 0x0114(0x0004)
+	unsigned long                                      TriggerMoveDirInput : 1;                                  // 0x0114(0x0004)
+	unsigned long                                      TriggerSkillDirInput : 1;                                 // 0x0114(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7782,7 +9563,7 @@ public:
 class UEFActionNotify_LifeActionRemainCountUI : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	unsigned long                                      bHideNotifyEnd : 1;                                       // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7798,7 +9579,9 @@ public:
 class UEFActionNotify_LifeToolDurabilityUI : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EProfessionType>                       LifeToolType;                                             // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	unsigned long                                      bHideNotifyEnd : 1;                                       // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7814,7 +9597,9 @@ public:
 class UEFActionNotify_LookTarget : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EFActionNotify_LookTarget_Type>        LookType;                                                 // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	float                                              InterpolationTime;                                        // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7845,7 +9630,7 @@ public:
 class UEFActionNotify_MemoryPos : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EMemoryPosType>                        eMemoryPosType;                                           // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -7891,7 +9676,8 @@ public:
 class UEFActionNotify_MonsterMoveNextStageConditionBase : public UEFActionNotify_MonsterMoveNextStageBase
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00CC(0x0020) MISSED OFFSET
+	TArray<int>                                        OutputStageIndex;                                         // 0x00CC(0x0010)
+	TArray<struct FString>                             OutputStageDesc;                                          // 0x00DC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7907,7 +9693,8 @@ public:
 class UEFActionNotify_MonsterMoveNextStageConditionCheckArea : public UEFActionNotify_MonsterMoveNextStageConditionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00EC(0x0014) MISSED OFFSET
+	unsigned long                                      ANDOperation : 1;                                         // 0x00EC(0x0004)
+	TArray<struct FEFCheckAreaInfo>                    AreaInfos;                                                // 0x00F0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7923,7 +9710,7 @@ public:
 class UEFActionNotify_MonsterMoveNextStageConditionProbability : public UEFActionNotify_MonsterMoveNextStageConditionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00EC(0x0004) MISSED OFFSET
+	int                                                ProbabilityValue;                                         // 0x00EC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7939,7 +9726,7 @@ public:
 class UEFActionNotify_MonsterMoveNextStageConditionSkillEffectHit : public UEFActionNotify_MonsterMoveNextStageConditionBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00EC(0x0010) MISSED OFFSET
+	TArray<int>                                        SkillEffectId;                                            // 0x00EC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -7955,7 +9742,9 @@ public:
 class UEFActionNotify_NpcLimbState : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x44];                                      // 0x00CC(0x0044) MISSED OFFSET
+	TArray<int>                                        LimbIdArray;                                              // 0x00CC(0x0010)
+	unsigned long                                      LimbHitEnabled : 1;                                       // 0x00DC(0x0004)
+	struct FEFPartsHighlightInfo                       PartsHighlightInfo;                                       // 0x00E0(0x0030)
 
 	static UClass* StaticClass()
 	{
@@ -7971,7 +9760,13 @@ public:
 class UEFActionNotify_NPCSkillMove : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x00CC(0x0018) MISSED OFFSET
+	TEnumAsByte<EFActionNotify_NPCSkillMoveType>       MoveType;                                                 // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	float                                              MoveSpeed;                                                // 0x00D0(0x0004)
+	float                                              TargetingCycleTime;                                       // 0x00D4(0x0004)
+	float                                              PursuitSightDegree;                                       // 0x00D8(0x0004)
+	float                                              PursuitRange;                                             // 0x00DC(0x0004)
+	float                                              MoveDegree;                                               // 0x00E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -7987,7 +9782,7 @@ public:
 class UEFActionNotify_NpcStatus : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<ENpcStatus>                            NpcStatusType;                                            // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8003,7 +9798,7 @@ public:
 class UEFActionNotify_Paralyzation : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	unsigned long                                      bActive : 1;                                              // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8019,7 +9814,7 @@ public:
 class UEFActionNotify_ParticleControl : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	struct FString                                     ControlNotifyName;                                        // 0x00CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8035,7 +9830,7 @@ public:
 class UEFActionNotify_ParticleHit : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	int                                                WeaponFXIndex;                                            // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8051,7 +9846,10 @@ public:
 class UEFActionNotify_PartsAnim : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	int                                                iPartsIndex;                                              // 0x00D0(0x0004)
+	struct FName                                       anim_name;                                                // 0x00D4(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -8067,7 +9865,9 @@ public:
 class UEFActionNotify_PawnMaterialChange : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x00CC(0x002C) MISSED OFFSET
+	unsigned long                                      bActionType : 1;                                          // 0x00CC(0x0004)
+	struct FMaterialChangeUnit                         sUnit;                                                    // 0x00D0(0x0018)
+	TArray<struct FMaterialLookChangeUnit>             sUnitArr;                                                 // 0x00E8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8083,7 +9883,9 @@ public:
 class UEFActionNotify_PawnMaterialParam : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x90];                                      // 0x00CC(0x0090) MISSED OFFSET
+	unsigned long                                      bActionType : 1;                                          // 0x00CC(0x0004)
+	struct FMaterialParamUnit                          sUnit;                                                    // 0x00D0(0x007C)
+	TArray<struct FMaterialLookParamUnit>              sUnitArr;                                                 // 0x014C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8099,7 +9901,9 @@ public:
 class UEFActionNotify_Physics : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EPhysics>                              StartPhysics;                                             // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	unsigned long                                      bRestorePrevPhysics : 1;                                  // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8115,7 +9919,7 @@ public:
 class UEFActionNotify_PhysicsParam : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00CC(0x0028) MISSED OFFSET
+	struct FPhysicsParam                               Param;                                                    // 0x00CC(0x0028)
 
 	static UClass* StaticClass()
 	{
@@ -8131,7 +9935,14 @@ public:
 class UEFActionNotify_PlayBeamEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1AC];                                     // 0x00CC(0x01AC) MISSED OFFSET
+	unsigned long                                      bSkipIfOwnerIsHidden : 1;                                 // 0x00CC(0x0004)
+	unsigned long                                      bIgnoreAnimRate : 1;                                      // 0x00CC(0x0004)
+	struct FEFParticleSystemInfo                       PSInfo;                                                   // 0x00D0(0x0158)
+	class UEFActionParticleData*                       ActionParticleData;                                       // 0x0228(0x0008)
+	struct FString                                     SyncSkillEffectNotify;                                    // 0x0230(0x0010)
+	struct FEFBeamActionParam                          SourceInfo;                                               // 0x0240(0x0018)
+	struct FEFBeamActionParam                          TargetInfo;                                               // 0x0258(0x0018)
+	class UEFBeamActionBase*                           BeamAction;                                               // 0x0270(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -8147,7 +9958,15 @@ public:
 class UEFActionNotify_PlayCameraParticleEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x3D];                                      // 0x00CC(0x003D) MISSED OFFSET
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      bIgnoreAnimRate : 1;                                      // 0x00CC(0x0004)
+	class UParticleSystem*                             CameraParticle;                                           // 0x00D0(0x0008)
+	float                                              CameraOffset;                                             // 0x00D8(0x0004)
+	struct FRotator                                    ParticleRotation;                                         // 0x00DC(0x000C)
+	struct FVector                                     ParticleSize3D;                                           // 0x00E8(0x000C)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x00F4(0x0010)
+	int                                                ActionParticleId;                                         // 0x0104(0x0004)
+	TEnumAsByte<EACTION_PARTICLE_DATA_TYPE>            ActionParticleDataType;                                   // 0x0108(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8163,7 +9982,28 @@ public:
 class UEFActionNotify_PlayDecalEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x00CC(0x0054) MISSED OFFSET
+	int                                                DecalTableIndex;                                          // 0x00CC(0x0004)
+	unsigned long                                      bPlayActionAgentDecal : 1;                                // 0x00D0(0x0004)
+	unsigned long                                      OffsetIsTargetPosition : 1;                               // 0x00D0(0x0004)
+	unsigned long                                      bUsingRootMotionAffectedOffset : 1;                       // 0x00D0(0x0004)
+	unsigned long                                      AutoDirectionAngle : 1;                                   // 0x00D0(0x0004)
+	unsigned long                                      bOnlyLocalPlayer : 1;                                     // 0x00D0(0x0004)
+	unsigned long                                      bFrontTarget : 1;                                         // 0x00D0(0x0004)
+	unsigned long                                      ForcedOutput : 1;                                         // 0x00D0(0x0004)
+	float                                              OffsetX;                                                  // 0x00D4(0x0004)
+	float                                              OffsetY;                                                  // 0x00D8(0x0004)
+	float                                              SizeWidth;                                                // 0x00DC(0x0004)
+	float                                              SizeHeight;                                               // 0x00E0(0x0004)
+	float                                              DecalDirectionAngle;                                      // 0x00E4(0x0004)
+	int                                                SkillEffectId;                                            // 0x00E8(0x0004)
+	int                                                EffectAngle;                                              // 0x00EC(0x0004)
+	struct FVector                                     RootMotionAffectedOffset;                                 // 0x00F0(0x000C)
+	float                                              AdjustSize;                                               // 0x00FC(0x0004)
+	float                                              DecalBlendInTime;                                         // 0x0100(0x0004)
+	float                                              DecalScaleTime;                                           // 0x0104(0x0004)
+	float                                              DecalFillTime;                                            // 0x0108(0x0004)
+	float                                              DecalBlendOutTime;                                        // 0x010C(0x0004)
+	struct FLinearColor                                DecalColor;                                               // 0x0110(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8179,7 +10019,30 @@ public:
 class UEFActionNotify_PlayParticleEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0xAC];                                      // 0x00CC(0x00AC) MISSED OFFSET
+	unsigned long                                      bPlayOnlyFirstLoop : 1;                                   // 0x00CC(0x0004)
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      bOriginScale : 1;                                         // 0x00CC(0x0004)
+	unsigned long                                      bCharge : 1;                                              // 0x00CC(0x0004)
+	unsigned long                                      bSkillEndDetach : 1;                                      // 0x00CC(0x0004)
+	unsigned long                                      bSkipIfOwnerIsHidden : 1;                                 // 0x00CC(0x0004)
+	unsigned long                                      bIgnoreAnimRate : 1;                                      // 0x00CC(0x0004)
+	unsigned long                                      bFloorCheck : 1;                                          // 0x00CC(0x0004)
+	unsigned long                                      bUseRandomTransform : 1;                                  // 0x00CC(0x0004)
+	int                                                AbilityTypeCondition;                                     // 0x00D0(0x0004)
+	TArray<int>                                        AbilityTypeConditionNotExistArray;                        // 0x00D4(0x0010)
+	TEnumAsByte<ECommonActionEffectType>               CommonActionEffectTypeCondition;                          // 0x00E4(0x0001)
+	TEnumAsByte<ECommonActionEffectType>               CommonActionEffectTypeConditionNotExist;                  // 0x00E5(0x0001)
+	TEnumAsByte<EACTION_PARTICLE_DATA_TYPE>            ActionParticleDataType;                                   // 0x00E6(0x0001)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x00E7(0x0001) MISSED OFFSET
+	struct FString                                     SyncPosSkillEffectNotifyName;                             // 0x00E8(0x0010)
+	int                                                ActionParticleId;                                         // 0x00F8(0x0004)
+	struct FVector                                     StartTimePawnLocation;                                    // 0x00FC(0x000C)
+	class UEFActionParticleData*                       ParticleData;                                             // 0x0108(0x0008)
+	TArray<class UEFParticleDataModifier*>             PSLookSet;                                                // 0x0110(0x0010)
+	TArray<struct FEFActionPSFloorInfo>                PSFloorSet;                                               // 0x0120(0x0010)
+	struct FEFPSRandomVector                           RandomTransformLocation;                                  // 0x0130(0x0018)
+	struct FEFPSRandomRotator                          RandomTransformRotation;                                  // 0x0148(0x0018)
+	struct FEFPSRandomVector                           RandomTransformScale;                                     // 0x0160(0x0018)
 
 	static UClass* StaticClass()
 	{
@@ -8195,7 +10058,10 @@ public:
 class UEFActionNotify_PlayPIPUI : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x34];                                      // 0x00CC(0x0034) MISSED OFFSET
+	struct FString                                     SuccessMovieName;                                         // 0x00CC(0x0010)
+	struct FString                                     GreatSuccessMovieName;                                    // 0x00DC(0x0010)
+	struct FString                                     FailMovieName;                                            // 0x00EC(0x0010)
+	unsigned long                                      bHideNotifyEnd : 1;                                       // 0x00FC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8211,7 +10077,16 @@ public:
 class UEFActionNotify_PlayProjectileDecalEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00CC(0x0024) MISSED OFFSET
+	int                                                DecalTableIndex;                                          // 0x00CC(0x0004)
+	unsigned long                                      bPlayActionAgentDecal : 1;                                // 0x00D0(0x0004)
+	unsigned long                                      ForcedOutput : 1;                                         // 0x00D0(0x0004)
+	int                                                SkillEffectId;                                            // 0x00D4(0x0004)
+	int                                                ProjectileSkillEffectId;                                  // 0x00D8(0x0004)
+	float                                              AdjustSize;                                               // 0x00DC(0x0004)
+	float                                              DecalBlendInTime;                                         // 0x00E0(0x0004)
+	float                                              DecalScaleTime;                                           // 0x00E4(0x0004)
+	float                                              DecalFillTime;                                            // 0x00E8(0x0004)
+	float                                              DecalBlendOutTime;                                        // 0x00EC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8227,7 +10102,15 @@ public:
 class UEFActionNotify_PlaySkeletalMesh : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x38];                                      // 0x00CC(0x0038) MISSED OFFSET
+	class UEFAN_Params*                                dummy01;                                                  // 0x00CC(0x0008)
+	class UEFActionNotify_AnimEvent*                   dummy02;                                                  // 0x00D4(0x0008)
+	unsigned long                                      bSkipIfOwnerIsHidden : 1;                                 // 0x00DC(0x0004)
+	unsigned long                                      SpawnFromMouseTargetPos : 1;                              // 0x00DC(0x0004)
+	unsigned long                                      bIgnoreAnimRate : 1;                                      // 0x00DC(0x0004)
+	TArray<struct FPlaySkeletalMeshActor>              SkeletalMeshActors;                                       // 0x00E0(0x0010)
+	float                                              RootMotionScaleBaseDist;                                  // 0x00F0(0x0004)
+	struct FName                                       AttachName;                                               // 0x00F4(0x0008)
+	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x00FC(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -8243,7 +10126,9 @@ public:
 class UEFActionNotify_PlaySkeletalMeshMaterialParam : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x00CC(0x004C) MISSED OFFSET
+	unsigned long                                      ApplyWhenChangeAction : 1;                                // 0x00CC(0x0004)
+	struct FString                                     ActionNotifyTag;                                          // 0x00D0(0x0010)
+	struct FActionNotify_SM_AnimEventData              AnimEventData;                                            // 0x00E0(0x0038)
 
 	static UClass* StaticClass()
 	{
@@ -8259,7 +10144,11 @@ public:
 class UEFActionNotify_PostProcessChain : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x00CC(0x001C) MISSED OFFSET
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      bStageEndClear : 1;                                       // 0x00CC(0x0004)
+	class UPostProcessChain*                           PPChain;                                                  // 0x00D0(0x0008)
+	class UPostProcessChain*                           PPChain_Clone;                                            // 0x00D8(0x0008)
+	class UEFPostProcessMaterialEffectSkill*           PostProcessMaterialData;                                  // 0x00E0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -8290,7 +10179,8 @@ public:
 class UEFActionNotify_ReAttachParts : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x2];                                       // 0x00CC(0x0002) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x00CC(0x0001)
+	TEnumAsByte<EFSOCKET_STATE>                        eSocketState;                                             // 0x00CD(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8306,7 +10196,9 @@ public:
 class UEFActionNotify_Rotate : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EFActionNotify_Rotate_Type>            LookType;                                                 // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	float                                              Degree;                                                   // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8322,7 +10214,8 @@ public:
 class UEFActionNotify_SendNpcSignal : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	int                                                NpcId;                                                    // 0x00CC(0x0004)
+	struct FString                                     NpcSignal;                                                // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8383,7 +10276,7 @@ public:
 class UEFActionNotify_SoundSetFootStep : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00CC(0x0010) MISSED OFFSET
+	struct FString                                     AttachBoneName;                                           // 0x00CC(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8444,7 +10337,7 @@ public:
 class UEFActionNotify_SoundSetStuff : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFSoundSetStuffType>                   StuffType;                                                // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8460,7 +10353,9 @@ public:
 class UEFActionNotify_StopParticleEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<EACTION_PARTICLE_DATA_TYPE>            ActionParticleDataType;                                   // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	int                                                ActionParticleId;                                         // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8476,7 +10371,9 @@ public:
 class UEFActionNotify_SuperArmor : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00CC(0x0008) MISSED OFFSET
+	TEnumAsByte<ESuperArmorType>                       SuperArmorTypeValue;                                      // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	unsigned long                                      bShowEffect : 1;                                          // 0x00D0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8492,7 +10389,10 @@ public:
 class UEFActionNotify_TargetPosControl : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x00CC(0x001C) MISSED OFFSET
+	float                                              StartDistance;                                            // 0x00CC(0x0004)
+	float                                              EndDistance;                                              // 0x00D0(0x0004)
+	int                                                Rotation;                                                 // 0x00D4(0x0004)
+	struct FString                                     ControlDecalNotifyName;                                   // 0x00D8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8523,7 +10423,7 @@ public:
 class UEFActionNotify_ToggleCollision : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	unsigned long                                      bCollide : 1;                                             // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8539,7 +10439,20 @@ public:
 class UEFActionNotify_TrailGhostEffect : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x00CC(0x002C) MISSED OFFSET
+	unsigned long                                      bForceRemovePreviousEffect : 1;                           // 0x00CC(0x0004)
+	unsigned long                                      bStopWhenNotifyEnd : 1;                                   // 0x00CC(0x0004)
+	unsigned long                                      bForceChildAllRemove : 1;                                 // 0x00CC(0x0004)
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	float                                              TrailDuration;                                            // 0x00D0(0x0004)
+	float                                              TrailDeltaSecondsBetweenChildren;                         // 0x00D4(0x0004)
+	float                                              TrailPerChildLifetime;                                    // 0x00D8(0x0004)
+	float                                              InitialAlphaValue;                                        // 0x00DC(0x0004)
+	float                                              InitialAlphaDuration;                                     // 0x00E0(0x0004)
+	float                                              SourceColorIntensity;                                     // 0x00E4(0x0004)
+	struct FColor                                      AmbientGlowColorS;                                        // 0x00E8(0x0004)
+	struct FColor                                      AmbientGlowColorE;                                        // 0x00EC(0x0004)
+	struct FColor                                      RimLightColorS;                                           // 0x00F0(0x0004)
+	struct FColor                                      RimLightColorE;                                           // 0x00F4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8555,7 +10468,17 @@ public:
 class UEFActionNotify_Trails : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4C];                                      // 0x00CC(0x004C) MISSED OFFSET
+	TEnumAsByte<EFEQUIP_PART>                          TrailParts;                                               // 0x00CC(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00CD(0x0003) MISSED OFFSET
+	int                                                TrailPartsIndex;                                          // 0x00D0(0x0004)
+	class UAnimNotify_Trails*                          AnimTrails;                                               // 0x00D4(0x0008)
+	class UEFData_AnimNotify_Trails*                   AnimNotifyTrailsData;                                     // 0x00DC(0x0008)
+	TArray<class UEFParticleDataModifier*>             TrailLookSet;                                             // 0x00E4(0x0010)
+	class UParticleSystem*                             PSTemplate;                                               // 0x00F4(0x0008)
+	TArray<struct FParticleSysParam>                   DefaultTrailParamList;                                    // 0x00FC(0x0010)
+	unsigned long                                      bSetTemplate : 1;                                         // 0x010C(0x0004)
+	int                                                TrailSampledDataCount;                                    // 0x0110(0x0004)
+	float                                              DistanceTessellationStepSize;                             // 0x0114(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8571,7 +10494,14 @@ public:
 class UEFActionNotify_UIEventChecker : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	unsigned long                                      bInstant : 1;                                             // 0x00CC(0x0004)
+	unsigned long                                      bSyncAnimEnd : 1;                                         // 0x00CC(0x0004)
+	unsigned long                                      bChangeStageServer : 1;                                   // 0x00CC(0x0004)
+	int                                                NextStageIndex;                                           // 0x00D0(0x0004)
+	int                                                UIUnitIndex;                                              // 0x00D4(0x0004)
+	TEnumAsByte<EActionNotifyUIEventKey>               UIEventKey;                                               // 0x00D8(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00D9(0x0003) MISSED OFFSET
+	int                                                SendServerSuccessValue;                                   // 0x00DC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8587,7 +10517,14 @@ public:
 class UEFActionNotify_ViewShake : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x00CC(0x0028) MISSED OFFSET
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x00CC(0x0004)
+	unsigned long                                      bIgnoreAnimRate : 1;                                      // 0x00CC(0x0004)
+	unsigned long                                      StopShakeOnNotifyEnd : 1;                                 // 0x00CC(0x0004)
+	unsigned long                                      ViewShakeSpawn : 1;                                       // 0x00CC(0x0004)
+	float                                              SkipDistance;                                             // 0x00D0(0x0004)
+	class UEFCameraViewShake*                          NewViewShake;                                             // 0x00D4(0x0008)
+	class UEFCameraViewShakeAnim*                      NewViewShakeAnim;                                         // 0x00DC(0x0008)
+	struct FString                                     ViewShakePrefix;                                          // 0x00E4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8603,7 +10540,7 @@ public:
 class UEFActionNotify_VoiceSetAdditional : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetAdditionalType>              AdditionalType;                                           // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8619,7 +10556,7 @@ public:
 class UEFActionNotify_VoiceSetAttackCast : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetAttackCastType>              AttackCastType;                                           // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8635,7 +10572,7 @@ public:
 class UEFActionNotify_VoiceSetAttackCastLong : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetAttackCastLongType>          AttackCastLongType;                                       // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8651,7 +10588,7 @@ public:
 class UEFActionNotify_VoiceSetAttackExec : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetAttackExecType>              AttackExecType;                                           // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8667,7 +10604,7 @@ public:
 class UEFActionNotify_VoiceSetAttackShot : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetAttackShotType>              AttackShotType;                                           // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8683,7 +10620,7 @@ public:
 class UEFActionNotify_VoiceSetDamage : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetDamageType>                  DamageType;                                               // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8699,7 +10636,7 @@ public:
 class UEFActionNotify_VoiceSetDeath : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetDeathType>                   DeathType;                                                // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8715,7 +10652,7 @@ public:
 class UEFActionNotify_VoiceSetDown : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetDownType>                    DownType;                                                 // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8731,7 +10668,7 @@ public:
 class UEFActionNotify_VoiceSetIdle : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetIdleType>                    IdleType;                                                 // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8747,7 +10684,7 @@ public:
 class UEFActionNotify_VoiceSetRun : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetRunType>                     RunType;                                                  // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8763,7 +10700,7 @@ public:
 class UEFActionNotify_VoiceSetSpawn : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetSpawnType>                   SpawnType;                                                // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8779,7 +10716,7 @@ public:
 class UEFActionNotify_VoiceSetStandUp : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetStandUpType>                 StandUpType;                                              // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8795,7 +10732,7 @@ public:
 class UEFActionNotify_VoiceSetWalk : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00CC(0x0001) MISSED OFFSET
+	TEnumAsByte<EFVoiceSetWalkType>                    WalkType;                                                 // 0x00CC(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -8811,7 +10748,8 @@ public:
 class UEFActionNotify_WeaponCustomAttach : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x00CC(0x0014) MISSED OFFSET
+	unsigned long                                      bExecuteNotifyEnd : 1;                                    // 0x00CC(0x0004)
+	TArray<int>                                        WeapeonSubIdArr;                                          // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8827,7 +10765,7 @@ public:
 class UEFActionNotify_WeaponMode : public UEFAction_Notify
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00CC(0x0004) MISSED OFFSET
+	unsigned long                                      EquipWhenStart : 1;                                       // 0x00CC(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -8843,7 +10781,9 @@ public:
 class UEFActionCondition : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	TArray<int>                                        OutputStageIndex;                                         // 0x0058(0x0010)
+	TArray<struct FString>                             OutputStageDesc;                                          // 0x0068(0x0010)
+	TArray<int>                                        ValidOutputStageIndex;                                    // 0x0078(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -8859,7 +10799,7 @@ public:
 class UEFActionConditionAbility : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0088(0x0004) MISSED OFFSET
+	int                                                AbilityTypeCondition;                                     // 0x0088(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9115,7 +11055,7 @@ public:
 class UEFActionConditionLearnCommonActionEffectType : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0088(0x0001) MISSED OFFSET
+	TEnumAsByte<ECommonActionEffectType>               LearnCommonActionEffectType;                              // 0x0088(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -9191,7 +11131,7 @@ public:
 class UEFActionConditionProbablity : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0088(0x0004) MISSED OFFSET
+	int                                                Probability;                                              // 0x0088(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9207,7 +11147,7 @@ public:
 class UEFActionConditionRandom : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0088(0x0010) MISSED OFFSET
+	TArray<struct FName>                               ValidOutputStageAnimName;                                 // 0x0088(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9238,7 +11178,7 @@ public:
 class UEFActionConditionSelectNpcIdleType : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0088(0x0010) MISSED OFFSET
+	TArray<struct FExceptionalNpcIdleData>             ExceptionalNpcIdleDataArray;                              // 0x0088(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9284,7 +11224,7 @@ public:
 class UEFActionConditionSkillEffectHit : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0088(0x0010) MISSED OFFSET
+	TArray<int>                                        SkillEffectId;                                            // 0x0088(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9345,7 +11285,8 @@ public:
 class UEFActionConditionStatusEffect : public UEFActionCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0088(0x0008) MISSED OFFSET
+	int                                                AddedStatusEffectId;                                      // 0x0088(0x0004)
+	int                                                RemovedStatusEffectId;                                    // 0x008C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9391,7 +11332,21 @@ public:
 class UEFActionObject : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x6C];                                      // 0x0058(0x006C) MISSED OFFSET
+	int                                                MilestoneVersion;                                         // 0x0058(0x0004)
+	int                                                ActionId;                                                 // 0x005C(0x0004)
+	struct FString                                     ActionName;                                               // 0x0060(0x0010)
+	unsigned long                                      MergeActionStage : 1;                                     // 0x0070(0x0004)
+	unsigned long                                      LayerMergeActionStage : 1;                                // 0x0070(0x0004)
+	unsigned long                                      LayerZeroExtentLineCheck : 1;                             // 0x0070(0x0004)
+	unsigned long                                      bSetPerfectZoneInfo : 1;                                  // 0x0070(0x0004)
+	TArray<struct FNpcPartInfo>                        NpcPartInfoArray;                                         // 0x0074(0x0010)
+	TArray<struct FEFStageLayer>                       StageLayerList;                                           // 0x0084(0x0010)
+	int                                                LayerIndex;                                               // 0x0094(0x0004)
+	struct FString                                     LayerName;                                                // 0x0098(0x0010)
+	TArray<int>                                        ChargeSkillLayerIndexArray;                               // 0x00A8(0x0010)
+	int                                                EditorSkillTierIndex1;                                    // 0x00B8(0x0004)
+	int                                                EditorSkillTierIndex2;                                    // 0x00BC(0x0004)
+	int                                                EditorSkillTierIndex3;                                    // 0x00C0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9407,7 +11362,20 @@ public:
 class UEFActionObjectGroup : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xC0];                                      // 0x0058(0x00C0) MISSED OFFSET
+	struct FEFNPCIdleReferenceData                     NPCIdleReferenceData;                                     // 0x0058(0x0024)
+	struct FString                                     ExportGUID;                                               // 0x007C(0x0010)
+	struct FString                                     Category;                                                 // 0x008C(0x0010)
+	struct FString                                     GroupName;                                                // 0x009C(0x0010)
+	struct FString                                     PackageName;                                              // 0x00AC(0x0010)
+	struct FString                                     LookInfoKey;                                              // 0x00BC(0x0010)
+	TArray<class UAnimSet*>                            ReferenceAnimSetList;                                     // 0x00CC(0x0010)
+	struct FString                                     Comment;                                                  // 0x00DC(0x0010)
+	class UEFActionObjectGroup*                        Template;                                                 // 0x00EC(0x0008)
+	TArray<class UEFActionObject*>                     ActionList;                                               // 0x00F4(0x0010)
+	unsigned long                                      bNpcPartInfoExport : 1;                                   // 0x0104(0x0004)
+	unsigned long                                      SetStageTransitionInfoComplete : 1;                       // 0x0104(0x0004)
+	unsigned long                                      SetNpcDestructionPartsRadiusInfoComplete : 1;             // 0x0104(0x0004)
+	TArray<struct FEFActionGroupReference>             ActionGroupReferenceList;                                 // 0x0108(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9423,7 +11391,9 @@ public:
 class UEFActionSkelControl : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0058(0x0014) MISSED OFFSET
+	unsigned long                                      Enable : 1;                                               // 0x0058(0x0004)
+	struct FName                                       AffectBoneName;                                           // 0x005C(0x0008)
+	class USkelControlBase*                            SkelControl;                                              // 0x0064(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9439,7 +11409,49 @@ public:
 class UEFActionStage : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xD4];                                      // 0x0058(0x00D4) MISSED OFFSET
+	TArray<struct FEFSkill_NotifyGroup>                NotifyGroupList;                                          // 0x0058(0x0010)
+	struct FEFSkill_NotifyGroup                        AnimGroup;                                                // 0x0068(0x0018)
+	float                                              ViewPosX;                                                 // 0x0080(0x0004)
+	float                                              ViewPosY;                                                 // 0x0084(0x0004)
+	unsigned long                                      Differ : 1;                                               // 0x0088(0x0004)
+	unsigned long                                      InfiniteStage : 1;                                        // 0x0088(0x0004)
+	unsigned long                                      AtkSpeedStage : 1;                                        // 0x0088(0x0004)
+	unsigned long                                      bTimingBarReverse : 1;                                    // 0x0088(0x0004)
+	unsigned long                                      bTestTimingBarCategory : 1;                               // 0x0088(0x0004)
+	unsigned long                                      EnableESCCancel : 1;                                      // 0x0088(0x0004)
+	unsigned long                                      EnableStageBuff : 1;                                      // 0x0088(0x0004)
+	unsigned long                                      bUseAimOffset : 1;                                        // 0x0088(0x0004)
+	unsigned long                                      bUsePreviousStageMouseTargetPos : 1;                      // 0x0088(0x0004)
+	unsigned long                                      AnimError : 1;                                            // 0x0088(0x0004)
+	unsigned long                                      bNpcPartInfoExportStage : 1;                              // 0x0088(0x0004)
+	unsigned long                                      bChargeScaleStage : 1;                                    // 0x0088(0x0004)
+	struct FString                                     StageName;                                                // 0x008C(0x0010)
+	float                                              StageLength;                                              // 0x009C(0x0004)
+	float                                              StagePlayRate;                                            // 0x00A0(0x0004)
+	TEnumAsByte<EFSTAGE_TIMINGBARTYPE>                 TimingBarType;                                            // 0x00A4(0x0001)
+	TEnumAsByte<EFSTAGE_TIMINGBARTEXTTYPE>             TimingBarTextType;                                        // 0x00A5(0x0001)
+	TEnumAsByte<EFSTAGE_TIMINGBARCATEGORY>             TestTimingBarCategory;                                    // 0x00A6(0x0001)
+	TEnumAsByte<EFSTAGE_CHANGEDIRTYPE>                 StageChangeDirType;                                       // 0x00A7(0x0001)
+	TEnumAsByte<EFSTAGE_MOVEPOSTYPE>                   StageChangeMovePosType;                                   // 0x00A8(0x0001)
+	TEnumAsByte<ESkipCollidePawnType>                  SkipPawnCollision;                                        // 0x00A9(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x00AA(0x0002) MISSED OFFSET
+	int                                                NextStageIndex;                                           // 0x00AC(0x0004)
+	int                                                StageBuffId;                                              // 0x00B0(0x0004)
+	float                                              StageChangeDirInterpolationTime;                          // 0x00B4(0x0004)
+	int                                                StageChangeDirLimitDegree;                                // 0x00B8(0x0004)
+	float                                              MovePosValue;                                             // 0x00BC(0x0004)
+	float                                              MovePosOffsetValue;                                       // 0x00C0(0x0004)
+	TArray<class UEFAction_Notify*>                    NotifyList;                                               // 0x00C4(0x0010)
+	int                                                AnimNotifyIndex;                                          // 0x00D4(0x0004)
+	struct FVector                                     MaxRootMotionDelta;                                       // 0x00D8(0x000C)
+	struct FVector                                     MinRootMotionDelta;                                       // 0x00E4(0x000C)
+	float                                              RootMotionSampleTime;                                     // 0x00F0(0x0004)
+	TArray<struct FVector>                             RootMotionSample;                                         // 0x00F4(0x0010)
+	TArray<int>                                        RootMotionRotationYawSample;                              // 0x0104(0x0010)
+	float                                              StageCancelTime;                                          // 0x0114(0x0004)
+	int                                                ChargeParticleScale;                                      // 0x0118(0x0004)
+	int                                                ChargeDamageScale;                                        // 0x011C(0x0004)
+	struct FEFStageTransitionInfo                      StageTransitionInfo;                                      // 0x0120(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -9455,7 +11467,10 @@ public:
 class AEFMatineePathNode : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0274(0x002C) MISSED OFFSET
+	TArray<struct FMatineePathNodeConnection>          Connections;                                              // 0x0274(0x0010)
+	TArray<class AEFMatineePathNode*>                  LinksFrom;                                                // 0x0284(0x0010)
+	struct FName                                       PathName;                                                 // 0x0294(0x0008)
+	struct FColor                                      LineColor;                                                // 0x029C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9494,7 +11509,15 @@ public:
 class UEFSequenceSummons : public USequence
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x01B4(0x0040) MISSED OFFSET
+	struct FString                                     SummonsName;                                              // 0x01B4(0x0010)
+	int                                                SummonsID;                                                // 0x01C4(0x0004)
+	class UEFSequenceSummonsProjectile*                SequenceSummonsProjectile;                                // 0x01C8(0x0008)
+	TArray<class UEFSequenceSummonsBase*>              NoneUseList;                                              // 0x01D0(0x0010)
+	int                                                EditorSkillTierIndex1;                                    // 0x01E0(0x0004)
+	int                                                EditorSkillTierIndex2;                                    // 0x01E4(0x0004)
+	int                                                EditorSkillTierIndex3;                                    // 0x01E8(0x0004)
+	unsigned long                                      EditorDirty : 1;                                          // 0x01EC(0x0004)
+	int                                                MilestoneVersion;                                         // 0x01F0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9510,7 +11533,8 @@ public:
 class UEFSequenceSummonsBase : public USequenceOp
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x012C(0x0014) MISSED OFFSET
+	struct FString                                     SummonsDesc;                                              // 0x012C(0x0010)
+	unsigned long                                      IsExportSet : 1;                                          // 0x013C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9526,7 +11550,14 @@ public:
 class UEFSequenceSummonsAction : public UEFSequenceSummonsBase
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0140(0x0018) MISSED OFFSET
+	TArray<class UEFSequenceSummonsAction*>            ActivateActionList;                                       // 0x0140(0x0010)
+	TEnumAsByte<EFSummonsSummonProjectileUsePlatformType> ProjectileUsePlatform;                                    // 0x0150(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0151(0x0003) MISSED OFFSET
+	unsigned long                                      IsUseProjectile_Missile : 1;                              // 0x0154(0x0004)
+	unsigned long                                      IsUseProjectile_FixArea : 1;                              // 0x0154(0x0004)
+	unsigned long                                      IsUseProjectile_Grenade : 1;                              // 0x0154(0x0004)
+	unsigned long                                      IsUseProjectile_Trace : 1;                                // 0x0154(0x0004)
+	unsigned long                                      IsTierCheckData : 1;                                      // 0x0154(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9542,7 +11573,11 @@ public:
 class UEFSequenceSummonsActionAccel : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	unsigned long                                      bEnableAccel : 1;                                         // 0x0158(0x0004)
+	TEnumAsByte<EFSummonsAAType>                       AccelType;                                                // 0x015C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x015D(0x0003) MISSED OFFSET
+	float                                              AccelStartValue;                                          // 0x0160(0x0004)
+	float                                              AccelMaxSpeedElapseTime;                                  // 0x0164(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9558,7 +11593,10 @@ public:
 class UEFSequenceSummonsActionAkEvent : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	class UAkEvent*                                    AkEvent;                                                  // 0x0158(0x0008)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0160(0x0004)
+	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0160(0x0004)
+	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0164(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9574,7 +11612,10 @@ public:
 class UEFSequenceSummonsActionAuraBuff : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	int                                                BuffID;                                                   // 0x0158(0x0004)
+	int                                                BuffID2;                                                  // 0x015C(0x0004)
+	float                                              Delay;                                                    // 0x0160(0x0004)
+	float                                              Lifetime;                                                 // 0x0164(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9590,7 +11631,10 @@ public:
 class UEFSequenceSummonsActionBankData : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0158(0x0040) MISSED OFFSET
+	TArray<struct FEFSequenceSummonsActionBankDataParticle> ParticleDatas;                                            // 0x0158(0x0010)
+	TArray<struct FEFSequenceSummonsActionBankDataFloatValue> FloatValueDatas;                                          // 0x0168(0x0010)
+	TArray<struct FEFSequenceSummonsActionBankDataBOOLValue> BOOLValueDatas;                                           // 0x0178(0x0010)
+	TArray<struct FEFSequenceSummonsActionBankDataMultiUseValueDataArray> SkillEffectMultiUseArrayDataArray;                        // 0x0188(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9606,7 +11650,8 @@ public:
 class UEFSequenceSummonsActionCameraShake : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0158(0x000C) MISSED OFFSET
+	unsigned long                                      ApplySelfOnly : 1;                                        // 0x0158(0x0004)
+	class UEFCameraViewShake*                          NewViewShake;                                             // 0x015C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9622,7 +11667,7 @@ public:
 class UEFSequenceSummonsActionCreateFX : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0158(0x0008) MISSED OFFSET
+	class UEFProjectileParticleData*                   ParticleData;                                             // 0x0158(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9638,7 +11683,8 @@ public:
 class UEFSequenceSummonsActionPostProcessChainTimeVarying : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0158(0x000C) MISSED OFFSET
+	unsigned long                                      bUseOnlyLocalPlayer : 1;                                  // 0x0158(0x0004)
+	class UEFPostProcessMaterialEffectSkill*           ProcessMaterialData;                                      // 0x015C(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9654,7 +11700,25 @@ public:
 class UEFSequenceSummonsActionSetSkeletalMesh : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x8C];                                      // 0x0158(0x008C) MISSED OFFSET
+	class USkeletalMeshComponent*                      SkeletalMeshComponentData;                                // 0x0158(0x0008)
+	class USkeletalMesh*                               SkeletalMeshData;                                         // 0x0160(0x0008)
+	TArray<class UAnimSet*>                            AnimSets;                                                 // 0x0168(0x0010)
+	struct FString                                     PlayAniName;                                              // 0x0178(0x0010)
+	float                                              AnimPlayRate;                                             // 0x0188(0x0004)
+	float                                              AnimPlayStartTime;                                        // 0x018C(0x0004)
+	struct FVector                                     RelativeScale;                                            // 0x0190(0x000C)
+	struct FVector                                     Translation;                                              // 0x019C(0x000C)
+	struct FVector                                     Rotation;                                                 // 0x01A8(0x000C)
+	unsigned long                                      bAniChange : 1;                                           // 0x01B4(0x0004)
+	unsigned long                                      bAnimIsLoop : 1;                                          // 0x01B4(0x0004)
+	unsigned long                                      IsTrailParticleRemove : 1;                                // 0x01B4(0x0004)
+	unsigned long                                      bApplyFxArleadySkeletalMesh : 1;                          // 0x01B4(0x0004)
+	unsigned long                                      IsCollisionResize : 1;                                    // 0x01B4(0x0004)
+	unsigned long                                      bDeleteAleardyProjectileActionSkeletalMeshMaterialParameterArray : 1;// 0x01B4(0x0004)
+	class UEFProjectileParticleData*                   AppearParticleData;                                       // 0x01B8(0x0008)
+	TArray<class UEFProjectileParticleData*>           AttachParticleDataArray;                                  // 0x01C0(0x0010)
+	float                                              CollisionReSize;                                          // 0x01D0(0x0004)
+	TArray<struct FEFProjectileActionSkeletalMeshMaterialParameter> EFProjectileActionSkeletalMeshMaterialParameterArray;     // 0x01D4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9670,7 +11734,7 @@ public:
 class UEFSequenceSummonsActionSkeletalMeshFX : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0xB0];                                      // 0x0158(0x00B0) MISSED OFFSET
+	struct FPlaySkeletalMeshActor                      SkeletalMeshActors;                                       // 0x0158(0x00B0)
 
 	static UClass* StaticClass()
 	{
@@ -9686,7 +11750,8 @@ public:
 class UEFSequenceSummonsActionSkeletalMeshFXMaterialParam : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0158(0x0048) MISSED OFFSET
+	struct FString                                     ActionNotifyTag;                                          // 0x0158(0x0010)
+	struct FActionNotify_SM_AnimEventData              AnimEventData;                                            // 0x0168(0x0038)
 
 	static UClass* StaticClass()
 	{
@@ -9702,7 +11767,10 @@ public:
 class UEFSequenceSummonsActionSkillEffect : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0158(0x000C) MISSED OFFSET
+	unsigned char                                      UniqueId;                                                 // 0x0158(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0159(0x0003) MISSED OFFSET
+	int                                                SkillEffectId;                                            // 0x015C(0x0004)
+	int                                                SkillEffectCheckCount;                                    // 0x0160(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9718,7 +11786,11 @@ public:
 class UEFSequenceSummonsActionSequentialSkillEffect : public UEFSequenceSummonsActionSkillEffect
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0164(0x0008) MISSED OFFSET
+	TEnumAsByte<EFHitSegmentDirType>                   HitDirType;                                               // 0x0164(0x0001)
+	unsigned char                                      SequentialSkillEffectExecuteCount;                        // 0x0165(0x0001)
+	unsigned char                                      SequentialSkillEffectAreaRate;                            // 0x0166(0x0001)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0167(0x0001) MISSED OFFSET
+	float                                              SequentialSkillEffectDuration;                            // 0x0168(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9734,7 +11806,10 @@ public:
 class UEFSequenceSummonsActionTimer : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	float                                              EventDelay;                                               // 0x0158(0x0004)
+	int                                                EventCount;                                               // 0x015C(0x0004)
+	float                                              EventTerm;                                                // 0x0160(0x0004)
+	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0164(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9750,7 +11825,8 @@ public:
 class UEFSequenceSummonsCondition : public UEFSequenceSummonsAction
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0158(0x0020) MISSED OFFSET
+	TArray<class UEFSequenceSummonsAction*>            ifActionList;                                             // 0x0158(0x0010)
+	TArray<class UEFSequenceSummonsAction*>            elseActionList;                                           // 0x0168(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9766,7 +11842,7 @@ public:
 class UEFSequenceSummonsActionTierChecker : public UEFSequenceSummonsCondition
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0178(0x0010) MISSED OFFSET
+	TArray<struct FEFSequenceSummonsActionTierCheckerData> EFSequenceSummonsActionTierCheckerDataArray;              // 0x0178(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9797,7 +11873,17 @@ public:
 class UEFSequenceSummonsComment : public UEFSequenceSummonsBase
 {
 public:
-	unsigned char                                      UnknownData00[0x38];                                      // 0x0140(0x0038) MISSED OFFSET
+	struct FString                                     Comment;                                                  // 0x0140(0x0010)
+	int                                                SizeX;                                                    // 0x0150(0x0004)
+	int                                                SizeY;                                                    // 0x0154(0x0004)
+	int                                                BorderWidth;                                              // 0x0158(0x0004)
+	unsigned long                                      bDrawBox : 1;                                             // 0x015C(0x0004)
+	unsigned long                                      bFilled : 1;                                              // 0x015C(0x0004)
+	unsigned long                                      bTileFill : 1;                                            // 0x015C(0x0004)
+	struct FColor                                      BorderColor;                                              // 0x0160(0x0004)
+	struct FColor                                      FillColor;                                                // 0x0164(0x0004)
+	class UTexture2D*                                  FillTexture;                                              // 0x0168(0x0008)
+	class UMaterial*                                   FillMaterial;                                             // 0x0170(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9813,7 +11899,38 @@ public:
 class UEFSequenceSummonsProjectile : public UEFSequenceSummonsBase
 {
 public:
-	unsigned char                                      UnknownData00[0x94];                                      // 0x0140(0x0094) MISSED OFFSET
+	unsigned long                                      LocalControl : 1;                                         // 0x0140(0x0004)
+	unsigned long                                      DestroyWhenSkillEnd : 1;                                  // 0x0140(0x0004)
+	unsigned long                                      DestroyWhenSkillStageEnd : 1;                             // 0x0140(0x0004)
+	unsigned long                                      DestroyWhenOwnerDied : 1;                                 // 0x0140(0x0004)
+	unsigned long                                      DestroyWhenEnterParalyzation : 1;                         // 0x0140(0x0004)
+	unsigned long                                      ReversedDirection : 1;                                    // 0x0140(0x0004)
+	unsigned long                                      IsMoveableProjectile : 1;                                 // 0x0140(0x0004)
+	unsigned long                                      Penerate : 1;                                             // 0x0140(0x0004)
+	unsigned long                                      CollisionPreCheck : 1;                                    // 0x0140(0x0004)
+	float                                              CreateDelay;                                              // 0x0144(0x0004)
+	int                                                UniqueGroupIndex;                                         // 0x0148(0x0004)
+	int                                                MaxIdentityGaugeRecoveryCount;                            // 0x014C(0x0004)
+	TEnumAsByte<EFSummonsATSelect>                     TargetSelectType;                                         // 0x0150(0x0001)
+	TEnumAsByte<EFSummonsHitCheckType>                 HitCheckType;                                             // 0x0151(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0152(0x0002) MISSED OFFSET
+	class UEFProjectileParticleData*                   TrailParticleData;                                        // 0x0154(0x0008)
+	class UEFProjectileParticleData*                   ExplodeParticleData;                                      // 0x015C(0x0008)
+	class UEFProjectileParticleData*                   EnvExplodeParticleData;                                   // 0x0164(0x0008)
+	float                                              ResScale;                                                 // 0x016C(0x0004)
+	float                                              CollisionSize;                                            // 0x0170(0x0004)
+	float                                              CollisionSize_HeightClientOnly;                           // 0x0174(0x0004)
+	int                                                Speed;                                                    // 0x0178(0x0004)
+	int                                                MaxSpeed;                                                 // 0x017C(0x0004)
+	float                                              Lifetime;                                                 // 0x0180(0x0004)
+	int                                                MaxDistance;                                              // 0x0184(0x0004)
+	int                                                MaxApplyCount;                                            // 0x0188(0x0004)
+	struct FEFSummonsObjectMask                        ObjectMask;                                               // 0x018C(0x0004)
+	int                                                ObjectMaskValue;                                          // 0x0190(0x0004)
+	TArray<class UEFSequenceSummonsAction*>            StartActionList;                                          // 0x0194(0x0010)
+	TArray<class UEFSequenceSummonsAction*>            HitActionList;                                            // 0x01A4(0x0010)
+	TArray<class UEFSequenceSummonsAction*>            EndActionList;                                            // 0x01B4(0x0010)
+	TArray<class UEFSequenceSummonsAction*>            BGCollisionActionList;                                    // 0x01C4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9829,7 +11946,18 @@ public:
 class UEFSequenceSummonsProjectileFixArea : public UEFSequenceSummonsProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x5C];                                      // 0x01D4(0x005C) MISSED OFFSET
+	class UEFProjectileParticleData*                   StartFXParticleData;                                      // 0x01D4(0x0008)
+	class UEFProjectileParticleData*                   StartDecalParticleData;                                   // 0x01DC(0x0008)
+	TArray<struct FEFSummonsFixAreaStartIndexDecal>    StartIndexDecalDatas;                                     // 0x01E4(0x0010)
+	class UEFProjectileParticleData*                   LoopFXParticleData;                                       // 0x01F4(0x0008)
+	class UEFProjectileParticleData*                   LoopDecalParticleData;                                    // 0x01FC(0x0008)
+	float                                              fLoopFXStartTime;                                         // 0x0204(0x0004)
+	unsigned long                                      bDecalOverPrevent : 1;                                    // 0x0208(0x0004)
+	unsigned long                                      bInitialLocGround : 1;                                    // 0x0208(0x0004)
+	float                                              fDecalFadeOutTime;                                        // 0x020C(0x0004)
+	struct FRotator                                    RandomRotateMin;                                          // 0x0210(0x000C)
+	struct FRotator                                    RandomRotateMax;                                          // 0x021C(0x000C)
+	struct FEFSummonsJudgmentRotation                  JudgmentRotation;                                         // 0x0228(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9845,7 +11973,11 @@ public:
 class UEFSequenceSummonsProjectileGrenade : public UEFSequenceSummonsProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x01D4(0x0014) MISSED OFFSET
+	int                                                GrenadeMinHeight;                                         // 0x01D4(0x0004)
+	int                                                GrenadeMaxHeight;                                         // 0x01D8(0x0004)
+	float                                              GrenadeMaxheightRatio;                                    // 0x01DC(0x0004)
+	float                                              GrenadeMaxheightStartDist;                                // 0x01E0(0x0004)
+	float                                              StandardDistance;                                         // 0x01E4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9861,7 +11993,10 @@ public:
 class UEFSequenceSummonsProjectileMissile : public UEFSequenceSummonsProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x01D4(0x0014) MISSED OFFSET
+	class UEFProjectileParticleData*                   NaturalDieParticleData;                                   // 0x01D4(0x0008)
+	unsigned long                                      bUseAttachHitParticle : 1;                                // 0x01DC(0x0004)
+	unsigned long                                      bIsIgnoreBGround : 1;                                     // 0x01DC(0x0004)
+	struct FEFSummonsJudgmentRotation                  JudgmentRotation;                                         // 0x01E0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9877,7 +12012,18 @@ public:
 class UEFSequenceSummonsProjectileTrace : public UEFSequenceSummonsProjectile
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x01D4(0x0028) MISSED OFFSET
+	class UEFProjectileParticleData*                   NaturalDieParticleData;                                   // 0x01D4(0x0008)
+	unsigned long                                      bIsIgnoreBGround : 1;                                     // 0x01DC(0x0004)
+	TEnumAsByte<ETraceProjectileStartMoveType>         StartMoveType;                                            // 0x01E0(0x0001)
+	TEnumAsByte<ETraceProjectileEndMoveType>           EndMoveType;                                              // 0x01E1(0x0001)
+	TEnumAsByte<ETraceProjectileTargetSelectType>      TraceTargetSelectType;                                    // 0x01E2(0x0001)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x01E3(0x0001) MISSED OFFSET
+	float                                              TurnVelocity;                                             // 0x01E4(0x0004)
+	float                                              TargetSearchStartTime;                                    // 0x01E8(0x0004)
+	float                                              TargetSearchRadius;                                       // 0x01EC(0x0004)
+	float                                              TargetSearchAngle;                                        // 0x01F0(0x0004)
+	float                                              TraceGiveUpRadius;                                        // 0x01F4(0x0004)
+	float                                              TraceDuration;                                            // 0x01F8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9893,7 +12039,7 @@ public:
 class UEFSequenceSummonsData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	class USequence*                                   SummonsSequence;                                          // 0x0058(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -9909,7 +12055,7 @@ public:
 class UEFSequenceSummonsEditorFilter : public USequence
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x01B4(0x0010) MISSED OFFSET
+	TArray<struct FSummonsEditorFilterData>            SubFilters;                                               // 0x01B4(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9925,7 +12071,10 @@ public:
 class UEFSequenceSummonsEditorFilterData : public USequence
 {
 public:
-	unsigned char                                      UnknownData00[0x34];                                      // 0x01B4(0x0034) MISSED OFFSET
+	struct FString                                     FilterName;                                               // 0x01B4(0x0010)
+	unsigned long                                      UnkownFilter : 1;                                         // 0x01C4(0x0004)
+	TArray<class UEFSequenceSummons*>                  summons;                                                  // 0x01C8(0x0010)
+	TArray<class UEFSequenceSummonsEditorFilterData*>  SubFilters;                                               // 0x01D8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9941,7 +12090,7 @@ public:
 class UEFInterpGroupGameOption : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	struct FString                                     Comment;                                                  // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -9957,7 +12106,8 @@ public:
 class UEFInterpTrackAnimBlendingControl : public UInterpTrackAnimControl
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00FC(0x0008) MISSED OFFSET
+	float                                              BeginBlendTime;                                           // 0x00FC(0x0004)
+	float                                              EndBlendTime;                                             // 0x0100(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -9973,7 +12123,8 @@ public:
 class UEFInterpTrackAnimNodeBlendWeight : public UInterpTrackSkelControlStrength
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x00D8(0x000C) MISSED OFFSET
+	struct FName                                       AnimNodeBlendName;                                        // 0x00D8(0x0008)
+	float                                              EndAnimBlendTime;                                         // 0x00E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10004,7 +12155,9 @@ public:
 class UEFInterpTrackAutoBlendColorProp : public UInterpTrackColorProp
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00D8(0x0010) MISSED OFFSET
+	struct FPointer                                    VfTable_IEFInterpTrackAutoBlendBase;                      // 0x00D8(0x0008)
+	float                                              BlendInTimeFromOriginal;                                  // 0x00E0(0x0004)
+	float                                              BlendOutTimeToOriginal;                                   // 0x00E4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10020,7 +12173,9 @@ public:
 class UEFInterpTrackAutoBlendFloatProp : public UInterpTrackFloatProp
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00D8(0x0010) MISSED OFFSET
+	struct FPointer                                    VfTable_IEFInterpTrackAutoBlendBase;                      // 0x00D8(0x0008)
+	float                                              BlendInTimeFromOriginal;                                  // 0x00E0(0x0004)
+	float                                              BlendOutTimeToOriginal;                                   // 0x00E4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10036,7 +12191,9 @@ public:
 class UEFInterpTrackAutoBlendVectorProp : public UInterpTrackVectorProp
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00D8(0x0010) MISSED OFFSET
+	struct FPointer                                    VfTable_IEFInterpTrackAutoBlendBase;                      // 0x00D8(0x0008)
+	float                                              BlendInTimeFromOriginal;                                  // 0x00E0(0x0004)
+	float                                              BlendOutTimeToOriginal;                                   // 0x00E4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10052,7 +12209,12 @@ public:
 class UEFInterpTrackInstAnimBlendingControl : public UInterpTrackInstAnimControl
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0078(0x0020) MISSED OFFSET
+	struct FName                                       BeginBlendingAnimName;                                    // 0x0078(0x0008)
+	struct FName                                       EndBlendingAnimName;                                      // 0x0080(0x0008)
+	float                                              BeginAnimStartTime;                                       // 0x0088(0x0004)
+	float                                              BeginAnimTime;                                            // 0x008C(0x0004)
+	float                                              EndAnimTime;                                              // 0x0090(0x0004)
+	float                                              CurrentWeight;                                            // 0x0094(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10083,7 +12245,7 @@ public:
 class UEFInterpTrackInstNearPlaneScale : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              StandardNearPlaneValue;                                   // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10099,7 +12261,7 @@ public:
 class UEFInterpTrackInstPlayerClassAkEvent : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10115,7 +12277,7 @@ public:
 class UEFInterpTrackInstSkelControlMulti : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	TArray<unsigned long>                              SavedControlledByAnimMetaDataList;                        // 0x0058(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10131,7 +12293,12 @@ public:
 class UEFInterpTrackInstSkelControlVector : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x0058(0x0060) MISSED OFFSET
+	TArray<unsigned long>                              AnimMetaDataFlagList_PositiveX;                           // 0x0058(0x0010)
+	TArray<unsigned long>                              AnimMetaDataFlagList_NegativeX;                           // 0x0068(0x0010)
+	TArray<unsigned long>                              AnimMetaDataFlagList_PositiveY;                           // 0x0078(0x0010)
+	TArray<unsigned long>                              AnimMetaDataFlagList_NegativeY;                           // 0x0088(0x0010)
+	TArray<unsigned long>                              AnimMetaDataFlagList_PositiveZ;                           // 0x0098(0x0010)
+	TArray<unsigned long>                              AnimMetaDataFlagList_NegativeZ;                           // 0x00A8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10147,7 +12314,7 @@ public:
 class UEFInterpTrackInstSoundSet : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10163,7 +12330,7 @@ public:
 class UEFInterpTrackInstSubtitle : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10179,7 +12346,7 @@ public:
 class UEFInterpTrackInstSubtitleBalloon : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10195,7 +12362,8 @@ public:
 class UEFInterpTrackInstUnfixedPhysicBody : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
+	unsigned long                                      bLastActivateUnfixedPhysicBody : 1;                       // 0x005C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10211,7 +12379,7 @@ public:
 class UEFInterpTrackInstVectorParticleParam : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x0058(0x000C) MISSED OFFSET
+	struct FVector                                     ResetVector;                                              // 0x0058(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -10227,7 +12395,7 @@ public:
 class UEFInterpTrackInstVoiceSet : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0058(0x0004) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x0058(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10258,7 +12426,7 @@ public:
 class UEFInterpTrackPlayerClassAkEvent : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00B8(0x0010) MISSED OFFSET
+	TArray<struct FEFPlayerClassAkEventTrackKey>       AkEvents;                                                 // 0x00B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10274,7 +12442,7 @@ public:
 class UEFInterpTrackSkelControlMulti : public UInterpTrackFloatBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00D0(0x0010) MISSED OFFSET
+	TArray<struct FName>                               SkelControlNameList;                                      // 0x00D0(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10290,7 +12458,12 @@ public:
 class UEFInterpTrackSkelControlVector : public UInterpTrackVectorBase
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x00D0(0x0060) MISSED OFFSET
+	TArray<struct FName>                               SKelControlNameList_PositiveX;                            // 0x00D0(0x0010)
+	TArray<struct FName>                               SKelControlNameList_NegativeX;                            // 0x00E0(0x0010)
+	TArray<struct FName>                               SKelControlNameList_PositiveY;                            // 0x00F0(0x0010)
+	TArray<struct FName>                               SKelControlNameList_NegativeY;                            // 0x0100(0x0010)
+	TArray<struct FName>                               SKelControlNameList_PositiveZ;                            // 0x0110(0x0010)
+	TArray<struct FName>                               SKelControlNameList_NegativeZ;                            // 0x0120(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10306,7 +12479,7 @@ public:
 class UEFInterpTrackSoundSet : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00B8(0x0010) MISSED OFFSET
+	TArray<struct FEFInterpTrackSoundSetInfo>          SoundSets;                                                // 0x00B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10322,7 +12495,14 @@ public:
 class UEFInterpTrackSubtitle : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x00B8(0x002C) MISSED OFFSET
+	TArray<struct FEFSubtitleInfo>                     SubtitleInfoArr;                                          // 0x00B8(0x0010)
+	TEnumAsByte<ESubtitleDisplayMethod>                SubtitleDisplayMethod;                                    // 0x00C8(0x0001)
+	TEnumAsByte<ECinematicSubtitlePositionType>        PositionType;                                             // 0x00C9(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x00CA(0x0002) MISSED OFFSET
+	unsigned long                                      bUseSubtitleBackground : 1;                               // 0x00CC(0x0004)
+	unsigned long                                      bApplyFacialAnim : 1;                                     // 0x00CC(0x0004)
+	struct FEFFacialAnimInfo                           FacialAnimInfo;                                           // 0x00D0(0x0010)
+	int                                                PrevKeyIndex;                                             // 0x00E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10338,7 +12518,11 @@ public:
 class UEFInterpTrackSubtitleBalloon : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x00B8(0x002C) MISSED OFFSET
+	TArray<struct FEFSubtitleBalloonInfo>              SubtitleBalloonInfoArr;                                   // 0x00B8(0x0010)
+	int                                                GroupActorIndex;                                          // 0x00C8(0x0004)
+	struct FEFFacialAnimInfo                           FacialAnimInfo;                                           // 0x00CC(0x0010)
+	unsigned long                                      bApplyFacialAnim : 1;                                     // 0x00DC(0x0004)
+	int                                                PrevKeyIndex;                                             // 0x00E0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10354,7 +12538,11 @@ public:
 class UEFInterpTrackUnfixedPhysicBody : public UInterpTrackBoolProp
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x00D0(0x001C) MISSED OFFSET
+	unsigned long                                      bUsePlayerUnfixedBoneNames : 1;                           // 0x00D0(0x0004)
+	unsigned long                                      bEnableBoneSpringAngular : 1;                             // 0x00D0(0x0004)
+	TArray<struct FName>                               UnfixedBoneNames;                                         // 0x00D4(0x0010)
+	float                                              BoneAngularSpring;                                        // 0x00E4(0x0004)
+	float                                              BoneAngularDamping;                                       // 0x00E8(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10370,7 +12558,7 @@ public:
 class UEFInterpTrackVectorParticleParam : public UInterpTrackVectorBase
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00D0(0x0008) MISSED OFFSET
+	struct FName                                       ParamName;                                                // 0x00D0(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -10386,7 +12574,7 @@ public:
 class UEFInterpTrackVoiceSet : public UInterpTrack
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00B8(0x0010) MISSED OFFSET
+	TArray<struct FEFInterpTrackVoiceSetInfo>          VoiceSets;                                                // 0x00B8(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10402,7 +12590,10 @@ public:
 class UEFTexture2D : public UTexture2D
 {
 public:
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x022C(0x001C) MISSED OFFSET
+	unsigned long                                      bAtlas : 1;                                               // 0x022C(0x0004)
+	TArray<struct FEFTexture2DHitPixel>                HitTestPixelArray;                                        // 0x0230(0x0010)
+	int                                                EachWidth;                                                // 0x0240(0x0004)
+	int                                                EachHeight;                                               // 0x0244(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10418,7 +12609,8 @@ public:
 class UEFTextureRenderTarget : public UTextureRenderTarget2D
 {
 public:
-	unsigned char                                      UnknownData00[0xC];                                       // 0x014C(0x000C) MISSED OFFSET
+	struct FPointer                                    VfTable_FCallbackEventDevice;                             // 0x014C(0x0008)
+	unsigned long                                      bResizeToFitViewport : 1;                                 // 0x0154(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10434,7 +12626,11 @@ public:
 class UEFTextureWeb : public UTexture
 {
 public:
-	unsigned char                                      UnknownData00[0xB];                                       // 0x0124(0x000B) MISSED OFFSET
+	int                                                SizeX;                                                    // 0x0124(0x0004)
+	int                                                SizeY;                                                    // 0x0128(0x0004)
+	TEnumAsByte<EPixelFormat>                          Format;                                                   // 0x012C(0x0001)
+	TEnumAsByte<ETextureAddress>                       AddressX;                                                 // 0x012D(0x0001)
+	TEnumAsByte<ETextureAddress>                       AddressY;                                                 // 0x012E(0x0001)
 
 	static UClass* StaticClass()
 	{
@@ -10450,7 +12646,12 @@ public:
 class UEFMinimapData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x0058(0x0054) MISSED OFFSET
+	int                                                ZoneID;                                                   // 0x0058(0x0004)
+	TArray<class AEFMinimapVolume*>                    MinimapVolumes;                                           // 0x005C(0x0010)
+	TArray<class AEFMinimapVolume*>                    IndoorLinkVolumes;                                        // 0x006C(0x0010)
+	TArray<class AEFInDoorVolume*>                     IndoorVolumes;                                            // 0x007C(0x0010)
+	TArray<class AEFExpandedMinimapVolume*>            ExMinimapVolumes;                                         // 0x008C(0x0010)
+	TArray<class AEFVoyagemapVolume*>                  VoyagemapVolumes;                                         // 0x009C(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10466,7 +12667,11 @@ public:
 class AEFExpandedMinimapVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x02B8(0x0050) MISSED OFFSET
+	int                                                VolumeIndex;                                              // 0x02B8(0x0004)
+	struct FString                                     PackageName;                                              // 0x02BC(0x0010)
+	struct FString                                     GroupName;                                                // 0x02CC(0x0010)
+	struct FString                                     TextureName;                                              // 0x02DC(0x0010)
+	struct FBox                                        BoundingBox;                                              // 0x02EC(0x001C)
 
 	static UClass* StaticClass()
 	{
@@ -10482,7 +12687,10 @@ public:
 class AEFInDoorVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x02B8(0x002C) MISSED OFFSET
+	int                                                VolumeIndex;                                              // 0x02B8(0x0004)
+	int                                                MinimapVolumeIndex;                                       // 0x02BC(0x0004)
+	class AEFMinimapVolume*                            MinimapVolume;                                            // 0x02C0(0x0008)
+	struct FBox                                        BoundingBox;                                              // 0x02C8(0x001C)
 
 	static UClass* StaticClass()
 	{
@@ -10498,7 +12706,21 @@ public:
 class AEFMinimapVolume : public AEFVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x90];                                      // 0x02B8(0x0090) MISSED OFFSET
+	int                                                VolumeIndex;                                              // 0x02B8(0x0004)
+	int                                                UnitWidth;                                                // 0x02BC(0x0004)
+	int                                                UnitHeight;                                               // 0x02C0(0x0004)
+	int                                                VolumeCutSize;                                            // 0x02C4(0x0004)
+	struct FString                                     PackageName;                                              // 0x02C8(0x0010)
+	struct FString                                     GroupName;                                                // 0x02D8(0x0010)
+	struct FString                                     FullTextureName;                                          // 0x02E8(0x0010)
+	TArray<struct FMinimapPeiceInfo>                   PieceInfos;                                               // 0x02F8(0x0010)
+	struct FBox                                        BoundingBox;                                              // 0x0308(0x001C)
+	int                                                InDoorVolumeIndex;                                        // 0x0324(0x0004)
+	class AEFInDoorVolume*                             InDoorVolume;                                             // 0x0328(0x0008)
+	unsigned long                                      bUseIndoorExMinimap : 1;                                  // 0x0330(0x0004)
+	unsigned long                                      bDefaultFloor : 1;                                        // 0x0330(0x0004)
+	int                                                Floor;                                                    // 0x0334(0x0004)
+	struct FString                                     FloorName;                                                // 0x0338(0x0010)
 
 	static UClass* StaticClass()
 	{
@@ -10514,7 +12736,7 @@ public:
 class AEFVoyagemapVolume : public AEFMinimapVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0348(0x0004) MISSED OFFSET
+	int                                                VolumeHeightCutSize;                                      // 0x0348(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10654,7 +12876,7 @@ public:
 class UEFSeqAct_SetPostProcessEffectProperties : public USequenceAction
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0158(0x0008) MISSED OFFSET
+	struct FName                                       PostProcessEffectName;                                    // 0x0158(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -10672,7 +12894,25 @@ public:
 class UEFSeqAct_SetAmbientOcclusionEffectProperties : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x0160(0x0054) MISSED OFFSET
+	struct FLinearColor                                OcclusionColor;                                           // 0x0160(0x0010)
+	float                                              OcclusionPower;                                           // 0x0170(0x0004)
+	float                                              OcclusionScale;                                           // 0x0174(0x0004)
+	float                                              OcclusionBias;                                            // 0x0178(0x0004)
+	float                                              MinOcclusion;                                             // 0x017C(0x0004)
+	unsigned long                                      bAngleBasedSSAO : 1;                                      // 0x0180(0x0004)
+	float                                              OcclusionRadius;                                          // 0x0184(0x0004)
+	TEnumAsByte<EAmbientOcclusionQuality>              OcclusionQuality;                                         // 0x0188(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0189(0x0003) MISSED OFFSET
+	float                                              OcclusionFadeoutMinDistance;                              // 0x018C(0x0004)
+	float                                              OcclusionFadeoutMaxDistance;                              // 0x0190(0x0004)
+	float                                              HaloDistanceThreshold;                                    // 0x0194(0x0004)
+	float                                              HaloDistanceScale;                                        // 0x0198(0x0004)
+	float                                              HaloOcclusion;                                            // 0x019C(0x0004)
+	float                                              EdgeDistanceThreshold;                                    // 0x01A0(0x0004)
+	float                                              EdgeDistanceScale;                                        // 0x01A4(0x0004)
+	float                                              FilterDistanceScale;                                      // 0x01A8(0x0004)
+	float                                              HistoryConvergenceTime;                                   // 0x01AC(0x0004)
+	float                                              HistoryWeightConvergenceTime;                             // 0x01B0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10690,7 +12930,7 @@ public:
 class UEFSeqAct_SetBlurEffectProperties : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0160(0x0004) MISSED OFFSET
+	float                                              BlurKernelSize;                                           // 0x0160(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10708,7 +12948,16 @@ public:
 class UEFSeqAct_SetDOFEffectProperties : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x0160(0x002C) MISSED OFFSET
+	float                                              FalloffExponent;                                          // 0x0160(0x0004)
+	float                                              BlurKernelSize;                                           // 0x0164(0x0004)
+	float                                              MaxNearBlurAmount;                                        // 0x0168(0x0004)
+	float                                              MinBlurAmount;                                            // 0x016C(0x0004)
+	float                                              MaxFarBlurAmount;                                         // 0x0170(0x0004)
+	TEnumAsByte<EFocusType>                            FocusType;                                                // 0x0174(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0175(0x0003) MISSED OFFSET
+	float                                              FocusInnerRadius;                                         // 0x0178(0x0004)
+	float                                              FocusDistance;                                            // 0x017C(0x0004)
+	struct FVector                                     FocusPosition;                                            // 0x0180(0x000C)
 
 	static UClass* StaticClass()
 	{
@@ -10727,7 +12976,15 @@ public:
 class UEFSeqAct_SetDOFAndBloomEffectProperties : public UEFSeqAct_SetDOFEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x018C(0x0020) MISSED OFFSET
+	float                                              BloomScale;                                               // 0x018C(0x0004)
+	float                                              BloomThreshold;                                           // 0x0190(0x0004)
+	struct FColor                                      BloomTint;                                                // 0x0194(0x0004)
+	float                                              BloomScreenBlendThreshold;                                // 0x0198(0x0004)
+	float                                              BlurBloomKernelSize;                                      // 0x019C(0x0004)
+	TEnumAsByte<EDOFType>                              DepthOfFieldType;                                         // 0x01A0(0x0001)
+	TEnumAsByte<EDOFQuality>                           DepthOfFieldQuality;                                      // 0x01A1(0x0001)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x01A2(0x0002) MISSED OFFSET
+	class UTexture2D*                                  BokehTexture;                                             // 0x01A4(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -10745,7 +13002,11 @@ public:
 class UEFSeqAct_SetDOFBloomMotionBlurEffect : public UEFSeqAct_SetDOFEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x018C(0x0014) MISSED OFFSET
+	float                                              MaxVelocity;                                              // 0x018C(0x0004)
+	float                                              MotionBlurAmount;                                         // 0x0190(0x0004)
+	unsigned long                                      FullMotionBlur : 1;                                       // 0x0194(0x0004)
+	float                                              CameraRotationThreshold;                                  // 0x0198(0x0004)
+	float                                              CameraTranslationThreshold;                               // 0x019C(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10763,7 +13024,8 @@ public:
 class UEFSeqAct_SetMaterialEffectProperties : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0160(0x0010) MISSED OFFSET
+	class UMaterialInterface*                          Material;                                                 // 0x0160(0x0008)
+	class UObject*                                     ObjectReference;                                          // 0x0168(0x0008)
 
 	static UClass* StaticClass()
 	{
@@ -10781,7 +13043,11 @@ public:
 class UEFSeqAct_SetMotionBlurEffectProperties : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0160(0x0014) MISSED OFFSET
+	float                                              MaxVelocity;                                              // 0x0160(0x0004)
+	float                                              MotionBlurAmount;                                         // 0x0164(0x0004)
+	unsigned long                                      FullMotionBlur : 1;                                       // 0x0168(0x0004)
+	float                                              CameraRotationThreshold;                                  // 0x016C(0x0004)
+	float                                              CameraTranslationThreshold;                               // 0x0170(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10799,7 +13065,26 @@ public:
 class UEFSeqAct_SetUberPostProcessEffect : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x68];                                      // 0x0160(0x0068) MISSED OFFSET
+	struct FVector                                     SceneShadows;                                             // 0x0160(0x000C)
+	struct FVector                                     SceneHighLights;                                          // 0x016C(0x000C)
+	struct FVector                                     SceneMidTones;                                            // 0x0178(0x000C)
+	float                                              SceneDesaturation;                                        // 0x0184(0x0004)
+	struct FVector                                     SceneColorize;                                            // 0x0188(0x000C)
+	TEnumAsByte<ETonemapperType>                       TonemapperType;                                           // 0x0194(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0195(0x0003) MISSED OFFSET
+	float                                              TonemapperRange;                                          // 0x0198(0x0004)
+	float                                              TonemapperToeFactor;                                      // 0x019C(0x0004)
+	float                                              TonemapperScale;                                          // 0x01A0(0x0004)
+	float                                              MotionBlurSoftEdgeKernelSize;                             // 0x01A4(0x0004)
+	unsigned long                                      bEnableImageGrain : 1;                                    // 0x01A8(0x0004)
+	unsigned long                                      bScaleEffectsWithViewSize : 1;                            // 0x01A8(0x0004)
+	float                                              SceneImageGrainScale;                                     // 0x01AC(0x0004)
+	float                                              BloomWeightSmall;                                         // 0x01B0(0x0004)
+	float                                              BloomWeightMedium;                                        // 0x01B4(0x0004)
+	float                                              BloomWeightLarge;                                         // 0x01B8(0x0004)
+	float                                              BloomSizeScaleSmall;                                      // 0x01BC(0x0004)
+	float                                              BloomSizeScaleMedium;                                     // 0x01C0(0x0004)
+	float                                              BloomSizeScaleLarge;                                      // 0x01C4(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -10817,7 +13102,7 @@ public:
 class UEFSeqAct_TogglePostProcessEffect : public UEFSeqAct_SetPostProcessEffectProperties
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0160(0x0004) MISSED OFFSET
+	unsigned long                                      Value : 1;                                                // 0x0160(0x0004)
 
 	static UClass* StaticClass()
 	{

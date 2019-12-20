@@ -21,8 +21,7 @@ namespace SDK
 struct FAkEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	class UAkEvent*                                    Event;                                                    // 0x0000(0x0008)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0008(0x0004) MISSED OFFSET
+	class UAkEvent*                                    Event;                                                    // 0x0004(0x0008)
 };
 
 }
