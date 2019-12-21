@@ -3524,7 +3524,7 @@ struct FRigidBodyContactInfo
 // 0x0028
 struct FCollisionImpactData
 {
-	TArray<struct FRigidBodyContactInfo>               ContactInfos;                                             // 0x0000(0x0010)
+	TArray<struct FRigidBodyContactInfo>               ContactInfos;                                             // 0x0000(0x0010) (NeedCtorLink)
 	struct FVector                                     TotalNormalForceVector;                                   // 0x0010(0x000C)
 	struct FVector                                     TotalFrictionForceVector;                                 // 0x001C(0x000C)
 };
@@ -3533,32 +3533,32 @@ struct FCollisionImpactData
 // 0x0028
 struct FTraceHitInfo
 {
-	class UMaterial*                                   Material;                                                 // 0x0000(0x0008)
-	class UPhysicalMaterial*                           PhysMaterial;                                             // 0x0008(0x0008)
-	int                                                Item;                                                     // 0x0010(0x0004)
-	int                                                LevelIndex;                                               // 0x0014(0x0004)
-	struct FName                                       BoneName;                                                 // 0x0018(0x0008)
-	class UPrimitiveComponent*                         HitComponent;                                             // 0x0020(0x0008)
+	class UMaterial*                                   Material;                                                 // 0x0000(0x0008) (AlwaysInit)
+	class UPhysicalMaterial*                           PhysMaterial;                                             // 0x0008(0x0008) (AlwaysInit)
+	int                                                Item;                                                     // 0x0010(0x0004) (AlwaysInit)
+	int                                                LevelIndex;                                               // 0x0014(0x0004) (AlwaysInit)
+	struct FName                                       BoneName;                                                 // 0x0018(0x0008) (AlwaysInit)
+	class UPrimitiveComponent*                         HitComponent;                                             // 0x0020(0x0008) (ExportObject, Component, AlwaysInit, EditInline)
 };
 
 // ScriptStruct Engine.Actor.ImpactInfo
 // 0x0060
 struct FImpactInfo
 {
-	class AActor*                                      HitActor;                                                 // 0x0000(0x0008)
-	struct FVector                                     HitLocation;                                              // 0x0008(0x000C)
-	struct FVector                                     HitNormal;                                                // 0x0014(0x000C)
-	struct FVector                                     RayDir;                                                   // 0x0020(0x000C)
-	struct FVector                                     StartTrace;                                               // 0x002C(0x000C)
-	struct FTraceHitInfo                               HitInfo;                                                  // 0x0038(0x0028)
+	class AActor*                                      HitActor;                                                 // 0x0000(0x0008) (AlwaysInit)
+	struct FVector                                     HitLocation;                                              // 0x0008(0x000C) (AlwaysInit)
+	struct FVector                                     HitNormal;                                                // 0x0014(0x000C) (AlwaysInit)
+	struct FVector                                     RayDir;                                                   // 0x0020(0x000C) (AlwaysInit)
+	struct FVector                                     StartTrace;                                               // 0x002C(0x000C) (AlwaysInit)
+	struct FTraceHitInfo                               HitInfo;                                                  // 0x0038(0x0028) (Component, AlwaysInit)
 };
 
 // ScriptStruct Engine.Actor.BasedPosition
 // 0x0038
 struct FBasedPosition
 {
-	class AActor*                                      Base;                                                     // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide)
-	struct FVector                                     Position;                                                 // 0x0008(0x000C) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide)
+	class AActor*                                      Base;                                                     // 0x0000(0x0008) (Edit)
+	struct FVector                                     Position;                                                 // 0x0008(0x000C) (Edit)
 	struct FVector                                     CachedBaseLocation;                                       // 0x0014(0x000C)
 	struct FRotator                                    CachedBaseRotation;                                       // 0x0020(0x000C)
 	struct FVector                                     CachedTransPosition;                                      // 0x002C(0x000C)
@@ -3568,10 +3568,10 @@ struct FBasedPosition
 // 0x0004
 struct FEFColOption
 {
-	TEnumAsByte<EFColMovePickingOption>                MovePickingOption;                                        // 0x0000(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFColMoveColOption>                    MoveColOption;                                            // 0x0001(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFColProjectileOption>                 ProjectileOption;                                         // 0x0002(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFColNavMeshOption>                    NavMeshOption;                                            // 0x0003(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<EFColMovePickingOption>                MovePickingOption;                                        // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EFColMoveColOption>                    MoveColOption;                                            // 0x0001(0x0001) (Edit)
+	TEnumAsByte<EFColProjectileOption>                 ProjectileOption;                                         // 0x0002(0x0001) (Edit)
+	TEnumAsByte<EFColNavMeshOption>                    NavMeshOption;                                            // 0x0003(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.Actor.TimerData
@@ -3605,35 +3605,35 @@ struct FWorldFractureSettings
 // 0x002C
 struct FMusicTrackStruct
 {
-	class USoundCue*                                   TheSoundCue;                                              // 0x0000(0x0008) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bAutoPlay : 1;                                            // 0x0008(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bPersistentAcrossLevels : 1;                              // 0x0008(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x000C(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              FadeInVolumeLevel;                                        // 0x0010(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0014(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              FadeOutVolumeLevel;                                       // 0x0018(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     MP3Filename;                                              // 0x001C(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
+	class USoundCue*                                   TheSoundCue;                                              // 0x0000(0x0008) (Edit)
+	unsigned long                                      bAutoPlay : 1;                                            // 0x0008(0x0004) (Edit)
+	unsigned long                                      bPersistentAcrossLevels : 1;                              // 0x0008(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x000C(0x0004) (Edit)
+	float                                              FadeInVolumeLevel;                                        // 0x0010(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0014(0x0004) (Edit)
+	float                                              FadeOutVolumeLevel;                                       // 0x0018(0x0004) (Edit)
+	struct FString                                     MP3Filename;                                              // 0x001C(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.PostProcessVolume.LUTBlender
 // 0x0024
 struct FLUTBlender
 {
-	TArray<class UTexture*>                            LUTTextures;                                              // 0x0000(0x0010)
-	TArray<float>                                      LUTWeights;                                               // 0x0010(0x0010)
-	unsigned long                                      bHasChanged : 1;                                          // 0x0020(0x0004)
+	TArray<class UTexture*>                            LUTTextures;                                              // 0x0000(0x0010) (NeedCtorLink)
+	TArray<float>                                      LUTWeights;                                               // 0x0010(0x0010) (NeedCtorLink)
+	unsigned long                                      bHasChanged : 1;                                          // 0x0020(0x0004) (Const, Native, Transient)
 };
 
 // ScriptStruct Engine.PostProcessVolume.MobileColorGradingParams
 // 0x003C
 struct FMobileColorGradingParams
 {
-	float                                              TransitionTime;                                           // 0x0000(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Blend;                                                    // 0x0004(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Desaturation;                                             // 0x0008(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FLinearColor                                HighLights;                                               // 0x000C(0x0010) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FLinearColor                                MidTones;                                                 // 0x001C(0x0010) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FLinearColor                                Shadows;                                                  // 0x002C(0x0010) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              TransitionTime;                                           // 0x0000(0x0004) (Edit)
+	float                                              Blend;                                                    // 0x0004(0x0004) (Edit)
+	float                                              Desaturation;                                             // 0x0008(0x0004) (Edit)
+	struct FLinearColor                                HighLights;                                               // 0x000C(0x0010) (Edit)
+	struct FLinearColor                                MidTones;                                                 // 0x001C(0x0010) (Edit)
+	struct FLinearColor                                Shadows;                                                  // 0x002C(0x0010) (Edit)
 };
 
 // ScriptStruct Engine.PostProcessVolume.MobilePostProcessSettings
@@ -3649,15 +3649,15 @@ struct FMobilePostProcessSettings
 	unsigned long                                      bOverride_Mobile_DOF_MinRange : 1;                        // 0x0000(0x0004)
 	unsigned long                                      bOverride_Mobile_DOF_MaxRange : 1;                        // 0x0000(0x0004)
 	unsigned long                                      bOverride_Mobile_DOF_FarBlurFactor : 1;                   // 0x0000(0x0004)
-	float                                              Mobile_BlurAmount;                                        // 0x0004(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Mobile_TransitionTime;                                    // 0x0008(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Mobile_Bloom_Scale;                                       // 0x000C(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              Mobile_Bloom_Threshold;                                   // 0x0010(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FLinearColor                                Mobile_Bloom_Tint;                                        // 0x0014(0x0010) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              Mobile_DOF_Distance;                                      // 0x0024(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
-	float                                              Mobile_DOF_MinRange;                                      // 0x0028(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
-	float                                              Mobile_DOF_MaxRange;                                      // 0x002C(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
-	float                                              Mobile_DOF_FarBlurFactor;                                 // 0x0030(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
+	float                                              Mobile_BlurAmount;                                        // 0x0004(0x0004) (Edit)
+	float                                              Mobile_TransitionTime;                                    // 0x0008(0x0004) (Edit)
+	float                                              Mobile_Bloom_Scale;                                       // 0x000C(0x0004) (Edit)
+	float                                              Mobile_Bloom_Threshold;                                   // 0x0010(0x0004) (Edit)
+	struct FLinearColor                                Mobile_Bloom_Tint;                                        // 0x0014(0x0010) (Edit)
+	float                                              Mobile_DOF_Distance;                                      // 0x0024(0x0004) (Edit)
+	float                                              Mobile_DOF_MinRange;                                      // 0x0028(0x0004) (Edit)
+	float                                              Mobile_DOF_MaxRange;                                      // 0x002C(0x0004) (Edit)
+	float                                              Mobile_DOF_FarBlurFactor;                                 // 0x0030(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PostProcessVolume.PostProcessSettings
@@ -3710,66 +3710,66 @@ struct FPostProcessSettings
 	unsigned long                                      bOverride_AmbientOcclusion_OcclusionPower : 1;            // 0x0004(0x0004)
 	unsigned long                                      bOverride_AmbientOcclusion_InterpolationDuration : 1;     // 0x0004(0x0004)
 	unsigned long                                      bOverride_MobileColorGrading : 1;                         // 0x0004(0x0004)
-	unsigned long                                      bEnableBloom : 1;                                         // 0x0004(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bEnableDOF : 1;                                           // 0x0004(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bEnableMotionBlur : 1;                                    // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bEnableSceneEffect : 1;                                   // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowAmbientOcclusion : 1;                               // 0x0004(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bOverrideRimShaderColor : 1;                              // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Bloom_Scale;                                              // 0x0008(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              Bloom_Threshold;                                          // 0x000C(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FColor                                      Bloom_Tint;                                               // 0x0010(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              Bloom_ScreenBlendThreshold;                               // 0x0014(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              Bloom_InterpolationDuration;                              // 0x0018(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_BlurBloomKernelSize;                                  // 0x001C(0x0004) (NonTransactional, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_FalloffExponent;                                      // 0x0020(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_BlurKernelSize;                                       // 0x0024(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_MaxNearBlurAmount;                                    // 0x0028(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              DOF_MinBlurAmount;                                        // 0x002C(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              DOF_MaxFarBlurAmount;                                     // 0x0030(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TEnumAsByte<EFocusType>                            DOF_FocusType;                                            // 0x0034(0x0001) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	unsigned long                                      bEnableBloom : 1;                                         // 0x0004(0x0004) (Edit)
+	unsigned long                                      bEnableDOF : 1;                                           // 0x0004(0x0004) (Edit)
+	unsigned long                                      bEnableMotionBlur : 1;                                    // 0x0004(0x0004) (Edit)
+	unsigned long                                      bEnableSceneEffect : 1;                                   // 0x0004(0x0004) (Edit)
+	unsigned long                                      bAllowAmbientOcclusion : 1;                               // 0x0004(0x0004) (Edit)
+	unsigned long                                      bOverrideRimShaderColor : 1;                              // 0x0004(0x0004) (Edit)
+	float                                              Bloom_Scale;                                              // 0x0008(0x0004) (Edit)
+	float                                              Bloom_Threshold;                                          // 0x000C(0x0004) (Edit)
+	struct FColor                                      Bloom_Tint;                                               // 0x0010(0x0004) (Edit)
+	float                                              Bloom_ScreenBlendThreshold;                               // 0x0014(0x0004) (Edit)
+	float                                              Bloom_InterpolationDuration;                              // 0x0018(0x0004) (Edit)
+	float                                              DOF_BlurBloomKernelSize;                                  // 0x001C(0x0004) (Edit)
+	float                                              DOF_FalloffExponent;                                      // 0x0020(0x0004) (Edit)
+	float                                              DOF_BlurKernelSize;                                       // 0x0024(0x0004) (Edit)
+	float                                              DOF_MaxNearBlurAmount;                                    // 0x0028(0x0004) (Edit)
+	float                                              DOF_MinBlurAmount;                                        // 0x002C(0x0004) (Edit)
+	float                                              DOF_MaxFarBlurAmount;                                     // 0x0030(0x0004) (Edit)
+	TEnumAsByte<EFocusType>                            DOF_FocusType;                                            // 0x0034(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0035(0x0003) MISSED OFFSET
-	float                                              DOF_FocusInnerRadius;                                     // 0x0038(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_FocusDistance;                                        // 0x003C(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FVector                                     DOF_FocusPosition;                                        // 0x0040(0x000C) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_InterpolationDuration;                                // 0x004C(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	class UTexture2D*                                  DOF_BokehTexture;                                         // 0x0050(0x0008) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              MotionBlur_MaxVelocity;                                   // 0x0058(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	float                                              MotionBlur_Amount;                                        // 0x005C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      MotionBlur_FullMotionBlur : 1;                            // 0x0060(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	float                                              MotionBlur_CameraRotationThreshold;                       // 0x0064(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	float                                              MotionBlur_CameraTranslationThreshold;                    // 0x0068(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	float                                              MotionBlur_InterpolationDuration;                         // 0x006C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	float                                              Scene_Desaturation;                                       // 0x0070(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Scene_Colorize;                                           // 0x0074(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Scene_TonemapperScale;                                    // 0x0080(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Scene_TonemapperRange;                                    // 0x0084(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Scene_TonemapperToeFactor;                                // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Scene_ImageGrainScale;                                    // 0x008C(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Scene_HighLights;                                         // 0x0090(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Scene_MidTones;                                           // 0x009C(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Scene_Shadows;                                            // 0x00A8(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Scene_InterpolationDuration;                              // 0x00B4(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                RimShader_Color;                                          // 0x00B8(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              RimShader_InterpolationDuration;                          // 0x00C8(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              AmbientOcclusion_OcclusionScale;                          // 0x00CC(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              AmbientOcclusion_OcclusionPower;                          // 0x00D0(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              AmbientOcclusion_InterpolationDuration;                   // 0x00D4(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	class UTexture*                                    ColorGrading_LookupTable;                                 // 0x00D8(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLUTBlender                                 ColorGradingLUT;                                          // 0x00E0(0x0024)
-	struct FMobileColorGradingParams                   MobileColorGrading;                                       // 0x0104(0x003C) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
-	struct FMobilePostProcessSettings                  MobilePostProcess;                                        // 0x0140(0x0034) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
+	float                                              DOF_FocusInnerRadius;                                     // 0x0038(0x0004) (Edit)
+	float                                              DOF_FocusDistance;                                        // 0x003C(0x0004) (Edit)
+	struct FVector                                     DOF_FocusPosition;                                        // 0x0040(0x000C) (Edit)
+	float                                              DOF_InterpolationDuration;                                // 0x004C(0x0004) (Edit)
+	class UTexture2D*                                  DOF_BokehTexture;                                         // 0x0050(0x0008) (Edit)
+	float                                              MotionBlur_MaxVelocity;                                   // 0x0058(0x0004) (Edit)
+	float                                              MotionBlur_Amount;                                        // 0x005C(0x0004) (Edit)
+	unsigned long                                      MotionBlur_FullMotionBlur : 1;                            // 0x0060(0x0004) (Edit)
+	float                                              MotionBlur_CameraRotationThreshold;                       // 0x0064(0x0004) (Edit)
+	float                                              MotionBlur_CameraTranslationThreshold;                    // 0x0068(0x0004) (Edit)
+	float                                              MotionBlur_InterpolationDuration;                         // 0x006C(0x0004) (Edit)
+	float                                              Scene_Desaturation;                                       // 0x0070(0x0004) (Edit)
+	struct FVector                                     Scene_Colorize;                                           // 0x0074(0x000C) (Edit)
+	float                                              Scene_TonemapperScale;                                    // 0x0080(0x0004) (Edit)
+	float                                              Scene_TonemapperRange;                                    // 0x0084(0x0004) (Edit)
+	float                                              Scene_TonemapperToeFactor;                                // 0x0088(0x0004) (Edit)
+	float                                              Scene_ImageGrainScale;                                    // 0x008C(0x0004) (Edit)
+	struct FVector                                     Scene_HighLights;                                         // 0x0090(0x000C) (Edit)
+	struct FVector                                     Scene_MidTones;                                           // 0x009C(0x000C) (Edit)
+	struct FVector                                     Scene_Shadows;                                            // 0x00A8(0x000C) (Edit)
+	float                                              Scene_InterpolationDuration;                              // 0x00B4(0x0004) (Edit)
+	struct FLinearColor                                RimShader_Color;                                          // 0x00B8(0x0010) (Edit)
+	float                                              RimShader_InterpolationDuration;                          // 0x00C8(0x0004) (Edit)
+	float                                              AmbientOcclusion_OcclusionScale;                          // 0x00CC(0x0004) (Edit)
+	float                                              AmbientOcclusion_OcclusionPower;                          // 0x00D0(0x0004) (Edit)
+	float                                              AmbientOcclusion_InterpolationDuration;                   // 0x00D4(0x0004) (Edit)
+	class UTexture*                                    ColorGrading_LookupTable;                                 // 0x00D8(0x0008) (Edit)
+	struct FLUTBlender                                 ColorGradingLUT;                                          // 0x00E0(0x0024) (Const, Transient, NeedCtorLink)
+	struct FMobileColorGradingParams                   MobileColorGrading;                                       // 0x0104(0x003C) (Edit)
+	struct FMobilePostProcessSettings                  MobilePostProcess;                                        // 0x0140(0x0034) (Edit)
 };
 
 // ScriptStruct Engine.ReverbVolume.ReverbSettings
 // 0x0010
 struct FReverbSettings
 {
-	unsigned long                                      bApplyReverb : 1;                                         // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EReverbPreset>                         ReverbType;                                               // 0x0004(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bApplyReverb : 1;                                         // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EReverbPreset>                         ReverbType;                                               // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	float                                              Volume;                                                   // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeTime;                                                 // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              Volume;                                                   // 0x0008(0x0004) (Edit)
+	float                                              FadeTime;                                                 // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ReverbVolume.InteriorSettings
@@ -3777,14 +3777,14 @@ struct FReverbSettings
 struct FInteriorSettings
 {
 	unsigned long                                      bIsWorldInfo : 1;                                         // 0x0000(0x0004)
-	float                                              ExteriorVolume;                                           // 0x0004(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              ExteriorTime;                                             // 0x0008(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              ExteriorLPF;                                              // 0x000C(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              ExteriorLPFTime;                                          // 0x0010(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              InteriorVolume;                                           // 0x0014(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              InteriorTime;                                             // 0x0018(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              InteriorLPF;                                              // 0x001C(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
-	float                                              InteriorLPFTime;                                          // 0x0020(0x0004) (Interp, EditorOnly, NotForConsole, CrossLevelActive)
+	float                                              ExteriorVolume;                                           // 0x0004(0x0004) (Edit)
+	float                                              ExteriorTime;                                             // 0x0008(0x0004) (Edit)
+	float                                              ExteriorLPF;                                              // 0x000C(0x0004) (Edit)
+	float                                              ExteriorLPFTime;                                          // 0x0010(0x0004) (Edit)
+	float                                              InteriorVolume;                                           // 0x0014(0x0004) (Edit)
+	float                                              InteriorTime;                                             // 0x0018(0x0004) (Edit)
+	float                                              InteriorLPF;                                              // 0x001C(0x0004) (Edit)
+	float                                              InteriorLPFTime;                                          // 0x0020(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.NetViewer
@@ -3801,101 +3801,101 @@ struct FNetViewer
 // 0x000C
 struct FPhysXSimulationProperties
 {
-	unsigned long                                      bUseHardware : 1;                                         // 0x0000(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFixedTimeStep : 1;                                       // 0x0000(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              TimeStep;                                                 // 0x0004(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                MaxSubSteps;                                              // 0x0008(0x0004) (EditorOnly, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bUseHardware : 1;                                         // 0x0000(0x0004) (Edit)
+	unsigned long                                      bFixedTimeStep : 1;                                       // 0x0000(0x0004) (Edit)
+	float                                              TimeStep;                                                 // 0x0004(0x0004) (Edit)
+	int                                                MaxSubSteps;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.PhysXSceneProperties
 // 0x003C
 struct FPhysXSceneProperties
 {
-	struct FPhysXSimulationProperties                  PrimaryScene;                                             // 0x0000(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPhysXSimulationProperties                  CompartmentRigidBody;                                     // 0x000C(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPhysXSimulationProperties                  CompartmentFluid;                                         // 0x0018(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPhysXSimulationProperties                  CompartmentCloth;                                         // 0x0024(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPhysXSimulationProperties                  CompartmentSoftBody;                                      // 0x0030(0x000C) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FPhysXSimulationProperties                  PrimaryScene;                                             // 0x0000(0x000C) (Edit, EditInline)
+	struct FPhysXSimulationProperties                  CompartmentRigidBody;                                     // 0x000C(0x000C) (Edit, EditInline)
+	struct FPhysXSimulationProperties                  CompartmentFluid;                                         // 0x0018(0x000C) (Edit, EditInline)
+	struct FPhysXSimulationProperties                  CompartmentCloth;                                         // 0x0024(0x000C) (Edit, EditInline)
+	struct FPhysXSimulationProperties                  CompartmentSoftBody;                                      // 0x0030(0x000C) (Edit, EditInline)
 };
 
 // ScriptStruct Engine.WorldInfo.CompartmentRunList
 // 0x0004
 struct FCompartmentRunList
 {
-	unsigned long                                      RigidBody : 1;                                            // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      Fluid : 1;                                                // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      Cloth : 1;                                                // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      SoftBody : 1;                                             // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      RigidBody : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Fluid : 1;                                                // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cloth : 1;                                                // 0x0000(0x0004) (Edit)
+	unsigned long                                      SoftBody : 1;                                             // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.ApexModuleDestructibleSettings
 // 0x0014
 struct FApexModuleDestructibleSettings
 {
-	int                                                MaxChunkIslandCount;                                      // 0x0000(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite)
-	int                                                MaxShapeCount;                                            // 0x0004(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite)
+	int                                                MaxChunkIslandCount;                                      // 0x0000(0x0004) (Edit)
+	int                                                MaxShapeCount;                                            // 0x0004(0x0004) (Edit)
 	int                                                MaxRrbActorCount;                                         // 0x0008(0x0004)
-	float                                              MaxChunkSeparationLOD;                                    // 0x000C(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite)
-	unsigned long                                      bOverrideMaxChunkSeparationLOD : 1;                       // 0x0010(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite)
+	float                                              MaxChunkSeparationLOD;                                    // 0x000C(0x0004) (Edit)
+	unsigned long                                      bOverrideMaxChunkSeparationLOD : 1;                       // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.PhysXEmitterVerticalProperties
 // 0x0018
 struct FPhysXEmitterVerticalProperties
 {
-	unsigned long                                      bDisableLod : 1;                                          // 0x0000(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                ParticlesLodMin;                                          // 0x0004(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                ParticlesLodMax;                                          // 0x0008(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                PacketsPerPhysXParticleSystemMax;                         // 0x000C(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bApplyCylindricalPacketCulling : 1;                       // 0x0010(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              SpawnLodVsFifoBias;                                       // 0x0014(0x0004) (NonTransactional, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bDisableLod : 1;                                          // 0x0000(0x0004) (Edit)
+	int                                                ParticlesLodMin;                                          // 0x0004(0x0004) (Edit)
+	int                                                ParticlesLodMax;                                          // 0x0008(0x0004) (Edit)
+	int                                                PacketsPerPhysXParticleSystemMax;                         // 0x000C(0x0004) (Edit)
+	unsigned long                                      bApplyCylindricalPacketCulling : 1;                       // 0x0010(0x0004) (Edit)
+	float                                              SpawnLodVsFifoBias;                                       // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.PhysXVerticalProperties
 // 0x0018
 struct FPhysXVerticalProperties
 {
-	struct FPhysXEmitterVerticalProperties             Emitters;                                                 // 0x0000(0x0018) (RepNotify, EditorOnly, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FPhysXEmitterVerticalProperties             Emitters;                                                 // 0x0000(0x0018) (Edit, EditInline)
 };
 
 // ScriptStruct Engine.WorldInfo.ScreenMessageString
 // 0x0024
 struct FScreenMessageString
 {
-	struct FQWord                                      Key;                                                      // 0x0000(0x0008)
-	struct FString                                     ScreenMessage;                                            // 0x0008(0x0010)
-	struct FColor                                      DisplayColor;                                             // 0x0018(0x0004)
-	float                                              TimeToDisplay;                                            // 0x001C(0x0004)
-	float                                              CurrentTimeDisplayed;                                     // 0x0020(0x0004)
+	struct FQWord                                      Key;                                                      // 0x0000(0x0008) (Transient, AlwaysInit)
+	struct FString                                     ScreenMessage;                                            // 0x0008(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FColor                                      DisplayColor;                                             // 0x0018(0x0004) (Transient, AlwaysInit)
+	float                                              TimeToDisplay;                                            // 0x001C(0x0004) (Transient, AlwaysInit)
+	float                                              CurrentTimeDisplayed;                                     // 0x0020(0x0004) (Transient, AlwaysInit)
 };
 
 // ScriptStruct Engine.WorldInfo.LightmassWorldInfoSettings
 // 0x0058
 struct FLightmassWorldInfoSettings
 {
-	float                                              StaticLightingLevelScale;                                 // 0x0000(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	int                                                NumIndirectLightingBounces;                               // 0x0004(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FColor                                      EnvironmentColor;                                         // 0x0008(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              EnvironmentIntensity;                                     // 0x000C(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bEnableAdvancedEnvironmentColor : 1;                      // 0x0010(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FColor                                      EnvironmentSunColor;                                      // 0x0014(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              EnvironmentSunIntensity;                                  // 0x0018(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              EnvironmentLightTerminatorAngle;                          // 0x001C(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FVector                                     EnvironmentLightDirection;                                // 0x0020(0x000C) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              EmissiveBoost;                                            // 0x002C(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              DiffuseBoost;                                             // 0x0030(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              StaticLightingLevelScale;                                 // 0x0000(0x0004) (Edit)
+	int                                                NumIndirectLightingBounces;                               // 0x0004(0x0004) (Edit)
+	struct FColor                                      EnvironmentColor;                                         // 0x0008(0x0004) (Edit)
+	float                                              EnvironmentIntensity;                                     // 0x000C(0x0004) (Edit)
+	unsigned long                                      bEnableAdvancedEnvironmentColor : 1;                      // 0x0010(0x0004) (Edit)
+	struct FColor                                      EnvironmentSunColor;                                      // 0x0014(0x0004) (Edit)
+	float                                              EnvironmentSunIntensity;                                  // 0x0018(0x0004) (Edit)
+	float                                              EnvironmentLightTerminatorAngle;                          // 0x001C(0x0004) (Edit)
+	struct FVector                                     EnvironmentLightDirection;                                // 0x0020(0x000C) (Edit)
+	float                                              EmissiveBoost;                                            // 0x002C(0x0004) (Edit)
+	float                                              DiffuseBoost;                                             // 0x0030(0x0004) (Edit)
 	float                                              SpecularBoost;                                            // 0x0034(0x0004)
-	float                                              IndirectNormalInfluenceBoost;                             // 0x0038(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bUseAmbientOcclusion : 1;                                 // 0x003C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bEnableImageReflectionShadowing : 1;                      // 0x003C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DirectIlluminationOcclusionFraction;                      // 0x0040(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              IndirectIlluminationOcclusionFraction;                    // 0x0044(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              OcclusionExponent;                                        // 0x0048(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              FullyOccludedSamplesFraction;                             // 0x004C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxOcclusionDistance;                                     // 0x0050(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bVisualizeMaterialDiffuse : 1;                            // 0x0054(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bVisualizeAmbientOcclusion : 1;                           // 0x0054(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bCompressShadowmap : 1;                                   // 0x0054(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              IndirectNormalInfluenceBoost;                             // 0x0038(0x0004) (Edit)
+	unsigned long                                      bUseAmbientOcclusion : 1;                                 // 0x003C(0x0004) (Edit)
+	unsigned long                                      bEnableImageReflectionShadowing : 1;                      // 0x003C(0x0004) (Edit)
+	float                                              DirectIlluminationOcclusionFraction;                      // 0x0040(0x0004) (Edit)
+	float                                              IndirectIlluminationOcclusionFraction;                    // 0x0044(0x0004) (Edit)
+	float                                              OcclusionExponent;                                        // 0x0048(0x0004) (Edit)
+	float                                              FullyOccludedSamplesFraction;                             // 0x004C(0x0004) (Edit)
+	float                                              MaxOcclusionDistance;                                     // 0x0050(0x0004) (Edit)
+	unsigned long                                      bVisualizeMaterialDiffuse : 1;                            // 0x0054(0x0004) (Edit)
+	unsigned long                                      bVisualizeAmbientOcclusion : 1;                           // 0x0054(0x0004) (Edit)
+	unsigned long                                      bCompressShadowmap : 1;                                   // 0x0054(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.WorldInfo.HostMigrationState
@@ -3906,7 +3906,7 @@ struct FHostMigrationState
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
 	float                                              HostMigrationElapsedTime;                                 // 0x0004(0x0004)
 	float                                              HostMigrationTravelCountdown;                             // 0x0008(0x0004)
-	struct FString                                     HostMigrationTravelURL;                                   // 0x000C(0x0010)
+	struct FString                                     HostMigrationTravelURL;                                   // 0x000C(0x0010) (NeedCtorLink)
 	unsigned long                                      bHostMigrationEnabled : 1;                                // 0x001C(0x0004)
 };
 
@@ -3920,28 +3920,28 @@ struct FOnlineContent
 	unsigned long                                      bIsCorrupt : 1;                                           // 0x0004(0x0004)
 	int                                                DeviceID;                                                 // 0x0008(0x0004)
 	int                                                LicenseMask;                                              // 0x000C(0x0004)
-	struct FString                                     FriendlyName;                                             // 0x0010(0x0010)
-	struct FString                                     Filename;                                                 // 0x0020(0x0010)
-	struct FString                                     ContentPath;                                              // 0x0030(0x0010)
-	TArray<struct FString>                             ContentPackages;                                          // 0x0040(0x0010)
-	TArray<struct FString>                             ContentFiles;                                             // 0x0050(0x0010)
+	struct FString                                     FriendlyName;                                             // 0x0010(0x0010) (NeedCtorLink)
+	struct FString                                     Filename;                                                 // 0x0020(0x0010) (NeedCtorLink)
+	struct FString                                     ContentPath;                                              // 0x0030(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             ContentPackages;                                          // 0x0040(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             ContentFiles;                                             // 0x0050(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.Engine.StatColorMapEntry
 // 0x0008
 struct FStatColorMapEntry
 {
-	float                                              In;                                                       // 0x0000(0x0004)
-	struct FColor                                      Out;                                                      // 0x0004(0x0004)
+	float                                              In;                                                       // 0x0000(0x0004) (Config, GlobalConfig)
+	struct FColor                                      Out;                                                      // 0x0004(0x0004) (Config, GlobalConfig)
 };
 
 // ScriptStruct Engine.Engine.StatColorMapping
 // 0x0024
 struct FStatColorMapping
 {
-	struct FString                                     StatName;                                                 // 0x0000(0x0010)
-	TArray<struct FStatColorMapEntry>                  ColorMap;                                                 // 0x0010(0x0010)
-	unsigned long                                      DisableBlend : 1;                                         // 0x0020(0x0004)
+	struct FString                                     StatName;                                                 // 0x0000(0x0010) (Config, GlobalConfig, NeedCtorLink)
+	TArray<struct FStatColorMapEntry>                  ColorMap;                                                 // 0x0010(0x0010) (Config, GlobalConfig, NeedCtorLink)
+	unsigned long                                      DisableBlend : 1;                                         // 0x0020(0x0004) (Config, GlobalConfig)
 };
 
 // ScriptStruct Engine.Engine.DropNoteInfo
@@ -3950,20 +3950,20 @@ struct FDropNoteInfo
 {
 	struct FVector                                     Location;                                                 // 0x0000(0x000C)
 	struct FRotator                                    Rotation;                                                 // 0x000C(0x000C)
-	struct FString                                     Comment;                                                  // 0x0018(0x0010)
+	struct FString                                     Comment;                                                  // 0x0018(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GameEngine.URL
 // 0x0058
 struct FURL
 {
-	struct FString                                     Protocol;                                                 // 0x0000(0x0010)
-	struct FString                                     Host;                                                     // 0x0010(0x0010)
-	int                                                Port;                                                     // 0x0020(0x0004)
-	struct FString                                     Map;                                                      // 0x0024(0x0010)
-	TArray<struct FString>                             Op;                                                       // 0x0034(0x0010)
-	struct FString                                     Portal;                                                   // 0x0044(0x0010)
-	int                                                Valid;                                                    // 0x0054(0x0004)
+	struct FString                                     Protocol;                                                 // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Host;                                                     // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	int                                                Port;                                                     // 0x0020(0x0004) (AlwaysInit)
+	struct FString                                     Map;                                                      // 0x0024(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FString>                             Op;                                                       // 0x0034(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Portal;                                                   // 0x0044(0x0010) (AlwaysInit, NeedCtorLink)
+	int                                                Valid;                                                    // 0x0054(0x0004) (AlwaysInit)
 };
 
 // ScriptStruct Engine.GameEngine.LevelStreamingStatus
@@ -3981,9 +3981,9 @@ struct FFullyLoadedPackagesInfo
 {
 	TEnumAsByte<EFullyLoadPackageType>                 FullyLoadType;                                            // 0x0000(0x0001)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     Tag;                                                      // 0x0004(0x0010)
-	TArray<struct FName>                               PackagesToLoad;                                           // 0x0014(0x0010)
-	TArray<class UObject*>                             LoadedObjects;                                            // 0x0024(0x0010)
+	struct FString                                     Tag;                                                      // 0x0004(0x0010) (NeedCtorLink)
+	TArray<struct FName>                               PackagesToLoad;                                           // 0x0014(0x0010) (NeedCtorLink)
+	TArray<class UObject*>                             LoadedObjects;                                            // 0x0024(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GameEngine.NamedNetDriver
@@ -3991,15 +3991,15 @@ struct FFullyLoadedPackagesInfo
 struct FNamedNetDriver
 {
 	struct FName                                       NetDriverName;                                            // 0x0000(0x0008)
-	struct FPointer                                    NetDriver;                                                // 0x0008(0x0008)
+	struct FPointer                                    NetDriver;                                                // 0x0008(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.GameEngine.AnimTag
 // 0x0020
 struct FAnimTag
 {
-	struct FString                                     Tag;                                                      // 0x0000(0x0010)
-	TArray<struct FString>                             Contains;                                                 // 0x0010(0x0010)
+	struct FString                                     Tag;                                                      // 0x0000(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             Contains;                                                 // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.Brush.GeomSelection
@@ -4026,19 +4026,19 @@ struct ADynamicBlockingVolume_FCheckpointRecord
 // 0x0008
 struct FCullDistanceSizePair
 {
-	float                                              Size;                                                     // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelPassive)
-	float                                              CullDistance;                                             // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelPassive)
+	float                                              Size;                                                     // 0x0000(0x0004) (Edit)
+	float                                              CullDistance;                                             // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.KMeshProps.KColElemBase
 // 0x0005
 struct FKColElemBase
 {
-	TEnumAsByte<EFColMovePickingOption>                MovePickingOption;                                        // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TEnumAsByte<EFColMoveColOption>                    MoveColOption;                                            // 0x0001(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TEnumAsByte<EFColProjectileOption>                 ProjectileOption;                                         // 0x0002(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TEnumAsByte<EFColNavMeshOption>                    NavMeshOption;                                            // 0x0003(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	unsigned char                                      NpcPartTypeValue;                                         // 0x0004(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
+	TEnumAsByte<EFColMovePickingOption>                MovePickingOption;                                        // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EFColMoveColOption>                    MoveColOption;                                            // 0x0001(0x0001) (Edit)
+	TEnumAsByte<EFColProjectileOption>                 ProjectileOption;                                         // 0x0002(0x0001) (Edit)
+	TEnumAsByte<EFColNavMeshOption>                    NavMeshOption;                                            // 0x0003(0x0001) (Edit)
+	unsigned char                                      NpcPartTypeValue;                                         // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.KMeshProps.KConvexElem
@@ -4046,12 +4046,12 @@ struct FKColElemBase
 struct FKConvexElem : public FKColElemBase
 {
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	TArray<struct FVector>                             VertexData;                                               // 0x0008(0x0010)
-	TArray<struct FPlane>                              PermutedVertexData;                                       // 0x0018(0x0010)
-	TArray<int>                                        FaceTriData;                                              // 0x0028(0x0010)
-	TArray<struct FVector>                             EdgeDirections;                                           // 0x0038(0x0010)
-	TArray<struct FVector>                             FaceNormalDirections;                                     // 0x0048(0x0010)
-	TArray<struct FPlane>                              FacePlaneData;                                            // 0x0058(0x0010)
+	TArray<struct FVector>                             VertexData;                                               // 0x0008(0x0010) (NeedCtorLink)
+	TArray<struct FPlane>                              PermutedVertexData;                                       // 0x0018(0x0010) (NeedCtorLink)
+	TArray<int>                                        FaceTriData;                                              // 0x0028(0x0010) (NeedCtorLink)
+	TArray<struct FVector>                             EdgeDirections;                                           // 0x0038(0x0010) (NeedCtorLink)
+	TArray<struct FVector>                             FaceNormalDirections;                                     // 0x0048(0x0010) (NeedCtorLink)
+	TArray<struct FPlane>                              FacePlaneData;                                            // 0x0058(0x0010) (NeedCtorLink)
 	struct FBox                                        ElemBox;                                                  // 0x0068(0x001C)
 };
 
@@ -4094,7 +4094,7 @@ struct AEmitter_FCheckpointRecord
 // 0x002C
 struct FEmitterBaseInfo
 {
-	class UParticleSystemComponent*                    PSC;                                                      // 0x0000(0x0008)
+	class UParticleSystemComponent*                    PSC;                                                      // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	class AActor*                                      Base;                                                     // 0x0008(0x0008)
 	struct FVector                                     RelativeLocation;                                         // 0x0010(0x000C)
 	struct FRotator                                    RelativeRotation;                                         // 0x001C(0x000C)
@@ -4125,7 +4125,7 @@ struct FFontRenderInfo
 struct FHudLocalizedMessage
 {
 	class UClass*                                      Message;                                                  // 0x0000(0x0008)
-	struct FString                                     StringMessage;                                            // 0x0008(0x0010)
+	struct FString                                     StringMessage;                                            // 0x0008(0x0010) (NeedCtorLink)
 	int                                                Switch;                                                   // 0x0018(0x0004)
 	float                                              EndOfLife;                                                // 0x001C(0x0004)
 	float                                              Lifetime;                                                 // 0x0020(0x0004)
@@ -4144,7 +4144,7 @@ struct FHudLocalizedMessage
 // 0x0020
 struct FConsoleMessage
 {
-	struct FString                                     Text;                                                     // 0x0000(0x0010)
+	struct FString                                     Text;                                                     // 0x0000(0x0010) (NeedCtorLink)
 	struct FColor                                      TextColor;                                                // 0x0010(0x0004)
 	float                                              MessageLife;                                              // 0x0014(0x0004)
 	class APlayerReplicationInfo*                      PRI;                                                      // 0x0018(0x0008)
@@ -4154,12 +4154,12 @@ struct FConsoleMessage
 // 0x0040
 struct FKismetDrawTextInfo
 {
-	struct FString                                     MessageText;                                              // 0x0000(0x0010) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     AppendedText;                                             // 0x0010(0x0010)
-	class UFont*                                       MessageFont;                                              // 0x0020(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FVector2D                                   MessageFontScale;                                         // 0x0028(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FVector2D                                   MessageOffset;                                            // 0x0030(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FColor                                      MessageColor;                                             // 0x0038(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	struct FString                                     MessageText;                                              // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     AppendedText;                                             // 0x0010(0x0010) (NeedCtorLink)
+	class UFont*                                       MessageFont;                                              // 0x0020(0x0008) (Edit)
+	struct FVector2D                                   MessageFontScale;                                         // 0x0028(0x0008) (Edit)
+	struct FVector2D                                   MessageOffset;                                            // 0x0030(0x0008) (Edit)
+	struct FColor                                      MessageColor;                                             // 0x0038(0x0004) (Edit)
 	float                                              MessageEndTime;                                           // 0x003C(0x0004)
 };
 
@@ -4167,8 +4167,8 @@ struct FKismetDrawTextInfo
 // 0x0018
 struct FActorReference
 {
-	class AActor*                                      Actor;                                                    // 0x0000(0x0008) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FGuid                                       Guid;                                                     // 0x0008(0x0010) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
+	class AActor*                                      Actor;                                                    // 0x0000(0x0008) (Edit)
+	struct FGuid                                       Guid;                                                     // 0x0008(0x0010) (Edit, Const, EditConst)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.UniqueNetId
@@ -4182,19 +4182,19 @@ struct FUniqueNetId
 // 0x0044
 struct FGameTypePrefix
 {
-	struct FString                                     Prefix;                                                   // 0x0000(0x0010)
+	struct FString                                     Prefix;                                                   // 0x0000(0x0010) (NeedCtorLink)
 	unsigned long                                      bUsesCommonPackage : 1;                                   // 0x0010(0x0004)
-	struct FString                                     GameType;                                                 // 0x0014(0x0010)
-	TArray<struct FString>                             AdditionalGameTypes;                                      // 0x0024(0x0010)
-	TArray<struct FString>                             ForcedObjects;                                            // 0x0034(0x0010)
+	struct FString                                     GameType;                                                 // 0x0014(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             AdditionalGameTypes;                                      // 0x0024(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             ForcedObjects;                                            // 0x0034(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GameInfo.GameClassShortName
 // 0x0020
 struct FGameClassShortName
 {
-	struct FString                                     ShortName;                                                // 0x0000(0x0010)
-	struct FString                                     GameClassName;                                            // 0x0010(0x0010)
+	struct FString                                     ShortName;                                                // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     GameClassName;                                            // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.NavigationPoint.CheckpointRecord
@@ -4211,16 +4211,16 @@ struct FNavigationOctreeObject
 {
 	struct FBox                                        BoundingBox;                                              // 0x0000(0x001C)
 	struct FVector                                     BoxCenter;                                                // 0x001C(0x000C)
-	struct FPointer                                    OctreeNode;                                               // 0x0028(0x0008)
-	class UObject*                                     Owner;                                                    // 0x0030(0x0008)
-	unsigned char                                      OwnerType;                                                // 0x0038(0x0001)
+	struct FPointer                                    OctreeNode;                                               // 0x0028(0x0008) (Const, Native, Transient)
+	class UObject*                                     Owner;                                                    // 0x0030(0x0008) (Const, NoExport)
+	unsigned char                                      OwnerType;                                                // 0x0038(0x0001) (Const, NoExport)
 };
 
 // ScriptStruct Engine.NavigationPoint.DebugNavCost
 // 0x0014
 struct FDebugNavCost
 {
-	struct FString                                     Desc;                                                     // 0x0000(0x0010)
+	struct FString                                     Desc;                                                     // 0x0000(0x0010) (NeedCtorLink)
 	int                                                Cost;                                                     // 0x0010(0x0004)
 };
 
@@ -4228,16 +4228,16 @@ struct FDebugNavCost
 // 0x000C
 struct FCoverInfo
 {
-	class ACoverLink*                                  Link;                                                     // 0x0000(0x0008) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
-	int                                                SlotIdx;                                                  // 0x0008(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelPassive)
+	class ACoverLink*                                  Link;                                                     // 0x0000(0x0008) (Edit, EditConst)
+	int                                                SlotIdx;                                                  // 0x0008(0x0004) (Edit, EditConst)
 };
 
 // ScriptStruct Engine.CoverLink.FireLink
 // 0x0018
 struct FFireLink
 {
-	TArray<unsigned char>                              Interactions;                                             // 0x0000(0x0010)
-	int                                                PackedProperties_CoverPairRefAndDynamicInfo;              // 0x0010(0x0004)
+	TArray<unsigned char>                              Interactions;                                             // 0x0000(0x0010) (NeedCtorLink)
+	int                                                PackedProperties_CoverPairRefAndDynamicInfo;              // 0x0010(0x0004) (Const)
 	unsigned long                                      bFallbackLink : 1;                                        // 0x0014(0x0004)
 	unsigned long                                      bDynamicIndexInited : 1;                                  // 0x0014(0x0004)
 };
@@ -4248,16 +4248,16 @@ struct FPolyReference
 {
 	struct FActorReference                             OwningPylon;                                              // 0x0000(0x0018)
 	int                                                PolyId;                                                   // 0x0018(0x0004)
-	struct FPointer                                    CachedPoly;                                               // 0x001C(0x0008)
+	struct FPointer                                    CachedPoly;                                               // 0x001C(0x0008) (Native)
 };
 
 // ScriptStruct Engine.CoverLink.SlotMoveRef
 // 0x0060
 struct FSlotMoveRef
 {
-	struct FPolyReference                              Poly;                                                     // 0x0000(0x0024) (NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FBasedPosition                              Dest;                                                     // 0x0024(0x0038) (NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                Direction;                                                // 0x005C(0x0004) (NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FPolyReference                              Poly;                                                     // 0x0000(0x0024) (Edit)
+	struct FBasedPosition                              Dest;                                                     // 0x0024(0x0038) (Edit)
+	int                                                Direction;                                                // 0x005C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.CoverLink.CoverSlot
@@ -4265,44 +4265,44 @@ struct FSlotMoveRef
 struct FCoverSlot
 {
 	class APawn*                                       SlotOwner;                                                // 0x0000(0x0008)
-	float                                              SlotValidAfterTime;                                       // 0x0008(0x0004)
-	TEnumAsByte<ECoverType>                            ForceCoverType;                                           // 0x000C(0x0001) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	TEnumAsByte<ECoverType>                            CoverType;                                                // 0x000D(0x0001) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	TEnumAsByte<ECoverLocationDescription>             LocationDescription;                                      // 0x000E(0x0001) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	float                                              SlotValidAfterTime;                                       // 0x0008(0x0004) (Transient)
+	TEnumAsByte<ECoverType>                            ForceCoverType;                                           // 0x000C(0x0001) (Edit)
+	TEnumAsByte<ECoverType>                            CoverType;                                                // 0x000D(0x0001) (Edit, EditConst)
+	TEnumAsByte<ECoverLocationDescription>             LocationDescription;                                      // 0x000E(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x1];                                       // 0x000F(0x0001) MISSED OFFSET
 	struct FVector                                     LocationOffset;                                           // 0x0010(0x000C)
 	struct FRotator                                    RotationOffset;                                           // 0x001C(0x000C)
-	TArray<TEnumAsByte<ECoverAction>>                  Actions;                                                  // 0x0028(0x0010)
-	TArray<struct FFireLink>                           FireLinks;                                                // 0x0038(0x0010) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	TArray<struct FFireLink>                           RejectedFireLinks;                                        // 0x0048(0x0010) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	TArray<int>                                        ExposedCoverPackedProperties;                             // 0x0058(0x0010)
+	TArray<TEnumAsByte<ECoverAction>>                  Actions;                                                  // 0x0028(0x0010) (NeedCtorLink)
+	TArray<struct FFireLink>                           FireLinks;                                                // 0x0038(0x0010) (Edit, EditConst, NeedCtorLink)
+	TArray<struct FFireLink>                           RejectedFireLinks;                                        // 0x0048(0x0010) (Edit, Transient, EditConst, NeedCtorLink)
+	TArray<int>                                        ExposedCoverPackedProperties;                             // 0x0058(0x0010) (NeedCtorLink)
 	int                                                TurnTargetPackedProperties;                               // 0x0068(0x0004)
-	TArray<struct FSlotMoveRef>                        SlipRefs;                                                 // 0x006C(0x0010)
-	TArray<struct FCoverInfo>                          OverlapClaimsList;                                        // 0x007C(0x0010) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bLeanLeft : 1;                                            // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bLeanRight : 1;                                           // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bForceCanPopUp : 1;                                       // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanPopUp : 1;                                            // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanMantle : 1;                                           // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanClimbUp : 1;                                          // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bForceCanCoverSlip_Left : 1;                              // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bForceCanCoverSlip_Right : 1;                             // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanCoverSlip_Left : 1;                                   // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanCoverSlip_Right : 1;                                  // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanSwatTurn_Left : 1;                                    // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bCanSwatTurn_Right : 1;                                   // 0x008C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide)
-	unsigned long                                      bEnabled : 1;                                             // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllowPopup : 1;                                          // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllowMantle : 1;                                         // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllowCoverSlip : 1;                                      // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllowClimbUp : 1;                                        // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllowSwatTurn : 1;                                       // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bForceNoGroundAdjust : 1;                                 // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bPlayerOnly : 1;                                          // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bPreferLeanOverPopup : 1;                                 // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bDestructible : 1;                                        // 0x008C(0x0004)
-	unsigned long                                      bSelected : 1;                                            // 0x008C(0x0004)
-	unsigned long                                      bFailedToFindSurface : 1;                                 // 0x008C(0x0004) (EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	TArray<struct FSlotMoveRef>                        SlipRefs;                                                 // 0x006C(0x0010) (NeedCtorLink)
+	TArray<struct FCoverInfo>                          OverlapClaimsList;                                        // 0x007C(0x0010) (Edit, EditConst, NeedCtorLink)
+	unsigned long                                      bLeanLeft : 1;                                            // 0x008C(0x0004) (Edit)
+	unsigned long                                      bLeanRight : 1;                                           // 0x008C(0x0004) (Edit)
+	unsigned long                                      bForceCanPopUp : 1;                                       // 0x008C(0x0004) (Edit)
+	unsigned long                                      bCanPopUp : 1;                                            // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bCanMantle : 1;                                           // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bCanClimbUp : 1;                                          // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bForceCanCoverSlip_Left : 1;                              // 0x008C(0x0004) (Edit)
+	unsigned long                                      bForceCanCoverSlip_Right : 1;                             // 0x008C(0x0004) (Edit)
+	unsigned long                                      bCanCoverSlip_Left : 1;                                   // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bCanCoverSlip_Right : 1;                                  // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bCanSwatTurn_Left : 1;                                    // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bCanSwatTurn_Right : 1;                                   // 0x008C(0x0004) (Edit, EditConst)
+	unsigned long                                      bEnabled : 1;                                             // 0x008C(0x0004) (Edit)
+	unsigned long                                      bAllowPopup : 1;                                          // 0x008C(0x0004) (Edit)
+	unsigned long                                      bAllowMantle : 1;                                         // 0x008C(0x0004) (Edit)
+	unsigned long                                      bAllowCoverSlip : 1;                                      // 0x008C(0x0004) (Edit)
+	unsigned long                                      bAllowClimbUp : 1;                                        // 0x008C(0x0004) (Edit)
+	unsigned long                                      bAllowSwatTurn : 1;                                       // 0x008C(0x0004) (Edit)
+	unsigned long                                      bForceNoGroundAdjust : 1;                                 // 0x008C(0x0004) (Edit)
+	unsigned long                                      bPlayerOnly : 1;                                          // 0x008C(0x0004) (Edit)
+	unsigned long                                      bPreferLeanOverPopup : 1;                                 // 0x008C(0x0004) (Edit)
+	unsigned long                                      bDestructible : 1;                                        // 0x008C(0x0004) (Transient)
+	unsigned long                                      bSelected : 1;                                            // 0x008C(0x0004) (Transient)
+	unsigned long                                      bFailedToFindSurface : 1;                                 // 0x008C(0x0004) (Edit, Transient, EditConst)
 };
 
 // ScriptStruct Engine.CoverLink.DynamicLinkInfo
@@ -4318,10 +4318,10 @@ struct FDynamicLinkInfo
 struct FKSphereElem : public FKColElemBase
 {
 	unsigned char                                      UnknownData00[0xB];                                       // 0x0005(0x000B) MISSED OFFSET
-	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Radius;                                                   // 0x0050(0x0004) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bNoRBCollision : 1;                                       // 0x0054(0x0004) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bPerPolyShape : 1;                                        // 0x0054(0x0004) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (Edit, EditConst)
+	float                                              Radius;                                                   // 0x0050(0x0004) (Edit, EditConst)
+	unsigned long                                      bNoRBCollision : 1;                                       // 0x0054(0x0004) (Edit)
+	unsigned long                                      bPerPolyShape : 1;                                        // 0x0054(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.KMeshProps.KBoxElem
@@ -4329,12 +4329,12 @@ struct FKSphereElem : public FKColElemBase
 struct FKBoxElem : public FKColElemBase
 {
 	unsigned char                                      UnknownData00[0xB];                                       // 0x0005(0x000B) MISSED OFFSET
-	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	float                                              X;                                                        // 0x0050(0x0004) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	float                                              Y;                                                        // 0x0054(0x0004) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	float                                              Z;                                                        // 0x0058(0x0004) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bNoRBCollision : 1;                                       // 0x005C(0x0004) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bPerPolyShape : 1;                                        // 0x005C(0x0004) (RepNotify, EditorOnly, NotForConsole, ArchetypeProperty, CrossLevelActive)
+	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (Edit, EditConst)
+	float                                              X;                                                        // 0x0050(0x0004) (Edit, EditConst)
+	float                                              Y;                                                        // 0x0054(0x0004) (Edit, EditConst)
+	float                                              Z;                                                        // 0x0058(0x0004) (Edit, EditConst)
+	unsigned long                                      bNoRBCollision : 1;                                       // 0x005C(0x0004) (Edit)
+	unsigned long                                      bPerPolyShape : 1;                                        // 0x005C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.KMeshProps.KSphylElem
@@ -4342,31 +4342,31 @@ struct FKBoxElem : public FKColElemBase
 struct FKSphylElem : public FKColElemBase
 {
 	unsigned char                                      UnknownData00[0xB];                                       // 0x0005(0x000B) MISSED OFFSET
-	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Radius;                                                   // 0x0050(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Length;                                                   // 0x0054(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bNoRBCollision : 1;                                       // 0x0058(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bPerPolyShape : 1;                                        // 0x0058(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	struct FMatrix                                     TM;                                                       // 0x0010(0x0040) (Edit, EditConst)
+	float                                              Radius;                                                   // 0x0050(0x0004) (Edit, EditConst)
+	float                                              Length;                                                   // 0x0054(0x0004) (Edit, EditConst)
+	unsigned long                                      bNoRBCollision : 1;                                       // 0x0058(0x0004) (Edit)
+	unsigned long                                      bPerPolyShape : 1;                                        // 0x0058(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.KMeshProps.KAggregateGeom
 // 0x004C
 struct FKAggregateGeom
 {
-	TArray<struct FKSphereElem>                        SphereElems;                                              // 0x0000(0x0010) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FKBoxElem>                           BoxElems;                                                 // 0x0010(0x0010) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FKSphylElem>                         SphylElems;                                               // 0x0020(0x0010) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FKConvexElem>                        ConvexElems;                                              // 0x0030(0x0010) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelActive)
-	struct FPointer                                    RenderInfo;                                               // 0x0040(0x0008)
-	unsigned long                                      bSkipCloseAndParallelChecks : 1;                          // 0x0048(0x0004) (Interp, NonTransactional, NotForConsole, ArchetypeProperty, CrossLevelActive)
+	TArray<struct FKSphereElem>                        SphereElems;                                              // 0x0000(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	TArray<struct FKBoxElem>                           BoxElems;                                                 // 0x0010(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	TArray<struct FKSphylElem>                         SphylElems;                                               // 0x0020(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	TArray<struct FKConvexElem>                        ConvexElems;                                              // 0x0030(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	struct FPointer                                    RenderInfo;                                               // 0x0040(0x0008) (Native, NoImport)
+	unsigned long                                      bSkipCloseAndParallelChecks : 1;                          // 0x0048(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.StaticMeshActorBasedOnExtremeContent.SMMaterialSetterDatum
 // 0x000C
 struct FSMMaterialSetterDatum
 {
-	int                                                MaterialIndex;                                            // 0x0000(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UMaterialInterface*                          TheMaterial;                                              // 0x0004(0x0008) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                MaterialIndex;                                            // 0x0000(0x0004) (Edit)
+	class UMaterialInterface*                          TheMaterial;                                              // 0x0004(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Trigger.CheckpointRecord
@@ -4380,42 +4380,42 @@ struct ATrigger_FCheckpointRecord
 // 0x0014
 struct FSubtitleCue
 {
-	struct FString                                     Text;                                                     // 0x0000(0x0010) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite)
-	float                                              Time;                                                     // 0x0010(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite)
+	struct FString                                     Text;                                                     // 0x0000(0x0010) (Edit, Const, Localized, NeedCtorLink)
+	float                                              Time;                                                     // 0x0010(0x0004) (Edit, Const, Localized)
 };
 
 // ScriptStruct Engine.AudioComponent.AudioComponentParam
 // 0x0014
 struct FAudioComponentParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (RepRetry, PrivateWrite, ArchetypeProperty)
-	float                                              FloatParam;                                               // 0x0008(0x0004) (RepRetry, PrivateWrite, ArchetypeProperty)
-	class USoundNodeWave*                              WaveParam;                                                // 0x000C(0x0008) (RepRetry, PrivateWrite, ArchetypeProperty)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit)
+	float                                              FloatParam;                                               // 0x0008(0x0004) (Edit)
+	class USoundNodeWave*                              WaveParam;                                                // 0x000C(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.SplineAudioComponent.InterpPointOnSpline
 // 0x0014
 struct FInterpPointOnSpline
 {
-	struct FVector                                     Position;                                                 // 0x0000(0x000C) (RepNotify, NonTransactional, NotForConsole, RepRetry, CrossLevelActive)
-	float                                              InVal;                                                    // 0x000C(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, CrossLevelActive)
-	float                                              Length;                                                   // 0x0010(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, CrossLevelActive)
+	struct FVector                                     Position;                                                 // 0x0000(0x000C) (Edit)
+	float                                              InVal;                                                    // 0x000C(0x0004) (Edit)
+	float                                              Length;                                                   // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.MultiCueSplineAudioComponent.MultiCueSplineSoundSlot
 // 0x0034
 struct FMultiCueSplineSoundSlot
 {
-	class USoundCue*                                   SoundCue;                                                 // 0x0000(0x0008) (NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              PitchScale;                                               // 0x0008(0x0004) (NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              VolumeScale;                                              // 0x000C(0x0004) (NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	int                                                StartPoint;                                               // 0x0010(0x0004) (NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	int                                                EndPoint;                                                 // 0x0014(0x0004) (NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FDouble                                     LastUpdateTime;                                           // 0x0018(0x0008)
-	float                                              SourceInteriorVolume;                                     // 0x0020(0x0004)
-	float                                              SourceInteriorLPF;                                        // 0x0024(0x0004)
-	float                                              CurrentInteriorVolume;                                    // 0x0028(0x0004)
-	float                                              CurrentInteriorLPF;                                       // 0x002C(0x0004)
+	class USoundCue*                                   SoundCue;                                                 // 0x0000(0x0008) (Edit)
+	float                                              PitchScale;                                               // 0x0008(0x0004) (Edit)
+	float                                              VolumeScale;                                              // 0x000C(0x0004) (Edit)
+	int                                                StartPoint;                                               // 0x0010(0x0004) (Edit)
+	int                                                EndPoint;                                                 // 0x0014(0x0004) (Edit)
+	struct FDouble                                     LastUpdateTime;                                           // 0x0018(0x0008) (Const, Native)
+	float                                              SourceInteriorVolume;                                     // 0x0020(0x0004) (Const, Native)
+	float                                              SourceInteriorLPF;                                        // 0x0024(0x0004) (Const, Native)
+	float                                              CurrentInteriorVolume;                                    // 0x0028(0x0004) (Const, Native)
+	float                                              CurrentInteriorLPF;                                       // 0x002C(0x0004) (Const, Native)
 	unsigned long                                      bPlaying : 1;                                             // 0x0030(0x0004)
 };
 
@@ -4423,17 +4423,17 @@ struct FMultiCueSplineSoundSlot
 // 0x0034
 struct FSplineSoundSlot
 {
-	class USoundNodeWave*                              Wave;                                                     // 0x0000(0x0008) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              PitchScale;                                               // 0x0008(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              VolumeScale;                                              // 0x000C(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                StartPoint;                                               // 0x0010(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                EndPoint;                                                 // 0x0014(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              Weight;                                                   // 0x0018(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FDouble                                     LastUpdateTime;                                           // 0x001C(0x0008)
-	float                                              SourceInteriorVolume;                                     // 0x0024(0x0004)
-	float                                              SourceInteriorLPF;                                        // 0x0028(0x0004)
-	float                                              CurrentInteriorVolume;                                    // 0x002C(0x0004)
-	float                                              CurrentInteriorLPF;                                       // 0x0030(0x0004)
+	class USoundNodeWave*                              Wave;                                                     // 0x0000(0x0008) (Edit)
+	float                                              PitchScale;                                               // 0x0008(0x0004) (Edit)
+	float                                              VolumeScale;                                              // 0x000C(0x0004) (Edit)
+	int                                                StartPoint;                                               // 0x0010(0x0004) (Edit)
+	int                                                EndPoint;                                                 // 0x0014(0x0004) (Edit)
+	float                                              Weight;                                                   // 0x0018(0x0004) (Edit)
+	struct FDouble                                     LastUpdateTime;                                           // 0x001C(0x0008) (Const, Native)
+	float                                              SourceInteriorVolume;                                     // 0x0024(0x0004) (Const, Native)
+	float                                              SourceInteriorLPF;                                        // 0x0028(0x0004) (Const, Native)
+	float                                              CurrentInteriorVolume;                                    // 0x002C(0x0004) (Const, Native)
+	float                                              CurrentInteriorLPF;                                       // 0x0030(0x0004) (Const, Native)
 };
 
 // ScriptStruct Engine.LightComponent.LightingChannelContainer
@@ -4441,87 +4441,87 @@ struct FSplineSoundSlot
 struct FLightingChannelContainer
 {
 	unsigned long                                      bInitialized : 1;                                         // 0x0000(0x0004)
-	unsigned long                                      BSP : 1;                                                  // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Static : 1;                                               // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Dynamic : 1;                                              // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      CompositeDynamic : 1;                                     // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Skybox : 1;                                               // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_2 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_3 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_4 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_5 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_6 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Unnamed_7 : 1;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_2 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_3 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_4 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_5 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_6 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_7 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_8 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_9 : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_10 : 1;                                         // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Cinematic_11 : 1;                                         // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Gameplay_2 : 1;                                           // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Gameplay_3 : 1;                                           // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Gameplay_4 : 1;                                           // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Gameplay_5 : 1;                                           // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      Crowd : 1;                                                // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditHide, CrossLevelActive)
+	unsigned long                                      BSP : 1;                                                  // 0x0000(0x0004) (Edit)
+	unsigned long                                      Static : 1;                                               // 0x0000(0x0004) (Edit)
+	unsigned long                                      Dynamic : 1;                                              // 0x0000(0x0004) (Edit)
+	unsigned long                                      CompositeDynamic : 1;                                     // 0x0000(0x0004) (Edit)
+	unsigned long                                      Skybox : 1;                                               // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_2 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_3 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_4 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_5 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_6 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Unnamed_7 : 1;                                            // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_2 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_3 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_4 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_5 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_6 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_7 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_8 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_9 : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_10 : 1;                                         // 0x0000(0x0004) (Edit)
+	unsigned long                                      Cinematic_11 : 1;                                         // 0x0000(0x0004) (Edit)
+	unsigned long                                      Gameplay_2 : 1;                                           // 0x0000(0x0004) (Edit)
+	unsigned long                                      Gameplay_3 : 1;                                           // 0x0000(0x0004) (Edit)
+	unsigned long                                      Gameplay_4 : 1;                                           // 0x0000(0x0004) (Edit)
+	unsigned long                                      Gameplay_5 : 1;                                           // 0x0000(0x0004) (Edit)
+	unsigned long                                      Crowd : 1;                                                // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PrimitiveComponent.RBCollisionChannelContainer
 // 0x0004
 struct FRBCollisionChannelContainer
 {
-	unsigned long                                      Default : 1;                                              // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Nothing : 1;                                              // 0x0000(0x0004)
-	unsigned long                                      Pawn : 1;                                                 // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Vehicle : 1;                                              // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Water : 1;                                                // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      GameplayPhysics : 1;                                      // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      EffectPhysics : 1;                                        // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Untitled1 : 1;                                            // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Untitled2 : 1;                                            // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Untitled3 : 1;                                            // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Untitled4 : 1;                                            // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Cloth : 1;                                                // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      FluidDrain : 1;                                           // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      SoftBody : 1;                                             // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      FracturedMeshPart : 1;                                    // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      BlockingVolume : 1;                                       // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      DeadPawn : 1;                                             // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Clothing : 1;                                             // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      ClothingCollision : 1;                                    // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      Default : 1;                                              // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Nothing : 1;                                              // 0x0000(0x0004) (Const)
+	unsigned long                                      Pawn : 1;                                                 // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Vehicle : 1;                                              // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Water : 1;                                                // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      GameplayPhysics : 1;                                      // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      EffectPhysics : 1;                                        // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Untitled1 : 1;                                            // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Untitled2 : 1;                                            // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Untitled3 : 1;                                            // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Untitled4 : 1;                                            // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Cloth : 1;                                                // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      FluidDrain : 1;                                           // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      SoftBody : 1;                                             // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      FracturedMeshPart : 1;                                    // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      BlockingVolume : 1;                                       // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      DeadPawn : 1;                                             // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      Clothing : 1;                                             // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      ClothingCollision : 1;                                    // 0x0000(0x0004) (Edit, Const)
 };
 
 // ScriptStruct Engine.BrushComponent.KCachedConvexData_Mirror
 // 0x0010
 struct FKCachedConvexData_Mirror
 {
-	TArray<int>                                        CachedConvexElements;                                     // 0x0000(0x0010)
+	TArray<int>                                        CachedConvexElements;                                     // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.Canvas.CanvasIcon
 // 0x0018
 struct FCanvasIcon
 {
-	class UTexture*                                    Texture;                                                  // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	float                                              U;                                                        // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	float                                              V;                                                        // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	float                                              UL;                                                       // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	float                                              VL;                                                       // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
+	class UTexture*                                    Texture;                                                  // 0x0000(0x0008) (Edit)
+	float                                              U;                                                        // 0x0008(0x0004) (Edit)
+	float                                              V;                                                        // 0x000C(0x0004) (Edit)
+	float                                              UL;                                                       // 0x0010(0x0004) (Edit)
+	float                                              VL;                                                       // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.Canvas.CanvasUVTri
 // 0x0030
 struct FCanvasUVTri
 {
-	struct FVector2D                                   V0_Pos;                                                   // 0x0000(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector2D                                   V0_UV;                                                    // 0x0008(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector2D                                   V1_Pos;                                                   // 0x0010(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector2D                                   V1_UV;                                                    // 0x0018(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector2D                                   V2_Pos;                                                   // 0x0020(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector2D                                   V2_UV;                                                    // 0x0028(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
+	struct FVector2D                                   V0_Pos;                                                   // 0x0000(0x0008) (Edit)
+	struct FVector2D                                   V0_UV;                                                    // 0x0008(0x0008) (Edit)
+	struct FVector2D                                   V1_Pos;                                                   // 0x0010(0x0008) (Edit)
+	struct FVector2D                                   V1_UV;                                                    // 0x0018(0x0008) (Edit)
+	struct FVector2D                                   V2_Pos;                                                   // 0x0020(0x0008) (Edit)
+	struct FVector2D                                   V2_UV;                                                    // 0x0028(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Controller.VisiblePortalInfo
@@ -4536,8 +4536,8 @@ struct FVisiblePortalInfo
 // 0x0010
 struct FOnlineGameSearchResult
 {
-	class UOnlineGameSettings*                         GameSettings;                                             // 0x0000(0x0008)
-	struct FPointer                                    PlatformData;                                             // 0x0008(0x0008)
+	class UOnlineGameSettings*                         GameSettings;                                             // 0x0000(0x0008) (Const)
+	struct FPointer                                    PlatformData;                                             // 0x0008(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlinePlayerScore
@@ -4553,11 +4553,11 @@ struct FOnlinePlayerScore
 // 0x0010
 struct FViewTargetTransitionParams
 {
-	float                                              BlendTime;                                                // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox)
-	TEnumAsByte<EViewTargetBlendFunction>              BlendFunction;                                            // 0x0004(0x0001) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox)
+	float                                              BlendTime;                                                // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EViewTargetBlendFunction>              BlendFunction;                                            // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	float                                              BlendExp;                                                 // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox)
-	unsigned long                                      bLockOutgoing : 1;                                        // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditTextBox)
+	float                                              BlendExp;                                                 // 0x0008(0x0004) (Edit)
+	unsigned long                                      bLockOutgoing : 1;                                        // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PlayerController.ConnectedPeerInfo
@@ -4599,14 +4599,14 @@ struct FInputEntry
 // 0x0048
 struct FInputMatchRequest
 {
-	TArray<struct FInputEntry>                         Inputs;                                                   // 0x0000(0x0010)
+	TArray<struct FInputEntry>                         Inputs;                                                   // 0x0000(0x0010) (NeedCtorLink)
 	class AActor*                                      MatchActor;                                               // 0x0010(0x0008)
 	struct FName                                       MatchFuncName;                                            // 0x0018(0x0008)
-	struct FScriptDelegate                             MatchDelegate;                                            // 0x0020(0x0010)
+	struct FScriptDelegate                             MatchDelegate;                                            // 0x0020(0x0010) (NeedCtorLink)
 	struct FName                                       FailedFuncName;                                           // 0x0030(0x0008)
 	struct FName                                       RequestName;                                              // 0x0038(0x0008)
-	int                                                MatchIdx;                                                 // 0x0040(0x0004)
-	float                                              LastMatchTime;                                            // 0x0044(0x0004)
+	int                                                MatchIdx;                                                 // 0x0040(0x0004) (Transient)
+	float                                              LastMatchTime;                                            // 0x0044(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.PlayerController.DebugTextInfo
@@ -4616,8 +4616,8 @@ struct FDebugTextInfo
 	class AActor*                                      SrcActor;                                                 // 0x0000(0x0008)
 	struct FVector                                     SrcActorOffset;                                           // 0x0008(0x000C)
 	struct FVector                                     SrcActorDesiredOffset;                                    // 0x0014(0x000C)
-	struct FString                                     DebugText;                                                // 0x0020(0x0010)
-	float                                              TimeRemaining;                                            // 0x0030(0x0004)
+	struct FString                                     DebugText;                                                // 0x0020(0x0010) (NeedCtorLink)
+	float                                              TimeRemaining;                                            // 0x0030(0x0004) (Transient)
 	float                                              Duration;                                                 // 0x0034(0x0004)
 	struct FColor                                      TextColor;                                                // 0x0038(0x0004)
 	unsigned long                                      bAbsoluteLocation : 1;                                    // 0x003C(0x0004)
@@ -4631,7 +4631,7 @@ struct FDebugTextInfo
 // 0x0014
 struct FHudDebugTextInfo
 {
-	struct FString                                     DebugText;                                                // 0x0000(0x0010)
+	struct FString                                     DebugText;                                                // 0x0000(0x0010) (NeedCtorLink)
 	struct FColor                                      TextColor;                                                // 0x0010(0x0004)
 };
 
@@ -4644,8 +4644,8 @@ struct FPlatformInterfaceData
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
 	int                                                IntValue;                                                 // 0x000C(0x0004)
 	float                                              FloatValue;                                               // 0x0010(0x0004)
-	struct FString                                     StringValue;                                              // 0x0014(0x0010)
-	struct FString                                     StringValue2;                                             // 0x0024(0x0010)
+	struct FString                                     StringValue;                                              // 0x0014(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     StringValue2;                                             // 0x0024(0x0010) (AlwaysInit, NeedCtorLink)
 	class UObject*                                     ObjectValue;                                              // 0x0034(0x0008)
 };
 
@@ -4654,15 +4654,15 @@ struct FPlatformInterfaceData
 struct FPlatformInterfaceDelegateResult
 {
 	unsigned long                                      bSuccessful : 1;                                          // 0x0000(0x0004)
-	struct FPlatformInterfaceData                      Data;                                                     // 0x0004(0x003C)
+	struct FPlatformInterfaceData                      Data;                                                     // 0x0004(0x003C) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AppNotificationsBase.NotificationMessageInfo
 // 0x0020
 struct FNotificationMessageInfo
 {
-	struct FString                                     Key;                                                      // 0x0000(0x0010)
-	struct FString                                     Value;                                                    // 0x0010(0x0010)
+	struct FString                                     Key;                                                      // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     Value;                                                    // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AppNotificationsBase.NotificationInfo
@@ -4670,9 +4670,9 @@ struct FNotificationMessageInfo
 struct FNotificationInfo
 {
 	unsigned long                                      bIsLocal : 1;                                             // 0x0000(0x0004)
-	struct FString                                     MessageBody;                                              // 0x0004(0x0010)
+	struct FString                                     MessageBody;                                              // 0x0004(0x0010) (NeedCtorLink)
 	int                                                BadgeNumber;                                              // 0x0014(0x0004)
-	TArray<struct FNotificationMessageInfo>            MessageInfo;                                              // 0x0018(0x0010)
+	TArray<struct FNotificationMessageInfo>            MessageInfo;                                              // 0x0018(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.CloudSaveSystem.SaveSlotOperation
@@ -4688,7 +4688,7 @@ struct FSaveSlotOperation
 struct FSetSaveDataCallbackStruct
 {
 	int                                                SlotIndex;                                                // 0x0000(0x0004)
-	struct FScriptDelegate                             Callback;                                                 // 0x0004(0x0010)
+	struct FScriptDelegate                             Callback;                                                 // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.CloudSaveSystem.GetSaveDataCallbackStruct
@@ -4696,7 +4696,7 @@ struct FSetSaveDataCallbackStruct
 struct FGetSaveDataCallbackStruct
 {
 	int                                                SlotIndex;                                                // 0x0000(0x0004)
-	struct FScriptDelegate                             Callback;                                                 // 0x0004(0x0010)
+	struct FScriptDelegate                             Callback;                                                 // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.CurveEdPresetCurve.PresetGeneratedPoint
@@ -4715,74 +4715,74 @@ struct FPresetGeneratedPoint
 // 0x0018
 struct FFontCharacter
 {
-	int                                                StartU;                                                   // 0x0000(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
-	int                                                StartV;                                                   // 0x0004(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
-	int                                                USize;                                                    // 0x0008(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
-	int                                                VSize;                                                    // 0x000C(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
-	unsigned char                                      TextureIndex;                                             // 0x0010(0x0001) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
+	int                                                StartU;                                                   // 0x0000(0x0004) (Edit)
+	int                                                StartV;                                                   // 0x0004(0x0004) (Edit)
+	int                                                USize;                                                    // 0x0008(0x0004) (Edit)
+	int                                                VSize;                                                    // 0x000C(0x0004) (Edit)
+	unsigned char                                      TextureIndex;                                             // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	int                                                VerticalOffset;                                           // 0x0014(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide)
+	int                                                VerticalOffset;                                           // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.FontImportOptions.FontImportOptionsData
 // 0x00A8
 struct FFontImportOptionsData
 {
-	struct FString                                     FontName;                                                 // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Height;                                                   // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableAntialiasing : 1;                                  // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableBold : 1;                                          // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableItalic : 1;                                        // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableUnderline : 1;                                     // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bAlphaOnly : 1;                                           // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	TEnumAsByte<EFontImportCharacterSet>               CharacterSet;                                             // 0x0018(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	struct FString                                     FontName;                                                 // 0x0000(0x0010) (Edit, NeedCtorLink)
+	float                                              Height;                                                   // 0x0010(0x0004) (Edit)
+	unsigned long                                      bEnableAntialiasing : 1;                                  // 0x0014(0x0004) (Edit)
+	unsigned long                                      bEnableBold : 1;                                          // 0x0014(0x0004) (Edit)
+	unsigned long                                      bEnableItalic : 1;                                        // 0x0014(0x0004) (Edit)
+	unsigned long                                      bEnableUnderline : 1;                                     // 0x0014(0x0004) (Edit)
+	unsigned long                                      bAlphaOnly : 1;                                           // 0x0014(0x0004) (Edit)
+	TEnumAsByte<EFontImportCharacterSet>               CharacterSet;                                             // 0x0018(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-	struct FString                                     Chars;                                                    // 0x001C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     UnicodeRange;                                             // 0x002C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     CharsFilePath;                                            // 0x003C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     CharsFileWildcard;                                        // 0x004C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bCreatePrintableOnly : 1;                                 // 0x005C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bIncludeASCIIRange : 1;                                   // 0x005C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FLinearColor                                ForegroundColor;                                          // 0x0060(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableDropShadow : 1;                                    // 0x0070(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                TexturePageWidth;                                         // 0x0074(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                TexturePageMaxHeight;                                     // 0x0078(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                XPadding;                                                 // 0x007C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                YPadding;                                                 // 0x0080(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                ExtendBoxTop;                                             // 0x0084(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                ExtendBoxBottom;                                          // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                ExtendBoxRight;                                           // 0x008C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                ExtendBoxLeft;                                            // 0x0090(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bEnableLegacyMode : 1;                                    // 0x0094(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                Kerning;                                                  // 0x0098(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bUseDistanceFieldAlpha : 1;                               // 0x009C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                DistanceFieldScaleFactor;                                 // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              DistanceFieldScanRadiusScale;                             // 0x00A4(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	struct FString                                     Chars;                                                    // 0x001C(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     UnicodeRange;                                             // 0x002C(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     CharsFilePath;                                            // 0x003C(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     CharsFileWildcard;                                        // 0x004C(0x0010) (Edit, NeedCtorLink)
+	unsigned long                                      bCreatePrintableOnly : 1;                                 // 0x005C(0x0004) (Edit)
+	unsigned long                                      bIncludeASCIIRange : 1;                                   // 0x005C(0x0004) (Edit)
+	struct FLinearColor                                ForegroundColor;                                          // 0x0060(0x0010) (Edit)
+	unsigned long                                      bEnableDropShadow : 1;                                    // 0x0070(0x0004) (Edit)
+	int                                                TexturePageWidth;                                         // 0x0074(0x0004) (Edit)
+	int                                                TexturePageMaxHeight;                                     // 0x0078(0x0004) (Edit)
+	int                                                XPadding;                                                 // 0x007C(0x0004) (Edit)
+	int                                                YPadding;                                                 // 0x0080(0x0004) (Edit)
+	int                                                ExtendBoxTop;                                             // 0x0084(0x0004) (Edit)
+	int                                                ExtendBoxBottom;                                          // 0x0088(0x0004) (Edit)
+	int                                                ExtendBoxRight;                                           // 0x008C(0x0004) (Edit)
+	int                                                ExtendBoxLeft;                                            // 0x0090(0x0004) (Edit)
+	unsigned long                                      bEnableLegacyMode : 1;                                    // 0x0094(0x0004) (Edit)
+	int                                                Kerning;                                                  // 0x0098(0x0004) (Edit)
+	unsigned long                                      bUseDistanceFieldAlpha : 1;                               // 0x009C(0x0004) (Edit)
+	int                                                DistanceFieldScaleFactor;                                 // 0x00A0(0x0004) (Edit)
+	float                                              DistanceFieldScanRadiusScale;                             // 0x00A4(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ForceFeedbackWaveform.WaveformSample
 // 0x0008
 struct FWaveformSample
 {
-	unsigned char                                      LeftAmplitude;                                            // 0x0000(0x0001) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	unsigned char                                      RightAmplitude;                                           // 0x0001(0x0001) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	TEnumAsByte<EWaveformFunction>                     LeftFunction;                                             // 0x0002(0x0001) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	TEnumAsByte<EWaveformFunction>                     RightFunction;                                            // 0x0003(0x0001) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	float                                              Duration;                                                 // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	unsigned char                                      LeftAmplitude;                                            // 0x0000(0x0001) (Edit)
+	unsigned char                                      RightAmplitude;                                           // 0x0001(0x0001) (Edit)
+	TEnumAsByte<EWaveformFunction>                     LeftFunction;                                             // 0x0002(0x0001) (Edit)
+	TEnumAsByte<EWaveformFunction>                     RightFunction;                                            // 0x0003(0x0001) (Edit)
+	float                                              Duration;                                                 // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.GameplayEvents.GameplayEventsHeader
 // 0x0030
 struct FGameplayEventsHeader
 {
-	int                                                EngineVersion;                                            // 0x0000(0x0004)
-	int                                                StatsWriterVersion;                                       // 0x0004(0x0004)
-	int                                                StreamOffset;                                             // 0x0008(0x0004)
-	int                                                AggregateOffset;                                          // 0x000C(0x0004)
-	int                                                FooterOffset;                                             // 0x0010(0x0004)
-	int                                                TotalStreamSize;                                          // 0x0014(0x0004)
-	int                                                FileSize;                                                 // 0x0018(0x0004)
-	struct FString                                     FilterClass;                                              // 0x001C(0x0010)
+	int                                                EngineVersion;                                            // 0x0000(0x0004) (Const)
+	int                                                StatsWriterVersion;                                       // 0x0004(0x0004) (Const)
+	int                                                StreamOffset;                                             // 0x0008(0x0004) (Const)
+	int                                                AggregateOffset;                                          // 0x000C(0x0004) (Const)
+	int                                                FooterOffset;                                             // 0x0010(0x0004) (Const)
+	int                                                TotalStreamSize;                                          // 0x0014(0x0004) (Const)
+	int                                                FileSize;                                                 // 0x0018(0x0004) (Const)
+	struct FString                                     FilterClass;                                              // 0x001C(0x0010) (NeedCtorLink)
 	int                                                Flags;                                                    // 0x002C(0x0004)
 };
 
@@ -4792,18 +4792,18 @@ struct FGameSessionInformation
 {
 	int                                                AppTitleID;                                               // 0x0000(0x0004)
 	int                                                PlatformType;                                             // 0x0004(0x0004)
-	struct FString                                     Language;                                                 // 0x0008(0x0010)
-	struct FString                                     GameplaySessionTimestamp;                                 // 0x0018(0x0010)
-	float                                              GameplaySessionStartTime;                                 // 0x0028(0x0004)
-	float                                              GameplaySessionEndTime;                                   // 0x002C(0x0004)
-	unsigned long                                      bGameplaySessionInProgress : 1;                           // 0x0030(0x0004)
-	struct FString                                     GameplaySessionID;                                        // 0x0034(0x0010)
-	struct FString                                     GameClassName;                                            // 0x0044(0x0010)
-	struct FString                                     MapName;                                                  // 0x0054(0x0010)
-	struct FString                                     MapURL;                                                   // 0x0064(0x0010)
-	int                                                SessionInstance;                                          // 0x0074(0x0004)
-	int                                                GameTypeId;                                               // 0x0078(0x0004)
-	struct FUniqueNetId                                OwningNetId;                                              // 0x007C(0x0008)
+	struct FString                                     Language;                                                 // 0x0008(0x0010) (NeedCtorLink)
+	struct FString                                     GameplaySessionTimestamp;                                 // 0x0018(0x0010) (Const, NeedCtorLink)
+	float                                              GameplaySessionStartTime;                                 // 0x0028(0x0004) (Const)
+	float                                              GameplaySessionEndTime;                                   // 0x002C(0x0004) (Const)
+	unsigned long                                      bGameplaySessionInProgress : 1;                           // 0x0030(0x0004) (Const)
+	struct FString                                     GameplaySessionID;                                        // 0x0034(0x0010) (Const, NeedCtorLink)
+	struct FString                                     GameClassName;                                            // 0x0044(0x0010) (Const, NeedCtorLink)
+	struct FString                                     MapName;                                                  // 0x0054(0x0010) (Const, NeedCtorLink)
+	struct FString                                     MapURL;                                                   // 0x0064(0x0010) (Const, NeedCtorLink)
+	int                                                SessionInstance;                                          // 0x0074(0x0004) (Const)
+	int                                                GameTypeId;                                               // 0x0078(0x0004) (Const)
+	struct FUniqueNetId                                OwningNetId;                                              // 0x007C(0x0008) (Const)
 	int                                                PlaylistId;                                               // 0x0084(0x0004)
 };
 
@@ -4812,7 +4812,7 @@ struct FGameSessionInformation
 struct FPlayerInformation
 {
 	struct FName                                       ControllerName;                                           // 0x0000(0x0008)
-	struct FString                                     PlayerName;                                               // 0x0008(0x0010)
+	struct FString                                     PlayerName;                                               // 0x0008(0x0010) (NeedCtorLink)
 	struct FUniqueNetId                                UniqueId;                                                 // 0x0018(0x0008)
 	unsigned long                                      bIsBot : 1;                                               // 0x0020(0x0004)
 };
@@ -4822,7 +4822,7 @@ struct FPlayerInformation
 struct FTeamInformation
 {
 	int                                                TeamIndex;                                                // 0x0000(0x0004)
-	struct FString                                     TeamName;                                                 // 0x0004(0x0010)
+	struct FString                                     TeamName;                                                 // 0x0004(0x0010) (NeedCtorLink)
 	struct FColor                                      TeamColor;                                                // 0x0014(0x0004)
 	int                                                MaxSize;                                                  // 0x0018(0x0004)
 };
@@ -4840,10 +4840,10 @@ struct FGameStatGroup
 // 0x0018
 struct FGameplayEventMetaData
 {
-	int                                                EventID;                                                  // 0x0000(0x0004)
-	struct FName                                       EventName;                                                // 0x0004(0x0008)
-	struct FGameStatGroup                              StatGroup;                                                // 0x000C(0x0008)
-	int                                                EventDataType;                                            // 0x0014(0x0004)
+	int                                                EventID;                                                  // 0x0000(0x0004) (Const)
+	struct FName                                       EventName;                                                // 0x0004(0x0008) (Const)
+	struct FGameStatGroup                              StatGroup;                                                // 0x000C(0x0008) (Const)
+	int                                                EventDataType;                                            // 0x0014(0x0004) (Const)
 };
 
 // ScriptStruct Engine.GameplayEvents.WeaponClassEventData
@@ -4878,11 +4878,11 @@ struct FPawnClassEventData
 // 0x0044
 struct FEmsFile
 {
-	struct FString                                     Hash;                                                     // 0x0000(0x0010)
-	struct FString                                     DLName;                                                   // 0x0010(0x0010)
-	struct FString                                     Filename;                                                 // 0x0020(0x0010)
+	struct FString                                     Hash;                                                     // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     DLName;                                                   // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Filename;                                                 // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 	int                                                FileSize;                                                 // 0x0030(0x0004)
-	struct FString                                     UploadedDateTime;                                         // 0x0034(0x0010)
+	struct FString                                     UploadedDateTime;                                         // 0x0034(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.IniLocPatcher.IniLocFileEntry
@@ -4899,7 +4899,7 @@ struct FCurveEdEntry
 {
 	class UObject*                                     CurveObject;                                              // 0x0000(0x0008)
 	struct FColor                                      CurveColor;                                               // 0x0008(0x0004)
-	struct FString                                     CurveName;                                                // 0x000C(0x0010)
+	struct FString                                     CurveName;                                                // 0x000C(0x0010) (NeedCtorLink)
 	int                                                bHideCurve;                                               // 0x001C(0x0004)
 	int                                                bColorCurve;                                              // 0x0020(0x0004)
 	int                                                bFloatingPointColorCurve;                                 // 0x0024(0x0004)
@@ -4912,8 +4912,8 @@ struct FCurveEdEntry
 // 0x0030
 struct FCurveEdTab
 {
-	struct FString                                     TabName;                                                  // 0x0000(0x0010)
-	TArray<struct FCurveEdEntry>                       Curves;                                                   // 0x0010(0x0010)
+	struct FString                                     TabName;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	TArray<struct FCurveEdEntry>                       Curves;                                                   // 0x0010(0x0010) (NeedCtorLink)
 	float                                              ViewStartInput;                                           // 0x0020(0x0004)
 	float                                              ViewEndInput;                                             // 0x0024(0x0004)
 	float                                              ViewStartOutput;                                          // 0x0028(0x0004)
@@ -4924,10 +4924,10 @@ struct FCurveEdTab
 // 0x0024
 struct FSubTrackGroup
 {
-	struct FString                                     GroupName;                                                // 0x0000(0x0010)
-	TArray<int>                                        TrackIndices;                                             // 0x0010(0x0010)
+	struct FString                                     GroupName;                                                // 0x0000(0x0010) (NeedCtorLink)
+	TArray<int>                                        TrackIndices;                                             // 0x0010(0x0010) (NeedCtorLink)
 	unsigned long                                      bIsCollapsed : 1;                                         // 0x0020(0x0004)
-	unsigned long                                      bIsSelected : 1;                                          // 0x0020(0x0004)
+	unsigned long                                      bIsSelected : 1;                                          // 0x0020(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.InterpTrack.SupportedSubTrackInfo
@@ -4935,7 +4935,7 @@ struct FSubTrackGroup
 struct FSupportedSubTrackInfo
 {
 	class UClass*                                      SupportedClass;                                           // 0x0000(0x0008)
-	struct FString                                     SubTrackName;                                             // 0x0008(0x0010)
+	struct FString                                     SubTrackName;                                             // 0x0008(0x0010) (NeedCtorLink)
 	int                                                GroupIndex;                                               // 0x0018(0x0004)
 };
 
@@ -4943,40 +4943,40 @@ struct FSupportedSubTrackInfo
 // 0x001C
 struct FLightmassPrimitiveSettings
 {
-	unsigned long                                      bUseTwoSidedLighting : 1;                                 // 0x0000(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bShadowIndirectOnly : 1;                                  // 0x0000(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bUseEmissiveForStaticLighting : 1;                        // 0x0000(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              EmissiveLightFalloffExponent;                             // 0x0004(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              EmissiveLightExplicitInfluenceRadius;                     // 0x0008(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              EmissiveBoost;                                            // 0x000C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              DiffuseBoost;                                             // 0x0010(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
+	unsigned long                                      bUseTwoSidedLighting : 1;                                 // 0x0000(0x0004) (Edit)
+	unsigned long                                      bShadowIndirectOnly : 1;                                  // 0x0000(0x0004) (Edit)
+	unsigned long                                      bUseEmissiveForStaticLighting : 1;                        // 0x0000(0x0004) (Edit)
+	float                                              EmissiveLightFalloffExponent;                             // 0x0004(0x0004) (Edit)
+	float                                              EmissiveLightExplicitInfluenceRadius;                     // 0x0008(0x0004) (Edit)
+	float                                              EmissiveBoost;                                            // 0x000C(0x0004) (Edit)
+	float                                              DiffuseBoost;                                             // 0x0010(0x0004) (Edit)
 	float                                              SpecularBoost;                                            // 0x0014(0x0004)
-	float                                              FullyOccludedSamplesFraction;                             // 0x0018(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
+	float                                              FullyOccludedSamplesFraction;                             // 0x0018(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.OnlineAuthInterface.BaseAuthSession
 // 0x0010
 struct FBaseAuthSession
 {
-	int                                                EndPointIP;                                               // 0x0000(0x0004)
-	int                                                EndPointPort;                                             // 0x0004(0x0004)
-	struct FUniqueNetId                                EndPointUID;                                              // 0x0008(0x0008)
+	int                                                EndPointIP;                                               // 0x0000(0x0004) (Const)
+	int                                                EndPointPort;                                             // 0x0004(0x0004) (Const)
+	struct FUniqueNetId                                EndPointUID;                                              // 0x0008(0x0008) (Const)
 };
 
 // ScriptStruct Engine.OnlineAuthInterface.LocalAuthSession
 // 0x0004 (0x0014 - 0x0010)
 struct FLocalAuthSession : public FBaseAuthSession
 {
-	int                                                SessionUID;                                               // 0x0010(0x0004)
+	int                                                SessionUID;                                               // 0x0010(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineAuthInterface.AuthSession
 // 0x0008 (0x0018 - 0x0010)
 struct FAuthSession : public FBaseAuthSession
 {
-	TEnumAsByte<EAuthStatus>                           AuthStatus;                                               // 0x0010(0x0001)
+	TEnumAsByte<EAuthStatus>                           AuthStatus;                                               // 0x0010(0x0001) (Const)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	int                                                AuthTicketUID;                                            // 0x0014(0x0004)
+	int                                                AuthTicketUID;                                            // 0x0014(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineMatchmakingStats.MMStats_Timer
@@ -4991,10 +4991,10 @@ struct FMMStats_Timer
 // 0x0010
 struct FSettingsData
 {
-	TEnumAsByte<ESettingsDataType>                     Type;                                                     // 0x0000(0x0001)
+	TEnumAsByte<ESettingsDataType>                     Type;                                                     // 0x0000(0x0001) (Const)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Value1;                                                   // 0x0004(0x0004)
-	struct FPointer                                    Value2;                                                   // 0x0008(0x0008)
+	int                                                Value1;                                                   // 0x0004(0x0004) (Const)
+	struct FPointer                                    Value2;                                                   // 0x0008(0x0008) (Const, Native, Transient)
 };
 
 // ScriptStruct Engine.Settings.SettingsProperty
@@ -5019,33 +5019,33 @@ struct FOnlineProfileSetting
 // 0x000C
 struct FIdToStringMapping
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0004(0x0008)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Const, Localized)
 };
 
 // ScriptStruct Engine.Settings.SettingsPropertyPropertyMetaData
 // 0x004C
 struct FSettingsPropertyPropertyMetaData
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0004(0x0008)
-	struct FString                                     ColumnHeaderText;                                         // 0x000C(0x0010)
-	TEnumAsByte<EPropertyValueMappingType>             MappingType;                                              // 0x001C(0x0001)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Const)
+	struct FString                                     ColumnHeaderText;                                         // 0x000C(0x0010) (Const, Localized, NeedCtorLink)
+	TEnumAsByte<EPropertyValueMappingType>             MappingType;                                              // 0x001C(0x0001) (Const)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-	TArray<struct FIdToStringMapping>                  ValueMappings;                                            // 0x0020(0x0010)
-	TArray<struct FSettingsData>                       PredefinedValues;                                         // 0x0030(0x0010)
-	float                                              MinVal;                                                   // 0x0040(0x0004)
-	float                                              MaxVal;                                                   // 0x0044(0x0004)
-	float                                              RangeIncrement;                                           // 0x0048(0x0004)
+	TArray<struct FIdToStringMapping>                  ValueMappings;                                            // 0x0020(0x0010) (Const, NeedCtorLink)
+	TArray<struct FSettingsData>                       PredefinedValues;                                         // 0x0030(0x0010) (Const, NeedCtorLink)
+	float                                              MinVal;                                                   // 0x0040(0x0004) (Const)
+	float                                              MaxVal;                                                   // 0x0044(0x0004) (Const)
+	float                                              RangeIncrement;                                           // 0x0048(0x0004) (Const)
 };
 
 // ScriptStruct Engine.Settings.StringIdToStringMapping
 // 0x0010
 struct FStringIdToStringMapping
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0004(0x0008)
-	unsigned long                                      bIsWildcard : 1;                                          // 0x000C(0x0004)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Const, Localized)
+	unsigned long                                      bIsWildcard : 1;                                          // 0x000C(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineStatsRead.OnlineStatsColumn
@@ -5060,19 +5060,19 @@ struct FOnlineStatsColumn
 // 0x0038
 struct FOnlineStatsRow
 {
-	struct FUniqueNetId                                PlayerID;                                                 // 0x0000(0x0008)
-	struct FSettingsData                               Rank;                                                     // 0x0008(0x0010)
-	struct FString                                     NickName;                                                 // 0x0018(0x0010)
-	TArray<struct FOnlineStatsColumn>                  Columns;                                                  // 0x0028(0x0010)
+	struct FUniqueNetId                                PlayerID;                                                 // 0x0000(0x0008) (Const)
+	struct FSettingsData                               Rank;                                                     // 0x0008(0x0010) (Const)
+	struct FString                                     NickName;                                                 // 0x0018(0x0010) (Const, NeedCtorLink)
+	TArray<struct FOnlineStatsColumn>                  Columns;                                                  // 0x0028(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineStatsRead.ColumnMetaData
 // 0x001C
 struct FColumnMetaData
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0004(0x0008)
-	struct FString                                     ColumnName;                                               // 0x000C(0x0010)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Const)
+	struct FString                                     ColumnName;                                               // 0x000C(0x0010) (Const, Localized, NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.NamedInterface
@@ -5088,22 +5088,22 @@ struct FNamedInterface
 struct FNamedInterfaceDef
 {
 	struct FName                                       InterfaceName;                                            // 0x0000(0x0008)
-	struct FString                                     InterfaceClassName;                                       // 0x0008(0x0010)
+	struct FString                                     InterfaceClassName;                                       // 0x0008(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlineRegistrant
 // 0x0008
 struct FOnlineRegistrant
 {
-	struct FUniqueNetId                                PlayerNetId;                                              // 0x0000(0x0008)
+	struct FUniqueNetId                                PlayerNetId;                                              // 0x0000(0x0008) (Const)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlineArbitrationRegistrant
 // 0x000C (0x0014 - 0x0008)
 struct FOnlineArbitrationRegistrant : public FOnlineRegistrant
 {
-	struct FQWord                                      MachineId;                                                // 0x0008(0x0008)
-	int                                                Trustworthiness;                                          // 0x0010(0x0004)
+	struct FQWord                                      MachineId;                                                // 0x0008(0x0008) (Const)
+	int                                                Trustworthiness;                                          // 0x0010(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.NamedSession
@@ -5111,28 +5111,28 @@ struct FOnlineArbitrationRegistrant : public FOnlineRegistrant
 struct FNamedSession
 {
 	struct FName                                       SessionName;                                              // 0x0000(0x0008)
-	struct FPointer                                    SessionInfo;                                              // 0x0008(0x0008)
+	struct FPointer                                    SessionInfo;                                              // 0x0008(0x0008) (Const, Native, Transient)
 	class UOnlineGameSettings*                         GameSettings;                                             // 0x0010(0x0008)
-	TArray<struct FOnlineRegistrant>                   Registrants;                                              // 0x0018(0x0010)
-	TArray<struct FOnlineArbitrationRegistrant>        ArbitrationRegistrants;                                   // 0x0028(0x0010)
+	TArray<struct FOnlineRegistrant>                   Registrants;                                              // 0x0018(0x0010) (NeedCtorLink)
+	TArray<struct FOnlineArbitrationRegistrant>        ArbitrationRegistrants;                                   // 0x0028(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.PlatformInterfaceBase.DelegateArray
 // 0x0010
 struct FDelegateArray
 {
-	TArray<struct FScriptDelegate>                     Delegates;                                                // 0x0000(0x0010)
+	TArray<struct FScriptDelegate>                     Delegates;                                                // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.MicroTransactionBase.PurchaseInfo
 // 0x0050
 struct FPurchaseInfo
 {
-	struct FString                                     Identifier;                                               // 0x0000(0x0010)
-	struct FString                                     DisplayName;                                              // 0x0010(0x0010)
-	struct FString                                     DisplayDescription;                                       // 0x0020(0x0010)
-	struct FString                                     DisplayPrice;                                             // 0x0030(0x0010)
-	struct FString                                     CurrencyType;                                             // 0x0040(0x0010)
+	struct FString                                     Identifier;                                               // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     DisplayName;                                              // 0x0010(0x0010) (NeedCtorLink)
+	struct FString                                     DisplayDescription;                                       // 0x0020(0x0010) (NeedCtorLink)
+	struct FString                                     DisplayPrice;                                             // 0x0030(0x0010) (NeedCtorLink)
+	struct FString                                     CurrencyType;                                             // 0x0040(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.LocalPlayer.SynchronizedActorVisibilityHistory
@@ -5147,7 +5147,7 @@ struct FSynchronizedActorVisibilityHistory
 // 0x0184
 struct FCurrentPostProcessVolumeInfo
 {
-	struct FPostProcessSettings                        LastSettings;                                             // 0x0000(0x0174)
+	struct FPostProcessSettings                        LastSettings;                                             // 0x0000(0x0174) (NeedCtorLink)
 	class APostProcessVolume*                          LastVolumeUsed;                                           // 0x0174(0x0008)
 	float                                              BlendStartTime;                                           // 0x017C(0x0004)
 	float                                              LastBlendTime;                                            // 0x0180(0x0004)
@@ -5157,7 +5157,7 @@ struct FCurrentPostProcessVolumeInfo
 // 0x01A0
 struct FPostProcessSettingsOverride
 {
-	struct FPostProcessSettings                        Settings;                                                 // 0x0000(0x0174)
+	struct FPostProcessSettings                        Settings;                                                 // 0x0000(0x0174) (NeedCtorLink)
 	unsigned long                                      bBlendingIn : 1;                                          // 0x0174(0x0004)
 	unsigned long                                      bBlendingOut : 1;                                         // 0x0174(0x0004)
 	float                                              CurrentBlendInTime;                                       // 0x0178(0x0004)
@@ -5165,15 +5165,15 @@ struct FPostProcessSettingsOverride
 	float                                              BlendInDuration;                                          // 0x0180(0x0004)
 	float                                              BlendOutDuration;                                         // 0x0184(0x0004)
 	float                                              BlendStartTime;                                           // 0x0188(0x0004)
-	struct FInterpCurveFloat                           TimeAlphaCurve;                                           // 0x018C(0x0014)
+	struct FInterpCurveFloat                           TimeAlphaCurve;                                           // 0x018C(0x0014) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GameViewportClient.ShowFlags_Mirror
 // 0x0010
 struct FShowFlags_Mirror
 {
-	struct FQWord                                      flags0;                                                   // 0x0000(0x0008)
-	struct FQWord                                      flags1;                                                   // 0x0008(0x0008)
+	struct FQWord                                      flags0;                                                   // 0x0000(0x0008) (Const, Native)
+	struct FQWord                                      flags1;                                                   // 0x0008(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.GameViewportClient.ExportShowFlags_Mirror
@@ -5207,7 +5207,7 @@ struct FPerPlayerSplitscreenData
 // 0x0010
 struct FSplitscreenData
 {
-	TArray<struct FPerPlayerSplitscreenData>           PlayerData;                                               // 0x0000(0x0010)
+	TArray<struct FPerPlayerSplitscreenData>           PlayerData;                                               // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GameViewportClient.DebugDisplayProperty
@@ -5232,10 +5232,10 @@ struct FLocalizedStringSetting
 // 0x002C
 struct FLocalizedStringSettingMetaData
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FName                                       Name;                                                     // 0x0004(0x0008)
-	struct FString                                     ColumnHeaderText;                                         // 0x000C(0x0010)
-	TArray<struct FStringIdToStringMapping>            ValueMappings;                                            // 0x001C(0x0010)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Const)
+	struct FString                                     ColumnHeaderText;                                         // 0x000C(0x0010) (Const, Localized, NeedCtorLink)
+	TArray<struct FStringIdToStringMapping>            ValueMappings;                                            // 0x001C(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineGameSearch.OverrideSkill
@@ -5243,9 +5243,9 @@ struct FLocalizedStringSettingMetaData
 struct FOverrideSkill
 {
 	int                                                LeaderboardId;                                            // 0x0000(0x0004)
-	TArray<struct FUniqueNetId>                        Players;                                                  // 0x0004(0x0010)
-	TArray<struct FDouble>                             Mus;                                                      // 0x0014(0x0010)
-	TArray<struct FDouble>                             Sigmas;                                                   // 0x0024(0x0010)
+	TArray<struct FUniqueNetId>                        Players;                                                  // 0x0004(0x0010) (NeedCtorLink)
+	TArray<struct FDouble>                             Mus;                                                      // 0x0014(0x0010) (NeedCtorLink)
+	TArray<struct FDouble>                             Sigmas;                                                   // 0x0024(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineGameSearch.NamedObjectProperty
@@ -5253,7 +5253,7 @@ struct FOverrideSkill
 struct FNamedObjectProperty
 {
 	struct FName                                       ObjectPropertyName;                                       // 0x0000(0x0008)
-	struct FString                                     ObjectPropertyValue;                                      // 0x0008(0x0010)
+	struct FString                                     ObjectPropertyValue;                                      // 0x0008(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineGameSearch.OnlineGameSearchParameter
@@ -5270,7 +5270,7 @@ struct FOnlineGameSearchParameter
 // 0x0010
 struct FOnlineGameSearchORClause
 {
-	TArray<struct FOnlineGameSearchParameter>          OrParams;                                                 // 0x0000(0x0010)
+	TArray<struct FOnlineGameSearchParameter>          OrParams;                                                 // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineGameSearch.OnlineGameSearchSortClause
@@ -5287,29 +5287,29 @@ struct FOnlineGameSearchSortClause
 // 0x0020
 struct FOnlineGameSearchQuery
 {
-	TArray<struct FOnlineGameSearchORClause>           OrClauses;                                                // 0x0000(0x0010)
-	TArray<struct FOnlineGameSearchSortClause>         SortClauses;                                              // 0x0010(0x0010)
+	TArray<struct FOnlineGameSearchORClause>           OrClauses;                                                // 0x0000(0x0010) (NeedCtorLink)
+	TArray<struct FOnlineGameSearchSortClause>         SortClauses;                                              // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.SpeechRecognition.RecognisableWord
 // 0x0024
 struct FRecognisableWord
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ReferenceWord;                                            // 0x0004(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     PhoneticWord;                                             // 0x0014(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	struct FString                                     ReferenceWord;                                            // 0x0004(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     PhoneticWord;                                             // 0x0014(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.SpeechRecognition.RecogVocabulary
 // 0x0060
 struct FRecogVocabulary
 {
-	TArray<struct FRecognisableWord>                   WhoDictionary;                                            // 0x0000(0x0010) (Interp, EditorOnly, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FRecognisableWord>                   WhatDictionary;                                           // 0x0010(0x0010) (Interp, EditorOnly, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FRecognisableWord>                   WhereDictionary;                                          // 0x0020(0x0010) (Interp, EditorOnly, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     VocabName;                                                // 0x0030(0x0010)
-	TArray<unsigned char>                              VocabData;                                                // 0x0040(0x0010)
-	TArray<unsigned char>                              WorkingVocabData;                                         // 0x0050(0x0010)
+	TArray<struct FRecognisableWord>                   WhoDictionary;                                            // 0x0000(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FRecognisableWord>                   WhatDictionary;                                           // 0x0010(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FRecognisableWord>                   WhereDictionary;                                          // 0x0020(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     VocabName;                                                // 0x0030(0x0010) (NeedCtorLink)
+	TArray<unsigned char>                              VocabData;                                                // 0x0040(0x0010) (NeedCtorLink)
+	TArray<unsigned char>                              WorkingVocabData;                                         // 0x0050(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.SpeechRecognition.RecogUserData
@@ -5317,36 +5317,36 @@ struct FRecogVocabulary
 struct FRecogUserData
 {
 	int                                                ActiveVocabularies;                                       // 0x0000(0x0004)
-	TArray<unsigned char>                              UserData;                                                 // 0x0004(0x0010)
+	TArray<unsigned char>                              UserData;                                                 // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.StaticMesh.StaticMeshLODElement
 // 0x0014
 struct FStaticMeshLODElement
 {
-	class UMaterialInterface*                          Material;                                                 // 0x0000(0x0008)
-	unsigned long                                      bEnableShadowCasting : 1;                                 // 0x0008(0x0004)
+	class UMaterialInterface*                          Material;                                                 // 0x0000(0x0008) (Edit)
+	unsigned long                                      bEnableShadowCasting : 1;                                 // 0x0008(0x0004) (Edit, Native)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
-	unsigned long                                      bEnableCollision : 1;                                     // 0x0010(0x0004)
+	unsigned long                                      bEnableCollision : 1;                                     // 0x0010(0x0004) (Edit, Native)
 };
 
 // ScriptStruct Engine.StaticMesh.StaticMeshLODInfo
 // 0x0010
 struct FStaticMeshLODInfo
 {
-	TArray<struct FStaticMeshLODElement>               Elements;                                                 // 0x0000(0x0010)
+	TArray<struct FStaticMeshLODElement>               Elements;                                                 // 0x0000(0x0010) (Edit, EditFixedSize, Native)
 };
 
 // ScriptStruct Engine.MaterialInterface.LightmassMaterialInterfaceSettings
 // 0x001C
 struct FLightmassMaterialInterfaceSettings
 {
-	unsigned long                                      bCastShadowAsMasked : 1;                                  // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              EmissiveBoost;                                            // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              DiffuseBoost;                                             // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      bCastShadowAsMasked : 1;                                  // 0x0000(0x0004) (Edit)
+	float                                              EmissiveBoost;                                            // 0x0004(0x0004) (Edit)
+	float                                              DiffuseBoost;                                             // 0x0008(0x0004) (Edit)
 	float                                              SpecularBoost;                                            // 0x000C(0x0004)
-	float                                              ExportResolutionScale;                                    // 0x0010(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              DistanceFieldPenumbraScale;                               // 0x0014(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	float                                              ExportResolutionScale;                                    // 0x0010(0x0004) (Edit)
+	float                                              DistanceFieldPenumbraScale;                               // 0x0014(0x0004) (Edit)
 	unsigned long                                      bOverrideCastShadowAsMasked : 1;                          // 0x0018(0x0004)
 	unsigned long                                      bOverrideEmissiveBoost : 1;                               // 0x0018(0x0004)
 	unsigned long                                      bOverrideDiffuseBoost : 1;                                // 0x0018(0x0004)
@@ -5359,52 +5359,52 @@ struct FLightmassMaterialInterfaceSettings
 // 0x0010
 struct FKCachedConvexDataElement
 {
-	TArray<unsigned char>                              ConvexElementData;                                        // 0x0000(0x0010)
+	TArray<unsigned char>                              ConvexElementData;                                        // 0x0000(0x0010) (Native)
 };
 
 // ScriptStruct Engine.RB_BodySetup.KCachedConvexData
 // 0x0010
 struct FKCachedConvexData
 {
-	TArray<struct FKCachedConvexDataElement>           CachedConvexElements;                                     // 0x0000(0x0010)
+	TArray<struct FKCachedConvexDataElement>           CachedConvexElements;                                     // 0x0000(0x0010) (Native)
 };
 
 // ScriptStruct Engine.ParticleSystem.ParticleSystemLOD
 // 0x0004
 struct FParticleSystemLOD
 {
-	unsigned long                                      bLit : 1;                                                 // 0x0000(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bLit : 1;                                                 // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ParticleSystem.LODSoloTrack
 // 0x0010
 struct FLODSoloTrack
 {
-	TArray<unsigned char>                              SoloEnableSetting;                                        // 0x0000(0x0010)
+	TArray<unsigned char>                              SoloEnableSetting;                                        // 0x0000(0x0010) (Transient, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Texture2D.TextureLinkedListMirror
 // 0x0018
 struct FTextureLinkedListMirror
 {
-	struct FPointer                                    Element;                                                  // 0x0000(0x0008)
-	struct FPointer                                    Next;                                                     // 0x0008(0x0008)
-	struct FPointer                                    PrevLink;                                                 // 0x0010(0x0008)
+	struct FPointer                                    Element;                                                  // 0x0000(0x0008) (Const, Native)
+	struct FPointer                                    Next;                                                     // 0x0008(0x0008) (Const, Native)
+	struct FPointer                                    PrevLink;                                                 // 0x0010(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.UIInteraction.UIKeyRepeatData
 // 0x0010
 struct FUIKeyRepeatData
 {
-	struct FName                                       CurrentRepeatKey;                                         // 0x0000(0x0008)
-	struct FDouble                                     NextRepeatTime;                                           // 0x0008(0x0008)
+	struct FName                                       CurrentRepeatKey;                                         // 0x0000(0x0008) (AlwaysInit)
+	struct FDouble                                     NextRepeatTime;                                           // 0x0008(0x0008) (AlwaysInit)
 };
 
 // ScriptStruct Engine.UIInteraction.UIAxisEmulationData
 // 0x0004 (0x0014 - 0x0010)
 struct FUIAxisEmulationData : public FUIKeyRepeatData
 {
-	unsigned long                                      bEnabled : 1;                                             // 0x0010(0x0004)
+	unsigned long                                      bEnabled : 1;                                             // 0x0010(0x0004) (AlwaysInit)
 };
 
 // ScriptStruct Engine.UIRoot.UIAxisEmulationDefinition
@@ -5437,11 +5437,11 @@ struct FPaintedVertex
 // 0x0040
 struct FStaticMeshComponentLODInfo
 {
-	TArray<class UShadowMap2D*>                        ShadowMaps;                                               // 0x0000(0x0010)
-	TArray<class UObject*>                             ShadowVertexBuffers;                                      // 0x0010(0x0010)
-	struct FPointer                                    LightMap;                                                 // 0x0020(0x0008)
-	struct FPointer                                    OverrideVertexColors;                                     // 0x0028(0x0008)
-	TArray<struct FPaintedVertex>                      PaintedVertices;                                          // 0x0030(0x0010)
+	TArray<class UShadowMap2D*>                        ShadowMaps;                                               // 0x0000(0x0010) (Const, NeedCtorLink)
+	TArray<class UObject*>                             ShadowVertexBuffers;                                      // 0x0010(0x0010) (Const, NeedCtorLink)
+	struct FPointer                                    LightMap;                                                 // 0x0020(0x0008) (Const, Native)
+	struct FPointer                                    OverrideVertexColors;                                     // 0x0028(0x0008) (Const, Native)
+	TArray<struct FPaintedVertex>                      PaintedVertices;                                          // 0x0030(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.CoverMeshComponent.CoverMeshes
@@ -5467,21 +5467,21 @@ struct FCoverMeshes
 // 0x0008
 struct FEdgePointer
 {
-	struct FPointer                                    Dummy;                                                    // 0x0000(0x0008)
+	struct FPointer                                    Dummy;                                                    // 0x0000(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.NavigationHandle.PathStore
 // 0x0010
 struct FPathStore
 {
-	TArray<struct FEdgePointer>                        EdgeList;                                                 // 0x0000(0x0010)
+	TArray<struct FEdgePointer>                        EdgeList;                                                 // 0x0000(0x0010) (Native)
 };
 
 // ScriptStruct Engine.NavigationHandle.NavMeshPathParams
 // 0x0034
 struct FNavMeshPathParams
 {
-	struct FPointer                                    Interface;                                                // 0x0000(0x0008)
+	struct FPointer                                    Interface;                                                // 0x0000(0x0008) (Native)
 	unsigned long                                      bCanMantle : 1;                                           // 0x0008(0x0004)
 	unsigned long                                      bNeedsMantleValidityTest : 1;                             // 0x0008(0x0004)
 	unsigned long                                      bAbleToSearch : 1;                                        // 0x0008(0x0004)
@@ -5516,65 +5516,65 @@ struct ASkeletalMeshActor_FCheckpointRecord
 // 0x0010
 struct FSkelMeshActorControlTarget
 {
-	struct FName                                       ControlName;                                              // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class AActor*                                      TargetActor;                                              // 0x0008(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ControlName;                                              // 0x0000(0x0008) (Edit)
+	class AActor*                                      TargetActor;                                              // 0x0008(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Actor.ActorTickDropRate
 // 0x0014
 struct FActorTickDropRate
 {
-	float                                              NextChangeSeconds;                                        // 0x0000(0x0004)
-	float                                              AccumSkipDeltaSeconds;                                    // 0x0004(0x0004)
-	int                                                DesiredSkipTicks;                                         // 0x0008(0x0004)
-	int                                                CurrentSkipTicks;                                         // 0x000C(0x0004)
-	unsigned long                                      bUseable : 1;                                             // 0x0010(0x0004)
-	unsigned long                                      bForceTickOnce : 1;                                       // 0x0010(0x0004)
-	unsigned long                                      bForceVisibleTick : 1;                                    // 0x0010(0x0004)
+	float                                              NextChangeSeconds;                                        // 0x0000(0x0004) (Transient)
+	float                                              AccumSkipDeltaSeconds;                                    // 0x0004(0x0004) (Transient)
+	int                                                DesiredSkipTicks;                                         // 0x0008(0x0004) (Transient)
+	int                                                CurrentSkipTicks;                                         // 0x000C(0x0004) (Transient)
+	unsigned long                                      bUseable : 1;                                             // 0x0010(0x0004) (Transient)
+	unsigned long                                      bForceTickOnce : 1;                                       // 0x0010(0x0004) (Transient)
+	unsigned long                                      bForceVisibleTick : 1;                                    // 0x0010(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.SkeletalMeshActorBasedOnExtremeContent.SkelMaterialSetterDatum
 // 0x000C
 struct FSkelMaterialSetterDatum
 {
-	int                                                MaterialIndex;                                            // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UMaterialInterface*                          TheMaterial;                                              // 0x0004(0x0008) (RepNotify, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                MaterialIndex;                                            // 0x0000(0x0004) (Edit)
+	class UMaterialInterface*                          TheMaterial;                                              // 0x0004(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Actor.AnimSlotInfo
 // 0x0018
 struct FAnimSlotInfo
 {
-	struct FName                                       SlotName;                                                 // 0x0000(0x0008)
-	TArray<float>                                      ChannelWeights;                                           // 0x0008(0x0010)
+	struct FName                                       SlotName;                                                 // 0x0000(0x0008) (AlwaysInit)
+	TArray<float>                                      ChannelWeights;                                           // 0x0008(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSequence.TimeModifier
 // 0x0008
 struct FTimeModifier
 {
-	float                                              Time;                                                     // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, EditHide)
-	float                                              TargetStrength;                                           // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, EditHide)
+	float                                              Time;                                                     // 0x0000(0x0004) (Edit)
+	float                                              TargetStrength;                                           // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimSequence.AnimNotifyEvent
 // 0x0018
 struct FAnimNotifyEvent
 {
-	float                                              Time;                                                     // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite)
-	class UAnimNotify*                                 Notify;                                                   // 0x0004(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite)
-	struct FName                                       Comment;                                                  // 0x000C(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite)
-	float                                              Duration;                                                 // 0x0014(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite)
+	float                                              Time;                                                     // 0x0000(0x0004) (Edit)
+	class UAnimNotify*                                 Notify;                                                   // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FName                                       Comment;                                                  // 0x000C(0x0008) (Edit)
+	float                                              Duration;                                                 // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.Pawn.ScalarParameterInterpStruct
 // 0x0014
 struct FScalarParameterInterpStruct
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ParameterValue;                                           // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              InterpTime;                                               // 0x000C(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              WarmupTime;                                               // 0x0010(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	float                                              ParameterValue;                                           // 0x0008(0x0004) (Edit)
+	float                                              InterpTime;                                               // 0x000C(0x0004) (Edit)
+	float                                              WarmupTime;                                               // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimNotify_Trails.TrailSocketSamplePoint
@@ -5617,10 +5617,10 @@ struct FCurveKey
 // 0x0020
 struct FAnimBlendChild
 {
-	struct FName                                       Name;                                                     // 0x0000(0x0008) (NonTransactional, EditorOnly, ProtectedWrite)
-	class UAnimNode*                                   Anim;                                                     // 0x0008(0x0008)
+	struct FName                                       Name;                                                     // 0x0000(0x0008) (Edit)
+	class UAnimNode*                                   Anim;                                                     // 0x0008(0x0008) (ExportObject, NeedCtorLink, EditInline)
 	float                                              Weight;                                                   // 0x0010(0x0004)
-	float                                              BlendWeight;                                              // 0x0014(0x0004)
+	float                                              BlendWeight;                                              // 0x0014(0x0004) (Const, Transient)
 	unsigned long                                      bMirrorSkeleton : 1;                                      // 0x0018(0x0004)
 	unsigned long                                      bIsAdditive : 1;                                          // 0x0018(0x0004)
 	int                                                DrawY;                                                    // 0x001C(0x0004)
@@ -5630,139 +5630,139 @@ struct FAnimBlendChild
 // 0x000C
 struct FBranchInfo
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	float                                              PerBoneWeightIncrease;                                    // 0x0008(0x0004) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
+	float                                              PerBoneWeightIncrease;                                    // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimNode_MultiBlendPerBone.WeightNodeRule
 // 0x0020
 struct FWeightNodeRule
 {
-	struct FName                                       NodeName;                                                 // 0x0000(0x0008) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	struct FName                                       NodeName;                                                 // 0x0000(0x0008) (Edit)
 	class UAnimNodeBlendBase*                          CachedNode;                                               // 0x0008(0x0008)
 	class UAnimNodeSlot*                               CachedSlotNode;                                           // 0x0010(0x0008)
-	TEnumAsByte<EWeightCheck>                          WeightCheck;                                              // 0x0018(0x0001) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	TEnumAsByte<EWeightCheck>                          WeightCheck;                                              // 0x0018(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-	int                                                ChildIndex;                                               // 0x001C(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	int                                                ChildIndex;                                               // 0x001C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimNode_MultiBlendPerBone.WeightRule
 // 0x0040
 struct FWeightRule
 {
-	struct FWeightNodeRule                             FirstNode;                                                // 0x0000(0x0020) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	struct FWeightNodeRule                             SecondNode;                                               // 0x0020(0x0020) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox)
+	struct FWeightNodeRule                             FirstNode;                                                // 0x0000(0x0020) (Edit)
+	struct FWeightNodeRule                             SecondNode;                                               // 0x0020(0x0020) (Edit)
 };
 
 // ScriptStruct Engine.AnimNode_MultiBlendPerBone.PerBoneMaskInfo
 // 0x0050
 struct FPerBoneMaskInfo
 {
-	TArray<struct FBranchInfo>                         BranchList;                                               // 0x0000(0x0010) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              DesiredWeight;                                            // 0x0010(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendTimeToGo;                                            // 0x0014(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FWeightRule>                         WeightRuleList;                                           // 0x0018(0x0010) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bWeightBasedOnNodeRules : 1;                              // 0x0028(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDisableForNonLocalHumanPlayers : 1;                      // 0x0028(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bPendingBlend : 1;                                        // 0x0028(0x0004)
-	TArray<float>                                      PerBoneWeights;                                           // 0x002C(0x0010)
-	TArray<unsigned char>                              TransformReqBone;                                         // 0x003C(0x0010)
-	int                                                TransformReqBoneIndex;                                    // 0x004C(0x0004)
+	TArray<struct FBranchInfo>                         BranchList;                                               // 0x0000(0x0010) (Edit, NeedCtorLink)
+	float                                              DesiredWeight;                                            // 0x0010(0x0004) (Edit)
+	float                                              BlendTimeToGo;                                            // 0x0014(0x0004) (Edit)
+	TArray<struct FWeightRule>                         WeightRuleList;                                           // 0x0018(0x0010) (Edit, NeedCtorLink)
+	unsigned long                                      bWeightBasedOnNodeRules : 1;                              // 0x0028(0x0004) (Edit)
+	unsigned long                                      bDisableForNonLocalHumanPlayers : 1;                      // 0x0028(0x0004) (Edit)
+	unsigned long                                      bPendingBlend : 1;                                        // 0x0028(0x0004) (Transient)
+	TArray<float>                                      PerBoneWeights;                                           // 0x002C(0x0010) (Transient, NeedCtorLink)
+	TArray<unsigned char>                              TransformReqBone;                                         // 0x003C(0x0010) (Transient, NeedCtorLink)
+	int                                                TransformReqBoneIndex;                                    // 0x004C(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.AnimNodeAimOffset.AimTransform
 // 0x001C
 struct FAimTransform
 {
-	struct FQuat                                       Quaternion;                                               // 0x0000(0x0010) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FVector                                     Translation;                                              // 0x0010(0x000C) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
+	struct FQuat                                       Quaternion;                                               // 0x0000(0x0010) (Edit)
+	struct FVector                                     Translation;                                              // 0x0010(0x000C) (Edit)
 };
 
 // ScriptStruct Engine.AnimNodeAimOffset.AimComponent
 // 0x0130
 struct FAimComponent
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
-	struct FAimTransform                               LU;                                                       // 0x0010(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               LC;                                                       // 0x0030(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               LD;                                                       // 0x0050(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               CU;                                                       // 0x0070(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               CC;                                                       // 0x0090(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               CD;                                                       // 0x00B0(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               RU;                                                       // 0x00D0(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               RC;                                                       // 0x00F0(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FAimTransform                               RD;                                                       // 0x0110(0x0020) (Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
+	struct FAimTransform                               LU;                                                       // 0x0010(0x0020) (Edit)
+	struct FAimTransform                               LC;                                                       // 0x0030(0x0020) (Edit)
+	struct FAimTransform                               LD;                                                       // 0x0050(0x0020) (Edit)
+	struct FAimTransform                               CU;                                                       // 0x0070(0x0020) (Edit)
+	struct FAimTransform                               CC;                                                       // 0x0090(0x0020) (Edit)
+	struct FAimTransform                               CD;                                                       // 0x00B0(0x0020) (Edit)
+	struct FAimTransform                               RU;                                                       // 0x00D0(0x0020) (Edit)
+	struct FAimTransform                               RC;                                                       // 0x00F0(0x0020) (Edit)
+	struct FAimTransform                               RD;                                                       // 0x0110(0x0020) (Edit)
 };
 
 // ScriptStruct Engine.AnimNodeAimOffset.AimOffsetProfile
 // 0x0070
 struct FAimOffsetProfile
 {
-	struct FName                                       ProfileName;                                              // 0x0000(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FVector2D                                   HorizontalRange;                                          // 0x0008(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FVector2D                                   VerticalRange;                                            // 0x0010(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	TArray<struct FAimComponent>                       AimComponents;                                            // 0x0018(0x0010)
-	struct FName                                       AnimName_LU;                                              // 0x0028(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_LC;                                              // 0x0030(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_LD;                                              // 0x0038(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_CU;                                              // 0x0040(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_CC;                                              // 0x0048(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_CD;                                              // 0x0050(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_RU;                                              // 0x0058(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_RC;                                              // 0x0060(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
-	struct FName                                       AnimName_RD;                                              // 0x0068(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox)
+	struct FName                                       ProfileName;                                              // 0x0000(0x0008) (Edit, Const, EditConst)
+	struct FVector2D                                   HorizontalRange;                                          // 0x0008(0x0008) (Edit)
+	struct FVector2D                                   VerticalRange;                                            // 0x0010(0x0008) (Edit)
+	TArray<struct FAimComponent>                       AimComponents;                                            // 0x0018(0x0010) (NeedCtorLink)
+	struct FName                                       AnimName_LU;                                              // 0x0028(0x0008) (Edit)
+	struct FName                                       AnimName_LC;                                              // 0x0030(0x0008) (Edit)
+	struct FName                                       AnimName_LD;                                              // 0x0038(0x0008) (Edit)
+	struct FName                                       AnimName_CU;                                              // 0x0040(0x0008) (Edit)
+	struct FName                                       AnimName_CC;                                              // 0x0048(0x0008) (Edit)
+	struct FName                                       AnimName_CD;                                              // 0x0050(0x0008) (Edit)
+	struct FName                                       AnimName_RU;                                              // 0x0058(0x0008) (Edit)
+	struct FName                                       AnimName_RC;                                              // 0x0060(0x0008) (Edit)
+	struct FName                                       AnimName_RD;                                              // 0x0068(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.AnimNodeRandom.RandomAnimInfo
 // 0x0020
 struct FRandomAnimInfo
 {
-	float                                              Chance;                                                   // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      LoopCountMin;                                             // 0x0004(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      LoopCountMax;                                             // 0x0005(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	float                                              Chance;                                                   // 0x0000(0x0004) (Edit)
+	unsigned char                                      LoopCountMin;                                             // 0x0004(0x0001) (Edit)
+	unsigned char                                      LoopCountMax;                                             // 0x0005(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0006(0x0002) MISSED OFFSET
-	float                                              BlendInTime;                                              // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FVector2D                                   PlayRateRange;                                            // 0x000C(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bStillFrame : 1;                                          // 0x0014(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      LoopCount;                                                // 0x0018(0x0001)
+	float                                              BlendInTime;                                              // 0x0008(0x0004) (Edit)
+	struct FVector2D                                   PlayRateRange;                                            // 0x000C(0x0008) (Edit)
+	unsigned long                                      bStillFrame : 1;                                          // 0x0014(0x0004) (Edit)
+	unsigned char                                      LoopCount;                                                // 0x0018(0x0001) (Transient)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-	float                                              LastPosition;                                             // 0x001C(0x0004)
+	float                                              LastPosition;                                             // 0x001C(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.AnimNodeBlendMultiBone.ChildBoneBlendInfo
 // 0x0038
 struct FChildBoneBlendInfo
 {
-	TArray<float>                                      TargetPerBoneWeight;                                      // 0x0000(0x0010)
-	struct FName                                       InitTargetStartBone;                                      // 0x0010(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	float                                              InitPerBoneIncrease;                                      // 0x0018(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FName                                       OldStartBone;                                             // 0x001C(0x0008)
-	float                                              OldBoneIncrease;                                          // 0x0024(0x0004)
-	TArray<unsigned char>                              TargetRequiredBones;                                      // 0x0028(0x0010)
+	TArray<float>                                      TargetPerBoneWeight;                                      // 0x0000(0x0010) (NeedCtorLink)
+	struct FName                                       InitTargetStartBone;                                      // 0x0010(0x0008) (Edit)
+	float                                              InitPerBoneIncrease;                                      // 0x0018(0x0004) (Edit)
+	struct FName                                       OldStartBone;                                             // 0x001C(0x0008) (Const)
+	float                                              OldBoneIncrease;                                          // 0x0024(0x0004) (Const)
+	TArray<unsigned char>                              TargetRequiredBones;                                      // 0x0028(0x0010) (Transient, NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimNodeSynch.SynchGroup
 // 0x0028
 struct FSynchGroup
 {
-	TArray<class UAnimNodeSequence*>                   SeqNodes;                                                 // 0x0000(0x0010)
-	class UAnimNodeSequence*                           MasterNode;                                               // 0x0010(0x0008)
-	struct FName                                       GroupName;                                                // 0x0018(0x0008) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty)
-	unsigned long                                      bFireSlaveNotifies : 1;                                   // 0x0020(0x0004) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty)
-	float                                              RateScale;                                                // 0x0024(0x0004) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty)
+	TArray<class UAnimNodeSequence*>                   SeqNodes;                                                 // 0x0000(0x0010) (NeedCtorLink)
+	class UAnimNodeSequence*                           MasterNode;                                               // 0x0010(0x0008) (Transient)
+	struct FName                                       GroupName;                                                // 0x0018(0x0008) (Edit)
+	unsigned long                                      bFireSlaveNotifies : 1;                                   // 0x0020(0x0004) (Edit)
+	float                                              RateScale;                                                // 0x0024(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimTree.AnimGroup
 // 0x0030
 struct FAnimGroup
 {
-	TArray<class UAnimNodeSequence*>                   SeqNodes;                                                 // 0x0000(0x0010)
-	class UAnimNodeSequence*                           SynchMaster;                                              // 0x0010(0x0008)
-	class UAnimNodeSequence*                           NotifyMaster;                                             // 0x0018(0x0008)
-	struct FName                                       GroupName;                                                // 0x0020(0x0008) (NonTransactional, NotForConsole, ProtectedWrite)
-	float                                              RateScale;                                                // 0x0028(0x0004) (NonTransactional, NotForConsole, ProtectedWrite)
-	float                                              SynchPctPosition;                                         // 0x002C(0x0004)
+	TArray<class UAnimNodeSequence*>                   SeqNodes;                                                 // 0x0000(0x0010) (Const, Transient, NeedCtorLink)
+	class UAnimNodeSequence*                           SynchMaster;                                              // 0x0010(0x0008) (Const, Transient)
+	class UAnimNodeSequence*                           NotifyMaster;                                             // 0x0018(0x0008) (Const, Transient)
+	struct FName                                       GroupName;                                                // 0x0020(0x0008) (Edit, Const)
+	float                                              RateScale;                                                // 0x0028(0x0004) (Edit, Const)
+	float                                              SynchPctPosition;                                         // 0x002C(0x0004) (Const)
 };
 
 // ScriptStruct Engine.AnimTree.SkelControlListHead
@@ -5770,8 +5770,8 @@ struct FAnimGroup
 struct FSkelControlListHead
 {
 	struct FName                                       BoneName;                                                 // 0x0000(0x0008)
-	class USkelControlBase*                            ControlHead;                                              // 0x0008(0x0008)
-	class USkelControlBase*                            ControlHeadOriginal;                                      // 0x0010(0x0008)
+	class USkelControlBase*                            ControlHead;                                              // 0x0008(0x0008) (ExportObject, NeedCtorLink, EditInline)
+	class USkelControlBase*                            ControlHeadOriginal;                                      // 0x0010(0x0008) (ExportObject, NeedCtorLink, EditInline)
 	int                                                DrawY;                                                    // 0x0018(0x0004)
 };
 
@@ -5779,52 +5779,52 @@ struct FSkelControlListHead
 // 0x0020
 struct FPreviewSkelMeshStruct
 {
-	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class USkeletalMesh*                               PreviewSkelMesh;                                          // 0x0008(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<class UMorphTargetSet*>                     PreviewMorphSets;                                         // 0x0010(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (Edit)
+	class USkeletalMesh*                               PreviewSkelMesh;                                          // 0x0008(0x0008) (Edit)
+	TArray<class UMorphTargetSet*>                     PreviewMorphSets;                                         // 0x0010(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimTree.PreviewSocketStruct
 // 0x0020
 struct FPreviewSocketStruct
 {
-	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       SocketName;                                               // 0x0008(0x0008) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class USkeletalMesh*                               PreviewSkelMesh;                                          // 0x0010(0x0008) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UStaticMesh*                                 PreviewStaticMesh;                                        // 0x0018(0x0008) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (Edit)
+	struct FName                                       SocketName;                                               // 0x0008(0x0008) (Edit)
+	class USkeletalMesh*                               PreviewSkelMesh;                                          // 0x0010(0x0008) (Edit)
+	class UStaticMesh*                                 PreviewStaticMesh;                                        // 0x0018(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.AnimTree.PreviewAnimSetsStruct
 // 0x0018
 struct FPreviewAnimSetsStruct
 {
-	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (RepNotify, EditorOnly, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<class UAnimSet*>                            PreviewAnimSets;                                          // 0x0008(0x0010) (RepNotify, EditorOnly, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       DisplayName;                                              // 0x0000(0x0008) (Edit)
+	TArray<class UAnimSet*>                            PreviewAnimSets;                                          // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimNodeSequenceBlendBase.AnimInfo
 // 0x0014
 struct FAnimInfo
 {
-	struct FName                                       AnimSeqName;                                              // 0x0000(0x0008)
-	class UAnimSequence*                               AnimSeq;                                                  // 0x0008(0x0008)
-	int                                                AnimLinkupIndex;                                          // 0x0010(0x0004)
+	struct FName                                       AnimSeqName;                                              // 0x0000(0x0008) (Const)
+	class UAnimSequence*                               AnimSeq;                                                  // 0x0008(0x0008) (Const, Transient)
+	int                                                AnimLinkupIndex;                                          // 0x0010(0x0004) (Const, Transient)
 };
 
 // ScriptStruct Engine.AnimNodeSequenceBlendBase.AnimBlendInfo
 // 0x0020
 struct FAnimBlendInfo
 {
-	struct FName                                       AnimName;                                                 // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
+	struct FName                                       AnimName;                                                 // 0x0000(0x0008) (Edit)
 	struct FAnimInfo                                   AnimInfo;                                                 // 0x0008(0x0014)
-	float                                              Weight;                                                   // 0x001C(0x0004)
+	float                                              Weight;                                                   // 0x001C(0x0004) (Transient)
 };
 
 // ScriptStruct Engine.MorphNodeWeightBase.MorphNodeConn
 // 0x001C
 struct FMorphNodeConn
 {
-	TArray<class UMorphNodeBase*>                      ChildNodes;                                               // 0x0000(0x0010)
+	TArray<class UMorphNodeBase*>                      ChildNodes;                                               // 0x0000(0x0010) (NeedCtorLink)
 	struct FName                                       ConnName;                                                 // 0x0010(0x0008)
 	int                                                DrawY;                                                    // 0x0018(0x0004)
 };
@@ -5833,59 +5833,59 @@ struct FMorphNodeConn
 // 0x0008
 struct FBoneAngleMorph
 {
-	float                                              Angle;                                                    // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, CrossLevelPassive)
-	float                                              TargetWeight;                                             // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, CrossLevelPassive)
+	float                                              Angle;                                                    // 0x0000(0x0004) (Edit)
+	float                                              TargetWeight;                                             // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SkelControlTrail.AngularLimitInfo
 // 0x0014
 struct FAngularLimitInfo
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite)
-	float                                              Swing1LimitAngle;                                         // 0x0008(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite)
-	float                                              Swing2LimitAngle;                                         // 0x000C(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite)
-	float                                              TwistLimitAngle;                                          // 0x0010(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
+	float                                              Swing1LimitAngle;                                         // 0x0008(0x0004) (Edit)
+	float                                              Swing2LimitAngle;                                         // 0x000C(0x0004) (Edit)
+	float                                              TwistLimitAngle;                                          // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AnimSequence.SkelControlModifier
 // 0x0018
 struct FSkelControlModifier
 {
-	struct FName                                       SkelControlName;                                          // 0x0000(0x0008) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FTimeModifier>                       Modifiers;                                                // 0x0008(0x0010) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       SkelControlName;                                          // 0x0000(0x0008) (Edit)
+	TArray<struct FTimeModifier>                       Modifiers;                                                // 0x0008(0x0010) (Edit, NeedCtorLink, EditInline)
 };
 
 // ScriptStruct Engine.AnimSequence.RawAnimSequenceTrack
 // 0x0030
 struct FRawAnimSequenceTrack
 {
-	TArray<struct FVector>                             PosKeys;                                                  // 0x0000(0x0010)
-	TArray<struct FQuat>                               RotKeys;                                                  // 0x0010(0x0010)
-	TArray<struct FVector>                             ScaleKeys;                                                // 0x0020(0x0010)
+	TArray<struct FVector>                             PosKeys;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	TArray<struct FQuat>                               RotKeys;                                                  // 0x0010(0x0010) (NeedCtorLink)
+	TArray<struct FVector>                             ScaleKeys;                                                // 0x0020(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSequence.TranslationTrack
 // 0x0020
 struct FTranslationTrack
 {
-	TArray<struct FVector>                             PosKeys;                                                  // 0x0000(0x0010)
-	TArray<float>                                      Times;                                                    // 0x0010(0x0010)
+	TArray<struct FVector>                             PosKeys;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	TArray<float>                                      Times;                                                    // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSequence.RotationTrack
 // 0x0020
 struct FRotationTrack
 {
-	TArray<struct FQuat>                               RotKeys;                                                  // 0x0000(0x0010)
-	TArray<float>                                      Times;                                                    // 0x0010(0x0010)
+	TArray<struct FQuat>                               RotKeys;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	TArray<float>                                      Times;                                                    // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSequence.ScaleTrack
 // 0x0020
 struct FScaleTrack
 {
-	TArray<struct FVector>                             ScaleKeys;                                                // 0x0000(0x0010)
-	TArray<float>                                      Times;                                                    // 0x0010(0x0010)
+	TArray<struct FVector>                             ScaleKeys;                                                // 0x0000(0x0010) (NeedCtorLink)
+	TArray<float>                                      Times;                                                    // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSequence.CurveTrack
@@ -5893,14 +5893,14 @@ struct FScaleTrack
 struct FCurveTrack
 {
 	struct FName                                       CurveName;                                                // 0x0000(0x0008)
-	TArray<float>                                      CurveWeights;                                             // 0x0008(0x0010)
+	TArray<float>                                      CurveWeights;                                             // 0x0008(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AnimSet.AnimSetMeshLinkup
 // 0x0014
 struct FAnimSetMeshLinkup
 {
-	TArray<int>                                        BoneToTrackTable;                                         // 0x0000(0x0010)
+	TArray<int>                                        BoneToTrackTable;                                         // 0x0000(0x0010) (NeedCtorLink)
 	int                                                BipedRootIndex;                                           // 0x0010(0x0004)
 };
 
@@ -5909,7 +5909,7 @@ struct FAnimSetMeshLinkup
 struct FActiveDecalInfo
 {
 	int                                                DecalIndex;                                               // 0x0000(0x0004)
-	class UDecalComponent*                             Decal;                                                    // 0x0004(0x0008)
+	class UDecalComponent*                             Decal;                                                    // 0x0004(0x0008) (ExportObject, Component, EditInline)
 	float                                              LifetimeRemaining;                                        // 0x000C(0x0004)
 	unsigned long                                      bRemoveNoReceivers : 1;                                   // 0x0010(0x0004)
 };
@@ -5918,8 +5918,8 @@ struct FActiveDecalInfo
 // 0x0010
 struct FDecalReceiver
 {
-	class UPrimitiveComponent*                         Component;                                                // 0x0000(0x0008)
-	struct FPointer                                    RenderData;                                               // 0x0008(0x0008)
+	class UPrimitiveComponent*                         Component;                                                // 0x0000(0x0008) (Const, ExportObject, Component, EditInline)
+	struct FPointer                                    RenderData;                                               // 0x0008(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.Material.MaterialInput
@@ -5928,7 +5928,7 @@ struct FMaterialInput
 {
 	class UMaterialExpression*                         Expression;                                               // 0x0000(0x0008)
 	int                                                OutputIndex;                                              // 0x0008(0x0004)
-	struct FString                                     InputName;                                                // 0x000C(0x0010)
+	struct FString                                     InputName;                                                // 0x000C(0x0010) (NeedCtorLink)
 	int                                                Mask;                                                     // 0x001C(0x0004)
 	int                                                MaskR;                                                    // 0x0020(0x0004)
 	int                                                MaskG;                                                    // 0x0024(0x0004)
@@ -5990,7 +5990,7 @@ struct AFogVolumeDensityInfo_FCheckpointRecord
 struct AFracturedStaticMeshActor_FCheckpointRecord
 {
 	unsigned long                                      bIsShutdown : 1;                                          // 0x0000(0x0004)
-	TArray<unsigned char>                              FragmentVis;                                              // 0x0004(0x0010)
+	TArray<unsigned char>                              FragmentVis;                                              // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.FracturedStaticMeshActor.DeferredPartToSpawn
@@ -6008,17 +6008,17 @@ struct FDeferredPartToSpawn
 // 0x0018
 struct FPhysEffectInfo
 {
-	float                                              Threshold;                                                // 0x0000(0x0004) (Interp, NotForConsole, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              ReFireDelay;                                              // 0x0004(0x0004) (Interp, NotForConsole, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             Effect;                                                   // 0x0008(0x0008) (Interp, NotForConsole, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class USoundCue*                                   Sound;                                                    // 0x0010(0x0008) (Interp, NotForConsole, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	float                                              Threshold;                                                // 0x0000(0x0004) (Edit)
+	float                                              ReFireDelay;                                              // 0x0004(0x0004) (Edit)
+	class UParticleSystem*                             Effect;                                                   // 0x0008(0x0008) (Edit)
+	class USoundCue*                                   Sound;                                                    // 0x0010(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.FracturedStaticMeshComponent.FragmentGroup
 // 0x0014
 struct FFragmentGroup
 {
-	TArray<int>                                        FragmentIndices;                                          // 0x0000(0x0010)
+	TArray<int>                                        FragmentIndices;                                          // 0x0000(0x0010) (NeedCtorLink)
 	unsigned long                                      bGroupIsRooted : 1;                                       // 0x0010(0x0004)
 };
 
@@ -6035,8 +6035,8 @@ struct FInstancedStaticMeshInstanceData
 // 0x0020
 struct FInstancedStaticMeshMappingInfo
 {
-	struct FPointer                                    Mapping;                                                  // 0x0000(0x0008)
-	struct FPointer                                    LightMap;                                                 // 0x0008(0x0008)
+	struct FPointer                                    Mapping;                                                  // 0x0000(0x0008) (Native)
+	struct FPointer                                    LightMap;                                                 // 0x0008(0x0008) (Native)
 	class UTexture2D*                                  LightmapTexture;                                          // 0x0010(0x0008)
 	class UShadowMap2D*                                ShadowmapTexture;                                         // 0x0018(0x0008)
 };
@@ -6061,134 +6061,134 @@ struct FSplineMeshParams
 // 0x0010
 struct FClothingLodInfo
 {
-	TArray<int>                                        LODMaterialMap;                                           // 0x0000(0x0010) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	TArray<int>                                        LODMaterialMap;                                           // 0x0000(0x0010) (Edit, Const, EditFixedSize, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleDamageParameters
 // 0x0014
 struct FNxDestructibleDamageParameters
 {
-	float                                              DamageThreshold;                                          // 0x0000(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DamageSpread;                                             // 0x0004(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              ImpactDamage;                                             // 0x0008(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              ImpactResistance;                                         // 0x000C(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                DefaultImpactDamageDepth;                                 // 0x0010(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              DamageThreshold;                                          // 0x0000(0x0004) (Edit)
+	float                                              DamageSpread;                                             // 0x0004(0x0004) (Edit)
+	float                                              ImpactDamage;                                             // 0x0008(0x0004) (Edit)
+	float                                              ImpactResistance;                                         // 0x000C(0x0004) (Edit)
+	int                                                DefaultImpactDamageDepth;                                 // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleDebrisParameters
 // 0x002C
 struct FNxDestructibleDebrisParameters
 {
-	float                                              DebrisLifetimeMin;                                        // 0x0000(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DebrisLifetimeMax;                                        // 0x0004(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DebrisMaxSeparationMin;                                   // 0x0008(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DebrisMaxSeparationMax;                                   // 0x000C(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FBox                                        ValidBounds;                                              // 0x0010(0x001C) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              DebrisLifetimeMin;                                        // 0x0000(0x0004) (Edit)
+	float                                              DebrisLifetimeMax;                                        // 0x0004(0x0004) (Edit)
+	float                                              DebrisMaxSeparationMin;                                   // 0x0008(0x0004) (Edit)
+	float                                              DebrisMaxSeparationMax;                                   // 0x000C(0x0004) (Edit)
+	struct FBox                                        ValidBounds;                                              // 0x0010(0x001C) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleAdvancedParameters
 // 0x0018
 struct FNxDestructibleAdvancedParameters
 {
-	float                                              DamageCap;                                                // 0x0000(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              ImpactVelocityThreshold;                                  // 0x0004(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxChunkSpeed;                                            // 0x0008(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              MassScaleExponent;                                        // 0x000C(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              MassScale;                                                // 0x0010(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              FractureImpulseScale;                                     // 0x0014(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              DamageCap;                                                // 0x0000(0x0004) (Edit)
+	float                                              ImpactVelocityThreshold;                                  // 0x0004(0x0004) (Edit)
+	float                                              MaxChunkSpeed;                                            // 0x0008(0x0004) (Edit)
+	float                                              MassScaleExponent;                                        // 0x000C(0x0004) (Edit)
+	float                                              MassScale;                                                // 0x0010(0x0004) (Edit)
+	float                                              FractureImpulseScale;                                     // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleParametersFlag
 // 0x0004
 struct FNxDestructibleParametersFlag
 {
-	unsigned long                                      ACCUMULATE_DAMAGE : 1;                                    // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      ASSET_DEFINED_SUPPORT : 1;                                // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      WORLD_SUPPORT : 1;                                        // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      DEBRIS_TIMEOUT : 1;                                       // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      DEBRIS_MAX_SEPARATION : 1;                                // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      CRUMBLE_SMALLEST_CHUNKS : 1;                              // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      ACCURATE_RAYCASTS : 1;                                    // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      USE_VALID_BOUNDS : 1;                                     // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      FORM_EXTENDED_STRUCTURES : 1;                             // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      ACCUMULATE_DAMAGE : 1;                                    // 0x0000(0x0004) (Edit)
+	unsigned long                                      ASSET_DEFINED_SUPPORT : 1;                                // 0x0000(0x0004) (Edit)
+	unsigned long                                      WORLD_SUPPORT : 1;                                        // 0x0000(0x0004) (Edit)
+	unsigned long                                      DEBRIS_TIMEOUT : 1;                                       // 0x0000(0x0004) (Edit)
+	unsigned long                                      DEBRIS_MAX_SEPARATION : 1;                                // 0x0000(0x0004) (Edit)
+	unsigned long                                      CRUMBLE_SMALLEST_CHUNKS : 1;                              // 0x0000(0x0004) (Edit)
+	unsigned long                                      ACCURATE_RAYCASTS : 1;                                    // 0x0000(0x0004) (Edit)
+	unsigned long                                      USE_VALID_BOUNDS : 1;                                     // 0x0000(0x0004) (Edit)
+	unsigned long                                      FORM_EXTENDED_STRUCTURES : 1;                             // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleDepthParameters
 // 0x0005
 struct FNxDestructibleDepthParameters
 {
-	unsigned long                                      TAKE_IMPACT_DAMAGE : 1;                                   // 0x0000(0x0004)
-	unsigned long                                      IGNORE_POSE_UPDATES : 1;                                  // 0x0000(0x0004)
-	unsigned long                                      IGNORE_RAYCAST_CALLBACKS : 1;                             // 0x0000(0x0004)
-	unsigned long                                      IGNORE_CONTACT_CALLBACKS : 1;                             // 0x0000(0x0004)
-	unsigned long                                      USER_FLAG_1 : 1;                                          // 0x0000(0x0004)
-	unsigned long                                      USER_FLAG_2 : 1;                                          // 0x0000(0x0004)
-	unsigned long                                      USER_FLAG_3 : 1;                                          // 0x0000(0x0004)
-	unsigned long                                      USER_FLAG_4 : 1;                                          // 0x0000(0x0004)
-	TEnumAsByte<EImpactDamageOverride>                 ImpactDamageOverride;                                     // 0x0004(0x0001) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      TAKE_IMPACT_DAMAGE : 1;                                   // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      IGNORE_POSE_UPDATES : 1;                                  // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      IGNORE_RAYCAST_CALLBACKS : 1;                             // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      IGNORE_CONTACT_CALLBACKS : 1;                             // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      USER_FLAG_1 : 1;                                          // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      USER_FLAG_2 : 1;                                          // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      USER_FLAG_3 : 1;                                          // 0x0000(0x0004) (Deprecated)
+	unsigned long                                      USER_FLAG_4 : 1;                                          // 0x0000(0x0004) (Deprecated)
+	TEnumAsByte<EImpactDamageOverride>                 ImpactDamageOverride;                                     // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleAsset.NxDestructibleParameters
 // 0x00F0
 struct FNxDestructibleParameters
 {
-	struct FNxDestructibleDamageParameters             DamageParameters;                                         // 0x0000(0x0014) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	struct FNxDestructibleDebrisParameters             DebrisParameters;                                         // 0x0014(0x002C) (RepNotify, EditHide, CrossLevelPassive)
-	struct FNxDestructibleAdvancedParameters           AdvancedParameters;                                       // 0x0040(0x0018) (RepNotify, Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              DamageThreshold;                                          // 0x0058(0x0004)
-	float                                              DamageToRadius;                                           // 0x005C(0x0004)
-	float                                              DamageCap;                                                // 0x0060(0x0004)
-	float                                              ForceToDamage;                                            // 0x0064(0x0004)
-	float                                              ImpactVelocityThreshold;                                  // 0x0068(0x0004)
-	float                                              MaterialStrength;                                         // 0x006C(0x0004)
-	float                                              DamageToPercentDeformation;                               // 0x0070(0x0004)
-	float                                              DeformationPercentLimit;                                  // 0x0074(0x0004)
-	unsigned long                                      bFormExtendedStructures : 1;                              // 0x0078(0x0004)
-	int                                                SupportDepth;                                             // 0x007C(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                MinimumFractureDepth;                                     // 0x0080(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                DebrisDepth;                                              // 0x0084(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                EssentialDepth;                                           // 0x0088(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DebrisLifetimeMin;                                        // 0x008C(0x0004)
-	float                                              DebrisLifetimeMax;                                        // 0x0090(0x0004)
-	float                                              DebrisMaxSeparationMin;                                   // 0x0094(0x0004)
-	float                                              DebrisMaxSeparationMax;                                   // 0x0098(0x0004)
-	struct FBox                                        ValidBounds;                                              // 0x009C(0x001C)
-	float                                              MaxChunkSpeed;                                            // 0x00B8(0x0004)
-	float                                              MassScaleExponent;                                        // 0x00BC(0x0004)
-	struct FNxDestructibleParametersFlag               Flags;                                                    // 0x00C0(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              GrbVolumeLimit;                                           // 0x00C4(0x0004)
-	float                                              GrbParticleSpacing;                                       // 0x00C8(0x0004)
-	float                                              FractureImpulseScale;                                     // 0x00CC(0x0004)
-	TArray<struct FNxDestructibleDepthParameters>      DepthParameters;                                          // 0x00D0(0x0010) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                DynamicChunksDominanceGroup;                              // 0x00E0(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      UseDynamicChunksGroupsMask : 1;                           // 0x00E4(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ERBCollisionChannel>                   DynamicChunksChannel;                                     // 0x00E8(0x0001) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FNxDestructibleDamageParameters             DamageParameters;                                         // 0x0000(0x0014) (Edit)
+	struct FNxDestructibleDebrisParameters             DebrisParameters;                                         // 0x0014(0x002C) (Edit)
+	struct FNxDestructibleAdvancedParameters           AdvancedParameters;                                       // 0x0040(0x0018) (Edit)
+	float                                              DamageThreshold;                                          // 0x0058(0x0004) (Deprecated)
+	float                                              DamageToRadius;                                           // 0x005C(0x0004) (Deprecated)
+	float                                              DamageCap;                                                // 0x0060(0x0004) (Deprecated)
+	float                                              ForceToDamage;                                            // 0x0064(0x0004) (Deprecated)
+	float                                              ImpactVelocityThreshold;                                  // 0x0068(0x0004) (Deprecated)
+	float                                              MaterialStrength;                                         // 0x006C(0x0004) (Deprecated)
+	float                                              DamageToPercentDeformation;                               // 0x0070(0x0004) (Deprecated)
+	float                                              DeformationPercentLimit;                                  // 0x0074(0x0004) (Deprecated)
+	unsigned long                                      bFormExtendedStructures : 1;                              // 0x0078(0x0004) (Deprecated)
+	int                                                SupportDepth;                                             // 0x007C(0x0004) (Edit)
+	int                                                MinimumFractureDepth;                                     // 0x0080(0x0004) (Edit)
+	int                                                DebrisDepth;                                              // 0x0084(0x0004) (Edit)
+	int                                                EssentialDepth;                                           // 0x0088(0x0004) (Edit)
+	float                                              DebrisLifetimeMin;                                        // 0x008C(0x0004) (Deprecated)
+	float                                              DebrisLifetimeMax;                                        // 0x0090(0x0004) (Deprecated)
+	float                                              DebrisMaxSeparationMin;                                   // 0x0094(0x0004) (Deprecated)
+	float                                              DebrisMaxSeparationMax;                                   // 0x0098(0x0004) (Deprecated)
+	struct FBox                                        ValidBounds;                                              // 0x009C(0x001C) (Deprecated)
+	float                                              MaxChunkSpeed;                                            // 0x00B8(0x0004) (Deprecated)
+	float                                              MassScaleExponent;                                        // 0x00BC(0x0004) (Deprecated)
+	struct FNxDestructibleParametersFlag               Flags;                                                    // 0x00C0(0x0004) (Edit)
+	float                                              GrbVolumeLimit;                                           // 0x00C4(0x0004) (Deprecated)
+	float                                              GrbParticleSpacing;                                       // 0x00C8(0x0004) (Deprecated)
+	float                                              FractureImpulseScale;                                     // 0x00CC(0x0004) (Deprecated)
+	TArray<struct FNxDestructibleDepthParameters>      DepthParameters;                                          // 0x00D0(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	int                                                DynamicChunksDominanceGroup;                              // 0x00E0(0x0004) (Edit)
+	unsigned long                                      UseDynamicChunksGroupsMask : 1;                           // 0x00E4(0x0004) (Edit)
+	TEnumAsByte<ERBCollisionChannel>                   DynamicChunksChannel;                                     // 0x00E8(0x0001) (Edit, Const)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x00E9(0x0003) MISSED OFFSET
-	struct FRBCollisionChannelContainer                DynamicChunksCollideWithChannels;                         // 0x00EC(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FRBCollisionChannelContainer                DynamicChunksCollideWithChannels;                         // 0x00EC(0x0004) (Edit, Const)
 };
 
 // ScriptStruct Engine.InterpGroup.PlayerLocationInfo
 // 0x0008
 struct FPlayerLocationInfo
 {
-	TEnumAsByte<EMATPLAYER_TYPE>                       MatPlayerType;                                            // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EMATPLAYER_TYPE>                       MatPlayerType;                                            // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	unsigned long                                      bApplyStartAnimBlendWeight : 1;                           // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bBackToStartLocation : 1;                                 // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFinishIdleAnimation : 1;                                 // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUsedDummyStartLocation : 1;                              // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bApplyStartAnimBlendWeight : 1;                           // 0x0004(0x0004) (Edit)
+	unsigned long                                      bBackToStartLocation : 1;                                 // 0x0004(0x0004) (Edit)
+	unsigned long                                      bFinishIdleAnimation : 1;                                 // 0x0004(0x0004) (Edit)
+	unsigned long                                      bUsedDummyStartLocation : 1;                              // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.InterpGroupCamera.CameraPreviewInfo
 // 0x0040
 struct FCameraPreviewInfo
 {
-	class UClass*                                      PawnClass;                                                // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	TArray<class UAnimSet*>                            PreviewAnimSets;                                          // 0x0008(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FName                                       AnimSeqName;                                              // 0x0018(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FVector                                     Location;                                                 // 0x0020(0x000C)
-	struct FRotator                                    Rotation;                                                 // 0x002C(0x000C)
-	class APawn*                                       PawnInst;                                                 // 0x0038(0x0008)
+	class UClass*                                      PawnClass;                                                // 0x0000(0x0008) (Edit)
+	TArray<class UAnimSet*>                            PreviewAnimSets;                                          // 0x0008(0x0010) (Edit, NeedCtorLink)
+	struct FName                                       AnimSeqName;                                              // 0x0018(0x0008) (Edit)
+	struct FVector                                     Location;                                                 // 0x0020(0x000C) (EditConst)
+	struct FRotator                                    Rotation;                                                 // 0x002C(0x000C) (EditConst)
+	class APawn*                                       PawnInst;                                                 // 0x0038(0x0008) (Transient)
 };
 
 // ScriptStruct Engine.InterpTrackBoolProp.BoolTrackKey
@@ -6196,7 +6196,7 @@ struct FCameraPreviewInfo
 struct FBoolTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	unsigned long                                      Value : 1;                                                // 0x0004(0x0004) (Interp, NonTransactional, ProtectedWrite, CrossLevelPassive)
+	unsigned long                                      Value : 1;                                                // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackDirector.DirectorTrackCut
@@ -6205,7 +6205,7 @@ struct FDirectorTrackCut
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
 	float                                              TransitionTime;                                           // 0x0004(0x0004)
-	struct FName                                       TargetCamGroup;                                           // 0x0008(0x0008) (RepNotify, Interp, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
+	struct FName                                       TargetCamGroup;                                           // 0x0008(0x0008) (Edit)
 	int                                                ShotNumber;                                               // 0x0010(0x0004)
 };
 
@@ -6214,7 +6214,7 @@ struct FDirectorTrackCut
 struct FEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	struct FName                                       EventName;                                                // 0x0004(0x0008) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FName                                       EventName;                                                // 0x0004(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackFaceFX.FaceFXTrackKey
@@ -6222,39 +6222,39 @@ struct FEventTrackKey
 struct FFaceFXTrackKey
 {
 	float                                              StartTime;                                                // 0x0000(0x0004)
-	struct FString                                     FaceFXGroupName;                                          // 0x0004(0x0010)
-	struct FString                                     FaceFXSeqName;                                            // 0x0014(0x0010)
+	struct FString                                     FaceFXGroupName;                                          // 0x0004(0x0010) (NeedCtorLink)
+	struct FString                                     FaceFXSeqName;                                            // 0x0014(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.InterpTrackFaceFX.FaceFXSoundCueKey
 // 0x0010
 struct FFaceFXSoundCueKey
 {
-	class USoundCue*                                   FaceFXSoundCue;                                           // 0x0000(0x0008)
-	class UAkEvent*                                    FaceFXAkEvent;                                            // 0x0008(0x0008)
+	class USoundCue*                                   FaceFXSoundCue;                                           // 0x0000(0x0008) (Const)
+	class UAkEvent*                                    FaceFXAkEvent;                                            // 0x0008(0x0008) (Const)
 };
 
 // ScriptStruct Engine.InterpTrackAnimControl.AnimControlTrackKey
 // 0x0022
 struct FAnimControlTrackKey
 {
-	float                                              StartTime;                                                // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	struct FName                                       AnimSeqName;                                              // 0x0004(0x0008) (RepNotify, NotForConsole, ProtectedWrite)
-	float                                              AnimStartOffset;                                          // 0x000C(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	float                                              AnimEndOffset;                                            // 0x0010(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	float                                              AnimPlayRate;                                             // 0x0014(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	unsigned long                                      bLooping : 1;                                             // 0x0018(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	unsigned long                                      bReverse : 1;                                             // 0x0018(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	unsigned long                                      bEnableRootMotion : 1;                                    // 0x0018(0x0004) (RepNotify, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootBoneAxis>                         RootBoneOption[0x3];                                      // 0x001C(0x0001) (RepNotify, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootRotationOption>                   RootRotationOption[0x3];                                  // 0x001F(0x0001) (RepNotify, NotForConsole, ProtectedWrite)
+	float                                              StartTime;                                                // 0x0000(0x0004) (Edit)
+	struct FName                                       AnimSeqName;                                              // 0x0004(0x0008) (Edit)
+	float                                              AnimStartOffset;                                          // 0x000C(0x0004) (Edit)
+	float                                              AnimEndOffset;                                            // 0x0010(0x0004) (Edit)
+	float                                              AnimPlayRate;                                             // 0x0014(0x0004) (Edit)
+	unsigned long                                      bLooping : 1;                                             // 0x0018(0x0004) (Edit)
+	unsigned long                                      bReverse : 1;                                             // 0x0018(0x0004) (Edit)
+	unsigned long                                      bEnableRootMotion : 1;                                    // 0x0018(0x0004) (Edit)
+	TEnumAsByte<ERootBoneAxis>                         RootBoneOption[0x3];                                      // 0x001C(0x0001) (Edit, Const)
+	TEnumAsByte<ERootRotationOption>                   RootRotationOption[0x3];                                  // 0x001F(0x0001) (Edit, Const)
 };
 
 // ScriptStruct Engine.EngineTypes.PrimitiveMaterialRef
 // 0x000C
 struct FPrimitiveMaterialRef
 {
-	class UPrimitiveComponent*                         Primitive;                                                // 0x0000(0x0008)
+	class UPrimitiveComponent*                         Primitive;                                                // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	int                                                MaterialIndex;                                            // 0x0008(0x0004)
 };
 
@@ -6270,17 +6270,17 @@ struct FPostProcessMaterialRef
 struct FInterpTrackMaterialRef
 {
 	class UInterpTrackMaterialEffect*                  Track;                                                    // 0x0000(0x0008)
-	TArray<int>                                        KeyFrameIndices;                                          // 0x0008(0x0010)
+	TArray<int>                                        KeyFrameIndices;                                          // 0x0008(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.EngineTypes.MaterialReferenceList
 // 0x0038
 struct FMaterialReferenceList
 {
-	class UMaterialInterface*                          TargetMaterial;                                           // 0x0000(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TArray<struct FPrimitiveMaterialRef>               AffectedMaterialRefs;                                     // 0x0008(0x0010)
-	TArray<struct FPostProcessMaterialRef>             AffectedPPChainMaterialRefs;                              // 0x0018(0x0010)
-	TArray<struct FInterpTrackMaterialRef>             AffectedInterpTrackMaterialRefs;                          // 0x0028(0x0010)
+	class UMaterialInterface*                          TargetMaterial;                                           // 0x0000(0x0008) (Edit)
+	TArray<struct FPrimitiveMaterialRef>               AffectedMaterialRefs;                                     // 0x0008(0x0010) (Component, NeedCtorLink)
+	TArray<struct FPostProcessMaterialRef>             AffectedPPChainMaterialRefs;                              // 0x0018(0x0010) (NeedCtorLink)
+	TArray<struct FInterpTrackMaterialRef>             AffectedInterpTrackMaterialRefs;                          // 0x0028(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.InterpTrackMove.InterpLookupPoint
@@ -6295,7 +6295,7 @@ struct FInterpLookupPoint
 // 0x0010
 struct FInterpLookupTrack
 {
-	TArray<struct FInterpLookupPoint>                  Points;                                                   // 0x0000(0x0010)
+	TArray<struct FInterpLookupPoint>                  Points;                                                   // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.InterpTrackHeadTracking.HeadTrackingKey
@@ -6303,17 +6303,17 @@ struct FInterpLookupTrack
 struct FHeadTrackingKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EHeadTrackingAction>                   Action;                                                   // 0x0004(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	TEnumAsByte<EHeadTrackingAction>                   Action;                                                   // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackMaterialEffect.MaterialEffectTrackKey
 // 0x001C
 struct FMaterialEffectTrackKey
 {
-	class UMaterialInterface*                          Material;                                                 // 0x0000(0x0008) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FName                                       EffectName;                                               // 0x0008(0x0008) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              Time;                                                     // 0x0010(0x0004)
-	class UMaterialInstanceConstant*                   RuntimeMIC;                                               // 0x0014(0x0008)
+	class UMaterialInterface*                          Material;                                                 // 0x0000(0x0008) (Edit)
+	struct FName                                       EffectName;                                               // 0x0008(0x0008) (Edit)
+	float                                              Time;                                                     // 0x0010(0x0004) (EditConst)
+	class UMaterialInstanceConstant*                   RuntimeMIC;                                               // 0x0014(0x0008) (Transient)
 };
 
 // ScriptStruct Engine.InterpTrackNotify.NotifyTrackKey
@@ -6329,8 +6329,8 @@ struct FNotifyTrackKey
 struct FParticleReplayTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	float                                              Duration;                                                 // 0x0004(0x0004) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                ClipIDNumber;                                             // 0x0008(0x0004) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              Duration;                                                 // 0x0004(0x0004) (Edit)
+	int                                                ClipIDNumber;                                             // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackToggle.ToggleTrackKey
@@ -6338,7 +6338,7 @@ struct FParticleReplayTrackKey
 struct FToggleTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<ETrackToggleAction>                    ToggleAction;                                             // 0x0004(0x0001) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, EditHide)
+	TEnumAsByte<ETrackToggleAction>                    ToggleAction;                                             // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackSound.SoundTrackKey
@@ -6348,7 +6348,7 @@ struct FSoundTrackKey
 	float                                              Time;                                                     // 0x0000(0x0004)
 	float                                              Volume;                                                   // 0x0004(0x0004)
 	float                                              Pitch;                                                    // 0x0008(0x0004)
-	class USoundCue*                                   Sound;                                                    // 0x000C(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	class USoundCue*                                   Sound;                                                    // 0x000C(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackVisibility.VisibilityTrackKey
@@ -6356,7 +6356,7 @@ struct FSoundTrackKey
 struct FVisibilityTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EVisibilityTrackAction>                Action;                                                   // 0x0004(0x0001) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox)
+	TEnumAsByte<EVisibilityTrackAction>                Action;                                                   // 0x0004(0x0001) (Edit)
 	TEnumAsByte<EVisibilityTrackCondition>             ActiveCondition;                                          // 0x0005(0x0001)
 };
 
@@ -6364,34 +6364,34 @@ struct FVisibilityTrackKey
 // 0x0004
 struct FRenderingPerformanceOverrides
 {
-	unsigned long                                      bAllowAmbientOcclusion : 1;                               // 0x0000(0x0004) (EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowDominantWholeSceneDynamicShadows : 1;               // 0x0000(0x0004) (EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowMotionBlurSkinning : 1;                             // 0x0000(0x0004) (EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowTemporalAA : 1;                                     // 0x0000(0x0004) (EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowLightShafts : 1;                                    // 0x0000(0x0004) (EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bAllowAmbientOcclusion : 1;                               // 0x0000(0x0004) (Edit)
+	unsigned long                                      bAllowDominantWholeSceneDynamicShadows : 1;               // 0x0000(0x0004) (Edit)
+	unsigned long                                      bAllowMotionBlurSkinning : 1;                             // 0x0000(0x0004) (Edit)
+	unsigned long                                      bAllowTemporalAA : 1;                                     // 0x0000(0x0004) (Edit)
+	unsigned long                                      bAllowLightShafts : 1;                                    // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.InterpTrackInstFloatMaterialParam.FloatMaterialParamMICData
 // 0x0020
 struct FFloatMaterialParamMICData
 {
-	TArray<class UMaterialInstanceConstant*>           MICs;                                                     // 0x0000(0x0010)
-	TArray<float>                                      MICResetFloats;                                           // 0x0010(0x0010)
+	TArray<class UMaterialInstanceConstant*>           MICs;                                                     // 0x0000(0x0010) (Const, NeedCtorLink)
+	TArray<float>                                      MICResetFloats;                                           // 0x0010(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.InterpTrackInstVectorMaterialParam.VectorMaterialParamMICData
 // 0x0020
 struct FVectorMaterialParamMICData
 {
-	TArray<class UMaterialInstanceConstant*>           MICs;                                                     // 0x0000(0x0010)
-	TArray<struct FVector>                             MICResetVectors;                                          // 0x0010(0x0010)
+	TArray<class UMaterialInstanceConstant*>           MICs;                                                     // 0x0000(0x0010) (Const, NeedCtorLink)
+	TArray<struct FVector>                             MICResetVectors;                                          // 0x0010(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialExpression.ExpressionOutput
 // 0x0024
 struct FExpressionOutput
 {
-	struct FString                                     OutputName;                                               // 0x0000(0x0010)
+	struct FString                                     OutputName;                                               // 0x0000(0x0010) (NeedCtorLink)
 	int                                                Mask;                                                     // 0x0010(0x0004)
 	int                                                MaskR;                                                    // 0x0014(0x0004)
 	int                                                MaskG;                                                    // 0x0018(0x0004)
@@ -6405,7 +6405,7 @@ struct FExpressionInput
 {
 	class UMaterialExpression*                         Expression;                                               // 0x0000(0x0008)
 	int                                                OutputIndex;                                              // 0x0008(0x0004)
-	struct FString                                     InputName;                                                // 0x000C(0x0010)
+	struct FString                                     InputName;                                                // 0x000C(0x0010) (NeedCtorLink)
 	int                                                Mask;                                                     // 0x001C(0x0004)
 	int                                                MaskR;                                                    // 0x0020(0x0004)
 	int                                                MaskG;                                                    // 0x0024(0x0004)
@@ -6418,48 +6418,48 @@ struct FExpressionInput
 // 0x0044
 struct FCustomInput
 {
-	struct FString                                     InputName;                                                // 0x0000(0x0010) (EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	struct FExpressionInput                            Input;                                                    // 0x0010(0x0034)
+	struct FString                                     InputName;                                                // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FExpressionInput                            Input;                                                    // 0x0010(0x0034) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialExpressionLandscapeLayerBlend.LayerBlendInput
 // 0x0080
 struct FLayerBlendInput
 {
-	struct FName                                       LayerName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	TEnumAsByte<ELandscapeLayerBlendType>              BlendType;                                                // 0x0008(0x0001) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	struct FName                                       LayerName;                                                // 0x0000(0x0008) (Edit)
+	TEnumAsByte<ELandscapeLayerBlendType>              BlendType;                                                // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	struct FExpressionInput                            LayerInput;                                               // 0x000C(0x0034)
-	struct FExpressionInput                            HeightInput;                                              // 0x0040(0x0034)
-	float                                              PreviewWeight;                                            // 0x0074(0x0004) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FPointer                                    InstanceOverride;                                         // 0x0078(0x0008)
+	struct FExpressionInput                            LayerInput;                                               // 0x000C(0x0034) (NeedCtorLink)
+	struct FExpressionInput                            HeightInput;                                              // 0x0040(0x0034) (NeedCtorLink)
+	float                                              PreviewWeight;                                            // 0x0074(0x0004) (Edit)
+	struct FPointer                                    InstanceOverride;                                         // 0x0078(0x0008) (Const, Native, Transient)
 };
 
 // ScriptStruct Engine.MaterialExpressionMaterialFunctionCall.FunctionExpressionInput
 // 0x004C
 struct FFunctionExpressionInput
 {
-	class UMaterialExpressionFunctionInput*            ExpressionInput;                                          // 0x0000(0x0008)
+	class UMaterialExpressionFunctionInput*            ExpressionInput;                                          // 0x0000(0x0008) (Transient)
 	struct FGuid                                       ExpressionInputId;                                        // 0x0008(0x0010)
-	struct FExpressionInput                            Input;                                                    // 0x0018(0x0034)
+	struct FExpressionInput                            Input;                                                    // 0x0018(0x0034) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialExpressionMaterialFunctionCall.FunctionExpressionOutput
 // 0x003C
 struct FFunctionExpressionOutput
 {
-	class UMaterialExpressionFunctionOutput*           ExpressionOutput;                                         // 0x0000(0x0008)
+	class UMaterialExpressionFunctionOutput*           ExpressionOutput;                                         // 0x0000(0x0008) (Transient)
 	struct FGuid                                       ExpressionOutputId;                                       // 0x0008(0x0010)
-	struct FExpressionOutput                           Output;                                                   // 0x0018(0x0024)
+	struct FExpressionOutput                           Output;                                                   // 0x0018(0x0024) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialInstanceConstant.FontParameterValue
 // 0x0024
 struct FFontParameterValue
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	class UFont*                                       FontValue;                                                // 0x0008(0x0008) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                FontPage;                                                 // 0x0010(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	class UFont*                                       FontValue;                                                // 0x0008(0x0008) (Edit)
+	int                                                FontPage;                                                 // 0x0010(0x0004) (Edit)
 	struct FGuid                                       ExpressionGUID;                                           // 0x0014(0x0010)
 };
 
@@ -6467,8 +6467,8 @@ struct FFontParameterValue
 // 0x001C
 struct FScalarParameterValue
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ParameterValue;                                           // 0x0008(0x0004) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	float                                              ParameterValue;                                           // 0x0008(0x0004) (Edit)
 	struct FGuid                                       ExpressionGUID;                                           // 0x000C(0x0010)
 };
 
@@ -6476,8 +6476,8 @@ struct FScalarParameterValue
 // 0x0020
 struct FTextureParameterValue
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (NonTransactional, NotForConsole, EditHide)
-	class UTexture*                                    ParameterValue;                                           // 0x0008(0x0008) (NonTransactional, NotForConsole, EditHide)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	class UTexture*                                    ParameterValue;                                           // 0x0008(0x0008) (Edit)
 	struct FGuid                                       ExpressionGUID;                                           // 0x0010(0x0010)
 };
 
@@ -6485,8 +6485,8 @@ struct FTextureParameterValue
 // 0x0028
 struct FVectorParameterValue
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox)
-	struct FLinearColor                                ParameterValue;                                           // 0x0008(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	struct FLinearColor                                ParameterValue;                                           // 0x0008(0x0010) (Edit)
 	struct FGuid                                       ExpressionGUID;                                           // 0x0018(0x0010)
 };
 
@@ -6494,10 +6494,10 @@ struct FVectorParameterValue
 // 0x001C
 struct FTexAddressParameterValue
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	unsigned char                                      TextureIndex;                                             // 0x0008(0x0001) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	TEnumAsByte<ETextureAddressForce>                  AddressX;                                                 // 0x0009(0x0001) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	TEnumAsByte<ETextureAddressForce>                  AddressY;                                                 // 0x000A(0x0001) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	unsigned char                                      TextureIndex;                                             // 0x0008(0x0001) (Edit, EditConst)
+	TEnumAsByte<ETextureAddressForce>                  AddressX;                                                 // 0x0009(0x0001) (Edit)
+	TEnumAsByte<ETextureAddressForce>                  AddressY;                                                 // 0x000A(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x1];                                       // 0x000B(0x0001) MISSED OFFSET
 	struct FGuid                                       ExpressionGUID;                                           // 0x000C(0x0010)
 };
@@ -6508,78 +6508,78 @@ struct FParameterValueOverTime
 {
 	struct FGuid                                       ExpressionGUID;                                           // 0x0000(0x0010)
 	float                                              StartTime;                                                // 0x0010(0x0004)
-	struct FName                                       ParameterName;                                            // 0x0014(0x0008) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLoop : 1;                                                // 0x001C(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAutoActivate : 1;                                        // 0x001C(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CycleTime;                                                // 0x0020(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bNormalizeTime : 1;                                       // 0x0024(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              OffsetTime;                                               // 0x0028(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bOffsetFromEnd : 1;                                       // 0x002C(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParameterName;                                            // 0x0014(0x0008) (Edit)
+	unsigned long                                      bLoop : 1;                                                // 0x001C(0x0004) (Edit)
+	unsigned long                                      bAutoActivate : 1;                                        // 0x001C(0x0004) (Edit)
+	float                                              CycleTime;                                                // 0x0020(0x0004) (Edit)
+	unsigned long                                      bNormalizeTime : 1;                                       // 0x0024(0x0004) (Edit)
+	float                                              OffsetTime;                                               // 0x0028(0x0004) (Edit)
+	unsigned long                                      bOffsetFromEnd : 1;                                       // 0x002C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.MaterialInstanceTimeVarying.FontParameterValueOverTime
 // 0x000C (0x003C - 0x0030)
 struct FFontParameterValueOverTime : public FParameterValueOverTime
 {
-	class UFont*                                       FontValue;                                                // 0x0030(0x0008) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                FontPage;                                                 // 0x0038(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	class UFont*                                       FontValue;                                                // 0x0030(0x0008) (Edit)
+	int                                                FontPage;                                                 // 0x0038(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.MaterialInstanceTimeVarying.ScalarParameterValueOverTime
 // 0x0018 (0x0048 - 0x0030)
 struct FScalarParameterValueOverTime : public FParameterValueOverTime
 {
-	float                                              ParameterValue;                                           // 0x0030(0x0004) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveFloat                           ParameterValueCurve;                                      // 0x0034(0x0014) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              ParameterValue;                                           // 0x0030(0x0004) (Edit)
+	struct FInterpCurveFloat                           ParameterValueCurve;                                      // 0x0034(0x0014) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialInstanceTimeVarying.TextureParameterValueOverTime
 // 0x0008 (0x0038 - 0x0030)
 struct FTextureParameterValueOverTime : public FParameterValueOverTime
 {
-	class UTexture*                                    ParameterValue;                                           // 0x0030(0x0008) (RepNotify, NonTransactional, NotForConsole, EditHide)
+	class UTexture*                                    ParameterValue;                                           // 0x0030(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.MaterialInstanceTimeVarying.VectorParameterValueOverTime
 // 0x0024 (0x0054 - 0x0030)
 struct FVectorParameterValueOverTime : public FParameterValueOverTime
 {
-	struct FLinearColor                                ParameterValue;                                           // 0x0030(0x0010) (EditorOnly, NotForConsole, ProtectedWrite, EditTextBox)
-	struct FInterpCurveVector                          ParameterValueCurve;                                      // 0x0040(0x0014) (EditorOnly, NotForConsole, ProtectedWrite, EditTextBox)
+	struct FLinearColor                                ParameterValue;                                           // 0x0030(0x0010) (Edit)
+	struct FInterpCurveVector                          ParameterValueCurve;                                      // 0x0040(0x0014) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.MaterialInstanceTimeVarying.LinearColorParameterValueOverTime
 // 0x0024 (0x0054 - 0x0030)
 struct FLinearColorParameterValueOverTime : public FParameterValueOverTime
 {
-	struct FLinearColor                                ParameterValue;                                           // 0x0030(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
-	struct FInterpCurveLinearColor                     ParameterValueCurve;                                      // 0x0040(0x0014) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
+	struct FLinearColor                                ParameterValue;                                           // 0x0030(0x0010) (Edit)
+	struct FInterpCurveLinearColor                     ParameterValueCurve;                                      // 0x0040(0x0014) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.ParticleSystemComponent.ViewParticleEmitterInstanceMotionBlurInfo
 // 0x0048
 struct FViewParticleEmitterInstanceMotionBlurInfo
 {
-	struct FMap_Mirror                                 EmitterInstanceMBInfoMap;                                 // 0x0000(0x0048)
+	struct FMap_Mirror                                 EmitterInstanceMBInfoMap;                                 // 0x0000(0x0048) (Const, Native, Transient)
 };
 
 // ScriptStruct Engine.ParticleSystemComponent.ParticleSysParam
 // 0x0054
 struct FParticleSysParam
 {
-	struct FName                                       Name;                                                     // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EParticleSysParamType>                 ParamType;                                                // 0x0008(0x0001) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       Name;                                                     // 0x0000(0x0008) (Edit)
+	TEnumAsByte<EParticleSysParamType>                 ParamType;                                                // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	float                                              Scalar;                                                   // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              Scalar_Low;                                               // 0x0010(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Vector;                                                   // 0x0014(0x000C) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Vector_Low;                                               // 0x0020(0x000C) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      Color;                                                    // 0x002C(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AActor*                                      Actor;                                                    // 0x0030(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UMaterialInterface*                          Material;                                                 // 0x0038(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UComponent*                                  Component;                                                // 0x0040(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       SocketName;                                               // 0x0048(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseBone : 1;                                             // 0x0050(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              Scalar;                                                   // 0x000C(0x0004) (Edit)
+	float                                              Scalar_Low;                                               // 0x0010(0x0004) (Edit)
+	struct FVector                                     Vector;                                                   // 0x0014(0x000C) (Edit)
+	struct FVector                                     Vector_Low;                                               // 0x0020(0x000C) (Edit)
+	struct FColor                                      Color;                                                    // 0x002C(0x0004) (Edit)
+	class AActor*                                      Actor;                                                    // 0x0030(0x0008) (Edit)
+	class UMaterialInterface*                          Material;                                                 // 0x0038(0x0008) (Edit)
+	class UComponent*                                  Component;                                                // 0x0040(0x0008) (Edit, ExportObject, Component, EditInline)
+	struct FName                                       SocketName;                                               // 0x0048(0x0008) (Edit)
+	unsigned long                                      bUseBone : 1;                                             // 0x0050(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PrimitiveComponent.MaterialViewRelevance
@@ -6650,119 +6650,119 @@ struct FParticleEventAttractorCollideData : public FParticleEventCollideData
 // 0x0014
 struct FAttractLocationBoneSocketInfo
 {
-	struct FName                                       BoneSocketName;                                           // 0x0000(0x0008) (Interp, NotForConsole, PrivateWrite, ArchetypeProperty)
-	struct FVector                                     Offset;                                                   // 0x0008(0x000C) (Interp, NotForConsole, PrivateWrite, ArchetypeProperty)
+	struct FName                                       BoneSocketName;                                           // 0x0000(0x0008) (Edit)
+	struct FVector                                     Offset;                                                   // 0x0008(0x000C) (Edit)
 };
 
 // ScriptStruct Engine.ParticleModuleBeamModifier.BeamModifierOptions
 // 0x0004
 struct FBeamModifierOptions
 {
-	unsigned long                                      bModify : 1;                                              // 0x0000(0x0004) (EditorOnly, RepRetry, EditTextBox)
-	unsigned long                                      bScale : 1;                                               // 0x0000(0x0004) (EditorOnly, RepRetry, EditTextBox)
-	unsigned long                                      bLock : 1;                                                // 0x0000(0x0004) (EditorOnly, RepRetry, EditTextBox)
+	unsigned long                                      bModify : 1;                                              // 0x0000(0x0004) (Edit)
+	unsigned long                                      bScale : 1;                                               // 0x0000(0x0004) (Edit)
+	unsigned long                                      bLock : 1;                                                // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ParticleModuleCollision.ParticleAttractorCollisionAction
 // 0x0014
 struct FParticleAttractorCollisionAction
 {
-	TEnumAsByte<EParticleAttractorActionType>          Type;                                                     // 0x0000(0x0001) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EParticleAttractorActionType>          Type;                                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     EventName;                                                // 0x0004(0x0010) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     EventName;                                                // 0x0004(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.ParticleModule.ParticleRandomSeedInfo
 // 0x001C
 struct FParticleRandomSeedInfo
 {
-	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bGetSeedFromInstance : 1;                                 // 0x0008(0x0004) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bInstanceSeedIsIndex : 1;                                 // 0x0008(0x0004) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bResetSeedOnEmitterLooping : 1;                           // 0x0008(0x0004) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bRandomlySelectSeedArray : 1;                             // 0x0008(0x0004) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<int>                                        RandomSeeds;                                              // 0x000C(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParameterName;                                            // 0x0000(0x0008) (Edit)
+	unsigned long                                      bGetSeedFromInstance : 1;                                 // 0x0008(0x0004) (Edit)
+	unsigned long                                      bInstanceSeedIsIndex : 1;                                 // 0x0008(0x0004) (Edit)
+	unsigned long                                      bResetSeedOnEmitterLooping : 1;                           // 0x0008(0x0004) (Edit)
+	unsigned long                                      bRandomlySelectSeedArray : 1;                             // 0x0008(0x0004) (Edit)
+	TArray<int>                                        RandomSeeds;                                              // 0x000C(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.ParticleModuleEventGenerator.ParticleEvent_GenerateInfo
 // 0x002C
 struct FParticleEvent_GenerateInfo
 {
-	TEnumAsByte<EParticleEventType>                    Type;                                                     // 0x0000(0x0001) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EParticleEventType>                    Type;                                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Frequency;                                                // 0x0004(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                LowFreq;                                                  // 0x0008(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                ParticleFrequency;                                        // 0x000C(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      FirstTimeOnly : 1;                                        // 0x0010(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      LastTimeOnly : 1;                                         // 0x0010(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      UseReflectedImpactVector : 1;                             // 0x0010(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       CustomName;                                               // 0x0014(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<class UParticleModuleEventSendToGame*>      ParticleModuleEventsToSendToGame;                         // 0x001C(0x0010) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Frequency;                                                // 0x0004(0x0004) (Edit)
+	int                                                LowFreq;                                                  // 0x0008(0x0004) (Edit)
+	int                                                ParticleFrequency;                                        // 0x000C(0x0004) (Edit)
+	unsigned long                                      FirstTimeOnly : 1;                                        // 0x0010(0x0004) (Edit)
+	unsigned long                                      LastTimeOnly : 1;                                         // 0x0010(0x0004) (Edit)
+	unsigned long                                      UseReflectedImpactVector : 1;                             // 0x0010(0x0004) (Edit)
+	struct FName                                       CustomName;                                               // 0x0014(0x0008) (Edit)
+	TArray<class UParticleModuleEventSendToGame*>      ParticleModuleEventsToSendToGame;                         // 0x001C(0x0010) (Edit, NeedCtorLink, EditInline)
 };
 
 // ScriptStruct Engine.ParticleModuleLocationBoneSocket.LocationBoneSocketInfo
 // 0x0014
 struct FLocationBoneSocketInfo
 {
-	struct FName                                       BoneSocketName;                                           // 0x0000(0x0008) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
-	struct FVector                                     Offset;                                                   // 0x0008(0x000C) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
+	struct FName                                       BoneSocketName;                                           // 0x0000(0x0008) (Edit)
+	struct FVector                                     Offset;                                                   // 0x0008(0x000C) (Edit)
 };
 
 // ScriptStruct Engine.ParticleModuleOrbit.OrbitOptions
 // 0x0004
 struct FOrbitOptions
 {
-	unsigned long                                      bProcessDuringSpawn : 1;                                  // 0x0000(0x0004) (RepNotify, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bProcessDuringUpdate : 1;                                 // 0x0000(0x0004) (RepNotify, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseEmitterTime : 1;                                      // 0x0000(0x0004) (RepNotify, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bProcessDuringSpawn : 1;                                  // 0x0000(0x0004) (Edit)
+	unsigned long                                      bProcessDuringUpdate : 1;                                 // 0x0000(0x0004) (Edit)
+	unsigned long                                      bUseEmitterTime : 1;                                      // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ParticleModuleParameterDynamic.EmitterDynamicParameter
 // 0x0038
 struct FEmitterDynamicParameter
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bUseEmitterTime : 1;                                      // 0x0008(0x0004) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bSpawnTimeOnly : 1;                                       // 0x0008(0x0004) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EEmitterDynamicParameterValue>         ValueMethod;                                              // 0x000C(0x0001) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	unsigned long                                      bUseEmitterTime : 1;                                      // 0x0008(0x0004) (Edit)
+	unsigned long                                      bSpawnTimeOnly : 1;                                       // 0x0008(0x0004) (Edit)
+	TEnumAsByte<EEmitterDynamicParameterValue>         ValueMethod;                                              // 0x000C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
-	unsigned long                                      bScaleVelocityByParamValue : 1;                           // 0x0010(0x0004) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionFloat                       ParamValue;                                               // 0x0014(0x0024) (RepNotify, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      bScaleVelocityByParamValue : 1;                           // 0x0010(0x0004) (Edit)
+	struct FRawDistributionFloat                       ParamValue;                                               // 0x0014(0x0024) (Edit, Component, NeedCtorLink)
 };
 
 // ScriptStruct Engine.ParticleEmitter.ParticleBurst
 // 0x000C
 struct FParticleBurst
 {
-	int                                                Count;                                                    // 0x0000(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                CountLow;                                                 // 0x0004(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              Time;                                                     // 0x0008(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Count;                                                    // 0x0000(0x0004) (Edit)
+	int                                                CountLow;                                                 // 0x0004(0x0004) (Edit)
+	float                                              Time;                                                     // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ParticleModuleTypeDataPhysX.PhysXEmitterVerticalLodProperties
 // 0x0010
 struct FPhysXEmitterVerticalLodProperties
 {
-	float                                              WeightForFifo;                                            // 0x0000(0x0004) (RepNotify, Interp, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              WeightForSpawnLod;                                        // 0x0004(0x0004) (RepNotify, Interp, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              SpawnLodRateVsLifeBias;                                   // 0x0008(0x0004) (RepNotify, Interp, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              RelativeFadeoutTime;                                      // 0x000C(0x0004) (RepNotify, Interp, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	float                                              WeightForFifo;                                            // 0x0000(0x0004) (Edit)
+	float                                              WeightForSpawnLod;                                        // 0x0004(0x0004) (Edit)
+	float                                              SpawnLodRateVsLifeBias;                                   // 0x0008(0x0004) (Edit)
+	float                                              RelativeFadeoutTime;                                      // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ParticleSystemReplay.ParticleEmitterReplayFrame
 // 0x0010
 struct FParticleEmitterReplayFrame
 {
-	int                                                EmitterType;                                              // 0x0000(0x0004)
-	int                                                OriginalEmitterIndex;                                     // 0x0004(0x0004)
-	struct FPointer                                    FrameState;                                               // 0x0008(0x0008)
+	int                                                EmitterType;                                              // 0x0000(0x0004) (Const, Native)
+	int                                                OriginalEmitterIndex;                                     // 0x0004(0x0004) (Const, Native)
+	struct FPointer                                    FrameState;                                               // 0x0008(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.ParticleSystemReplay.ParticleSystemReplayFrame
 // 0x0010
 struct FParticleSystemReplayFrame
 {
-	TArray<struct FParticleEmitterReplayFrame>         Emitters;                                                 // 0x0000(0x0010)
+	TArray<struct FParticleEmitterReplayFrame>         Emitters;                                                 // 0x0000(0x0010) (Const, Native)
 };
 
 // ScriptStruct Engine.Actor.RigidBodyState
@@ -6781,9 +6781,9 @@ struct FRigidBodyState
 // 0x0020
 struct FRootMotionCurve
 {
-	struct FName                                       AnimName;                                                 // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveVector                          Curve;                                                    // 0x0008(0x0014) (Interp, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxCurveTime;                                             // 0x001C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       AnimName;                                                 // 0x0000(0x0008) (Edit)
+	struct FInterpCurveVector                          Curve;                                                    // 0x0008(0x0014) (Edit, NeedCtorLink)
+	float                                              MaxCurveTime;                                             // 0x001C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SVehicle.VehicleState
@@ -6803,35 +6803,35 @@ struct FVehicleState
 // 0x0010
 struct FDamageParameters
 {
-	TEnumAsByte<EDamageParameterOverrideMode>          OverrideMode;                                             // 0x0000(0x0001) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
+	TEnumAsByte<EDamageParameterOverrideMode>          OverrideMode;                                             // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              BaseDamage;                                               // 0x0004(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	float                                              Radius;                                                   // 0x0008(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	float                                              Momentum;                                                 // 0x000C(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
+	float                                              BaseDamage;                                               // 0x0004(0x0004) (Edit)
+	float                                              Radius;                                                   // 0x0008(0x0004) (Edit)
+	float                                              Momentum;                                                 // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ApexDestructibleDamageParameters.DamagePair
 // 0x0018
 struct FDamagePair
 {
-	struct FName                                       DamageCauserName;                                         // 0x0000(0x0008) (Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
-	struct FDamageParameters                           Params;                                                   // 0x0008(0x0010) (Interp, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive)
+	struct FName                                       DamageCauserName;                                         // 0x0000(0x0008) (Edit)
+	struct FDamageParameters                           Params;                                                   // 0x0008(0x0010) (Edit)
 };
 
 // ScriptStruct Engine.RB_ConstraintSetup.LinearDOFSetup
 // 0x0008
 struct FLinearDOFSetup
 {
-	unsigned char                                      bLimited;                                                 // 0x0000(0x0001) (RepNotify, ProtectedWrite, EditHide, CrossLevelActive)
+	unsigned char                                      bLimited;                                                 // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              LimitSize;                                                // 0x0004(0x0004) (RepNotify, ProtectedWrite, EditHide, CrossLevelActive)
+	float                                              LimitSize;                                                // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SequenceOp.SeqOpInputLink
 // 0x0038
 struct FSeqOpInputLink
 {
-	struct FString                                     LinkDesc;                                                 // 0x0000(0x0010)
+	struct FString                                     LinkDesc;                                                 // 0x0000(0x0010) (NeedCtorLink)
 	unsigned long                                      bHasImpulse : 1;                                          // 0x0010(0x0004)
 	int                                                QueuedActivations;                                        // 0x0014(0x0004)
 	unsigned long                                      bDisabled : 1;                                            // 0x0018(0x0004)
@@ -6840,7 +6840,7 @@ struct FSeqOpInputLink
 	int                                                DrawY;                                                    // 0x0024(0x0004)
 	unsigned long                                      bHidden : 1;                                              // 0x0028(0x0004)
 	float                                              ActivateDelay;                                            // 0x002C(0x0004)
-	unsigned long                                      bMoving : 1;                                              // 0x0030(0x0004)
+	unsigned long                                      bMoving : 1;                                              // 0x0030(0x0004) (Transient)
 	unsigned long                                      bClampedMax : 1;                                          // 0x0030(0x0004)
 	unsigned long                                      bClampedMin : 1;                                          // 0x0030(0x0004)
 	int                                                OverrideDelta;                                            // 0x0034(0x0004)
@@ -6858,8 +6858,8 @@ struct FSeqOpOutputInputLink
 // 0x0048
 struct FSeqOpOutputLink
 {
-	TArray<struct FSeqOpOutputInputLink>               Links;                                                    // 0x0000(0x0010)
-	struct FString                                     LinkDesc;                                                 // 0x0010(0x0010)
+	TArray<struct FSeqOpOutputInputLink>               Links;                                                    // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     LinkDesc;                                                 // 0x0010(0x0010) (NeedCtorLink)
 	unsigned long                                      bHasImpulse : 1;                                          // 0x0020(0x0004)
 	unsigned long                                      bDisabled : 1;                                            // 0x0020(0x0004)
 	unsigned long                                      bDisabledPIE : 1;                                         // 0x0020(0x0004)
@@ -6867,12 +6867,12 @@ struct FSeqOpOutputLink
 	float                                              ActivateDelay;                                            // 0x002C(0x0004)
 	int                                                DrawY;                                                    // 0x0030(0x0004)
 	unsigned long                                      bHidden : 1;                                              // 0x0034(0x0004)
-	unsigned long                                      bMoving : 1;                                              // 0x0034(0x0004)
+	unsigned long                                      bMoving : 1;                                              // 0x0034(0x0004) (Transient)
 	unsigned long                                      bClampedMax : 1;                                          // 0x0034(0x0004)
 	unsigned long                                      bClampedMin : 1;                                          // 0x0034(0x0004)
 	int                                                OverrideDelta;                                            // 0x0038(0x0004)
-	float                                              PIEActivationTime;                                        // 0x003C(0x0004)
-	unsigned long                                      bIsActivated : 1;                                         // 0x0040(0x0004)
+	float                                              PIEActivationTime;                                        // 0x003C(0x0004) (Transient)
+	unsigned long                                      bIsActivated : 1;                                         // 0x0040(0x0004) (Transient, NoImport)
 	unsigned long                                      bUseConnectionColor : 1;                                  // 0x0040(0x0004)
 	struct FColor                                      ConnectionColor;                                          // 0x0044(0x0004)
 };
@@ -6882,8 +6882,8 @@ struct FSeqOpOutputLink
 struct FSeqVarLink
 {
 	class UClass*                                      ExpectedType;                                             // 0x0000(0x0008)
-	TArray<class USequenceVariable*>                   LinkedVariables;                                          // 0x0008(0x0010)
-	struct FString                                     LinkDesc;                                                 // 0x0018(0x0010)
+	TArray<class USequenceVariable*>                   LinkedVariables;                                          // 0x0008(0x0010) (NeedCtorLink)
+	struct FString                                     LinkDesc;                                                 // 0x0018(0x0010) (NeedCtorLink)
 	struct FName                                       LinkVar;                                                  // 0x0028(0x0008)
 	struct FName                                       PropertyName;                                             // 0x0030(0x0008)
 	unsigned long                                      bWriteable : 1;                                           // 0x0038(0x0004)
@@ -6893,9 +6893,9 @@ struct FSeqVarLink
 	int                                                MinVars;                                                  // 0x003C(0x0004)
 	int                                                MaxVars;                                                  // 0x0040(0x0004)
 	int                                                DrawX;                                                    // 0x0044(0x0004)
-	class UProperty*                                   CachedProperty;                                           // 0x0048(0x0008)
+	class UProperty*                                   CachedProperty;                                           // 0x0048(0x0008) (Const, Transient)
 	unsigned long                                      bAllowAnyType : 1;                                        // 0x0050(0x0004)
-	unsigned long                                      bMoving : 1;                                              // 0x0050(0x0004)
+	unsigned long                                      bMoving : 1;                                              // 0x0050(0x0004) (Transient)
 	unsigned long                                      bClampedMax : 1;                                          // 0x0050(0x0004)
 	unsigned long                                      bClampedMin : 1;                                          // 0x0050(0x0004)
 	int                                                OverrideDelta;                                            // 0x0054(0x0004)
@@ -6906,11 +6906,11 @@ struct FSeqVarLink
 struct FSeqEventLink
 {
 	class UClass*                                      ExpectedType;                                             // 0x0000(0x0008)
-	TArray<class USequenceEvent*>                      LinkedEvents;                                             // 0x0008(0x0010)
-	struct FString                                     LinkDesc;                                                 // 0x0018(0x0010)
+	TArray<class USequenceEvent*>                      LinkedEvents;                                             // 0x0008(0x0010) (NeedCtorLink)
+	struct FString                                     LinkDesc;                                                 // 0x0018(0x0010) (NeedCtorLink)
 	int                                                DrawX;                                                    // 0x0028(0x0004)
 	unsigned long                                      bHidden : 1;                                              // 0x002C(0x0004)
-	unsigned long                                      bMoving : 1;                                              // 0x002C(0x0004)
+	unsigned long                                      bMoving : 1;                                              // 0x002C(0x0004) (Transient)
 	unsigned long                                      bClampedMax : 1;                                          // 0x002C(0x0004)
 	unsigned long                                      bClampedMin : 1;                                          // 0x002C(0x0004)
 	int                                                OverrideDelta;                                            // 0x0030(0x0004)
@@ -6933,7 +6933,7 @@ struct FQueuedActivationInfo
 	class USequenceEvent*                              ActivatedEvent;                                           // 0x0000(0x0008)
 	class AActor*                                      InOriginator;                                             // 0x0008(0x0008)
 	class AActor*                                      InInstigator;                                             // 0x0010(0x0008)
-	TArray<int>                                        ActivateIndices;                                          // 0x0018(0x0010)
+	TArray<int>                                        ActivateIndices;                                          // 0x0018(0x0010) (NeedCtorLink)
 	unsigned long                                      bPushTop : 1;                                             // 0x0028(0x0004)
 };
 
@@ -6949,81 +6949,81 @@ struct FCameraCutInfo
 // 0x0010
 struct FLevelStreamingNameCombo
 {
-	class ULevelStreaming*                             Level;                                                    // 0x0000(0x0008)
-	struct FName                                       LevelName;                                                // 0x0008(0x0008) (Interp, NonTransactional, RepRetry, EditHide, CrossLevelActive)
+	class ULevelStreaming*                             Level;                                                    // 0x0000(0x0008) (Const)
+	struct FName                                       LevelName;                                                // 0x0008(0x0008) (Edit, Const)
 };
 
 // ScriptStruct Engine.Texture.TextureGroupContainer
 // 0x0004
 struct FTextureGroupContainer
 {
-	unsigned long                                      TEXTUREGROUP_World : 1;                                   // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WorldNormalMap : 1;                          // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WorldSpecular : 1;                           // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Character : 1;                               // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_CharacterNormalMap : 1;                      // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_CharacterSpecular : 1;                       // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Weapon : 1;                                  // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WeaponNormalMap : 1;                         // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WeaponSpecular : 1;                          // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Vehicle : 1;                                 // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_VehicleNormalMap : 1;                        // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_VehicleSpecular : 1;                         // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Cinematic : 1;                               // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Effects : 1;                                 // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_EffectsNotFiltered : 1;                      // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Skybox : 1;                                  // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_UI : 1;                                      // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Lightmap : 1;                                // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_RenderTarget : 1;                            // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_MobileFlattened : 1;                         // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_ProcBuilding_Face : 1;                       // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_ProcBuilding_LightMap : 1;                   // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Shadowmap : 1;                               // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_ColorLookupTable : 1;                        // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Terrain_Heightmap : 1;                       // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Terrain_Weightmap : 1;                       // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_ImageBasedReflection : 1;                    // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_Bokeh : 1;                                   // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WorldExtend : 1;                             // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WorldExtendNormalMap : 1;                    // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_WorldExtendSpecular : 1;                     // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
-	unsigned long                                      TEXTUREGROUP_EffectsNormalMap : 1;                        // 0x0000(0x0004) (NonTransactional, EditorOnly, EditHide)
+	unsigned long                                      TEXTUREGROUP_World : 1;                                   // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WorldNormalMap : 1;                          // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WorldSpecular : 1;                           // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Character : 1;                               // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_CharacterNormalMap : 1;                      // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_CharacterSpecular : 1;                       // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Weapon : 1;                                  // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WeaponNormalMap : 1;                         // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WeaponSpecular : 1;                          // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Vehicle : 1;                                 // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_VehicleNormalMap : 1;                        // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_VehicleSpecular : 1;                         // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Cinematic : 1;                               // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Effects : 1;                                 // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_EffectsNotFiltered : 1;                      // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Skybox : 1;                                  // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_UI : 1;                                      // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Lightmap : 1;                                // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_RenderTarget : 1;                            // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_MobileFlattened : 1;                         // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_ProcBuilding_Face : 1;                       // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_ProcBuilding_LightMap : 1;                   // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Shadowmap : 1;                               // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_ColorLookupTable : 1;                        // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Terrain_Heightmap : 1;                       // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Terrain_Weightmap : 1;                       // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_ImageBasedReflection : 1;                    // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_Bokeh : 1;                                   // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WorldExtend : 1;                             // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WorldExtendNormalMap : 1;                    // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_WorldExtendSpecular : 1;                     // 0x0000(0x0004) (Edit, Const)
+	unsigned long                                      TEXTUREGROUP_EffectsNormalMap : 1;                        // 0x0000(0x0004) (Edit, Const)
 };
 
 // ScriptStruct Engine.SeqAct_RangeSwitch.SwitchRange
 // 0x0008
 struct FSwitchRange
 {
-	int                                                Min;                                                      // 0x0000(0x0004) (Interp, RepRetry, ArchetypeProperty)
-	int                                                Max;                                                      // 0x0004(0x0004) (Interp, RepRetry, ArchetypeProperty)
+	int                                                Min;                                                      // 0x0000(0x0004) (Edit)
+	int                                                Max;                                                      // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SeqCond_SwitchClass.SwitchClassInfo
 // 0x0009
 struct FSwitchClassInfo
 {
-	struct FName                                       ClassName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty)
-	unsigned char                                      bFallThru;                                                // 0x0008(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty)
+	struct FName                                       ClassName;                                                // 0x0000(0x0008) (Edit)
+	unsigned char                                      bFallThru;                                                // 0x0008(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.SeqCond_SwitchObject.SwitchObjectCase
 // 0x000C
 struct FSwitchObjectCase
 {
-	class UObject*                                     ObjectValue;                                              // 0x0000(0x0008) (RepNotify, RepRetry, ArchetypeProperty)
-	unsigned long                                      bFallThru : 1;                                            // 0x0008(0x0004) (RepNotify, RepRetry, ArchetypeProperty)
-	unsigned long                                      bDefaultValue : 1;                                        // 0x0008(0x0004) (RepNotify, RepRetry, ArchetypeProperty)
+	class UObject*                                     ObjectValue;                                              // 0x0000(0x0008) (Edit)
+	unsigned long                                      bFallThru : 1;                                            // 0x0008(0x0004) (Edit)
+	unsigned long                                      bDefaultValue : 1;                                        // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.InterpData.AnimSetBakeAndPruneStatus
 // 0x0014
 struct FAnimSetBakeAndPruneStatus
 {
-	struct FString                                     AnimSetName;                                              // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite)
-	unsigned long                                      bReferencedButUnused : 1;                                 // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite)
-	unsigned long                                      bSkipBakeAndPrune : 1;                                    // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite)
-	unsigned long                                      bSkipCooking : 1;                                         // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite)
+	struct FString                                     AnimSetName;                                              // 0x0000(0x0010) (Edit, EditConst, NeedCtorLink)
+	unsigned long                                      bReferencedButUnused : 1;                                 // 0x0010(0x0004) (Edit, EditConst)
+	unsigned long                                      bSkipBakeAndPrune : 1;                                    // 0x0010(0x0004) (Edit)
+	unsigned long                                      bSkipCooking : 1;                                         // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.AmbientSoundSimpleToggleable.CheckpointRecord
@@ -7037,31 +7037,31 @@ struct AAmbientSoundSimpleToggleable_FCheckpointRecord
 // 0x0014
 struct FAmbientSoundSlot
 {
-	class USoundNodeWave*                              Wave;                                                     // 0x0000(0x0008) (RepNotify, PrivateWrite)
-	float                                              PitchScale;                                               // 0x0008(0x0004) (RepNotify, PrivateWrite)
-	float                                              VolumeScale;                                              // 0x000C(0x0004) (RepNotify, PrivateWrite)
-	float                                              Weight;                                                   // 0x0010(0x0004) (RepNotify, PrivateWrite)
+	class USoundNodeWave*                              Wave;                                                     // 0x0000(0x0008) (Edit)
+	float                                              PitchScale;                                               // 0x0008(0x0004) (Edit)
+	float                                              VolumeScale;                                              // 0x000C(0x0004) (Edit)
+	float                                              Weight;                                                   // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SoundNodeDistanceCrossFade.DistanceDatum
 // 0x005C
 struct FDistanceDatum
 {
-	float                                              FadeInDistanceStart;                                      // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              FadeInDistanceEnd;                                        // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              FadeOutDistanceStart;                                     // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              FadeOutDistanceEnd;                                       // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              Volume;                                                   // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	struct FRawDistributionFloat                       FadeInDistance;                                           // 0x0014(0x0024)
-	struct FRawDistributionFloat                       FadeOutDistance;                                          // 0x0038(0x0024)
+	float                                              FadeInDistanceStart;                                      // 0x0000(0x0004) (Edit)
+	float                                              FadeInDistanceEnd;                                        // 0x0004(0x0004) (Edit)
+	float                                              FadeOutDistanceStart;                                     // 0x0008(0x0004) (Edit)
+	float                                              FadeOutDistanceEnd;                                       // 0x000C(0x0004) (Edit)
+	float                                              Volume;                                                   // 0x0010(0x0004) (Edit)
+	struct FRawDistributionFloat                       FadeInDistance;                                           // 0x0014(0x0024) (Component, NeedCtorLink, Deprecated)
+	struct FRawDistributionFloat                       FadeOutDistance;                                          // 0x0038(0x0024) (Component, NeedCtorLink, Deprecated)
 };
 
 // ScriptStruct Engine.EngineTypes.LocalizedSubtitle
 // 0x0024
 struct FLocalizedSubtitle
 {
-	struct FString                                     LanguageExt;                                              // 0x0000(0x0010)
-	TArray<struct FSubtitleCue>                        Subtitles;                                                // 0x0010(0x0010)
+	struct FString                                     LanguageExt;                                              // 0x0000(0x0010) (NeedCtorLink)
+	TArray<struct FSubtitleCue>                        Subtitles;                                                // 0x0010(0x0010) (NeedCtorLink)
 	unsigned long                                      bMature : 1;                                              // 0x0020(0x0004)
 	unsigned long                                      bManualWordWrap : 1;                                      // 0x0020(0x0004)
 	unsigned long                                      bSingleLine : 1;                                          // 0x0020(0x0004)
@@ -7074,31 +7074,31 @@ struct FLandscapeLayerStruct
 	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008)
 	class UMaterialInstanceConstant*                   ThumbnailMIC;                                             // 0x0008(0x0008)
 	class ALandscapeProxy*                             Owner;                                                    // 0x0010(0x0008)
-	int                                                DebugColorChannel;                                        // 0x0018(0x0004)
-	unsigned long                                      bSelected : 1;                                            // 0x001C(0x0004)
-	struct FString                                     SourceFilePath;                                           // 0x0020(0x0010)
+	int                                                DebugColorChannel;                                        // 0x0018(0x0004) (Transient)
+	unsigned long                                      bSelected : 1;                                            // 0x001C(0x0004) (Transient)
+	struct FString                                     SourceFilePath;                                           // 0x0020(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.LandscapeComponent.OverridePhyMatInfo
 // 0x0018
 struct FOverridePhyMatInfo
 {
-	struct FString                                     LayerName;                                                // 0x0000(0x0010) (Interp, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UPhysicalMaterial*                           OverridePhysicalMaterial;                                 // 0x0010(0x0008) (Interp, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     LayerName;                                                // 0x0000(0x0010) (Edit, NeedCtorLink)
+	class UPhysicalMaterial*                           OverridePhysicalMaterial;                                 // 0x0010(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Landscape.LandscapeLayerInfo
 // 0x0038
 struct FLandscapeLayerInfo
 {
-	struct FName                                       LayerName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Hardness;                                                 // 0x0008(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	struct FName                                       LayerName;                                                // 0x0000(0x0008) (Edit)
+	float                                              Hardness;                                                 // 0x0008(0x0004) (Edit)
 	unsigned long                                      bNoWeightBlend : 1;                                       // 0x000C(0x0004)
-	class UPhysicalMaterial*                           PhysMaterial;                                             // 0x0010(0x0008) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	class UPhysicalMaterial*                           PhysMaterial;                                             // 0x0010(0x0008) (Edit)
 	class UMaterialInstanceConstant*                   ThumbnailMIC;                                             // 0x0018(0x0008)
-	unsigned long                                      bSelected : 1;                                            // 0x0020(0x0004)
-	int                                                DebugColorChannel;                                        // 0x0024(0x0004)
-	struct FString                                     LayerSourceFile;                                          // 0x0028(0x0010)
+	unsigned long                                      bSelected : 1;                                            // 0x0020(0x0004) (Transient)
+	int                                                DebugColorChannel;                                        // 0x0024(0x0004) (Transient)
+	struct FString                                     LayerSourceFile;                                          // 0x0028(0x0010) (Transient, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Terrain.TerrainHeight
@@ -7119,14 +7119,14 @@ struct FTerrainInfoData
 // 0x0038
 struct FTerrainLayer
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	class UTerrainLayerSetup*                          Setup;                                                    // 0x0010(0x0008) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (Edit, NeedCtorLink)
+	class UTerrainLayerSetup*                          Setup;                                                    // 0x0010(0x0008) (Edit)
 	int                                                AlphaMapIndex;                                            // 0x0018(0x0004)
-	unsigned long                                      Highlighted : 1;                                          // 0x001C(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	unsigned long                                      WireframeHighlighted : 1;                                 // 0x001C(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	unsigned long                                      Hidden : 1;                                               // 0x001C(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FColor                                      HighlightColor;                                           // 0x0020(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FColor                                      WireframeColor;                                           // 0x0024(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty)
+	unsigned long                                      Highlighted : 1;                                          // 0x001C(0x0004) (Edit)
+	unsigned long                                      WireframeHighlighted : 1;                                 // 0x001C(0x0004) (Edit)
+	unsigned long                                      Hidden : 1;                                               // 0x001C(0x0004) (Edit)
+	struct FColor                                      HighlightColor;                                           // 0x0020(0x0004) (Edit)
+	struct FColor                                      WireframeColor;                                           // 0x0024(0x0004) (Edit)
 	int                                                MinX;                                                     // 0x0028(0x0004)
 	int                                                MinY;                                                     // 0x002C(0x0004)
 	int                                                MaxX;                                                     // 0x0030(0x0004)
@@ -7137,7 +7137,7 @@ struct FTerrainLayer
 // 0x0018
 struct FTerrainDecorationInstance
 {
-	class UPrimitiveComponent*                         Component;                                                // 0x0000(0x0008)
+	class UPrimitiveComponent*                         Component;                                                // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	float                                              X;                                                        // 0x0008(0x0004)
 	float                                              Y;                                                        // 0x000C(0x0004)
 	float                                              Scale;                                                    // 0x0010(0x0004)
@@ -7148,21 +7148,21 @@ struct FTerrainDecorationInstance
 // 0x002C
 struct FTerrainDecoration
 {
-	class UPrimitiveComponentFactory*                  Factory;                                                  // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              MinScale;                                                 // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              MaxScale;                                                 // 0x000C(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              Density;                                                  // 0x0010(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              SlopeRotationBlend;                                       // 0x0014(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	int                                                RandSeed;                                                 // 0x0018(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	TArray<struct FTerrainDecorationInstance>          Instances;                                                // 0x001C(0x0010)
+	class UPrimitiveComponentFactory*                  Factory;                                                  // 0x0000(0x0008) (Edit, EditInline)
+	float                                              MinScale;                                                 // 0x0008(0x0004) (Edit)
+	float                                              MaxScale;                                                 // 0x000C(0x0004) (Edit)
+	float                                              Density;                                                  // 0x0010(0x0004) (Edit)
+	float                                              SlopeRotationBlend;                                       // 0x0014(0x0004) (Edit)
+	int                                                RandSeed;                                                 // 0x0018(0x0004) (Edit)
+	TArray<struct FTerrainDecorationInstance>          Instances;                                                // 0x001C(0x0010) (Component, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Terrain.TerrainDecoLayer
 // 0x0024
 struct FTerrainDecoLayer
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	TArray<struct FTerrainDecoration>                  Decorations;                                              // 0x0010(0x0010) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FTerrainDecoration>                  Decorations;                                              // 0x0010(0x0010) (Edit, Component, NeedCtorLink)
 	int                                                AlphaMapIndex;                                            // 0x0020(0x0004)
 };
 
@@ -7184,7 +7184,7 @@ struct ATerrain_FTerrainWeightedMaterial
 // 0x0010
 struct FCachedTerrainMaterialArray
 {
-	TArray<struct FPointer>                            CachedMaterials;                                          // 0x0000(0x0010)
+	TArray<struct FPointer>                            CachedMaterials;                                          // 0x0000(0x0010) (Const, Native)
 };
 
 // ScriptStruct Engine.Terrain.SelectedTerrainVertex
@@ -7209,7 +7209,7 @@ struct FWeightmapLayerAllocationInfo
 // 0x0008
 struct FLightMapRef
 {
-	struct FPointer                                    Reference;                                                // 0x0000(0x0008)
+	struct FPointer                                    Reference;                                                // 0x0000(0x0008) (Const, Native)
 };
 
 // ScriptStruct Engine.TerrainComponent.TerrainPatchBounds
@@ -7233,48 +7233,48 @@ struct FTerrainMaterialMask
 // 0x0010
 struct FTerrainBVTree
 {
-	TArray<int>                                        Nodes;                                                    // 0x0000(0x0010)
+	TArray<int>                                        Nodes;                                                    // 0x0000(0x0010) (Const, Native)
 };
 
 // ScriptStruct Engine.TerrainLayerSetup.FilterLimit
 // 0x0010
 struct FFilterLimit
 {
-	unsigned long                                      Enabled : 1;                                              // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	float                                              Base;                                                     // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	float                                              NoiseScale;                                               // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	float                                              NoiseAmount;                                              // 0x000C(0x0004) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelActive)
+	unsigned long                                      Enabled : 1;                                              // 0x0000(0x0004) (Edit)
+	float                                              Base;                                                     // 0x0004(0x0004) (Edit)
+	float                                              NoiseScale;                                               // 0x0008(0x0004) (Edit)
+	float                                              NoiseAmount;                                              // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.TerrainLayerSetup.TerrainFilteredMaterial
 // 0x0058
 struct FTerrainFilteredMaterial
 {
-	unsigned long                                      UseNoise : 1;                                             // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              NoiseScale;                                               // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              NoisePercent;                                             // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FFilterLimit                                MinHeight;                                                // 0x000C(0x0010) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FFilterLimit                                MaxHeight;                                                // 0x001C(0x0010) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FFilterLimit                                MinSlope;                                                 // 0x002C(0x0010) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	struct FFilterLimit                                MaxSlope;                                                 // 0x003C(0x0010) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	float                                              Alpha;                                                    // 0x004C(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
-	class UTerrainMaterial*                            Material;                                                 // 0x0050(0x0008) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty)
+	unsigned long                                      UseNoise : 1;                                             // 0x0000(0x0004) (Edit)
+	float                                              NoiseScale;                                               // 0x0004(0x0004) (Edit)
+	float                                              NoisePercent;                                             // 0x0008(0x0004) (Edit)
+	struct FFilterLimit                                MinHeight;                                                // 0x000C(0x0010) (Edit)
+	struct FFilterLimit                                MaxHeight;                                                // 0x001C(0x0010) (Edit)
+	struct FFilterLimit                                MinSlope;                                                 // 0x002C(0x0010) (Edit)
+	struct FFilterLimit                                MaxSlope;                                                 // 0x003C(0x0010) (Edit)
+	float                                              Alpha;                                                    // 0x004C(0x0004) (Edit)
+	class UTerrainMaterial*                            Material;                                                 // 0x0050(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.DataStoreClient.PlayerDataStoreGroup
 // 0x0018
 struct FPlayerDataStoreGroup
 {
-	class ULocalPlayer*                                PlayerOwner;                                              // 0x0000(0x0008)
-	TArray<class UUIDataStore*>                        DataStores;                                               // 0x0008(0x0010)
+	class ULocalPlayer*                                PlayerOwner;                                              // 0x0000(0x0008) (Const, Transient, AlwaysInit)
+	TArray<class UUIDataStore*>                        DataStores;                                               // 0x0008(0x0010) (Const, Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Console.AutoCompleteCommand
 // 0x0020
 struct FAutoCompleteCommand
 {
-	struct FString                                     Command;                                                  // 0x0000(0x0010)
-	struct FString                                     Desc;                                                     // 0x0010(0x0010)
+	struct FString                                     Command;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     Desc;                                                     // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.Console.AutoCompleteNode
@@ -7282,22 +7282,22 @@ struct FAutoCompleteCommand
 struct FAutoCompleteNode
 {
 	int                                                IndexChar;                                                // 0x0000(0x0004)
-	TArray<int>                                        AutoCompleteListIndices;                                  // 0x0004(0x0010)
-	TArray<struct FPointer>                            ChildNodes;                                               // 0x0014(0x0010)
+	TArray<int>                                        AutoCompleteListIndices;                                  // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FPointer>                            ChildNodes;                                               // 0x0014(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Input.KeyBind
 // 0x001C
 struct FKeyBind
 {
-	struct FName                                       Name;                                                     // 0x0000(0x0008)
-	struct FString                                     Command;                                                  // 0x0008(0x0010)
-	unsigned long                                      Control : 1;                                              // 0x0018(0x0004)
-	unsigned long                                      Shift : 1;                                                // 0x0018(0x0004)
-	unsigned long                                      Alt : 1;                                                  // 0x0018(0x0004)
-	unsigned long                                      bIgnoreCtrl : 1;                                          // 0x0018(0x0004)
-	unsigned long                                      bIgnoreShift : 1;                                         // 0x0018(0x0004)
-	unsigned long                                      bIgnoreAlt : 1;                                           // 0x0018(0x0004)
+	struct FName                                       Name;                                                     // 0x0000(0x0008) (Config)
+	struct FString                                     Command;                                                  // 0x0008(0x0010) (Config, NeedCtorLink)
+	unsigned long                                      Control : 1;                                              // 0x0018(0x0004) (Config)
+	unsigned long                                      Shift : 1;                                                // 0x0018(0x0004) (Config)
+	unsigned long                                      Alt : 1;                                                  // 0x0018(0x0004) (Config)
+	unsigned long                                      bIgnoreCtrl : 1;                                          // 0x0018(0x0004) (Config)
+	unsigned long                                      bIgnoreShift : 1;                                         // 0x0018(0x0004) (Config)
+	unsigned long                                      bIgnoreAlt : 1;                                           // 0x0018(0x0004) (Config)
 };
 
 // ScriptStruct Engine.Input.TouchTracker
@@ -7316,19 +7316,19 @@ struct FTouchTracker
 // 0x0010
 struct FOverrideSoundEvent
 {
-	struct FName                                       UIInstanceName;                                           // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    AkEventToPlay;                                            // 0x0008(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       UIInstanceName;                                           // 0x0000(0x0008) (Edit)
+	class UAkEvent*                                    AkEventToPlay;                                            // 0x0008(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.UISoundTheme.SoundEventMapping
 // 0x0038
 struct FSoundEventMapping
 {
-	struct FName                                       SoundEventName;                                           // 0x0000(0x0008) (EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class USoundCue*                                   SoundToPlay;                                              // 0x0008(0x0008) (EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    AkEventToPlay;                                            // 0x0010(0x0008) (EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<class UAkEvent*>                            AdditionalAkEventPlayList;                                // 0x0018(0x0010) (EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FOverrideSoundEvent>                 OverrideSoundEventBindings;                               // 0x0028(0x0010) (EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       SoundEventName;                                           // 0x0000(0x0008) (Edit)
+	class USoundCue*                                   SoundToPlay;                                              // 0x0008(0x0008) (Edit)
+	class UAkEvent*                                    AkEventToPlay;                                            // 0x0010(0x0008) (Edit)
+	TArray<class UAkEvent*>                            AdditionalAkEventPlayList;                                // 0x0018(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FOverrideSoundEvent>                 OverrideSoundEventBindings;                               // 0x0028(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlineFriendMessage
@@ -7336,53 +7336,53 @@ struct FSoundEventMapping
 struct FOnlineFriendMessage
 {
 	struct FUniqueNetId                                SendingPlayerId;                                          // 0x0000(0x0008)
-	struct FString                                     SendingPlayerNick;                                        // 0x0008(0x0010)
+	struct FString                                     SendingPlayerNick;                                        // 0x0008(0x0010) (NeedCtorLink)
 	unsigned long                                      bIsFriendInvite : 1;                                      // 0x0018(0x0004)
 	unsigned long                                      bIsGameInvite : 1;                                        // 0x0018(0x0004)
 	unsigned long                                      bWasAccepted : 1;                                         // 0x0018(0x0004)
 	unsigned long                                      bWasDenied : 1;                                           // 0x0018(0x0004)
-	struct FString                                     Message;                                                  // 0x001C(0x0010)
+	struct FString                                     Message;                                                  // 0x001C(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlineFriend
 // 0x0038
 struct FOnlineFriend
 {
-	struct FUniqueNetId                                UniqueId;                                                 // 0x0000(0x0008)
-	struct FQWord                                      SessionId;                                                // 0x0008(0x0008)
-	struct FString                                     NickName;                                                 // 0x0010(0x0010)
-	struct FString                                     PresenceInfo;                                             // 0x0020(0x0010)
-	TEnumAsByte<EOnlineFriendState>                    FriendState;                                              // 0x0030(0x0001)
+	struct FUniqueNetId                                UniqueId;                                                 // 0x0000(0x0008) (Const)
+	struct FQWord                                      SessionId;                                                // 0x0008(0x0008) (Const)
+	struct FString                                     NickName;                                                 // 0x0010(0x0010) (Const, NeedCtorLink)
+	struct FString                                     PresenceInfo;                                             // 0x0020(0x0010) (Const, NeedCtorLink)
+	TEnumAsByte<EOnlineFriendState>                    FriendState;                                              // 0x0030(0x0001) (Const)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
-	unsigned long                                      bIsOnline : 1;                                            // 0x0034(0x0004)
-	unsigned long                                      bIsPlaying : 1;                                           // 0x0034(0x0004)
-	unsigned long                                      bIsPlayingThisGame : 1;                                   // 0x0034(0x0004)
-	unsigned long                                      bIsJoinable : 1;                                          // 0x0034(0x0004)
-	unsigned long                                      bHasVoiceSupport : 1;                                     // 0x0034(0x0004)
+	unsigned long                                      bIsOnline : 1;                                            // 0x0034(0x0004) (Const)
+	unsigned long                                      bIsPlaying : 1;                                           // 0x0034(0x0004) (Const)
+	unsigned long                                      bIsPlayingThisGame : 1;                                   // 0x0034(0x0004) (Const)
+	unsigned long                                      bIsJoinable : 1;                                          // 0x0034(0x0004) (Const)
+	unsigned long                                      bHasVoiceSupport : 1;                                     // 0x0034(0x0004) (Const)
 	unsigned long                                      bHaveInvited : 1;                                         // 0x0034(0x0004)
-	unsigned long                                      bHasInvitedYou : 1;                                       // 0x0034(0x0004)
+	unsigned long                                      bHasInvitedYou : 1;                                       // 0x0034(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.OnlinePartyMember
 // 0x003C
 struct FOnlinePartyMember
 {
-	struct FUniqueNetId                                UniqueId;                                                 // 0x0000(0x0008)
-	struct FString                                     NickName;                                                 // 0x0008(0x0010)
-	unsigned char                                      LocalUserNum;                                             // 0x0018(0x0001)
-	TEnumAsByte<ENATType>                              NatType;                                                  // 0x0019(0x0001)
+	struct FUniqueNetId                                UniqueId;                                                 // 0x0000(0x0008) (Const)
+	struct FString                                     NickName;                                                 // 0x0008(0x0010) (Const, NeedCtorLink)
+	unsigned char                                      LocalUserNum;                                             // 0x0018(0x0001) (Const)
+	TEnumAsByte<ENATType>                              NatType;                                                  // 0x0019(0x0001) (Const)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x001A(0x0002) MISSED OFFSET
-	int                                                TitleId;                                                  // 0x001C(0x0004)
-	unsigned long                                      bIsLocal : 1;                                             // 0x0020(0x0004)
-	unsigned long                                      bIsInPartyVoice : 1;                                      // 0x0020(0x0004)
-	unsigned long                                      bIsTalking : 1;                                           // 0x0020(0x0004)
-	unsigned long                                      bIsInGameSession : 1;                                     // 0x0020(0x0004)
-	unsigned long                                      bIsPlayingThisGame : 1;                                   // 0x0020(0x0004)
-	struct FQWord                                      SessionId;                                                // 0x0024(0x0008)
-	int                                                Data1;                                                    // 0x002C(0x0004)
-	int                                                Data2;                                                    // 0x0030(0x0004)
-	int                                                Data3;                                                    // 0x0034(0x0004)
-	int                                                Data4;                                                    // 0x0038(0x0004)
+	int                                                TitleId;                                                  // 0x001C(0x0004) (Const)
+	unsigned long                                      bIsLocal : 1;                                             // 0x0020(0x0004) (Const)
+	unsigned long                                      bIsInPartyVoice : 1;                                      // 0x0020(0x0004) (Const)
+	unsigned long                                      bIsTalking : 1;                                           // 0x0020(0x0004) (Const)
+	unsigned long                                      bIsInGameSession : 1;                                     // 0x0020(0x0004) (Const)
+	unsigned long                                      bIsPlayingThisGame : 1;                                   // 0x0020(0x0004) (Const)
+	struct FQWord                                      SessionId;                                                // 0x0024(0x0008) (Const)
+	int                                                Data1;                                                    // 0x002C(0x0004) (Const)
+	int                                                Data2;                                                    // 0x0030(0x0004) (Const)
+	int                                                Data3;                                                    // 0x0034(0x0004) (Const)
+	int                                                Data4;                                                    // 0x0038(0x0004) (Const)
 };
 
 // ScriptStruct Engine.UIDataProvider_OnlinePlayerStorage.PlayerStorageArrayProvider
@@ -7397,46 +7397,46 @@ struct FPlayerStorageArrayProvider
 // 0x0048
 struct FAchievementDetails
 {
-	int                                                Id;                                                       // 0x0000(0x0004)
-	struct FString                                     AchievementName;                                          // 0x0004(0x0010)
-	struct FString                                     Description;                                              // 0x0014(0x0010)
-	struct FString                                     HowTo;                                                    // 0x0024(0x0010)
+	int                                                Id;                                                       // 0x0000(0x0004) (Const)
+	struct FString                                     AchievementName;                                          // 0x0004(0x0010) (Const, NeedCtorLink)
+	struct FString                                     Description;                                              // 0x0014(0x0010) (Const, NeedCtorLink)
+	struct FString                                     HowTo;                                                    // 0x0024(0x0010) (Const, NeedCtorLink)
 	class USurface*                                    Image;                                                    // 0x0034(0x0008)
-	unsigned char                                      MonthEarned;                                              // 0x003C(0x0001)
-	unsigned char                                      DayEarned;                                                // 0x003D(0x0001)
-	unsigned char                                      YearEarned;                                               // 0x003E(0x0001)
-	unsigned char                                      DayOfWeekEarned;                                          // 0x003F(0x0001)
-	int                                                GamerPoints;                                              // 0x0040(0x0004)
-	unsigned long                                      bIsSecret : 1;                                            // 0x0044(0x0004)
-	unsigned long                                      bWasAchievedOnline : 1;                                   // 0x0044(0x0004)
-	unsigned long                                      bWasAchievedOffline : 1;                                  // 0x0044(0x0004)
+	unsigned char                                      MonthEarned;                                              // 0x003C(0x0001) (Const)
+	unsigned char                                      DayEarned;                                                // 0x003D(0x0001) (Const)
+	unsigned char                                      YearEarned;                                               // 0x003E(0x0001) (Const)
+	unsigned char                                      DayOfWeekEarned;                                          // 0x003F(0x0001) (Const)
+	int                                                GamerPoints;                                              // 0x0040(0x0004) (Const)
+	unsigned long                                      bIsSecret : 1;                                            // 0x0044(0x0004) (Const)
+	unsigned long                                      bWasAchievedOnline : 1;                                   // 0x0044(0x0004) (Const)
+	unsigned long                                      bWasAchievedOffline : 1;                                  // 0x0044(0x0004) (Const)
 };
 
 // ScriptStruct Engine.UIDataStore_DynamicResource.DynamicResourceProviderDefinition
 // 0x0020
 struct FDynamicResourceProviderDefinition
 {
-	struct FName                                       ProviderTag;                                              // 0x0000(0x0008)
-	struct FString                                     ProviderClassName;                                        // 0x0008(0x0010)
-	class UClass*                                      ProviderClass;                                            // 0x0018(0x0008)
+	struct FName                                       ProviderTag;                                              // 0x0000(0x0008) (Config)
+	struct FString                                     ProviderClassName;                                        // 0x0008(0x0010) (Config, NeedCtorLink)
+	class UClass*                                      ProviderClass;                                            // 0x0018(0x0008) (Transient)
 };
 
 // ScriptStruct Engine.UIDataStore_GameResource.GameResourceDataProvider
 // 0x0024
 struct FGameResourceDataProvider
 {
-	struct FName                                       ProviderTag;                                              // 0x0000(0x0008)
-	struct FString                                     ProviderClassName;                                        // 0x0008(0x0010)
-	unsigned long                                      bExpandProviders : 1;                                     // 0x0018(0x0004)
-	class UClass*                                      ProviderClass;                                            // 0x001C(0x0008)
+	struct FName                                       ProviderTag;                                              // 0x0000(0x0008) (Config)
+	struct FString                                     ProviderClassName;                                        // 0x0008(0x0010) (Config, NeedCtorLink)
+	unsigned long                                      bExpandProviders : 1;                                     // 0x0018(0x0004) (Config)
+	class UClass*                                      ProviderClass;                                            // 0x001C(0x0008) (Transient)
 };
 
 // ScriptStruct Engine.UIDataStore_Registry.RegistryKeyValuePair
 // 0x0020
 struct FRegistryKeyValuePair
 {
-	struct FString                                     Key;                                                      // 0x0000(0x0010)
-	struct FString                                     Value;                                                    // 0x0010(0x0010)
+	struct FString                                     Key;                                                      // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     Value;                                                    // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIDataStore_OnlineGameSearch.GameSearchCfg
@@ -7455,16 +7455,16 @@ struct FGameSearchCfg
 // 0x0018
 struct FPlayerNickMetaData
 {
-	struct FName                                       PlayerNickName;                                           // 0x0000(0x0008)
-	struct FString                                     PlayerNickColumnName;                                     // 0x0008(0x0010)
+	struct FName                                       PlayerNickName;                                           // 0x0000(0x0008) (Const)
+	struct FString                                     PlayerNickColumnName;                                     // 0x0008(0x0010) (Const, Localized, NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIDataStore_OnlineStats.RankMetaData
 // 0x0018
 struct FRankMetaData
 {
-	struct FName                                       RankName;                                                 // 0x0000(0x0008)
-	struct FString                                     RankColumnName;                                           // 0x0008(0x0010)
+	struct FName                                       RankName;                                                 // 0x0000(0x0008) (Const)
+	struct FString                                     RankColumnName;                                           // 0x0008(0x0010) (Const, Localized, NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIDataStore_OnlineGameSettings.GameSettingsCfg
@@ -7489,16 +7489,16 @@ struct FRawInputKeyEventData
 // 0x001C
 struct FUIInputKeyData
 {
-	struct FRawInputKeyEventData                       InputKeyData;                                             // 0x0000(0x000C)
-	struct FString                                     ButtonFontMarkupString;                                   // 0x000C(0x0010)
+	struct FRawInputKeyEventData                       InputKeyData;                                             // 0x0000(0x000C) (Config)
+	struct FString                                     ButtonFontMarkupString;                                   // 0x000C(0x0010) (Config, NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIDataStore_InputAlias.UIDataStoreInputAlias
 // 0x005C
 struct FUIDataStoreInputAlias
 {
-	struct FName                                       AliasName;                                                // 0x0000(0x0008)
-	struct FUIInputKeyData                             PlatformInputKeys[0x3];                                   // 0x0008(0x001C)
+	struct FName                                       AliasName;                                                // 0x0000(0x0008) (Config)
+	struct FUIInputKeyData                             PlatformInputKeys[0x3];                                   // 0x0008(0x001C) (Config, NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIDataStore_StringAliasMap.UIMenuInputMap
@@ -7507,62 +7507,62 @@ struct FUIMenuInputMap
 {
 	struct FName                                       FieldName;                                                // 0x0000(0x0008)
 	struct FName                                       Set;                                                      // 0x0008(0x0008)
-	struct FString                                     MappedText;                                               // 0x0010(0x0010)
+	struct FString                                     MappedText;                                               // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.UIRoot.UIRangeData
 // 0x0014
 struct FUIRangeData
 {
-	float                                              CurrentValue;                                             // 0x0000(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox)
-	float                                              MinValue;                                                 // 0x0004(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox)
-	float                                              MaxValue;                                                 // 0x0008(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox)
-	float                                              NudgeValue;                                               // 0x000C(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox)
-	unsigned long                                      bIntRange : 1;                                            // 0x0010(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox)
+	float                                              CurrentValue;                                             // 0x0000(0x0004) (Edit)
+	float                                              MinValue;                                                 // 0x0004(0x0004) (Edit)
+	float                                              MaxValue;                                                 // 0x0008(0x0004) (Edit)
+	float                                              NudgeValue;                                               // 0x000C(0x0004) (Edit)
+	unsigned long                                      bIntRange : 1;                                            // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SpeedTreeComponent.SpeedTreeStaticLight
 // 0x0038
 struct FSpeedTreeStaticLight
 {
-	struct FGuid                                       Guid;                                                     // 0x0000(0x0010)
-	class UShadowMap1D*                                BranchShadowMap;                                          // 0x0010(0x0008)
-	class UShadowMap1D*                                FrondShadowMap;                                           // 0x0018(0x0008)
-	class UShadowMap1D*                                LeafMeshShadowMap;                                        // 0x0020(0x0008)
-	class UShadowMap1D*                                LeafCardShadowMap;                                        // 0x0028(0x0008)
-	class UShadowMap1D*                                BillboardShadowMap;                                       // 0x0030(0x0008)
+	struct FGuid                                       Guid;                                                     // 0x0000(0x0010) (Const)
+	class UShadowMap1D*                                BranchShadowMap;                                          // 0x0010(0x0008) (Const)
+	class UShadowMap1D*                                FrondShadowMap;                                           // 0x0018(0x0008) (Const)
+	class UShadowMap1D*                                LeafMeshShadowMap;                                        // 0x0020(0x0008) (Const)
+	class UShadowMap1D*                                LeafCardShadowMap;                                        // 0x0028(0x0008) (Const)
+	class UShadowMap1D*                                BillboardShadowMap;                                       // 0x0030(0x0008) (Const)
 };
 
 // ScriptStruct Engine.LensFlareComponent.LensFlareElementMaterials
 // 0x0010
 struct FLensFlareElementMaterials
 {
-	TArray<class UMaterialInterface*>                  ElementMaterials;                                         // 0x0000(0x0010) (RepNotify, Interp, NotForConsole, EditHide, CrossLevelActive)
+	TArray<class UMaterialInterface*>                  ElementMaterials;                                         // 0x0000(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.LensFlare.LensFlareElement
 // 0x0198
 struct FLensFlareElement
 {
-	struct FName                                       ElementName;                                              // 0x0000(0x0008) (NotForConsole, EditHide, CrossLevelActive)
-	float                                              RayDistance;                                              // 0x0008(0x0004) (NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bIsEnabled : 1;                                           // 0x000C(0x0004) (NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bUseSourceDistance : 1;                                   // 0x000C(0x0004) (NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bNormalizeRadialDistance : 1;                             // 0x000C(0x0004) (NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bModulateColorBySource : 1;                               // 0x000C(0x0004) (NotForConsole, EditHide, CrossLevelActive)
-	struct FVector                                     Size;                                                     // 0x0010(0x000C) (NotForConsole, EditHide, CrossLevelActive)
-	TArray<class UMaterialInterface*>                  LFMaterials;                                              // 0x001C(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionFloat                       LFMaterialIndex;                                          // 0x002C(0x0024) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionFloat                       Scaling;                                                  // 0x0050(0x0024) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionVector                      AxisScaling;                                              // 0x0074(0x0024) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionFloat                       Rotation;                                                 // 0x0098(0x0024) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bOrientTowardsSource : 1;                                 // 0x00BC(0x0004) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionVector                      Color;                                                    // 0x00C0(0x0024) (Interp, EditorOnly, NotForConsole, PrivateWrite)
-	struct FRawDistributionFloat                       Alpha;                                                    // 0x00E4(0x0024) (Interp, EditorOnly, NotForConsole, PrivateWrite)
-	struct FRawDistributionVector                      Offset;                                                   // 0x0108(0x0024) (Interp, RepRetry, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FRawDistributionVector                      DistMap_Scale;                                            // 0x012C(0x0024) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionVector                      DistMap_Color;                                            // 0x0150(0x0024) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
-	struct FRawDistributionFloat                       DistMap_Alpha;                                            // 0x0174(0x0024) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
+	struct FName                                       ElementName;                                              // 0x0000(0x0008) (Edit)
+	float                                              RayDistance;                                              // 0x0008(0x0004) (Edit)
+	unsigned long                                      bIsEnabled : 1;                                           // 0x000C(0x0004) (Edit)
+	unsigned long                                      bUseSourceDistance : 1;                                   // 0x000C(0x0004) (Edit)
+	unsigned long                                      bNormalizeRadialDistance : 1;                             // 0x000C(0x0004) (Edit)
+	unsigned long                                      bModulateColorBySource : 1;                               // 0x000C(0x0004) (Edit)
+	struct FVector                                     Size;                                                     // 0x0010(0x000C) (Edit)
+	TArray<class UMaterialInterface*>                  LFMaterials;                                              // 0x001C(0x0010) (Edit, NeedCtorLink)
+	struct FRawDistributionFloat                       LFMaterialIndex;                                          // 0x002C(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionFloat                       Scaling;                                                  // 0x0050(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionVector                      AxisScaling;                                              // 0x0074(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionFloat                       Rotation;                                                 // 0x0098(0x0024) (Edit, Component, NeedCtorLink)
+	unsigned long                                      bOrientTowardsSource : 1;                                 // 0x00BC(0x0004) (Edit)
+	struct FRawDistributionVector                      Color;                                                    // 0x00C0(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionFloat                       Alpha;                                                    // 0x00E4(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionVector                      Offset;                                                   // 0x0108(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionVector                      DistMap_Scale;                                            // 0x012C(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionVector                      DistMap_Color;                                            // 0x0150(0x0024) (Edit, Component, NeedCtorLink)
+	struct FRawDistributionFloat                       DistMap_Alpha;                                            // 0x0174(0x0024) (Edit, Component, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Texture2DComposite.SourceTexture2DRegion
@@ -7582,7 +7582,7 @@ struct FSourceTexture2DRegion
 // 0x0044
 struct FListener
 {
-	class APortalVolume*                               PortalVolume;                                             // 0x0000(0x0008)
+	class APortalVolume*                               PortalVolume;                                             // 0x0000(0x0008) (Const)
 	struct FVector                                     Location;                                                 // 0x0008(0x000C)
 	struct FVector                                     Up;                                                       // 0x0014(0x000C)
 	struct FVector                                     Right;                                                    // 0x0020(0x000C)
@@ -7594,47 +7594,47 @@ struct FListener
 // 0x0020
 struct FSoundClassProperties
 {
-	float                                              Volume;                                                   // 0x0000(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              Pitch;                                                    // 0x0004(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              StereoBleed;                                              // 0x0008(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              LFEBleed;                                                 // 0x000C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              VoiceCenterChannelVolume;                                 // 0x0010(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              RadioFilterVolume;                                        // 0x0014(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              RadioFilterVolumeThreshold;                               // 0x0018(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bApplyEffects : 1;                                        // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAlwaysPlay : 1;                                          // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIsUISound : 1;                                           // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIsMusic : 1;                                             // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bReverb : 1;                                              // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bCenterChannelOnly : 1;                                   // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bApplyAmbientVolumes : 1;                                 // 0x001C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	float                                              Volume;                                                   // 0x0000(0x0004) (Edit)
+	float                                              Pitch;                                                    // 0x0004(0x0004) (Edit)
+	float                                              StereoBleed;                                              // 0x0008(0x0004) (Edit)
+	float                                              LFEBleed;                                                 // 0x000C(0x0004) (Edit)
+	float                                              VoiceCenterChannelVolume;                                 // 0x0010(0x0004) (Edit)
+	float                                              RadioFilterVolume;                                        // 0x0014(0x0004) (Edit)
+	float                                              RadioFilterVolumeThreshold;                               // 0x0018(0x0004) (Edit)
+	unsigned long                                      bApplyEffects : 1;                                        // 0x001C(0x0004) (Edit)
+	unsigned long                                      bAlwaysPlay : 1;                                          // 0x001C(0x0004) (Edit)
+	unsigned long                                      bIsUISound : 1;                                           // 0x001C(0x0004) (Edit)
+	unsigned long                                      bIsMusic : 1;                                             // 0x001C(0x0004) (Edit)
+	unsigned long                                      bReverb : 1;                                              // 0x001C(0x0004) (Edit)
+	unsigned long                                      bCenterChannelOnly : 1;                                   // 0x001C(0x0004) (Edit)
+	unsigned long                                      bApplyAmbientVolumes : 1;                                 // 0x001C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SoundMode.AudioEQEffect
 // 0x0024
 struct FAudioEQEffect
 {
-	struct FDouble                                     RootTime;                                                 // 0x0000(0x0008)
-	float                                              HFFrequency;                                              // 0x0008(0x0004) (Interp, RepRetry, EditHide, EditTextBox, CrossLevelActive)
-	float                                              HFGain;                                                   // 0x000C(0x0004) (Interp, RepRetry, EditHide, EditTextBox, CrossLevelActive)
-	float                                              MFCutoffFrequency;                                        // 0x0010(0x0004) (RepNotify, NotForConsole, RepRetry, EditHide)
-	float                                              MFBandwidth;                                              // 0x0014(0x0004) (RepNotify, NotForConsole, RepRetry, EditHide)
-	float                                              MFGain;                                                   // 0x0018(0x0004) (RepNotify, NotForConsole, RepRetry, EditHide)
-	float                                              LFFrequency;                                              // 0x001C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              LFGain;                                                   // 0x0020(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FDouble                                     RootTime;                                                 // 0x0000(0x0008) (Native, Transient)
+	float                                              HFFrequency;                                              // 0x0008(0x0004) (Edit)
+	float                                              HFGain;                                                   // 0x000C(0x0004) (Edit)
+	float                                              MFCutoffFrequency;                                        // 0x0010(0x0004) (Edit)
+	float                                              MFBandwidth;                                              // 0x0014(0x0004) (Edit)
+	float                                              MFGain;                                                   // 0x0018(0x0004) (Edit)
+	float                                              LFFrequency;                                              // 0x001C(0x0004) (Edit)
+	float                                              LFGain;                                                   // 0x0020(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SoundMode.SoundClassAdjuster
 // 0x001C
 struct FSoundClassAdjuster
 {
-	TEnumAsByte<ESoundClassName>                       SoundClassName;                                           // 0x0000(0x0001) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ESoundClassName>                       SoundClassName;                                           // 0x0000(0x0001) (Edit, Transient)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FName                                       SoundClass;                                               // 0x0004(0x0008) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              VolumeAdjuster;                                           // 0x000C(0x0004) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              PitchAdjuster;                                            // 0x0010(0x0004) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bApplyToChildren : 1;                                     // 0x0014(0x0004) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              VoiceCenterChannelVolumeAdjuster;                         // 0x0018(0x0004) (Interp, NonTransactional, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       SoundClass;                                               // 0x0004(0x0008) (Edit, EditConst)
+	float                                              VolumeAdjuster;                                           // 0x000C(0x0004) (Edit)
+	float                                              PitchAdjuster;                                            // 0x0010(0x0004) (Edit)
+	unsigned long                                      bApplyToChildren : 1;                                     // 0x0014(0x0004) (Edit)
+	float                                              VoiceCenterChannelVolumeAdjuster;                         // 0x0018(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.Scout.PathSizeInfo
@@ -7666,16 +7666,16 @@ struct ASpotLightToggleable_FCheckpointRecord
 // 0x000C
 struct FLightmassLightSettings
 {
-	float                                              IndirectLightingScale;                                    // 0x0000(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              IndirectLightingSaturation;                               // 0x0004(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              ShadowExponent;                                           // 0x0008(0x0004) (NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              IndirectLightingScale;                                    // 0x0000(0x0004) (Edit)
+	float                                              IndirectLightingSaturation;                               // 0x0004(0x0004) (Edit)
+	float                                              ShadowExponent;                                           // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.EngineTypes.LightmassDirectionalLightSettings
 // 0x0004 (0x0010 - 0x000C)
 struct FLightmassDirectionalLightSettings : public FLightmassLightSettings
 {
-	float                                              LightSourceAngle;                                         // 0x000C(0x0004) (NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
+	float                                              LightSourceAngle;                                         // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.EngineTypes.DominantShadowInfo
@@ -7693,7 +7693,7 @@ struct FDominantShadowInfo
 // 0x0004 (0x0010 - 0x000C)
 struct FLightmassPointLightSettings : public FLightmassLightSettings
 {
-	float                                              LightSourceRadius;                                        // 0x000C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditTextBox)
+	float                                              LightSourceRadius;                                        // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.SkeletalMeshComponent.BonePair
@@ -7730,21 +7730,21 @@ struct FAttachmentOrigin
 	struct FVector                                     LastLocation;                                             // 0x0014(0x000C)
 	float                                              CheckTime;                                                // 0x0020(0x0004)
 	unsigned long                                      IsStop : 1;                                               // 0x0024(0x0004)
-	TArray<struct FAttachmentOriginData>               OriginData;                                               // 0x0028(0x0010)
+	TArray<struct FAttachmentOriginData>               OriginData;                                               // 0x0028(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.SkeletalMeshComponent.Attachment
 // 0x004C
 struct FAttachment
 {
-	class UActorComponent*                             Component;                                                // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FName                                       BoneName;                                                 // 0x0008(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FVector                                     RelativeLocation;                                         // 0x0010(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FRotator                                    RelativeRotation;                                         // 0x001C(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FVector                                     RelativeScale;                                            // 0x0028(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0034(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0034(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0034(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
+	class UActorComponent*                             Component;                                                // 0x0000(0x0008) (Edit, ExportObject, Component, EditInline)
+	struct FName                                       BoneName;                                                 // 0x0008(0x0008) (Edit)
+	struct FVector                                     RelativeLocation;                                         // 0x0010(0x000C) (Edit)
+	struct FRotator                                    RelativeRotation;                                         // 0x001C(0x000C) (Edit)
+	struct FVector                                     RelativeScale;                                            // 0x0028(0x000C) (Edit)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0034(0x0004) (Edit)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0034(0x0004) (Edit)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0034(0x0004) (Edit)
 	float                                              ModifyParentVelocity;                                     // 0x0038(0x0004)
 	float                                              ModifyParentAcceleration;                                 // 0x003C(0x0004)
 	int                                                SocketIndex;                                              // 0x0040(0x0004)
@@ -7756,26 +7756,26 @@ struct FAttachment
 // 0x001C
 struct FSkelMeshComponentLODInfo
 {
-	TArray<unsigned long>                              HiddenMaterials;                                          // 0x0000(0x0010)
-	unsigned long                                      bNeedsInstanceWeightUpdate : 1;                           // 0x0010(0x0004)
-	unsigned long                                      bAlwaysUseInstanceWeights : 1;                            // 0x0010(0x0004)
-	TEnumAsByte<EInstanceWeightUsage>                  InstanceWeightUsage;                                      // 0x0014(0x0001)
+	TArray<unsigned long>                              HiddenMaterials;                                          // 0x0000(0x0010) (Const, NeedCtorLink)
+	unsigned long                                      bNeedsInstanceWeightUpdate : 1;                           // 0x0010(0x0004) (Const)
+	unsigned long                                      bAlwaysUseInstanceWeights : 1;                            // 0x0010(0x0004) (Const)
+	TEnumAsByte<EInstanceWeightUsage>                  InstanceWeightUsage;                                      // 0x0014(0x0001) (Const, Transient)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0015(0x0003) MISSED OFFSET
-	int                                                InstanceWeightIdx;                                        // 0x0018(0x0004)
+	int                                                InstanceWeightIdx;                                        // 0x0018(0x0004) (Const, Transient)
 };
 
 // ScriptStruct Engine.SkeletalMesh.ApexClothingLodInfo
 // 0x0010
 struct FApexClothingLodInfo
 {
-	TArray<int>                                        ClothingSectionInfo;                                      // 0x0000(0x0010) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite)
+	TArray<int>                                        ClothingSectionInfo;                                      // 0x0000(0x0010) (Edit, EditFixedSize, NeedCtorLink)
 };
 
 // ScriptStruct Engine.SkeletalMesh.ApexClothingAssetInfo
 // 0x0018
 struct FApexClothingAssetInfo
 {
-	TArray<struct FApexClothingLodInfo>                ClothingLodInfo;                                          // 0x0000(0x0010) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite)
+	TArray<struct FApexClothingLodInfo>                ClothingLodInfo;                                          // 0x0000(0x0010) (Edit, EditFixedSize, NeedCtorLink)
 	struct FName                                       ClothingAssetName;                                        // 0x0010(0x0008)
 };
 
@@ -7783,31 +7783,31 @@ struct FApexClothingAssetInfo
 // 0x0005
 struct FBoneMirrorInfo
 {
-	int                                                SourceIndex;                                              // 0x0000(0x0004) (NonTransactional, PrivateWrite, CrossLevelPassive)
-	TEnumAsByte<EAxis>                                 BoneFlipAxis;                                             // 0x0004(0x0001) (NonTransactional, PrivateWrite, CrossLevelPassive)
+	int                                                SourceIndex;                                              // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EAxis>                                 BoneFlipAxis;                                             // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.SkeletalMesh.TriangleSortSettings
 // 0x000C
 struct FTriangleSortSettings
 {
-	TEnumAsByte<ETriangleSortOption>                   TriangleSorting;                                          // 0x0000(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide)
-	TEnumAsByte<ETriangleSortAxis>                     CustomLeftRightAxis;                                      // 0x0001(0x0001) (Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide)
+	TEnumAsByte<ETriangleSortOption>                   TriangleSorting;                                          // 0x0000(0x0001) (Edit)
+	TEnumAsByte<ETriangleSortAxis>                     CustomLeftRightAxis;                                      // 0x0001(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	struct FName                                       CustomLeftRightBoneName;                                  // 0x0004(0x0008) (Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide)
+	struct FName                                       CustomLeftRightBoneName;                                  // 0x0004(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.SkeletalMesh.SkeletalMeshLODInfo
 // 0x004C
 struct FSkeletalMeshLODInfo
 {
-	float                                              DisplayFactor;                                            // 0x0000(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              LODHysteresis;                                            // 0x0004(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<int>                                        LODMaterialMap;                                           // 0x0008(0x0010) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<unsigned long>                              bEnableShadowCasting;                                     // 0x0018(0x0010) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<TEnumAsByte<ETriangleSortOption>>           TriangleSorting;                                          // 0x0028(0x0010)
-	TArray<struct FTriangleSortSettings>               TriangleSortSettings;                                     // 0x0038(0x0010) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDisableCompressions : 1;                                 // 0x0048(0x0004) (RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	float                                              DisplayFactor;                                            // 0x0000(0x0004) (Edit)
+	float                                              LODHysteresis;                                            // 0x0004(0x0004) (Edit)
+	TArray<int>                                        LODMaterialMap;                                           // 0x0008(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	TArray<unsigned long>                              bEnableShadowCasting;                                     // 0x0018(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	TArray<TEnumAsByte<ETriangleSortOption>>           TriangleSorting;                                          // 0x0028(0x0010) (NeedCtorLink, Deprecated)
+	TArray<struct FTriangleSortSettings>               TriangleSortSettings;                                     // 0x0038(0x0010) (Edit, EditFixedSize, NeedCtorLink)
+	unsigned long                                      bDisableCompressions : 1;                                 // 0x0048(0x0004) (Edit)
 	unsigned long                                      bHasBeenSimplified : 1;                                   // 0x0048(0x0004)
 };
 
@@ -7820,7 +7820,7 @@ struct FSkeletalMeshOptimizationSettings
 	TEnumAsByte<ESkeletalMeshOptimizationImportance>   TextureImportance;                                        // 0x0005(0x0001)
 	TEnumAsByte<ESkeletalMeshOptimizationImportance>   ShadingImportance;                                        // 0x0006(0x0001)
 	TEnumAsByte<ESkeletalMeshOptimizationImportance>   SkinningImportance;                                       // 0x0007(0x0001)
-	TEnumAsByte<ESkeletalMeshOptimizationNormalMode>   NormalMode;                                               // 0x0008(0x0001)
+	TEnumAsByte<ESkeletalMeshOptimizationNormalMode>   NormalMode;                                               // 0x0008(0x0001) (Deprecated)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
 	float                                              BoneReductionRatio;                                       // 0x000C(0x0004)
 	int                                                MaxBonesPerVertex;                                        // 0x0010(0x0004)
@@ -7834,18 +7834,18 @@ struct FSkeletalMeshOptimizationSettings
 	unsigned long                                      bUseVertexWeight : 1;                                     // 0x0028(0x0004)
 	unsigned long                                      bEnableSkeletonSimplification : 1;                        // 0x0028(0x0004)
 	unsigned long                                      bLockSocketBones : 1;                                     // 0x0028(0x0004)
-	TArray<struct FName>                               RemoveBoneNames;                                          // 0x002C(0x0010)
-	TArray<struct FName>                               LockBoneNames;                                            // 0x003C(0x0010)
+	TArray<struct FName>                               RemoveBoneNames;                                          // 0x002C(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FName>                               LockBoneNames;                                            // 0x003C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.SkeletalMesh.ClothSpecialBoneInfo
 // 0x001C
 struct FClothSpecialBoneInfo
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Interp, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EClothBoneType>                        BoneType;                                                 // 0x0008(0x0001) (Interp, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
+	TEnumAsByte<EClothBoneType>                        BoneType;                                                 // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	TArray<int>                                        AttachedVertexIndices;                                    // 0x000C(0x0010)
+	TArray<int>                                        AttachedVertexIndices;                                    // 0x000C(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.SkeletalMesh.SoftBodyTetraLink
@@ -7860,26 +7860,26 @@ struct FSoftBodyTetraLink
 // 0x001C
 struct FSoftBodySpecialBoneInfo
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ESoftBodyBoneType>                     BoneType;                                                 // 0x0008(0x0001) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
+	TEnumAsByte<ESoftBodyBoneType>                     BoneType;                                                 // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	TArray<int>                                        AttachedVertexIndices;                                    // 0x000C(0x0010)
+	TArray<int>                                        AttachedVertexIndices;                                    // 0x000C(0x0010) (Const, NeedCtorLink)
 };
 
 // ScriptStruct Engine.SplineActor.SplineConnection
 // 0x0018
 struct FSplineConnection
 {
-	class USplineComponent*                            SplineComponent;                                          // 0x0000(0x0008) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class ASplineActor*                                ConnectTo;                                                // 0x0008(0x0008) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UDistributionFloatConstantCurve*             Curve;                                                    // 0x0010(0x0008) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	class USplineComponent*                            SplineComponent;                                          // 0x0000(0x0008) (Edit, ExportObject, Component, EditInline)
+	class ASplineActor*                                ConnectTo;                                                // 0x0008(0x0008) (Edit)
+	class UDistributionFloatConstantCurve*             Curve;                                                    // 0x0010(0x0008) (Edit, ExportObject, Component, EditInline)
 };
 
 // ScriptStruct Engine.ProcBuilding.PBMeshCompInfo
 // 0x000C
 struct FPBMeshCompInfo
 {
-	class UStaticMeshComponent*                        MeshComp;                                                 // 0x0000(0x0008)
+	class UStaticMeshComponent*                        MeshComp;                                                 // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	int                                                TopLevelScopeIndex;                                       // 0x0008(0x0004)
 };
 
@@ -7887,7 +7887,7 @@ struct FPBMeshCompInfo
 // 0x000C
 struct FPBFracMeshCompInfo
 {
-	class UFracturedStaticMeshComponent*               FracMeshComp;                                             // 0x0000(0x0008)
+	class UFracturedStaticMeshComponent*               FracMeshComp;                                             // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	int                                                TopLevelScopeIndex;                                       // 0x0008(0x0004)
 };
 
@@ -7938,16 +7938,16 @@ struct FPBEdgeInfo
 // 0x0018
 struct FPBMaterialParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                Color;                                                    // 0x0008(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit)
+	struct FLinearColor                                Color;                                                    // 0x0008(0x0010) (Edit)
 };
 
 // ScriptStruct Engine.PBRuleNodeBase.PBRuleLink
 // 0x0014
 struct FPBRuleLink
 {
-	class UPBRuleNodeBase*                             NextRule;                                                 // 0x0000(0x0008) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       LinkName;                                                 // 0x0008(0x0008) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	class UPBRuleNodeBase*                             NextRule;                                                 // 0x0000(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FName                                       LinkName;                                                 // 0x0008(0x0008) (Edit)
 	int                                                DrawY;                                                    // 0x0010(0x0004)
 };
 
@@ -7955,65 +7955,65 @@ struct FPBRuleLink
 // 0x0008
 struct FRBCornerAngleInfo
 {
-	float                                              Angle;                                                    // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	float                                              CornerSize;                                               // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	float                                              Angle;                                                    // 0x0000(0x0004) (Edit)
+	float                                              CornerSize;                                               // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PBRuleNodeEdgeAngle.RBEdgeAngleInfo
 // 0x0004
 struct FRBEdgeAngleInfo
 {
-	float                                              Angle;                                                    // 0x0000(0x0004) (RepNotify, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	float                                              Angle;                                                    // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.PBRuleNodeMesh.BuildingMatOverrides
 // 0x0010
 struct FBuildingMatOverrides
 {
-	TArray<class UMaterialInterface*>                  MaterialOptions;                                          // 0x0000(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
+	TArray<class UMaterialInterface*>                  MaterialOptions;                                          // 0x0000(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.PBRuleNodeMesh.BuildingMeshInfo
 // 0x004C
 struct FBuildingMeshInfo
 {
-	class UStaticMesh*                                 Mesh;                                                     // 0x0000(0x0008) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              DimX;                                                     // 0x0008(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              DimZ;                                                     // 0x000C(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	float                                              Chance;                                                   // 0x0010(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	class UDistributionVector*                         Translation;                                              // 0x0014(0x0008) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	class UDistributionVector*                         Rotation;                                                 // 0x001C(0x0008) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	unsigned long                                      bMeshScaleTranslation : 1;                                // 0x0024(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	unsigned long                                      bOverrideMeshLightMapRes : 1;                             // 0x0024(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	int                                                OverriddenMeshLightMapRes;                                // 0x0028(0x0004) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TArray<class UMaterialInterface*>                  MaterialOverrides;                                        // 0x002C(0x0010)
-	TArray<struct FBuildingMatOverrides>               SectionOverrides;                                         // 0x003C(0x0010) (Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
+	class UStaticMesh*                                 Mesh;                                                     // 0x0000(0x0008) (Edit)
+	float                                              DimX;                                                     // 0x0008(0x0004) (Edit)
+	float                                              DimZ;                                                     // 0x000C(0x0004) (Edit)
+	float                                              Chance;                                                   // 0x0010(0x0004) (Edit)
+	class UDistributionVector*                         Translation;                                              // 0x0014(0x0008) (Edit, ExportObject, Component, EditInline)
+	class UDistributionVector*                         Rotation;                                                 // 0x001C(0x0008) (Edit, ExportObject, Component, EditInline)
+	unsigned long                                      bMeshScaleTranslation : 1;                                // 0x0024(0x0004) (Edit)
+	unsigned long                                      bOverrideMeshLightMapRes : 1;                             // 0x0024(0x0004) (Edit)
+	int                                                OverriddenMeshLightMapRes;                                // 0x0028(0x0004) (Edit)
+	TArray<class UMaterialInterface*>                  MaterialOverrides;                                        // 0x002C(0x0010) (NeedCtorLink)
+	TArray<struct FBuildingMatOverrides>               SectionOverrides;                                         // 0x003C(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.PBRuleNodeSplit.RBSplitInfo
 // 0x0014
 struct FRBSplitInfo
 {
-	unsigned long                                      bFixSize : 1;                                             // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	float                                              FixedSize;                                                // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	float                                              ExpandRatio;                                              // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       SplitName;                                                // 0x000C(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bFixSize : 1;                                             // 0x0000(0x0004) (Edit)
+	float                                              FixedSize;                                                // 0x0004(0x0004) (Edit)
+	float                                              ExpandRatio;                                              // 0x0008(0x0004) (Edit)
+	struct FName                                       SplitName;                                                // 0x000C(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.ProcBuildingRuleset.PBVariationInfo
 // 0x000C
 struct FPBVariationInfo
 {
-	struct FName                                       VariationName;                                            // 0x0000(0x0008) (EditorOnly, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bMeshOnTopOfFacePoly : 1;                                 // 0x0008(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       VariationName;                                            // 0x0000(0x0008) (Edit)
+	unsigned long                                      bMeshOnTopOfFacePoly : 1;                                 // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ProcBuildingRuleset.PBParamSwatch
 // 0x0018
 struct FPBParamSwatch
 {
-	struct FName                                       SwatchName;                                               // 0x0000(0x0008) (NonTransactional, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPBMaterialParam>                    Params;                                                   // 0x0008(0x0010) (NonTransactional, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       SwatchName;                                               // 0x0000(0x0008) (Edit)
+	TArray<struct FPBMaterialParam>                    Params;                                                   // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.PlayerReplicationInfo.AutomatedTestingDatum
@@ -8028,11 +8028,11 @@ struct FAutomatedTestingDatum
 // 0x0038
 struct FTViewTarget
 {
-	class AActor*                                      Target;                                                   // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide)
-	class AController*                                 Controller;                                               // 0x0008(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide)
-	struct FTPOV                                       POV;                                                      // 0x0010(0x001C) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide)
-	float                                              AspectRatio;                                              // 0x002C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide)
-	class APlayerReplicationInfo*                      PRI;                                                      // 0x0030(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide)
+	class AActor*                                      Target;                                                   // 0x0000(0x0008) (Edit)
+	class AController*                                 Controller;                                               // 0x0008(0x0008) (Edit)
+	struct FTPOV                                       POV;                                                      // 0x0010(0x001C) (Edit)
+	float                                              AspectRatio;                                              // 0x002C(0x0004) (Edit)
+	class APlayerReplicationInfo*                      PRI;                                                      // 0x0030(0x0008) (Edit)
 };
 
 // ScriptStruct Engine.Camera.TCameraCache
@@ -8068,35 +8068,35 @@ struct FCameraShakeInstance
 // 0x0009
 struct FFOscillator
 {
-	float                                              Amplitude;                                                // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelActive)
-	float                                              Frequency;                                                // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelActive)
-	TEnumAsByte<EInitialOscillatorOffset>              InitialOffset;                                            // 0x0008(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelActive)
+	float                                              Amplitude;                                                // 0x0000(0x0004) (Edit)
+	float                                              Frequency;                                                // 0x0004(0x0004) (Edit)
+	TEnumAsByte<EInitialOscillatorOffset>              InitialOffset;                                            // 0x0008(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.CameraShake.ROscillator
 // 0x0024
 struct FROscillator
 {
-	struct FFOscillator                                Pitch;                                                    // 0x0000(0x000C) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FFOscillator                                Yaw;                                                      // 0x000C(0x000C) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FFOscillator                                Roll;                                                     // 0x0018(0x000C) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FFOscillator                                Pitch;                                                    // 0x0000(0x000C) (Edit)
+	struct FFOscillator                                Yaw;                                                      // 0x000C(0x000C) (Edit)
+	struct FFOscillator                                Roll;                                                     // 0x0018(0x000C) (Edit)
 };
 
 // ScriptStruct Engine.CameraShake.VOscillator
 // 0x0024
 struct FVOscillator
 {
-	struct FFOscillator                                X;                                                        // 0x0000(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox)
-	struct FFOscillator                                Y;                                                        // 0x000C(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox)
-	struct FFOscillator                                Z;                                                        // 0x0018(0x000C) (RepNotify, Interp, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox)
+	struct FFOscillator                                X;                                                        // 0x0000(0x000C) (Edit)
+	struct FFOscillator                                Y;                                                        // 0x000C(0x000C) (Edit)
+	struct FFOscillator                                Z;                                                        // 0x0018(0x000C) (Edit)
 };
 
 // ScriptStruct Engine.AnalyticEventsBase.EventStringParam
 // 0x0020
 struct FEventStringParam
 {
-	struct FString                                     ParamName;                                                // 0x0000(0x0010)
-	struct FString                                     ParamValue;                                               // 0x0010(0x0010)
+	struct FString                                     ParamName;                                                // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     ParamValue;                                               // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AppNotificationsBase.LaunchNotificationInfo
@@ -8104,87 +8104,87 @@ struct FEventStringParam
 struct FLaunchNotificationInfo
 {
 	unsigned long                                      bWasLaunchedViaNotification : 1;                          // 0x0000(0x0004)
-	struct FNotificationInfo                           Notification;                                             // 0x0004(0x0028)
+	struct FNotificationInfo                           Notification;                                             // 0x0004(0x0028) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.FacebookIntegration.FacebookFriend
 // 0x0020
 struct FFacebookFriend
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
-	struct FString                                     Id;                                                       // 0x0010(0x0010)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     Id;                                                       // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GoogleIntegration.GoogleFriend
 // 0x0020
 struct FGoogleFriend
 {
-	struct FString                                     DisplayName;                                              // 0x0000(0x0010)
-	struct FString                                     Id;                                                       // 0x0010(0x0010)
+	struct FString                                     DisplayName;                                              // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     Id;                                                       // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.GoogleIntegration.YouTubeChannel
 // 0x0030
 struct FYouTubeChannel
 {
-	struct FString                                     ChannelId;                                                // 0x0000(0x0010)
-	struct FString                                     ChannelTitle;                                             // 0x0010(0x0010)
-	struct FString                                     Description;                                              // 0x0020(0x0010)
+	struct FString                                     ChannelId;                                                // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     ChannelTitle;                                             // 0x0010(0x0010) (NeedCtorLink)
+	struct FString                                     Description;                                              // 0x0020(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.Actor.AnimSlotDesc
 // 0x000C
 struct FAnimSlotDesc
 {
-	struct FName                                       SlotName;                                                 // 0x0000(0x0008)
-	int                                                NumChannels;                                              // 0x0008(0x0004)
+	struct FName                                       SlotName;                                                 // 0x0000(0x0008) (AlwaysInit)
+	int                                                NumChannels;                                              // 0x0008(0x0004) (AlwaysInit)
 };
 
 // ScriptStruct Engine.Actor.NavReference
 // 0x0018
 struct FNavReference
 {
-	class ANavigationPoint*                            Nav;                                                      // 0x0000(0x0008) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FGuid                                       Guid;                                                     // 0x0008(0x0010) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	class ANavigationPoint*                            Nav;                                                      // 0x0000(0x0008) (Edit)
+	struct FGuid                                       Guid;                                                     // 0x0008(0x0010) (Edit, Const, EditConst)
 };
 
 // ScriptStruct Engine.Info.KeyValuePair
 // 0x0020
 struct FKeyValuePair
 {
-	struct FString                                     Key;                                                      // 0x0000(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     Value;                                                    // 0x0010(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, CrossLevelActive)
+	struct FString                                     Key;                                                      // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     Value;                                                    // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Info.PlayerResponseLine
 // 0x0034
 struct FPlayerResponseLine
 {
-	int                                                PlayerNum;                                                // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                PlayerID;                                                 // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     PlayerName;                                               // 0x0008(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                Ping;                                                     // 0x0018(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                Score;                                                    // 0x001C(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                StatsID;                                                  // 0x0020(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FKeyValuePair>                       PlayerInfo;                                               // 0x0024(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                PlayerNum;                                                // 0x0000(0x0004) (Edit, AlwaysInit)
+	int                                                PlayerID;                                                 // 0x0004(0x0004) (Edit, AlwaysInit)
+	struct FString                                     PlayerName;                                               // 0x0008(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                Ping;                                                     // 0x0018(0x0004) (Edit, AlwaysInit)
+	int                                                Score;                                                    // 0x001C(0x0004) (Edit, AlwaysInit)
+	int                                                StatsID;                                                  // 0x0020(0x0004) (Edit, AlwaysInit)
+	TArray<struct FKeyValuePair>                       PlayerInfo;                                               // 0x0024(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.Info.ServerResponseLine
 // 0x0078
 struct FServerResponseLine
 {
-	int                                                ServerID;                                                 // 0x0000(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     IP;                                                       // 0x0004(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                Port;                                                     // 0x0014(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                QueryPort;                                                // 0x0018(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ServerName;                                               // 0x001C(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     MapName;                                                  // 0x002C(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     GameType;                                                 // 0x003C(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                CurrentPlayers;                                           // 0x004C(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                MaxPlayers;                                               // 0x0050(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                Ping;                                                     // 0x0054(0x0004) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FKeyValuePair>                       ServerInfo;                                               // 0x0058(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPlayerResponseLine>                 PlayerInfo;                                               // 0x0068(0x0010) (RepNotify, EditorOnly, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                ServerID;                                                 // 0x0000(0x0004) (Edit, AlwaysInit)
+	struct FString                                     IP;                                                       // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                Port;                                                     // 0x0014(0x0004) (Edit, AlwaysInit)
+	int                                                QueryPort;                                                // 0x0018(0x0004) (Edit, AlwaysInit)
+	struct FString                                     ServerName;                                               // 0x001C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     MapName;                                                  // 0x002C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     GameType;                                                 // 0x003C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                CurrentPlayers;                                           // 0x004C(0x0004) (Edit, AlwaysInit)
+	int                                                MaxPlayers;                                               // 0x0050(0x0004) (Edit, AlwaysInit)
+	int                                                Ping;                                                     // 0x0054(0x0004) (Edit, AlwaysInit)
+	TArray<struct FKeyValuePair>                       ServerInfo;                                               // 0x0058(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FPlayerResponseLine>                 PlayerInfo;                                               // 0x0068(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.FriendsQuery
@@ -8210,26 +8210,26 @@ struct FSocialPostImageFlags
 struct FSocialPostImageInfo
 {
 	struct FSocialPostImageFlags                       Flags;                                                    // 0x0000(0x0004)
-	struct FString                                     MessageText;                                              // 0x0004(0x0010)
-	struct FString                                     TitleText;                                                // 0x0014(0x0010)
-	struct FString                                     PictureCaption;                                           // 0x0024(0x0010)
-	struct FString                                     PictureDescription;                                       // 0x0034(0x0010)
+	struct FString                                     MessageText;                                              // 0x0004(0x0010) (NeedCtorLink)
+	struct FString                                     TitleText;                                                // 0x0014(0x0010) (NeedCtorLink)
+	struct FString                                     PictureCaption;                                           // 0x0024(0x0010) (NeedCtorLink)
+	struct FString                                     PictureDescription;                                       // 0x0034(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.SocialPostLinkInfo
 // 0x0020 (0x0064 - 0x0044)
 struct FSocialPostLinkInfo : public FSocialPostImageInfo
 {
-	struct FString                                     TitleURL;                                                 // 0x0044(0x0010)
-	struct FString                                     PictureURL;                                               // 0x0054(0x0010)
+	struct FString                                     TitleURL;                                                 // 0x0044(0x0010) (NeedCtorLink)
+	struct FString                                     PictureURL;                                               // 0x0054(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.SocialPostPrivileges
 // 0x0004
 struct FSocialPostPrivileges
 {
-	unsigned long                                      bCanPostImage : 1;                                        // 0x0000(0x0004)
-	unsigned long                                      bCanPostLink : 1;                                         // 0x0000(0x0004)
+	unsigned long                                      bCanPostImage : 1;                                        // 0x0000(0x0004) (Const)
+	unsigned long                                      bCanPostLink : 1;                                         // 0x0000(0x0004) (Const)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.SpeechRecognizedWord
@@ -8237,7 +8237,7 @@ struct FSocialPostPrivileges
 struct FSpeechRecognizedWord
 {
 	int                                                WordId;                                                   // 0x0000(0x0004)
-	struct FString                                     WordText;                                                 // 0x0004(0x0010)
+	struct FString                                     WordText;                                                 // 0x0004(0x0010) (NeedCtorLink)
 	float                                              Confidence;                                               // 0x0014(0x0004)
 };
 
@@ -8253,7 +8253,7 @@ struct FOnlineCrossTitleContent : public FOnlineContent
 struct FCommunityContentMetadata
 {
 	int                                                ContentType;                                              // 0x0000(0x0004)
-	TArray<struct FSettingsProperty>                   MetadataItems;                                            // 0x0004(0x0010)
+	TArray<struct FSettingsProperty>                   MetadataItems;                                            // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.CommunityContentFile
@@ -8269,17 +8269,17 @@ struct FCommunityContentFile
 	float                                              AverageRating;                                            // 0x001C(0x0004)
 	int                                                RatingCount;                                              // 0x0020(0x0004)
 	int                                                LastRatingGiven;                                          // 0x0024(0x0004)
-	struct FString                                     LocalFilePath;                                            // 0x0028(0x0010)
+	struct FString                                     LocalFilePath;                                            // 0x0028(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.TitleFile
 // 0x0024
 struct FTitleFile
 {
-	struct FString                                     Filename;                                                 // 0x0000(0x0010)
+	struct FString                                     Filename;                                                 // 0x0000(0x0010) (NeedCtorLink)
 	TEnumAsByte<EOnlineEnumerationReadState>           AsyncState;                                               // 0x0010(0x0001)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	TArray<unsigned char>                              Data;                                                     // 0x0014(0x0010)
+	TArray<unsigned char>                              Data;                                                     // 0x0014(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.OnlineSubsystem.RemoteTalker
@@ -8336,36 +8336,36 @@ struct FManualCoverTypeInfo
 struct FCoverReplicationInfo
 {
 	class ACoverLink*                                  Link;                                                     // 0x0000(0x0008)
-	TArray<unsigned char>                              SlotsEnabled;                                             // 0x0008(0x0010)
-	TArray<unsigned char>                              SlotsDisabled;                                            // 0x0018(0x0010)
-	TArray<unsigned char>                              SlotsAdjusted;                                            // 0x0028(0x0010)
-	TArray<struct FManualCoverTypeInfo>                SlotsCoverTypeChanged;                                    // 0x0038(0x0010)
+	TArray<unsigned char>                              SlotsEnabled;                                             // 0x0008(0x0010) (NeedCtorLink)
+	TArray<unsigned char>                              SlotsDisabled;                                            // 0x0018(0x0010) (NeedCtorLink)
+	TArray<unsigned char>                              SlotsAdjusted;                                            // 0x0028(0x0010) (NeedCtorLink)
+	TArray<struct FManualCoverTypeInfo>                SlotsCoverTypeChanged;                                    // 0x0038(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.AudioDevice.AudioClassInfo
 // 0x0010
 struct FAudioClassInfo
 {
-	int                                                NumResident;                                              // 0x0000(0x0004)
-	int                                                SizeResident;                                             // 0x0004(0x0004)
-	int                                                NumRealTime;                                              // 0x0008(0x0004)
-	int                                                SizeRealTime;                                             // 0x000C(0x0004)
+	int                                                NumResident;                                              // 0x0000(0x0004) (Const)
+	int                                                SizeResident;                                             // 0x0004(0x0004) (Const)
+	int                                                NumRealTime;                                              // 0x0008(0x0004) (Const)
+	int                                                SizeRealTime;                                             // 0x000C(0x0004) (Const)
 };
 
 // ScriptStruct Engine.SoundCue.SoundNodeEditorData
 // 0x0008
 struct FSoundNodeEditorData
 {
-	int                                                NodePosX;                                                 // 0x0000(0x0004)
-	int                                                NodePosY;                                                 // 0x0004(0x0004)
+	int                                                NodePosX;                                                 // 0x0000(0x0004) (Const, Native)
+	int                                                NodePosY;                                                 // 0x0004(0x0004) (Const, Native)
 };
 
 // ScriptStruct Engine.AnimSequence.CompressedTrack
 // 0x0038
 struct FCompressedTrack
 {
-	TArray<unsigned char>                              ByteStream;                                               // 0x0000(0x0010)
-	TArray<float>                                      Times;                                                    // 0x0010(0x0010)
+	TArray<unsigned char>                              ByteStream;                                               // 0x0000(0x0010) (NeedCtorLink)
+	TArray<float>                                      Times;                                                    // 0x0010(0x0010) (NeedCtorLink)
 	float                                              Mins[0x3];                                                // 0x0020(0x0004)
 	float                                              Ranges[0x3];                                              // 0x002C(0x0004)
 };
@@ -8374,23 +8374,23 @@ struct FCompressedTrack
 // 0x0014
 struct FLightmassDebugOptions
 {
-	unsigned long                                      bDebugMode : 1;                                           // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bStatsEnabled : 1;                                        // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bGatherBSPSurfacesAcrossComponents : 1;                   // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              CoplanarTolerance;                                        // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bUseDeterministicLighting : 1;                            // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bUseImmediateImport : 1;                                  // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bImmediateProcessMappings : 1;                            // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bSortMappings : 1;                                        // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bDumpBinaryFiles : 1;                                     // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bDebugMaterials : 1;                                      // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bPadMappings : 1;                                         // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bDebugPaddings : 1;                                       // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bOnlyCalcDebugTexelMappings : 1;                          // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bUseRandomColors : 1;                                     // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bColorBordersGreen : 1;                                   // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bColorByExecutionTime : 1;                                // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
-	float                                              ExecutionTimeDivisor;                                     // 0x000C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditHide, CrossLevelActive)
+	unsigned long                                      bDebugMode : 1;                                           // 0x0000(0x0004) (Edit)
+	unsigned long                                      bStatsEnabled : 1;                                        // 0x0000(0x0004) (Edit)
+	unsigned long                                      bGatherBSPSurfacesAcrossComponents : 1;                   // 0x0000(0x0004) (Edit)
+	float                                              CoplanarTolerance;                                        // 0x0004(0x0004) (Edit)
+	unsigned long                                      bUseDeterministicLighting : 1;                            // 0x0008(0x0004) (Edit)
+	unsigned long                                      bUseImmediateImport : 1;                                  // 0x0008(0x0004) (Edit)
+	unsigned long                                      bImmediateProcessMappings : 1;                            // 0x0008(0x0004) (Edit)
+	unsigned long                                      bSortMappings : 1;                                        // 0x0008(0x0004) (Edit)
+	unsigned long                                      bDumpBinaryFiles : 1;                                     // 0x0008(0x0004) (Edit)
+	unsigned long                                      bDebugMaterials : 1;                                      // 0x0008(0x0004) (Edit)
+	unsigned long                                      bPadMappings : 1;                                         // 0x0008(0x0004) (Edit)
+	unsigned long                                      bDebugPaddings : 1;                                       // 0x0008(0x0004) (Edit)
+	unsigned long                                      bOnlyCalcDebugTexelMappings : 1;                          // 0x0008(0x0004) (Edit)
+	unsigned long                                      bUseRandomColors : 1;                                     // 0x0008(0x0004) (Edit)
+	unsigned long                                      bColorBordersGreen : 1;                                   // 0x0008(0x0004) (Edit)
+	unsigned long                                      bColorByExecutionTime : 1;                                // 0x0008(0x0004) (Edit)
+	float                                              ExecutionTimeDivisor;                                     // 0x000C(0x0004) (Edit)
 	unsigned long                                      bInitialized : 1;                                         // 0x0010(0x0004)
 };
 
@@ -8398,8 +8398,8 @@ struct FLightmassDebugOptions
 // 0x0004
 struct FSwarmDebugOptions
 {
-	unsigned long                                      bDistributionEnabled : 1;                                 // 0x0000(0x0004) (Interp, NotForConsole, ArchetypeProperty)
-	unsigned long                                      bForceContentExport : 1;                                  // 0x0000(0x0004) (Interp, NotForConsole, ArchetypeProperty)
+	unsigned long                                      bDistributionEnabled : 1;                                 // 0x0000(0x0004) (Edit)
+	unsigned long                                      bForceContentExport : 1;                                  // 0x0000(0x0004) (Edit)
 	unsigned long                                      bInitialized : 1;                                         // 0x0000(0x0004)
 };
 
@@ -8407,9 +8407,9 @@ struct FSwarmDebugOptions
 // 0x0048
 struct FTexture2DMipMap
 {
-	struct FUntypedBulkData_Mirror                     Data;                                                     // 0x0000(0x0040)
-	int                                                SizeX;                                                    // 0x0040(0x0004)
-	int                                                SizeY;                                                    // 0x0044(0x0004)
+	struct FUntypedBulkData_Mirror                     Data;                                                     // 0x0000(0x0040) (Native)
+	int                                                SizeX;                                                    // 0x0040(0x0004) (Native)
+	int                                                SizeY;                                                    // 0x0044(0x0004) (Native)
 };
 
 // ScriptStruct Engine.Canvas.MobileDistanceFieldParams
@@ -8423,7 +8423,7 @@ struct FMobileDistanceFieldParams
 	struct FVector2D                                   ShadowDirection;                                          // 0x0010(0x0008)
 	struct FLinearColor                                ShadowColor;                                              // 0x0018(0x0010)
 	float                                              ShadowSmoothWidth;                                        // 0x0028(0x0004)
-	struct FDepthFieldGlowInfo                         GlowInfo;                                                 // 0x002C(0x0024)
+	struct FDepthFieldGlowInfo                         GlowInfo;                                                 // 0x002C(0x0024) (Native)
 	int                                                BlendMode;                                                // 0x0050(0x0004)
 };
 
@@ -8431,66 +8431,66 @@ struct FMobileDistanceFieldParams
 // 0x002C
 struct FTextSizingParameters
 {
-	float                                              DrawX;                                                    // 0x0000(0x0004)
-	float                                              DrawY;                                                    // 0x0004(0x0004)
-	float                                              DrawXL;                                                   // 0x0008(0x0004)
-	float                                              DrawYL;                                                   // 0x000C(0x0004)
-	struct FVector2D                                   Scaling;                                                  // 0x0010(0x0008)
-	class UFont*                                       DrawFont;                                                 // 0x0018(0x0008)
-	struct FVector2D                                   SpacingAdjust;                                            // 0x0020(0x0008)
-	float                                              ViewportHeight;                                           // 0x0028(0x0004)
+	float                                              DrawX;                                                    // 0x0000(0x0004) (AlwaysInit)
+	float                                              DrawY;                                                    // 0x0004(0x0004) (AlwaysInit)
+	float                                              DrawXL;                                                   // 0x0008(0x0004) (AlwaysInit)
+	float                                              DrawYL;                                                   // 0x000C(0x0004) (AlwaysInit)
+	struct FVector2D                                   Scaling;                                                  // 0x0010(0x0008) (AlwaysInit)
+	class UFont*                                       DrawFont;                                                 // 0x0018(0x0008) (AlwaysInit)
+	struct FVector2D                                   SpacingAdjust;                                            // 0x0020(0x0008) (AlwaysInit)
+	float                                              ViewportHeight;                                           // 0x0028(0x0004) (AlwaysInit)
 };
 
 // ScriptStruct Engine.Canvas.WrappedStringElement
 // 0x0018
 struct FWrappedStringElement
 {
-	struct FString                                     Value;                                                    // 0x0000(0x0010)
-	struct FVector2D                                   LineExtent;                                               // 0x0010(0x0008)
+	struct FString                                     Value;                                                    // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FVector2D                                   LineExtent;                                               // 0x0010(0x0008) (AlwaysInit)
 };
 
 // ScriptStruct Engine.UIRoot.TextureCoordinates
 // 0x0010
 struct FTextureCoordinates
 {
-	float                                              U;                                                        // 0x0000(0x0004) (Interp, NonTransactional, EditHide)
-	float                                              V;                                                        // 0x0004(0x0004) (Interp, NonTransactional, EditHide)
-	float                                              UL;                                                       // 0x0008(0x0004) (Interp, NonTransactional, EditHide)
-	float                                              VL;                                                       // 0x000C(0x0004) (Interp, NonTransactional, EditHide)
+	float                                              U;                                                        // 0x0000(0x0004) (Edit)
+	float                                              V;                                                        // 0x0004(0x0004) (Edit)
+	float                                              UL;                                                       // 0x0008(0x0004) (Edit)
+	float                                              VL;                                                       // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.UIRoot.InputKeyAction
 // 0x002C
 struct FInputKeyAction
 {
-	struct FName                                       InputKeyName;                                             // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	TEnumAsByte<EInputEvent>                           InputKeyState;                                            // 0x0008(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	struct FName                                       InputKeyName;                                             // 0x0000(0x0008) (Edit)
+	TEnumAsByte<EInputEvent>                           InputKeyState;                                            // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	TArray<struct FSeqOpOutputInputLink>               TriggeredOps;                                             // 0x000C(0x0010)
-	TArray<class USequenceOp*>                         ActionsToExecute;                                         // 0x001C(0x0010)
+	TArray<struct FSeqOpOutputInputLink>               TriggeredOps;                                             // 0x000C(0x0010) (NeedCtorLink)
+	TArray<class USequenceOp*>                         ActionsToExecute;                                         // 0x001C(0x0010) (NeedCtorLink, Deprecated)
 };
 
 // ScriptStruct Engine.UIRoot.InputEventParameters
 // 0x0020
 struct FInputEventParameters
 {
-	int                                                PlayerIndex;                                              // 0x0000(0x0004)
-	int                                                ControllerId;                                             // 0x0004(0x0004)
-	struct FName                                       InputKeyName;                                             // 0x0008(0x0008)
-	TEnumAsByte<EInputEvent>                           EventType;                                                // 0x0010(0x0001)
+	int                                                PlayerIndex;                                              // 0x0000(0x0004) (Const, Transient, AlwaysInit)
+	int                                                ControllerId;                                             // 0x0004(0x0004) (Const, Transient, AlwaysInit)
+	struct FName                                       InputKeyName;                                             // 0x0008(0x0008) (Const, Transient, AlwaysInit)
+	TEnumAsByte<EInputEvent>                           EventType;                                                // 0x0010(0x0001) (Const, Transient, AlwaysInit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	float                                              InputDelta;                                               // 0x0014(0x0004)
-	float                                              DeltaTime;                                                // 0x0018(0x0004)
-	unsigned long                                      bAltPressed : 1;                                          // 0x001C(0x0004)
-	unsigned long                                      bCtrlPressed : 1;                                         // 0x001C(0x0004)
-	unsigned long                                      bShiftPressed : 1;                                        // 0x001C(0x0004)
+	float                                              InputDelta;                                               // 0x0014(0x0004) (Const, Transient, AlwaysInit)
+	float                                              DeltaTime;                                                // 0x0018(0x0004) (Const, Transient, AlwaysInit)
+	unsigned long                                      bAltPressed : 1;                                          // 0x001C(0x0004) (Const, Transient, AlwaysInit)
+	unsigned long                                      bCtrlPressed : 1;                                         // 0x001C(0x0004) (Const, Transient, AlwaysInit)
+	unsigned long                                      bShiftPressed : 1;                                        // 0x001C(0x0004) (Const, Transient, AlwaysInit)
 };
 
 // ScriptStruct Engine.UIRoot.SubscribedInputEventParameters
 // 0x0008 (0x0028 - 0x0020)
 struct FSubscribedInputEventParameters : public FInputEventParameters
 {
-	struct FName                                       InputAliasName;                                           // 0x0020(0x0008)
+	struct FName                                       InputAliasName;                                           // 0x0020(0x0008) (Const, Transient, AlwaysInit)
 };
 
 // ScriptStruct Engine.CoverLink.CovPosInfo
@@ -8520,22 +8520,22 @@ struct FFireLinkItem
 // 0x0004 (0x001C - 0x0018)
 struct FCoverReference : public FActorReference
 {
-	int                                                SlotIdx;                                                  // 0x0018(0x0004) (RepNotify, Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	int                                                SlotIdx;                                                  // 0x0018(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.CoverLink.ExposedLink
 // 0x001D
 struct FExposedLink
 {
-	struct FCoverReference                             TargetActor;                                              // 0x0000(0x001C) (Interp, NonTransactional, RepRetry, CrossLevelActive)
-	unsigned char                                      ExposedScale;                                             // 0x001C(0x0001) (Interp, NonTransactional, RepRetry, CrossLevelActive)
+	struct FCoverReference                             TargetActor;                                              // 0x0000(0x001C) (Edit, Const, EditConst)
+	unsigned char                                      ExposedScale;                                             // 0x001C(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.ParticleSystemComponent.ParticleEmitterInstanceMotionBlurInfo
 // 0x0048
 struct FParticleEmitterInstanceMotionBlurInfo
 {
-	struct FMap_Mirror                                 ParticleMBInfoMap;                                        // 0x0000(0x0048)
+	struct FMap_Mirror                                 ParticleMBInfoMap;                                        // 0x0000(0x0048) (Const, Native, Transient)
 };
 
 // ScriptStruct Engine.ParticleSystemComponent.ParticleEmitterInstance
@@ -8597,7 +8597,7 @@ struct FInterpEdSelKey
 // 0x0020
 struct FLandscapeWeightmapUsage
 {
-	class ULandscapeComponent*                         ChannelUsage[0x4];                                        // 0x0000(0x0008)
+	class ULandscapeComponent*                         ChannelUsage[0x4];                                        // 0x0000(0x0008) (ExportObject, Component, EditInline)
 };
 
 // ScriptStruct Engine.LandscapeGizmoActiveActor.GizmoSelectData
@@ -8620,8 +8620,8 @@ struct FLandscapeAddCollision
 // 0x0018
 struct FLensFlareElementCurvePair
 {
-	struct FString                                     CurveName;                                                // 0x0000(0x0010)
-	class UObject*                                     CurveObject;                                              // 0x0010(0x0008)
+	struct FString                                     CurveName;                                                // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	class UObject*                                     CurveObject;                                              // 0x0010(0x0008) (AlwaysInit)
 };
 
 // ScriptStruct Engine.LensFlareComponent.LensFlareElementInstance
@@ -8644,7 +8644,7 @@ struct FLevelGridCellCoordinate
 // 0x0020
 struct FPolySegmentSpan
 {
-	struct FPointer                                    Poly;                                                     // 0x0000(0x0008)
+	struct FPointer                                    Poly;                                                     // 0x0000(0x0008) (Native)
 	struct FVector                                     P1;                                                       // 0x0008(0x000C)
 	struct FVector                                     P2;                                                       // 0x0014(0x000C)
 };
@@ -8663,23 +8663,23 @@ struct FCurrentPlayerMet
 struct FRecentParty
 {
 	struct FUniqueNetId                                PartyLeader;                                              // 0x0000(0x0008)
-	TArray<struct FUniqueNetId>                        PartyMembers;                                             // 0x0008(0x0010)
+	TArray<struct FUniqueNetId>                        PartyMembers;                                             // 0x0008(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct Engine.ParticleModule.ParticleCurvePair
 // 0x0018
 struct FParticleCurvePair
 {
-	struct FString                                     CurveName;                                                // 0x0000(0x0010)
-	class UObject*                                     CurveObject;                                              // 0x0010(0x0008)
+	struct FString                                     CurveName;                                                // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	class UObject*                                     CurveObject;                                              // 0x0010(0x0008) (AlwaysInit)
 };
 
 // ScriptStruct Engine.ParticleModuleTypeDataBeam2.BeamTargetData
 // 0x000C
 struct FBeamTargetData
 {
-	struct FName                                       TargetName;                                               // 0x0000(0x0008) (Interp, EditorOnly, RepRetry, EditTextBox)
-	float                                              TargetPercentage;                                         // 0x0008(0x0004) (Interp, EditorOnly, RepRetry, EditTextBox)
+	struct FName                                       TargetName;                                               // 0x0000(0x0008) (Edit)
+	float                                              TargetPercentage;                                         // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct Engine.ProcBuilding.PBMemUsageInfo
@@ -8722,17 +8722,17 @@ struct FWorldAttractorData
 // 0x0011
 struct FBoneMirrorExport
 {
-	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (RepNotify, Interp, PrivateWrite, CrossLevelPassive)
-	struct FName                                       SourceBoneName;                                           // 0x0008(0x0008) (RepNotify, Interp, PrivateWrite, CrossLevelPassive)
-	TEnumAsByte<EAxis>                                 BoneFlipAxis;                                             // 0x0010(0x0001) (RepNotify, Interp, PrivateWrite, CrossLevelPassive)
+	struct FName                                       BoneName;                                                 // 0x0000(0x0008) (Edit)
+	struct FName                                       SourceBoneName;                                           // 0x0008(0x0008) (Edit)
+	TEnumAsByte<EAxis>                                 BoneFlipAxis;                                             // 0x0010(0x0001) (Edit)
 };
 
 // ScriptStruct Engine.SoundClass.SoundClassEditorData
 // 0x0008
 struct FSoundClassEditorData
 {
-	int                                                NodePosX;                                                 // 0x0000(0x0004)
-	int                                                NodePosY;                                                 // 0x0004(0x0004)
+	int                                                NodePosX;                                                 // 0x0000(0x0004) (Const, Native)
+	int                                                NodePosY;                                                 // 0x0004(0x0004) (Const, Native)
 };
 
 // ScriptStruct Engine.Terrain.TerrainMaterialResource
@@ -8753,10 +8753,10 @@ struct UTerrainWeightMapTexture_FTerrainWeightedMaterial
 // 0x000C
 struct FLevelStreamingData
 {
-	unsigned long                                      bShouldBeLoaded : 1;                                      // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, EditHide, CrossLevelActive)
-	unsigned long                                      bShouldBeVisible : 1;                                     // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, EditHide, CrossLevelActive)
-	unsigned long                                      bShouldBlockOnLoad : 1;                                   // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, EditHide, CrossLevelActive)
-	class ULevelStreaming*                             Level;                                                    // 0x0004(0x0008) (RepNotify, NonTransactional, RepRetry, EditHide, CrossLevelActive)
+	unsigned long                                      bShouldBeLoaded : 1;                                      // 0x0000(0x0004) (Edit)
+	unsigned long                                      bShouldBeVisible : 1;                                     // 0x0000(0x0004) (Edit)
+	unsigned long                                      bShouldBlockOnLoad : 1;                                   // 0x0000(0x0004) (Edit)
+	class ULevelStreaming*                             Level;                                                    // 0x0004(0x0008) (Edit)
 };
 
 }

@@ -21,7 +21,7 @@ namespace SDK
 struct FAkEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	class UAkEvent*                                    Event;                                                    // 0x0004(0x0008) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	class UAkEvent*                                    Event;                                                    // 0x0004(0x0008) (Edit)
 };
 
 }

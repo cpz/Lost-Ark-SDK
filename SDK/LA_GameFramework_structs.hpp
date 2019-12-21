@@ -190,9 +190,9 @@ enum class ETextDrawMethod : uint8_t
 // 0x0024
 struct FRequiredMobileInputConfig
 {
-	struct FString                                     GroupName;                                                // 0x0000(0x0010)
-	TArray<struct FString>                             RequireZoneNames;                                         // 0x0010(0x0010)
-	unsigned long                                      bIsAttractModeGroup : 1;                                  // 0x0020(0x0004)
+	struct FString                                     GroupName;                                                // 0x0000(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             RequireZoneNames;                                         // 0x0010(0x0010) (Config, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bIsAttractModeGroup : 1;                                  // 0x0020(0x0004) (Config)
 };
 
 // ScriptStruct GameFramework.GameTypes.AICmdHistoryItem
@@ -201,7 +201,7 @@ struct FAICmdHistoryItem
 {
 	class UClass*                                      CmdClass;                                                 // 0x0000(0x0008)
 	float                                              TimeStamp;                                                // 0x0008(0x0004)
-	struct FString                                     VerboseString;                                            // 0x000C(0x0010)
+	struct FString                                     VerboseString;                                            // 0x000C(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameTypes.CrowdSpawnerPlayerInfo
@@ -218,10 +218,10 @@ struct FCrowdSpawnerPlayerInfo
 // 0x0018
 struct FBehaviorEntry
 {
-	class UGameCrowdAgentBehavior*                     BehaviorArchetype;                                        // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	class AActor*                                      LookAtActor;                                              // 0x0008(0x0008) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              BehaviorFrequency;                                        // 0x0010(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bNeverRepeat : 1;                                         // 0x0014(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	class UGameCrowdAgentBehavior*                     BehaviorArchetype;                                        // 0x0000(0x0008) (Edit)
+	class AActor*                                      LookAtActor;                                              // 0x0008(0x0008) (Edit)
+	float                                              BehaviorFrequency;                                        // 0x0010(0x0004) (Edit)
+	unsigned long                                      bNeverRepeat : 1;                                         // 0x0014(0x0004) (Edit)
 	unsigned long                                      bHasBeenUsed : 1;                                         // 0x0014(0x0004)
 	unsigned long                                      bCanBeUsed : 1;                                           // 0x0014(0x0004)
 };
@@ -230,17 +230,17 @@ struct FBehaviorEntry
 // 0x0008
 struct FNearbyDynamicItem
 {
-	class AActor*                                      Dynamic;                                                  // 0x0000(0x0008) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
+	class AActor*                                      Dynamic;                                                  // 0x0000(0x0008) (Edit)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.AvoidOtherSampleItem
 // 0x000C
 struct FAvoidOtherSampleItem
 {
-	int                                                RotOffset;                                                // 0x0000(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	unsigned char                                      NumMagSamples;                                            // 0x0004(0x0001) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
+	int                                                RotOffset;                                                // 0x0000(0x0004) (Edit)
+	unsigned char                                      NumMagSamples;                                            // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	unsigned long                                      bFallbackOnly : 1;                                        // 0x0008(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
+	unsigned long                                      bFallbackOnly : 1;                                        // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgent.RecentInteraction
@@ -255,28 +255,28 @@ struct FRecentInteraction
 // 0x0018
 struct FGameCrowdAttachmentInfo
 {
-	class UStaticMesh*                                 StaticMesh;                                               // 0x0000(0x0008) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              Chance;                                                   // 0x0008(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FVector                                     Scale3D;                                                  // 0x000C(0x000C) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	class UStaticMesh*                                 StaticMesh;                                               // 0x0000(0x0008) (Edit)
+	float                                              Chance;                                                   // 0x0008(0x0004) (Edit)
+	struct FVector                                     Scale3D;                                                  // 0x000C(0x000C) (Edit)
 };
 
 // ScriptStruct GameFramework.GameCrowdAgentSkeletal.GameCrowdAttachmentList
 // 0x0018
 struct FGameCrowdAttachmentList
 {
-	struct FName                                       SocketName;                                               // 0x0000(0x0008) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0008(0x0010) (RepNotify, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FName                                       SocketName;                                               // 0x0000(0x0008) (Edit)
+	TArray<struct FGameCrowdAttachmentInfo>            List;                                                     // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameTypes.AgentArchetypeInfo
 // 0x0024
 struct FAgentArchetypeInfo
 {
-	class UObject*                                     AgentArchetype;                                           // 0x0000(0x0008) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
-	float                                              FrequencyModifier;                                        // 0x0008(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
-	int                                                MaxAllowed;                                               // 0x000C(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
-	int                                                CurrSpawned;                                              // 0x0010(0x0004)
-	TArray<class UObject*>                             GroupMembers;                                             // 0x0014(0x0010) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, CrossLevelActive)
+	class UObject*                                     AgentArchetype;                                           // 0x0000(0x0008) (Edit)
+	float                                              FrequencyModifier;                                        // 0x0008(0x0004) (Edit)
+	int                                                MaxAllowed;                                               // 0x000C(0x0004) (Edit)
+	int                                                CurrSpawned;                                              // 0x0010(0x0004) (Transient)
+	TArray<class UObject*>                             GroupMembers;                                             // 0x0014(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameTypes.CrowdSpawnInfoItem
@@ -288,8 +288,8 @@ struct FCrowdSpawnInfoItem
 	float                                              SpawnRate;                                                // 0x000C(0x0004)
 	int                                                SpawnNum;                                                 // 0x0010(0x0004)
 	float                                              Remainder;                                                // 0x0014(0x0004)
-	TArray<class AGameCrowdAgent*>                     ActiveAgents;                                             // 0x0018(0x0010)
-	TArray<struct FAgentArchetypeInfo>                 AgentArchetypes;                                          // 0x0028(0x0010)
+	TArray<class AGameCrowdAgent*>                     ActiveAgents;                                             // 0x0018(0x0010) (NeedCtorLink)
+	TArray<struct FAgentArchetypeInfo>                 AgentArchetypes;                                          // 0x0028(0x0010) (NeedCtorLink)
 	float                                              AgentFrequencySum;                                        // 0x0038(0x0004)
 	float                                              MaxSpawnDist;                                             // 0x003C(0x0004)
 	float                                              MaxSpawnDistSq;                                           // 0x0040(0x0004)
@@ -301,13 +301,13 @@ struct FCrowdSpawnInfoItem
 	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0050(0x0004)
 	unsigned long                                      bCastShadows : 1;                                         // 0x0050(0x0004)
 	struct FLightingChannelContainer                   AgentLightingChannel;                                     // 0x0054(0x0004)
-	int                                                NumAgentsToTickPerFrame;                                  // 0x0058(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelActive)
+	int                                                NumAgentsToTickPerFrame;                                  // 0x0058(0x0004) (Edit)
 	int                                                LastAgentTickedIndex;                                     // 0x005C(0x0004)
-	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x0060(0x0010)
+	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x0060(0x0010) (NeedCtorLink)
 	float                                              SpawnPrioritizationInterval;                              // 0x0070(0x0004)
 	int                                                PrioritizationIndex;                                      // 0x0074(0x0004)
 	int                                                PrioritizationUpdateIndex;                                // 0x0078(0x0004)
-	TArray<class AGameCrowdDestination*>               PrioritizedSpawnPoints;                                   // 0x007C(0x0010)
+	TArray<class AGameCrowdDestination*>               PrioritizedSpawnPoints;                                   // 0x007C(0x0010) (NeedCtorLink)
 	float                                              PlayerPositionPredictionTime;                             // 0x008C(0x0004)
 };
 
@@ -315,21 +315,21 @@ struct FCrowdSpawnInfoItem
 // 0x0010
 struct FTextureUVs
 {
-	float                                              U;                                                        // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              V;                                                        // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              UL;                                                       // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              VL;                                                       // 0x000C(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              U;                                                        // 0x0000(0x0004) (Edit)
+	float                                              V;                                                        // 0x0004(0x0004) (Edit)
+	float                                              UL;                                                       // 0x0008(0x0004) (Edit)
+	float                                              VL;                                                       // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct GameFramework.MobileMenuObject.UVCoords
 // 0x0014
 struct FUVCoords
 {
-	unsigned long                                      bCustomCoords : 1;                                        // 0x0000(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              U;                                                        // 0x0004(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              V;                                                        // 0x0008(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              UL;                                                       // 0x000C(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              VL;                                                       // 0x0010(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	unsigned long                                      bCustomCoords : 1;                                        // 0x0000(0x0004) (Edit)
+	float                                              U;                                                        // 0x0004(0x0004) (Edit)
+	float                                              V;                                                        // 0x0008(0x0004) (Edit)
+	float                                              UL;                                                       // 0x000C(0x0004) (Edit)
+	float                                              VL;                                                       // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.TouchDataEvent
@@ -360,7 +360,7 @@ struct FTouchData
 	class UMobileInputZone*                            Zone;                                                     // 0x0030(0x0008)
 	TEnumAsByte<ETouchType>                            State;                                                    // 0x0038(0x0001)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
-	TArray<struct FTouchDataEvent>                     Events;                                                   // 0x003C(0x0010)
+	TArray<struct FTouchDataEvent>                     Events;                                                   // 0x003C(0x0010) (NeedCtorLink)
 	float                                              LastActiveTime;                                           // 0x004C(0x0004)
 };
 
@@ -368,15 +368,15 @@ struct FTouchData
 // 0x0020
 struct FMobileInputGroup
 {
-	struct FString                                     GroupName;                                                // 0x0000(0x0010)
-	TArray<class UMobileInputZone*>                    AssociatedZones;                                          // 0x0010(0x0010)
+	struct FString                                     GroupName;                                                // 0x0000(0x0010) (NeedCtorLink)
+	TArray<class UMobileInputZone*>                    AssociatedZones;                                          // 0x0010(0x0010) (NeedCtorLink, EditInline)
 };
 
 // ScriptStruct GameFramework.MobilePlayerInput.MobileInputZoneClassMap
 // 0x0018
 struct FMobileInputZoneClassMap
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (NeedCtorLink)
 	class UClass*                                      ClassType;                                                // 0x0010(0x0008)
 };
 
@@ -384,74 +384,74 @@ struct FMobileInputZoneClassMap
 // 0x001C
 struct FPropertyInfo
 {
-	struct FName                                       PropertyName;                                             // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	unsigned long                                      bModifyProperty : 1;                                      // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FString                                     PropertyValue;                                            // 0x000C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FName                                       PropertyName;                                             // 0x0000(0x0008) (Edit)
+	unsigned long                                      bModifyProperty : 1;                                      // 0x0008(0x0004) (Edit)
+	struct FString                                     PropertyValue;                                            // 0x000C(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameSkelCtrl_Recoil.RecoilParams
 // 0x0004
 struct FRecoilParams
 {
-	TEnumAsByte<ERecoilStart>                          X;                                                        // 0x0000(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0001(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0002(0x0001) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	unsigned char                                      Padding;                                                  // 0x0003(0x0001)
+	TEnumAsByte<ERecoilStart>                          X;                                                        // 0x0000(0x0001) (Edit)
+	TEnumAsByte<ERecoilStart>                          Y;                                                        // 0x0001(0x0001) (Edit)
+	TEnumAsByte<ERecoilStart>                          Z;                                                        // 0x0002(0x0001) (Edit)
+	unsigned char                                      Padding;                                                  // 0x0003(0x0001) (Const, Transient)
 };
 
 // ScriptStruct GameFramework.GameSkelCtrl_Recoil.RecoilDef
 // 0x0070
 struct FRecoilDef
 {
-	float                                              TimeToGo;                                                 // 0x0000(0x0004)
-	float                                              TimeDuration;                                             // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              TimeToGo;                                                 // 0x0000(0x0004) (Transient)
+	float                                              TimeDuration;                                             // 0x0004(0x0004) (Edit)
+	struct FVector                                     RotAmplitude;                                             // 0x0008(0x000C) (Edit)
+	struct FVector                                     RotFrequency;                                             // 0x0014(0x000C) (Edit)
 	struct FVector                                     RotSinOffset;                                             // 0x0020(0x000C)
-	struct FRecoilParams                               RotParams;                                                // 0x002C(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FRotator                                    RotOffset;                                                // 0x0030(0x000C)
-	struct FVector                                     LocAmplitude;                                             // 0x003C(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FVector                                     LocFrequency;                                             // 0x0048(0x000C) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	struct FRecoilParams                               RotParams;                                                // 0x002C(0x0004) (Edit)
+	struct FRotator                                    RotOffset;                                                // 0x0030(0x000C) (Transient)
+	struct FVector                                     LocAmplitude;                                             // 0x003C(0x000C) (Edit)
+	struct FVector                                     LocFrequency;                                             // 0x0048(0x000C) (Edit)
 	struct FVector                                     LocSinOffset;                                             // 0x0054(0x000C)
-	struct FRecoilParams                               LocParams;                                                // 0x0060(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FVector                                     LocOffset;                                                // 0x0064(0x000C)
+	struct FRecoilParams                               LocParams;                                                // 0x0060(0x0004) (Edit)
+	struct FVector                                     LocOffset;                                                // 0x0064(0x000C) (Transient)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCamera.CamFocusPointParams
 // 0x0038
 struct FCamFocusPointParams
 {
-	class AActor*                                      FocusActor;                                               // 0x0000(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	struct FName                                       FocusBoneName;                                            // 0x0008(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	struct FVector                                     FocusWorldLoc;                                            // 0x0010(0x000C) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	float                                              CameraFOV;                                                // 0x001C(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	struct FVector2D                                   InterpSpeedRange;                                         // 0x0020(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	struct FVector2D                                   InFocusFOV;                                               // 0x0028(0x0008) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	unsigned long                                      bAdjustCamera : 1;                                        // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0030(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
-	float                                              FocusPitchOffsetDeg;                                      // 0x0034(0x0004) (RepNotify, RepRetry, EditHide, CrossLevelActive)
+	class AActor*                                      FocusActor;                                               // 0x0000(0x0008) (Edit)
+	struct FName                                       FocusBoneName;                                            // 0x0008(0x0008) (Edit)
+	struct FVector                                     FocusWorldLoc;                                            // 0x0010(0x000C) (Edit)
+	float                                              CameraFOV;                                                // 0x001C(0x0004) (Edit)
+	struct FVector2D                                   InterpSpeedRange;                                         // 0x0020(0x0008) (Edit)
+	struct FVector2D                                   InFocusFOV;                                               // 0x0028(0x0008) (Edit)
+	unsigned long                                      bAlwaysFocus : 1;                                         // 0x0030(0x0004) (Edit)
+	unsigned long                                      bAdjustCamera : 1;                                        // 0x0030(0x0004) (Edit)
+	unsigned long                                      bIgnoreTrace : 1;                                         // 0x0030(0x0004) (Edit)
+	float                                              FocusPitchOffsetDeg;                                      // 0x0034(0x0004) (Edit)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCamera.PenetrationAvoidanceFeeler
 // 0x0028
 struct FPenetrationAvoidanceFeeler
 {
-	struct FRotator                                    AdjustmentRot;                                            // 0x0000(0x000C) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              WorldWeight;                                              // 0x000C(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              PawnWeight;                                               // 0x0010(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	struct FVector                                     Extent;                                                   // 0x0014(0x000C) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	int                                                TraceInterval;                                            // 0x0020(0x0004) (RepNotify, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	int                                                FramesUntilNextTrace;                                     // 0x0024(0x0004)
+	struct FRotator                                    AdjustmentRot;                                            // 0x0000(0x000C) (Edit)
+	float                                              WorldWeight;                                              // 0x000C(0x0004) (Edit)
+	float                                              PawnWeight;                                               // 0x0010(0x0004) (Edit)
+	struct FVector                                     Extent;                                                   // 0x0014(0x000C) (Edit)
+	int                                                TraceInterval;                                            // 0x0020(0x0004) (Edit)
+	int                                                FramesUntilNextTrace;                                     // 0x0024(0x0004) (Transient)
 };
 
 // ScriptStruct GameFramework.GameThirdPersonCameraMode.ViewOffsetData
 // 0x0024
 struct FViewOffsetData
 {
-	struct FVector                                     OffsetHigh;                                               // 0x0000(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	struct FVector                                     OffsetMid;                                                // 0x000C(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	struct FVector                                     OffsetLow;                                                // 0x0018(0x000C) (RepNotify, Interp, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	struct FVector                                     OffsetHigh;                                               // 0x0000(0x000C) (Edit)
+	struct FVector                                     OffsetMid;                                                // 0x000C(0x000C) (Edit)
+	struct FVector                                     OffsetLow;                                                // 0x0018(0x000C) (Edit)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.AggregateEventMapping
@@ -467,7 +467,7 @@ struct FAggregateEventMapping
 // 0x0048
 struct FGameEvents
 {
-	struct FMap_Mirror                                 Events;                                                   // 0x0000(0x0048)
+	struct FMap_Mirror                                 Events;                                                   // 0x0000(0x0048) (Const, Native, Transient)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.EventsBase
@@ -475,7 +475,7 @@ struct FGameEvents
 struct FEventsBase
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	TArray<struct FGameEvents>                         EventsByClass;                                            // 0x0048(0x0010)
+	TArray<struct FGameEvents>                         EventsByClass;                                            // 0x0048(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.WeaponEvents
@@ -511,11 +511,11 @@ struct FPawnEvents : public FEventsBase
 struct FTeamEvents
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058)
-	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058)
-	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058)
-	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058)
-	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058)
+	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058) (NeedCtorLink)
+	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058) (NeedCtorLink)
+	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058) (NeedCtorLink)
+	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058) (NeedCtorLink)
+	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058) (NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameStatsAggregator.PlayerEvents
@@ -523,11 +523,11 @@ struct FTeamEvents
 struct FPlayerEvents
 {
 	struct FGameEvents                                 TotalEvents;                                              // 0x0000(0x0048)
-	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058)
-	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058)
-	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058)
-	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058)
-	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058)
+	struct FWeaponEvents                               WeaponEvents;                                             // 0x0048(0x0058) (NeedCtorLink)
+	struct FDamageEvents                               DamageAsPlayerEvents;                                     // 0x00A0(0x0058) (NeedCtorLink)
+	struct FDamageEvents                               DamageAsTargetEvents;                                     // 0x00F8(0x0058) (NeedCtorLink)
+	struct FProjectileEvents                           ProjectileEvents;                                         // 0x0150(0x0058) (NeedCtorLink)
+	struct FPawnEvents                                 PawnEvents;                                               // 0x01A8(0x0058) (NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameTypes.SpecialMoveStruct
@@ -544,9 +544,9 @@ struct FSpecialMoveStruct
 // 0x0018
 struct FGameSpecialMoveInfo
 {
-	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	class UClass*                                      SpecialMoveClass;                                         // 0x0008(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0010(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FName                                       SpecialMoveName;                                          // 0x0000(0x0008) (Edit)
+	class UClass*                                      SpecialMoveClass;                                         // 0x0008(0x0008) (Edit)
+	class UGameSpecialMove*                            SpecialMoveInstance;                                      // 0x0010(0x0008) (Edit)
 };
 
 // ScriptStruct GameFramework.GameTypes.TakeHitInfo
@@ -571,7 +571,7 @@ struct FShakeParams
 	TEnumAsByte<EShakeParam>                           X;                                                        // 0x0000(0x0001)
 	TEnumAsByte<EShakeParam>                           Y;                                                        // 0x0001(0x0001)
 	TEnumAsByte<EShakeParam>                           Z;                                                        // 0x0002(0x0001)
-	unsigned char                                      Padding;                                                  // 0x0003(0x0001)
+	unsigned char                                      Padding;                                                  // 0x0003(0x0001) (Const, Transient)
 };
 
 // ScriptStruct GameFramework.GameTypes.ScreenShakeStruct
@@ -621,7 +621,7 @@ struct FScreenShakeAnimStruct
 struct FTeamState
 {
 	int                                                TeamIndex;                                                // 0x0000(0x0004)
-	TArray<int>                                        PlayerIndices;                                            // 0x0004(0x0010)
+	TArray<int>                                        PlayerIndices;                                            // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.GameStateObject.PlayerState
@@ -638,7 +638,7 @@ struct FPlayerState
 // 0x0010
 struct FGameEvent
 {
-	TArray<float>                                      EventCountByTimePeriod;                                   // 0x0000(0x0010)
+	TArray<float>                                      EventCountByTimePeriod;                                   // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct GameFramework.MobileMenuInventory.DragElementInfo

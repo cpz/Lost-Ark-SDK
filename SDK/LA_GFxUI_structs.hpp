@@ -98,7 +98,7 @@ enum class EGFxRenderTextureMode : uint8_t
 // 0x0010
 struct FGCReference
 {
-	class UObject*                                     m_object;                                                 // 0x0000(0x0008)
+	class UObject*                                     m_object;                                                 // 0x0000(0x0008) (Const)
 	int                                                m_count;                                                  // 0x0008(0x0004)
 	int                                                m_statid;                                                 // 0x000C(0x0004)
 };
@@ -107,74 +107,74 @@ struct FGCReference
 // 0x0028
 struct FASValue
 {
-	TEnumAsByte<EASType>                               Type;                                                     // 0x0000(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<EASType>                               Type;                                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	unsigned long                                      B : 1;                                                    // 0x0004(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              N;                                                        // 0x0008(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	int                                                I;                                                        // 0x000C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     S;                                                        // 0x0010(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	class UGFxObject*                                  O;                                                        // 0x0020(0x0008) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      B : 1;                                                    // 0x0004(0x0004) (Edit)
+	float                                              N;                                                        // 0x0008(0x0004) (Edit)
+	int                                                I;                                                        // 0x000C(0x0004) (Edit)
+	struct FString                                     S;                                                        // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	class UGFxObject*                                  O;                                                        // 0x0020(0x0008) (Edit)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.ExternalTexture
 // 0x0018
 struct FExternalTexture
 {
-	struct FString                                     Resource;                                                 // 0x0000(0x0010) (Interp, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	class UTexture*                                    Texture;                                                  // 0x0010(0x0008) (Interp, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     Resource;                                                 // 0x0000(0x0010) (Edit, NeedCtorLink)
+	class UTexture*                                    Texture;                                                  // 0x0010(0x0008) (Edit)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.SoundThemeBinding
 // 0x0020
 struct FSoundThemeBinding
 {
-	struct FName                                       ThemeName;                                                // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelActive)
-	class UUISoundTheme*                               Theme;                                                    // 0x0008(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelActive)
-	struct FString                                     ThemeClassName;                                           // 0x0010(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelActive)
+	struct FName                                       ThemeName;                                                // 0x0000(0x0008) (Edit)
+	class UUISoundTheme*                               Theme;                                                    // 0x0008(0x0008) (Edit)
+	struct FString                                     ThemeClassName;                                           // 0x0010(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct GFxUI.GFxMoviePlayer.GFxWidgetBinding
 // 0x0010
 struct FGFxWidgetBinding
 {
-	struct FName                                       WidgetName;                                               // 0x0000(0x0008) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	class UClass*                                      WidgetClass;                                              // 0x0008(0x0008) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FName                                       WidgetName;                                               // 0x0000(0x0008) (Edit)
+	class UClass*                                      WidgetClass;                                              // 0x0008(0x0008) (Edit)
 };
 
 // ScriptStruct GFxUI.GFxObject.ASColorTransform
 // 0x0020
 struct FASColorTransform
 {
-	struct FLinearColor                                Multiply;                                                 // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FLinearColor                                Add;                                                      // 0x0010(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FLinearColor                                Multiply;                                                 // 0x0000(0x0010) (Edit)
+	struct FLinearColor                                Add;                                                      // 0x0010(0x0010) (Edit)
 };
 
 // ScriptStruct GFxUI.GFxObject.ASDisplayInfo
 // 0x002C
 struct FASDisplayInfo
 {
-	float                                              X;                                                        // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Y;                                                        // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Z;                                                        // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Rotation;                                                 // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              XRotation;                                                // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              YRotation;                                                // 0x0014(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              XScale;                                                   // 0x0018(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              YScale;                                                   // 0x001C(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              ZScale;                                                   // 0x0020(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Alpha;                                                    // 0x0024(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      Visible : 1;                                              // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasX : 1;                                                 // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasY : 1;                                                 // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasZ : 1;                                                 // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasRotation : 1;                                          // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasXRotation : 1;                                         // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasYRotation : 1;                                         // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasXScale : 1;                                            // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasYScale : 1;                                            // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasZScale : 1;                                            // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasAlpha : 1;                                             // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      hasVisible : 1;                                           // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	float                                              X;                                                        // 0x0000(0x0004) (Edit)
+	float                                              Y;                                                        // 0x0004(0x0004) (Edit)
+	float                                              Z;                                                        // 0x0008(0x0004) (Edit)
+	float                                              Rotation;                                                 // 0x000C(0x0004) (Edit)
+	float                                              XRotation;                                                // 0x0010(0x0004) (Edit)
+	float                                              YRotation;                                                // 0x0014(0x0004) (Edit)
+	float                                              XScale;                                                   // 0x0018(0x0004) (Edit)
+	float                                              YScale;                                                   // 0x001C(0x0004) (Edit)
+	float                                              ZScale;                                                   // 0x0020(0x0004) (Edit)
+	float                                              Alpha;                                                    // 0x0024(0x0004) (Edit)
+	unsigned long                                      Visible : 1;                                              // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasX : 1;                                                 // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasY : 1;                                                 // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasZ : 1;                                                 // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasRotation : 1;                                          // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasXRotation : 1;                                         // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasYRotation : 1;                                         // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasXScale : 1;                                            // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasYScale : 1;                                            // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasZScale : 1;                                            // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasAlpha : 1;                                             // 0x0028(0x0004) (Edit)
+	unsigned long                                      hasVisible : 1;                                           // 0x0028(0x0004) (Edit)
 };
 
 // ScriptStruct GFxUI.GFxClikWidget.EventData
@@ -183,7 +183,7 @@ struct FEventData
 {
 	class UGFxObject*                                  _this;                                                    // 0x0000(0x0008)
 	class UGFxObject*                                  Target;                                                   // 0x0008(0x0008)
-	struct FString                                     Type;                                                     // 0x0010(0x0010)
+	struct FString                                     Type;                                                     // 0x0010(0x0010) (NeedCtorLink)
 	int                                                Data;                                                     // 0x0020(0x0004)
 	int                                                mouseIndex;                                               // 0x0024(0x0004)
 	int                                                Button;                                                   // 0x0028(0x0004)

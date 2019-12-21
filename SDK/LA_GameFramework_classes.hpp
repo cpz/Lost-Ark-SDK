@@ -19,11 +19,11 @@ namespace SDK
 class UDynamicSpriteComponent : public USpriteComponent
 {
 public:
-	struct FInterpCurveFloat                           AnimatedScale;                                            // 0x02AC(0x0014) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveLinearColor                     AnimatedColor;                                            // 0x02C0(0x0014) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveVector2D                        AnimatedPosition;                                         // 0x02D4(0x0014) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LocationOffset;                                           // 0x02E8(0x000C) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                LoopCount;                                                // 0x02F4(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FInterpCurveFloat                           AnimatedScale;                                            // 0x02AC(0x0014) (Edit, NeedCtorLink)
+	struct FInterpCurveLinearColor                     AnimatedColor;                                            // 0x02C0(0x0014) (Edit, NeedCtorLink)
+	struct FInterpCurveVector2D                        AnimatedPosition;                                         // 0x02D4(0x0014) (Edit, NeedCtorLink)
+	struct FVector                                     LocationOffset;                                           // 0x02E8(0x000C) (Edit)
+	int                                                LoopCount;                                                // 0x02F4(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -39,7 +39,7 @@ public:
 class AFrameworkGame : public AGameInfo
 {
 public:
-	TArray<struct FRequiredMobileInputConfig>          RequiredMobileInputConfigs;                               // 0x04C0(0x0010)
+	TArray<struct FRequiredMobileInputConfig>          RequiredMobileInputConfigs;                               // 0x04C0(0x0010) (Config, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -55,20 +55,20 @@ public:
 class AGameAIController : public AAIController
 {
 public:
-	class UGameAICommand*                              CommandList;                                              // 0x0484(0x0008) (RepNotify, Interp, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bHasRunawayCommandList : 1;                               // 0x048C(0x0004)
-	unsigned long                                      bAILogging : 1;                                           // 0x048C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bAILogToWindow : 1;                                       // 0x048C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bFlushAILogEachLine : 1;                                  // 0x048C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bMapBasedLogName : 1;                                     // 0x048C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bAIDrawDebug : 1;                                         // 0x048C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bAIBroken : 1;                                            // 0x048C(0x0004)
-	class AFileLog*                                    AILogFile;                                                // 0x0490(0x0008)
-	float                                              DebugTextMaxLen;                                          // 0x0498(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	TArray<struct FAICmdHistoryItem>                   CommandHistory;                                           // 0x049C(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	int                                                CommandHistoryNum;                                        // 0x04AC(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	TArray<struct FName>                               AILogFilter;                                              // 0x04B0(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	struct FString                                     DemoActionString;                                         // 0x04C0(0x0010) (EditConst, GlobalConfig, AlwaysInit)
+	class UGameAICommand*                              CommandList;                                              // 0x0484(0x0008) (Edit, Const, Transient, EditInline)
+	unsigned long                                      bHasRunawayCommandList : 1;                               // 0x048C(0x0004) (Transient)
+	unsigned long                                      bAILogging : 1;                                           // 0x048C(0x0004) (Edit, Config)
+	unsigned long                                      bAILogToWindow : 1;                                       // 0x048C(0x0004) (Edit, Config)
+	unsigned long                                      bFlushAILogEachLine : 1;                                  // 0x048C(0x0004) (Edit, Config)
+	unsigned long                                      bMapBasedLogName : 1;                                     // 0x048C(0x0004) (Edit, Config)
+	unsigned long                                      bAIDrawDebug : 1;                                         // 0x048C(0x0004) (Edit, Config)
+	unsigned long                                      bAIBroken : 1;                                            // 0x048C(0x0004) (Transient)
+	class AFileLog*                                    AILogFile;                                                // 0x0490(0x0008) (Transient)
+	float                                              DebugTextMaxLen;                                          // 0x0498(0x0004) (Edit)
+	TArray<struct FAICmdHistoryItem>                   CommandHistory;                                           // 0x049C(0x0010) (Edit, Const, Transient, NeedCtorLink)
+	int                                                CommandHistoryNum;                                        // 0x04AC(0x0004) (Edit, Config)
+	TArray<struct FName>                               AILogFilter;                                              // 0x04B0(0x0010) (Edit, Config, NeedCtorLink)
+	struct FString                                     DemoActionString;                                         // 0x04C0(0x0010) (Net, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -77,23 +77,23 @@ public:
 	}
 
 
-	void GetActionString();
-	void SetDesiredRotation();
-	void AILog_Internal();
-	void RecordDemoAILog();
+	struct FString GetActionString();
+	void SetDesiredRotation(const struct FRotator& TargetDesiredRotation, bool InLockDesiredRotation, bool InUnlockWhenReached, float InterpolationTime);
+	void AILog_Internal(const struct FString& LogText, const struct FName& LogCategory, bool bForce);
+	void RecordDemoAILog(const struct FString& LogText);
 	void Destroyed();
 	void ReachedIntermediateMoveGoal();
 	void ReachedMoveGoal();
-	void GetDestinationOffset();
-	void GetAICommandInStack();
-	void FindCommandOfClass();
+	float GetDestinationOffset();
+	class UGameAICommand* GetAICommandInStack(class UClass* InClass);
+	class UGameAICommand* FindCommandOfClass(class UClass* SearchClass);
 	void DumpCommandStack();
 	void CheckCommandCount();
-	void GetActiveCommand();
-	void AbortCommand();
-	void PopCommand();
-	void PushCommand();
-	void AllCommands();
+	class UGameAICommand* GetActiveCommand();
+	bool AbortCommand(class UGameAICommand* AbortCmd, class UClass* AbortClass);
+	void PopCommand(class UGameAICommand* ToBePoppedCommand);
+	void PushCommand(class UGameAICommand* NewCommand);
+	void AllCommands(class UClass* BaseClass, class UGameAICommand** Cmd);
 };
 
 
@@ -102,16 +102,16 @@ public:
 class UGameAICommand : public UAICommandBase
 {
 public:
-	class UGameAICommand*                              ChildCommand;                                             // 0x0058(0x0008) (RepNotify, NonTransactional, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       ChildStatus;                                              // 0x0060(0x0008) (RepNotify, NonTransactional, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AGameAIController*                           GameAIOwner;                                              // 0x0068(0x0008) (RepNotify, NonTransactional, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       Status;                                                   // 0x0070(0x0008) (RepNotify, NonTransactional, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	class UGameAICommand*                              ChildCommand;                                             // 0x0058(0x0008) (Edit, Const, Transient, EditInline)
+	struct FName                                       ChildStatus;                                              // 0x0060(0x0008) (Edit, Const, Transient)
+	class AGameAIController*                           GameAIOwner;                                              // 0x0068(0x0008) (Edit, Transient)
+	struct FName                                       Status;                                                   // 0x0070(0x0008) (Edit, Transient)
 	unsigned long                                      bAllowNewSameClassInstance : 1;                           // 0x0078(0x0004)
 	unsigned long                                      bReplaceActiveSameClassInstance : 1;                      // 0x0078(0x0004)
-	unsigned long                                      bAborted : 1;                                             // 0x0078(0x0004)
+	unsigned long                                      bAborted : 1;                                             // 0x0078(0x0004) (Transient)
 	unsigned long                                      bIgnoreNotifies : 1;                                      // 0x0078(0x0004)
 	unsigned long                                      bIgnoreStepAside : 1;                                     // 0x0078(0x0004)
-	unsigned long                                      bPendingPop : 1;                                          // 0x0078(0x0004)
+	unsigned long                                      bPendingPop : 1;                                          // 0x0078(0x0004) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -120,31 +120,31 @@ public:
 	}
 
 
-	void HandlePathObstruction();
-	void MoveUnreachable();
+	bool HandlePathObstruction(class AActor* BlockedBy);
+	bool MoveUnreachable(const struct FVector& AttemptedDest, class AActor* AttemptedTarget);
 	void NotifyNeedRepath();
-	void GetDebugVerboseText();
-	void GetDebugOverheadText();
-	void DrawDebug();
-	void GetDumpString();
-	void Resumed();
-	void Paused();
+	struct FString GetDebugVerboseText();
+	void GetDebugOverheadText(class APlayerController* PC, TArray<struct FString>* OutText);
+	void DrawDebug(class AHUD* H, const struct FName& Category);
+	struct FString GetDumpString();
+	void Resumed(const struct FName& OldCommandName);
+	void Paused(class UGameAICommand* NewCommand);
 	void Popped();
 	void Pushed();
 	void PostPopped();
-	void PrePushed();
-	void AllowStateTransitionTo();
-	void AllowTransitionTo();
-	void Tick();
-	void ShouldIgnoreNotifies();
-	void InternalTick();
-	void InternalResumed();
-	void InternalPaused();
+	void PrePushed(class AGameAIController* AI);
+	bool AllowStateTransitionTo(const struct FName& StateName);
+	bool AllowTransitionTo(class UClass* AttemptCommand);
+	void Tick(float DeltaTime);
+	bool ShouldIgnoreNotifies();
+	void InternalTick(float DeltaTime);
+	void InternalResumed(const struct FName& OldCommandName);
+	void InternalPaused(class UGameAICommand* NewCommand);
 	void InternalPopped();
 	void InternalPushed();
-	void InternalPrePushed();
-	void STATIC_InitCommand();
-	void STATIC_InitCommandUserActor();
+	void InternalPrePushed(class AGameAIController* AI);
+	bool STATIC_InitCommand(class AGameAIController* AI);
+	bool STATIC_InitCommandUserActor(class AGameAIController* AI, class AActor* UserActor);
 };
 
 
@@ -169,10 +169,10 @@ class AGamePlayerController : public APlayerController
 {
 public:
 	unsigned long                                      bWarnCrowdMembers : 1;                                    // 0x0780(0x0004)
-	unsigned long                                      bDebugCrowdAwareness : 1;                                 // 0x0780(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bIsWarmupPaused : 1;                                      // 0x0780(0x0004)
+	unsigned long                                      bDebugCrowdAwareness : 1;                                 // 0x0780(0x0004) (Edit)
+	unsigned long                                      bIsWarmupPaused : 1;                                      // 0x0780(0x0004) (Transient)
 	float                                              AgentAwareRadius;                                         // 0x0784(0x0004)
-	struct FName                                       CurrentSoundMode;                                         // 0x0788(0x0008)
+	struct FName                                       CurrentSoundMode;                                         // 0x0788(0x0008) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -181,21 +181,21 @@ public:
 	}
 
 
-	void ClientColorFade();
-	void WarmupPause();
-	void CanUnpauseWarmup();
-	void GetCurrentMovie();
-	void ClientStopMovie();
-	void ClientPlayMovie();
+	void ClientColorFade(const struct FColor& FadeColor, unsigned char FromAlpha, unsigned char ToAlpha, float FadeTime);
+	void WarmupPause(bool bDesiredPauseState);
+	bool CanUnpauseWarmup();
+	void GetCurrentMovie(struct FString* MovieName);
+	void ClientStopMovie(float DelayInSeconds, bool bAllowMovieToFinish, bool bForceStopNonSkippable, bool bForceStopLoadingMovie);
+	void ClientPlayMovie(const struct FString& MovieName, int InStartOfRenderingMovieFrame, int InEndOfRenderingMovieFrame, bool bRestrictPausing, bool bPlayOnceFromStream, bool bOnlyBackButtonSkipsMovie);
 	void STATIC_KeepPlayingLoadingMovie();
-	void STATIC_ShowLoadingMovie();
-	void SetSoundMode();
-	void DoForceFeedbackForScreenShake();
-	void NotifyCrowdAgentInRadius();
+	void STATIC_ShowLoadingMovie(bool bShowMovie, bool bPauseAfterHide, float PauseDuration, float KeepPlayingDuration, bool bOverridePreviousDelays);
+	void SetSoundMode(const struct FName& InSoundModeName);
+	void DoForceFeedbackForScreenShake(class UCameraShake* ShakeData, float Scale);
+	void NotifyCrowdAgentInRadius(class AGameCrowdAgent* Agent);
 	void NotifyCrowdAgentRefresh();
-	void CrowdDebug();
-	void GetUIPlayerIndex();
-	void OnToggleMouseCursor();
+	void CrowdDebug(bool bEnabled);
+	int GetUIPlayerIndex();
+	void OnToggleMouseCursor(class USeqAct_ToggleMouseCursor* inAction);
 };
 
 
@@ -206,7 +206,7 @@ class UGameCheatManager : public UCheatManager
 public:
 	class ADebugCameraController*                      DebugCameraControllerRef;                                 // 0x0078(0x0008)
 	class UClass*                                      DebugCameraControllerClass;                               // 0x0080(0x0008)
-	struct FString                                     DebugCameraControllerClassName;                           // 0x0088(0x0010)
+	struct FString                                     DebugCameraControllerClassName;                           // 0x0088(0x0010) (Config, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -215,9 +215,9 @@ public:
 	}
 
 
-	void EnableDebugCamera();
-	void TeleportPawnToCamera();
-	void ToggleDebugCamera();
+	void EnableDebugCamera(bool bEnableDebugText);
+	void TeleportPawnToCamera(bool bToggleDebugCameraOff);
+	void ToggleDebugCamera(bool bDrawDebugText);
 	void PatchDebugCameraController();
 };
 
@@ -227,7 +227,7 @@ public:
 class AGameCrowdAgent : public ACrowdAgentBase
 {
 public:
-	struct FPointer                                    VfTable_IInterface_RVO;                                   // 0x027C(0x0008)
+	struct FPointer                                    VfTable_IInterface_RVO;                                   // 0x027C(0x0008) (Const, Native, NoExport)
 	class UGameCrowdGroup*                             MyGroup;                                                  // 0x0284(0x0008)
 	struct FVector                                     PreferredVelocity;                                        // 0x028C(0x000C)
 	struct FVector                                     PendingVelocity;                                          // 0x0298(0x000C)
@@ -235,54 +235,54 @@ public:
 	class AGameCrowdDestination*                       BehaviorDestination;                                      // 0x02AC(0x0008)
 	class AGameCrowdDestination*                       PreviousDestination;                                      // 0x02B4(0x0008)
 	float                                              InterpZTranslation;                                       // 0x02BC(0x0004)
-	int                                                Health;                                                   // 0x02C0(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DeadBodyDuration;                                         // 0x02C4(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x02C8(0x0008)
-	int                                                ConformTraceFrameCount;                                   // 0x02D0(0x0004)
-	TArray<struct FNearbyDynamicItem>                  NearbyDynamics;                                           // 0x02D4(0x0010)
+	int                                                Health;                                                   // 0x02C0(0x0004) (Edit)
+	float                                              DeadBodyDuration;                                         // 0x02C4(0x0004) (Edit)
+	class UDynamicLightEnvironmentComponent*           LightEnvironment;                                         // 0x02C8(0x0008) (Const, ExportObject, EditConst, Component, EditInline)
+	int                                                ConformTraceFrameCount;                                   // 0x02D0(0x0004) (Transient)
+	TArray<struct FNearbyDynamicItem>                  NearbyDynamics;                                           // 0x02D4(0x0010) (Transient, NeedCtorLink)
 	unsigned long                                      bUniformScale : 1;                                        // 0x02E4(0x0004)
-	unsigned long                                      bCheckForObstacles : 1;                                   // 0x02E4(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	unsigned long                                      bUseNavMeshPathing : 1;                                   // 0x02E4(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	unsigned long                                      bCheckForObstacles : 1;                                   // 0x02E4(0x0004) (Edit)
+	unsigned long                                      bUseNavMeshPathing : 1;                                   // 0x02E4(0x0004) (Edit)
 	unsigned long                                      bWantsSeePlayerNotification : 1;                          // 0x02E4(0x0004)
-	unsigned long                                      bAllowPitching : 1;                                       // 0x02E4(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
+	unsigned long                                      bAllowPitching : 1;                                       // 0x02E4(0x0004) (Edit)
 	unsigned long                                      bHitObstacle : 1;                                         // 0x02E4(0x0004)
 	unsigned long                                      bBadHitNormal : 1;                                        // 0x02E4(0x0004)
 	unsigned long                                      bSimulateThisTick : 1;                                    // 0x02E4(0x0004)
 	unsigned long                                      bPotentialEncounter : 1;                                  // 0x02E4(0x0004)
 	unsigned long                                      bIsPanicked : 1;                                          // 0x02E4(0x0004)
 	unsigned long                                      bWantsGroupIdle : 1;                                      // 0x02E4(0x0004)
-	unsigned long                                      bPreferVisibleDestination : 1;                            // 0x02E4(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bPreferVisibleDestinationOnSpawn : 1;                     // 0x02E4(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bPreferVisibleDestination : 1;                            // 0x02E4(0x0004) (Edit)
+	unsigned long                                      bPreferVisibleDestinationOnSpawn : 1;                     // 0x02E4(0x0004) (Edit)
 	unsigned long                                      bHasNotifiedSpawner : 1;                                  // 0x02E4(0x0004)
 	unsigned long                                      bIsInSpawnPool : 1;                                       // 0x02E4(0x0004)
-	unsigned long                                      bPaused : 1;                                              // 0x02E4(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	TEnumAsByte<EConformType>                          ConformType;                                              // 0x02E8(0x0001) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
+	unsigned long                                      bPaused : 1;                                              // 0x02E4(0x0004) (Edit)
+	TEnumAsByte<EConformType>                          ConformType;                                              // 0x02E8(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x02E9(0x0003) MISSED OFFSET
-	float                                              ConformTraceDist;                                         // 0x02EC(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
-	int                                                ConformTraceInterval;                                     // 0x02F0(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
+	float                                              ConformTraceDist;                                         // 0x02EC(0x0004) (Edit)
+	int                                                ConformTraceInterval;                                     // 0x02F0(0x0004) (Edit)
 	int                                                CurrentConformTraceInterval;                              // 0x02F4(0x0004)
 	float                                              LastGroundZ;                                              // 0x02F8(0x0004)
-	float                                              AwareRadius;                                              // 0x02FC(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              AvoidOtherRadius;                                         // 0x0300(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TArray<struct FAvoidOtherSampleItem>               AvoidOtherSampleList;                                     // 0x0304(0x0010) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              PENALTY_COEFF_ANGLETOGOAL;                                // 0x0314(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              PENALTY_COEFF_ANGLETOVEL;                                 // 0x0318(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              PENALTY_COEFF_MAG;                                        // 0x031C(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              MIN_PENALTY_THRESHOLD;                                    // 0x0320(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              LastProgressTime;                                         // 0x0324(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              LastFallbackActiveTime;                                   // 0x0328(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              MaxPathLaneValue;                                         // 0x032C(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              CurrentPathLaneValue;                                     // 0x0330(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	int                                                ExtraPathCost;                                            // 0x0334(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              RotateToTargetSpeed;                                      // 0x0338(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
-	float                                              MaxYawRate;                                               // 0x033C(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
-	struct FVector                                     MeshMinScale3D;                                           // 0x0340(0x000C) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     MeshMaxScale3D;                                           // 0x034C(0x000C) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              AwareRadius;                                              // 0x02FC(0x0004) (Edit)
+	float                                              AvoidOtherRadius;                                         // 0x0300(0x0004) (Edit)
+	TArray<struct FAvoidOtherSampleItem>               AvoidOtherSampleList;                                     // 0x0304(0x0010) (Edit, NeedCtorLink)
+	float                                              PENALTY_COEFF_ANGLETOGOAL;                                // 0x0314(0x0004) (Edit)
+	float                                              PENALTY_COEFF_ANGLETOVEL;                                 // 0x0318(0x0004) (Edit)
+	float                                              PENALTY_COEFF_MAG;                                        // 0x031C(0x0004) (Edit)
+	float                                              MIN_PENALTY_THRESHOLD;                                    // 0x0320(0x0004) (Edit)
+	float                                              LastProgressTime;                                         // 0x0324(0x0004) (Edit)
+	float                                              LastFallbackActiveTime;                                   // 0x0328(0x0004) (Edit)
+	float                                              MaxPathLaneValue;                                         // 0x032C(0x0004) (Edit)
+	float                                              CurrentPathLaneValue;                                     // 0x0330(0x0004) (Edit)
+	int                                                ExtraPathCost;                                            // 0x0334(0x0004) (Edit)
+	float                                              RotateToTargetSpeed;                                      // 0x0338(0x0004) (Edit)
+	float                                              MaxYawRate;                                               // 0x033C(0x0004) (Edit)
+	struct FVector                                     MeshMinScale3D;                                           // 0x0340(0x000C) (Edit)
+	struct FVector                                     MeshMaxScale3D;                                           // 0x034C(0x000C) (Edit)
 	float                                              EyeZOffset;                                               // 0x0358(0x0004)
-	float                                              ProximityLODDist;                                         // 0x035C(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              VisibleProximityLODDist;                                  // 0x0360(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              ProximityLODDist;                                         // 0x035C(0x0004) (Edit)
+	float                                              VisibleProximityLODDist;                                  // 0x0360(0x0004) (Edit)
 	struct FVector                                     LastKnownGoodPosition;                                    // 0x0364(0x000C)
-	float                                              GroundOffset;                                             // 0x0370(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              GroundOffset;                                             // 0x0370(0x0004) (Edit)
 	struct FVector                                     IntermediatePoint;                                        // 0x0374(0x000C)
 	struct FVector                                     SearchExtent;                                             // 0x0380(0x000C)
 	class UClass*                                      NavigationHandleClass;                                    // 0x038C(0x0008)
@@ -291,42 +291,42 @@ public:
 	float                                              WalkableFloorZ;                                           // 0x03A0(0x0004)
 	float                                              LastPathingAttempt;                                       // 0x03A4(0x0004)
 	float                                              LastUpdateTime;                                           // 0x03A8(0x0004)
-	float                                              NotVisibleLifeSpan;                                       // 0x03AC(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              NotVisibleLifeSpan;                                       // 0x03AC(0x0004) (Edit)
 	class AGameCrowdAgent*                             MyArchetype;                                              // 0x03B0(0x0008)
-	float                                              MaxWalkingSpeed;                                          // 0x03B8(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
-	float                                              MaxRunningSpeed;                                          // 0x03BC(0x0004) (RepNotify, NonTransactional, EditorOnly, EditHide, EditTextBox, CrossLevelActive)
+	float                                              MaxWalkingSpeed;                                          // 0x03B8(0x0004) (Edit)
+	float                                              MaxRunningSpeed;                                          // 0x03BC(0x0004) (Edit)
 	float                                              MaxSpeed;                                                 // 0x03C0(0x0004)
-	TArray<struct FRecentInteraction>                  RecentInteractions;                                       // 0x03C4(0x0010)
+	TArray<struct FRecentInteraction>                  RecentInteractions;                                       // 0x03C4(0x0010) (NeedCtorLink)
 	float                                              BeaconMaxDist;                                            // 0x03D4(0x0004)
 	struct FVector                                     BeaconOffset;                                             // 0x03D8(0x000C)
-	class UTexture2D*                                  BeaconTexture;                                            // 0x03E4(0x0008)
-	struct FLinearColor                                BeaconColor;                                              // 0x03EC(0x0010)
-	class USoundCue*                                   AmbientSoundCue;                                          // 0x03FC(0x0008) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UAudioComponent*                             AmbientSoundComponent;                                    // 0x0404(0x0008)
+	class UTexture2D*                                  BeaconTexture;                                            // 0x03E4(0x0008) (Const)
+	struct FLinearColor                                BeaconColor;                                              // 0x03EC(0x0010) (Const)
+	class USoundCue*                                   AmbientSoundCue;                                          // 0x03FC(0x0008) (Edit)
+	class UAudioComponent*                             AmbientSoundComponent;                                    // 0x0404(0x0008) (ExportObject, Component, EditInline)
 	class UGameCrowdAgentBehavior*                     CurrentBehavior;                                          // 0x040C(0x0008)
 	float                                              CurrentBehaviorActivationTime;                            // 0x0414(0x0004)
-	TArray<struct FBehaviorEntry>                      EncounterAgentBehaviors;                                  // 0x0418(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      SeePlayerBehaviors;                                       // 0x0428(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	TArray<struct FBehaviorEntry>                      EncounterAgentBehaviors;                                  // 0x0418(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      SeePlayerBehaviors;                                       // 0x0428(0x0010) (Edit, NeedCtorLink)
 	float                                              MaxSeePlayerDistSq;                                       // 0x0438(0x0004)
-	float                                              SeePlayerInterval;                                        // 0x043C(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      SpawnBehaviors;                                           // 0x0440(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      UneasyBehaviors;                                          // 0x0450(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      AlertBehaviors;                                           // 0x0460(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      PanicBehaviors;                                           // 0x0470(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      RandomBehaviors;                                          // 0x0480(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      TakeDamageBehaviors;                                      // 0x0490(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              RandomBehaviorInterval;                                   // 0x04A0(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	float                                              SeePlayerInterval;                                        // 0x043C(0x0004) (Edit)
+	TArray<struct FBehaviorEntry>                      SpawnBehaviors;                                           // 0x0440(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      UneasyBehaviors;                                          // 0x0450(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      AlertBehaviors;                                           // 0x0460(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      PanicBehaviors;                                           // 0x0470(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      RandomBehaviors;                                          // 0x0480(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FBehaviorEntry>                      TakeDamageBehaviors;                                      // 0x0490(0x0010) (Edit, NeedCtorLink)
+	float                                              RandomBehaviorInterval;                                   // 0x04A0(0x0004) (Edit)
 	float                                              ForceUpdateTime;                                          // 0x04A4(0x0004)
 	float                                              ReachThreshold;                                           // 0x04A8(0x0004)
-	TArray<struct FBehaviorEntry>                      GroupWaitingBehaviors;                                    // 0x04AC(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              DesiredGroupRadius;                                       // 0x04BC(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	TArray<struct FBehaviorEntry>                      GroupWaitingBehaviors;                                    // 0x04AC(0x0010) (Edit, NeedCtorLink)
+	float                                              DesiredGroupRadius;                                       // 0x04BC(0x0004) (Edit)
 	float                                              DesiredGroupRadiusSq;                                     // 0x04C0(0x0004)
 	float                                              MaxLOSLifeDistanceSq;                                     // 0x04C4(0x0004)
 	TScriptInterface<class UGameCrowdSpawnerInterface> MySpawner;                                                // 0x04C8(0x0010)
 	struct FVector                                     SpawnOffset;                                              // 0x04D8(0x000C)
 	float                                              InitialLastRenderTime;                                    // 0x04E4(0x0004)
-	struct FColor                                      DebugAgentColor;                                          // 0x04E8(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	class AGameCrowdDestination*                       DebugSpawnDest;                                           // 0x04EC(0x0008) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
+	struct FColor                                      DebugAgentColor;                                          // 0x04E8(0x0004) (Edit)
+	class AGameCrowdDestination*                       DebugSpawnDest;                                           // 0x04EC(0x0008) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -336,47 +336,47 @@ public:
 
 
 	void InitDebugColor();
-	void GetBehaviorString();
-	void GetDestString();
-	void PostRenderFor();
-	void NativePostRenderFor();
-	void GeneratePathToActor();
+	struct FString GetBehaviorString();
+	struct FString GetDestString();
+	void PostRenderFor(class APlayerController* PC, class UCanvas* Canvas, const struct FVector& CameraPosition, const struct FVector& CameraDir);
+	void NativePostRenderFor(class APlayerController* PC, class UCanvas* Canvas, const struct FVector& CameraPosition, const struct FVector& CameraDir);
+	struct FVector GeneratePathToActor(class AActor* Goal, float WithinDistance, bool bAllowPartialPath);
 	void InitNavigationHandle();
-	void OverlappedActorEvent();
-	void TakeDamage();
+	void OverlappedActorEvent(class AActor* A);
+	void TakeDamage(int DamageAmount, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& HitInfo, class AActor* DamageCauser);
 	void FireDeathEvent();
-	void PlayDeath();
-	void UpdateIntermediatePoint();
-	void CalcCamera();
-	void IsIdle();
-	void SetCurrentBehavior();
+	void PlayDeath(const struct FVector& KillMomentum);
+	void UpdateIntermediatePoint(class AActor* DestinationActor);
+	bool CalcCamera(float fDeltaTime, struct FVector* out_CamLoc, struct FRotator* out_CamRot, float* out_FOV);
+	bool IsIdle();
+	void SetCurrentBehavior(class UGameCrowdAgentBehavior* BehaviorArchetype);
 	void StopBehavior();
-	void HandleBehaviorEvent();
-	void ActivateInstancedBehavior();
-	void ActivateBehavior();
+	void HandleBehaviorEvent(TEnumAsByte<ECrowdBehaviorEvent> EventType, class AActor* InInstigator, bool bViralCause, bool bPropagateViralFlag);
+	void ActivateInstancedBehavior(class UGameCrowdAgentBehavior* NewBehaviorObject);
+	void ActivateBehavior(class UGameCrowdAgentBehavior* NewBehaviorArchetype, class AActor* LookAtActor);
 	void ResetSeePlayer();
 	void TryRandomBehavior();
-	void NotifySeePlayer();
+	void NotifySeePlayer(class APlayerController* PC);
 	void PlaySpawnBehavior();
 	void HandlePotentialAgentEncounter();
 	void StopIdleAnimation();
 	void PlayIdleAnimation();
-	void OnPlayAgentAnimation();
-	void InitializeAgent();
-	void GetAttemptedSpawnLocation();
-	void SetLighting();
-	void DisplayDebug();
+	void OnPlayAgentAnimation(class USeqAct_PlayAgentAnimation* Action);
+	void InitializeAgent(class AActor* SpawnLoc, class AGameCrowdAgent* AgentTemplate, class UGameCrowdGroup* NewGroup, float AgentWarmupTime, bool bWarmupPosition, bool bCheckWarmupVisibility, TArray<struct FCrowdSpawnerPlayerInfo>* PlayerInfo);
+	struct FVector GetAttemptedSpawnLocation(float Pct, const struct FVector& CurPos, float CurRadius, const struct FVector& DestPos, float DestRadius);
+	void SetLighting(bool bEnableLightEnvironment, const struct FLightingChannelContainer& AgentLightingChannel, bool bCastShadows);
+	void DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos);
 	void Destroyed();
 	void ResetPooledAgent();
 	void KillAgent();
 	void PostBeginPlay();
 	void SetMaxSpeed();
-	void SetCurrentDestination();
+	void SetCurrentDestination(class AGameCrowdDestination* NewDest);
 	void WaitForGroupMembers();
-	void PickBehaviorFrom();
-	void IsPanicked();
-	void FellOutOfWorld();
-	void GetCollisionExtent();
+	bool PickBehaviorFrom(TArray<struct FBehaviorEntry> BehaviorList, const struct FVector& BestCameraLoc);
+	bool IsPanicked();
+	void FellOutOfWorld(class UClass* dmgType);
+	struct FVector GetCollisionExtent();
 };
 
 
@@ -385,33 +385,33 @@ public:
 class AGameCrowdAgentSkeletal : public AGameCrowdAgent
 {
 public:
-	class USkeletalMeshComponent*                      SkeletalMeshComponent;                                    // 0x04F4(0x0008) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	class USkeletalMeshComponent*                      SkeletalMeshComponent;                                    // 0x04F4(0x0008) (Edit, ExportObject, Component, EditInline)
 	class UAnimNodeBlend*                              SpeedBlendNode;                                           // 0x04FC(0x0008)
 	class UAnimNodeSlot*                               FullBodySlot;                                             // 0x0504(0x0008)
 	class UAnimNodeSequence*                           ActionSeqNode;                                            // 0x050C(0x0008)
 	class UAnimNodeSequence*                           WalkSeqNode;                                              // 0x0514(0x0008)
 	class UAnimNodeSequence*                           RunSeqNode;                                               // 0x051C(0x0008)
 	class UAnimTree*                                   AgentTree;                                                // 0x0524(0x0008)
-	TArray<struct FName>                               WalkAnimNames;                                            // 0x052C(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FName>                               RunAnimNames;                                             // 0x053C(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FName>                               IdleAnimNames;                                            // 0x054C(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FName>                               DeathAnimNames;                                           // 0x055C(0x0010) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              SpeedBlendStart;                                          // 0x056C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              SpeedBlendEnd;                                            // 0x0570(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              AnimVelRate;                                              // 0x0574(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              MaxSpeedBlendChangeSpeed;                                 // 0x0578(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FName                                       MoveSyncGroupName;                                        // 0x057C(0x0008) (RepNotify, Interp, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	TArray<struct FGameCrowdAttachmentList>            Attachments;                                              // 0x0584(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxTargetAcquireTime;                                     // 0x0594(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	unsigned long                                      bUseRootMotionVelocity : 1;                               // 0x0598(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowSkeletonUpdateChangeBasedOnTickResult : 1;          // 0x0598(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bTickWhenNotVisible : 1;                                  // 0x0598(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
+	TArray<struct FName>                               WalkAnimNames;                                            // 0x052C(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FName>                               RunAnimNames;                                             // 0x053C(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FName>                               IdleAnimNames;                                            // 0x054C(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FName>                               DeathAnimNames;                                           // 0x055C(0x0010) (Edit, NeedCtorLink)
+	float                                              SpeedBlendStart;                                          // 0x056C(0x0004) (Edit)
+	float                                              SpeedBlendEnd;                                            // 0x0570(0x0004) (Edit)
+	float                                              AnimVelRate;                                              // 0x0574(0x0004) (Edit)
+	float                                              MaxSpeedBlendChangeSpeed;                                 // 0x0578(0x0004) (Edit)
+	struct FName                                       MoveSyncGroupName;                                        // 0x057C(0x0008) (Edit)
+	TArray<struct FGameCrowdAttachmentList>            Attachments;                                              // 0x0584(0x0010) (Edit, NeedCtorLink)
+	float                                              MaxTargetAcquireTime;                                     // 0x0594(0x0004) (Edit)
+	unsigned long                                      bUseRootMotionVelocity : 1;                               // 0x0598(0x0004) (Edit)
+	unsigned long                                      bAllowSkeletonUpdateChangeBasedOnTickResult : 1;          // 0x0598(0x0004) (Edit)
+	unsigned long                                      bTickWhenNotVisible : 1;                                  // 0x0598(0x0004) (Edit)
 	unsigned long                                      bIsPlayingIdleAnimation : 1;                              // 0x0598(0x0004)
 	unsigned long                                      bIsPlayingDeathAnimation : 1;                             // 0x0598(0x0004)
 	unsigned long                                      bIsPlayingImportantAnimation : 1;                         // 0x0598(0x0004)
 	unsigned long                                      bAnimateThisTick : 1;                                     // 0x0598(0x0004)
-	float                                              NotVisibleDisableTickTime;                                // 0x059C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	float                                              MaxAnimationDistance;                                     // 0x05A0(0x0004) (Interp, EditorOnly, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              NotVisibleDisableTickTime;                                // 0x059C(0x0004) (Edit)
+	float                                              MaxAnimationDistance;                                     // 0x05A0(0x0004) (Edit)
 	float                                              MaxAnimationDistanceSq;                                   // 0x05A4(0x0004)
 
 	static UClass* StaticClass()
@@ -422,14 +422,14 @@ public:
 
 
 	void CreateAttachments();
-	void OnAnimEnd();
+	void OnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void StopIdleAnimation();
 	void PlayIdleAnimation();
 	void ClearLatentAnimation();
-	void OnPlayAgentAnimation();
-	void SetRootMotion();
-	void PlayDeath();
-	void SetLighting();
+	void OnPlayAgentAnimation(class USeqAct_PlayAgentAnimation* Action);
+	void SetRootMotion(bool bRootMotionEnabled);
+	void PlayDeath(const struct FVector& KillMomentum);
+	void SetLighting(bool bEnableLightEnvironment, const struct FLightingChannelContainer& AgentLightingChannel, bool bCastShadows);
 	void PostBeginPlay();
 };
 
@@ -439,8 +439,8 @@ public:
 class AGameCrowdAgentSM : public AGameCrowdAgent
 {
 public:
-	class UStaticMeshComponent*                        Mesh;                                                     // 0x04F4(0x0008) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UMaterialInstanceConstant*                   MeshColor;                                                // 0x04FC(0x0008) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	class UStaticMeshComponent*                        Mesh;                                                     // 0x04F4(0x0008) (Edit, ExportObject, Component, EditInline)
+	class UMaterialInstanceConstant*                   MeshColor;                                                // 0x04FC(0x0008) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -450,8 +450,8 @@ public:
 
 
 	void StopBehavior();
-	void ActivateBehavior();
-	void ChangeDebugColor();
+	void ActivateBehavior(class UGameCrowdAgentBehavior* NewBehaviorArchetype, class AActor* LookAtActor);
+	void ChangeDebugColor(const struct FColor& InC);
 	void InitDebugColor();
 	void PostBeginPlay();
 };
@@ -463,23 +463,23 @@ class UGameCrowdAgentBehavior : public UObject
 {
 public:
 	TEnumAsByte<ECrowdBehaviorEvent>                   MyEventType;                                              // 0x0058(0x0001)
-	TEnumAsByte<ECrowdBehaviorEvent>                   ViralBehaviorEvent;                                       // 0x0059(0x0001) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ECrowdBehaviorEvent>                   ViralBehaviorEvent;                                       // 0x0059(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x005A(0x0002) MISSED OFFSET
-	float                                              DurationOfBehavior;                                       // 0x005C(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              DurationOfBehavior;                                       // 0x005C(0x0004) (Edit)
 	float                                              TimeUntilStopBehavior;                                    // 0x0060(0x0004)
-	unsigned long                                      bIdleBehavior : 1;                                        // 0x0064(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFaceActionTargetFirst : 1;                               // 0x0064(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIsViralBehavior : 1;                                     // 0x0064(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bPassOnIsViralBehaviorFlag : 1;                           // 0x0064(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bIdleBehavior : 1;                                        // 0x0064(0x0004) (Edit)
+	unsigned long                                      bFaceActionTargetFirst : 1;                               // 0x0064(0x0004) (Edit)
+	unsigned long                                      bIsViralBehavior : 1;                                     // 0x0064(0x0004) (Edit)
+	unsigned long                                      bPassOnIsViralBehaviorFlag : 1;                           // 0x0064(0x0004) (Edit)
 	class AActor*                                      ActionTarget;                                             // 0x0068(0x0008)
-	float                                              MaxPlayerDistance;                                        // 0x0070(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ViralRadius;                                              // 0x0074(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DurationBeforeBecomesViral;                               // 0x0078(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              TimeToBecomeViral;                                        // 0x007C(0x0004)
-	float                                              DurationOfViralBehaviorPropagation;                       // 0x0080(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              TimeToStopPropagatingViralBehavior;                       // 0x0084(0x0004)
+	float                                              MaxPlayerDistance;                                        // 0x0070(0x0004) (Edit)
+	float                                              ViralRadius;                                              // 0x0074(0x0004) (Edit)
+	float                                              DurationBeforeBecomesViral;                               // 0x0078(0x0004) (Edit)
+	float                                              TimeToBecomeViral;                                        // 0x007C(0x0004) (Transient)
+	float                                              DurationOfViralBehaviorPropagation;                       // 0x0080(0x0004) (Edit)
+	float                                              TimeToStopPropagatingViralBehavior;                       // 0x0084(0x0004) (Transient)
 	class AGameCrowdAgent*                             MyAgent;                                                  // 0x0088(0x0008)
-	struct FColor                                      DebugBehaviorColor;                                       // 0x0090(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
+	struct FColor                                      DebugBehaviorColor;                                       // 0x0090(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -488,23 +488,23 @@ public:
 	}
 
 
-	void AllowBehaviorAt();
-	void AllowThisDestination();
-	void PropagateViralBehaviorTo();
-	void GetBehaviorInstigator();
-	void ActivatedBy();
-	void GetDestinationActor();
-	void ChangingDestination();
-	void GetBehaviorString();
-	void OnAnimEnd();
+	bool AllowBehaviorAt(class AGameCrowdDestination* Destination);
+	bool AllowThisDestination(class AGameCrowdDestination* Destination);
+	void PropagateViralBehaviorTo(class AGameCrowdAgent* OtherAgent);
+	class AActor* GetBehaviorInstigator();
+	void ActivatedBy(class AActor* NewActionTarget);
+	class AActor* GetDestinationActor();
+	void ChangingDestination(class AGameCrowdDestination* NewDest);
+	struct FString GetBehaviorString();
+	void OnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void StopBehavior();
-	void InitBehavior();
-	void HandleMovement();
+	void InitBehavior(class AGameCrowdAgent* Agent);
+	bool HandleMovement();
 	void FinishedTargetRotation();
-	void CanBeUsedBy();
-	void Tick();
-	void ShouldEndIdle();
-	void STATIC_TriggerCrowdBehavior();
+	bool CanBeUsedBy(class AGameCrowdAgent* Agent, const struct FVector& CameraLoc);
+	void Tick(float DeltaTime);
+	bool ShouldEndIdle();
+	class AGameCrowdBehaviorPoint* STATIC_TriggerCrowdBehavior(TEnumAsByte<ECrowdBehaviorEvent> EventType, class AActor* Instigator, const struct FVector& AtLocation, float InRange, float InDuration, class AActor* BaseActor, bool bRequireLOS);
 };
 
 
@@ -513,16 +513,16 @@ public:
 class UGameCrowdBehavior_PlayAnimation : public UGameCrowdAgentBehavior
 {
 public:
-	TArray<struct FName>                               AnimationList;                                            // 0x0094(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendInTime;                                              // 0x00A4(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendOutTime;                                             // 0x00A8(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseRootMotion : 1;                                       // 0x00AC(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLookAtPlayer : 1;                                        // 0x00AC(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLooping : 1;                                             // 0x00AC(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bBlendBetweenAnims : 1;                                   // 0x00AC(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FName>                               AnimationList;                                            // 0x0094(0x0010) (Edit, NeedCtorLink)
+	float                                              BlendInTime;                                              // 0x00A4(0x0004) (Edit)
+	float                                              BlendOutTime;                                             // 0x00A8(0x0004) (Edit)
+	unsigned long                                      bUseRootMotion : 1;                                       // 0x00AC(0x0004) (Edit)
+	unsigned long                                      bLookAtPlayer : 1;                                        // 0x00AC(0x0004) (Edit)
+	unsigned long                                      bLooping : 1;                                             // 0x00AC(0x0004) (Edit)
+	unsigned long                                      bBlendBetweenAnims : 1;                                   // 0x00AC(0x0004) (Edit)
 	class AActor*                                      CustomActionTarget;                                       // 0x00B0(0x0008)
-	int                                                LoopIndex;                                                // 0x00B8(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              LoopTime;                                                 // 0x00BC(0x0004) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                LoopIndex;                                                // 0x00B8(0x0004) (Edit)
+	float                                              LoopTime;                                                 // 0x00BC(0x0004) (Edit)
 	class USeqAct_PlayAgentAnimation*                  AnimSequence;                                             // 0x00C0(0x0008)
 	int                                                AnimationIndex;                                           // 0x00C8(0x0004)
 
@@ -533,13 +533,13 @@ public:
 	}
 
 
-	void GetBehaviorString();
+	struct FString GetBehaviorString();
 	void StopBehavior();
 	void PlayAgentAnimationNow();
-	void OnAnimEnd();
+	void OnAnimEnd(class UAnimNodeSequence* SeqNode, float PlayedTime, float ExcessTime);
 	void SetSequenceOutput();
 	void FinishedTargetRotation();
-	void InitBehavior();
+	void InitBehavior(class AGameCrowdAgent* Agent);
 };
 
 
@@ -548,7 +548,7 @@ public:
 class UGameCrowdBehavior_RunFromPanic : public UGameCrowdAgentBehavior
 {
 public:
-	class AActor*                                      PanicFocus;                                               // 0x0094(0x0008)
+	class AActor*                                      PanicFocus;                                               // 0x0094(0x0008) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -557,13 +557,13 @@ public:
 	}
 
 
-	void GetBehaviorString();
-	void AllowBehaviorAt();
-	void AllowThisDestination();
-	void GetBehaviorInstigator();
+	struct FString GetBehaviorString();
+	bool AllowBehaviorAt(class AGameCrowdDestination* Destination);
+	bool AllowThisDestination(class AGameCrowdDestination* Destination);
+	class AActor* GetBehaviorInstigator();
 	void StopBehavior();
-	void InitBehavior();
-	void ActivatedBy();
+	void InitBehavior(class AGameCrowdAgent* Agent);
+	void ActivatedBy(class AActor* NewActionTarget);
 };
 
 
@@ -581,9 +581,9 @@ public:
 
 
 	void StopBehavior();
-	void ShouldEndIdle();
-	void GetBehaviorString();
-	void InitBehavior();
+	bool ShouldEndIdle();
+	struct FString GetBehaviorString();
+	void InitBehavior(class AGameCrowdAgent* Agent);
 };
 
 
@@ -603,11 +603,11 @@ public:
 
 
 	void StopBehavior();
-	void ShouldEndIdle();
-	void GetBehaviorString();
-	void GetDestinationActor();
-	void ChangingDestination();
-	void HandleMovement();
+	bool ShouldEndIdle();
+	struct FString GetBehaviorString();
+	class AActor* GetDestinationActor();
+	void ChangingDestination(class AGameCrowdDestination* NewDest);
+	bool HandleMovement();
 };
 
 
@@ -616,7 +616,7 @@ public:
 class UGameCrowdGroup : public UObject
 {
 public:
-	TArray<class AGameCrowdAgent*>                     Members;                                                  // 0x0058(0x0010)
+	TArray<class AGameCrowdAgent*>                     Members;                                                  // 0x0058(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -625,9 +625,9 @@ public:
 	}
 
 
-	void UpdateDestinations();
-	void RemoveMember();
-	void AddMember();
+	void UpdateDestinations(class AGameCrowdDestination* NewDestination);
+	void RemoveMember(class AGameCrowdAgent* Agent);
+	void AddMember(class AGameCrowdAgent* Agent);
 };
 
 
@@ -636,7 +636,7 @@ public:
 class AGameCrowdInfoVolume : public AVolume
 {
 public:
-	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x02B0(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x02B0(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -645,8 +645,8 @@ public:
 	}
 
 
-	void UnTouch();
-	void Touch();
+	void UnTouch(class AActor* Other);
+	void Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 };
 
 
@@ -655,8 +655,8 @@ public:
 class AGameCrowdInteractionPoint : public AActor
 {
 public:
-	unsigned long                                      bIsEnabled : 1;                                           // 0x0274(0x0004) (GlobalConfig, AlwaysInit, RepNotify, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCylinderComponent*                          CylinderComponent;                                        // 0x0278(0x0008) (RepNotify, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bIsEnabled : 1;                                           // 0x0274(0x0004) (Edit, Net)
+	class UCylinderComponent*                          CylinderComponent;                                        // 0x0278(0x0008) (Edit, ExportObject, Component, EditInline)
 
 	static UClass* StaticClass()
 	{
@@ -665,7 +665,7 @@ public:
 	}
 
 
-	void OnToggle();
+	void OnToggle(class USeqAct_Toggle* Action);
 };
 
 
@@ -674,11 +674,11 @@ public:
 class AGameCrowdBehaviorPoint : public AGameCrowdInteractionPoint
 {
 public:
-	float                                              RadiusOfBehaviorEvent;                                    // 0x0280(0x0004)
-	float                                              DurationOfBehaviorEvent;                                  // 0x0284(0x0004)
-	TEnumAsByte<ECrowdBehaviorEvent>                   EventType;                                                // 0x0288(0x0001) (RepNotify, Interp, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              RadiusOfBehaviorEvent;                                    // 0x0280(0x0004) (Config)
+	float                                              DurationOfBehaviorEvent;                                  // 0x0284(0x0004) (Config)
+	TEnumAsByte<ECrowdBehaviorEvent>                   EventType;                                                // 0x0288(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0289(0x0003) MISSED OFFSET
-	unsigned long                                      bRequireLOS : 1;                                          // 0x028C(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bRequireLOS : 1;                                          // 0x028C(0x0004) (Edit)
 	class AActor*                                      Initiator;                                                // 0x0290(0x0008)
 
 	static UClass* StaticClass()
@@ -688,7 +688,7 @@ public:
 	}
 
 
-	void Touch();
+	void Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal);
 	void DestroySelf();
 	void PostBeginPlay();
 };
@@ -699,43 +699,43 @@ public:
 class AGameCrowdDestination : public AGameCrowdInteractionPoint
 {
 public:
-	struct FPointer                                    VfTable_IEditorLinkSelectionInterface;                    // 0x0280(0x0008)
-	unsigned long                                      bKillWhenReached : 1;                                     // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowAsPreviousDestination : 1;                          // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAvoidWhenPanicked : 1;                                   // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSkipBehaviorIfPanicked : 1;                              // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFleeDestination : 1;                                     // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bMustReachExactly : 1;                                    // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FPointer                                    VfTable_IEditorLinkSelectionInterface;                    // 0x0280(0x0008) (Const, Native, NoExport)
+	unsigned long                                      bKillWhenReached : 1;                                     // 0x0288(0x0004) (Edit)
+	unsigned long                                      bAllowAsPreviousDestination : 1;                          // 0x0288(0x0004) (Edit)
+	unsigned long                                      bAvoidWhenPanicked : 1;                                   // 0x0288(0x0004) (Edit)
+	unsigned long                                      bSkipBehaviorIfPanicked : 1;                              // 0x0288(0x0004) (Edit)
+	unsigned long                                      bFleeDestination : 1;                                     // 0x0288(0x0004) (Edit)
+	unsigned long                                      bMustReachExactly : 1;                                    // 0x0288(0x0004) (Edit)
 	unsigned long                                      bHasRestrictions : 1;                                     // 0x0288(0x0004)
-	unsigned long                                      bAllowsSpawning : 1;                                      // 0x0288(0x0004) (Interp, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bAllowCloudSpawning : 1;                                  // 0x0288(0x0004) (Interp, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bAllowVisibleSpawning : 1;                                // 0x0288(0x0004) (Interp, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bLineSpawner : 1;                                         // 0x0288(0x0004) (Interp, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bSpawnAtEdge : 1;                                         // 0x0288(0x0004) (Interp, NotForConsole, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bSoftPerimeter : 1;                                       // 0x0288(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bAllowsSpawning : 1;                                      // 0x0288(0x0004) (Edit)
+	unsigned long                                      bAllowCloudSpawning : 1;                                  // 0x0288(0x0004) (Edit)
+	unsigned long                                      bAllowVisibleSpawning : 1;                                // 0x0288(0x0004) (Edit)
+	unsigned long                                      bLineSpawner : 1;                                         // 0x0288(0x0004) (Edit)
+	unsigned long                                      bSpawnAtEdge : 1;                                         // 0x0288(0x0004) (Edit)
+	unsigned long                                      bSoftPerimeter : 1;                                       // 0x0288(0x0004) (Edit)
 	unsigned long                                      bIsVisible : 1;                                           // 0x0288(0x0004)
 	unsigned long                                      bWillBeVisible : 1;                                       // 0x0288(0x0004)
 	unsigned long                                      bCanSpawnHereNow : 1;                                     // 0x0288(0x0004)
 	unsigned long                                      bIsBeyondSpawnDistance : 1;                               // 0x0288(0x0004)
 	unsigned long                                      bAdjacentToVisibleNode : 1;                               // 0x0288(0x0004)
 	unsigned long                                      bHasNavigationMesh : 1;                                   // 0x0288(0x0004)
-	TArray<class AGameCrowdDestination*>               NextDestinations;                                         // 0x028C(0x0010) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AGameCrowdDestinationQueuePoint*             QueueHead;                                                // 0x029C(0x0008) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Capacity;                                                 // 0x02A4(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              Frequency;                                                // 0x02A8(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class AGameCrowdDestination*>               NextDestinations;                                         // 0x028C(0x0010) (Edit, DuplicateTransient, NeedCtorLink)
+	class AGameCrowdDestinationQueuePoint*             QueueHead;                                                // 0x029C(0x0008) (Edit, DuplicateTransient)
+	int                                                Capacity;                                                 // 0x02A4(0x0004) (Edit)
+	float                                              Frequency;                                                // 0x02A8(0x0004) (Edit)
 	int                                                CustomerCount;                                            // 0x02AC(0x0004)
-	TArray<class UClass*>                              SupportedAgentClasses;                                    // 0x02B0(0x0010) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TArray<class UObject*>                             SupportedArchetypes;                                      // 0x02C0(0x0010) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TArray<class UClass*>                              RestrictedAgentClasses;                                   // 0x02D0(0x0010) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	TArray<class UObject*>                             RestrictedArchetypes;                                     // 0x02E0(0x0010) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	TArray<class UClass*>                              SupportedAgentClasses;                                    // 0x02B0(0x0010) (Edit, NeedCtorLink)
+	TArray<class UObject*>                             SupportedArchetypes;                                      // 0x02C0(0x0010) (Edit, NeedCtorLink)
+	TArray<class UClass*>                              RestrictedAgentClasses;                                   // 0x02D0(0x0010) (Edit, NeedCtorLink)
+	TArray<class UObject*>                             RestrictedArchetypes;                                     // 0x02E0(0x0010) (Edit, NeedCtorLink)
 	float                                              ExactReachTolerance;                                      // 0x02F0(0x0004)
-	struct FName                                       InteractionTag;                                           // 0x02F4(0x0008) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              InteractionDelay;                                         // 0x02FC(0x0004) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FBehaviorEntry>                      ReachedBehaviors;                                         // 0x0300(0x0010) (Interp, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       InteractionTag;                                           // 0x02F4(0x0008) (Edit)
+	float                                              InteractionDelay;                                         // 0x02FC(0x0004) (Edit)
+	TArray<struct FBehaviorEntry>                      ReachedBehaviors;                                         // 0x0300(0x0010) (Edit, NeedCtorLink)
 	class AGameCrowdAgent*                             AgentEnRoute;                                             // 0x0310(0x0008)
 	float                                              Priority;                                                 // 0x0318(0x0004)
 	float                                              LastSpawnTime;                                            // 0x031C(0x0004)
-	class AGameCrowdPopulationManager*                 MyPopMgr;                                                 // 0x0320(0x0008)
+	class AGameCrowdPopulationManager*                 MyPopMgr;                                                 // 0x0320(0x0008) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -744,21 +744,21 @@ public:
 	}
 
 
-	void DrawDebug();
-	void GetDestinationRadius();
-	void PrioritizeSpawnPoint();
-	void AnalyzeSpawnPoint();
-	void GetSpawnPosition();
-	void GetSpawnRadius();
-	void AllowableDestinationFor();
-	void AtCapacity();
-	void IncrementCustomerCount();
-	void DecrementCustomerCount();
-	void PickNewDestinationFor();
-	void ReachedDestination();
+	void DrawDebug(bool bPresistent, TArray<struct FCrowdSpawnerPlayerInfo>* PlayerInfo);
+	float GetDestinationRadius();
+	void PrioritizeSpawnPoint(float MaxSpawnDist, TArray<struct FCrowdSpawnerPlayerInfo>* PlayerInfo);
+	bool AnalyzeSpawnPoint(float MaxSpawnDistSq, bool bForceNavMeshPathing, class UNavigationHandle* NavHandle, TArray<struct FCrowdSpawnerPlayerInfo>* PlayerInfo);
+	void GetSpawnPosition(class USeqAct_GameCrowdSpawner* Spawner, struct FVector* SpawnPos, struct FRotator* SpawnRot);
+	float GetSpawnRadius();
+	bool AllowableDestinationFor(class AGameCrowdAgent* Agent);
+	bool AtCapacity(unsigned char CheckCnt);
+	void IncrementCustomerCount(class AGameCrowdAgent* ArrivingAgent);
+	void DecrementCustomerCount(class AGameCrowdAgent* DepartingAgent);
+	void PickNewDestinationFor(class AGameCrowdAgent* Agent, bool bIgnoreRestrictions);
+	void ReachedDestination(class AGameCrowdAgent* Agent);
 	void Destroyed();
 	void PostBeginPlay();
-	void ReachedByAgent();
+	bool ReachedByAgent(class AGameCrowdAgent* Agent, const struct FVector& TestPosition, bool bTestExactly);
 };
 
 
@@ -767,13 +767,13 @@ public:
 class AGameCrowdDestinationQueuePoint : public AGameCrowdInteractionPoint
 {
 public:
-	class AGameCrowdDestinationQueuePoint*             NextQueuePosition;                                        // 0x0280(0x0008) (EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	class AGameCrowdDestinationQueuePoint*             NextQueuePosition;                                        // 0x0280(0x0008) (Edit)
 	class AGameCrowdInteractionPoint*                  PreviousQueuePosition;                                    // 0x0288(0x0008)
 	class AGameCrowdAgent*                             QueuedAgent;                                              // 0x0290(0x0008)
-	class AGameCrowdDestination*                       QueueDestination;                                         // 0x0298(0x0008)
+	class AGameCrowdDestination*                       QueueDestination;                                         // 0x0298(0x0008) (Transient)
 	unsigned long                                      bClearingQueue : 1;                                       // 0x02A0(0x0004)
 	unsigned long                                      bPendingAdvance : 1;                                      // 0x02A0(0x0004)
-	float                                              AverageReactionTime;                                      // 0x02A4(0x0004) (EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              AverageReactionTime;                                      // 0x02A4(0x0004) (Edit)
 	class UClass*                                      QueueBehaviorClass;                                       // 0x02A8(0x0008)
 
 	static UClass* StaticClass()
@@ -783,14 +783,14 @@ public:
 	}
 
 
-	void HasCustomer();
-	void ClearQueue();
-	void AddCustomer();
+	bool HasCustomer();
+	void ClearQueue(class AGameCrowdAgent* OldCustomer);
+	void AddCustomer(class AGameCrowdAgent* NewCustomer, class AGameCrowdInteractionPoint* PreviousPosition);
 	void ActuallyAdvance();
-	void AdvanceCustomerTo();
-	void ReachedDestination();
-	void HasSpace();
-	void QueueReachedBy();
+	void AdvanceCustomerTo(class AGameCrowdInteractionPoint* FrontPosition);
+	void ReachedDestination(class AGameCrowdAgent* Agent);
+	bool HasSpace();
+	bool QueueReachedBy(class AGameCrowdAgent* Agent, const struct FVector& TestPosition);
 };
 
 
@@ -799,21 +799,21 @@ public:
 class AGameCrowdPopulationManager : public ACrowdPopulationManagerBase
 {
 public:
-	struct FPointer                                    VfTable_IInterface_NavigationHandle;                      // 0x0274(0x0008)
-	struct FCrowdSpawnInfoItem                         CloudSpawnInfo;                                           // 0x027C(0x0090)
-	TArray<struct FCrowdSpawnInfoItem>                 ScriptedSpawnInfo;                                        // 0x030C(0x0010)
+	struct FPointer                                    VfTable_IInterface_NavigationHandle;                      // 0x0274(0x0008) (Const, Native, NoExport)
+	struct FCrowdSpawnInfoItem                         CloudSpawnInfo;                                           // 0x027C(0x0090) (NeedCtorLink)
+	TArray<struct FCrowdSpawnInfoItem>                 ScriptedSpawnInfo;                                        // 0x030C(0x0010) (NeedCtorLink)
 	class AGameCrowdInfoVolume*                        ActiveCrowdInfoVolume;                                    // 0x031C(0x0008)
-	TArray<class AGameCrowdDestination*>               GlobalPotentialSpawnPoints;                               // 0x0324(0x0010)
+	TArray<class AGameCrowdDestination*>               GlobalPotentialSpawnPoints;                               // 0x0324(0x0010) (NeedCtorLink)
 	float                                              SplitScreenNumReduction;                                  // 0x0334(0x0004)
 	float                                              PlayerPositionPredictionTime;                             // 0x0338(0x0004)
 	float                                              HeadVisibilityOffset;                                     // 0x033C(0x0004)
 	class UClass*                                      NavigationHandleClass;                                    // 0x0340(0x0008)
 	class UNavigationHandle*                           NavigationHandle;                                         // 0x0348(0x0008)
 	class AGameCrowdAgent*                             QueryingAgent;                                            // 0x0350(0x0008)
-	TArray<struct FCrowdSpawnerPlayerInfo>             PlayerInfo;                                               // 0x0358(0x0010)
+	TArray<struct FCrowdSpawnerPlayerInfo>             PlayerInfo;                                               // 0x0358(0x0010) (NeedCtorLink)
 	float                                              LastPlayerInfoUpdateTime;                                 // 0x0368(0x0004)
-	unsigned long                                      bDebugSpawns : 1;                                         // 0x036C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bPauseCrowd : 1;                                          // 0x036C(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
+	unsigned long                                      bDebugSpawns : 1;                                         // 0x036C(0x0004) (Edit)
+	unsigned long                                      bPauseCrowd : 1;                                          // 0x036C(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -822,30 +822,30 @@ public:
 	}
 
 
-	void CreateNewAgent();
-	void Warmup();
-	void SpawnAgent();
-	void SpawnAgentByIdx();
-	void ValidateSpawnAt();
-	void AddPrioritizedSpawnPoint();
-	void AnalyzeSpawnPoints();
-	void PrioritizeSpawnPoints();
-	void STATIC_StaticGetPlayerInfo();
-	void GetPlayerInfo();
-	void PickSpawnPoint();
-	void UpdateSpawner();
-	void UpdateAllSpawners();
-	void Tick();
-	void ShouldDebugDestinations();
-	void IsSpawningActive();
-	void DisplayDebug();
-	void AgentDestroyed();
+	class AGameCrowdAgent* CreateNewAgent(class AGameCrowdDestination* SpawnLoc, class AGameCrowdAgent* AgentTemplate, class UGameCrowdGroup* NewGroup, struct FCrowdSpawnInfoItem* Item);
+	bool Warmup(int WarmupNum, struct FCrowdSpawnInfoItem* Item);
+	class AGameCrowdAgent* SpawnAgent(class AGameCrowdDestination* SpawnLoc, struct FCrowdSpawnInfoItem* Item);
+	class AGameCrowdAgent* SpawnAgentByIdx(int SpawnerIdx, class AGameCrowdDestination* SpawnLoc);
+	bool ValidateSpawnAt(class AGameCrowdDestination* Candidate, struct FCrowdSpawnInfoItem* Item);
+	void AddPrioritizedSpawnPoint(class AGameCrowdDestination* GCD, struct FCrowdSpawnInfoItem* Item);
+	void AnalyzeSpawnPoints(int StartIndex, int NumToUpdate, struct FCrowdSpawnInfoItem* Item);
+	void PrioritizeSpawnPoints(float DeltaTime, struct FCrowdSpawnInfoItem* Item);
+	bool STATIC_StaticGetPlayerInfo(TArray<struct FCrowdSpawnerPlayerInfo>* out_PlayerInfo);
+	bool GetPlayerInfo();
+	class AGameCrowdDestination* PickSpawnPoint(struct FCrowdSpawnInfoItem* Item);
+	bool UpdateSpawner(float DeltaTime, struct FCrowdSpawnInfoItem* Item);
+	void UpdateAllSpawners(float DeltaTime);
+	void Tick(float DeltaTime);
+	bool ShouldDebugDestinations();
+	bool IsSpawningActive();
+	void DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos);
+	void AgentDestroyed(class AGameCrowdAgent* Agent);
 	void FlushAllAgents();
-	void FlushAgents();
-	void CreateSpawner();
-	void SetCrowdInfoVolume();
-	void RemoveSpawnPoint();
-	void AddSpawnPoint();
+	void FlushAgents(const struct FCrowdSpawnInfoItem& Item);
+	int CreateSpawner(class USeqAct_GameCrowdPopulationManagerToggle* inAction);
+	void SetCrowdInfoVolume(class AGameCrowdInfoVolume* Vol);
+	void RemoveSpawnPoint(class AGameCrowdDestination* GCD);
+	void AddSpawnPoint(class AGameCrowdDestination* GCD);
 	void NotifyPathChanged();
 	void PostBeginPlay();
 };
@@ -856,9 +856,9 @@ public:
 class AGameCrowdReplicationActor : public AActor
 {
 public:
-	class USeqAct_GameCrowdSpawner*                    Spawner;                                                  // 0x0274(0x0008) (GlobalConfig, AlwaysInit)
-	unsigned long                                      bSpawningActive : 1;                                      // 0x027C(0x0004) (EditConst, GlobalConfig, AlwaysInit)
-	int                                                DestroyAllCount;                                          // 0x0280(0x0004) (EditConst, GlobalConfig, AlwaysInit)
+	class USeqAct_GameCrowdSpawner*                    Spawner;                                                  // 0x0274(0x0008) (Net)
+	unsigned long                                      bSpawningActive : 1;                                      // 0x027C(0x0004) (Net)
+	int                                                DestroyAllCount;                                          // 0x0280(0x0004) (Net)
 
 	static UClass* StaticClass()
 	{
@@ -867,7 +867,7 @@ public:
 	}
 
 
-	void ReplicatedEvent();
+	void ReplicatedEvent(const struct FName& VarName);
 };
 
 
@@ -906,57 +906,57 @@ public:
 class UGameExplosion : public UObject
 {
 public:
-	unsigned long                                      bDirectionalExplosion : 1;                                // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIgnoreInstigator : 1;                                    // 0x0058(0x0004)
-	unsigned long                                      bAllowTeammateCringes : 1;                                // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFullDamageToAttachee : 1;                                // 0x0058(0x0004)
-	unsigned long                                      bAttachExplosionEmitterToAttachee : 1;                    // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bPerformRadialBlurRelevanceCheck : 1;                     // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bCausesFracture : 1;                                      // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAllowPerMaterialFX : 1;                                  // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bParticleSystemIsBeingOverriddenDontUsePhysMatVersion : 1;// 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSkipDefaultPhysMatParticleSystem : 1;                    // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseMapSpecificValues : 1;                                // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseOverlapCheck : 1;                                     // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bOrientCameraShakeTowardsEpicenter : 1;                   // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAutoControllerVibration : 1;                             // 0x0058(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DirectionalExplosionAngleDeg;                             // 0x005C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DamageDelay;                                              // 0x0060(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              Damage;                                                   // 0x0064(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DamageRadius;                                             // 0x0068(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DamageFalloffExponent;                                    // 0x006C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AActor*                                      ActorToIgnoreForDamage;                                   // 0x0070(0x0008)
-	class UClass*                                      ActorClassToIgnoreForDamage;                              // 0x0078(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UClass*                                      ActorClassToIgnoreForKnockdownsAndCringes;                // 0x0080(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UClass*                                      MyDamageType;                                             // 0x0088(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              KnockDownRadius;                                          // 0x0090(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              KnockDownStrength;                                        // 0x0094(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CringeRadius;                                             // 0x0098(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector2D                                   CringeDuration;                                           // 0x009C(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              MomentumTransferScale;                                    // 0x00A4(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             ParticleEmitterTemplate;                                  // 0x00A8(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ExplosionEmitterScale;                                    // 0x00B0(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bDirectionalExplosion : 1;                                // 0x0058(0x0004) (Edit)
+	unsigned long                                      bIgnoreInstigator : 1;                                    // 0x0058(0x0004) (Transient)
+	unsigned long                                      bAllowTeammateCringes : 1;                                // 0x0058(0x0004) (Edit)
+	unsigned long                                      bFullDamageToAttachee : 1;                                // 0x0058(0x0004) (Transient)
+	unsigned long                                      bAttachExplosionEmitterToAttachee : 1;                    // 0x0058(0x0004) (Edit)
+	unsigned long                                      bPerformRadialBlurRelevanceCheck : 1;                     // 0x0058(0x0004) (Edit)
+	unsigned long                                      bCausesFracture : 1;                                      // 0x0058(0x0004) (Edit)
+	unsigned long                                      bAllowPerMaterialFX : 1;                                  // 0x0058(0x0004) (Edit)
+	unsigned long                                      bParticleSystemIsBeingOverriddenDontUsePhysMatVersion : 1;// 0x0058(0x0004) (Edit)
+	unsigned long                                      bSkipDefaultPhysMatParticleSystem : 1;                    // 0x0058(0x0004) (Edit)
+	unsigned long                                      bUseMapSpecificValues : 1;                                // 0x0058(0x0004) (Edit)
+	unsigned long                                      bUseOverlapCheck : 1;                                     // 0x0058(0x0004) (Edit)
+	unsigned long                                      bOrientCameraShakeTowardsEpicenter : 1;                   // 0x0058(0x0004) (Edit)
+	unsigned long                                      bAutoControllerVibration : 1;                             // 0x0058(0x0004) (Edit)
+	float                                              DirectionalExplosionAngleDeg;                             // 0x005C(0x0004) (Edit)
+	float                                              DamageDelay;                                              // 0x0060(0x0004) (Edit)
+	float                                              Damage;                                                   // 0x0064(0x0004) (Edit)
+	float                                              DamageRadius;                                             // 0x0068(0x0004) (Edit)
+	float                                              DamageFalloffExponent;                                    // 0x006C(0x0004) (Edit)
+	class AActor*                                      ActorToIgnoreForDamage;                                   // 0x0070(0x0008) (Transient)
+	class UClass*                                      ActorClassToIgnoreForDamage;                              // 0x0078(0x0008) (Edit)
+	class UClass*                                      ActorClassToIgnoreForKnockdownsAndCringes;                // 0x0080(0x0008) (Edit)
+	class UClass*                                      MyDamageType;                                             // 0x0088(0x0008) (Edit)
+	float                                              KnockDownRadius;                                          // 0x0090(0x0004) (Edit)
+	float                                              KnockDownStrength;                                        // 0x0094(0x0004) (Edit)
+	float                                              CringeRadius;                                             // 0x0098(0x0004) (Edit)
+	struct FVector2D                                   CringeDuration;                                           // 0x009C(0x0008) (Edit)
+	float                                              MomentumTransferScale;                                    // 0x00A4(0x0004) (Edit)
+	class UParticleSystem*                             ParticleEmitterTemplate;                                  // 0x00A8(0x0008) (Edit)
+	float                                              ExplosionEmitterScale;                                    // 0x00B0(0x0004) (Edit)
 	class AActor*                                      HitActor;                                                 // 0x00B4(0x0008)
 	struct FVector                                     HitLocation;                                              // 0x00BC(0x000C)
 	struct FVector                                     HitNormal;                                                // 0x00C8(0x000C)
-	class USoundCue*                                   ExplosionSound;                                           // 0x00D4(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class USoundCue*                                   ExplosionSoundHurtSomeone;                                // 0x00DC(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UPointLightComponent*                        ExploLight;                                               // 0x00E4(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ExploLightFadeOutTime;                                    // 0x00EC(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class URadialBlurComponent*                        ExploRadialBlur;                                          // 0x00F0(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ExploRadialBlurFadeOutTime;                               // 0x00F8(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ExploRadialBlurMaxBlur;                                   // 0x00FC(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FractureMeshRadius;                                       // 0x0100(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FracturePartVel;                                          // 0x0104(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCameraShake*                                CamShake;                                                 // 0x0108(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCameraShake*                                CamShake_Left;                                            // 0x0110(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCameraShake*                                CamShake_Right;                                           // 0x0118(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCameraShake*                                CamShake_Rear;                                            // 0x0120(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CamShakeInnerRadius;                                      // 0x0128(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CamShakeOuterRadius;                                      // 0x012C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CamShakeFalloff;                                          // 0x0130(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UClass*                                      CameraLensEffect;                                         // 0x0134(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              CameraLensEffectRadius;                                   // 0x013C(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	class USoundCue*                                   ExplosionSound;                                           // 0x00D4(0x0008) (Edit)
+	class USoundCue*                                   ExplosionSoundHurtSomeone;                                // 0x00DC(0x0008) (Edit)
+	class UPointLightComponent*                        ExploLight;                                               // 0x00E4(0x0008) (Edit, ExportObject, Component, EditInline)
+	float                                              ExploLightFadeOutTime;                                    // 0x00EC(0x0004) (Edit)
+	class URadialBlurComponent*                        ExploRadialBlur;                                          // 0x00F0(0x0008) (Edit, ExportObject, Component, EditInline)
+	float                                              ExploRadialBlurFadeOutTime;                               // 0x00F8(0x0004) (Edit)
+	float                                              ExploRadialBlurMaxBlur;                                   // 0x00FC(0x0004) (Edit)
+	float                                              FractureMeshRadius;                                       // 0x0100(0x0004) (Edit)
+	float                                              FracturePartVel;                                          // 0x0104(0x0004) (Edit)
+	class UCameraShake*                                CamShake;                                                 // 0x0108(0x0008) (Edit, EditInline)
+	class UCameraShake*                                CamShake_Left;                                            // 0x0110(0x0008) (Edit, EditInline)
+	class UCameraShake*                                CamShake_Right;                                           // 0x0118(0x0008) (Edit, EditInline)
+	class UCameraShake*                                CamShake_Rear;                                            // 0x0120(0x0008) (Edit, EditInline)
+	float                                              CamShakeInnerRadius;                                      // 0x0128(0x0004) (Edit)
+	float                                              CamShakeOuterRadius;                                      // 0x012C(0x0004) (Edit)
+	float                                              CamShakeFalloff;                                          // 0x0130(0x0004) (Edit)
+	class UClass*                                      CameraLensEffect;                                         // 0x0134(0x0008) (Edit)
+	float                                              CameraLensEffectRadius;                                   // 0x013C(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -972,27 +972,27 @@ public:
 class AGameExplosionActor : public AActor
 {
 public:
-	unsigned long                                      bHasExploded : 1;                                         // 0x0274(0x0004)
-	unsigned long                                      bExplodeMoreThanOnce : 1;                                 // 0x0274(0x0004) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bHasExploded : 1;                                         // 0x0274(0x0004) (Transient)
+	unsigned long                                      bExplodeMoreThanOnce : 1;                                 // 0x0274(0x0004) (Edit)
 	unsigned long                                      bTrackExplosionParticleSystemLifespan : 1;                // 0x0274(0x0004)
 	unsigned long                                      bDrawDebug : 1;                                           // 0x0274(0x0004)
-	class UPointLightComponent*                        ExplosionLight;                                           // 0x0278(0x0008)
-	class URadialBlurComponent*                        ExplosionRadialBlur;                                      // 0x0280(0x0008)
-	float                                              LightFadeTime;                                            // 0x0288(0x0004)
-	float                                              LightFadeTimeRemaining;                                   // 0x028C(0x0004)
-	float                                              LightInitialBrightness;                                   // 0x0290(0x0004)
-	float                                              RadialBlurFadeTime;                                       // 0x0294(0x0004)
-	float                                              RadialBlurFadeTimeRemaining;                              // 0x0298(0x0004)
-	float                                              RadialBlurMaxBlurAmount;                                  // 0x029C(0x0004)
+	class UPointLightComponent*                        ExplosionLight;                                           // 0x0278(0x0008) (ExportObject, Transient, Component, EditInline)
+	class URadialBlurComponent*                        ExplosionRadialBlur;                                      // 0x0280(0x0008) (ExportObject, Transient, Component, EditInline)
+	float                                              LightFadeTime;                                            // 0x0288(0x0004) (Transient)
+	float                                              LightFadeTimeRemaining;                                   // 0x028C(0x0004) (Transient)
+	float                                              LightInitialBrightness;                                   // 0x0290(0x0004) (Transient)
+	float                                              RadialBlurFadeTime;                                       // 0x0294(0x0004) (Transient)
+	float                                              RadialBlurFadeTimeRemaining;                              // 0x0298(0x0004) (Transient)
+	float                                              RadialBlurMaxBlurAmount;                                  // 0x029C(0x0004) (Transient)
 	class UGameExplosion*                              ExplosionTemplate;                                        // 0x02A0(0x0008)
-	class URB_RadialImpulseComponent*                  RadialImpulseComponent;                                   // 0x02A8(0x0008)
+	class URB_RadialImpulseComponent*                  RadialImpulseComponent;                                   // 0x02A8(0x0008) (ExportObject, Component, EditInline)
 	class AController*                                 InstigatorController;                                     // 0x02B0(0x0008)
 	class AActor*                                      HitActorFromPhysMaterialTrace;                            // 0x02B8(0x0008)
 	struct FVector                                     HitLocationFromPhysMaterialTrace;                         // 0x02C0(0x000C)
 	class AActor*                                      Attachee;                                                 // 0x02CC(0x0008)
 	class AController*                                 AttacheeController;                                       // 0x02D4(0x0008)
-	float                                              DirectionalExplosionMinDot;                               // 0x02DC(0x0004)
-	struct FVector                                     ExplosionDirection;                                       // 0x02E0(0x000C) (GlobalConfig, AlwaysInit)
+	float                                              DirectionalExplosionMinDot;                               // 0x02DC(0x0004) (Transient)
+	struct FVector                                     ExplosionDirection;                                       // 0x02E0(0x000C) (Net, Transient)
 
 	static UClass* StaticClass()
 	{
@@ -1001,24 +1001,24 @@ public:
 	}
 
 
-	void ChooseCameraShake();
+	class UCameraShake* ChooseCameraShake(const struct FVector& Epicenter, class APlayerController* PC);
 	void SpawnCameraLensEffects();
 	void DoExplosionCameraEffects();
 	void DrawDebug();
 	void DelayedExplosionDamage();
-	void Explode();
+	void Explode(class UGameExplosion* NewExplosionTemplate, const struct FVector& Direction);
 	void SpawnExplosionFogVolume();
 	void SpawnExplosionDecal();
-	void SpawnExplosionParticleSystem();
-	void UpdateExplosionTemplateWithPerMaterialFX();
-	void SpecialCringeEffectsFor();
-	void SpecialPawnEffectsFor();
-	void GetEffectCheckRadius();
-	void DoExplosionDamage();
-	void STATIC_BoxDistanceToPoint();
-	void IsBehindExplosion();
-	void DoFullDamageToActor();
-	void GetPhysicalMaterial();
+	void SpawnExplosionParticleSystem(class UParticleSystem* Template);
+	void UpdateExplosionTemplateWithPerMaterialFX(class UPhysicalMaterial* PhysMaterial);
+	void SpecialCringeEffectsFor(class AActor* Victim, float VictimDist);
+	void SpecialPawnEffectsFor(class AGamePawn* VictimPawn, float VictimDist);
+	float GetEffectCheckRadius(bool bCauseDamage, bool bCauseFractureEffects, bool bCauseEffects);
+	bool DoExplosionDamage(bool bCauseDamage, bool bCauseEffects);
+	float STATIC_BoxDistanceToPoint(const struct FVector& Start, const struct FBox& BBox);
+	bool IsBehindExplosion(class AActor* A);
+	bool DoFullDamageToActor(class AActor* Victim);
+	class UPhysicalMaterial* GetPhysicalMaterial();
 	void PreBeginPlay();
 };
 
@@ -1028,7 +1028,7 @@ public:
 class AGamePawn : public APawn
 {
 public:
-	unsigned long                                      bLastHitWasHeadShot : 1;                                  // 0x0588(0x0004) (EditConst, AlwaysInit, DuplicateTransient)
+	unsigned long                                      bLastHitWasHeadShot : 1;                                  // 0x0588(0x0004) (Net, Transient)
 	unsigned long                                      bRespondToExplosions : 1;                                 // 0x0588(0x0004)
 
 	static UClass* StaticClass()
@@ -1040,7 +1040,7 @@ public:
 
 	void ReattachMeshWithoutBeingSeen();
 	void ReattachMesh();
-	void UpdateShadowSettings();
+	void UpdateShadowSettings(bool bInWantShadow);
 };
 
 
@@ -1049,18 +1049,18 @@ public:
 class ADebugCameraController : public AGamePlayerController
 {
 public:
-	struct FName                                       PrimaryKey;                                               // 0x0790(0x0008)
-	struct FName                                       SecondaryKey;                                             // 0x0798(0x0008)
-	struct FName                                       UnselectKey;                                              // 0x07A0(0x0008)
-	unsigned long                                      bShowSelectedInfo : 1;                                    // 0x07A8(0x0004)
+	struct FName                                       PrimaryKey;                                               // 0x0790(0x0008) (Config, GlobalConfig)
+	struct FName                                       SecondaryKey;                                             // 0x0798(0x0008) (Config, GlobalConfig)
+	struct FName                                       UnselectKey;                                              // 0x07A0(0x0008) (Config, GlobalConfig)
+	unsigned long                                      bShowSelectedInfo : 1;                                    // 0x07A8(0x0004) (Config, GlobalConfig)
 	unsigned long                                      bDrawDebugText : 1;                                       // 0x07A8(0x0004)
 	unsigned long                                      bIsFrozenRendering : 1;                                   // 0x07A8(0x0004)
 	class UClass*                                      HUDClass;                                                 // 0x07AC(0x0008)
 	class APlayerController*                           OriginalControllerRef;                                    // 0x07B4(0x0008)
 	class UPlayer*                                     OriginalPlayer;                                           // 0x07BC(0x0008)
-	class UDrawFrustumComponent*                       DrawFrustum;                                              // 0x07C4(0x0008)
+	class UDrawFrustumComponent*                       DrawFrustum;                                              // 0x07C4(0x0008) (ExportObject, Component, EditInline)
 	class AActor*                                      SelectedActor;                                            // 0x07CC(0x0008)
-	class UPrimitiveComponent*                         SelectedComponent;                                        // 0x07D4(0x0008)
+	class UPrimitiveComponent*                         SelectedComponent;                                        // 0x07D4(0x0008) (ExportObject, Component, EditInline)
 
 	static UClass* StaticClass()
 	{
@@ -1069,20 +1069,20 @@ public:
 	}
 
 
-	void ConsoleCommand();
+	struct FString ConsoleCommand(const struct FString& Command, bool bWriteToLog);
 	void ShowDebugSelectedInfo();
-	void NativeInputKey();
+	bool NativeInputKey(int ControllerId, const struct FName& Key, TEnumAsByte<EInputEvent> Event, float AmountDepressed, bool bGamepad);
 	void InitDebugInputSystem();
 	void DisableDebugCamera();
 	void NormalSpeed();
 	void MoreSpeed();
 	void SetFreezeRendering();
-	void OnDeactivate();
-	void OnActivate();
+	void OnDeactivate(class APlayerController* PC);
+	void OnActivate(class APlayerController* PC);
 	void PostBeginPlay();
 	void Unselect();
-	void SecondarySelect();
-	void PrimarySelect();
+	void SecondarySelect(const struct FVector& HitLoc, const struct FVector& HitNormal, const struct FTraceHitInfo& HitInfo);
+	void PrimarySelect(const struct FVector& HitLoc, const struct FVector& HitNormal, const struct FTraceHitInfo& HitInfo);
 };
 
 
@@ -1106,14 +1106,14 @@ public:
 class AMobileHUD : public AHUD
 {
 public:
-	unsigned long                                      bShowGameHud : 1;                                         // 0x0594(0x0004)
-	unsigned long                                      bShowMobileHud : 1;                                       // 0x0594(0x0004)
-	unsigned long                                      bForceMobileHUD : 1;                                      // 0x0594(0x0004)
-	unsigned long                                      bShowMobileTilt : 1;                                      // 0x0594(0x0004)
-	unsigned long                                      bDebugTouches : 1;                                        // 0x0594(0x0004)
-	unsigned long                                      bDebugZones : 1;                                          // 0x0594(0x0004)
-	unsigned long                                      bDebugZonePresses : 1;                                    // 0x0594(0x0004)
-	unsigned long                                      bShowMotionDebug : 1;                                     // 0x0594(0x0004)
+	unsigned long                                      bShowGameHud : 1;                                         // 0x0594(0x0004) (Config)
+	unsigned long                                      bShowMobileHud : 1;                                       // 0x0594(0x0004) (Config)
+	unsigned long                                      bForceMobileHUD : 1;                                      // 0x0594(0x0004) (Config, GlobalConfig)
+	unsigned long                                      bShowMobileTilt : 1;                                      // 0x0594(0x0004) (Config)
+	unsigned long                                      bDebugTouches : 1;                                        // 0x0594(0x0004) (Config)
+	unsigned long                                      bDebugZones : 1;                                          // 0x0594(0x0004) (Config)
+	unsigned long                                      bDebugZonePresses : 1;                                    // 0x0594(0x0004) (Config)
+	unsigned long                                      bShowMotionDebug : 1;                                     // 0x0594(0x0004) (Config)
 	class UTexture2D*                                  JoystickBackground;                                       // 0x0598(0x0008)
 	struct FTextureUVs                                 JoystickBackgroundUVs;                                    // 0x05A0(0x0010)
 	class UTexture2D*                                  JoystickHat;                                              // 0x05B0(0x0008)
@@ -1128,10 +1128,10 @@ public:
 	struct FTextureUVs                                 TrackballTouchIndicatorUVs;                               // 0x0624(0x0010)
 	class UTexture2D*                                  SliderImages[0x4];                                        // 0x0634(0x0008)
 	struct FTextureUVs                                 SliderUVs[0x4];                                           // 0x0654(0x0010)
-	float                                              MobileTiltX;                                              // 0x0694(0x0004)
-	float                                              MobileTiltY;                                              // 0x0698(0x0004)
-	float                                              MobileTiltSize;                                           // 0x069C(0x0004)
-	TArray<class USeqEvent_HudRender*>                 KismetRenderEvents;                                       // 0x06A0(0x0010)
+	float                                              MobileTiltX;                                              // 0x0694(0x0004) (Config)
+	float                                              MobileTiltY;                                              // 0x0698(0x0004) (Config)
+	float                                              MobileTiltSize;                                           // 0x069C(0x0004) (Config)
+	TArray<class USeqEvent_HudRender*>                 KismetRenderEvents;                                       // 0x06A0(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1141,17 +1141,17 @@ public:
 
 
 	void RenderKismetHud();
-	void AddKismetRenderEvent();
+	void AddKismetRenderEvent(class USeqEvent_HudRender* NewEvent);
 	void RefreshKismetLinks();
-	void DrawMobileZone_Slider();
-	void DrawMobileTilt();
-	void DrawMobileZone_Trackball();
-	void DrawMobileZone_Joystick();
-	void DrawMobileZone_Button();
+	void DrawMobileZone_Slider(class UMobileInputZone* Zone);
+	void DrawMobileTilt(class UMobilePlayerInput* MobileInput);
+	void DrawMobileZone_Trackball(class UMobileInputZone* Zone);
+	void DrawMobileZone_Joystick(class UMobileInputZone* Zone);
+	void DrawMobileZone_Button(class UMobileInputZone* Zone);
 	void DrawInputZoneOverlays();
 	void RenderMobileMenu();
-	void ShowMobileHud();
-	void DrawMobileDebugString();
+	bool ShowMobileHud();
+	void DrawMobileDebugString(float XPos, float YPos, const struct FString& Str);
 	void PostRender();
 	void PostBeginPlay();
 };
@@ -1162,67 +1162,67 @@ public:
 class UMobileInputZone : public UObject
 {
 public:
-	TEnumAsByte<EZoneType>                             Type;                                                     // 0x0058(0x0001) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	unsigned char                                      TouchpadIndex;                                            // 0x0059(0x0001) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	TEnumAsByte<EZoneType>                             Type;                                                     // 0x0058(0x0001) (Edit, Config)
+	unsigned char                                      TouchpadIndex;                                            // 0x0059(0x0001) (Edit)
 	TEnumAsByte<EZoneState>                            State;                                                    // 0x005A(0x0001)
-	TEnumAsByte<EZoneSlideType>                        SlideType;                                                // 0x005B(0x0001) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	struct FString                                     Caption;                                                  // 0x005C(0x0010) (RepNotify, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	struct FName                                       InputKey;                                                 // 0x006C(0x0008) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	struct FName                                       HorizontalInputKey;                                       // 0x0074(0x0008) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	struct FName                                       TapInputKey;                                              // 0x007C(0x0008) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	struct FName                                       DoubleTapInputKey;                                        // 0x0084(0x0008) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              VertMultiplier;                                           // 0x008C(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              HorizMultiplier;                                          // 0x0090(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              Acceleration;                                             // 0x0094(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              Smoothing;                                                // 0x0098(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              EscapeVelocityStrength;                                   // 0x009C(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bScalePawnMovement : 1;                                   // 0x00A0(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bRelativeX : 1;                                           // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bRelativeY : 1;                                           // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bRelativeSizeX : 1;                                       // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bRelativeSizeY : 1;                                       // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bActiveSizeYFromX : 1;                                    // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bSizeYFromSizeX : 1;                                      // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bApplyGlobalScaleToActiveSizes : 1;                       // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bCenterX : 1;                                             // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bCenterY : 1;                                             // 0x00A0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bIsInvisible : 1;                                         // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bQuickDoubleTap : 1;                                      // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bCenterOnEvent : 1;                                       // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bSliderHasTrack : 1;                                      // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bFloatingTiltZone : 1;                                    // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bUseGentleTransitions : 1;                                // 0x00A0(0x0004) (RepNotify, Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      bAllowFirstDeltaForTrackballZone : 1;                     // 0x00A0(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bRenderGuides : 1;                                        // 0x00A0(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EZoneSlideType>                        SlideType;                                                // 0x005B(0x0001) (Edit, Config)
+	struct FString                                     Caption;                                                  // 0x005C(0x0010) (Edit, Config, NeedCtorLink)
+	struct FName                                       InputKey;                                                 // 0x006C(0x0008) (Edit, Config)
+	struct FName                                       HorizontalInputKey;                                       // 0x0074(0x0008) (Edit, Config)
+	struct FName                                       TapInputKey;                                              // 0x007C(0x0008) (Edit, Config)
+	struct FName                                       DoubleTapInputKey;                                        // 0x0084(0x0008) (Edit, Config)
+	float                                              VertMultiplier;                                           // 0x008C(0x0004) (Edit, Config)
+	float                                              HorizMultiplier;                                          // 0x0090(0x0004) (Edit, Config)
+	float                                              Acceleration;                                             // 0x0094(0x0004) (Edit, Config)
+	float                                              Smoothing;                                                // 0x0098(0x0004) (Edit, Config)
+	float                                              EscapeVelocityStrength;                                   // 0x009C(0x0004) (Edit, Config)
+	unsigned long                                      bScalePawnMovement : 1;                                   // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bRelativeX : 1;                                           // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bRelativeY : 1;                                           // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bRelativeSizeX : 1;                                       // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bRelativeSizeY : 1;                                       // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bActiveSizeYFromX : 1;                                    // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bSizeYFromSizeX : 1;                                      // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bApplyGlobalScaleToActiveSizes : 1;                       // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bCenterX : 1;                                             // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bCenterY : 1;                                             // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bIsInvisible : 1;                                         // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bQuickDoubleTap : 1;                                      // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bCenterOnEvent : 1;                                       // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bSliderHasTrack : 1;                                      // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bFloatingTiltZone : 1;                                    // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bUseGentleTransitions : 1;                                // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bAllowFirstDeltaForTrackballZone : 1;                     // 0x00A0(0x0004) (Edit, Config)
+	unsigned long                                      bRenderGuides : 1;                                        // 0x00A0(0x0004) (Edit, Config)
 	unsigned long                                      bIsDoubleTapAndHold : 1;                                  // 0x00A0(0x0004)
-	float                                              X;                                                        // 0x00A4(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              Y;                                                        // 0x00A8(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              SizeX;                                                    // 0x00AC(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              SizeY;                                                    // 0x00B0(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              ActiveSizeX;                                              // 0x00B4(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              ActiveSizeY;                                              // 0x00B8(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              InitialX;                                                 // 0x00BC(0x0004)
-	float                                              InitialY;                                                 // 0x00C0(0x0004)
-	float                                              InitialSizeX;                                             // 0x00C4(0x0004)
-	float                                              InitialSizeY;                                             // 0x00C8(0x0004)
-	float                                              InitialActiveSizeX;                                       // 0x00CC(0x0004)
-	float                                              InitialActiveSizeY;                                       // 0x00D0(0x0004)
-	float                                              AuthoredGlobalScale;                                      // 0x00D4(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              Border;                                                   // 0x00D8(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	float                                              ResetCenterAfterInactivityTime;                           // 0x00DC(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	float                                              TapDistanceConstraint;                                    // 0x00E0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	float                                              ActivateTime;                                             // 0x00E4(0x0004) (RepNotify, Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              DeactivateTime;                                           // 0x00E8(0x0004) (RepNotify, Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FColor                                      RenderColor;                                              // 0x00EC(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              InactiveAlpha;                                            // 0x00F0(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              CaptionXAdjustment;                                       // 0x00F4(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              CaptionYAdjustment;                                       // 0x00F8(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UTexture2D*                                  OverrideTexture1;                                         // 0x00FC(0x0008) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     OverrideTexture1Name;                                     // 0x0104(0x0010)
-	struct FTextureUVs                                 OverrideUVs1;                                             // 0x0114(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UTexture2D*                                  OverrideTexture2;                                         // 0x0124(0x0008) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     OverrideTexture2Name;                                     // 0x012C(0x0010)
-	struct FTextureUVs                                 OverrideUVs2;                                             // 0x013C(0x0010) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              X;                                                        // 0x00A4(0x0004) (Edit, Config)
+	float                                              Y;                                                        // 0x00A8(0x0004) (Edit, Config)
+	float                                              SizeX;                                                    // 0x00AC(0x0004) (Edit, Config)
+	float                                              SizeY;                                                    // 0x00B0(0x0004) (Edit, Config)
+	float                                              ActiveSizeX;                                              // 0x00B4(0x0004) (Edit, Config)
+	float                                              ActiveSizeY;                                              // 0x00B8(0x0004) (Edit, Config)
+	float                                              InitialX;                                                 // 0x00BC(0x0004) (Const)
+	float                                              InitialY;                                                 // 0x00C0(0x0004) (Const)
+	float                                              InitialSizeX;                                             // 0x00C4(0x0004) (Const)
+	float                                              InitialSizeY;                                             // 0x00C8(0x0004) (Const)
+	float                                              InitialActiveSizeX;                                       // 0x00CC(0x0004) (Const)
+	float                                              InitialActiveSizeY;                                       // 0x00D0(0x0004) (Const)
+	float                                              AuthoredGlobalScale;                                      // 0x00D4(0x0004) (Edit, Config)
+	float                                              Border;                                                   // 0x00D8(0x0004) (Edit, Config)
+	float                                              ResetCenterAfterInactivityTime;                           // 0x00DC(0x0004) (Edit, Config)
+	float                                              TapDistanceConstraint;                                    // 0x00E0(0x0004) (Edit, Config)
+	float                                              ActivateTime;                                             // 0x00E4(0x0004) (Edit, Config)
+	float                                              DeactivateTime;                                           // 0x00E8(0x0004) (Edit, Config)
+	struct FColor                                      RenderColor;                                              // 0x00EC(0x0004) (Edit, Config)
+	float                                              InactiveAlpha;                                            // 0x00F0(0x0004) (Edit, Config)
+	float                                              CaptionXAdjustment;                                       // 0x00F4(0x0004) (Edit, Config)
+	float                                              CaptionYAdjustment;                                       // 0x00F8(0x0004) (Edit, Config)
+	class UTexture2D*                                  OverrideTexture1;                                         // 0x00FC(0x0008) (Edit)
+	struct FString                                     OverrideTexture1Name;                                     // 0x0104(0x0010) (Config, NeedCtorLink)
+	struct FTextureUVs                                 OverrideUVs1;                                             // 0x0114(0x0010) (Edit, Config)
+	class UTexture2D*                                  OverrideTexture2;                                         // 0x0124(0x0008) (Edit)
+	struct FString                                     OverrideTexture2Name;                                     // 0x012C(0x0010) (Config, NeedCtorLink)
+	struct FTextureUVs                                 OverrideUVs2;                                             // 0x013C(0x0010) (Edit, Config)
 	struct FVector2D                                   InitialLocation;                                          // 0x014C(0x0008)
 	struct FVector2D                                   CurrentLocation;                                          // 0x0154(0x0008)
 	struct FVector2D                                   CurrentCenter;                                            // 0x015C(0x0008)
@@ -1236,16 +1236,16 @@ public:
 	class UMobilePlayerInput*                          InputOwner;                                               // 0x01C4(0x0008)
 	float                                              TransitionTime;                                           // 0x01CC(0x0004)
 	struct FVector2D                                   EscapeVelocity;                                           // 0x01D0(0x0008)
-	TArray<class USeqEvent_MobileZoneBase*>            MobileSeqEventHandlers;                                   // 0x01D8(0x0010)
+	TArray<class USeqEvent_MobileZoneBase*>            MobileSeqEventHandlers;                                   // 0x01D8(0x0010) (NeedCtorLink)
 	struct FVector2D                                   LastAxisValues;                                           // 0x01E8(0x0008)
 	float                                              TotalActiveTime;                                          // 0x01F0(0x0004)
 	float                                              LastWentActiveTime;                                       // 0x01F4(0x0004)
-	struct FScriptDelegate                             __OnProcessInputDelegate__Delegate;                       // 0x01F8(0x0010)
-	struct FScriptDelegate                             __OnTapDelegate__Delegate;                                // 0x0208(0x0010)
-	struct FScriptDelegate                             __OnDoubleTapDelegate__Delegate;                          // 0x0218(0x0010)
-	struct FScriptDelegate                             __OnProcessSlide__Delegate;                               // 0x0228(0x0010)
-	struct FScriptDelegate                             __OnPreDrawZone__Delegate;                                // 0x0238(0x0010)
-	struct FScriptDelegate                             __OnPostDrawZone__Delegate;                               // 0x0248(0x0010)
+	struct FScriptDelegate                             __OnProcessInputDelegate__Delegate;                       // 0x01F8(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnTapDelegate__Delegate;                                // 0x0208(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnDoubleTapDelegate__Delegate;                          // 0x0218(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnProcessSlide__Delegate;                               // 0x0228(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnPreDrawZone__Delegate;                                // 0x0238(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnPostDrawZone__Delegate;                               // 0x0248(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1254,13 +1254,13 @@ public:
 	}
 
 
-	void AddKismetEventHandler();
-	void OnPostDrawZone();
-	void OnPreDrawZone();
-	void OnProcessSlide();
-	void OnDoubleTapDelegate();
-	void OnTapDelegate();
-	void OnProcessInputDelegate();
+	void AddKismetEventHandler(class USeqEvent_MobileZoneBase* NewHandler);
+	void OnPostDrawZone(class UMobileInputZone* Zone, class UCanvas* Canvas);
+	bool OnPreDrawZone(class UMobileInputZone* Zone, class UCanvas* Canvas);
+	bool OnProcessSlide(class UMobileInputZone* Zone, TEnumAsByte<ETouchType> EventType, int SlideValue, const struct FVector2D& ViewportSize);
+	bool OnDoubleTapDelegate(class UMobileInputZone* Zone, TEnumAsByte<ETouchType> EventType, const struct FVector2D& TouchLocation);
+	bool OnTapDelegate(class UMobileInputZone* Zone, TEnumAsByte<ETouchType> EventType, const struct FVector2D& TouchLocation);
+	bool OnProcessInputDelegate(class UMobileInputZone* Zone, float DeltaTime, int Handle, TEnumAsByte<ETouchType> EventType, const struct FVector2D& TouchLocation);
 	void DeactivateZone();
 	void ActivateZone();
 };
@@ -1271,7 +1271,7 @@ public:
 class UMobileMenuObject : public UObject
 {
 public:
-	unsigned long                                      bHasBeenInitialized : 1;                                  // 0x0058(0x0004)
+	unsigned long                                      bHasBeenInitialized : 1;                                  // 0x0058(0x0004) (Transient)
 	unsigned long                                      bRelativeLeft : 1;                                        // 0x0058(0x0004)
 	unsigned long                                      bRelativeTop : 1;                                         // 0x0058(0x0004)
 	unsigned long                                      bRelativeWidth : 1;                                       // 0x0058(0x0004)
@@ -1296,18 +1296,18 @@ public:
 	float                                              InitialTop;                                               // 0x0070(0x0004)
 	float                                              InitialWidth;                                             // 0x0074(0x0004)
 	float                                              InitialHeight;                                            // 0x0078(0x0004)
-	float                                              AuthoredGlobalScale;                                      // 0x007C(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              AuthoredGlobalScale;                                      // 0x007C(0x0004) (Edit)
 	float                                              TopLeeway;                                                // 0x0080(0x0004)
 	float                                              BottomLeeway;                                             // 0x0084(0x0004)
 	float                                              LeftLeeway;                                               // 0x0088(0x0004)
 	float                                              RightLeeway;                                              // 0x008C(0x0004)
 	float                                              XOffset;                                                  // 0x0090(0x0004)
 	float                                              YOffset;                                                  // 0x0094(0x0004)
-	struct FString                                     Tag;                                                      // 0x0098(0x0010)
+	struct FString                                     Tag;                                                      // 0x0098(0x0010) (NeedCtorLink)
 	class UMobilePlayerInput*                          InputOwner;                                               // 0x00A8(0x0008)
 	float                                              Opacity;                                                  // 0x00B0(0x0004)
 	class UMobileMenuScene*                            OwnerScene;                                               // 0x00B4(0x0008)
-	struct FString                                     RelativeToTag;                                            // 0x00BC(0x0010)
+	struct FString                                     RelativeToTag;                                            // 0x00BC(0x0010) (NeedCtorLink)
 	class UMobileMenuObject*                           RelativeTo;                                               // 0x00CC(0x0008)
 
 	static UClass* StaticClass()
@@ -1317,12 +1317,12 @@ public:
 	}
 
 
-	void GetIconIndexes();
-	void RenderObject();
-	void SetCanvasPos();
-	void InitMenuObject();
-	void GetRealPosition();
-	void OnTouch();
+	void GetIconIndexes(TArray<int>* IconIndexes);
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	void SetCanvasPos(class UCanvas* Canvas, float OffsetX, float OffsetY);
+	void InitMenuObject(class UMobilePlayerInput* PlayerInput, class UMobileMenuScene* Scene, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
+	void GetRealPosition(float* PosX, float* PosY);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
 };
 
 
@@ -1344,7 +1344,7 @@ public:
 	}
 
 
-	void RenderObject();
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
 };
 
 
@@ -1353,33 +1353,33 @@ public:
 class UMobileMenuScene : public UObject
 {
 public:
-	struct FString                                     MenuName;                                                 // 0x0058(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	TArray<class UMobileMenuObject*>                   MenuObjects;                                              // 0x0068(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	class UFont*                                       SceneCaptionFont;                                         // 0x0078(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	class UMobilePlayerInput*                          InputOwner;                                               // 0x0080(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bSceneDoesNotRequireInput : 1;                            // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bRelativeLeft : 1;                                        // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bRelativeTop : 1;                                         // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bRelativeWidth : 1;                                       // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bRelativeHeight : 1;                                      // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bApplyGlobalScaleLeft : 1;                                // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bApplyGlobalScaleTop : 1;                                 // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bApplyGlobalScaleWidth : 1;                               // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bApplyGlobalScaleHeight : 1;                              // 0x0088(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned char                                      TouchpadIndex;                                            // 0x008C(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
+	struct FString                                     MenuName;                                                 // 0x0058(0x0010) (Edit, NeedCtorLink)
+	TArray<class UMobileMenuObject*>                   MenuObjects;                                              // 0x0068(0x0010) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UFont*                                       SceneCaptionFont;                                         // 0x0078(0x0008) (Edit)
+	class UMobilePlayerInput*                          InputOwner;                                               // 0x0080(0x0008) (Edit)
+	unsigned long                                      bSceneDoesNotRequireInput : 1;                            // 0x0088(0x0004) (Edit)
+	unsigned long                                      bRelativeLeft : 1;                                        // 0x0088(0x0004) (Edit)
+	unsigned long                                      bRelativeTop : 1;                                         // 0x0088(0x0004) (Edit)
+	unsigned long                                      bRelativeWidth : 1;                                       // 0x0088(0x0004) (Edit)
+	unsigned long                                      bRelativeHeight : 1;                                      // 0x0088(0x0004) (Edit)
+	unsigned long                                      bApplyGlobalScaleLeft : 1;                                // 0x0088(0x0004) (Edit)
+	unsigned long                                      bApplyGlobalScaleTop : 1;                                 // 0x0088(0x0004) (Edit)
+	unsigned long                                      bApplyGlobalScaleWidth : 1;                               // 0x0088(0x0004) (Edit)
+	unsigned long                                      bApplyGlobalScaleHeight : 1;                              // 0x0088(0x0004) (Edit)
+	unsigned char                                      TouchpadIndex;                                            // 0x008C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x008D(0x0003) MISSED OFFSET
-	float                                              Left;                                                     // 0x0090(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Top;                                                      // 0x0094(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Width;                                                    // 0x0098(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              Height;                                                   // 0x009C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              Left;                                                     // 0x0090(0x0004) (Edit)
+	float                                              Top;                                                      // 0x0094(0x0004) (Edit)
+	float                                              Width;                                                    // 0x0098(0x0004) (Edit)
+	float                                              Height;                                                   // 0x009C(0x0004) (Edit)
 	float                                              InitialLeft;                                              // 0x00A0(0x0004)
 	float                                              InitialTop;                                               // 0x00A4(0x0004)
 	float                                              InitialWidth;                                             // 0x00A8(0x0004)
 	float                                              InitialHeight;                                            // 0x00AC(0x0004)
-	float                                              AuthoredGlobalScale;                                      // 0x00B0(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	float                                              Opacity;                                                  // 0x00B4(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	class USoundCue*                                   UITouchSound;                                             // 0x00B8(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	class USoundCue*                                   UIUnTouchSound;                                           // 0x00C0(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	float                                              AuthoredGlobalScale;                                      // 0x00B0(0x0004) (Edit)
+	float                                              Opacity;                                                  // 0x00B4(0x0004) (Edit)
+	class USoundCue*                                   UITouchSound;                                             // 0x00B8(0x0008) (Edit)
+	class USoundCue*                                   UIUnTouchSound;                                           // 0x00C0(0x0008) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -1388,22 +1388,22 @@ public:
 	}
 
 
-	void MobileMenuCommand();
-	void FindMenuObject();
+	bool MobileMenuCommand(const struct FString& Command);
+	class UMobileMenuObject* FindMenuObject(const struct FString& Tag);
 	void CleanUpScene();
 	void Closed();
-	void Closing();
+	bool Closing();
 	void MadeTopMenu();
-	void Opened();
-	void OnSceneTouch();
-	void OnTouch();
-	void PostRenderMenuObject();
-	void PreRenderMenuObject();
-	void RenderScene();
-	void GetSceneFont();
-	void InitMenuScene();
-	void STATIC_GetGlobalScaleY();
-	void STATIC_GetGlobalScaleX();
+	void Opened(const struct FString& Mode);
+	bool OnSceneTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, bool bInside);
+	void OnTouch(class UMobileMenuObject* Sender, TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY);
+	void PostRenderMenuObject(class UMobileMenuObject* MenuObject, class UCanvas* Canvas, float RenderDelta);
+	void PreRenderMenuObject(class UMobileMenuObject* MenuObject, class UCanvas* Canvas, float RenderDelta);
+	void RenderScene(class UCanvas* Canvas, float RenderDelta);
+	class UFont* GetSceneFont();
+	void InitMenuScene(class UMobilePlayerInput* PlayerInput, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
+	float STATIC_GetGlobalScaleY();
+	float STATIC_GetGlobalScaleX();
 };
 
 
@@ -1412,42 +1412,42 @@ public:
 class UMobilePlayerInput : public UPlayerInput
 {
 public:
-	struct FTouchData                                  Touches[0x5];                                             // 0x02B8(0x0050) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
+	struct FTouchData                                  Touches[0x5];                                             // 0x02B8(0x0050) (Edit, NeedCtorLink)
 	class UMobileMenuObject*                           InteractiveObject;                                        // 0x0448(0x0008)
 	struct FDouble                                     InteractiveObjectLastTime;                                // 0x0450(0x0008)
-	TArray<struct FMobileInputGroup>                   MobileInputGroups;                                        // 0x0458(0x0010) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	int                                                CurrentMobileGroup;                                       // 0x0468(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	TArray<class UMobileInputZone*>                    MobileInputZones;                                         // 0x046C(0x0010) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	TArray<struct FMobileInputZoneClassMap>            MobileInputZoneClasses;                                   // 0x047C(0x0010)
-	float                                              MobilePitch;                                              // 0x048C(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobilePitchCenter;                                        // 0x0490(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobilePitchMultiplier;                                    // 0x0494(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileYaw;                                                // 0x0498(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileYawCenter;                                          // 0x049C(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileYawMultiplier;                                      // 0x04A0(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobilePitchDeadzoneSize;                                  // 0x04A4(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileYawDeadzoneSize;                                    // 0x04A8(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileDoubleTapTime;                                      // 0x04AC(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileMinHoldForTap;                                      // 0x04B0(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	float                                              MobileTapRepeatTime;                                      // 0x04B4(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bAllowTouchesInCinematic : 1;                             // 0x04B8(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bDisableTouchInput : 1;                                   // 0x04B8(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bAbsoluteTouchLocations : 1;                              // 0x04B8(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bCollapseTouchInput : 1;                                  // 0x04B8(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	unsigned long                                      bFakeMobileTouches : 1;                                   // 0x04B8(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bDisableSceneRender : 1;                                  // 0x04B8(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	float                                              ZoneTimeout;                                              // 0x04BC(0x0004) (RepNotify, EditorOnly, ProtectedWrite, EditHide)
-	TArray<class UMobileMenuScene*>                    MobileMenuStack;                                          // 0x04C0(0x0010) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditTextBox, CrossLevelActive)
-	class UMobileMenuScene*                            CurrentRenderMenu;                                        // 0x04D0(0x0008) (Interp, EditorOnly, RepRetry, ProtectedWrite, EditTextBox, CrossLevelActive)
-	struct FString                                     NativeDebugString;                                        // 0x04D8(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	float                                              MobileInactiveTime;                                       // 0x04E8(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<class USeqEvent_MobileBase*>                MobileSeqEventHandlers;                                   // 0x04EC(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<class USeqEvent_MobileRawInput*>            MobileRawInputSeqEventHandlers;                           // 0x04FC(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
+	TArray<struct FMobileInputGroup>                   MobileInputGroups;                                        // 0x0458(0x0010) (Edit, NeedCtorLink, EditInline)
+	int                                                CurrentMobileGroup;                                       // 0x0468(0x0004) (Edit)
+	TArray<class UMobileInputZone*>                    MobileInputZones;                                         // 0x046C(0x0010) (Edit, NeedCtorLink, EditInline)
+	TArray<struct FMobileInputZoneClassMap>            MobileInputZoneClasses;                                   // 0x047C(0x0010) (NeedCtorLink)
+	float                                              MobilePitch;                                              // 0x048C(0x0004) (Edit)
+	float                                              MobilePitchCenter;                                        // 0x0490(0x0004) (Edit)
+	float                                              MobilePitchMultiplier;                                    // 0x0494(0x0004) (Edit)
+	float                                              MobileYaw;                                                // 0x0498(0x0004) (Edit)
+	float                                              MobileYawCenter;                                          // 0x049C(0x0004) (Edit)
+	float                                              MobileYawMultiplier;                                      // 0x04A0(0x0004) (Edit)
+	float                                              MobilePitchDeadzoneSize;                                  // 0x04A4(0x0004) (Edit, Config)
+	float                                              MobileYawDeadzoneSize;                                    // 0x04A8(0x0004) (Edit, Config)
+	float                                              MobileDoubleTapTime;                                      // 0x04AC(0x0004) (Edit, Config)
+	float                                              MobileMinHoldForTap;                                      // 0x04B0(0x0004) (Edit, Config)
+	float                                              MobileTapRepeatTime;                                      // 0x04B4(0x0004) (Edit, Config)
+	unsigned long                                      bAllowTouchesInCinematic : 1;                             // 0x04B8(0x0004) (Edit)
+	unsigned long                                      bDisableTouchInput : 1;                                   // 0x04B8(0x0004) (Edit)
+	unsigned long                                      bAbsoluteTouchLocations : 1;                              // 0x04B8(0x0004) (Edit, Config)
+	unsigned long                                      bCollapseTouchInput : 1;                                  // 0x04B8(0x0004) (Edit, Config)
+	unsigned long                                      bFakeMobileTouches : 1;                                   // 0x04B8(0x0004) (Edit)
+	unsigned long                                      bDisableSceneRender : 1;                                  // 0x04B8(0x0004) (Edit)
+	float                                              ZoneTimeout;                                              // 0x04BC(0x0004) (Edit, Config)
+	TArray<class UMobileMenuScene*>                    MobileMenuStack;                                          // 0x04C0(0x0010) (Edit, NeedCtorLink)
+	class UMobileMenuScene*                            CurrentRenderMenu;                                        // 0x04D0(0x0008) (Edit)
+	struct FString                                     NativeDebugString;                                        // 0x04D8(0x0010) (Edit, NeedCtorLink)
+	float                                              MobileInactiveTime;                                       // 0x04E8(0x0004) (Edit)
+	TArray<class USeqEvent_MobileBase*>                MobileSeqEventHandlers;                                   // 0x04EC(0x0010) (Edit, NeedCtorLink)
+	TArray<class USeqEvent_MobileRawInput*>            MobileRawInputSeqEventHandlers;                           // 0x04FC(0x0010) (Edit, NeedCtorLink)
 	struct FVector2D                                   MobileViewportOffset;                                     // 0x050C(0x0008)
 	struct FVector2D                                   MobileViewportSize;                                       // 0x0514(0x0008)
-	struct FScriptDelegate                             __OnTouchNotHandledInMenu__Delegate;                      // 0x051C(0x0010)
-	struct FScriptDelegate                             __OnPreviewTouch__Delegate;                               // 0x052C(0x0010)
-	struct FScriptDelegate                             __OnInputTouch__Delegate;                                 // 0x053C(0x0010)
+	struct FScriptDelegate                             __OnTouchNotHandledInMenu__Delegate;                      // 0x051C(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnPreviewTouch__Delegate;                               // 0x052C(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnInputTouch__Delegate;                                 // 0x053C(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1456,41 +1456,41 @@ public:
 	}
 
 
-	void OpenMobileMenuMode();
-	void OpenMobileMenu();
-	void MobileMenuCommand();
+	class UMobileMenuScene* OpenMobileMenuMode(const struct FString& MenuClassName, const struct FString& Mode);
+	class UMobileMenuScene* OpenMobileMenu(const struct FString& MenuClassName);
+	void MobileMenuCommand(const struct FString& MenuCommand);
 	void SceneRenderToggle();
-	void PreClientTravel();
-	void RenderMenus();
+	void PreClientTravel(const struct FString& PendingURL, TEnumAsByte<ETravelType> TravelType, bool bIsSeamlessTravel);
+	void RenderMenus(class UCanvas* Canvas, float RenderDelta);
 	void CloseAllMenus();
-	void CloseMenuScene();
-	void OpenMenuScene();
-	void SetMobileInputConfig();
-	void ActivateInputGroup();
-	void GetCurrentZones();
-	void HasZones();
-	void FindorAddZone();
-	void FindZone();
-	void AddKismetRawInputEventHandler();
-	void AddKismetEventHandler();
+	void CloseMenuScene(class UMobileMenuScene* SceneToClose);
+	class UMobileMenuScene* OpenMenuScene(class UClass* SceneClass, const struct FString& Mode);
+	void SetMobileInputConfig(const struct FString& GroupName);
+	void ActivateInputGroup(const struct FString& GroupName);
+	TArray<class UMobileInputZone*> GetCurrentZones();
+	bool HasZones();
+	class UMobileInputZone* FindorAddZone(const struct FString& ZoneName);
+	class UMobileInputZone* FindZone(const struct FString& ZoneName);
+	void AddKismetRawInputEventHandler(class USeqEvent_MobileRawInput* NewHandler);
+	void AddKismetEventHandler(class USeqEvent_MobileBase* NewHandler);
 	void RefreshKismetLinks();
 	void SwapZoneOwners();
 	void InitializeInputZones();
 	void InitTouchSystem();
 	void ClientInitInputSystem();
 	void InitInputSystem();
-	void ProcessWorldTouch();
-	void SendInputAxis();
-	void SendInputKey();
-	void ConditionalUpdateInputZones();
-	void NativeInitializeInputZones();
+	bool ProcessWorldTouch(class UMobileInputZone* Zone, TEnumAsByte<ETouchType> EventType, const struct FVector2D& TouchLocation);
+	void SendInputAxis(const struct FName& Key, float Delta, float DeltaTime);
+	void SendInputKey(const struct FName& Key, TEnumAsByte<EInputEvent> Event, float AmountDepressed);
+	void ConditionalUpdateInputZones(int NewViewportX, int NewViewportY, int NewViewportSizeX, int NewViewportSizeY);
+	void NativeInitializeInputZones(bool bIsFirstInitialize);
 	void NativeInitializeInputSystem();
-	void OnInputTouch();
-	void OnPreviewTouch();
+	void OnInputTouch(int Handle, TEnumAsByte<ETouchType> Type, const struct FVector2D& TouchLocation, float DeviceTimestamp, int TouchpadIndex);
+	bool OnPreviewTouch(float X, float Y, int TouchpadIndex);
 	void OnTouchNotHandledInMenu();
-	void PlayerInput();
+	void PlayerInput(float DeltaTime);
 	void CancelMobileInput();
-	void ProcessMobileInput();
+	void ProcessMobileInput(float DeltaTime);
 };
 
 
@@ -1499,7 +1499,7 @@ public:
 class UNavMeshGoal_OutOfViewFrom : public UNavMeshPathGoalEvaluator
 {
 public:
-	struct FPointer                                    GoalPoly;                                                 // 0x0074(0x0008)
+	struct FPointer                                    GoalPoly;                                                 // 0x0074(0x0008) (Native)
 	struct FVector                                     OutOfViewLocation;                                        // 0x007C(0x000C)
 	unsigned long                                      bShowDebug : 1;                                           // 0x0088(0x0004)
 
@@ -1511,7 +1511,7 @@ public:
 
 
 	void Recycle();
-	void STATIC_MustBeHiddenFromThisPoint();
+	bool STATIC_MustBeHiddenFromThisPoint(class UNavigationHandle* NavHandle, const struct FVector& InOutOfViewLocation);
 	void RecycleNative();
 };
 
@@ -1521,10 +1521,10 @@ public:
 class UNavMeshPath_BiasAgainstPolysWithinDistanceOfLocations : public UNavMeshPathConstraint
 {
 public:
-	struct FVector                                     Location;                                                 // 0x0070(0x000C)
-	struct FVector                                     Rotation;                                                 // 0x007C(0x000C)
-	float                                              DistanceToCheck;                                          // 0x0088(0x0004)
-	TArray<struct FVector>                             LocationsToCheck;                                         // 0x008C(0x0010)
+	struct FVector                                     Location;                                                 // 0x0070(0x000C) (Transient)
+	struct FVector                                     Rotation;                                                 // 0x007C(0x000C) (Transient)
+	float                                              DistanceToCheck;                                          // 0x0088(0x0004) (Transient)
+	TArray<struct FVector>                             LocationsToCheck;                                         // 0x008C(0x0010) (Transient, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1534,7 +1534,7 @@ public:
 
 
 	void Recycle();
-	void STATIC_BiasAgainstPolysWithinDistanceOfLocations();
+	bool STATIC_BiasAgainstPolysWithinDistanceOfLocations(class UNavigationHandle* NavHandle, const struct FVector& InLocation, const struct FRotator& InRotation, float InDistanceToCheck, TArray<struct FVector> InLocationsToCheck);
 };
 
 
@@ -1551,7 +1551,7 @@ public:
 	}
 
 
-	void PostRender();
+	void PostRender(class UCanvas* Canvas);
 };
 
 
@@ -1568,7 +1568,7 @@ public:
 	}
 
 
-	void PostRender();
+	void PostRender(class UCanvas* Canvas);
 };
 
 
@@ -1577,9 +1577,9 @@ public:
 class USeqAct_ControlGameMovie : public USeqAct_Latent
 {
 public:
-	struct FString                                     MovieName;                                                // 0x0170(0x0010) (NonTransactional, CrossLevelActive)
-	int                                                StartOfRenderingMovieFrame;                               // 0x0180(0x0004) (NonTransactional, CrossLevelActive)
-	int                                                EndOfRenderingMovieFrame;                                 // 0x0184(0x0004) (NonTransactional, CrossLevelActive)
+	struct FString                                     MovieName;                                                // 0x0170(0x0010) (Edit, NeedCtorLink)
+	int                                                StartOfRenderingMovieFrame;                               // 0x0180(0x0004) (Edit)
+	int                                                EndOfRenderingMovieFrame;                                 // 0x0184(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -1595,9 +1595,9 @@ public:
 class USeqAct_Deproject : public USequenceAction
 {
 public:
-	float                                              ScreenX;                                                  // 0x0158(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ScreenY;                                                  // 0x015C(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              TraceDistance;                                            // 0x0160(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              ScreenX;                                                  // 0x0158(0x0004) (Edit)
+	float                                              ScreenY;                                                  // 0x015C(0x0004) (Edit)
+	float                                              TraceDistance;                                            // 0x0160(0x0004) (Edit)
 	class UObject*                                     HitObject;                                                // 0x0164(0x0008)
 	struct FVector                                     HitLocation;                                              // 0x016C(0x000C)
 	struct FVector                                     HitNormal;                                                // 0x0178(0x000C)
@@ -1616,24 +1616,24 @@ public:
 class USeqAct_GameCrowdPopulationManagerToggle : public USequenceAction
 {
 public:
-	float                                              WarmupPopulationPct;                                      // 0x0158(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UGameCrowd_ListOfAgents*                     CrowdAgentList;                                           // 0x015C(0x0008) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bClearOldArchetypes : 1;                                  // 0x0164(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0164(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bCastShadows : 1;                                         // 0x0164(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              WarmupPopulationPct;                                      // 0x0158(0x0004) (Edit)
+	class UGameCrowd_ListOfAgents*                     CrowdAgentList;                                           // 0x015C(0x0008) (Edit)
+	unsigned long                                      bClearOldArchetypes : 1;                                  // 0x0164(0x0004) (Edit)
+	unsigned long                                      bEnableCrowdLightEnvironment : 1;                         // 0x0164(0x0004) (Edit)
+	unsigned long                                      bCastShadows : 1;                                         // 0x0164(0x0004) (Edit)
 	unsigned long                                      bFillPotentialSpawnPoints : 1;                            // 0x0164(0x0004)
-	unsigned long                                      bForceObstacleChecking : 1;                               // 0x0164(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bForceNavMeshPathing : 1;                                 // 0x0164(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bForceObstacleChecking : 1;                               // 0x0164(0x0004) (Edit)
+	unsigned long                                      bForceNavMeshPathing : 1;                                 // 0x0164(0x0004) (Edit)
 	unsigned long                                      bIndividualSpawner : 1;                                   // 0x0164(0x0004)
-	int                                                MaxAgents;                                                // 0x0168(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              SpawnRate;                                                // 0x016C(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                MaxAgents;                                                // 0x0168(0x0004) (Edit)
+	float                                              SpawnRate;                                                // 0x016C(0x0004) (Edit)
 	struct FLightingChannelContainer                   AgentLightingChannel;                                     // 0x0170(0x0004)
-	float                                              MaxSpawnDist;                                             // 0x0174(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxSpawnDist;                                             // 0x0174(0x0004) (Edit)
 	float                                              MinBehindSpawnDist;                                       // 0x0178(0x0004)
-	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x017C(0x0010)
+	TArray<class AGameCrowdDestination*>               PotentialSpawnPoints;                                     // 0x017C(0x0010) (NeedCtorLink)
 	float                                              AgentWarmupTime;                                          // 0x018C(0x0004)
-	int                                                NumAgentsToTickPerFrame;                                  // 0x0190(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<class AGameCrowdAgent*>                     LastSpawnedList;                                          // 0x0194(0x0010)
+	int                                                NumAgentsToTickPerFrame;                                  // 0x0190(0x0004) (Edit)
+	TArray<class AGameCrowdAgent*>                     LastSpawnedList;                                          // 0x0194(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1642,10 +1642,10 @@ public:
 	}
 
 
-	void AgentDestroyed();
-	void GetMaxSpawnDist();
-	void FillCrowdSpawnInfoItem();
-	void STATIC_GetObjClassVersion();
+	void AgentDestroyed(class AGameCrowdAgent* Agent);
+	float GetMaxSpawnDist();
+	void FillCrowdSpawnInfoItem(class AGameCrowdPopulationManager* PopMgr, struct FCrowdSpawnInfoItem* out_Item);
+	int STATIC_GetObjClassVersion();
 };
 
 
@@ -1662,7 +1662,7 @@ public:
 	}
 
 
-	void STATIC_GetObjClassVersion();
+	int STATIC_GetObjClassVersion();
 };
 
 
@@ -1671,8 +1671,8 @@ public:
 class USeqAct_MobileAddInputZones : public USequenceAction
 {
 public:
-	struct FName                                       ZoneName;                                                 // 0x0158(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UMobileInputZone*                            NewZone;                                                  // 0x0160(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ZoneName;                                                 // 0x0158(0x0008) (Edit)
+	class UMobileInputZone*                            NewZone;                                                  // 0x0160(0x0008) (Edit, EditInline)
 
 	static UClass* StaticClass()
 	{
@@ -1703,7 +1703,7 @@ public:
 class USeqAct_MobileRemoveInputZone : public USequenceAction
 {
 public:
-	struct FString                                     ZoneName;                                                 // 0x0158(0x0010) (NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     ZoneName;                                                 // 0x0158(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1727,7 +1727,7 @@ public:
 	}
 
 
-	void STATIC_GetObjClassVersion();
+	int STATIC_GetObjClassVersion();
 };
 
 
@@ -1736,7 +1736,7 @@ public:
 class USeqAct_ModifyProperty : public USequenceAction
 {
 public:
-	TArray<struct FPropertyInfo>                       Properties;                                               // 0x0158(0x0010) (RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FPropertyInfo>                       Properties;                                               // 0x0158(0x0010) (Edit, NeedCtorLink, EditInline)
 
 	static UClass* StaticClass()
 	{
@@ -1752,15 +1752,15 @@ public:
 class USeqAct_PlayAgentAnimation : public USeqAct_Latent
 {
 public:
-	TArray<struct FName>                               AnimationList;                                            // 0x0170(0x0010) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendInTime;                                              // 0x0180(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendOutTime;                                             // 0x0184(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseRootMotion : 1;                                       // 0x0188(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFaceActionTargetFirst : 1;                               // 0x0188(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLooping : 1;                                             // 0x0188(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bBlendBetweenAnims : 1;                                   // 0x0188(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                LoopIndex;                                                // 0x018C(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              LoopTime;                                                 // 0x0190(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FName>                               AnimationList;                                            // 0x0170(0x0010) (Edit, NeedCtorLink)
+	float                                              BlendInTime;                                              // 0x0180(0x0004) (Edit)
+	float                                              BlendOutTime;                                             // 0x0184(0x0004) (Edit)
+	unsigned long                                      bUseRootMotion : 1;                                       // 0x0188(0x0004) (Edit)
+	unsigned long                                      bFaceActionTargetFirst : 1;                               // 0x0188(0x0004) (Edit)
+	unsigned long                                      bLooping : 1;                                             // 0x0188(0x0004) (Edit)
+	unsigned long                                      bBlendBetweenAnims : 1;                                   // 0x0188(0x0004) (Edit)
+	int                                                LoopIndex;                                                // 0x018C(0x0004) (Edit)
+	float                                              LoopTime;                                                 // 0x0190(0x0004) (Edit)
 	class AActor*                                      ActionTarget;                                             // 0x0194(0x0008)
 
 	static UClass* StaticClass()
@@ -1770,8 +1770,8 @@ public:
 	}
 
 
-	void SetCurrentAnimationActionFor();
-	void STATIC_GetObjClassVersion();
+	void SetCurrentAnimationActionFor(class AGameCrowdAgentSkeletal* Agent);
+	int STATIC_GetObjClassVersion();
 };
 
 
@@ -1795,9 +1795,9 @@ public:
 class USeqEvent_HudRender : public USequenceEvent
 {
 public:
-	TArray<class UObject*>                             Targets;                                                  // 0x0168(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIsActive : 1;                                            // 0x0178(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              AuthoredGlobalScale;                                      // 0x017C(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TArray<class UObject*>                             Targets;                                                  // 0x0168(0x0010) (Edit, NeedCtorLink)
+	unsigned long                                      bIsActive : 1;                                            // 0x0178(0x0004) (Edit)
+	float                                              AuthoredGlobalScale;                                      // 0x017C(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -1806,7 +1806,7 @@ public:
 	}
 
 
-	void Render();
+	void Render(class UCanvas* TargetCanvas, class AHUD* TargetHud);
 	void RegisterEvent();
 };
 
@@ -1824,7 +1824,7 @@ public:
 	}
 
 
-	void AddToMobileInput();
+	void AddToMobileInput(class UMobilePlayerInput* MPI);
 	void RegisterEvent();
 };
 
@@ -1848,7 +1848,7 @@ public:
 	}
 
 
-	void STATIC_GetObjClassVersion();
+	int STATIC_GetObjClassVersion();
 };
 
 
@@ -1857,7 +1857,7 @@ public:
 class USeqEvent_MobileZoneBase : public USeqEvent_MobileBase
 {
 public:
-	struct FString                                     TargetZoneName;                                           // 0x0168(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     TargetZoneName;                                           // 0x0168(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1866,7 +1866,7 @@ public:
 	}
 
 
-	void AddToMobileInput();
+	void AddToMobileInput(class UMobilePlayerInput* MPI);
 };
 
 
@@ -1876,8 +1876,8 @@ class USeqEvent_MobileButton : public USeqEvent_MobileZoneBase
 {
 public:
 	unsigned long                                      bWasActiveLastFrame : 1;                                  // 0x0178(0x0004)
-	unsigned long                                      bSendPressedOnlyOnTouchDown : 1;                          // 0x0178(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSendPressedOnlyOnTouchUp : 1;                            // 0x0178(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bSendPressedOnlyOnTouchDown : 1;                          // 0x0178(0x0004) (Edit)
+	unsigned long                                      bSendPressedOnlyOnTouchUp : 1;                            // 0x0178(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -1932,8 +1932,8 @@ public:
 class USeqEvent_MobileRawInput : public USequenceEvent
 {
 public:
-	int                                                TouchIndex;                                               // 0x0168(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
-	int                                                TouchpadIndex;                                            // 0x016C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
+	int                                                TouchIndex;                                               // 0x0168(0x0004) (Edit)
+	int                                                TouchpadIndex;                                            // 0x016C(0x0004) (Edit)
 	float                                              TouchLocationX;                                           // 0x0170(0x0004)
 	float                                              TouchLocationY;                                           // 0x0174(0x0004)
 	float                                              TimeStamp;                                                // 0x0178(0x0004)
@@ -1954,12 +1954,12 @@ public:
 class USeqEvent_MobileObjectPicker : public USeqEvent_MobileRawInput
 {
 public:
-	float                                              TraceDistance;                                            // 0x017C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
-	unsigned long                                      bCheckonTouch : 1;                                        // 0x0180(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
+	float                                              TraceDistance;                                            // 0x017C(0x0004) (Edit)
+	unsigned long                                      bCheckonTouch : 1;                                        // 0x0180(0x0004) (Edit)
 	struct FVector                                     FinalTouchLocation;                                       // 0x0184(0x000C)
 	struct FVector                                     FinalTouchNormal;                                         // 0x0190(0x000C)
 	class UObject*                                     FinalTouchObject;                                         // 0x019C(0x0008)
-	TArray<class UObject*>                             Targets;                                                  // 0x01A4(0x0010) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class UObject*>                             Targets;                                                  // 0x01A4(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1975,11 +1975,11 @@ public:
 class USeqEvent_MobileSwipe : public USeqEvent_MobileRawInput
 {
 public:
-	float                                              Tolerance;                                                // 0x017C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              MinDistance;                                              // 0x0180(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
+	float                                              Tolerance;                                                // 0x017C(0x0004) (Edit)
+	float                                              MinDistance;                                              // 0x0180(0x0004) (Edit)
 	struct FVector2D                                   InitialTouch;                                             // 0x0184(0x0008)
-	TArray<class AActor*>                              TouchedActors;                                            // 0x018C(0x0010) (RepNotify, Interp, EditorOnly, ProtectedWrite, EditHide, CrossLevelActive)
-	float                                              TraceDistance;                                            // 0x019C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditTextBox)
+	TArray<class AActor*>                              TouchedActors;                                            // 0x018C(0x0010) (Edit, NeedCtorLink)
+	float                                              TraceDistance;                                            // 0x019C(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -1995,12 +1995,12 @@ public:
 class UGameSkelCtrl_Recoil : public USkelControlBase
 {
 public:
-	unsigned long                                      bBoneSpaceRecoil : 1;                                     // 0x00EC(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bPlayRecoil : 1;                                          // 0x00EC(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bOldPlayRecoil : 1;                                       // 0x00EC(0x0004)
-	unsigned long                                      bApplyControl : 1;                                        // 0x00EC(0x0004)
-	struct FRecoilDef                                  Recoil;                                                   // 0x00F0(0x0070) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector2D                                   Aim;                                                      // 0x0160(0x0008) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bBoneSpaceRecoil : 1;                                     // 0x00EC(0x0004) (Edit)
+	unsigned long                                      bPlayRecoil : 1;                                          // 0x00EC(0x0004) (Edit, Transient)
+	unsigned long                                      bOldPlayRecoil : 1;                                       // 0x00EC(0x0004) (Transient)
+	unsigned long                                      bApplyControl : 1;                                        // 0x00EC(0x0004) (Transient)
+	struct FRecoilDef                                  Recoil;                                                   // 0x00F0(0x0070) (Edit)
+	struct FVector2D                                   Aim;                                                      // 0x0160(0x0008) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -2016,8 +2016,8 @@ public:
 class UGameCameraBase : public UObject
 {
 public:
-	class AGamePlayerCamera*                           PlayerCamera;                                             // 0x0058(0x0008)
-	unsigned long                                      bResetCameraInterpolation : 1;                            // 0x0060(0x0004)
+	class AGamePlayerCamera*                           PlayerCamera;                                             // 0x0058(0x0008) (Transient)
+	unsigned long                                      bResetCameraInterpolation : 1;                            // 0x0060(0x0004) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2026,14 +2026,14 @@ public:
 	}
 
 
-	void ModifyPostProcessSettings();
+	void ModifyPostProcessSettings(struct FPostProcessSettings* PP);
 	void Init();
-	void DisplayDebug();
-	void ProcessViewRotation();
-	void UpdateCamera();
+	void DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos);
+	void ProcessViewRotation(float DeltaTime, class AActor* ViewTarget, struct FRotator* out_ViewRotation, struct FRotator* out_DeltaRot);
+	void UpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT);
 	void ResetInterpolation();
-	void OnBecomeInActive();
-	void OnBecomeActive();
+	void OnBecomeInActive(class UGameCameraBase* NewCamera);
+	void OnBecomeActive(class UGameCameraBase* OldCamera);
 };
 
 
@@ -2043,57 +2043,57 @@ class UGameThirdPersonCamera : public UGameCameraBase
 {
 public:
 	float                                              WorstLocBlockedPct;                                       // 0x0064(0x0004)
-	float                                              WorstLocPenetrationExtentScale;                           // 0x0068(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              PenetrationBlendOutTime;                                  // 0x006C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              PenetrationBlendInTime;                                   // 0x0070(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              WorstLocPenetrationExtentScale;                           // 0x0068(0x0004) (Edit)
+	float                                              PenetrationBlendOutTime;                                  // 0x006C(0x0004) (Edit)
+	float                                              PenetrationBlendInTime;                                   // 0x0070(0x0004) (Edit)
 	float                                              PenetrationBlockedPct;                                    // 0x0074(0x0004)
-	float                                              PenetrationExtentScale;                                   // 0x0078(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastActualOriginOffset;                                   // 0x007C(0x000C)
-	struct FVector                                     LastActualCameraOrigin;                                   // 0x0088(0x000C)
-	struct FRotator                                    LastActualCameraOriginRot;                                // 0x0094(0x000C)
-	float                                              OriginOffsetInterpSpeed;                                  // 0x00A0(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastViewOffset;                                           // 0x00A4(0x000C)
-	float                                              LastCamFOV;                                               // 0x00B0(0x0004)
-	struct FVector                                     LastIdealCameraOrigin;                                    // 0x00B4(0x000C)
-	struct FRotator                                    LastIdealCameraOriginRot;                                 // 0x00C0(0x000C)
-	class UGameThirdPersonCameraMode*                  ThirdPersonCamDefault;                                    // 0x00CC(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UClass*                                      ThirdPersonCamDefaultClass;                               // 0x00D4(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UGameThirdPersonCameraMode*                  CurrentCamMode;                                           // 0x00DC(0x0008) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              LastHeightAdjustment;                                     // 0x00E4(0x0004)
-	float                                              LastPitchAdjustment;                                      // 0x00E8(0x0004)
-	float                                              LastYawAdjustment;                                        // 0x00EC(0x0004)
-	float                                              LeftoverPitchAdjustment;                                  // 0x00F0(0x0004)
-	float                                              Focus_BackOffStrength;                                    // 0x00F4(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Focus_StepHeightAdjustment;                               // 0x00F8(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                Focus_MaxTries;                                           // 0x00FC(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              Focus_FastAdjustKickInTime;                               // 0x0100(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	float                                              LastFocusChangeTime;                                      // 0x0104(0x0004)
-	struct FVector                                     ActualFocusPointWorldLoc;                                 // 0x0108(0x000C)
-	struct FVector                                     LastFocusPointLoc;                                        // 0x0114(0x000C)
-	struct FCamFocusPointParams                        FocusPoint;                                               // 0x0120(0x0038) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
+	float                                              PenetrationExtentScale;                                   // 0x0078(0x0004) (Edit)
+	struct FVector                                     LastActualOriginOffset;                                   // 0x007C(0x000C) (Transient)
+	struct FVector                                     LastActualCameraOrigin;                                   // 0x0088(0x000C) (Transient)
+	struct FRotator                                    LastActualCameraOriginRot;                                // 0x0094(0x000C) (Transient)
+	float                                              OriginOffsetInterpSpeed;                                  // 0x00A0(0x0004) (Edit)
+	struct FVector                                     LastViewOffset;                                           // 0x00A4(0x000C) (Transient)
+	float                                              LastCamFOV;                                               // 0x00B0(0x0004) (Transient)
+	struct FVector                                     LastIdealCameraOrigin;                                    // 0x00B4(0x000C) (Transient)
+	struct FRotator                                    LastIdealCameraOriginRot;                                 // 0x00C0(0x000C) (Transient)
+	class UGameThirdPersonCameraMode*                  ThirdPersonCamDefault;                                    // 0x00CC(0x0008) (Edit, EditInline)
+	class UClass*                                      ThirdPersonCamDefaultClass;                               // 0x00D4(0x0008) (Edit)
+	class UGameThirdPersonCameraMode*                  CurrentCamMode;                                           // 0x00DC(0x0008) (Edit, Transient, EditInline)
+	float                                              LastHeightAdjustment;                                     // 0x00E4(0x0004) (Transient)
+	float                                              LastPitchAdjustment;                                      // 0x00E8(0x0004) (Transient)
+	float                                              LastYawAdjustment;                                        // 0x00EC(0x0004) (Transient)
+	float                                              LeftoverPitchAdjustment;                                  // 0x00F0(0x0004) (Transient)
+	float                                              Focus_BackOffStrength;                                    // 0x00F4(0x0004) (Edit)
+	float                                              Focus_StepHeightAdjustment;                               // 0x00F8(0x0004) (Edit)
+	int                                                Focus_MaxTries;                                           // 0x00FC(0x0004) (Edit)
+	float                                              Focus_FastAdjustKickInTime;                               // 0x0100(0x0004) (Edit)
+	float                                              LastFocusChangeTime;                                      // 0x0104(0x0004) (Transient)
+	struct FVector                                     ActualFocusPointWorldLoc;                                 // 0x0108(0x000C) (Transient)
+	struct FVector                                     LastFocusPointLoc;                                        // 0x0114(0x000C) (Transient)
+	struct FCamFocusPointParams                        FocusPoint;                                               // 0x0120(0x0038) (Edit)
 	unsigned long                                      bFocusPointSet : 1;                                       // 0x0158(0x0004)
-	unsigned long                                      bFocusPointSuccessful : 1;                                // 0x0158(0x0004)
+	unsigned long                                      bFocusPointSuccessful : 1;                                // 0x0158(0x0004) (Transient)
 	unsigned long                                      bDoingACameraTurn : 1;                                    // 0x0158(0x0004)
 	unsigned long                                      bTurnAlignTargetWhenFinished : 1;                         // 0x0158(0x0004)
-	unsigned long                                      bDrawDebug : 1;                                           // 0x0158(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDoingDirectLook : 1;                                     // 0x0158(0x0004)
-	unsigned long                                      bDebugChangedCameraMode : 1;                              // 0x0158(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bDoSeamlessPivotTransition : 1;                           // 0x0158(0x0004)
+	unsigned long                                      bDrawDebug : 1;                                           // 0x0158(0x0004) (Edit)
+	unsigned long                                      bDoingDirectLook : 1;                                     // 0x0158(0x0004) (Transient)
+	unsigned long                                      bDebugChangedCameraMode : 1;                              // 0x0158(0x0004) (Edit)
+	unsigned long                                      bDoSeamlessPivotTransition : 1;                           // 0x0158(0x0004) (Transient)
 	float                                              TurnCurTime;                                              // 0x015C(0x0004)
 	int                                                TurnStartAngle;                                           // 0x0160(0x0004)
 	int                                                TurnEndAngle;                                             // 0x0164(0x0004)
 	float                                              TurnTotalTime;                                            // 0x0168(0x0004)
 	float                                              TurnDelay;                                                // 0x016C(0x0004)
-	int                                                LastPostCamTurnYaw;                                       // 0x0170(0x0004)
-	int                                                DirectLookYaw;                                            // 0x0174(0x0004)
-	float                                              DirectLookInterpSpeed;                                    // 0x0178(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              WorstLocInterpSpeed;                                      // 0x017C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastWorstLocationLocal;                                   // 0x0180(0x000C)
-	struct FVector                                     LastWorstLocation;                                        // 0x018C(0x000C)
-	struct FVector                                     LastPreModifierCameraLoc;                                 // 0x0198(0x000C)
-	struct FRotator                                    LastPreModifierCameraRot;                                 // 0x01A4(0x000C)
-	TArray<struct FPenetrationAvoidanceFeeler>         PenetrationAvoidanceFeelers;                              // 0x01B0(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastOffsetAdjustment;                                     // 0x01C0(0x000C)
+	int                                                LastPostCamTurnYaw;                                       // 0x0170(0x0004) (Transient)
+	int                                                DirectLookYaw;                                            // 0x0174(0x0004) (Transient)
+	float                                              DirectLookInterpSpeed;                                    // 0x0178(0x0004) (Edit)
+	float                                              WorstLocInterpSpeed;                                      // 0x017C(0x0004) (Edit)
+	struct FVector                                     LastWorstLocationLocal;                                   // 0x0180(0x000C) (Transient)
+	struct FVector                                     LastWorstLocation;                                        // 0x018C(0x000C) (Transient)
+	struct FVector                                     LastPreModifierCameraLoc;                                 // 0x0198(0x000C) (Transient)
+	struct FRotator                                    LastPreModifierCameraRot;                                 // 0x01A4(0x000C) (Transient)
+	TArray<struct FPenetrationAvoidanceFeeler>         PenetrationAvoidanceFeelers;                              // 0x01B0(0x0010) (Edit, NeedCtorLink)
+	struct FVector                                     LastOffsetAdjustment;                                     // 0x01C0(0x000C) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2103,27 +2103,27 @@ public:
 
 
 	void ResetInterpolation();
-	void ModifyPostProcessSettings();
-	void OnBecomeActive();
-	void ProcessViewRotation();
-	void UpdateCameraMode();
-	void FindBestCameraMode();
-	void AdjustFocusPointInterpolation();
-	void GetActualFocusLocation();
-	void UpdateFocusPoint();
-	void ClearFocusPoint();
-	void GetFocusActor();
-	void SetFocusOnActor();
-	void SetFocusOnLoc();
-	void AdjustTurn();
+	void ModifyPostProcessSettings(struct FPostProcessSettings* PP);
+	void OnBecomeActive(class UGameCameraBase* OldCamera);
+	void ProcessViewRotation(float DeltaTime, class AActor* ViewTarget, struct FRotator* out_ViewRotation, struct FRotator* out_DeltaRot);
+	void UpdateCameraMode(class APawn* P);
+	class UGameThirdPersonCameraMode* FindBestCameraMode(class APawn* P);
+	void AdjustFocusPointInterpolation(const struct FRotator& Delta);
+	struct FVector GetActualFocusLocation();
+	void UpdateFocusPoint(class APawn* P);
+	void ClearFocusPoint(bool bLeaveCameraRotation);
+	class AActor* GetFocusActor();
+	void SetFocusOnActor(class AActor* FocusActor, const struct FName& FocusBoneName, const struct FVector2D& InterpSpeedRange, const struct FVector2D& InFocusFOV, float CameraFOV, bool bAlwaysFocus, bool bAdjustCamera, bool bIgnoreTrace, float FocusPitchOffsetDeg);
+	void SetFocusOnLoc(const struct FVector& FocusWorldLoc, const struct FVector2D& InterpSpeedRange, const struct FVector2D& InFocusFOV, float CameraFOV, bool bAlwaysFocus, bool bAdjustCamera, bool bIgnoreTrace, float FocusPitchOffsetDeg);
+	void AdjustTurn(int AngleOffset);
 	void EndTurn();
-	void BeginTurn();
-	void PlayerUpdateCamera();
-	void UpdateCamera();
-	void GetDesiredFOV();
+	void BeginTurn(int StartAngle, int EndAngle, float TimeSec, float DelaySec, bool bAlignTargetWhenFinished);
+	void PlayerUpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT);
+	void UpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT);
+	float GetDesiredFOV(class APawn* ViewedPawn);
 	void Init();
 	void Reset();
-	void CreateCameraMode();
+	class UGameThirdPersonCameraMode* CreateCameraMode(class UClass* ModeClass);
 };
 
 
@@ -2132,20 +2132,20 @@ public:
 class AGamePlayerCamera : public ACamera
 {
 public:
-	class UGameCameraBase*                             ThirdPersonCam;                                           // 0x05D4(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UClass*                                      ThirdPersonCameraClass;                                   // 0x05DC(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UGameCameraBase*                             FixedCam;                                                 // 0x05E4(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UClass*                                      FixedCameraClass;                                         // 0x05EC(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UGameCameraBase*                             CurrentCamera;                                            // 0x05F4(0x0008) (Interp, RepRetry, ProtectedWrite)
-	unsigned long                                      bUseForcedCamFOV : 1;                                     // 0x05FC(0x0004)
-	unsigned long                                      bInterpolateCamChanges : 1;                               // 0x05FC(0x0004)
-	unsigned long                                      bResetInterp : 1;                                         // 0x05FC(0x0004)
-	float                                              ForcedCamFOV;                                             // 0x0600(0x0004)
-	class AActor*                                      LastViewTarget;                                           // 0x0604(0x0008)
-	float                                              SplitScreenShakeScale;                                    // 0x060C(0x0004) (ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AActor*                                      LastTargetBase;                                           // 0x0610(0x0008)
+	class UGameCameraBase*                             ThirdPersonCam;                                           // 0x05D4(0x0008) (Edit, Transient, EditInline)
+	class UClass*                                      ThirdPersonCameraClass;                                   // 0x05DC(0x0008) (Edit, Const)
+	class UGameCameraBase*                             FixedCam;                                                 // 0x05E4(0x0008) (Edit, Transient, EditInline)
+	class UClass*                                      FixedCameraClass;                                         // 0x05EC(0x0008) (Edit, Const)
+	class UGameCameraBase*                             CurrentCamera;                                            // 0x05F4(0x0008) (Edit, Transient, EditInline)
+	unsigned long                                      bUseForcedCamFOV : 1;                                     // 0x05FC(0x0004) (Transient)
+	unsigned long                                      bInterpolateCamChanges : 1;                               // 0x05FC(0x0004) (Transient)
+	unsigned long                                      bResetInterp : 1;                                         // 0x05FC(0x0004) (Transient)
+	float                                              ForcedCamFOV;                                             // 0x0600(0x0004) (Transient)
+	class AActor*                                      LastViewTarget;                                           // 0x0604(0x0008) (Transient)
+	float                                              SplitScreenShakeScale;                                    // 0x060C(0x0004) (Edit, Const)
+	class AActor*                                      LastTargetBase;                                           // 0x0610(0x0008) (Transient)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0618(0x0008) MISSED OFFSET
-	struct FMatrix                                     LastTargetBaseTM;                                         // 0x0620(0x0040)
+	struct FMatrix                                     LastTargetBaseTM;                                         // 0x0620(0x0040) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2154,19 +2154,19 @@ public:
 	}
 
 
-	void AdjustFOVForViewport();
-	void ProcessViewRotation();
+	float AdjustFOVForViewport(float inHorizFOV, class APawn* CameraTargetPawn);
+	void ProcessViewRotation(float DeltaTime, struct FRotator* out_ViewRotation, struct FRotator* out_DeltaRot);
 	void ResetInterpolation();
-	void SetColorScale();
-	void DisplayDebug();
-	void UpdateCameraLensEffects();
-	void UpdateViewTarget();
-	void ShouldConstrainAspectRatio();
-	void FindBestCameraType();
+	void SetColorScale(const struct FVector& NewColorScale);
+	void DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos);
+	void UpdateCameraLensEffects(struct FTViewTarget* OutVT);
+	void UpdateViewTarget(float DeltaTime, struct FTViewTarget* OutVT);
+	bool ShouldConstrainAspectRatio();
+	class UGameCameraBase* FindBestCameraType(class AActor* CameraTarget);
 	void Reset();
 	void PostBeginPlay();
-	void CacheLastTargetBaseInfo();
-	void CreateCamera();
+	void CacheLastTargetBaseInfo(class AActor* TargetBase);
+	class UGameCameraBase* CreateCamera(class UClass* CameraClass);
 };
 
 
@@ -2175,63 +2175,63 @@ public:
 class UGameThirdPersonCameraMode : public UObject
 {
 public:
-	class UGameThirdPersonCamera*                      ThirdPersonCam;                                           // 0x0058(0x0008)
-	float                                              FOVAngle;                                                 // 0x0060(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendTime;                                                // 0x0064(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLockedToViewTarget : 1;                                  // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDirectLook : 1;                                          // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bFollowTarget : 1;                                        // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bInterpLocation : 1;                                      // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUsePerAxisOriginLocInterp : 1;                           // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bInterpRotation : 1;                                      // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bRotInterpSpeedConstant : 1;                              // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDoPredictiveAvoidance : 1;                               // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bValidateWorstLoc : 1;                                    // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSkipCameraCollision : 1;                                 // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSmoothViewOffsetPitchChanges : 1;                        // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bApplyDeltaViewOffset : 1;                                // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAdjustDOF : 1;                                           // 0x0068(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bDOFUpdated : 1;                                          // 0x0068(0x0004)
+	class UGameThirdPersonCamera*                      ThirdPersonCam;                                           // 0x0058(0x0008) (Transient)
+	float                                              FOVAngle;                                                 // 0x0060(0x0004) (Edit, Const, Config)
+	float                                              BlendTime;                                                // 0x0064(0x0004) (Edit)
+	unsigned long                                      bLockedToViewTarget : 1;                                  // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bDirectLook : 1;                                          // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bFollowTarget : 1;                                        // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bInterpLocation : 1;                                      // 0x0068(0x0004) (Edit)
+	unsigned long                                      bUsePerAxisOriginLocInterp : 1;                           // 0x0068(0x0004) (Edit)
+	unsigned long                                      bInterpRotation : 1;                                      // 0x0068(0x0004) (Edit)
+	unsigned long                                      bRotInterpSpeedConstant : 1;                              // 0x0068(0x0004) (Edit)
+	unsigned long                                      bDoPredictiveAvoidance : 1;                               // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bValidateWorstLoc : 1;                                    // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bSkipCameraCollision : 1;                                 // 0x0068(0x0004) (Edit)
+	unsigned long                                      bSmoothViewOffsetPitchChanges : 1;                        // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bApplyDeltaViewOffset : 1;                                // 0x0068(0x0004) (Edit)
+	unsigned long                                      bAdjustDOF : 1;                                           // 0x0068(0x0004) (Edit, Const)
+	unsigned long                                      bDOFUpdated : 1;                                          // 0x0068(0x0004) (Transient)
 	unsigned long                                      bNoFOVPostProcess : 1;                                    // 0x0068(0x0004)
-	unsigned long                                      bInterpViewOffsetOnlyForCamTransition : 1;                // 0x0068(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FollowingInterpSpeed_Pitch;                               // 0x006C(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FollowingInterpSpeed_Yaw;                                 // 0x0070(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FollowingInterpSpeed_Roll;                                // 0x0074(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              FollowingCameraVelThreshold;                              // 0x0078(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              OriginLocInterpSpeed;                                     // 0x007C(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     PerAxisOriginLocInterpSpeed;                              // 0x0080(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              OriginRotInterpSpeed;                                     // 0x008C(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     StrafeLeftAdjustment;                                     // 0x0090(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     StrafeRightAdjustment;                                    // 0x009C(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              StrafeOffsetScalingThreshold;                             // 0x00A8(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              StrafeOffsetInterpSpeedIn;                                // 0x00AC(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              StrafeOffsetInterpSpeedOut;                               // 0x00B0(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastStrafeOffset;                                         // 0x00B4(0x000C)
-	struct FVector                                     RunFwdAdjustment;                                         // 0x00C0(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     RunBackAdjustment;                                        // 0x00CC(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              RunOffsetScalingThreshold;                                // 0x00D8(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              RunOffsetInterpSpeedIn;                                   // 0x00DC(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              RunOffsetInterpSpeedOut;                                  // 0x00E0(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     LastRunOffset;                                            // 0x00E4(0x000C)
-	struct FVector                                     WorstLocOffset;                                           // 0x00F0(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     TargetRelativeCameraOriginOffset;                         // 0x00FC(0x000C) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FViewOffsetData                             ViewOffset;                                               // 0x0108(0x0024) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FViewOffsetData                             ViewOffset_ViewportAdjustments[0x6];                      // 0x012C(0x0024) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DOF_FalloffExponent;                                      // 0x0204(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_BlurKernelSize;                                       // 0x0208(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_FocusInnerRadius;                                     // 0x020C(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_MaxNearBlurAmount;                                    // 0x0210(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_MaxFarBlurAmount;                                     // 0x0214(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              LastDOFRadius;                                            // 0x0218(0x0004)
-	float                                              LastDOFDistance;                                          // 0x021C(0x0004)
-	float                                              DOFDistanceInterpSpeed;                                   // 0x0220(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FVector                                     DOFTraceExtent;                                           // 0x0224(0x000C) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              DOF_RadiusFalloff;                                        // 0x0230(0x0004) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FVector2D                                   DOF_RadiusRange;                                          // 0x0234(0x0008) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	struct FVector2D                                   DOF_RadiusDistRange;                                      // 0x023C(0x0008) (Interp, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	unsigned long                                      bInterpViewOffsetOnlyForCamTransition : 1;                // 0x0068(0x0004) (Edit)
+	float                                              FollowingInterpSpeed_Pitch;                               // 0x006C(0x0004) (Edit, Const)
+	float                                              FollowingInterpSpeed_Yaw;                                 // 0x0070(0x0004) (Edit, Const)
+	float                                              FollowingInterpSpeed_Roll;                                // 0x0074(0x0004) (Edit, Const)
+	float                                              FollowingCameraVelThreshold;                              // 0x0078(0x0004) (Edit, Const)
+	float                                              OriginLocInterpSpeed;                                     // 0x007C(0x0004) (Edit)
+	struct FVector                                     PerAxisOriginLocInterpSpeed;                              // 0x0080(0x000C) (Edit)
+	float                                              OriginRotInterpSpeed;                                     // 0x008C(0x0004) (Edit)
+	struct FVector                                     StrafeLeftAdjustment;                                     // 0x0090(0x000C) (Edit, Const)
+	struct FVector                                     StrafeRightAdjustment;                                    // 0x009C(0x000C) (Edit, Const)
+	float                                              StrafeOffsetScalingThreshold;                             // 0x00A8(0x0004) (Edit, Const)
+	float                                              StrafeOffsetInterpSpeedIn;                                // 0x00AC(0x0004) (Edit, Const)
+	float                                              StrafeOffsetInterpSpeedOut;                               // 0x00B0(0x0004) (Edit, Const)
+	struct FVector                                     LastStrafeOffset;                                         // 0x00B4(0x000C) (Transient)
+	struct FVector                                     RunFwdAdjustment;                                         // 0x00C0(0x000C) (Edit, Const)
+	struct FVector                                     RunBackAdjustment;                                        // 0x00CC(0x000C) (Edit, Const)
+	float                                              RunOffsetScalingThreshold;                                // 0x00D8(0x0004) (Edit, Const)
+	float                                              RunOffsetInterpSpeedIn;                                   // 0x00DC(0x0004) (Edit, Const)
+	float                                              RunOffsetInterpSpeedOut;                                  // 0x00E0(0x0004) (Edit, Const)
+	struct FVector                                     LastRunOffset;                                            // 0x00E4(0x000C) (Transient)
+	struct FVector                                     WorstLocOffset;                                           // 0x00F0(0x000C) (Edit)
+	struct FVector                                     TargetRelativeCameraOriginOffset;                         // 0x00FC(0x000C) (Edit, Const)
+	struct FViewOffsetData                             ViewOffset;                                               // 0x0108(0x0024) (Edit, Const)
+	struct FViewOffsetData                             ViewOffset_ViewportAdjustments[0x6];                      // 0x012C(0x0024) (Edit, Const)
+	float                                              DOF_FalloffExponent;                                      // 0x0204(0x0004) (Edit, Const)
+	float                                              DOF_BlurKernelSize;                                       // 0x0208(0x0004) (Edit, Const)
+	float                                              DOF_FocusInnerRadius;                                     // 0x020C(0x0004) (Edit, Const)
+	float                                              DOF_MaxNearBlurAmount;                                    // 0x0210(0x0004) (Edit, Const)
+	float                                              DOF_MaxFarBlurAmount;                                     // 0x0214(0x0004) (Edit, Const)
+	float                                              LastDOFRadius;                                            // 0x0218(0x0004) (Transient)
+	float                                              LastDOFDistance;                                          // 0x021C(0x0004) (Transient)
+	float                                              DOFDistanceInterpSpeed;                                   // 0x0220(0x0004) (Edit, Const)
+	struct FVector                                     DOFTraceExtent;                                           // 0x0224(0x000C) (Edit, Const)
+	float                                              DOF_RadiusFalloff;                                        // 0x0230(0x0004) (Edit, Const)
+	struct FVector2D                                   DOF_RadiusRange;                                          // 0x0234(0x0008) (Edit, Const)
+	struct FVector2D                                   DOF_RadiusDistRange;                                      // 0x023C(0x0008) (Edit, Const)
 	float                                              ViewOffsetInterp;                                         // 0x0244(0x0004)
-	float                                              OffsetAdjustmentInterpSpeed;                              // 0x0248(0x0004) (Interp, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ECameraViewportTypes>                  CurrentViewportType;                                      // 0x024C(0x0001)
+	float                                              OffsetAdjustmentInterpSpeed;                              // 0x0248(0x0004) (Edit)
+	TEnumAsByte<ECameraViewportTypes>                  CurrentViewportType;                                      // 0x024C(0x0001) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2240,18 +2240,18 @@ public:
 	}
 
 
-	void SetViewOffset();
-	void ModifyPostProcessSettings();
-	void UpdatePostProcess();
-	void DOFTrace();
-	void GetDOFFocusLoc();
-	void ProcessViewRotation();
-	void SetFocusPoint();
-	void GetCameraWorstCaseLoc();
-	void GetDesiredFOV();
-	void AdjustViewOffset();
-	void OnBecomeInActive();
-	void OnBecomeActive();
+	void SetViewOffset(struct FViewOffsetData* NewViewOffset);
+	void ModifyPostProcessSettings(struct FPostProcessSettings* PP);
+	void UpdatePostProcess(float DeltaTime, struct FTViewTarget* VT);
+	struct FVector DOFTrace(class AActor* TraceOwner, const struct FVector& StartTrace, const struct FVector& EndTrace);
+	struct FVector GetDOFFocusLoc(class AActor* TraceOwner, const struct FVector& StartTrace, const struct FVector& EndTrace);
+	void ProcessViewRotation(float DeltaTime, class AActor* ViewTarget, struct FRotator* out_ViewRotation, struct FRotator* out_DeltaRot);
+	bool SetFocusPoint(class APawn* ViewedPawn);
+	struct FVector GetCameraWorstCaseLoc(class APawn* TargetPawn, const struct FTViewTarget& CurrentViewTarget);
+	float GetDesiredFOV(class APawn* ViewedPawn);
+	struct FVector AdjustViewOffset(class APawn* P, const struct FVector& Offset);
+	void OnBecomeInActive(class APawn* TargetPawn, class UGameThirdPersonCameraMode* NewMode);
+	void OnBecomeActive(class APawn* TargetPawn, class UGameThirdPersonCameraMode* PrevMode);
 	void Init();
 };
 
@@ -2262,9 +2262,9 @@ class UGameThirdPersonCameraMode_Default : public UGameThirdPersonCameraMode
 {
 public:
 	unsigned char                                      UnknownData00[0x3];                                       // 0x024D(0x0003) MISSED OFFSET
-	float                                              WorstLocAimingZOffset;                                    // 0x0250(0x0004) (NonTransactional, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bTemporaryOriginRotInterp : 1;                            // 0x0254(0x0004)
-	float                                              TemporaryOriginRotInterpSpeed;                            // 0x0258(0x0004) (NonTransactional, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              WorstLocAimingZOffset;                                    // 0x0250(0x0004) (Edit, Const)
+	unsigned long                                      bTemporaryOriginRotInterp : 1;                            // 0x0254(0x0004) (Transient)
+	float                                              TemporaryOriginRotInterpSpeed;                            // 0x0258(0x0004) (Edit, Const)
 
 	static UClass* StaticClass()
 	{
@@ -2282,18 +2282,18 @@ class UGameSpecialMove : public UObject
 public:
 	class AGamePawn*                                   PawnOwner;                                                // 0x0058(0x0008)
 	struct FName                                       Handle;                                                   // 0x0060(0x0008)
-	float                                              LastCanDoSpecialMoveTime;                                 // 0x0068(0x0004)
+	float                                              LastCanDoSpecialMoveTime;                                 // 0x0068(0x0004) (Transient)
 	unsigned long                                      bLastCanDoSpecialMove : 1;                                // 0x006C(0x0004)
-	unsigned long                                      bReachPreciseDestination : 1;                             // 0x006C(0x0004)
-	unsigned long                                      bReachedPreciseDestination : 1;                           // 0x006C(0x0004)
-	unsigned long                                      bReachPreciseRotation : 1;                                // 0x006C(0x0004)
-	unsigned long                                      bReachedPreciseRotation : 1;                              // 0x006C(0x0004)
+	unsigned long                                      bReachPreciseDestination : 1;                             // 0x006C(0x0004) (Const)
+	unsigned long                                      bReachedPreciseDestination : 1;                           // 0x006C(0x0004) (Const)
+	unsigned long                                      bReachPreciseRotation : 1;                                // 0x006C(0x0004) (Const)
+	unsigned long                                      bReachedPreciseRotation : 1;                              // 0x006C(0x0004) (Const)
 	unsigned long                                      bForcePrecisePosition : 1;                                // 0x006C(0x0004)
-	struct FVector                                     PreciseDestination;                                       // 0x0070(0x000C)
-	class AActor*                                      PreciseDestBase;                                          // 0x007C(0x0008)
-	struct FVector                                     PreciseDestRelOffset;                                     // 0x0084(0x000C)
-	float                                              PreciseRotationInterpolationTime;                         // 0x0090(0x0004)
-	struct FRotator                                    PreciseRotation;                                          // 0x0094(0x000C)
+	struct FVector                                     PreciseDestination;                                       // 0x0070(0x000C) (Const)
+	class AActor*                                      PreciseDestBase;                                          // 0x007C(0x0008) (Const)
+	struct FVector                                     PreciseDestRelOffset;                                     // 0x0084(0x000C) (Const)
+	float                                              PreciseRotationInterpolationTime;                         // 0x0090(0x0004) (Const)
+	struct FRotator                                    PreciseRotation;                                          // 0x0094(0x000C) (Const)
 
 	static UClass* StaticClass()
 	{
@@ -2302,27 +2302,27 @@ public:
 	}
 
 
-	void RelativeToWorldOffset();
-	void WorldToRelativeOffset();
-	void ForcePawnRotation();
-	void MessageEvent();
+	struct FVector RelativeToWorldOffset(const struct FRotator& InRotation, const struct FVector& RelativeSpaceOffset);
+	struct FVector WorldToRelativeOffset(const struct FRotator& InRotation, const struct FVector& WorldSpaceOffset);
+	void ForcePawnRotation(class APawn* P, const struct FRotator& NewRotation);
+	bool MessageEvent(const struct FName& EventName, class UObject* Sender);
 	void ResetFacePreciseRotation();
 	void ReachedPrecisePosition();
-	void SetFacePreciseRotation();
-	void SetReachPreciseDestination();
-	void ShouldReplicate();
+	void SetFacePreciseRotation(const struct FRotator& RotationToFace, float InterpolationTime);
+	void SetReachPreciseDestination(const struct FVector& DestinationToReach, bool bCancel);
+	bool ShouldReplicate();
 	void SpecialMoveFlagsUpdated();
-	void Tick();
-	void SpecialMoveEnded();
-	void SpecialMoveStarted();
-	void InternalCanDoSpecialMove();
-	void CanDoSpecialMove();
-	void CanOverrideSpecialMove();
-	void CanOverrideMoveWith();
-	void CanChainMove();
-	void ExtractSpecialMoveFlags();
-	void InitSpecialMoveFlags();
-	void InitSpecialMove();
+	void Tick(float DeltaTime);
+	void SpecialMoveEnded(const struct FName& PrevMove, const struct FName& NextMove);
+	void SpecialMoveStarted(bool bForced, const struct FName& PrevMove);
+	bool InternalCanDoSpecialMove();
+	bool CanDoSpecialMove(bool bForceCheck);
+	bool CanOverrideSpecialMove(const struct FName& InMove);
+	bool CanOverrideMoveWith(const struct FName& NewMove);
+	bool CanChainMove(const struct FName& NextMove);
+	void ExtractSpecialMoveFlags(int Flags);
+	void InitSpecialMoveFlags(int* out_Flags);
+	void InitSpecialMove(class AGamePawn* inPawn, const struct FName& InHandle);
 };
 
 
@@ -2331,8 +2331,8 @@ public:
 class UGameStateObject : public UGameplayEventsHandler
 {
 public:
-	struct FArray_Mirror                               TeamStates;                                               // 0x0080(0x0010)
-	struct FArray_Mirror                               PlayerStates;                                             // 0x0090(0x0010)
+	struct FArray_Mirror                               TeamStates;                                               // 0x0080(0x0010) (Const, Native)
+	struct FArray_Mirror                               PlayerStates;                                             // 0x0090(0x0010) (Const, Native)
 	TEnumAsByte<EGameSessionType>                      SessionType;                                              // 0x00A0(0x0001)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x00A1(0x0003) MISSED OFFSET
 	unsigned long                                      bIsMatchStarted : 1;                                      // 0x00A4(0x0004)
@@ -2358,17 +2358,17 @@ class UGameStatsAggregator : public UGameplayEventsHandler
 {
 public:
 	class UGameStateObject*                            GameState;                                                // 0x0080(0x0008)
-	TArray<struct FAggregateEventMapping>              AggregatesList;                                           // 0x0088(0x0010)
-	struct FMap_Mirror                                 AggregateEventsMapping;                                   // 0x0098(0x0048)
-	TArray<struct FGameplayEventMetaData>              AggregateEvents;                                          // 0x00E0(0x0010)
-	TArray<int>                                        AggregatesFound;                                          // 0x00F0(0x0010)
+	TArray<struct FAggregateEventMapping>              AggregatesList;                                           // 0x0088(0x0010) (NeedCtorLink)
+	struct FMap_Mirror                                 AggregateEventsMapping;                                   // 0x0098(0x0048) (Const, Native, Transient)
+	TArray<struct FGameplayEventMetaData>              AggregateEvents;                                          // 0x00E0(0x0010) (NeedCtorLink)
+	TArray<int>                                        AggregatesFound;                                          // 0x00F0(0x0010) (Const, NeedCtorLink)
 	struct FGameEvents                                 AllGameEvents;                                            // 0x0100(0x0048)
-	TArray<struct FTeamEvents>                         AllTeamEvents;                                            // 0x0148(0x0010)
-	TArray<struct FPlayerEvents>                       AllPlayerEvents;                                          // 0x0158(0x0010)
-	struct FWeaponEvents                               AllWeaponEvents;                                          // 0x0168(0x0058)
-	struct FProjectileEvents                           AllProjectileEvents;                                      // 0x01C0(0x0058)
-	struct FPawnEvents                                 AllPawnEvents;                                            // 0x0218(0x0058)
-	struct FDamageEvents                               AllDamageEvents;                                          // 0x0270(0x0058)
+	TArray<struct FTeamEvents>                         AllTeamEvents;                                            // 0x0148(0x0010) (Const, NeedCtorLink)
+	TArray<struct FPlayerEvents>                       AllPlayerEvents;                                          // 0x0158(0x0010) (Const, NeedCtorLink)
+	struct FWeaponEvents                               AllWeaponEvents;                                          // 0x0168(0x0058) (Const, NeedCtorLink)
+	struct FProjectileEvents                           AllProjectileEvents;                                      // 0x01C0(0x0058) (Const, NeedCtorLink)
+	struct FPawnEvents                                 AllPawnEvents;                                            // 0x0218(0x0058) (Const, NeedCtorLink)
+	struct FDamageEvents                               AllDamageEvents;                                          // 0x0270(0x0058) (Const, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -2377,7 +2377,7 @@ public:
 	}
 
 
-	void GetAggregateMappingIDs();
+	bool GetAggregateMappingIDs(int EventID, int* AggregateID, int* TargetAggregateID);
 	void Reset();
 	void PostProcessStream();
 	void PreProcessStream();
@@ -2433,7 +2433,7 @@ public:
 
 
 	void PostRender();
-	void DisplayMaterials();
+	bool DisplayMaterials(float X, float DY, class UMeshComponent* MeshComp, float* Y);
 	void PostBeginPlay();
 };
 
@@ -2451,7 +2451,7 @@ public:
 	}
 
 
-	void InputKey();
+	bool InputKey(int ControllerId, const struct FName& Key, TEnumAsByte<EInputEvent> Event, float AmountDepressed, bool bGamepad);
 };
 
 
@@ -2468,8 +2468,8 @@ public:
 	}
 
 
-	void GetMaxSpawnDist();
-	void AgentDestroyed();
+	float GetMaxSpawnDist();
+	void AgentDestroyed(class AGameCrowdAgent* Agent);
 };
 
 
@@ -2486,7 +2486,7 @@ public:
 	}
 
 
-	void GetSpawnPosition();
+	void GetSpawnPosition(class USeqAct_GameCrowdSpawner* Spawner, struct FVector* SpawnPos, struct FRotator* SpawnRot);
 };
 
 
@@ -2510,17 +2510,17 @@ public:
 class UGameAICmd_Hover_MoveToGoal : public UGameAICommand
 {
 public:
-	class AActor*                                      Path;                                                     // 0x007C(0x0008)
-	class AActor*                                      Find;                                                     // 0x0084(0x0008)
-	class AActor*                                      Goal;                                                     // 0x008C(0x0008)
+	class AActor*                                      Path;                                                     // 0x007C(0x0008) (Transient)
+	class AActor*                                      Find;                                                     // 0x0084(0x0008) (Transient)
+	class AActor*                                      Goal;                                                     // 0x008C(0x0008) (Transient)
 	float                                              Radius;                                                   // 0x0094(0x0004)
-	unsigned long                                      bWasFiring : 1;                                           // 0x0098(0x0004)
+	unsigned long                                      bWasFiring : 1;                                           // 0x0098(0x0004) (Transient)
 	float                                              DesiredHoverHeight;                                       // 0x009C(0x0004)
-	float                                              CurrentHoverHeight;                                       // 0x00A0(0x0004)
+	float                                              CurrentHoverHeight;                                       // 0x00A0(0x0004) (Transient)
 	float                                              SubGoalReachDist;                                         // 0x00A4(0x0004)
 	float                                              GoalDistance;                                             // 0x00A8(0x0004)
-	struct FVector                                     MoveVectDest;                                             // 0x00AC(0x000C)
-	class UReachSpec*                                  CurrentSpec;                                              // 0x00B8(0x0008)
+	struct FVector                                     MoveVectDest;                                             // 0x00AC(0x000C) (Transient)
+	class UReachSpec*                                  CurrentSpec;                                              // 0x00B8(0x0008) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2529,10 +2529,10 @@ public:
 	}
 
 
-	void IsEnemyBasedOnInterpActor();
-	void HandlePathObstruction();
+	bool IsEnemyBasedOnInterpActor(class APawn* InEnemy);
+	bool HandlePathObstruction(class AActor* BlockedBy);
 	void Pushed();
-	void STATIC_MoveToGoal();
+	bool STATIC_MoveToGoal(class AGameAIController* AI, class AActor* InGoal, float InGoalDistance, float InHoverHeight);
 };
 
 
@@ -2541,23 +2541,23 @@ public:
 class UGameAICmd_Hover_MoveToGoal_Mesh : public UGameAICommand
 {
 public:
-	class AActor*                                      Find;                                                     // 0x007C(0x0008)
+	class AActor*                                      Find;                                                     // 0x007C(0x0008) (Transient)
 	float                                              Radius;                                                   // 0x0084(0x0004)
-	unsigned long                                      bWasFiring : 1;                                           // 0x0088(0x0004)
+	unsigned long                                      bWasFiring : 1;                                           // 0x0088(0x0004) (Transient)
 	unsigned long                                      bFinalApproach : 1;                                       // 0x0088(0x0004)
 	unsigned long                                      bFallbackMoveToMesh : 1;                                  // 0x0088(0x0004)
 	float                                              DesiredHoverHeight;                                       // 0x008C(0x0004)
-	float                                              CurrentHoverHeight;                                       // 0x0090(0x0004)
+	float                                              CurrentHoverHeight;                                       // 0x0090(0x0004) (Transient)
 	float                                              SubGoalReachDist;                                         // 0x0094(0x0004)
-	float                                              GoalDistance;                                             // 0x0098(0x0004)
-	struct FVector                                     IntermediatePoint;                                        // 0x009C(0x000C)
-	struct FVector                                     LastMovePoint;                                            // 0x00A8(0x000C)
-	int                                                NumMovePointFails;                                        // 0x00B4(0x0004)
+	float                                              GoalDistance;                                             // 0x0098(0x0004) (Transient)
+	struct FVector                                     IntermediatePoint;                                        // 0x009C(0x000C) (Transient)
+	struct FVector                                     LastMovePoint;                                            // 0x00A8(0x000C) (Transient)
+	int                                                NumMovePointFails;                                        // 0x00B4(0x0004) (Transient)
 	int                                                MaxMovePointFails;                                        // 0x00B8(0x0004)
-	struct FVector                                     FallbackDest;                                             // 0x00BC(0x000C)
-	class AActor*                                      MoveToActor;                                              // 0x00C8(0x0008)
+	struct FVector                                     FallbackDest;                                             // 0x00BC(0x000C) (Transient)
+	class AActor*                                      MoveToActor;                                              // 0x00C8(0x0008) (Transient)
 	struct FBasedPosition                              LastMoveTargetPathLocation;                               // 0x00D0(0x0038)
-	struct FVector                                     InitialFinalDestination;                                  // 0x0108(0x000C)
+	struct FVector                                     InitialFinalDestination;                                  // 0x0108(0x000C) (Transient)
 
 	static UClass* StaticClass()
 	{
@@ -2566,18 +2566,18 @@ public:
 	}
 
 
-	void DrawDebug();
-	void IsEnemyBasedOnInterpActor();
-	void ShouldUpdateBreadCrumbs();
-	void HasReachedGoal();
+	void DrawDebug(class AHUD* H, const struct FName& Category);
+	bool IsEnemyBasedOnInterpActor(class APawn* InEnemy);
+	bool ShouldUpdateBreadCrumbs();
+	bool HasReachedGoal();
 	void ReEvaluatePath();
-	void HandlePathObstruction();
-	void Tick();
+	bool HandlePathObstruction(class AActor* BlockedBy);
+	void Tick(float DeltaTime);
 	void Popped();
 	void Pushed();
-	void STATIC_HoverBackToMesh();
-	void STATIC_HoverToPoint();
-	void STATIC_HoverToGoal();
+	bool STATIC_HoverBackToMesh(class AGameAIController* AI);
+	bool STATIC_HoverToPoint(class AGameAIController* AI, const struct FVector& InPoint, float InGoalDistance, float InHoverHeight);
+	bool STATIC_HoverToGoal(class AGameAIController* AI, class AActor* InGoal, float InGoalDistance, float InHoverHeight);
 };
 
 
@@ -2586,7 +2586,7 @@ public:
 class UGameCrowd_ListOfAgents : public UObject
 {
 public:
-	TArray<struct FAgentArchetypeInfo>                 ListOfAgents;                                             // 0x0058(0x0010) (RepNotify, Interp, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	TArray<struct FAgentArchetypeInfo>                 ListOfAgents;                                             // 0x0058(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -2617,25 +2617,25 @@ public:
 class UGameExplosionContent : public UObject
 {
 public:
-	unsigned long                                      bAutoControllerVibration : 1;                             // 0x0058(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	unsigned long                                      bOrientCameraShakeTowardsEpicenter : 1;                   // 0x0058(0x0004) (Interp, RepRetry, ProtectedWrite)
-	class USoundCue*                                   ExplosionSound;                                           // 0x005C(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UCameraShake*                                CamShake;                                                 // 0x0064(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UCameraShake*                                CamShake_Left;                                            // 0x006C(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UCameraShake*                                CamShake_Right;                                           // 0x0074(0x0008) (Interp, RepRetry, ProtectedWrite)
-	class UCameraShake*                                CamShake_Rear;                                            // 0x007C(0x0008) (Interp, RepRetry, ProtectedWrite)
-	float                                              CamShakeInnerRadius;                                      // 0x0084(0x0004) (Interp, RepRetry, ProtectedWrite)
-	float                                              CamShakeOuterRadius;                                      // 0x0088(0x0004) (Interp, RepRetry, ProtectedWrite)
-	float                                              CamShakeFalloff;                                          // 0x008C(0x0004) (Interp, RepRetry, ProtectedWrite)
-	class UClass*                                      CameraLensEffect;                                         // 0x0090(0x0008) (Interp, RepRetry, ProtectedWrite)
-	float                                              CameraLensEffectRadius;                                   // 0x0098(0x0004) (Interp, RepRetry, ProtectedWrite)
-	class UPointLightComponent*                        ExploLight;                                               // 0x009C(0x0008) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              ExploLightFadeOutTime;                                    // 0x00A4(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class URadialBlurComponent*                        ExploRadialBlur;                                          // 0x00A8(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              ExploRadialBlurFadeOutTime;                               // 0x00B0(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	float                                              ExploRadialBlurMaxBlur;                                   // 0x00B4(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
-	class UParticleSystem*                             ParticleEmitterTemplate;                                  // 0x00B8(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class AFogVolumeSphericalDensityInfo*              FogVolumeArchetype;                                       // 0x00C0(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelActive)
+	unsigned long                                      bAutoControllerVibration : 1;                             // 0x0058(0x0004) (Edit, Const)
+	unsigned long                                      bOrientCameraShakeTowardsEpicenter : 1;                   // 0x0058(0x0004) (Edit, Const)
+	class USoundCue*                                   ExplosionSound;                                           // 0x005C(0x0008) (Edit, Const)
+	class UCameraShake*                                CamShake;                                                 // 0x0064(0x0008) (Edit, Const)
+	class UCameraShake*                                CamShake_Left;                                            // 0x006C(0x0008) (Edit, Const)
+	class UCameraShake*                                CamShake_Right;                                           // 0x0074(0x0008) (Edit, Const)
+	class UCameraShake*                                CamShake_Rear;                                            // 0x007C(0x0008) (Edit, Const)
+	float                                              CamShakeInnerRadius;                                      // 0x0084(0x0004) (Edit, Const)
+	float                                              CamShakeOuterRadius;                                      // 0x0088(0x0004) (Edit, Const)
+	float                                              CamShakeFalloff;                                          // 0x008C(0x0004) (Edit, Const)
+	class UClass*                                      CameraLensEffect;                                         // 0x0090(0x0008) (Edit, Const)
+	float                                              CameraLensEffectRadius;                                   // 0x0098(0x0004) (Edit, Const)
+	class UPointLightComponent*                        ExploLight;                                               // 0x009C(0x0008) (Edit, Const, ExportObject, Component, EditInline)
+	float                                              ExploLightFadeOutTime;                                    // 0x00A4(0x0004) (Edit, Const)
+	class URadialBlurComponent*                        ExploRadialBlur;                                          // 0x00A8(0x0008) (Edit, Const, ExportObject, Component, EditInline)
+	float                                              ExploRadialBlurFadeOutTime;                               // 0x00B0(0x0004) (Edit, Const)
+	float                                              ExploRadialBlurMaxBlur;                                   // 0x00B4(0x0004) (Edit, Const)
+	class UParticleSystem*                             ParticleEmitterTemplate;                                  // 0x00B8(0x0008) (Edit, Const)
+	class AFogVolumeSphericalDensityInfo*              FogVolumeArchetype;                                       // 0x00C0(0x0008) (Edit, Const)
 
 	static UClass* StaticClass()
 	{
@@ -2651,7 +2651,7 @@ public:
 class UGameFixedCamera : public UGameCameraBase
 {
 public:
-	float                                              DefaultFOV;                                               // 0x0064(0x0004) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              DefaultFOV;                                               // 0x0064(0x0004) (Edit, Const)
 
 	static UClass* StaticClass()
 	{
@@ -2660,8 +2660,8 @@ public:
 	}
 
 
-	void OnBecomeActive();
-	void UpdateCamera();
+	void OnBecomeActive(class UGameCameraBase* OldCamera);
+	void UpdateCamera(class APawn* P, class AGamePlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT);
 };
 
 
@@ -2679,7 +2679,7 @@ public:
 
 
 	void StartScalingDown();
-	void FellOutOfWorld();
+	void FellOutOfWorld(class UClass* dmgType);
 	void PostBeginPlay();
 };
 
@@ -2701,9 +2701,9 @@ public:
 
 	void SetupDebugZones();
 	void InitInputSystem();
-	void OnDeactivate();
+	void OnDeactivate(class APlayerController* PC);
 	void InitDebugInputSystem();
-	void OnActivate();
+	void OnActivate(class APlayerController* PC);
 };
 
 
@@ -2720,7 +2720,7 @@ public:
 	}
 
 
-	void InputKey();
+	bool InputKey(int ControllerId, const struct FName& Key, TEnumAsByte<EInputEvent> Event, float AmountDepressed, bool bGamepad);
 };
 
 
@@ -2739,7 +2739,7 @@ public:
 
 
 	void PostRender();
-	void DisplayMaterials();
+	bool DisplayMaterials(float X, float DY, class UMeshComponent* MeshComp, float* Y);
 	void PostBeginPlay();
 };
 
@@ -2749,11 +2749,11 @@ public:
 class UMobileMenuBar : public UMobileMenuObject
 {
 public:
-	unsigned long                                      bIsVertical : 1;                                          // 0x00D4(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
+	unsigned long                                      bIsVertical : 1;                                          // 0x00D4(0x0004) (Edit)
 	unsigned long                                      bDirty : 1;                                               // 0x00D4(0x0004)
-	int                                                SelectedIndex;                                            // 0x00D8(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
+	int                                                SelectedIndex;                                            // 0x00D8(0x0004) (Edit)
 	int                                                FirstItem;                                                // 0x00DC(0x0004)
-	TArray<class UMobileMenuBarItem*>                  Items;                                                    // 0x00E0(0x0010)
+	TArray<class UMobileMenuBarItem*>                  Items;                                                    // 0x00E0(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -2763,14 +2763,14 @@ public:
 
 
 	void UpdateItemViewports();
-	void SetFirstItem();
-	void RenderItem();
-	void RenderObject();
-	void OnTouch();
-	void GetSelected();
-	void Num();
-	void AddItem();
-	void InitMenuObject();
+	void SetFirstItem(int first);
+	void RenderItem(class UCanvas* Canvas, float DeltaTime, int ItemIndex);
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
+	class UMobileMenuBarItem* GetSelected();
+	int Num();
+	void AddItem(class UMobileMenuBarItem* Item, int Index);
+	void InitMenuObject(class UMobilePlayerInput* PlayerInput, class UMobileMenuScene* Scene, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
 };
 
 
@@ -2790,7 +2790,7 @@ public:
 	}
 
 
-	void RenderItem();
+	void RenderItem(class UMobileMenuBar* Bar, class UCanvas* Canvas, float DeltaTime);
 };
 
 
@@ -2802,7 +2802,7 @@ public:
 	class UTexture2D*                                  Images[0x2];                                              // 0x00D4(0x0008)
 	struct FUVCoords                                   ImagesUVs[0x2];                                           // 0x00E4(0x0014)
 	struct FLinearColor                                ImageColor;                                               // 0x010C(0x0010)
-	struct FString                                     Caption;                                                  // 0x011C(0x0010)
+	struct FString                                     Caption;                                                  // 0x011C(0x0010) (NeedCtorLink)
 	struct FLinearColor                                CaptionColor;                                             // 0x012C(0x0010)
 
 	static UClass* StaticClass()
@@ -2812,9 +2812,9 @@ public:
 	}
 
 
-	void RenderCaption();
-	void RenderObject();
-	void InitMenuObject();
+	void RenderCaption(class UCanvas* Canvas);
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	void InitMenuObject(class UMobilePlayerInput* PlayerInput, class UMobileMenuScene* Scene, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
 };
 
 
@@ -2835,9 +2835,9 @@ public:
 	}
 
 
-	void GetIconIndexes();
-	void RenderElement();
-	void OnTouch();
+	void GetIconIndexes(TArray<int>* IconIndexes);
+	void RenderElement(class UMobileMenuObject* Owner, class UCanvas* Canvas, float DeltaTime, float Opacity);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, float DeltaTime);
 };
 
 
@@ -2855,9 +2855,9 @@ public:
 	}
 
 
-	void RestartPlayer();
+	void RestartPlayer(class AController* NewPlayer);
 	void StartMatch();
-	void PostLogin();
+	void PostLogin(class APlayerController* NewPlayer);
 };
 
 
@@ -2881,17 +2881,17 @@ public:
 class UMobileMenuInventory : public UMobileMenuObject
 {
 public:
-	TArray<class UMobileMenuElement*>                  Slots;                                                    // 0x00D4(0x0010)
-	TArray<class UMobileMenuElement*>                  Items;                                                    // 0x00E4(0x0010)
+	TArray<class UMobileMenuElement*>                  Slots;                                                    // 0x00D4(0x0010) (NeedCtorLink)
+	TArray<class UMobileMenuElement*>                  Items;                                                    // 0x00E4(0x0010) (NeedCtorLink)
 	float                                              SideLeewayPercent;                                        // 0x00F4(0x0004)
 	struct FRenderElementInfo                          CurrentElement;                                           // 0x00F8(0x0008)
 	struct FDragElementInfo                            Drag;                                                     // 0x0100(0x0028)
 	struct FVector2D                                   ScaleSize;                                                // 0x0128(0x0008)
 	unsigned long                                      bRenderDragItem : 1;                                      // 0x0130(0x0004)
 	unsigned long                                      bInitialzed : 1;                                          // 0x0130(0x0004)
-	struct FScriptDelegate                             __OnUpdateItemInSlot__Delegate;                           // 0x0134(0x0010)
-	struct FScriptDelegate                             __DoCanPutItemInSlot__Delegate;                           // 0x0144(0x0010)
-	struct FScriptDelegate                             __OnUpdateDrag__Delegate;                                 // 0x0154(0x0010)
+	struct FScriptDelegate                             __OnUpdateItemInSlot__Delegate;                           // 0x0134(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __DoCanPutItemInSlot__Delegate;                           // 0x0144(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnUpdateDrag__Delegate;                                 // 0x0154(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -2900,23 +2900,23 @@ public:
 	}
 
 
-	void GetIconIndexes();
-	void RenderDragItem();
-	void RenderObject();
-	void GetIndexOfItem();
-	void FindSlotIndexAt();
-	void InitDragAt();
-	void UpdateItemInSlot();
-	void AddItemToSlot();
-	void SwapItemsInSlots();
-	void OnTouch();
-	void CanPutItemInSlot();
-	void ScaleSlot();
-	void AddSlot();
-	void InitMenuObject();
-	void OnUpdateDrag();
-	void DoCanPutItemInSlot();
-	void OnUpdateItemInSlot();
+	void GetIconIndexes(TArray<int>* IconIndexes);
+	void RenderDragItem(class UCanvas* Canvas, float DeltaTime);
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	int GetIndexOfItem(class UMobileMenuElement* Item);
+	int FindSlotIndexAt(float X, float Y);
+	void InitDragAt(int TouchX, int TouchY);
+	void UpdateItemInSlot(int InSlot);
+	class UMobileMenuElement* AddItemToSlot(class UMobileMenuElement* Element, int ToSlot);
+	bool SwapItemsInSlots(int Slot0, int Slot1);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
+	bool CanPutItemInSlot(class UMobileMenuElement* Item, class UMobileMenuElement* ToSlot, int ToIdx, int FromIdx);
+	void ScaleSlot(class UMobileMenuElement* Slot);
+	int AddSlot(class UMobileMenuElement* Slot);
+	void InitMenuObject(class UMobilePlayerInput* PlayerInput, class UMobileMenuScene* Scene, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
+	void OnUpdateDrag(struct FDragElementInfo* Before, struct FDragElementInfo* After);
+	bool DoCanPutItemInSlot(class UMobileMenuInventory* FromInv, class UMobileMenuElement* Item, class UMobileMenuElement* ToSlot, int ToIdx, int FromIdx);
+	void OnUpdateItemInSlot(class UMobileMenuInventory* FromInv, int SlotIndex);
 };
 
 
@@ -2925,7 +2925,7 @@ public:
 class UMobileMenuLabel : public UMobileMenuObject
 {
 public:
-	struct FString                                     Caption;                                                  // 0x00D4(0x0010)
+	struct FString                                     Caption;                                                  // 0x00D4(0x0010) (NeedCtorLink)
 	class UFont*                                       TextFont;                                                 // 0x00E4(0x0008)
 	struct FColor                                      TextColor;                                                // 0x00EC(0x0004)
 	struct FColor                                      TouchedColor;                                             // 0x00F0(0x0004)
@@ -2940,7 +2940,7 @@ public:
 	}
 
 
-	void RenderObject();
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
 };
 
 
@@ -2949,13 +2949,13 @@ public:
 class UMobileMenuList : public UMobileMenuObject
 {
 public:
-	unsigned long                                      bIsVerticalList : 1;                                      // 0x00D4(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bDisableScrolling : 1;                                    // 0x00D4(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
-	unsigned long                                      bForceSelectedToLineup : 1;                               // 0x00D4(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
+	unsigned long                                      bIsVerticalList : 1;                                      // 0x00D4(0x0004) (Edit)
+	unsigned long                                      bDisableScrolling : 1;                                    // 0x00D4(0x0004) (Edit)
+	unsigned long                                      bForceSelectedToLineup : 1;                               // 0x00D4(0x0004) (Edit)
 	unsigned long                                      bTapToScrollToItem : 1;                                   // 0x00D4(0x0004)
 	unsigned long                                      bLoops : 1;                                               // 0x00D4(0x0004)
-	float                                              SelectedOffset;                                           // 0x00D8(0x0004) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditHide, CrossLevelActive)
-	TArray<class UMobileMenuListItem*>                 Items;                                                    // 0x00DC(0x0010)
+	float                                              SelectedOffset;                                           // 0x00D8(0x0004) (Edit)
+	TArray<class UMobileMenuListItem*>                 Items;                                                    // 0x00DC(0x0010) (NeedCtorLink)
 	struct FSelectedMenuItem                           SelectedItem;                                             // 0x00EC(0x000C)
 	struct FMenuListDragInfo                           Drag;                                                     // 0x00F8(0x0054)
 	struct FMenuListMovementInfo                       Movement;                                                 // 0x014C(0x001C)
@@ -2975,22 +2975,22 @@ public:
 	}
 
 
-	void GetIconIndexes();
-	void ItemScrollSize();
-	void RenderObject();
-	void UpdateScroll();
-	void CalculateSelectedItem();
-	void GetItemClickPosition();
-	void OnTouch();
-	void SetSelectedItem();
-	void GetNumVisible();
-	void SetSelectedToVisibleIndex();
-	void GetVisibleIndexOfSelected();
-	void GetAmountSelected();
-	void GetSelected();
-	void Num();
-	void AddItem();
-	void InitMenuObject();
+	void GetIconIndexes(TArray<int>* IconIndexes);
+	int ItemScrollSize(class UMobileMenuListItem* Item);
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	void UpdateScroll(float DeltaTime);
+	float CalculateSelectedItem(float ScrollAmount, bool bForceZeroAdjustment, struct FSelectedMenuItem* Selected);
+	class UMobileMenuListItem* GetItemClickPosition(float* MouseX, float* MouseY);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
+	bool SetSelectedItem(int ItemIndex, bool bForceAll);
+	int GetNumVisible();
+	int SetSelectedToVisibleIndex(int VisibleIndex);
+	int GetVisibleIndexOfSelected();
+	float GetAmountSelected(class UMobileMenuListItem* Item);
+	class UMobileMenuListItem* GetSelected();
+	int Num();
+	void AddItem(class UMobileMenuListItem* Item, int Index);
+	void InitMenuObject(class UMobilePlayerInput* PlayerInput, class UMobileMenuScene* Scene, int ScreenWidth, int ScreenHeight, bool bIsFirstInitialization);
 };
 
 
@@ -3009,7 +3009,7 @@ public:
 	}
 
 
-	void RenderItem();
+	void RenderItem(class UMobileMenuList* List, class UCanvas* Canvas, float DeltaTime);
 };
 
 
@@ -3018,8 +3018,8 @@ public:
 class UMobileMenuObjectProxy : public UMobileMenuObject
 {
 public:
-	struct FScriptDelegate                             __OnTouchEvent__Delegate;                                 // 0x00D4(0x0010)
-	struct FScriptDelegate                             __OnRenderObject__Delegate;                               // 0x00E4(0x0010)
+	struct FScriptDelegate                             __OnTouchEvent__Delegate;                                 // 0x00D4(0x0010) (NeedCtorLink)
+	struct FScriptDelegate                             __OnRenderObject__Delegate;                               // 0x00E4(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -3028,10 +3028,10 @@ public:
 	}
 
 
-	void RenderObject();
-	void OnTouch();
-	void OnRenderObject();
-	void OnTouchEvent();
+	void RenderObject(class UCanvas* Canvas, float DeltaTime);
+	bool OnTouch(TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
+	void OnRenderObject(class UMobileMenuObjectProxy* Proxy, class UCanvas* Canvas, float DeltaTime);
+	bool OnTouchEvent(class UMobileMenuObjectProxy* Proxy, TEnumAsByte<ETouchType> EventType, float TouchX, float TouchY, class UMobileMenuObject* ObjectOver, float DeltaTime);
 };
 
 
@@ -3052,7 +3052,7 @@ public:
 	void HandleDragOver();
 	void HandleDoubleClick();
 	void HandleClick();
-	void OnToggle();
+	void OnToggle(class USeqAct_Toggle* inAction);
 };
 
 
@@ -3096,7 +3096,7 @@ class APlayerCollectorGame : public AGameInfo
 {
 public:
 	int                                                NumberOfClientsToWaitFor;                                 // 0x04C0(0x0004)
-	struct FString                                     URLToLoad;                                                // 0x04C4(0x0010)
+	struct FString                                     URLToLoad;                                                // 0x04C4(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -3105,8 +3105,8 @@ public:
 	}
 
 
-	void GetSeamlessTravelActorList();
-	void Login();
+	void GetSeamlessTravelActorList(bool bToEntry, TArray<class AActor*>* ActorList);
+	class APlayerController* Login(const struct FString& Portal, const struct FString& Options, const struct FUniqueNetId& UniqueId, struct FString* ErrorMessage);
 };
 
 
@@ -3131,15 +3131,15 @@ public:
 class USeqEvent_HudRenderImage : public USeqEvent_HudRender
 {
 public:
-	struct FLinearColor                                DisplayColor;                                             // 0x0180(0x0010) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     DisplayLocation;                                          // 0x0190(0x000C) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UTexture2D*                                  DisplayTexture;                                           // 0x019C(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              XL;                                                       // 0x01A4(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              YL;                                                       // 0x01A8(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              U;                                                        // 0x01AC(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              V;                                                        // 0x01B0(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              UL;                                                       // 0x01B4(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              VL;                                                       // 0x01B8(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FLinearColor                                DisplayColor;                                             // 0x0180(0x0010) (Edit)
+	struct FVector                                     DisplayLocation;                                          // 0x0190(0x000C) (Edit)
+	class UTexture2D*                                  DisplayTexture;                                           // 0x019C(0x0008) (Edit)
+	float                                              XL;                                                       // 0x01A4(0x0004) (Edit)
+	float                                              YL;                                                       // 0x01A8(0x0004) (Edit)
+	float                                              U;                                                        // 0x01AC(0x0004) (Edit)
+	float                                              V;                                                        // 0x01B0(0x0004) (Edit)
+	float                                              UL;                                                       // 0x01B4(0x0004) (Edit)
+	float                                              VL;                                                       // 0x01B8(0x0004) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -3148,7 +3148,7 @@ public:
 	}
 
 
-	void Render();
+	void Render(class UCanvas* TargetCanvas, class AHUD* TargetHud);
 };
 
 
@@ -3157,11 +3157,11 @@ public:
 class USeqEvent_HudRenderText : public USeqEvent_HudRender
 {
 public:
-	class UFont*                                       DisplayFont;                                              // 0x0180(0x0008) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      DisplayColor;                                             // 0x0188(0x0004) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     DisplayLocation;                                          // 0x018C(0x000C) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     DisplayText;                                              // 0x0198(0x0010) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ETextDrawMethod>                       TextDrawMethod;                                           // 0x01A8(0x0001) (EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	class UFont*                                       DisplayFont;                                              // 0x0180(0x0008) (Edit)
+	struct FColor                                      DisplayColor;                                             // 0x0188(0x0004) (Edit)
+	struct FVector                                     DisplayLocation;                                          // 0x018C(0x000C) (Edit)
+	struct FString                                     DisplayText;                                              // 0x0198(0x0010) (Edit, NeedCtorLink)
+	TEnumAsByte<ETextDrawMethod>                       TextDrawMethod;                                           // 0x01A8(0x0001) (Edit)
 
 	static UClass* StaticClass()
 	{
@@ -3170,8 +3170,8 @@ public:
 	}
 
 
-	void STATIC_GetObjClassVersion();
-	void Render();
+	int STATIC_GetObjClassVersion();
+	void Render(class UCanvas* TargetCanvas, class AHUD* TargetHud);
 };
 
 

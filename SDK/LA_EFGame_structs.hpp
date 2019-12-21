@@ -19552,79 +19552,79 @@ enum class EFWatchCameraMode : uint8_t
 // 0x002C
 struct FEFBeamParticleInfo
 {
-	TEnumAsByte<EFBP_SOURCETYPE>                       SourceType;                                               // 0x0000(0x0001) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFBP_TARGETTYPE>                       TargetType;                                               // 0x0001(0x0001) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFBP_SOURCETYPE>                       SourceType;                                               // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EFBP_TARGETTYPE>                       TargetType;                                               // 0x0001(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	struct FName                                       BeamSource;                                               // 0x0004(0x0008) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       BeamTarget;                                               // 0x000C(0x0008) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              BeamDuration;                                             // 0x0014(0x0004) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              BeamMoveSpeed;                                            // 0x0018(0x0004) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      ApplyUserColor : 1;                                       // 0x001C(0x0004) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     UserColor;                                                // 0x0020(0x000C) (EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       BeamSource;                                               // 0x0004(0x0008) (Edit)
+	struct FName                                       BeamTarget;                                               // 0x000C(0x0008) (Edit)
+	float                                              BeamDuration;                                             // 0x0014(0x0004) (Edit)
+	float                                              BeamMoveSpeed;                                            // 0x0018(0x0004) (Edit)
+	unsigned long                                      ApplyUserColor : 1;                                       // 0x001C(0x0004) (Edit)
+	struct FVector                                     UserColor;                                                // 0x0020(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFParticleSystemInfo
 // 0x0158
 struct FEFParticleSystemInfo
 {
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              ParticlePlayRate;                                         // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UPostProcessChain*                           PPChain;                                                  // 0x0010(0x0008) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       MaterialParamName;                                        // 0x0018(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0020(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              MaterialFloatValue;                                       // 0x0024(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0028(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bAttach : 1;                                              // 0x0038(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0038(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0038(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0038(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FVector                                     RelativeWorldLocation;                                    // 0x003C(0x000C) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FVector                                     RelativeLocation;                                         // 0x0048(0x000C) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FRotator                                    RelativeRotation;                                         // 0x0054(0x000C) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	struct FVector                                     RelativeScale;                                            // 0x0060(0x000C) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x006C(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0070(0x0001) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0000(0x0008) (Edit)
+	float                                              ParticlePlayRate;                                         // 0x0008(0x0004) (Edit)
+	unsigned long                                      bUseTargetCastLocation : 1;                               // 0x000C(0x0004) (Edit)
+	class UPostProcessChain*                           PPChain;                                                  // 0x0010(0x0008) (Edit)
+	struct FName                                       MaterialParamName;                                        // 0x0018(0x0008) (Edit)
+	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0020(0x0004) (Edit)
+	float                                              MaterialFloatValue;                                       // 0x0024(0x0004) (Edit)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0028(0x0010) (Edit)
+	unsigned long                                      bAttach : 1;                                              // 0x0038(0x0004) (Edit)
+	unsigned long                                      bIgnoreAttachLocation : 1;                                // 0x0038(0x0004) (Edit)
+	unsigned long                                      bIgnoreAttachRotation : 1;                                // 0x0038(0x0004) (Edit)
+	unsigned long                                      bIgnoreAttachWorldRotation : 1;                           // 0x0038(0x0004) (Edit)
+	struct FVector                                     RelativeWorldLocation;                                    // 0x003C(0x000C) (Edit)
+	struct FVector                                     RelativeLocation;                                         // 0x0048(0x000C) (Edit)
+	struct FRotator                                    RelativeRotation;                                         // 0x0054(0x000C) (Edit)
+	struct FVector                                     RelativeScale;                                            // 0x0060(0x000C) (Edit)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x006C(0x0004) (Edit)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0070(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0071(0x0003) MISSED OFFSET
-	int                                                iPartsMeshIndex;                                          // 0x0074(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	int                                                AttachPriority;                                           // 0x0078(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x007C(0x0010) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x008C(0x0010) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	TArray<TEnumAsByte<EPst_SpawnType>>                ParticleSpawnType;                                        // 0x009C(0x0010) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	int                                                ParticleAttachRandomMaxCount;                             // 0x00AC(0x0004) (EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
-	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x00B0(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              AutoPlayRateTime;                                         // 0x00B4(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x00B8(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x00B8(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              ModifyParentVelocity;                                     // 0x00BC(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              ModifyParentAcceleration;                                 // 0x00C0(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    AkEvent;                                                  // 0x00C4(0x0008) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      StopSound : 1;                                            // 0x00CC(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x00CC(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x00D0(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     SpawnParticleName;                                        // 0x00E0(0x0010)
-	class USkeletalMeshComponent*                      pSkeletalMeshComponent;                                   // 0x00F0(0x0008)
-	struct FVector                                     TargetCastLocation;                                       // 0x00F8(0x000C)
-	unsigned long                                      bEditing : 1;                                             // 0x0104(0x0004)
-	float                                              PlayRate;                                                 // 0x0108(0x0004)
-	float                                              GlobalScale;                                              // 0x010C(0x0004)
-	class AActor*                                      SoundActor;                                               // 0x0110(0x0008)
-	struct FVector                                     vOffsetValue;                                             // 0x0118(0x000C)
-	unsigned long                                      bHitParticle : 1;                                         // 0x0124(0x0004)
-	unsigned long                                      bBeamParticle : 1;                                        // 0x0124(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                iPartsMeshIndex;                                          // 0x0074(0x0004) (Edit)
+	int                                                AttachPriority;                                           // 0x0078(0x0004) (Edit)
+	TArray<struct FString>                             ParticleAttachBoneName;                                   // 0x007C(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FString>                             ParticleAttachSoketName;                                  // 0x008C(0x0010) (Edit, NeedCtorLink)
+	TArray<TEnumAsByte<EPst_SpawnType>>                ParticleSpawnType;                                        // 0x009C(0x0010) (Edit, NeedCtorLink)
+	int                                                ParticleAttachRandomMaxCount;                             // 0x00AC(0x0004) (Edit)
+	unsigned long                                      AutoPlayRateBySpeed : 1;                                  // 0x00B0(0x0004) (Edit)
+	float                                              AutoPlayRateTime;                                         // 0x00B4(0x0004) (Edit)
+	unsigned long                                      bSpawnedEmitter : 1;                                      // 0x00B8(0x0004) (Edit)
+	unsigned long                                      bLocFromActorMesh : 1;                                    // 0x00B8(0x0004) (Edit)
+	float                                              ModifyParentVelocity;                                     // 0x00BC(0x0004) (Edit)
+	float                                              ModifyParentAcceleration;                                 // 0x00C0(0x0004) (Edit)
+	class UAkEvent*                                    AkEvent;                                                  // 0x00C4(0x0008) (Edit)
+	unsigned long                                      StopSound : 1;                                            // 0x00CC(0x0004) (Edit)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x00CC(0x0004) (Edit)
+	TArray<struct FParticleSysParam>                   ParticleSystemParamList;                                  // 0x00D0(0x0010) (Edit, Component, NeedCtorLink)
+	struct FString                                     SpawnParticleName;                                        // 0x00E0(0x0010) (Native, Transient)
+	class USkeletalMeshComponent*                      pSkeletalMeshComponent;                                   // 0x00F0(0x0008) (ExportObject, Native, Transient, Component, EditInline)
+	struct FVector                                     TargetCastLocation;                                       // 0x00F8(0x000C) (Transient)
+	unsigned long                                      bEditing : 1;                                             // 0x0104(0x0004) (Transient)
+	float                                              PlayRate;                                                 // 0x0108(0x0004) (Transient)
+	float                                              GlobalScale;                                              // 0x010C(0x0004) (Transient)
+	class AActor*                                      SoundActor;                                               // 0x0110(0x0008) (Transient)
+	struct FVector                                     vOffsetValue;                                             // 0x0118(0x000C) (Transient)
+	unsigned long                                      bHitParticle : 1;                                         // 0x0124(0x0004) (Transient)
+	unsigned long                                      bBeamParticle : 1;                                        // 0x0124(0x0004) (Edit)
 	struct FEFBeamParticleInfo                         BeamInformation;                                          // 0x0128(0x002C)
-	unsigned long                                      bUseCastShadow : 1;                                       // 0x0154(0x0004) (Interp, NonTransactional, EditorOnly, ProtectedWrite, EditHide, CrossLevelActive)
+	unsigned long                                      bUseCastShadow : 1;                                       // 0x0154(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFConsole.EFAutoCompleteCommand
 // 0x0054
 struct FEFAutoCompleteCommand
 {
-	struct FString                                     Command;                                                  // 0x0000(0x0010)
-	struct FString                                     ParamDesc;                                                // 0x0010(0x0010)
-	struct FString                                     Desc;                                                     // 0x0020(0x0010)
-	struct FString                                     ParamSpecificDesc;                                        // 0x0030(0x0010)
-	struct FString                                     CommandWriter;                                            // 0x0040(0x0010)
+	struct FString                                     Command;                                                  // 0x0000(0x0010) (NeedCtorLink)
+	struct FString                                     ParamDesc;                                                // 0x0010(0x0010) (NeedCtorLink)
+	struct FString                                     Desc;                                                     // 0x0020(0x0010) (NeedCtorLink)
+	struct FString                                     ParamSpecificDesc;                                        // 0x0030(0x0010) (NeedCtorLink)
+	struct FString                                     CommandWriter;                                            // 0x0040(0x0010) (NeedCtorLink)
 	int                                                Level;                                                    // 0x0050(0x0004)
 };
 
@@ -19632,19 +19632,19 @@ struct FEFAutoCompleteCommand
 // 0x0010
 struct FNameTagAlphaInfo
 {
-	int                                                iStartDistance;                                           // 0x0000(0x0004)
-	int                                                iStartAlphaValue;                                         // 0x0004(0x0004)
-	int                                                iEndDistance;                                             // 0x0008(0x0004)
-	int                                                iEndAlphaValue;                                           // 0x000C(0x0004)
+	int                                                iStartDistance;                                           // 0x0000(0x0004) (Config)
+	int                                                iStartAlphaValue;                                         // 0x0004(0x0004) (Config)
+	int                                                iEndDistance;                                             // 0x0008(0x0004) (Config)
+	int                                                iEndAlphaValue;                                           // 0x000C(0x0004) (Config)
 };
 
 // ScriptStruct EFGame.EFGameInfo.NameTagMonInfo
 // 0x0004
 struct FNameTagMonInfo
 {
-	unsigned char                                      bLowMonShowMode;                                          // 0x0000(0x0001)
-	unsigned char                                      bNormalMonShowMode;                                       // 0x0001(0x0001)
-	unsigned char                                      bHighMonShowMode;                                         // 0x0002(0x0001)
+	unsigned char                                      bLowMonShowMode;                                          // 0x0000(0x0001) (Config)
+	unsigned char                                      bNormalMonShowMode;                                       // 0x0001(0x0001) (Config)
+	unsigned char                                      bHighMonShowMode;                                         // 0x0002(0x0001) (Config)
 	unsigned char                                      bDummy;                                                   // 0x0003(0x0001)
 };
 
@@ -19652,49 +19652,49 @@ struct FNameTagMonInfo
 // 0x0064
 struct FEFAnimDataItem
 {
-	float                                              CurrentTime;                                              // 0x0000(0x0004)
-	unsigned long                                      bIsPlaying : 1;                                           // 0x0004(0x0004)
-	float                                              AnimPlayRate;                                             // 0x0008(0x0004)
-	unsigned long                                      PlayingAnimSeq : 1;                                       // 0x000C(0x0004)
-	struct FName                                       AnimSequenceName;                                         // 0x0010(0x0008)
-	int                                                LoopCount;                                                // 0x0018(0x0004)
-	float                                              StartAnimTime;                                            // 0x001C(0x0004)
-	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x0020(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x0020(0x0004)
-	TArray<struct FPointer>                            RefParticleList;                                          // 0x0024(0x0010)
-	TArray<struct FPointer>                            RefActionList;                                            // 0x0034(0x0010)
-	TArray<struct FPointer>                            PlayParticleList;                                         // 0x0044(0x0010)
-	TArray<struct FPointer>                            PlayActionList;                                           // 0x0054(0x0010)
+	float                                              CurrentTime;                                              // 0x0000(0x0004) (Transient)
+	unsigned long                                      bIsPlaying : 1;                                           // 0x0004(0x0004) (Transient)
+	float                                              AnimPlayRate;                                             // 0x0008(0x0004) (Transient)
+	unsigned long                                      PlayingAnimSeq : 1;                                       // 0x000C(0x0004) (Transient)
+	struct FName                                       AnimSequenceName;                                         // 0x0010(0x0008) (Transient)
+	int                                                LoopCount;                                                // 0x0018(0x0004) (Transient)
+	float                                              StartAnimTime;                                            // 0x001C(0x0004) (Transient)
+	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x0020(0x0004) (Transient)
+	unsigned long                                      bStarted : 1;                                             // 0x0020(0x0004) (Transient)
+	TArray<struct FPointer>                            RefParticleList;                                          // 0x0024(0x0010) (Native, Transient, AlwaysInit)
+	TArray<struct FPointer>                            RefActionList;                                            // 0x0034(0x0010) (Native, Transient, AlwaysInit)
+	TArray<struct FPointer>                            PlayParticleList;                                         // 0x0044(0x0010) (Native, Transient, AlwaysInit)
+	TArray<struct FPointer>                            PlayActionList;                                           // 0x0054(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.EFExtraSkelMeshInfo
 // 0x0024
 struct FEFExtraSkelMeshInfo
 {
-	class USkeletalMeshComponent*                      SkeletalMesh;                                             // 0x0000(0x0008)
-	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004)
-	struct FString                                     SourceName;                                               // 0x000C(0x0010)
-	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001)
+	class USkeletalMeshComponent*                      SkeletalMesh;                                             // 0x0000(0x0008) (ExportObject, Transient, Component, EditInline)
+	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004) (Transient)
+	struct FString                                     SourceName;                                               // 0x000C(0x0010) (Transient, NeedCtorLink)
+	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001) (Transient)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-	int                                                PartIndex;                                                // 0x0020(0x0004)
+	int                                                PartIndex;                                                // 0x0020(0x0004) (Transient)
 };
 
 // ScriptStruct EFGame.EFPawn.EFCharacterAfterImageEffectInfo
 // 0x0030
 struct FEFCharacterAfterImageEffectInfo
 {
-	float                                              Duration;                                                 // 0x0000(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              DeltaSecondsBetweenChildren;                              // 0x0004(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              PerChildLifetime;                                         // 0x0008(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              InitialAlpha;                                             // 0x000C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              InitialAlphaDuration;                                     // 0x0010(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              SourceColorIntensity;                                     // 0x0014(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      AmbientGlowS;                                             // 0x0018(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      AmbientGlowE;                                             // 0x001C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      RimLightColorS;                                           // 0x0020(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FColor                                      RimLightColorE;                                           // 0x0024(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              TimeUntilNextChild;                                       // 0x0028(0x0004)
-	unsigned long                                      bForceRemoveChildrenOnFinish : 1;                         // 0x002C(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              Duration;                                                 // 0x0000(0x0004) (Edit)
+	float                                              DeltaSecondsBetweenChildren;                              // 0x0004(0x0004) (Edit)
+	float                                              PerChildLifetime;                                         // 0x0008(0x0004) (Edit)
+	float                                              InitialAlpha;                                             // 0x000C(0x0004) (Edit)
+	float                                              InitialAlphaDuration;                                     // 0x0010(0x0004) (Edit)
+	float                                              SourceColorIntensity;                                     // 0x0014(0x0004) (Edit)
+	struct FColor                                      AmbientGlowS;                                             // 0x0018(0x0004) (Edit)
+	struct FColor                                      AmbientGlowE;                                             // 0x001C(0x0004) (Edit)
+	struct FColor                                      RimLightColorS;                                           // 0x0020(0x0004) (Edit)
+	struct FColor                                      RimLightColorE;                                           // 0x0024(0x0004) (Edit)
+	float                                              TimeUntilNextChild;                                       // 0x0028(0x0004) (Const)
+	unsigned long                                      bForceRemoveChildrenOnFinish : 1;                         // 0x002C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFAction_Notify.EFBasedLocation
@@ -19709,7 +19709,7 @@ struct FEFBasedLocation
 // 0x0030
 struct FEFAfterImageChildInfo
 {
-	TArray<class USkeletalMeshComponent*>              ChildComps;                                               // 0x0000(0x0010)
+	TArray<class USkeletalMeshComponent*>              ChildComps;                                               // 0x0000(0x0010) (ExportObject, Component, AlwaysInit, NeedCtorLink, EditInline)
 	float                                              GivenLifetime;                                            // 0x0010(0x0004)
 	float                                              RemainingLifetime;                                        // 0x0014(0x0004)
 	float                                              InitialAlpha;                                             // 0x0018(0x0004)
@@ -19732,7 +19732,7 @@ struct FEFInputStateFlow
 // 0x0010
 struct FEFInputState
 {
-	TArray<struct FEFInputStateFlow>                   FlowList;                                                 // 0x0000(0x0010)
+	TArray<struct FEFInputStateFlow>                   FlowList;                                                 // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFPlayerController.EFInputCommand
@@ -19755,27 +19755,27 @@ struct FEFInputCommand
 // 0x0014
 struct FEFProjectileTimerData
 {
-	float                                              TimerActiveTime;                                          // 0x0000(0x0004)
-	int                                                TimerActiveCount;                                         // 0x0004(0x0004)
-	float                                              TimerActiveTerm;                                          // 0x0008(0x0004)
-	struct FPointer                                    TimerData;                                                // 0x000C(0x0008)
+	float                                              TimerActiveTime;                                          // 0x0000(0x0004) (Transient)
+	int                                                TimerActiveCount;                                         // 0x0004(0x0004) (Transient)
+	float                                              TimerActiveTerm;                                          // 0x0008(0x0004) (Transient)
+	struct FPointer                                    TimerData;                                                // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileAkEventData
 // 0x0008
 struct FEFProjectileAkEventData
 {
-	int                                                AkEventPlayingID;                                         // 0x0000(0x0004)
-	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0004(0x0004)
+	int                                                AkEventPlayingID;                                         // 0x0000(0x0004) (Transient)
+	float                                              StopWhenBaseDestroyFadeTime;                              // 0x0004(0x0004) (Transient)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileMultiUseData
 // 0x0030
 struct FEFProjectileMultiUseData
 {
-	TArray<int>                                        INTArray;                                                 // 0x0000(0x0010)
-	TArray<float>                                      floatArray;                                               // 0x0010(0x0010)
-	TArray<struct FName>                               NameArray;                                                // 0x0020(0x0010)
+	TArray<int>                                        INTArray;                                                 // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<float>                                      floatArray;                                               // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FName>                               NameArray;                                                // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFProjectile.EFProjectileCustomData
@@ -19794,97 +19794,97 @@ struct FEFProjectileCustomData
 // 0x0028
 struct FEFSummonsFixAreaStartIndexDecal
 {
-	int                                                DecalTableIndex;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	int                                                SkillEffectId;                                            // 0x0004(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              AdjustSize;                                               // 0x0008(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              DecalBlendInTime;                                         // 0x000C(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              DecalScaleTime;                                           // 0x0010(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              DecalFillTime;                                            // 0x0014(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              DecalBlendOutTime;                                        // 0x0018(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              Time;                                                     // 0x001C(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	float                                              Duration;                                                 // 0x0020(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
-	unsigned long                                      ForcedOutput : 1;                                         // 0x0024(0x0004) (RepNotify, NonTransactional, RepRetry, EditTextBox)
+	int                                                DecalTableIndex;                                          // 0x0000(0x0004) (Edit)
+	int                                                SkillEffectId;                                            // 0x0004(0x0004) (Edit)
+	float                                              AdjustSize;                                               // 0x0008(0x0004) (Edit)
+	float                                              DecalBlendInTime;                                         // 0x000C(0x0004) (Edit)
+	float                                              DecalScaleTime;                                           // 0x0010(0x0004) (Edit)
+	float                                              DecalFillTime;                                            // 0x0014(0x0004) (Edit)
+	float                                              DecalBlendOutTime;                                        // 0x0018(0x0004) (Edit)
+	float                                              Time;                                                     // 0x001C(0x0004) (Edit)
+	float                                              Duration;                                                 // 0x0020(0x0004) (Edit)
+	unsigned long                                      ForcedOutput : 1;                                         // 0x0024(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMaterialVariation
 // 0x0048
 struct FEFMaterialVariation
 {
-	int                                                iTargetIndex;                                             // 0x0000(0x0004) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                DiffuseColor;                                             // 0x0004(0x0010) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                DiffuseColor_A;                                           // 0x0014(0x0010) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                DiffuseColor_B;                                           // 0x0024(0x0010) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                DiffuseColor_C;                                           // 0x0034(0x0010) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      MaskVariation_2 : 1;                                      // 0x0044(0x0004) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      MaskVariation_3 : 1;                                      // 0x0044(0x0004) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      MaskVariation_4 : 1;                                      // 0x0044(0x0004) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      MaskVariation_5 : 1;                                      // 0x0044(0x0004) (RepNotify, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                iTargetIndex;                                             // 0x0000(0x0004) (Edit)
+	struct FLinearColor                                DiffuseColor;                                             // 0x0004(0x0010) (Edit)
+	struct FLinearColor                                DiffuseColor_A;                                           // 0x0014(0x0010) (Edit)
+	struct FLinearColor                                DiffuseColor_B;                                           // 0x0024(0x0010) (Edit)
+	struct FLinearColor                                DiffuseColor_C;                                           // 0x0034(0x0010) (Edit)
+	unsigned long                                      MaskVariation_2 : 1;                                      // 0x0044(0x0004) (Edit)
+	unsigned long                                      MaskVariation_3 : 1;                                      // 0x0044(0x0004) (Edit)
+	unsigned long                                      MaskVariation_4 : 1;                                      // 0x0044(0x0004) (Edit)
+	unsigned long                                      MaskVariation_5 : 1;                                      // 0x0044(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorPartMaterialInfo
 // 0x0030
 struct FEFLookInfoSMActorPartMaterialInfo
 {
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010)
-	TArray<struct FEFMaterialVariation>                MaterialVariations;                                       // 0x0010(0x0010)
-	TArray<unsigned long>                              bSkipFlags;                                               // 0x0020(0x0010)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FEFMaterialVariation>                MaterialVariations;                                       // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<unsigned long>                              bSkipFlags;                                               // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorAdditionalPartInfo
 // 0x0038
 struct FEFLookInfoSMActorAdditionalPartInfo
 {
-	class USkeletalMeshComponent*                      PartComp;                                                 // 0x0000(0x0008) (NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x0008(0x0030)
+	class USkeletalMeshComponent*                      PartComp;                                                 // 0x0000(0x0008) (Edit, ExportObject, Component, EditInline)
+	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x0008(0x0030) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFSkeletalMeshActorLookInfoMAT.EFLookInfoSMActorSocketAttachedPartInfo
 // 0x007C
 struct FEFLookInfoSMActorSocketAttachedPartInfo
 {
-	struct FAttachment                                 AttachInfo;                                               // 0x0000(0x004C) (Interp, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x004C(0x0030)
+	struct FAttachment                                 AttachInfo;                                               // 0x0000(0x004C) (Edit, Component)
+	struct FEFLookInfoSMActorPartMaterialInfo          MaterialInfo;                                             // 0x004C(0x0030) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFPawn.EFDynamicPhysicsParam
 // 0x0018
 struct FEFDynamicPhysicsParam
 {
-	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0000(0x0004)
-	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0000(0x0004)
-	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0000(0x0004)
-	float                                              PhysicsParamWeight;                                       // 0x0004(0x0004)
-	float                                              PhysicsParamDuration;                                     // 0x0008(0x0004)
-	float                                              PhysicsParamBlendInTime;                                  // 0x000C(0x0004)
-	float                                              PhysicsParamBlendOutTime;                                 // 0x0010(0x0004)
-	float                                              PhysicsParamTime;                                         // 0x0014(0x0004)
+	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0000(0x0004) (Transient)
+	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0000(0x0004) (Transient)
+	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0000(0x0004) (Transient)
+	float                                              PhysicsParamWeight;                                       // 0x0004(0x0004) (Transient)
+	float                                              PhysicsParamDuration;                                     // 0x0008(0x0004) (Transient)
+	float                                              PhysicsParamBlendInTime;                                  // 0x000C(0x0004) (Transient)
+	float                                              PhysicsParamBlendOutTime;                                 // 0x0010(0x0004) (Transient)
+	float                                              PhysicsParamTime;                                         // 0x0014(0x0004) (Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSocketUnit
 // 0x0014
 struct FEFSocketUnit
 {
-	TEnumAsByte<EFSOCKET_STATE>                        eUnitState;                                               // 0x0000(0x0001) (NotForConsole, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<EFSOCKET_STATE>                        eUnitState;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     SocketName;                                               // 0x0004(0x0010) (NotForConsole, EditTextBox, CrossLevelPassive)
+	struct FString                                     SocketName;                                               // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSocketGroup
 // 0x0030
 struct FEFSocketGroup
 {
-	struct FString                                     strSocketGroupKey;                                        // 0x0000(0x0010) (NonTransactional, EditorOnly, EditTextBox, CrossLevelPassive)
-	struct FString                                     DefaultSocketName;                                        // 0x0010(0x0010) (NonTransactional, EditorOnly, EditTextBox, CrossLevelPassive)
-	TArray<struct FEFSocketUnit>                       SocketUnitArr;                                            // 0x0020(0x0010) (NonTransactional, EditorOnly, EditTextBox, CrossLevelPassive)
+	struct FString                                     strSocketGroupKey;                                        // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     DefaultSocketName;                                        // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FEFSocketUnit>                       SocketUnitArr;                                            // 0x0020(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGameEngine.AsyncMeshMergerInfo
 // 0x0030
 struct FAsyncMeshMergerInfo
 {
-	TArray<class USkeletalMesh*>                       SourceMeshList;                                           // 0x0000(0x0010)
+	TArray<class USkeletalMesh*>                       SourceMeshList;                                           // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	class USkeletalMesh*                               MergedMesh;                                               // 0x0010(0x0008)
-	TArray<class AActor*>                              TargetActors;                                             // 0x0018(0x0010)
+	TArray<class AActor*>                              TargetActors;                                             // 0x0018(0x0010) (AlwaysInit, NeedCtorLink)
 	float                                              DistanceFromBaseLocation;                                 // 0x0028(0x0004)
 	unsigned long                                      bShareMergedMesh : 1;                                     // 0x002C(0x0004)
 };
@@ -19893,7 +19893,7 @@ struct FAsyncMeshMergerInfo
 // 0x001C
 struct FMergedSkelMeshInfo
 {
-	TArray<struct FName>                               SourceMeshNames;                                          // 0x0000(0x0010)
+	TArray<struct FName>                               SourceMeshNames;                                          // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	class USkeletalMesh*                               MergedMesh;                                               // 0x0010(0x0008)
 	float                                              LastAccessedTime;                                         // 0x0018(0x0004)
 };
@@ -19902,47 +19902,47 @@ struct FMergedSkelMeshInfo
 // 0x002C
 struct FMAPINFO_CAMERAVALUE
 {
-	float                                              DefaultFOV;                                               // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	unsigned long                                      bZoomInterpolation : 1;                                   // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              MaxZoomDist;                                              // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              MinZoomDist;                                              // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              IncrementZoom;                                            // 0x0010(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              CurrentZoomDist;                                          // 0x0014(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              CurrentYaw;                                               // 0x0018(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	float                                              CurrentPitch;                                             // 0x001C(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0020(0x000C) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite)
+	float                                              DefaultFOV;                                               // 0x0000(0x0004) (Edit)
+	unsigned long                                      bZoomInterpolation : 1;                                   // 0x0004(0x0004) (Edit)
+	float                                              MaxZoomDist;                                              // 0x0008(0x0004) (Edit)
+	float                                              MinZoomDist;                                              // 0x000C(0x0004) (Edit)
+	float                                              IncrementZoom;                                            // 0x0010(0x0004) (Edit)
+	float                                              CurrentZoomDist;                                          // 0x0014(0x0004) (Edit)
+	float                                              CurrentYaw;                                               // 0x0018(0x0004) (Edit)
+	float                                              CurrentPitch;                                             // 0x001C(0x0004) (Edit)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0020(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFMapInfo.EFDMap_PathEngineData
 // 0x0020
 struct FEFDMap_PathEngineData
 {
-	int                                                max_step_height;                                          // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                max_slope;                                                // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                extrude_height;                                           // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                optimiseWithThreshold;                                    // 0x000C(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      stripTerrainHeightDetail : 1;                             // 0x0010(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      excludeDownwardFacingFromGroundResult : 1;                // 0x0010(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                voxel_size;                                               // 0x0014(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                subdivision_size;                                         // 0x0018(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                minimumFragmentSize;                                      // 0x001C(0x0004) (RepNotify, Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                max_step_height;                                          // 0x0000(0x0004) (Edit)
+	int                                                max_slope;                                                // 0x0004(0x0004) (Edit)
+	int                                                extrude_height;                                           // 0x0008(0x0004) (Edit)
+	int                                                optimiseWithThreshold;                                    // 0x000C(0x0004) (Edit)
+	unsigned long                                      stripTerrainHeightDetail : 1;                             // 0x0010(0x0004) (Edit)
+	unsigned long                                      excludeDownwardFacingFromGroundResult : 1;                // 0x0010(0x0004) (Edit)
+	int                                                voxel_size;                                               // 0x0014(0x0004) (Edit)
+	int                                                subdivision_size;                                         // 0x0018(0x0004) (Edit)
+	int                                                minimumFragmentSize;                                      // 0x001C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTable.EFTable_Define
 // 0x0014
 struct FEFTable_Define
 {
-	TEnumAsByte<EFTableDataType>                       eDataType;                                                // 0x0000(0x0001)
+	TEnumAsByte<EFTableDataType>                       eDataType;                                                // 0x0000(0x0001) (Const)
 	unsigned char                                      bySubGroups;                                              // 0x0001(0x0001)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	struct FString                                     strIdentityName;                                          // 0x0004(0x0010)
+	struct FString                                     strIdentityName;                                          // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTable.EFTable_DataRow
 // 0x0010
 struct FEFTable_DataRow
 {
-	TArray<struct FSettingsData>                       aSettingDatas;                                            // 0x0000(0x0010)
+	TArray<struct FSettingsData>                       aSettingDatas;                                            // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCustomizingCamera.CutomizingZoomStepInfo
@@ -19967,15 +19967,15 @@ struct FEFCameraOverrideFogSettings
 // 0x01AC
 struct FZoomStepInfo
 {
-	int                                                ClassID;                                                  // 0x0000(0x0004)
-	float                                              FOV;                                                      // 0x0004(0x0004)
-	float                                              ZoomDist;                                                 // 0x0008(0x0004)
-	float                                              Pitch;                                                    // 0x000C(0x0004)
-	float                                              Yaw;                                                      // 0x0010(0x0004)
-	struct FVector                                     RelativeCenterPos;                                        // 0x0014(0x000C)
-	float                                              InterpolationRatio;                                       // 0x0020(0x0004)
+	int                                                ClassID;                                                  // 0x0000(0x0004) (Config)
+	float                                              FOV;                                                      // 0x0004(0x0004) (Config)
+	float                                              ZoomDist;                                                 // 0x0008(0x0004) (Config)
+	float                                              Pitch;                                                    // 0x000C(0x0004) (Config)
+	float                                              Yaw;                                                      // 0x0010(0x0004) (Config)
+	struct FVector                                     RelativeCenterPos;                                        // 0x0014(0x000C) (Config)
+	float                                              InterpolationRatio;                                       // 0x0020(0x0004) (Config)
 	int                                                CamPostProcessID;                                         // 0x0024(0x0004)
-	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0028(0x0174)
+	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0028(0x0174) (NeedCtorLink)
 	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x019C(0x0008)
 	float                                              AddZoomDist;                                              // 0x01A4(0x0004)
 	unsigned long                                      SkipChangeContentsZoomDist : 1;                           // 0x01A8(0x0004)
@@ -20010,9 +20010,9 @@ struct FViewPointInfo
 	struct FVector                                     RelativeCenterPos;                                        // 0x0010(0x000C)
 	float                                              InterpolationRatio;                                       // 0x001C(0x0004)
 	unsigned long                                      bUseCamPostProcessSetting : 1;                            // 0x0020(0x0004)
-	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0024(0x0174)
+	struct FPostProcessSettings                        CamPostProcessSettings;                                   // 0x0024(0x0174) (NeedCtorLink)
 	struct FEFCameraOverrideFogSettings                CamFogSettings;                                           // 0x0198(0x0008)
-	struct FString                                     CameraPostProcessKey;                                     // 0x01A0(0x0010)
+	struct FString                                     CameraPostProcessKey;                                     // 0x01A0(0x0010) (NeedCtorLink)
 	unsigned long                                      bUseFadeInOut : 1;                                        // 0x01B0(0x0004)
 	float                                              FadeInTime;                                               // 0x01B4(0x0004)
 	float                                              FadeOutTime;                                              // 0x01B8(0x0004)
@@ -20040,10 +20040,10 @@ struct FTPSCameraInfo
 // 0x0010
 struct FEFWatchCameraModeInfo
 {
-	float                                              FOV;                                                      // 0x0000(0x0004)
-	float                                              Patch;                                                    // 0x0004(0x0004)
-	float                                              Yaw;                                                      // 0x0008(0x0004)
-	float                                              ZoomDist;                                                 // 0x000C(0x0004)
+	float                                              FOV;                                                      // 0x0000(0x0004) (Config)
+	float                                              Patch;                                                    // 0x0004(0x0004) (Config)
+	float                                              Yaw;                                                      // 0x0008(0x0004) (Config)
+	float                                              ZoomDist;                                                 // 0x000C(0x0004) (Config)
 };
 
 // ScriptStruct EFGame.EFCameraModifier_CameraShake.EFCameraViewShakePlayID
@@ -20097,7 +20097,7 @@ struct FEFShakeInstance
 // 0x0010
 struct FMacroCameraConnection
 {
-	class USplineComponent*                            SplineComponent;                                          // 0x0000(0x0008)
+	class USplineComponent*                            SplineComponent;                                          // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	class AEFMacroCameraSplineActor*                   ConnectTo;                                                // 0x0008(0x0008)
 };
 
@@ -20116,17 +20116,17 @@ struct FOccludedActorInfo
 // 0x001C
 struct FEFBeamSocketMoveInfo
 {
-	TArray<struct FName>                               SocketNameArr;                                            // 0x0000(0x0010) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fElapsedTime;                                             // 0x0010(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fStartTime;                                               // 0x0014(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bRandomActivity : 1;                                      // 0x0018(0x0004) (RepNotify, EditorOnly, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FName>                               SocketNameArr;                                            // 0x0000(0x0010) (Edit, NeedCtorLink)
+	float                                              fElapsedTime;                                             // 0x0010(0x0004) (Edit)
+	float                                              fStartTime;                                               // 0x0014(0x0004) (Edit)
+	unsigned long                                      bRandomActivity : 1;                                      // 0x0018(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFEmitterPool.LimitedPSCUnit
 // 0x0010
 struct FLimitedPSCUnit
 {
-	TArray<class UParticleSystemComponent*>            ActivePSC;                                                // 0x0000(0x0010)
+	TArray<class UParticleSystemComponent*>            ActivePSC;                                                // 0x0000(0x0010) (ExportObject, Component, AlwaysInit, NeedCtorLink, EditInline)
 };
 
 // ScriptStruct EFGame.EFEmitterPool.DelayedSpawnBakeDataReference
@@ -20135,7 +20135,7 @@ struct FDelayedSpawnBakeDataReference
 {
 	int                                                ReferenceId;                                              // 0x0000(0x0004)
 	class AActor*                                      OwnerActor;                                               // 0x0004(0x0008)
-	class USkeletalMeshComponent*                      AttachSkelMeshComp;                                       // 0x000C(0x0008)
+	class USkeletalMeshComponent*                      AttachSkelMeshComp;                                       // 0x000C(0x0008) (ExportObject, Component, EditInline)
 	class AActor*                                      SoundActor;                                               // 0x0014(0x0008)
 };
 
@@ -20143,58 +20143,58 @@ struct FDelayedSpawnBakeDataReference
 // 0x0054
 struct FEFGroundParticleSystemInfo
 {
-	struct FString                                     Key;                                                      // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     Desc;                                                     // 0x0010(0x0010) (EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0024(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                ActiveColorValue;                                         // 0x002C(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                DeactiveColorValue;                                       // 0x003C(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DefaultWidth;                                             // 0x004C(0x0004) (NonTransactional, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              DefaultHeight;                                            // 0x0050(0x0004) (NonTransactional, PrivateWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     Key;                                                      // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     Desc;                                                     // 0x0010(0x0010) (Edit, NeedCtorLink)
+	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004) (Edit)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0024(0x0008) (Edit)
+	struct FLinearColor                                ActiveColorValue;                                         // 0x002C(0x0010) (Edit)
+	struct FLinearColor                                DeactiveColorValue;                                       // 0x003C(0x0010) (Edit)
+	float                                              DefaultWidth;                                             // 0x004C(0x0004) (Edit)
+	float                                              DefaultHeight;                                            // 0x0050(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFGroundDecalSystemInfo
 // 0x0070
 struct FEFGroundDecalSystemInfo
 {
-	struct FString                                     Key;                                                      // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     Desc;                                                     // 0x0010(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UMaterialInterface*                          DecalMI;                                                  // 0x0024(0x0008) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	float                                              Width;                                                    // 0x002C(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	float                                              Height;                                                   // 0x0030(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	float                                              NearPlane;                                                // 0x0034(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	float                                              FarPlane;                                                 // 0x0038(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	float                                              Thickness;                                                // 0x003C(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	struct FLinearColor                                ActiveColorValue;                                         // 0x0040(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	struct FLinearColor                                DeactiveColorValue;                                       // 0x0050(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, EditHide, CrossLevelPassive)
-	struct FString                                     DecalMIPath;                                              // 0x0060(0x0010)
+	struct FString                                     Key;                                                      // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     Desc;                                                     // 0x0010(0x0010) (Edit, NeedCtorLink)
+	unsigned long                                      bIgnoreRotator : 1;                                       // 0x0020(0x0004) (Edit)
+	class UMaterialInterface*                          DecalMI;                                                  // 0x0024(0x0008) (Edit)
+	float                                              Width;                                                    // 0x002C(0x0004) (Edit)
+	float                                              Height;                                                   // 0x0030(0x0004) (Edit)
+	float                                              NearPlane;                                                // 0x0034(0x0004) (Edit)
+	float                                              FarPlane;                                                 // 0x0038(0x0004) (Edit)
+	float                                              Thickness;                                                // 0x003C(0x0004) (Edit)
+	struct FLinearColor                                ActiveColorValue;                                         // 0x0040(0x0010) (Edit)
+	struct FLinearColor                                DeactiveColorValue;                                       // 0x0050(0x0010) (Edit)
+	struct FString                                     DecalMIPath;                                              // 0x0060(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFMarkParticleSystemInfo
 // 0x0038
 struct FEFMarkParticleSystemInfo
 {
-	struct FString                                     strKey;                                                   // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     Desc;                                                     // 0x0010(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0020(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                MaterialColorValue;                                       // 0x0028(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     strKey;                                                   // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     Desc;                                                     // 0x0010(0x0010) (Edit, NeedCtorLink)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0020(0x0008) (Edit)
+	struct FLinearColor                                MaterialColorValue;                                       // 0x0028(0x0010) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleDataModulePawnMaterialParam.EFParticlePawnMaterialParamData
 // 0x0049
 struct FEFParticlePawnMaterialParamData
 {
-	struct FName                                       MaterialParamName;                                        // 0x0000(0x0008) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0008(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaterialFloatValue;                                       // 0x000C(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaterialFloatFadeOutValue;                                // 0x0010(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0014(0x0010) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0024(0x0010) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              fFadeIn;                                                  // 0x0034(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              fFadeOut;                                                 // 0x0038(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              fDuration;                                                // 0x003C(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      ApplyOnlyWeaponParts : 1;                                 // 0x0040(0x0004) (NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       MaterialParamName;                                        // 0x0000(0x0008) (Edit)
+	unsigned long                                      bUseLinearColorValue : 1;                                 // 0x0008(0x0004) (Edit)
+	float                                              MaterialFloatValue;                                       // 0x000C(0x0004) (Edit)
+	float                                              MaterialFloatFadeOutValue;                                // 0x0010(0x0004) (Edit)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0014(0x0010) (Edit)
+	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0024(0x0010) (Edit)
+	float                                              fFadeIn;                                                  // 0x0034(0x0004) (Edit)
+	float                                              fFadeOut;                                                 // 0x0038(0x0004) (Edit)
+	float                                              fDuration;                                                // 0x003C(0x0004) (Edit)
+	unsigned long                                      ApplyOnlyWeaponParts : 1;                                 // 0x0040(0x0004) (Edit)
 	int                                                PartsIndex;                                               // 0x0044(0x0004)
 	TEnumAsByte<EMICParamLoopType>                     LoopType;                                                 // 0x0048(0x0001)
 };
@@ -20221,115 +20221,115 @@ struct FStaticLocationData
 // 0x000C
 struct FEFPPMaterialScalarParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Value;                                                    // 0x0008(0x0004) (Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	float                                              Value;                                                    // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffect.EFPPMaterialVectorParam
 // 0x0018
 struct FEFPPMaterialVectorParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                Value;                                                    // 0x0008(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	struct FLinearColor                                Value;                                                    // 0x0008(0x0010) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffect.EFPPMaterialTextureParam
 // 0x0020
 struct FEFPPMaterialTextureParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UTexture*                                    Value;                                                    // 0x0008(0x0008) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ValuePath;                                                // 0x0010(0x0010)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	class UTexture*                                    Value;                                                    // 0x0008(0x0008) (Edit)
+	struct FString                                     ValuePath;                                                // 0x0010(0x0010) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialChaosGateEffect.EFPPMEChaosGateValue
 // 0x0014
 struct FEFPPMEChaosGateValue
 {
-	float                                              MaxOpacity;                                               // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayTime;                                                 // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              InterruptTime;                                            // 0x0010(0x0004) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
+	float                                              PlayTime;                                                 // 0x000C(0x0004) (Edit)
+	float                                              InterruptTime;                                            // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialDeadEffect.EFPPMEDeadValue
 // 0x000C
 struct FEFPPMEDeadValue
 {
-	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectHit.EFPPMEHitValue
 // 0x0010
 struct FEFPPMEHitValue
 {
-	float                                              FadeInTime;                                               // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayTime;                                                 // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxOpacity;                                               // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              FadeInTime;                                               // 0x0000(0x0004) (Edit)
+	float                                              PlayTime;                                                 // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
+	float                                              MaxOpacity;                                               // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectSkill.EFPPMESkillValue
 // 0x0010
 struct FEFPPMESkillValue
 {
-	float                                              FadeInTime;                                               // 0x0000(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayTime;                                                 // 0x0004(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxOpacity;                                               // 0x000C(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              FadeInTime;                                               // 0x0000(0x0004) (Edit)
+	float                                              PlayTime;                                                 // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
+	float                                              MaxOpacity;                                               // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialEffectStatus.EFPPMEStatusValue
 // 0x000C
 struct FEFPPMEStatusValue
 {
-	float                                              MaxOpacity;                                               // 0x0000(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x0004(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialHPEffect.EFPPMEHPPersentValue
 // 0x0018
 struct FEFPPMEHPPersentValue
 {
-	float                                              EnablePersent;                                            // 0x0000(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MaxOpacity;                                               // 0x0004(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              MinOpacity;                                               // 0x0008(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x000C(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0010(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayTime;                                                 // 0x0014(0x0004) (NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              EnablePersent;                                            // 0x0000(0x0004) (Edit)
+	float                                              MaxOpacity;                                               // 0x0004(0x0004) (Edit)
+	float                                              MinOpacity;                                               // 0x0008(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x000C(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0010(0x0004) (Edit)
+	float                                              PlayTime;                                                 // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialHPEffect.EFPPMEHPPersentValueCriticalHit
 // 0x0014
 struct FEFPPMEHPPersentValueCriticalHit
 {
-	float                                              MaxOpacity;                                               // 0x0000(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x0004(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayTime;                                                 // 0x000C(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              InterruptTime;                                            // 0x0010(0x0004) (RepNotify, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
+	float                                              PlayTime;                                                 // 0x000C(0x0004) (Edit)
+	float                                              InterruptTime;                                            // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFPostProcessMaterialShipWreckEffect.EFPPMEShipWreckValue
 // 0x000C
 struct FEFPPMEShipWreckValue
 {
-	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeInTime;                                               // 0x0004(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Interp, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              MaxOpacity;                                               // 0x0000(0x0004) (Edit)
+	float                                              FadeInTime;                                               // 0x0004(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleSystemType.EFSimpleParticleSystemInfo
 // 0x0028
 struct FEFSimpleParticleSystemInfo
 {
-	struct FString                                     Desc;                                                     // 0x0000(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x0010(0x0008) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                MaterialColorValue;                                       // 0x0018(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     Desc;                                                     // 0x0000(0x0010) (Edit, NeedCtorLink)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x0010(0x0008) (Edit)
+	struct FLinearColor                                MaterialColorValue;                                       // 0x0018(0x0010) (Edit)
 };
 
 // ScriptStruct EFGame.EFSeqAct_NPCController.SNPC_MovingState
@@ -20337,15 +20337,15 @@ struct FEFSimpleParticleSystemInfo
 struct FSNPC_MovingState
 {
 	class AActor*                                      ArriveObject;                                             // 0x0000(0x0008)
-	float                                              SpeedRate;                                                // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
+	float                                              SpeedRate;                                                // 0x0008(0x0004) (Edit)
 	float                                              TrunSpeedRate;                                            // 0x000C(0x0004)
-	TEnumAsByte<ENUM_SNPC_PlayAnimState>               WhenPlayAnimation;                                        // 0x0010(0x0001) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<ENUM_SNPC_PlayAnimState>               WhenPlayAnimation;                                        // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	unsigned long                                      RandStartFrame : 1;                                       // 0x0014(0x0004) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           AnimName;                                                 // 0x0018(0x0001) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
+	unsigned long                                      RandStartFrame : 1;                                       // 0x0014(0x0004) (Edit)
+	TEnumAsByte<ENUM_SNPC_PlayAnimationName>           AnimName;                                                 // 0x0018(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-	struct FString                                     ForcedAnimation;                                          // 0x001C(0x0010) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
-	float                                              BlendTime;                                                // 0x002C(0x0004) (RepNotify, Interp, EditorOnly, EditTextBox, CrossLevelPassive)
+	struct FString                                     ForcedAnimation;                                          // 0x001C(0x0010) (Edit, NeedCtorLink)
+	float                                              BlendTime;                                                // 0x002C(0x0004) (Edit)
 	unsigned long                                      isLoop : 1;                                               // 0x0030(0x0004)
 };
 
@@ -20353,35 +20353,35 @@ struct FSNPC_MovingState
 // 0x0030
 struct FMICParamInfo
 {
-	TArray<struct FScalarParameterValue>               ScalarParameterValues;                                    // 0x0000(0x0010)
-	TArray<struct FTextureParameterValue>              TextureParameterValues;                                   // 0x0010(0x0010)
-	TArray<struct FVectorParameterValue>               VectorParameterValues;                                    // 0x0020(0x0010)
+	TArray<struct FScalarParameterValue>               ScalarParameterValues;                                    // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FTextureParameterValue>              TextureParameterValues;                                   // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FVectorParameterValue>               VectorParameterValues;                                    // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.stGameMsgID
 // 0x0024
 struct FstGameMsgID
 {
-	struct FString                                     strMsg;                                                   // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFGAMEMSG_TYPE>                        eMsgType;                                                 // 0x0010(0x0001) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     strMsg;                                                   // 0x0000(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TEnumAsByte<EFGAMEMSG_TYPE>                        eMsgType;                                                 // 0x0010(0x0001) (Edit, AlwaysInit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	struct FString                                     strMsgID;                                                 // 0x0014(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     strMsgID;                                                 // 0x0014(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGFxMoviePlayer.EFUIIniStruct
 // 0x0020
 struct FEFUIIniStruct
 {
-	struct FString                                     Type;                                                     // 0x0000(0x0010)
-	struct FString                                     Value;                                                    // 0x0010(0x0010)
+	struct FString                                     Type;                                                     // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Value;                                                    // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFSwfMovie.ExternalBind
 // 0x0018
 struct FExternalBind
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UTextureRenderTarget2D*                      External;                                                 // 0x0010(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (Edit, NeedCtorLink)
+	class UTextureRenderTarget2D*                      External;                                                 // 0x0010(0x0008) (Edit)
 };
 
 // ScriptStruct EFGame.EFUIListItem.SVariableInfo
@@ -20390,7 +20390,7 @@ struct FSVariableInfo
 {
 	TEnumAsByte<EASType>                               VariableType;                                             // 0x0000(0x0001)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     VariableName;                                             // 0x0004(0x0010)
+	struct FString                                     VariableName;                                             // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetBuddy.GroupExtendedInfo
@@ -20398,23 +20398,23 @@ struct FSVariableInfo
 struct FGroupExtendedInfo
 {
 	int                                                OwnerPcNumber;                                            // 0x0000(0x0004)
-	TArray<int>                                        ExtendedList;                                             // 0x0004(0x0010)
+	TArray<int>                                        ExtendedList;                                             // 0x0004(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetInteractionMail.UIMailInfo
 // 0x0074
 struct FUIMailInfo
 {
-	struct FString                                     MailIndex;                                                // 0x0000(0x0010)
+	struct FString                                     MailIndex;                                                // 0x0000(0x0010) (NeedCtorLink)
 	int                                                Index;                                                    // 0x0010(0x0004)
 	unsigned long                                      MailType : 1;                                             // 0x0014(0x0004)
 	unsigned long                                      showMailType : 1;                                         // 0x0014(0x0004)
 	int                                                MailTag;                                                  // 0x0018(0x0004)
-	struct FString                                     ItemIndex;                                                // 0x001C(0x0010)
-	struct FString                                     Money;                                                    // 0x002C(0x0010)
-	struct FString                                     From;                                                     // 0x003C(0x0010)
-	struct FString                                     Date;                                                     // 0x004C(0x0010)
-	struct FString                                     Title;                                                    // 0x005C(0x0010)
+	struct FString                                     ItemIndex;                                                // 0x001C(0x0010) (NeedCtorLink)
+	struct FString                                     Money;                                                    // 0x002C(0x0010) (NeedCtorLink)
+	struct FString                                     From;                                                     // 0x003C(0x0010) (NeedCtorLink)
+	struct FString                                     Date;                                                     // 0x004C(0x0010) (NeedCtorLink)
+	struct FString                                     Title;                                                    // 0x005C(0x0010) (NeedCtorLink)
 	unsigned long                                      Read : 1;                                                 // 0x006C(0x0004)
 	unsigned long                                      LessThanOneDays : 1;                                      // 0x006C(0x0004)
 	unsigned long                                      isNew : 1;                                                // 0x006C(0x0004)
@@ -20425,7 +20425,7 @@ struct FUIMailInfo
 // 0x0010
 struct FMailReceiverCategory
 {
-	TArray<struct FString>                             ReceiverArr;                                              // 0x0000(0x0010)
+	TArray<struct FString>                             ReceiverArr;                                              // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGFxWidgetCommon.CommonWidgetBinding
@@ -20449,40 +20449,40 @@ struct FEFRelativeTimeFadeInfo
 	float                                              FadeEndTime;                                              // 0x000C(0x0004)
 	float                                              FadeDuration;                                             // 0x0010(0x0004)
 	float                                              FadeCurAlpha;                                             // 0x0014(0x0004)
-	struct FInterpCurveFloat                           FadeAlphaCurve;                                           // 0x0018(0x0014)
+	struct FInterpCurveFloat                           FadeAlphaCurve;                                           // 0x0018(0x0014) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFGameViewportClient.EFCursorPresetInfo
 // 0x0090
 struct FEFCursorPresetInfo
 {
-	struct FPointer                                    OriginalCursor;                                           // 0x0000(0x0008)
-	struct FPointer                                    OriginalLargeCursor;                                      // 0x0008(0x0008)
-	struct FPointer                                    OriginalFullCursor;                                       // 0x0010(0x0008)
-	struct FPointer                                    Preset1Cursor;                                            // 0x0018(0x0008)
-	struct FPointer                                    Preset1LargeCursor;                                       // 0x0020(0x0008)
-	struct FPointer                                    Preset1FullCursor;                                        // 0x0028(0x0008)
-	struct FPointer                                    Preset2Cursor;                                            // 0x0030(0x0008)
-	struct FPointer                                    Preset2LargeCursor;                                       // 0x0038(0x0008)
-	struct FPointer                                    Preset2FullCursor;                                        // 0x0040(0x0008)
-	struct FPointer                                    Preset3Cursor;                                            // 0x0048(0x0008)
-	struct FPointer                                    Preset3LargeCursor;                                       // 0x0050(0x0008)
-	struct FPointer                                    Preset3FullCursor;                                        // 0x0058(0x0008)
-	struct FPointer                                    Preset4Cursor;                                            // 0x0060(0x0008)
-	struct FPointer                                    Preset4LargeCursor;                                       // 0x0068(0x0008)
-	struct FPointer                                    Preset4FullCursor;                                        // 0x0070(0x0008)
-	struct FPointer                                    Preset5Cursor;                                            // 0x0078(0x0008)
-	struct FPointer                                    Preset5LargeCursor;                                       // 0x0080(0x0008)
-	struct FPointer                                    Preset5FullCursor;                                        // 0x0088(0x0008)
+	struct FPointer                                    OriginalCursor;                                           // 0x0000(0x0008) (Const, Native)
+	struct FPointer                                    OriginalLargeCursor;                                      // 0x0008(0x0008) (Const, Native)
+	struct FPointer                                    OriginalFullCursor;                                       // 0x0010(0x0008) (Const, Native)
+	struct FPointer                                    Preset1Cursor;                                            // 0x0018(0x0008) (Const, Native)
+	struct FPointer                                    Preset1LargeCursor;                                       // 0x0020(0x0008) (Const, Native)
+	struct FPointer                                    Preset1FullCursor;                                        // 0x0028(0x0008) (Const, Native)
+	struct FPointer                                    Preset2Cursor;                                            // 0x0030(0x0008) (Const, Native)
+	struct FPointer                                    Preset2LargeCursor;                                       // 0x0038(0x0008) (Const, Native)
+	struct FPointer                                    Preset2FullCursor;                                        // 0x0040(0x0008) (Const, Native)
+	struct FPointer                                    Preset3Cursor;                                            // 0x0048(0x0008) (Const, Native)
+	struct FPointer                                    Preset3LargeCursor;                                       // 0x0050(0x0008) (Const, Native)
+	struct FPointer                                    Preset3FullCursor;                                        // 0x0058(0x0008) (Const, Native)
+	struct FPointer                                    Preset4Cursor;                                            // 0x0060(0x0008) (Const, Native)
+	struct FPointer                                    Preset4LargeCursor;                                       // 0x0068(0x0008) (Const, Native)
+	struct FPointer                                    Preset4FullCursor;                                        // 0x0070(0x0008) (Const, Native)
+	struct FPointer                                    Preset5Cursor;                                            // 0x0078(0x0008) (Const, Native)
+	struct FPointer                                    Preset5LargeCursor;                                       // 0x0080(0x0008) (Const, Native)
+	struct FPointer                                    Preset5FullCursor;                                        // 0x0088(0x0008) (Const, Native)
 };
 
 // ScriptStruct EFGame.EFAbilityEffectInfo.EFAbilityParticleEvent
 // 0x0014
 struct FEFAbilityParticleEvent
 {
-	int                                                AbilityType;                                              // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             EventParticleInfo;                                        // 0x0004(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    EventParticleInfoPointer;                                 // 0x000C(0x0008)
+	int                                                AbilityType;                                              // 0x0000(0x0004) (Edit)
+	class UEFParticleData*                             EventParticleInfo;                                        // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    EventParticleInfoPointer;                                 // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamRootMotion
@@ -20502,8 +20502,8 @@ struct FEFParamRootMotionBeHit
 	float                                              cTime;                                                    // 0x0004(0x0004)
 	float                                              cDistance;                                                // 0x0008(0x0004)
 	float                                              GetupSkillEnableTime;                                     // 0x000C(0x0004)
-	TArray<int>                                        RootMotionSeparation;                                     // 0x0010(0x0010)
-	TArray<struct FEFParamRootMotion>                  RootMotionArr;                                            // 0x0020(0x0010)
+	TArray<int>                                        RootMotionSeparation;                                     // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FEFParamRootMotion>                  RootMotionArr;                                            // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_Action.EFParamSpawnInfo
@@ -20520,198 +20520,198 @@ struct FEFParamSpawnInfo
 // 0x0020
 struct FEFParamActionInfo
 {
-	TArray<struct FEFParamRootMotionBeHit>             RootMotionBeHitArray;                                     // 0x0000(0x0010)
-	TArray<struct FEFParamSpawnInfo>                   SpawnInfoArray;                                           // 0x0010(0x0010)
+	TArray<struct FEFParamRootMotionBeHit>             RootMotionBeHitArray;                                     // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FEFParamSpawnInfo>                   SpawnInfoArray;                                           // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.CustomPartItemValue
 // 0x0024
 struct FCustomPartItemValue
 {
-	struct FString                                     strCustomPartItemType;                                    // 0x0000(0x0010) (RepNotify, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     strCustomPartItemType;                                    // 0x0000(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
 	int                                                nPartItemType;                                            // 0x0010(0x0004)
-	struct FString                                     strCustomPartItemLook;                                    // 0x0014(0x0010) (RepNotify, NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     strCustomPartItemLook;                                    // 0x0014(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stBoneMorphGroupWeight
 // 0x0014
 struct FstBoneMorphGroupWeight
 {
-	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010) (RepNotify, EditorOnly, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              fMorphGroupWeightFactor;                                  // 0x0010(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
+	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	float                                              fMorphGroupWeightFactor;                                  // 0x0010(0x0004) (Edit, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stBoneMorphWeight
 // 0x000C
 struct FstBoneMorphWeight
 {
-	struct FName                                       SequenceName;                                             // 0x0000(0x0008) (Interp, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
-	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004) (Interp, NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox, CrossLevelActive)
+	struct FName                                       SequenceName;                                             // 0x0000(0x0008) (Edit, EditConst)
+	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIconInfo
 // 0x0024
 struct FEFIconInfo
 {
-	struct FString                                     IconPackage;                                              // 0x0000(0x0010) (Interp, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     IconName;                                                 // 0x0010(0x0010) (Interp, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                IconIndex;                                                // 0x0020(0x0004) (Interp, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     IconPackage;                                              // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     IconName;                                                 // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                IconIndex;                                                // 0x0020(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMeshMorphWeight
 // 0x0030
 struct FstMeshMorphWeight
 {
-	struct FName                                       MorphName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty)
-	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x000C(0x0024) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty)
+	struct FName                                       MorphName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	float                                              fMorphWeightFactor;                                       // 0x0008(0x0004) (Edit)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x000C(0x0024) (Edit, EditConst, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionParameterFactor
 // 0x0008
 struct FstMaterialExpressionParameterFactor
 {
-	struct FName                                       ExpressionParameterName;                                  // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FName                                       ExpressionParameterName;                                  // 0x0000(0x0008) (Edit, EditConst, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionScalarParameterFactor
 // 0x000C (0x0014 - 0x0008)
 struct FstMaterialExpressionScalarParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	float                                              fFactor;                                                  // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              fInterpolationMin;                                        // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              fInterpolationMax;                                        // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	float                                              fFactor;                                                  // 0x0008(0x0004) (Edit)
+	float                                              fInterpolationMin;                                        // 0x000C(0x0004) (Edit, EditConst)
+	float                                              fInterpolationMax;                                        // 0x0010(0x0004) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionVectorParameterFactor
 // 0x0064 (0x006C - 0x0008)
 struct FstMaterialExpressionVectorParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	struct FString                                     PaletteName;                                              // 0x0008(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     SwatchName;                                               // 0x0018(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     strColorPicker;                                           // 0x0028(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     PaletteName;                                              // 0x0008(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	struct FString                                     SwatchName;                                               // 0x0018(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strColorPicker;                                           // 0x0028(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 	struct FVector2D                                   ColorPickerPosition;                                      // 0x0038(0x0008)
 	float                                              fBrightness;                                              // 0x0040(0x0004)
-	struct FLinearColor                                SwatchColor;                                              // 0x0044(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bUseAlpha : 1;                                            // 0x0054(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              SwatchAlpha;                                              // 0x0058(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FLinearColor                                DefaultColor;                                             // 0x005C(0x0010) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FLinearColor                                SwatchColor;                                              // 0x0044(0x0010) (Edit, EditConst)
+	unsigned long                                      bUseAlpha : 1;                                            // 0x0054(0x0004) (Edit, EditConst)
+	float                                              SwatchAlpha;                                              // 0x0058(0x0004) (Edit)
+	struct FLinearColor                                DefaultColor;                                             // 0x005C(0x0010) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.ObjectPath
 // 0x0020
 struct FObjectPath
 {
-	struct FString                                     PathName;                                                 // 0x0000(0x0010)
-	struct FString                                     ClassName;                                                // 0x0010(0x0010)
+	struct FString                                     PathName;                                                 // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     ClassName;                                                // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionTextureSampleParameterFactor
 // 0x0054 (0x005C - 0x0008)
 struct FstMaterialExpressionTextureSampleParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	struct FString                                     PaletteName;                                              // 0x0008(0x0010) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     SwatchName;                                               // 0x0018(0x0010) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	class UTexture*                                    TextureFactor;                                            // 0x0028(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FObjectPath                                 TexturePath;                                              // 0x0030(0x0020)
-	unsigned long                                      EnableColorOverlay : 1;                                   // 0x0050(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      EnableTextureTransform : 1;                               // 0x0050(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	class UTexture*                                    DefaultTexture;                                           // 0x0054(0x0008) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     PaletteName;                                              // 0x0008(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	struct FString                                     SwatchName;                                               // 0x0018(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	class UTexture*                                    TextureFactor;                                            // 0x0028(0x0008) (Edit, Transient, EditConst, AlwaysInit)
+	struct FObjectPath                                 TexturePath;                                              // 0x0030(0x0020) (AlwaysInit, NeedCtorLink)
+	unsigned long                                      EnableColorOverlay : 1;                                   // 0x0050(0x0004) (Edit, EditConst)
+	unsigned long                                      EnableTextureTransform : 1;                               // 0x0050(0x0004) (Edit, EditConst)
+	class UTexture*                                    DefaultTexture;                                           // 0x0054(0x0008) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionBoolParameterFactor
 // 0x0004 (0x000C - 0x0008)
 struct FstMaterialExpressionBoolParameterFactor : public FstMaterialExpressionParameterFactor
 {
-	unsigned long                                      bFactor : 1;                                              // 0x0008(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      bFactor : 1;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizing.stMaterialExpressionParameterGroupFactor
 // 0x0058
 struct FstMaterialExpressionParameterGroupFactor
 {
-	struct FName                                       GroupName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionScalarParameterFactor> arrScalarParameterFactor;                                 // 0x0008(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionVectorParameterFactor> arrVectorParameterFactor;                                 // 0x0018(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionTextureSampleParameterFactor> arrTextureParameterFactor;                                // 0x0028(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionBoolParameterFactor> arrBoolParameterFactor;                                   // 0x0038(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionBoolParameterFactor> arrPrivateBoolParameterFactor;                            // 0x0048(0x0010)
+	struct FName                                       GroupName;                                                // 0x0000(0x0008) (Edit, EditConst, AlwaysInit)
+	TArray<struct FstMaterialExpressionScalarParameterFactor> arrScalarParameterFactor;                                 // 0x0008(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionVectorParameterFactor> arrVectorParameterFactor;                                 // 0x0018(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionTextureSampleParameterFactor> arrTextureParameterFactor;                                // 0x0028(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionBoolParameterFactor> arrBoolParameterFactor;                                   // 0x0038(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionBoolParameterFactor> arrPrivateBoolParameterFactor;                            // 0x0048(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomizingMotionActionItem
 // 0x0028
 struct FCustomizingMotionActionItem
 {
-	int                                                ActionIndex;                                              // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FEFIconInfo                                 ActionIcon;                                               // 0x0004(0x0024) (Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                ActionIndex;                                              // 0x0000(0x0004) (Edit)
+	struct FEFIconInfo                                 ActionIcon;                                               // 0x0004(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomizingFaceActionItem
 // 0x0034
 struct FCustomizingFaceActionItem
 {
-	struct FString                                     AnimName;                                                 // 0x0000(0x0010) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FEFIconInfo                                 ActionIcon;                                               // 0x0010(0x0024) (RepNotify, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     AnimName;                                                 // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FEFIconInfo                                 ActionIcon;                                               // 0x0010(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.PartItemLookData
 // 0x0034
 struct FPartItemLookData
 {
-	struct FString                                     strPartItemLook;                                          // 0x0000(0x0010) (NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0010(0x0024) (NonTransactional, EditorOnly, NotForConsole, ArchetypeProperty, EditHide, EditTextBox)
+	struct FString                                     strPartItemLook;                                          // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0010(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CustomPartItemLook
 // 0x0024
 struct FCustomPartItemLook
 {
-	struct FString                                     strPartItemType;                                          // 0x0000(0x0010) (NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPartItemLookData>                   arrPartItemLook;                                          // 0x0010(0x0010) (NotForConsole, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                nPartItemType;                                            // 0x0020(0x0004)
+	struct FString                                     strPartItemType;                                          // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FPartItemLookData>                   arrPartItemLook;                                          // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                nPartItemType;                                            // 0x0020(0x0004) (EditConst)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.CostumeDataSet
 // 0x011C
 struct FCostumeDataSet
 {
-	struct FString                                     strFaceItemLook;                                          // 0x0000(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strHairItemLook;                                          // 0x0010(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strHeadItemLook;                                          // 0x0020(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strChestItemLook;                                         // 0x0030(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strPantsItemLook;                                         // 0x0040(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strHandtemLook;                                           // 0x0050(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strShoulderItemLook;                                      // 0x0060(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strFaceDecoLook;                                          // 0x0070(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strWeaponItemLook;                                        // 0x0080(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strFaceAccLook;                                           // 0x0090(0x0010) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x00A0(0x0024) (NonTransactional, EditorOnly, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    strArrayItemLooks[0xB];                                   // 0x00C4(0x0008)
+	struct FString                                     strFaceItemLook;                                          // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strHairItemLook;                                          // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strHeadItemLook;                                          // 0x0020(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strChestItemLook;                                         // 0x0030(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strPantsItemLook;                                         // 0x0040(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strHandtemLook;                                           // 0x0050(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strShoulderItemLook;                                      // 0x0060(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strFaceDecoLook;                                          // 0x0070(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strWeaponItemLook;                                        // 0x0080(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strFaceAccLook;                                           // 0x0090(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x00A0(0x0024) (Edit, NeedCtorLink)
+	struct FPointer                                    strArrayItemLooks[0xB];                                   // 0x00C4(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stSequenceName
 // 0x0010
 struct FstSequenceName
 {
-	struct FString                                     SequenceName;                                             // 0x0000(0x0010) (Interp, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     SequenceName;                                             // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stBoneMorphGroup
 // 0x0020
 struct FstBoneMorphGroup
 {
-	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstSequenceName>                     arrBoneMorphTargets;                                      // 0x0010(0x0010) (Interp, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     strBoneMorphGroup;                                        // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FstSequenceName>                     arrBoneMorphTargets;                                      // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stBoneMorph
 // 0x0054
 struct FstBoneMorph
 {
-	struct FstGameMsgID                                MorphNameMsgID;                                           // 0x0000(0x0024) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FName                                       SequenceName;                                             // 0x0024(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	class UAnimSequence*                               AnimSeq;                                                  // 0x002C(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FObjectPath                                 PATH_AnimSeq;                                             // 0x0034(0x0020)
+	struct FstGameMsgID                                MorphNameMsgID;                                           // 0x0000(0x0024) (Edit, AlwaysInit, NeedCtorLink)
+	struct FName                                       SequenceName;                                             // 0x0024(0x0008) (Edit, EditConst)
+	class UAnimSequence*                               AnimSeq;                                                  // 0x002C(0x0008) (Edit, Transient, EditConst)
+	struct FObjectPath                                 PATH_AnimSeq;                                             // 0x0034(0x0020) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.BoneMorphAnimData
@@ -20719,111 +20719,111 @@ struct FstBoneMorph
 struct FBoneMorphAnimData
 {
 	struct FName                                       SeqName;                                                  // 0x0000(0x0008)
-	TArray<struct FRawAnimSequenceTrack>               RawAnimData;                                              // 0x0008(0x0010)
+	TArray<struct FRawAnimSequenceTrack>               RawAnimData;                                              // 0x0008(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMeshMorphRule
 // 0x002C
 struct FstMeshMorphRule
 {
-	struct FName                                       MorphName;                                                // 0x0000(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0008(0x0024) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ArchetypeProperty)
+	struct FName                                       MorphName;                                                // 0x0000(0x0008) (Edit, EditConst)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0008(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionParameter
 // 0x002C
 struct FstMaterialExpressionParameter
 {
-	struct FstGameMsgID                                MaterialExpressionParameterMsgID;                         // 0x0000(0x0024) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FName                                       ExpressionParameterName;                                  // 0x0024(0x0008) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FstGameMsgID                                MaterialExpressionParameterMsgID;                         // 0x0000(0x0024) (Edit, AlwaysInit, NeedCtorLink)
+	struct FName                                       ExpressionParameterName;                                  // 0x0024(0x0008) (Edit, EditConst, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMeterialScalarInterpolationRange
 // 0x0008
 struct FstMeterialScalarInterpolationRange
 {
-	float                                              fInterpolationMin;                                        // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              fInterpolationMax;                                        // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	float                                              fInterpolationMin;                                        // 0x0000(0x0004) (Edit)
+	float                                              fInterpolationMax;                                        // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionScalarParameter
 // 0x000C (0x0038 - 0x002C)
 struct FstMaterialExpressionScalarParameter : public FstMaterialExpressionParameter
 {
-	float                                              fDefault;                                                 // 0x002C(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FstMeterialScalarInterpolationRange         InterpolationRange;                                       // 0x0030(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	float                                              fDefault;                                                 // 0x002C(0x0004) (Edit, EditConst)
+	struct FstMeterialScalarInterpolationRange         InterpolationRange;                                       // 0x0030(0x0008) (Edit, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionVectorParameter
 // 0x0024 (0x0050 - 0x002C)
 struct FstMaterialExpressionVectorParameter : public FstMaterialExpressionParameter
 {
-	struct FString                                     PaletteName;                                              // 0x002C(0x0010) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bUseAlpha : 1;                                            // 0x003C(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FLinearColor                                DefaultColor;                                             // 0x0040(0x0010) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	struct FString                                     PaletteName;                                              // 0x002C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bUseAlpha : 1;                                            // 0x003C(0x0004) (Edit)
+	struct FLinearColor                                DefaultColor;                                             // 0x0040(0x0010) (Edit, EditConst, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionTextureSampleParameter
 // 0x0038 (0x0064 - 0x002C)
 struct FstMaterialExpressionTextureSampleParameter : public FstMaterialExpressionParameter
 {
-	struct FString                                     PaletteName;                                              // 0x002C(0x0010) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	class UTexture*                                    DefaultTexture;                                           // 0x003C(0x0008) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FObjectPath                                 DefaultTexturePath;                                       // 0x0044(0x0020)
+	struct FString                                     PaletteName;                                              // 0x002C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	class UTexture*                                    DefaultTexture;                                           // 0x003C(0x0008) (Edit, EditConst, AlwaysInit)
+	struct FObjectPath                                 DefaultTexturePath;                                       // 0x0044(0x0020) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionBoolParameter
 // 0x0004 (0x0030 - 0x002C)
 struct FstMaterialExpressionBoolParameter : public FstMaterialExpressionParameter
 {
-	unsigned long                                      bDefault : 1;                                             // 0x002C(0x0004) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
+	unsigned long                                      bDefault : 1;                                             // 0x002C(0x0004) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFData_CharacterCustomizingRule.stMaterialExpressionParameterGroup
 // 0x007C
 struct FstMaterialExpressionParameterGroup
 {
-	struct FstGameMsgID                                MaterialExpressionParameterGroupMsgID;                    // 0x0000(0x0024) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FName                                       GroupName;                                                // 0x0024(0x0008) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionScalarParameter> arrScalarParameter;                                       // 0x002C(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionVectorParameter> arrVectorParameter;                                       // 0x003C(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionTextureSampleParameter> arrTextureParameter;                                      // 0x004C(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionBoolParameter>  arrBoolParameter;                                         // 0x005C(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	TArray<struct FstMaterialExpressionBoolParameter>  arrPrivateBoolParameter;                                  // 0x006C(0x0010)
+	struct FstGameMsgID                                MaterialExpressionParameterGroupMsgID;                    // 0x0000(0x0024) (Edit, AlwaysInit, NeedCtorLink)
+	struct FName                                       GroupName;                                                // 0x0024(0x0008) (Edit, EditConst, AlwaysInit)
+	TArray<struct FstMaterialExpressionScalarParameter> arrScalarParameter;                                       // 0x002C(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionVectorParameter> arrVectorParameter;                                       // 0x003C(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionTextureSampleParameter> arrTextureParameter;                                      // 0x004C(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionBoolParameter>  arrBoolParameter;                                         // 0x005C(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<struct FstMaterialExpressionBoolParameter>  arrPrivateBoolParameter;                                  // 0x006C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_CustomizeBoneScaleItem.EFCustomizeSkelControlValue
 // 0x0014
 struct FEFCustomizeSkelControlValue
 {
-	struct FString                                     ControlName;                                              // 0x0000(0x0010) (NonTransactional, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              ControlValue;                                             // 0x0010(0x0004) (NonTransactional, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     ControlName;                                              // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	float                                              ControlValue;                                             // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartExtentInfo
 // 0x0010
 struct FNpcPartExtentInfo
 {
-	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FVector                                     Extent;                                                   // 0x0004(0x000C) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector                                     Extent;                                                   // 0x0004(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartExtentInfo
 // 0x0010
 struct FActionNpcPartExtentInfo
 {
-	TArray<struct FNpcPartExtentInfo>                  NpcPartExtentInfoArray;                                   // 0x0000(0x0010)
+	TArray<struct FNpcPartExtentInfo>                  NpcPartExtentInfoArray;                                   // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartTransformInfo
 // 0x001C
 struct FNpcPartTransformInfo
 {
-	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FVector                                     Position;                                                 // 0x0004(0x000C) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
-	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FVector                                     Position;                                                 // 0x0004(0x000C) (Edit)
+	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartTransformInfo
@@ -20831,14 +20831,14 @@ struct FNpcPartTransformInfo
 struct FActionNpcPartTransformInfo
 {
 	int                                                ActionId;                                                 // 0x0000(0x0004)
-	TArray<struct FNpcPartTransformInfo>               NpcPartTransformInfoArray;                                // 0x0004(0x0010)
+	TArray<struct FNpcPartTransformInfo>               NpcPartTransformInfoArray;                                // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcPartTransformInfoSet
 // 0x0010
 struct FActionNpcPartTransformInfoSet
 {
-	TArray<struct FActionNpcPartTransformInfo>         ActionNpcPartTransformInfoArray;                          // 0x0000(0x0010)
+	TArray<struct FActionNpcPartTransformInfo>         ActionNpcPartTransformInfoArray;                          // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.ActionNpcMoveInfo
@@ -20862,7 +20862,7 @@ struct FNpcPartTransformSampleData
 struct FNpcPartTransformSampleDatas
 {
 	int                                                NpcPartType;                                              // 0x0000(0x0004)
-	TArray<struct FNpcPartTransformSampleData>         transforms;                                               // 0x0004(0x0010)
+	TArray<struct FNpcPartTransformSampleData>         transforms;                                               // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_NpcPartInfo.NpcPartSampleExportDataByAction
@@ -20872,14 +20872,14 @@ struct FNpcPartSampleExportDataByAction
 	int                                                ActionId;                                                 // 0x0000(0x0004)
 	int                                                stageLayerIdx;                                            // 0x0004(0x0004)
 	int                                                stageIdx;                                                 // 0x0008(0x0004)
-	TArray<struct FNpcPartTransformSampleDatas>        sampleDataByPartType;                                     // 0x000C(0x0010)
+	TArray<struct FNpcPartTransformSampleDatas>        sampleDataByPartType;                                     // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFData_ColorPaletteItem.ColorSwatchItem
 // 0x0020
 struct FColorSwatchItem
 {
-	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
+	struct FString                                     SwatchName;                                               // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	struct FLinearColor                                SwatchColor;                                              // 0x0010(0x0010)
 };
 
@@ -20887,9 +20887,9 @@ struct FColorSwatchItem
 // 0x0050
 struct FTextureSwatchItem
 {
-	struct FString                                     SwatchName;                                               // 0x0000(0x0010)
+	struct FString                                     SwatchName;                                               // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	class UTexture*                                    SwatchTexture;                                            // 0x0010(0x0008)
-	struct FEFIconInfo                                 GameIcon;                                                 // 0x0018(0x0024)
+	struct FEFIconInfo                                 GameIcon;                                                 // 0x0018(0x0024) (NeedCtorLink)
 	unsigned long                                      EnableColorOverlay : 1;                                   // 0x003C(0x0004)
 	unsigned long                                      EnableTextureTransform : 1;                               // 0x003C(0x0004)
 	float                                              DefaultUpdownTransformValue;                              // 0x0040(0x0004)
@@ -20902,9 +20902,9 @@ struct FTextureSwatchItem
 // 0x0004
 struct FEFMaskData
 {
-	TEnumAsByte<EFEQUIP_PART>                          eMainParts;                                               // 0x0000(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFEQUIP_PART>                          eSubParts;                                                // 0x0001(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFMASK_STAGE>                          eMaskTotalStage;                                          // 0x0002(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFEQUIP_PART>                          eMainParts;                                               // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EFEQUIP_PART>                          eSubParts;                                                // 0x0001(0x0001) (Edit)
+	TEnumAsByte<EFMASK_STAGE>                          eMaskTotalStage;                                          // 0x0002(0x0001) (Edit)
 	unsigned char                                      Temp;                                                     // 0x0003(0x0001)
 };
 
@@ -20912,7 +20912,7 @@ struct FEFMaskData
 // 0x0024
 struct FEFLookPreset
 {
-	struct FString                                     FontName;                                                 // 0x0000(0x0010)
+	struct FString                                     FontName;                                                 // 0x0000(0x0010) (NeedCtorLink)
 	int                                                FontSize;                                                 // 0x0010(0x0004)
 	int                                                FontColor;                                                // 0x0014(0x0004)
 	unsigned long                                      bFontBold : 1;                                            // 0x0018(0x0004)
@@ -20925,18 +20925,18 @@ struct FEFLookPreset
 // 0x0035
 struct FEFInterpCurvePointLinearColor
 {
-	float                                              InVal;                                                    // 0x0000(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              InVal;                                                    // 0x0000(0x0004) (Edit)
+	struct FLinearColor                                OutVal;                                                   // 0x0004(0x0010) (Edit)
+	struct FLinearColor                                ArriveTangent;                                            // 0x0014(0x0010) (Edit)
+	struct FLinearColor                                LeaveTangent;                                             // 0x0024(0x0010) (Edit)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0034(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBeHittedPawnMaterial.EFInterpCurveLinearColor
 // 0x0011
 struct FEFInterpCurveLinearColor
 {
-	TArray<struct FEFInterpCurvePointLinearColor>      Points;                                                   // 0x0000(0x0010) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFInterpCurvePointLinearColor>      Points;                                                   // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -20944,18 +20944,18 @@ struct FEFInterpCurveLinearColor
 // 0x0011
 struct FEFInterpCurvePointFloat
 {
-	float                                              InVal;                                                    // 0x0000(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              OutVal;                                                   // 0x0004(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              ArriveTangent;                                            // 0x0008(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              LeaveTangent;                                             // 0x000C(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              InVal;                                                    // 0x0000(0x0004) (Edit)
+	float                                              OutVal;                                                   // 0x0004(0x0004) (Edit)
+	float                                              ArriveTangent;                                            // 0x0008(0x0004) (Edit)
+	float                                              LeaveTangent;                                             // 0x000C(0x0004) (Edit)
+	TEnumAsByte<EInterpCurveMode>                      InterpMode;                                               // 0x0010(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFInterpCurveFloat
 // 0x0011
 struct FEFInterpCurveFloat
 {
-	TArray<struct FEFInterpCurvePointFloat>            Points;                                                   // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFInterpCurvePointFloat>            Points;                                                   // 0x0000(0x0010) (Edit, NeedCtorLink)
 	TEnumAsByte<EInterpMethodType>                     InterpMethod;                                             // 0x0010(0x0001)
 };
 
@@ -20963,11 +20963,11 @@ struct FEFInterpCurveFloat
 // 0x0060
 struct FEFPawnMaterialBeHittedCurveInfo
 {
-	struct FString                                     ParamKey;                                                 // 0x0000(0x0010) (RepNotify, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveLinearColor                     ColorParam;                                               // 0x0010(0x0014) (RepNotify, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveFloat                           FloatParam;                                               // 0x0024(0x0014) (RepNotify, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FEFInterpCurveLinearColor                   ColorParamData;                                           // 0x0038(0x0014)
-	struct FEFInterpCurveFloat                         FloatParamData;                                           // 0x004C(0x0014)
+	struct FString                                     ParamKey;                                                 // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FInterpCurveLinearColor                     ColorParam;                                               // 0x0010(0x0014) (Edit, AlwaysInit, NeedCtorLink)
+	struct FInterpCurveFloat                           FloatParam;                                               // 0x0024(0x0014) (Edit, AlwaysInit, NeedCtorLink)
+	struct FEFInterpCurveLinearColor                   ColorParamData;                                           // 0x0038(0x0014) (NeedCtorLink)
+	struct FEFInterpCurveFloat                         FloatParamData;                                           // 0x004C(0x0014) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataBuffBeam.EFBeamUpdateInfo
@@ -20987,45 +20987,45 @@ struct FEFBeamUpdateInfo
 // 0x0014
 struct FScalarTimeVarying
 {
-	struct FName                                       MaterialName;                                             // 0x0000(0x0008) (RepRetry, CrossLevelPassive)
-	struct FName                                       ParamName;                                                // 0x0008(0x0008) (RepRetry, CrossLevelPassive)
-	float                                              ValueBase;                                                // 0x0010(0x0004) (RepRetry, CrossLevelPassive)
+	struct FName                                       MaterialName;                                             // 0x0000(0x0008) (Edit, EditConst)
+	struct FName                                       ParamName;                                                // 0x0008(0x0008) (Edit, EditConst)
+	float                                              ValueBase;                                                // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXAttacker
 // 0x001C
 struct FEFParticleSoundWeaponFXAttacker
 {
-	float                                              DelayTime;                                                // 0x0000(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Duration;                                                 // 0x0004(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSpawnAll : 1;                                            // 0x0008(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleData;                                             // 0x000C(0x0008) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    ParticleDataPointer;                                      // 0x0014(0x0008)
+	float                                              DelayTime;                                                // 0x0000(0x0004) (Edit)
+	float                                              Duration;                                                 // 0x0004(0x0004) (Edit)
+	unsigned long                                      bSpawnAll : 1;                                            // 0x0008(0x0004) (Edit)
+	class UEFParticleData*                             ParticleData;                                             // 0x000C(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    ParticleDataPointer;                                      // 0x0014(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXDelay
 // 0x0014
 struct FEFParticleSoundWeaponFXDelay
 {
-	float                                              DelayTime;                                                // 0x0000(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleData;                                             // 0x0004(0x0008) (RepNotify, Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    ParticleDataPointer;                                      // 0x000C(0x0008)
+	float                                              DelayTime;                                                // 0x0000(0x0004) (Edit)
+	class UEFParticleData*                             ParticleData;                                             // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    ParticleDataPointer;                                      // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXBlood
 // 0x0014
 struct FEFParticleSoundWeaponFXBlood
 {
-	float                                              DelayTime;                                                // 0x0000(0x0004) (Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             BloodData;                                                // 0x0004(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    BloodDataPointer;                                         // 0x000C(0x0008)
+	float                                              DelayTime;                                                // 0x0000(0x0004) (Edit)
+	class UEFParticleData*                             BloodData;                                                // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    BloodDataPointer;                                         // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFParticleSoundDataWeaponFXDir.EFParticleSoundWeaponFXRandomBlood
 // 0x0010
 struct FEFParticleSoundWeaponFXRandomBlood
 {
-	TArray<struct FEFParticleSoundWeaponFXBlood>       Bloods;                                                   // 0x0000(0x0010) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFParticleSoundWeaponFXBlood>       Bloods;                                                   // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLightBeam.EFLightBeamIntersectInfo
@@ -21040,88 +21040,88 @@ struct FEFLightBeamIntersectInfo
 // 0x0008
 struct FEFDropItemEffectEventTimeInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              fTime;                                                    // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fTime;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectParticleInfo
 // 0x0024
 struct FEFDropItemEffectParticleInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UParticleSystem*                             Particle;                                                 // 0x0004(0x0008) (NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bAttach : 1;                                              // 0x000C(0x0004) (NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bContinue : 1;                                            // 0x000C(0x0004) (NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fSpawnPositionTime;                                       // 0x0010(0x0004) (NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ParticlePath;                                             // 0x0014(0x0010)
+	class UParticleSystem*                             Particle;                                                 // 0x0004(0x0008) (Edit)
+	unsigned long                                      bAttach : 1;                                              // 0x000C(0x0004) (Edit)
+	unsigned long                                      bContinue : 1;                                            // 0x000C(0x0004) (Edit)
+	float                                              fSpawnPositionTime;                                       // 0x0010(0x0004) (Edit)
+	struct FString                                     ParticlePath;                                             // 0x0014(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectDominentLightInfo
 // 0x0014
 struct FEFDropItemEffectDominentLightInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              fBrightness;                                              // 0x0004(0x0004) (NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fLifeTime;                                                // 0x0008(0x0004) (NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fGuaranteeTime;                                           // 0x000C(0x0004) (NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fReleaseTime;                                             // 0x0010(0x0004) (NotForConsole, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fBrightness;                                              // 0x0004(0x0004) (Edit)
+	float                                              fLifeTime;                                                // 0x0008(0x0004) (Edit)
+	float                                              fGuaranteeTime;                                           // 0x000C(0x0004) (Edit)
+	float                                              fReleaseTime;                                             // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectMaterialColorInfo
 // 0x0014
 struct FEFDropItemEffectMaterialColorInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Interp, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FLinearColor                                sValue;                                                   // 0x0004(0x0010) (Interp, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FLinearColor                                sValue;                                                   // 0x0004(0x0010) (Edit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectMaterialFloatInfo
 // 0x0008
 struct FEFDropItemEffectMaterialFloatInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (RepNotify, Interp, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              fValue;                                                   // 0x0004(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fValue;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectSoundInfo
 // 0x001C
 struct FEFDropItemEffectSoundInfo
 {
-	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDropItemEffectEventType>             eEventType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UAkEvent*                                    cEvent;                                                   // 0x0004(0x0008) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     cEventPath;                                               // 0x000C(0x0010)
+	class UAkEvent*                                    cEvent;                                                   // 0x0004(0x0008) (Edit)
+	struct FString                                     cEventPath;                                               // 0x000C(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFDropItemEffectInfo.EFDropItemEffectGroup
 // 0x0140
 struct FEFDropItemEffectGroup
 {
-	struct FEFDropItemEffectParticleInfo               DropParticle;                                             // 0x0000(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectParticleInfo               AirParticle;                                              // 0x0024(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectParticleInfo               GroundParticle;                                           // 0x0048(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectParticleInfo               ModelParticle;                                            // 0x006C(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectParticleInfo               PickupParticle;                                           // 0x0090(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectParticleInfo               TimeoutParticle;                                          // 0x00B4(0x0024) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectDominentLightInfo          LightEffect;                                              // 0x00D8(0x0014) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectMaterialColorInfo          MaterialColor;                                            // 0x00EC(0x0014) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectMaterialFloatInfo          MaterialFloat;                                            // 0x0100(0x0008) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectSoundInfo                  AirSound;                                                 // 0x0108(0x001C) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FEFDropItemEffectSoundInfo                  GroundSound;                                              // 0x0124(0x001C) (RepNotify, RepRetry, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FEFDropItemEffectParticleInfo               DropParticle;                                             // 0x0000(0x0024) (Edit)
+	struct FEFDropItemEffectParticleInfo               AirParticle;                                              // 0x0024(0x0024) (Edit)
+	struct FEFDropItemEffectParticleInfo               GroundParticle;                                           // 0x0048(0x0024) (Edit)
+	struct FEFDropItemEffectParticleInfo               ModelParticle;                                            // 0x006C(0x0024) (Edit)
+	struct FEFDropItemEffectParticleInfo               PickupParticle;                                           // 0x0090(0x0024) (Edit)
+	struct FEFDropItemEffectParticleInfo               TimeoutParticle;                                          // 0x00B4(0x0024) (Edit)
+	struct FEFDropItemEffectDominentLightInfo          LightEffect;                                              // 0x00D8(0x0014) (Edit)
+	struct FEFDropItemEffectMaterialColorInfo          MaterialColor;                                            // 0x00EC(0x0014) (Edit)
+	struct FEFDropItemEffectMaterialFloatInfo          MaterialFloat;                                            // 0x0100(0x0008) (Edit)
+	struct FEFDropItemEffectSoundInfo                  AirSound;                                                 // 0x0108(0x001C) (Edit)
+	struct FEFDropItemEffectSoundInfo                  GroundSound;                                              // 0x0124(0x001C) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_AddClientStatusEffect.EFAddStatusEffectByAbilityInfo
 // 0x000C
 struct FEFAddStatusEffectByAbilityInfo
 {
-	int                                                StatusEffectIndex;                                        // 0x0000(0x0004) (NonTransactional, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                AbilityType;                                              // 0x0004(0x0004) (RepNotify, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	int                                                AbilityLevel;                                             // 0x0008(0x0004) (RepNotify, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	int                                                StatusEffectIndex;                                        // 0x0000(0x0004) (Edit)
+	int                                                AbilityType;                                              // 0x0004(0x0004) (Edit)
+	int                                                AbilityLevel;                                             // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Anim.EFAnimInfo
@@ -21129,143 +21129,143 @@ struct FEFAddStatusEffectByAbilityInfo
 struct FEFAnimInfo
 {
 	float                                              Rate;                                                     // 0x0000(0x0004)
-	float                                              BlendInTime;                                              // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	float                                              BlendOutTime;                                             // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	unsigned char                                      bLooping;                                                 // 0x000C(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
+	float                                              BlendInTime;                                              // 0x0004(0x0004) (Edit)
+	float                                              BlendOutTime;                                             // 0x0008(0x0004) (Edit)
+	unsigned char                                      bLooping;                                                 // 0x000C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
 	unsigned long                                      IgnoreLoopingAnimBlending : 1;                            // 0x0010(0x0004)
-	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0014(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisX;                                          // 0x0015(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisY;                                          // 0x0016(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisZ;                                          // 0x0017(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	TEnumAsByte<ERootMotionRotationMode>               RootMotionRotate;                                         // 0x0018(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
+	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0014(0x0001) (Edit)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisX;                                          // 0x0015(0x0001) (Edit)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisY;                                          // 0x0016(0x0001) (Edit)
+	TEnumAsByte<ERootBoneAxis>                         RootMotionAxisZ;                                          // 0x0017(0x0001) (Edit)
+	TEnumAsByte<ERootMotionRotationMode>               RootMotionRotate;                                         // 0x0018(0x0001) (Edit)
 	TEnumAsByte<ERootRotationOption>                   RootMotionRotX;                                           // 0x0019(0x0001)
 	TEnumAsByte<ERootRotationOption>                   RootMotionRotY;                                           // 0x001A(0x0001)
-	TEnumAsByte<ERootRotationOption>                   RootMotionRotZ;                                           // 0x001B(0x0001) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
+	TEnumAsByte<ERootRotationOption>                   RootMotionRotZ;                                           // 0x001B(0x0001) (Edit)
 	TEnumAsByte<EPhysics>                              Physics;                                                  // 0x001C(0x0001)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-	struct FVector                                     RootMotionMaxDelta;                                       // 0x0020(0x000C) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
-	float                                              RootMotionMaxDist;                                        // 0x002C(0x0004) (Interp, NonTransactional, NotForConsole, ProtectedWrite)
+	struct FVector                                     RootMotionMaxDelta;                                       // 0x0020(0x000C) (Edit)
+	float                                              RootMotionMaxDist;                                        // 0x002C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Effect.EFSkillEffectInfo
 // 0x0035
 struct FEFSkillEffectInfo
 {
-	unsigned long                                      bActive : 1;                                              // 0x0000(0x0004) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                SkillEffectId;                                            // 0x0004(0x0004) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                EffectAngle;                                              // 0x0008(0x0004) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFHitSegmentDirType>                   HitDirType;                                               // 0x000C(0x0001) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      SequentialSkillEffectExecuteCount;                        // 0x000D(0x0001) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      SequentialSkillEffectAreaRate;                            // 0x000E(0x0001) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bActive : 1;                                              // 0x0000(0x0004) (Edit)
+	int                                                SkillEffectId;                                            // 0x0004(0x0004) (Edit)
+	int                                                EffectAngle;                                              // 0x0008(0x0004) (Edit)
+	TEnumAsByte<EFHitSegmentDirType>                   HitDirType;                                               // 0x000C(0x0001) (Edit)
+	unsigned char                                      SequentialSkillEffectExecuteCount;                        // 0x000D(0x0001) (Edit)
+	unsigned char                                      SequentialSkillEffectAreaRate;                            // 0x000E(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x1];                                       // 0x000F(0x0001) MISSED OFFSET
-	float                                              AccumulationDamageRate;                                   // 0x0010(0x0004) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              AccumulationDamageRateMax;                                // 0x0014(0x0004) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     MemoryNotifyName;                                         // 0x0018(0x0010) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     ProjectileOffset;                                         // 0x0028(0x000C) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned char                                      UniqueId;                                                 // 0x0034(0x0001) (PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              AccumulationDamageRate;                                   // 0x0010(0x0004) (Edit)
+	float                                              AccumulationDamageRateMax;                                // 0x0014(0x0004) (Edit)
+	struct FString                                     MemoryNotifyName;                                         // 0x0018(0x0010) (Edit, NeedCtorLink)
+	struct FVector                                     ProjectileOffset;                                         // 0x0028(0x000C) (Edit)
+	unsigned char                                      UniqueId;                                                 // 0x0034(0x0001) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.EFMetarialDataModifier
 // 0x0030
 struct FEFMetarialDataModifier
 {
-	struct FString                                     LookInfoKey;                                              // 0x0000(0x0010) (Interp, NonTransactional, RepRetry, ArchetypeProperty, CrossLevelActive)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0010(0x0010) (EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0020(0x0010)
+	struct FString                                     LookInfoKey;                                              // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0010(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0020(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.EFSkelMeshActorAnimSeq
 // 0x0060
 struct FEFSkelMeshActorAnimSeq
 {
-	struct FString                                     AnimSequenceName;                                         // 0x0000(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              AnimPlayRate;                                             // 0x0010(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<class UEFAN_Params*>                        ParticleEffects;                                          // 0x0014(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0024(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                LoopCount;                                                // 0x0034(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              StartAnimTime;                                            // 0x0038(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x003C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPointer>                            ParticleEffectsPointerArray;                              // 0x0040(0x0010)
-	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0050(0x0010)
+	struct FString                                     AnimSequenceName;                                         // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	float                                              AnimPlayRate;                                             // 0x0010(0x0004) (Edit)
+	TArray<class UEFAN_Params*>                        ParticleEffects;                                          // 0x0014(0x0010) (Edit, ExportObject, AlwaysInit, NeedCtorLink, EditInline)
+	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0024(0x0010) (Edit, ExportObject, AlwaysInit, NeedCtorLink, EditInline)
+	int                                                LoopCount;                                                // 0x0034(0x0004) (Edit)
+	float                                              StartAnimTime;                                            // 0x0038(0x0004) (Edit)
+	unsigned long                                      StartAnimTimeUseOnlyFirst : 1;                            // 0x003C(0x0004) (Edit)
+	TArray<struct FPointer>                            ParticleEffectsPointerArray;                              // 0x0040(0x0010) (Native, Transient, AlwaysInit)
+	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0050(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.SubPartData
 // 0x0034
 struct FSubPartData
 {
-	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0000(0x0008) (Interp, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004) (Interp, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     SourceName;                                               // 0x000C(0x0010) (Interp, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001) (Interp, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0000(0x0008) (Edit)
+	unsigned long                                      SourceIsSocket : 1;                                       // 0x0008(0x0004) (Edit)
+	struct FString                                     SourceName;                                               // 0x000C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TEnumAsByte<EFEQUIP_PART>                          PartType;                                                 // 0x001C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-	int                                                PartIndex;                                                // 0x0020(0x0004) (Interp, NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     SkeletalMeshPath;                                         // 0x0024(0x0010)
+	int                                                PartIndex;                                                // 0x0020(0x0004) (Edit)
+	struct FString                                     SkeletalMeshPath;                                         // 0x0024(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMesh.PlaySkeletalMeshActor
 // 0x00B0
 struct FPlaySkeletalMeshActor
 {
-	struct FName                                       Tag;                                                      // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0008(0x0008) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	class UAnimSet*                                    AnimSet;                                                  // 0x0010(0x0008) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TArray<struct FEFMetarialDataModifier>             MaterialLookSet;                                          // 0x0028(0x0010) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TArray<struct FEFSkelMeshActorAnimSeq>             AnimSeqInfos;                                             // 0x0038(0x0010) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0048(0x0004) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	struct FVector                                     RelativeLocation;                                         // 0x004C(0x000C) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	struct FRotator                                    RelativeRotation;                                         // 0x0058(0x000C) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	struct FVector                                     RelativeScale;                                            // 0x0064(0x000C) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	TArray<struct FSubPartData>                        SubParts;                                                 // 0x0070(0x0010) (Interp, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelPassive)
-	struct FString                                     SkeletalMeshPath;                                         // 0x0080(0x0010)
-	struct FString                                     AnimSetPath;                                              // 0x0090(0x0010)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x00A0(0x0010)
+	struct FName                                       Tag;                                                      // 0x0000(0x0008) (Edit)
+	class USkeletalMesh*                               SkeletalMesh;                                             // 0x0008(0x0008) (Edit)
+	class UAnimSet*                                    AnimSet;                                                  // 0x0010(0x0008) (Edit)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FEFMetarialDataModifier>             MaterialLookSet;                                          // 0x0028(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FEFSkelMeshActorAnimSeq>             AnimSeqInfos;                                             // 0x0038(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bApplyLocalRotation : 1;                                  // 0x0048(0x0004) (Edit)
+	struct FVector                                     RelativeLocation;                                         // 0x004C(0x000C) (Edit)
+	struct FRotator                                    RelativeRotation;                                         // 0x0058(0x000C) (Edit)
+	struct FVector                                     RelativeScale;                                            // 0x0064(0x000C) (Edit)
+	TArray<struct FSubPartData>                        SubParts;                                                 // 0x0070(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     SkeletalMeshPath;                                         // 0x0080(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     AnimSetPath;                                              // 0x0090(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x00A0(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_EquipCommonActionTool.EFChangeMeshInfo
 // 0x0014
 struct FEFChangeMeshInfo
 {
-	int                                                EquipShipSkin;                                            // 0x0000(0x0004) (Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPlaySkeletalMeshActor>              AttachMeshs;                                              // 0x0004(0x0010) (Interp, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                EquipShipSkin;                                            // 0x0000(0x0004) (Edit)
+	TArray<struct FPlaySkeletalMeshActor>              AttachMeshs;                                              // 0x0004(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_EquipCommonActionTool.EFChageToolByAbilityInfo
 // 0x0018
 struct FEFChageToolByAbilityInfo
 {
-	int                                                AbilityType;                                              // 0x0000(0x0004) (RepNotify, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                EquipItemId;                                              // 0x0004(0x0004) (RepNotify, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     AttachToolLookInfo;                                       // 0x0008(0x0010) (RepNotify, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                AbilityType;                                              // 0x0000(0x0004) (Edit)
+	int                                                EquipItemId;                                              // 0x0004(0x0004) (Edit)
+	struct FString                                     AttachToolLookInfo;                                       // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_HidePawn.HideInfoUnit
 // 0x0008
 struct FHideInfoUnit
 {
-	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0000(0x0001) (RepNotify, Interp, EditorOnly, ArchetypeProperty, EditHide)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                iSubType;                                                 // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, ArchetypeProperty, EditHide)
+	int                                                iSubType;                                                 // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_InputTiming.InputTimingInfo
 // 0x0028
 struct FInputTimingInfo
 {
-	TEnumAsByte<EInputEventType>                       InputEvent;                                               // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	TEnumAsByte<EInputTimingType>                      InputType;                                                // 0x0001(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
+	TEnumAsByte<EInputEventType>                       InputEvent;                                               // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EInputTimingType>                      InputType;                                                // 0x0001(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	unsigned long                                      bInstant : 1;                                             // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	unsigned long                                      bOnlyReserveInput : 1;                                    // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
+	unsigned long                                      bInstant : 1;                                             // 0x0004(0x0004) (Edit)
+	unsigned long                                      bOnlyReserveInput : 1;                                    // 0x0004(0x0004) (Edit)
 	unsigned long                                      bSyncAnimEnd : 1;                                         // 0x0004(0x0004)
-	unsigned long                                      bAttackProhibit : 1;                                      // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	unsigned long                                      bAttackProhibitByRepeatInput : 1;                         // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	int                                                NextStageIndex;                                           // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	unsigned long                                      bChangeStageServer : 1;                                   // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	unsigned long                                      bMoveCancelBySkillInput : 1;                              // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	unsigned long                                      bSkillCancelBySameSkill : 1;                              // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
-	TArray<int>                                        SkillCancelSkillIdArray;                                  // 0x0010(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, EditTextBox)
+	unsigned long                                      bAttackProhibit : 1;                                      // 0x0004(0x0004) (Edit)
+	unsigned long                                      bAttackProhibitByRepeatInput : 1;                         // 0x0004(0x0004) (Edit)
+	int                                                NextStageIndex;                                           // 0x0008(0x0004) (Edit)
+	unsigned long                                      bChangeStageServer : 1;                                   // 0x000C(0x0004) (Edit)
+	unsigned long                                      bMoveCancelBySkillInput : 1;                              // 0x000C(0x0004) (Edit)
+	unsigned long                                      bSkillCancelBySameSkill : 1;                              // 0x000C(0x0004) (Edit)
+	TArray<int>                                        SkillCancelSkillIdArray;                                  // 0x0010(0x0010) (Edit, NeedCtorLink)
 	unsigned long                                      bEnable : 1;                                              // 0x0020(0x0004)
 	unsigned long                                      bActivating : 1;                                          // 0x0020(0x0004)
 	unsigned long                                      bStartActivating : 1;                                     // 0x0020(0x0004)
@@ -21277,68 +21277,68 @@ struct FInputTimingInfo
 // 0x0015
 struct FEFCheckAreaInfo
 {
-	TEnumAsByte<ENpcSkillConditionTarget>              TargetType;                                               // 0x0000(0x0001) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<ENpcSkillConditionTarget>              TargetType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                MinAngle;                                                 // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	int                                                MaxAngle;                                                 // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	int                                                MinDistance;                                              // 0x000C(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	int                                                MaxDistance;                                              // 0x0010(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<ECheckMoveType>                        MoveType;                                                 // 0x0014(0x0001) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditTextBox, CrossLevelPassive)
+	int                                                MinAngle;                                                 // 0x0004(0x0004) (Edit)
+	int                                                MaxAngle;                                                 // 0x0008(0x0004) (Edit)
+	int                                                MinDistance;                                              // 0x000C(0x0004) (Edit)
+	int                                                MaxDistance;                                              // 0x0010(0x0004) (Edit)
+	TEnumAsByte<ECheckMoveType>                        MoveType;                                                 // 0x0014(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_NpcLimbState.EFPartsHighlightInfo
 // 0x0030
 struct FEFPartsHighlightInfo
 {
-	unsigned long                                      bPartsHighlight : 1;                                      // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
-	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0004(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
-	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0014(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              FadeInTime;                                               // 0x0024(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              FadeOutTime;                                              // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
-	float                                              DurationTime;                                             // 0x002C(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty, EditHide, EditTextBox)
+	unsigned long                                      bPartsHighlight : 1;                                      // 0x0000(0x0004) (Edit)
+	struct FLinearColor                                MaterialLinearColorValue;                                 // 0x0004(0x0010) (Edit)
+	struct FLinearColor                                MaterialLinearColorFadeOutValue;                          // 0x0014(0x0010) (Edit)
+	float                                              FadeInTime;                                               // 0x0024(0x0004) (Edit)
+	float                                              FadeOutTime;                                              // 0x0028(0x0004) (Edit)
+	float                                              DurationTime;                                             // 0x002C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialChange.MaterialChangeUnit
 // 0x0018
 struct FMaterialChangeUnit
 {
-	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0000(0x0001) (EditorOnly, NotForConsole, ArchetypeProperty)
+	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     strMAUKey;                                                // 0x0004(0x0010) (EditorOnly, NotForConsole, ArchetypeProperty)
-	float                                              fLifeTime;                                                // 0x0014(0x0004) (EditorOnly, NotForConsole, ArchetypeProperty)
+	struct FString                                     strMAUKey;                                                // 0x0004(0x0010) (Edit, NeedCtorLink)
+	float                                              fLifeTime;                                                // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialChange.MaterialLookChangeUnit
 // 0x0028
 struct FMaterialLookChangeUnit
 {
-	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty)
-	struct FMaterialChangeUnit                         sUnit;                                                    // 0x0010(0x0018) (RepNotify, Interp, NonTransactional, RepRetry, ArchetypeProperty)
+	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FMaterialChangeUnit                         sUnit;                                                    // 0x0010(0x0018) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialParam.MaterialParamUnit
 // 0x007C
 struct FMaterialParamUnit
 {
-	TEnumAsByte<ECTE_MA_MERGE_METHOD>                  eMergeType;                                               // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0001(0x0001) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
+	TEnumAsByte<ECTE_MA_MERGE_METHOD>                  eMergeType;                                               // 0x0000(0x0001) (Edit)
+	TEnumAsByte<ECTE_MA_TARGET_TYPE>                   eTargetType;                                              // 0x0001(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	TArray<int>                                        DetailIndexArr;                                           // 0x0004(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	struct FString                                     strMAUKey;                                                // 0x0014(0x0010) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	float                                              fLifeTime;                                                // 0x0024(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	float                                              fRandomStartTime;                                         // 0x0028(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	struct FInterpCurveLinearColor                     sStartParameterValueCurveLInearColor;                     // 0x002C(0x0014) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	struct FInterpCurveLinearColor                     sEndParameterValueCurveLInearColor;                       // 0x0040(0x0014) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0054(0x0014) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
-	struct FInterpCurveFloat                           sEndParameterValueCurveFloat;                             // 0x0068(0x0014) (RepNotify, NonTransactional, EditorOnly, RepRetry, ArchetypeProperty)
+	TArray<int>                                        DetailIndexArr;                                           // 0x0004(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     strMAUKey;                                                // 0x0014(0x0010) (Edit, NeedCtorLink)
+	float                                              fLifeTime;                                                // 0x0024(0x0004) (Edit)
+	float                                              fRandomStartTime;                                         // 0x0028(0x0004) (Edit)
+	struct FInterpCurveLinearColor                     sStartParameterValueCurveLInearColor;                     // 0x002C(0x0014) (Edit, AlwaysInit, NeedCtorLink)
+	struct FInterpCurveLinearColor                     sEndParameterValueCurveLInearColor;                       // 0x0040(0x0014) (Edit, AlwaysInit, NeedCtorLink)
+	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0054(0x0014) (Edit, AlwaysInit, NeedCtorLink)
+	struct FInterpCurveFloat                           sEndParameterValueCurveFloat;                             // 0x0068(0x0014) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PawnMaterialParam.MaterialLookParamUnit
 // 0x008C
 struct FMaterialLookParamUnit
 {
-	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010) (EditorOnly, RepRetry, ArchetypeProperty)
-	struct FMaterialParamUnit                          sUnit;                                                    // 0x0010(0x007C) (EditorOnly, RepRetry, ArchetypeProperty)
+	struct FString                                     LookInfoStrKey;                                           // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FMaterialParamUnit                          sUnit;                                                    // 0x0010(0x007C) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PhysicsParam.PhysicsParam
@@ -21346,25 +21346,25 @@ struct FMaterialLookParamUnit
 struct FPhysicsParam
 {
 	float                                              Duration;                                                 // 0x0000(0x0004)
-	float                                              PhysicsWeight;                                            // 0x0004(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              BlendInTime;                                              // 0x0008(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	float                                              BlendOutTime;                                             // 0x000C(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0010(0x0001) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	float                                              PhysicsWeight;                                            // 0x0004(0x0004) (Edit)
+	float                                              BlendInTime;                                              // 0x0008(0x0004) (Edit)
+	float                                              BlendOutTime;                                             // 0x000C(0x0004) (Edit)
+	TEnumAsByte<EFEQUIP_PART>                          ePartsType;                                               // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0014(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0014(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bTarget : 1;                                              // 0x0014(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0014(0x0004) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
-	TArray<struct FName>                               IgnoreBoneNames;                                          // 0x0018(0x0010) (RepNotify, Interp, NotForConsole, PrivateWrite, ProtectedWrite, CrossLevelPassive)
+	unsigned long                                      bToPhysicsMode : 1;                                       // 0x0014(0x0004) (Edit)
+	unsigned long                                      bAllBodiesNoFixed : 1;                                    // 0x0014(0x0004) (Edit)
+	unsigned long                                      bTarget : 1;                                              // 0x0014(0x0004) (Edit)
+	unsigned long                                      bUpdateBodiesFromAnimationWhenEnd : 1;                    // 0x0014(0x0004) (Edit)
+	TArray<struct FName>                               IgnoreBoneNames;                                          // 0x0018(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFBeamActionBase.EFBeamActionParam
 // 0x0018
 struct FEFBeamActionParam
 {
-	struct FName                                       ParamName;                                                // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseBone : 1;                                             // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       SocketName;                                               // 0x000C(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       ParamName;                                                // 0x0000(0x0008) (Edit)
+	unsigned long                                      bUseBone : 1;                                             // 0x0008(0x0004) (Edit)
+	struct FName                                       SocketName;                                               // 0x000C(0x0008) (Edit)
 	int                                                BeamParamType;                                            // 0x0014(0x0004)
 };
 
@@ -21372,59 +21372,59 @@ struct FEFBeamActionParam
 // 0x0034
 struct FEFActionPSFloorInfo
 {
-	TEnumAsByte<EFMATERIAL_FOOTSTEP>                   FloorType;                                                // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFMATERIAL_FOOTSTEP>                   FloorType;                                                // 0x0000(0x0001) (Edit, EditConst)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UParticleSystem*                             ParticleSystemAdd;                                        // 0x0004(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	class UParticleSystem*                             ParticleSystem;                                           // 0x000C(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ParticleSystemAddPath;                                    // 0x0014(0x0010)
-	struct FString                                     ParticleSystemPath;                                       // 0x0024(0x0010)
+	class UParticleSystem*                             ParticleSystemAdd;                                        // 0x0004(0x0008) (Edit)
+	class UParticleSystem*                             ParticleSystem;                                           // 0x000C(0x0008) (Edit)
+	struct FString                                     ParticleSystemAddPath;                                    // 0x0014(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     ParticleSystemPath;                                       // 0x0024(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.EFPSRandomVector
 // 0x0018
 struct FEFPSRandomVector
 {
-	struct FVector                                     Min;                                                      // 0x0000(0x000C) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     Max;                                                      // 0x000C(0x000C) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FVector                                     Min;                                                      // 0x0000(0x000C) (Edit)
+	struct FVector                                     Max;                                                      // 0x000C(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.EFPSRandomRotator
 // 0x0018
 struct FEFPSRandomRotator
 {
-	struct FRotator                                    Min;                                                      // 0x0000(0x000C) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FRotator                                    Max;                                                      // 0x000C(0x000C) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FRotator                                    Min;                                                      // 0x0000(0x000C) (Edit)
+	struct FRotator                                    Max;                                                      // 0x000C(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlaySkeletalMeshMaterialParam.ActionNotify_SM_AnimEventData
 // 0x0038
 struct FActionNotify_SM_AnimEventData
 {
-	struct FName                                       ObjectTag;                                                // 0x0000(0x0008) (RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	struct FString                                     AnimSequenceName;                                         // 0x0008(0x0010) (RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0018(0x0010) (RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelActive)
-	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0028(0x0010)
+	struct FName                                       ObjectTag;                                                // 0x0000(0x0008) (Edit)
+	struct FString                                     AnimSequenceName;                                         // 0x0008(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<class UEFActionNotify_AnimEvent*>           AnimEvents;                                               // 0x0018(0x0010) (Edit, AlwaysInit, NeedCtorLink, EditInline)
+	TArray<struct FPointer>                            AnimEventsPointerArray;                                   // 0x0028(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFActionConditionSelectNpcIdleType.ExceptionalNpcIdleData
 // 0x0008
 struct FExceptionalNpcIdleData
 {
-	TEnumAsByte<EFNpcIdleType>                         IdleType;                                                 // 0x0000(0x0001) (NonTransactional, EditorOnly, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFNpcIdleType>                         IdleType;                                                 // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                OutputStageIndex;                                         // 0x0004(0x0004) (NonTransactional, EditorOnly, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                OutputStageIndex;                                         // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFActionObject.NpcPartInfo
 // 0x0034
 struct FNpcPartInfo
 {
-	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	unsigned char                                      NpcPartTypeValue;                                         // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FName                                       BoneName;                                                 // 0x0004(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
-	struct FVector                                     Position;                                                 // 0x000C(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
-	struct FRotator                                    Rotation;                                                 // 0x0018(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
-	struct FVector                                     Extent;                                                   // 0x0024(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox)
+	struct FName                                       BoneName;                                                 // 0x0004(0x0008) (Edit)
+	struct FVector                                     Position;                                                 // 0x000C(0x000C) (Edit)
+	struct FRotator                                    Rotation;                                                 // 0x0018(0x000C) (Edit)
+	struct FVector                                     Extent;                                                   // 0x0024(0x000C) (Edit)
 	float                                              Radius;                                                   // 0x0030(0x0004)
 };
 
@@ -21433,22 +21433,22 @@ struct FNpcPartInfo
 struct FEFStageLayer
 {
 	int                                                UniqueIndex;                                              // 0x0000(0x0004)
-	TArray<class UEFActionStage*>                      StageList;                                                // 0x0004(0x0010)
-	int                                                LayerIndex;                                               // 0x0014(0x0004) (EditorOnly, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
-	struct FString                                     Comment;                                                  // 0x0018(0x0010) (EditorOnly, NotForConsole, PrivateWrite, EditTextBox, CrossLevelPassive)
-	int                                                SkillSubCostConsumeStageIndex;                            // 0x0028(0x0004) (Interp, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              SkillSubCostConsumeTime;                                  // 0x002C(0x0004) (Interp, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class UEFActionStage*>                      StageList;                                                // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
+	int                                                LayerIndex;                                               // 0x0014(0x0004) (Edit, Const, Transient, EditConst)
+	struct FString                                     Comment;                                                  // 0x0018(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                SkillSubCostConsumeStageIndex;                            // 0x0028(0x0004) (Edit)
+	float                                              SkillSubCostConsumeTime;                                  // 0x002C(0x0004) (Edit)
 	unsigned long                                      MergeActionStage : 1;                                     // 0x0030(0x0004)
-	unsigned long                                      bZeroExtentLineCheck : 1;                                 // 0x0030(0x0004) (Interp, RepRetry, PrivateWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FPointer>                            StageListPointerArray;                                    // 0x0034(0x0010)
+	unsigned long                                      bZeroExtentLineCheck : 1;                                 // 0x0030(0x0004) (Edit)
+	TArray<struct FPointer>                            StageListPointerArray;                                    // 0x0034(0x0010) (Native, Transient, AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFNPCIdleSequenceInfo
 // 0x0014
 struct FEFNPCIdleSequenceInfo
 {
-	struct FString                                     SequenceName;                                             // 0x0000(0x0010)
-	float                                              SequenceLength;                                           // 0x0010(0x0004)
+	struct FString                                     SequenceName;                                             // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	float                                              SequenceLength;                                           // 0x0010(0x0004) (AlwaysInit)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFNPCIdleReferenceData
@@ -21456,8 +21456,8 @@ struct FEFNPCIdleSequenceInfo
 struct FEFNPCIdleReferenceData
 {
 	unsigned long                                      NPCIdleReferenceDataComplete : 1;                         // 0x0000(0x0004)
-	TArray<class UAnimSet*>                            UseAnimSetArray;                                          // 0x0004(0x0010)
-	TArray<struct FEFNPCIdleSequenceInfo>              IdleSequenceInfoArray;                                    // 0x0014(0x0010)
+	TArray<class UAnimSet*>                            UseAnimSetArray;                                          // 0x0004(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FEFNPCIdleSequenceInfo>              IdleSequenceInfoArray;                                    // 0x0014(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionObjectGroup.EFActionGroupReference
@@ -21467,18 +21467,18 @@ struct FEFActionGroupReference
 	int                                                PrimaryKey;                                               // 0x0000(0x0004)
 	int                                                SecondaryKey;                                             // 0x0004(0x0004)
 	int                                                DataType;                                                 // 0x0008(0x0004)
-	struct FString                                     Name;                                                     // 0x000C(0x0010)
-	struct FString                                     Grade;                                                    // 0x001C(0x0010)
-	struct FString                                     Model;                                                    // 0x002C(0x0010)
+	struct FString                                     Name;                                                     // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Grade;                                                    // 0x001C(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     Model;                                                    // 0x002C(0x0010) (AlwaysInit, NeedCtorLink)
 	float                                              Scale;                                                    // 0x003C(0x0004)
-	struct FString                                     Comment;                                                  // 0x0040(0x0010)
+	struct FString                                     Comment;                                                  // 0x0040(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionStage.EFSkill_NotifyGroup
 // 0x0018
 struct FEFSkill_NotifyGroup
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	unsigned long                                      expand : 1;                                               // 0x0010(0x0004)
 	struct FColor                                      RGB;                                                      // 0x0014(0x0004)
 };
@@ -21496,7 +21496,7 @@ struct FEFStageTransitionInfo
 // 0x0010
 struct FMatineePathNodeConnection
 {
-	class ULineBatchComponent*                         LineComponent;                                            // 0x0000(0x0008)
+	class ULineBatchComponent*                         LineComponent;                                            // 0x0000(0x0008) (ExportObject, Component, EditInline)
 	class AEFMatineePathNode*                          ConnectTo;                                                // 0x0008(0x0008)
 };
 
@@ -21504,99 +21504,99 @@ struct FMatineePathNodeConnection
 // 0x0014
 struct FEFSequenceSummonsActionBankDataParticle
 {
-	TEnumAsByte<EFSequenceSummonsActionBankDataParticleEnum> ParticleType;                                             // 0x0000(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFSequenceSummonsActionBankDataParticleEnum> ParticleType;                                             // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UEFProjectileParticleData*                   ParticleDataFX;                                           // 0x0004(0x0008) (Interp, NonTransactional, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    ParticleDataFXPointer;                                    // 0x000C(0x0008)
+	class UEFProjectileParticleData*                   ParticleDataFX;                                           // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    ParticleDataFXPointer;                                    // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataFloatValue
 // 0x0008
 struct FEFSequenceSummonsActionBankDataFloatValue
 {
-	TEnumAsByte<EFSequenceSummonsActionBankDataFloatValueEnum> ValueType;                                                // 0x0000(0x0001) (RepNotify, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFSequenceSummonsActionBankDataFloatValueEnum> ValueType;                                                // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              Value;                                                    // 0x0004(0x0004) (RepNotify, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	float                                              Value;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataBOOLValue
 // 0x0008
 struct FEFSequenceSummonsActionBankDataBOOLValue
 {
-	TEnumAsByte<EFSequenceSummonsActionBankDataBOOLValueEnum> ValueType;                                                // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFSequenceSummonsActionBankDataBOOLValueEnum> ValueType;                                                // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	unsigned long                                      Value : 1;                                                // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      Value : 1;                                                // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataMultiUseValueData
 // 0x0008
 struct FEFSequenceSummonsActionBankDataMultiUseValueData
 {
-	int                                                IntData;                                                  // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              floatData;                                                // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                IntData;                                                  // 0x0000(0x0004) (Edit)
+	float                                              floatData;                                                // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionBankData.EFSequenceSummonsActionBankDataMultiUseValueDataArray
 // 0x0018
 struct FEFSequenceSummonsActionBankDataMultiUseValueDataArray
 {
-	int                                                ApplySkillEffectID;                                       // 0x0000(0x0004) (NonTransactional, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFSequenceSummonsActionBankDataMultiUseValueEnum> Type;                                                     // 0x0004(0x0001) (NonTransactional, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                ApplySkillEffectID;                                       // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EFSequenceSummonsActionBankDataMultiUseValueEnum> Type;                                                     // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	TArray<struct FEFSequenceSummonsActionBankDataMultiUseValueData> SkillEffectMultiUseDataArray;                             // 0x0008(0x0010) (NonTransactional, EditorOnly, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFSequenceSummonsActionBankDataMultiUseValueData> SkillEffectMultiUseDataArray;                             // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionSetSkeletalMesh.EFProjectileActionSkeletalMeshMaterialParameter
 // 0x0024
 struct FEFProjectileActionSkeletalMeshMaterialParameter
 {
-	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterDelayType> DelayType;                                                // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterDelayType> DelayType;                                                // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              DelayTypeValue;                                           // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterValueType> ValueType;                                                // 0x0008(0x0001) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              DelayTypeValue;                                           // 0x0004(0x0004) (Edit)
+	TEnumAsByte<EFProjectileActionSkeletalMeshMaterialParameterValueType> ValueType;                                                // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	float                                              TypeValue;                                                // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     ParameterName;                                            // 0x0010(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              ParameterValue;                                           // 0x0020(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              TypeValue;                                                // 0x000C(0x0004) (Edit)
+	struct FString                                     ParameterName;                                            // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	float                                              ParameterValue;                                           // 0x0020(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsActionTierChecker.EFSequenceSummonsActionTierCheckerData
 // 0x0010
 struct FEFSequenceSummonsActionTierCheckerData
 {
-	unsigned long                                      Activate : 1;                                             // 0x0000(0x0004) (NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Tier1;                                                    // 0x0004(0x0004) (NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Tier2;                                                    // 0x0008(0x0004) (NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Tier3;                                                    // 0x000C(0x0004) (NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      Activate : 1;                                             // 0x0000(0x0004) (Edit)
+	int                                                Tier1;                                                    // 0x0004(0x0004) (Edit)
+	int                                                Tier2;                                                    // 0x0008(0x0004) (Edit)
+	int                                                Tier3;                                                    // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsProjectile.EFSummonsObjectMask
 // 0x0004
 struct FEFSummonsObjectMask
 {
-	unsigned long                                      PC : 1;                                                   // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Npc : 1;                                                  // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Prop : 1;                                                 // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Vehicle : 1;                                              // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      Tower : 1;                                                // 0x0000(0x0004) (RepNotify, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      PC : 1;                                                   // 0x0000(0x0004) (Edit)
+	unsigned long                                      Npc : 1;                                                  // 0x0000(0x0004) (Edit)
+	unsigned long                                      Prop : 1;                                                 // 0x0000(0x0004) (Edit)
+	unsigned long                                      Vehicle : 1;                                              // 0x0000(0x0004) (Edit)
+	unsigned long                                      Tower : 1;                                                // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsProjectile.EFSummonsJudgmentRotation
 // 0x0008
 struct FEFSummonsJudgmentRotation
 {
-	TEnumAsByte<EFSummonsJudgmentRotationDir>          JudgmentRotationDir;                                      // 0x0000(0x0001) (NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox)
+	TEnumAsByte<EFSummonsJudgmentRotationDir>          JudgmentRotationDir;                                      // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              JudgmentRotationSeconds;                                  // 0x0004(0x0004) (NonTransactional, RepRetry, PrivateWrite, EditHide, EditTextBox)
+	float                                              JudgmentRotationSeconds;                                  // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequenceSummonsEditorFilter.SummonsEditorFilterData
 // 0x0038
 struct FSummonsEditorFilterData
 {
-	struct FString                                     FilterName;                                               // 0x0000(0x0010)
-	TArray<int>                                        SummonsIDs;                                               // 0x0010(0x0010)
-	TArray<struct FSummonsEditorFilterData>            SubFilters;                                               // 0x0020(0x0010)
+	struct FString                                     FilterName;                                               // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<int>                                        SummonsIDs;                                               // 0x0010(0x0010) (ExportObject, AlwaysInit, NeedCtorLink, EditInline)
+	TArray<struct FSummonsEditorFilterData>            SubFilters;                                               // 0x0020(0x0010) (ExportObject, AlwaysInit, NeedCtorLink, EditInline)
 	int                                                PosX;                                                     // 0x0030(0x0004)
 	int                                                PosY;                                                     // 0x0034(0x0004)
 };
@@ -21606,12 +21606,12 @@ struct FSummonsEditorFilterData
 struct FEFPlayerClassAkEventTrackKey
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	class UAkEvent*                                    WarriorEvent;                                             // 0x0004(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    MagicianEvent;                                            // 0x000C(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    FighterEvent;                                             // 0x0014(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    DelainEvent;                                              // 0x001C(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    HunterEvent;                                              // 0x0024(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    SpecialistEvent;                                          // 0x002C(0x0008) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	class UAkEvent*                                    WarriorEvent;                                             // 0x0004(0x0008) (Edit)
+	class UAkEvent*                                    MagicianEvent;                                            // 0x000C(0x0008) (Edit)
+	class UAkEvent*                                    FighterEvent;                                             // 0x0014(0x0008) (Edit)
+	class UAkEvent*                                    DelainEvent;                                              // 0x001C(0x0008) (Edit)
+	class UAkEvent*                                    HunterEvent;                                              // 0x0024(0x0008) (Edit)
+	class UAkEvent*                                    SpecialistEvent;                                          // 0x002C(0x0008) (Edit)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSoundSet.EFInterpTrackSoundSetInfo
@@ -21619,45 +21619,45 @@ struct FEFPlayerClassAkEventTrackKey
 struct FEFInterpTrackSoundSetInfo
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EInterpTrackSoundSetType>              SoundSetType;                                             // 0x0004(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFSoundSetStuffType>                   StuffSoundSetType;                                        // 0x0005(0x0001) (RepNotify, Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EInterpTrackSoundSetType>              SoundSetType;                                             // 0x0004(0x0001) (Edit)
+	TEnumAsByte<EFSoundSetStuffType>                   StuffSoundSetType;                                        // 0x0005(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0006(0x0002) MISSED OFFSET
-	struct FString                                     AttachBoneName;                                           // 0x0008(0x0010) (RepNotify, Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     AttachBoneName;                                           // 0x0008(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSubtitle.EFSubtitleInfo
 // 0x0020
 struct FEFSubtitleInfo
 {
-	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                MsgID;                                                    // 0x0004(0x0004) (NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     strMsgID;                                                 // 0x0008(0x0010) (NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Duration;                                                 // 0x0018(0x0004) (NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Time;                                                     // 0x001C(0x0004)
+	int                                                MsgID;                                                    // 0x0004(0x0004) (Edit)
+	struct FString                                     strMsgID;                                                 // 0x0008(0x0010) (Edit, NeedCtorLink)
+	float                                              Duration;                                                 // 0x0018(0x0004) (Edit)
+	float                                              Time;                                                     // 0x001C(0x0004) (EditConst)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFFacialAnimInfo
 // 0x0010
 struct FEFFacialAnimInfo
 {
-	unsigned long                                      bUseFacialAnim : 1;                                       // 0x0000(0x0004) (PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              AnimWeightMax;                                            // 0x0004(0x0004) (PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              PlayRate;                                                 // 0x0008(0x0004) (PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              BlendTime;                                                // 0x000C(0x0004) (PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bUseFacialAnim : 1;                                       // 0x0000(0x0004) (Edit)
+	float                                              AnimWeightMax;                                            // 0x0004(0x0004) (Edit)
+	float                                              PlayRate;                                                 // 0x0008(0x0004) (Edit)
+	float                                              BlendTime;                                                // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFInterpTrackSubtitleBalloon.EFSubtitleBalloonInfo
 // 0x0020
 struct FEFSubtitleBalloonInfo
 {
-	TEnumAsByte<ESubtitleBalloonType>                  BalloonType;                                              // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0001(0x0001) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
+	TEnumAsByte<ESubtitleBalloonType>                  BalloonType;                                              // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0001(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x0002(0x0002) MISSED OFFSET
-	int                                                MsgID;                                                    // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     strMsgID;                                                 // 0x0008(0x0010) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Duration;                                                 // 0x0018(0x0004) (RepNotify, NonTransactional, EditorOnly, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive)
-	float                                              Time;                                                     // 0x001C(0x0004)
+	int                                                MsgID;                                                    // 0x0004(0x0004) (Edit)
+	struct FString                                     strMsgID;                                                 // 0x0008(0x0010) (Edit, NeedCtorLink)
+	float                                              Duration;                                                 // 0x0018(0x0004) (Edit)
+	float                                              Time;                                                     // 0x001C(0x0004) (EditConst)
 };
 
 // ScriptStruct EFGame.EFInterpTrackVoiceSet.EFInterpTrackVoiceSetInfo
@@ -21665,40 +21665,40 @@ struct FEFSubtitleBalloonInfo
 struct FEFInterpTrackVoiceSetInfo
 {
 	float                                              Time;                                                     // 0x0000(0x0004)
-	TEnumAsByte<EInterpTrackVoiceSetType>              VoiceSetType;                                             // 0x0004(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFCommonActionVoiceSetType>            CommonActionVoiceSetType;                                 // 0x0005(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetAdditionalType>              AdditionalVoiceSetType;                                   // 0x0006(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetAttackCastType>              AttackCastVoiceSetType;                                   // 0x0007(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetAttackCastLongType>          AttackCastLongVoiceSetType;                               // 0x0008(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetAttackExecType>              AttackExecVoiceSetType;                                   // 0x0009(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetAttackShotType>              AttackShotVoiceSetType;                                   // 0x000A(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetDamageType>                  DamageVoiceSetType;                                       // 0x000B(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetDeathType>                   DeathVoiceSetType;                                        // 0x000C(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetDownType>                    DownVoiceSetType;                                         // 0x000D(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetIdleType>                    IdleVoiceSetType;                                         // 0x000E(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetRunType>                     RunVoiceSetType;                                          // 0x000F(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetSpawnType>                   SpawnVoiceSetType;                                        // 0x0010(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetStandUpType>                 StandUpVoiceSetType;                                      // 0x0011(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFVoiceSetWalkType>                    WalkVoiceSetType;                                         // 0x0012(0x0001) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EInterpTrackVoiceSetType>              VoiceSetType;                                             // 0x0004(0x0001) (Edit)
+	TEnumAsByte<EFCommonActionVoiceSetType>            CommonActionVoiceSetType;                                 // 0x0005(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetAdditionalType>              AdditionalVoiceSetType;                                   // 0x0006(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetAttackCastType>              AttackCastVoiceSetType;                                   // 0x0007(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetAttackCastLongType>          AttackCastLongVoiceSetType;                               // 0x0008(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetAttackExecType>              AttackExecVoiceSetType;                                   // 0x0009(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetAttackShotType>              AttackShotVoiceSetType;                                   // 0x000A(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetDamageType>                  DamageVoiceSetType;                                       // 0x000B(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetDeathType>                   DeathVoiceSetType;                                        // 0x000C(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetDownType>                    DownVoiceSetType;                                         // 0x000D(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetIdleType>                    IdleVoiceSetType;                                         // 0x000E(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetRunType>                     RunVoiceSetType;                                          // 0x000F(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetSpawnType>                   SpawnVoiceSetType;                                        // 0x0010(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetStandUpType>                 StandUpVoiceSetType;                                      // 0x0011(0x0001) (Edit)
+	TEnumAsByte<EFVoiceSetWalkType>                    WalkVoiceSetType;                                         // 0x0012(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0013(0x0001) MISSED OFFSET
-	struct FString                                     Keyword;                                                  // 0x0014(0x0010) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     Keyword;                                                  // 0x0014(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTexture2D.EFTexture2DHitPixel
 // 0x0010
 struct FEFTexture2DHitPixel
 {
-	TArray<unsigned char>                              HitTestPixels;                                            // 0x0000(0x0010)
+	TArray<unsigned char>                              HitTestPixels;                                            // 0x0000(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFMinimapVolume.MinimapPeiceInfo
 // 0x0038
 struct FMinimapPeiceInfo
 {
-	struct FIntPoint                                   Index;                                                    // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty)
-	int                                                PieceIndex;                                               // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     TextureName;                                              // 0x000C(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty)
-	struct FBox                                        BoudingBox;                                               // 0x001C(0x001C) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty)
+	struct FIntPoint                                   Index;                                                    // 0x0000(0x0008) (Edit, EditConst)
+	int                                                PieceIndex;                                               // 0x0008(0x0004) (Edit, EditConst)
+	struct FString                                     TextureName;                                              // 0x000C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FBox                                        BoudingBox;                                               // 0x001C(0x001C) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFAction_Notify.ActionNotifyData
@@ -21714,7 +21714,7 @@ struct FActionNotifyData
 // 0x0010 (0x001C - 0x000C)
 struct FActionNotifyAKEventData : public FActionNotifyData
 {
-	TArray<int>                                        PlayAKEventList;                                          // 0x000C(0x0010)
+	TArray<int>                                        PlayAKEventList;                                          // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Anim.ActionNotifyAnimData
@@ -21746,7 +21746,7 @@ struct FActionNotifyParticleControlData : public FActionNotifyData
 	struct FEFBasedLocation                            ParticleStartPos;                                         // 0x000C(0x0010)
 	struct FEFBasedLocation                            ParticleTargetPos;                                        // 0x001C(0x0010)
 	class UEFActionNotify_PlayParticleEffect*          ControlNotify;                                            // 0x002C(0x0008)
-	struct FPointer                                    ControlNotifyPointer;                                     // 0x0034(0x0008)
+	struct FPointer                                    ControlNotifyPointer;                                     // 0x0034(0x0008) (Native)
 };
 
 // ScriptStruct EFGame.EFActionNotify_Physics.ActionNotifyPhysicsData
@@ -21760,8 +21760,8 @@ struct FActionNotifyPhysicsData : public FActionNotifyData
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyPlayBeamData : public FActionNotifyData
 {
-	TArray<int>                                        PlayedBeamArr;                                            // 0x000C(0x0010)
-	TArray<int>                                        EditingPlayedBeamArr;                                     // 0x001C(0x0010)
+	TArray<int>                                        PlayedBeamArr;                                            // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<int>                                        EditingPlayedBeamArr;                                     // 0x001C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayCameraParticleEffect.ActionNotifyCameraParticleData
@@ -21787,17 +21787,17 @@ struct FEFActorLocationCycleMotion
 {
 	float                                              fTime;                                                    // 0x0000(0x0004)
 	struct FVector                                     vPreValue;                                                // 0x0004(0x000C)
-	float                                              fMotionRange;                                             // 0x0010(0x0004) (RepNotify, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fMotionCycle;                                             // 0x0014(0x0004) (RepNotify, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001) (RepNotify, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fMotionRange;                                             // 0x0010(0x0004) (Edit)
+	float                                              fMotionCycle;                                             // 0x0014(0x0004) (Edit)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFActorRotationAcyclicMotion
 // 0x0005
 struct FEFActorRotationAcyclicMotion
 {
-	float                                              fMotionVel;                                               // 0x0000(0x0004) (Interp, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0004(0x0001) (Interp, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fMotionVel;                                               // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFActorRotationCyclicMotion
@@ -21806,51 +21806,51 @@ struct FEFActorRotationCyclicMotion
 {
 	float                                              fTime;                                                    // 0x0000(0x0004)
 	struct FRotator                                    vPreValue;                                                // 0x0004(0x000C)
-	float                                              fMotionRange;                                             // 0x0010(0x0004) (RepNotify, Interp, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fMotionCycle;                                             // 0x0014(0x0004) (RepNotify, Interp, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001) (RepNotify, Interp, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fMotionRange;                                             // 0x0010(0x0004) (Edit)
+	float                                              fMotionCycle;                                             // 0x0014(0x0004) (Edit)
+	TEnumAsByte<EAxis>                                 eMotionAxis;                                              // 0x0018(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMoney
 // 0x0008
 struct FEFMoney
 {
-	TEnumAsByte<EMoneyType>                            Type;                                                     // 0x0000(0x0001) (RepNotify, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EMoneyType>                            Type;                                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Amount;                                                   // 0x0004(0x0004) (RepNotify, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                Amount;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFFaction
 // 0x0008
 struct FEFFaction
 {
-	TEnumAsByte<EFactionType>                          Type;                                                     // 0x0000(0x0001) (RepNotify, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFactionType>                          Type;                                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                SubFactionID;                                             // 0x0004(0x0004) (RepNotify, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                SubFactionID;                                             // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIntRange
 // 0x0008
 struct FEFIntRange
 {
-	int                                                Min;                                                      // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	int                                                Max;                                                      // 0x0004(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                Min;                                                      // 0x0000(0x0004) (Edit)
+	int                                                Max;                                                      // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.HittedSoundWeaponSetInfo
 // 0x0014
 struct FHittedSoundWeaponSetInfo
 {
-	int                                                Index;                                                    // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide)
-	struct FString                                     hittedSoundWeaponSetName;                                 // 0x0004(0x0010) (RepNotify, NonTransactional, NotForConsole, RepRetry, ArchetypeProperty, EditHide)
+	int                                                Index;                                                    // 0x0000(0x0004) (Edit)
+	struct FString                                     hittedSoundWeaponSetName;                                 // 0x0004(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFMatineeSyncMotionInfo
 // 0x0020
 struct FEFMatineeSyncMotionInfo
 {
-	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010)
-	struct FString                                     MatineeSyncMotionName;                                    // 0x0010(0x0010)
+	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	struct FString                                     MatineeSyncMotionName;                                    // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTrackMoveTransform
@@ -21869,23 +21869,23 @@ struct FEFTrackMoveInfo
 	int                                                TrackIndex;                                               // 0x0000(0x0004)
 	struct FVector                                     InitLocation;                                             // 0x0004(0x000C)
 	struct FRotator                                    InitRotation;                                             // 0x0010(0x000C)
-	TArray<struct FEFTrackMoveTransform>               MovementInfo;                                             // 0x001C(0x0010)
+	TArray<struct FEFTrackMoveTransform>               MovementInfo;                                             // 0x001C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFDataUnitInputInfo
 // 0x0020
 struct FEFDataUnitInputInfo
 {
-	struct FString                                     InputDesc;                                                // 0x0000(0x0010)
-	TArray<int>                                        PrevNodeIndexArray;                                       // 0x0010(0x0010)
+	struct FString                                     InputDesc;                                                // 0x0000(0x0010) (NeedCtorLink)
+	TArray<int>                                        PrevNodeIndexArray;                                       // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFDataUnitOutputInfo
 // 0x0020
 struct FEFDataUnitOutputInfo
 {
-	struct FString                                     OutputDesc;                                               // 0x0000(0x0010)
-	TArray<int>                                        NextNodeIndexArray;                                       // 0x0010(0x0010)
+	struct FString                                     OutputDesc;                                               // 0x0000(0x0010) (NeedCtorLink)
+	TArray<int>                                        NextNodeIndexArray;                                       // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFLocationSyncInfo
@@ -21907,51 +21907,51 @@ struct FEFLocationSyncInfo
 // 0x0020
 struct FEFMatineeSyncInfo
 {
-	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010)
-	TArray<struct FEFLocationSyncInfo>                 LocationSyncInfoList;                                     // 0x0010(0x0010)
+	struct FString                                     RemoteEventName;                                          // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<struct FEFLocationSyncInfo>                 LocationSyncInfoList;                                     // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.SeqFrameInfo
 // 0x0020
 struct FSeqFrameInfo
 {
-	int                                                PosX;                                                     // 0x0000(0x0004)
-	int                                                PosY;                                                     // 0x0004(0x0004)
-	int                                                SizeX;                                                    // 0x0008(0x0004)
-	int                                                SizeY;                                                    // 0x000C(0x0004)
-	struct FString                                     Comment;                                                  // 0x0010(0x0010)
+	int                                                PosX;                                                     // 0x0000(0x0004) (AlwaysInit)
+	int                                                PosY;                                                     // 0x0004(0x0004) (AlwaysInit)
+	int                                                SizeX;                                                    // 0x0008(0x0004) (AlwaysInit)
+	int                                                SizeY;                                                    // 0x000C(0x0004) (AlwaysInit)
+	struct FString                                     Comment;                                                  // 0x0010(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTargetPortalPoint
 // 0x0008
 struct FEFTargetPortalPoint
 {
-	int                                                PointIndex;                                               // 0x0000(0x0004) (NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Weight;                                                   // 0x0004(0x0004) (NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                PointIndex;                                               // 0x0000(0x0004) (Edit)
+	int                                                Weight;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.DummySpotProperty
 // 0x0028
 struct FDummySpotProperty
 {
-	int                                                DummyActorIndex;                                          // 0x0000(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     RelativeLocation;                                         // 0x0004(0x000C) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EDummyActorSpotType>                   eSpotType;                                                // 0x001C(0x0001) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                DummyActorIndex;                                          // 0x0000(0x0004) (Edit, EditConst)
+	struct FVector                                     RelativeLocation;                                         // 0x0004(0x000C) (Edit, EditConst)
+	struct FRotator                                    Rotation;                                                 // 0x0010(0x000C) (Edit, EditConst)
+	TEnumAsByte<EDummyActorSpotType>                   eSpotType;                                                // 0x001C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-	int                                                SpawnRange;                                               // 0x0020(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                GroupID;                                                  // 0x0024(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                SpawnRange;                                               // 0x0020(0x0004) (Edit)
+	int                                                GroupID;                                                  // 0x0024(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.TowerSpawnPoint
 // 0x002C
 struct FTowerSpawnPoint
 {
-	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FRotator                                    RelativeRotation;                                         // 0x000C(0x000C) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	int                                                NPCTableID;                                               // 0x0018(0x0004) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FName                                       SocketName;                                               // 0x001C(0x0008) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
-	struct FName                                       BoneName;                                                 // 0x0024(0x0008) (NonTransactional, EditorOnly, RepRetry, PrivateWrite, ArchetypeProperty, CrossLevelActive)
+	struct FVector                                     RelativeLocation;                                         // 0x0000(0x000C) (Edit, EditConst)
+	struct FRotator                                    RelativeRotation;                                         // 0x000C(0x000C) (Edit, EditConst)
+	int                                                NPCTableID;                                               // 0x0018(0x0004) (Edit)
+	struct FName                                       SocketName;                                               // 0x001C(0x0008) (Edit, EditConst)
+	struct FName                                       BoneName;                                                 // 0x0024(0x0008) (Edit, EditConst)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFTownHaveVisibility
@@ -21959,50 +21959,50 @@ struct FTowerSpawnPoint
 struct FEFTownHaveVisibility
 {
 	unsigned long                                      bTemp : 1;                                                // 0x0000(0x0004)
-	TEnumAsByte<ETownHaveCheckType>                    Condition;                                                // 0x0004(0x0001) (NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001) (NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETownHaveCheckType>                    Condition;                                                // 0x0004(0x0001) (Edit)
+	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFIslandHeartVibility
 // 0x0006
 struct FEFIslandHeartVibility
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EIslandHeartCheckType>                 Condition;                                                // 0x0004(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EIslandHeartCheckType>                 Condition;                                                // 0x0004(0x0001) (Edit)
+	TEnumAsByte<EQuestVisibility>                      Action;                                                   // 0x0005(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.EFQuestVisiblityInfo
 // 0x0010
 struct FEFQuestVisiblityInfo
 {
-	TEnumAsByte<EQuestVisibilityType>                  eVisibilityType;                                          // 0x0000(0x0001) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EQuestVisibilityType>                  eVisibilityType;                                          // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                QuestIndex;                                               // 0x0004(0x0004) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                QuestStepIndex;                                           // 0x0008(0x0004) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                EndConditionIndex;                                        // 0x000C(0x0004) (RepNotify, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                QuestIndex;                                               // 0x0004(0x0004) (Edit)
+	int                                                QuestStepIndex;                                           // 0x0008(0x0004) (Edit)
+	int                                                EndConditionIndex;                                        // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFCommonDataDefine.TransportSpawnPoint
 // 0x0068
 struct FTransportSpawnPoint
 {
-	struct FString                                     Desc;                                                     // 0x0000(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FString                                     Name;                                                     // 0x0010(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FVector                                     RelativeLocation;                                         // 0x0020(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FRotator                                    RelativeRotation;                                         // 0x002C(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FName                                       SocketName;                                               // 0x0038(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FName                                       BoneName;                                                 // 0x0040(0x0008) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TArray<class AActor*>                              NPCArray;                                                 // 0x0048(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TArray<class AActor*>                              PropArray;                                                // 0x0058(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FString                                     Desc;                                                     // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     Name;                                                     // 0x0010(0x0010) (Edit, EditConst, AlwaysInit, NeedCtorLink)
+	struct FVector                                     RelativeLocation;                                         // 0x0020(0x000C) (Edit, EditConst)
+	struct FRotator                                    RelativeRotation;                                         // 0x002C(0x000C) (Edit, EditConst)
+	struct FName                                       SocketName;                                               // 0x0038(0x0008) (Edit, EditConst)
+	struct FName                                       BoneName;                                                 // 0x0040(0x0008) (Edit, EditConst)
+	TArray<class AActor*>                              NPCArray;                                                 // 0x0048(0x0010) (Edit, Transient, EditConst, AlwaysInit, NeedCtorLink)
+	TArray<class AActor*>                              PropArray;                                                // 0x0058(0x0010) (Edit, Transient, EditConst, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayParticleEffect.ActionNotifyParticleData
 // 0x0020 (0x002C - 0x000C)
 struct FActionNotifyParticleData : public FActionNotifyData
 {
-	TArray<int>                                        PlayPSList;                                               // 0x000C(0x0010)
-	TArray<int>                                        EditingPSList;                                            // 0x001C(0x0010)
+	TArray<int>                                        PlayPSList;                                               // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
+	TArray<int>                                        EditingPSList;                                            // 0x001C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFActionNotify_PlayProjectileDecalEffect.ActionNotifyPlayProjectileDecalEffectData
@@ -22031,7 +22031,7 @@ struct FActionNotifyTargetPosControl : public FActionNotifyData
 // 0x0008 (0x0014 - 0x000C)
 struct FActionNotifyTrailData : public FActionNotifyData
 {
-	class UAnimNotify_Trails*                          Trails;                                                   // 0x000C(0x0008)
+	class UAnimNotify_Trails*                          Trails;                                                   // 0x000C(0x0008) (Native)
 };
 
 // ScriptStruct EFGame.EFActionNotify_ViewShake.ActionNotifyViewShake
@@ -22054,7 +22054,7 @@ struct FActionNotifyWeaponMode : public FActionNotifyData
 // 0x0014
 struct FEFActionCustomGroup
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010)
+	struct FString                                     Name;                                                     // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
 	unsigned long                                      expand : 1;                                               // 0x0010(0x0004)
 };
 
@@ -22065,7 +22065,7 @@ struct FEFBeamActionInstance
 	int                                                PSCIndex;                                                 // 0x0000(0x0004)
 	int                                                HitPSCIndex;                                              // 0x0004(0x0004)
 	int                                                HitEffectPSCIndex;                                        // 0x0008(0x0004)
-	TArray<int>                                        BeamInstIndexArr;                                         // 0x000C(0x0010)
+	TArray<int>                                        BeamInstIndexArr;                                         // 0x000C(0x0010) (NeedCtorLink)
 	struct FName                                       CurSourceSocket;                                          // 0x001C(0x0008)
 	struct FName                                       CurTargetSocket;                                          // 0x0024(0x0008)
 	float                                              MaxDistance;                                              // 0x002C(0x0004)
@@ -22073,13 +22073,13 @@ struct FEFBeamActionInstance
 	struct FQWord                                      SourceOID;                                                // 0x0034(0x0008)
 	struct FVector                                     SourceLocation;                                           // 0x003C(0x000C)
 	struct FVector                                     SourceOffset;                                             // 0x0048(0x000C)
-	TArray<struct FName>                               SourceMoveNameArr;                                        // 0x0054(0x0010)
+	TArray<struct FName>                               SourceMoveNameArr;                                        // 0x0054(0x0010) (NeedCtorLink)
 	float                                              SourceMoveNameNextTime;                                   // 0x0064(0x0004)
 	float                                              SourceMoveNamePerTime;                                    // 0x0068(0x0004)
 	struct FQWord                                      TargetOID;                                                // 0x006C(0x0008)
 	struct FVector                                     TargetLocation;                                           // 0x0074(0x000C)
 	struct FVector                                     TargetNormal;                                             // 0x0080(0x000C)
-	TArray<struct FName>                               TargetMoveNameArr;                                        // 0x008C(0x0010)
+	TArray<struct FName>                               TargetMoveNameArr;                                        // 0x008C(0x0010) (NeedCtorLink)
 	float                                              TargetMoveNameNextTime;                                   // 0x009C(0x0004)
 	float                                              TargetMoveNamePerTime;                                    // 0x00A0(0x0004)
 	int                                                SkillEffectGroupID;                                       // 0x00A4(0x0004)
@@ -22090,185 +22090,185 @@ struct FEFBeamActionInstance
 // 0x0008
 struct FEFQword
 {
-	int                                                A;                                                        // 0x0000(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                B;                                                        // 0x0004(0x0004) (Interp, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                A;                                                        // 0x0000(0x0004) (Edit)
+	int                                                B;                                                        // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFDataContainer_CharacterCustomizing.CharCustomizingCacheData
 // 0x0020
 struct FCharCustomizingCacheData
 {
-	TArray<class UEFData_CharacterCustomizing*>        ArtistPresets;                                            // 0x0000(0x0010)
-	TArray<class UEFData_CharacterCustomizing*>        FacePresets;                                              // 0x0010(0x0010)
+	TArray<class UEFData_CharacterCustomizing*>        ArtistPresets;                                            // 0x0000(0x0010) (NeedCtorLink)
+	TArray<class UEFData_CharacterCustomizing*>        FacePresets;                                              // 0x0010(0x0010) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectSoundInfo
 // 0x0018
 struct FEFTownOjectSoundInfo
 {
-	class UAkEvent*                                    cAkEvent;                                                 // 0x0000(0x0008) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     cAkEventPath;                                             // 0x0008(0x0010)
+	class UAkEvent*                                    cAkEvent;                                                 // 0x0000(0x0008) (Edit)
+	struct FString                                     cAkEventPath;                                             // 0x0008(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectEffectInfo
 // 0x0010
 struct FEFTownOjectEffectInfo
 {
-	class UEFParticleData*                             EffectData;                                               // 0x0000(0x0008) (Interp, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    EffectDataPointer;                                        // 0x0008(0x0008)
+	class UEFParticleData*                             EffectData;                                               // 0x0000(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FPointer                                    EffectDataPointer;                                        // 0x0008(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTownOjectInfo
 // 0x0038
 struct FEFTownOjectInfo
 {
-	class UAnimSet*                                    TownObjectAnimSet;                                        // 0x0000(0x0008) (NonTransactional, EditorOnly, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive)
-	struct FString                                     TownObjectAnimSetPath;                                    // 0x0008(0x0010)
-	TArray<struct FEFTownOjectSoundInfo>               SoundDataArr;                                             // 0x0018(0x0010) (Interp, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty, EditHide)
-	TArray<struct FEFTownOjectEffectInfo>              EffectDataArr;                                            // 0x0028(0x0010) (NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive)
+	class UAnimSet*                                    TownObjectAnimSet;                                        // 0x0000(0x0008) (Edit)
+	struct FString                                     TownObjectAnimSetPath;                                    // 0x0008(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	TArray<struct FEFTownOjectSoundInfo>               SoundDataArr;                                             // 0x0018(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FEFTownOjectEffectInfo>              EffectDataArr;                                            // 0x0028(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.OptimizeSection
 // 0x0018
 struct FOptimizeSection
 {
-	unsigned long                                      bUseExcludeByAngle : 1;                                   // 0x0000(0x0004) (NonTransactional, EditorOnly, ProtectedWrite, CrossLevelPassive)
-	TEnumAsByte<ESectionAxis>                          StandardAxis;                                             // 0x0004(0x0001) (NonTransactional, EditorOnly, ProtectedWrite, CrossLevelPassive)
+	unsigned long                                      bUseExcludeByAngle : 1;                                   // 0x0000(0x0004) (Edit)
+	TEnumAsByte<ESectionAxis>                          StandardAxis;                                             // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	struct FName                                       StandardBoneName;                                         // 0x0008(0x0008) (NonTransactional, EditorOnly, ProtectedWrite, CrossLevelPassive)
-	unsigned long                                      bUseExcludeByDistance : 1;                                // 0x0010(0x0004) (NonTransactional, EditorOnly, ProtectedWrite, CrossLevelPassive)
-	float                                              ViewDistance;                                             // 0x0014(0x0004) (NonTransactional, EditorOnly, ProtectedWrite, CrossLevelPassive)
+	struct FName                                       StandardBoneName;                                         // 0x0008(0x0008) (Edit, AlwaysInit)
+	unsigned long                                      bUseExcludeByDistance : 1;                                // 0x0010(0x0004) (Edit)
+	float                                              ViewDistance;                                             // 0x0014(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFSeatSlotInfo
 // 0x000C
 struct FEFSeatSlotInfo
 {
-	struct FName                                       SlotName;                                                 // 0x0000(0x0008) (NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bUseSocket : 1;                                           // 0x0008(0x0004) (NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FName                                       SlotName;                                                 // 0x0000(0x0008) (Edit)
+	unsigned long                                      bUseSocket : 1;                                           // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerSoundInfo
 // 0x0024
 struct FEFTowerSoundInfo
 {
-	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010) (Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010)
+	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerCameraShakeInfo
 // 0x0014
 struct FEFTowerCameraShakeInfo
 {
-	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001) (NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETowerAnimationType>                   InvokeAnimType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008) (NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008)
+	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008) (Edit, EditInline)
+	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTowerEffectInfo
 // 0x0020
 struct FEFTowerEffectInfo
 {
-	TEnumAsByte<ETowerAnimationType>                   TowerEffectInvokeType;                                    // 0x0000(0x0001) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETowerAnimationType>                   TowerEffectInvokeType;                                    // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UEFParticleData*                             TowerEffectData;                                          // 0x0004(0x0008) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              EffectOffset;                                             // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	float                                              DeplayTime;                                               // 0x0010(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                TranslucencySortPriority;                                 // 0x0014(0x0004) (RepNotify, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    TowerEffectDataPointer;                                   // 0x0018(0x0008)
+	class UEFParticleData*                             TowerEffectData;                                          // 0x0004(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	float                                              EffectOffset;                                             // 0x000C(0x0004) (Edit)
+	float                                              DeplayTime;                                               // 0x0010(0x0004) (Edit)
+	int                                                TranslucencySortPriority;                                 // 0x0014(0x0004) (Edit)
+	struct FPointer                                    TowerEffectDataPointer;                                   // 0x0018(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sShipSoundInfo
 // 0x0020
 struct FsShipSoundInfo
 {
-	class UAkEvent*                                    AkEvent;                                                  // 0x0000(0x0008) (Interp, NonTransactional, EditorOnly, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	float                                              StopWhenBaseDestroyFadeTime;                              // 0x000C(0x0004) (Interp, NonTransactional, EditorOnly, ProtectedWrite, EditTextBox, CrossLevelPassive)
-	struct FString                                     AkEventPath;                                              // 0x0010(0x0010)
+	class UAkEvent*                                    AkEvent;                                                  // 0x0000(0x0008) (Edit)
+	unsigned long                                      bSwitchCharacterAKEvent : 1;                              // 0x0008(0x0004) (Edit)
+	unsigned long                                      StopWhenBaseDestroy : 1;                                  // 0x0008(0x0004) (Edit)
+	float                                              StopWhenBaseDestroyFadeTime;                              // 0x000C(0x0004) (Edit)
+	struct FString                                     AkEventPath;                                              // 0x0010(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sListInfo
 // 0x0014
 struct FsListInfo
 {
-	float                                              fRollWeightByRotate;                                      // 0x0000(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
-	float                                              fCycleOfRollByRotate;                                     // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
-	float                                              fRollRangeByRotate;                                       // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
-	float                                              fCycleOfBounceWeightByRotate;                             // 0x000C(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
-	float                                              fCycleOfBounceByRotate;                                   // 0x0010(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditTextBox, CrossLevelActive)
+	float                                              fRollWeightByRotate;                                      // 0x0000(0x0004) (Edit)
+	float                                              fCycleOfRollByRotate;                                     // 0x0004(0x0004) (Edit)
+	float                                              fRollRangeByRotate;                                       // 0x0008(0x0004) (Edit)
+	float                                              fCycleOfBounceWeightByRotate;                             // 0x000C(0x0004) (Edit)
+	float                                              fCycleOfBounceByRotate;                                   // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.sMotionInfo
 // 0x0008
 struct FsMotionInfo
 {
-	float                                              fDurationTime;                                            // 0x0000(0x0004) (Interp, NonTransactional, EditTextBox, CrossLevelPassive)
-	float                                              fBoundsValue;                                             // 0x0004(0x0004) (Interp, NonTransactional, EditTextBox, CrossLevelPassive)
+	float                                              fDurationTime;                                            // 0x0000(0x0004) (Edit)
+	float                                              fBoundsValue;                                             // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialActionParamValue
 // 0x0014
 struct FEFPropMaterialActionParamValue
 {
-	float                                              Scalar;                                                   // 0x0000(0x0004) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FLinearColor                                Color;                                                    // 0x0004(0x0010) (RepNotify, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              Scalar;                                                   // 0x0000(0x0004) (Edit)
+	struct FLinearColor                                Color;                                                    // 0x0004(0x0010) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialActionParam
 // 0x0038
 struct FEFPropMaterialActionParam
 {
-	int                                                MaterialIndex;                                            // 0x0000(0x0004) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FName                                       Name;                                                     // 0x0004(0x0008) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EPropMaterialActionParamType>          ParamType;                                                // 0x000C(0x0001) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                MaterialIndex;                                            // 0x0000(0x0004) (Edit)
+	struct FName                                       Name;                                                     // 0x0004(0x0008) (Edit)
+	TEnumAsByte<EPropMaterialActionParamType>          ParamType;                                                // 0x000C(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
-	struct FEFPropMaterialActionParamValue             StartValue;                                               // 0x0010(0x0014) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FEFPropMaterialActionParamValue             EndValue;                                                 // 0x0024(0x0014) (NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FEFPropMaterialActionParamValue             StartValue;                                               // 0x0010(0x0014) (Edit)
+	struct FEFPropMaterialActionParamValue             EndValue;                                                 // 0x0024(0x0014) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropMaterialAction
 // 0x001C
 struct FEFPropMaterialAction
 {
-	TEnumAsByte<EPropAnimationType>                    eInvokeType;                                              // 0x0000(0x0001) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPropAnimationType>                    eInvokeType;                                              // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	TArray<struct FEFPropMaterialActionParam>          Params;                                                   // 0x0004(0x0010) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Time;                                                     // 0x0014(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              StartDelay;                                               // 0x0018(0x0004) (RepNotify, Interp, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFPropMaterialActionParam>          Params;                                                   // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	float                                              Time;                                                     // 0x0014(0x0004) (Edit)
+	float                                              StartDelay;                                               // 0x0018(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSoundInfo
 // 0x0024
 struct FEFPropSoundInfo
 {
-	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010) (Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010)
+	TArray<class UAkEvent*>                            AkEventArray;                                             // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FString>                             AkEventArrayPathArray;                                    // 0x0014(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropCameraShakeInfo
 // 0x0014
 struct FEFPropCameraShakeInfo
 {
-	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001) (RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPropAnimationType>                    InvokeAnimType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008) (RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008)
+	class UEFCameraViewShake*                          NewCameraShakeParam;                                      // 0x0004(0x0008) (Edit, EditInline)
+	struct FPointer                                    NewCameraShakeParamPointer;                               // 0x000C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFRemoveHitSocketInfo
 // 0x0014
 struct FEFRemoveHitSocketInfo
 {
-	TEnumAsByte<EPropAnimationType>                    RemoveAnimType;                                           // 0x0000(0x0001) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPropAnimationType>                    RemoveAnimType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	TArray<struct FString>                             HitSocketNameArray;                                       // 0x0004(0x0010) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FString>                             HitSocketNameArray;                                       // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionElem
@@ -22278,157 +22278,157 @@ struct FEFPropSubCollisionElem
 	TEnumAsByte<EPropSubCollisionPrimitiveType>        PrimType;                                                 // 0x0000(0x0001)
 	unsigned char                                      UnknownData00[0xF];                                       // 0x0001(0x000F) MISSED OFFSET
 	struct FMatrix                                     TM;                                                       // 0x0010(0x0040)
-	struct FVector                                     RelativeLocation;                                         // 0x0050(0x000C) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FRotator                                    RelativeRotation;                                         // 0x005C(0x000C) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FVector                                     RelativeLocation;                                         // 0x0050(0x000C) (Edit)
+	struct FRotator                                    RelativeRotation;                                         // 0x005C(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionBoxElem
 // 0x000C (0x0074 - 0x0068)
 struct FEFPropSubCollisionBoxElem : public FEFPropSubCollisionElem
 {
-	struct FVector                                     Extent;                                                   // 0x0068(0x000C) (EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FVector                                     Extent;                                                   // 0x0068(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollisionCylinderElem
 // 0x0008 (0x0070 - 0x0068)
 struct FEFPropSubCollisionCylinderElem : public FEFPropSubCollisionElem
 {
-	float                                              Radius;                                                   // 0x0068(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              Height;                                                   // 0x006C(0x0004) (RepNotify, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	float                                              Radius;                                                   // 0x0068(0x0004) (Edit)
+	float                                              Height;                                                   // 0x006C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropSubCollision
 // 0x0020
 struct FEFPropSubCollision
 {
-	TArray<struct FEFPropSubCollisionBoxElem>          BoxElems;                                                 // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FEFPropSubCollisionCylinderElem>     CylElems;                                                 // 0x0010(0x0010) (RepNotify, Interp, NonTransactional, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TArray<struct FEFPropSubCollisionBoxElem>          BoxElems;                                                 // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FEFPropSubCollisionCylinderElem>     CylElems;                                                 // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPropEffectInfo
 // 0x0034
 struct FEFPropEffectInfo
 {
-	TEnumAsByte<EPropAnimationType>                    PropEffectInvokeType;                                     // 0x0000(0x0001) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPropAnimationType>                    PropEffectInvokeType;                                     // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	TArray<TEnumAsByte<EPropAnimationType>>            PropEffectRemoveTypeArray;                                // 0x0004(0x0010) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bInteractorEffect : 1;                                    // 0x0014(0x0004) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             PropEffectData;                                           // 0x0018(0x0008) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              EffectOffset;                                             // 0x0020(0x0004) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	float                                              DeplayTime;                                               // 0x0024(0x0004) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                TranslucencySortPriority;                                 // 0x0028(0x0004) (RepNotify, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    PropEffectDataPointer;                                    // 0x002C(0x0008)
+	TArray<TEnumAsByte<EPropAnimationType>>            PropEffectRemoveTypeArray;                                // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bInteractorEffect : 1;                                    // 0x0014(0x0004) (Edit)
+	class UEFParticleData*                             PropEffectData;                                           // 0x0018(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	float                                              EffectOffset;                                             // 0x0020(0x0004) (Edit)
+	float                                              DeplayTime;                                               // 0x0024(0x0004) (Edit)
+	int                                                TranslucencySortPriority;                                 // 0x0028(0x0004) (Edit)
+	struct FPointer                                    PropEffectDataPointer;                                    // 0x002C(0x0008) (Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFDestructionPartsMatActionUnit
 // 0x0024
 struct FEFDestructionPartsMatActionUnit
 {
-	struct FString                                     strMatParamName;                                          // 0x0000(0x0010) (Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0010(0x0014) (Interp, EditorOnly, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     strMatParamName;                                          // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FInterpCurveFloat                           sStartParameterValueCurveFloat;                           // 0x0010(0x0014) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFDestructionPartsMatActionInfo
 // 0x0048
 struct FEFDestructionPartsMatActionInfo
 {
-	struct FEFDestructionPartsMatActionUnit            DespawnMaterialAction;                                    // 0x0000(0x0024) (Interp, NonTransactional, NotForConsole, ArchetypeProperty)
-	struct FEFDestructionPartsMatActionUnit            SpawnMaterialAction;                                      // 0x0024(0x0024) (Interp, NonTransactional, NotForConsole, ArchetypeProperty)
+	struct FEFDestructionPartsMatActionUnit            DespawnMaterialAction;                                    // 0x0000(0x0024) (Edit, NeedCtorLink)
+	struct FEFDestructionPartsMatActionUnit            SpawnMaterialAction;                                      // 0x0024(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFPartsDestruction
 // 0x00C0
 struct FEFPartsDestruction
 {
-	class UEFData_MeshLookInfo*                        cParts;                                                   // 0x0000(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDefaultHide : 1;                                         // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bDestroyedPartsHide : 1;                                  // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              PartsActorDestroyDelay;                                   // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FEFDestructionPartsMatActionInfo            MatActionInfo;                                            // 0x0010(0x0048) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFCameraViewShake*                          CameraShakeData;                                          // 0x0058(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    cAkEvent;                                                 // 0x0060(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataParent;                                       // 0x0068(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataChild;                                        // 0x0070(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              fImpulseSize;                                             // 0x0078(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     strCommonFXSocket;                                        // 0x007C(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bCommonFXNoSound : 1;                                     // 0x008C(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     cAkEventPath;                                             // 0x0090(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    cPartsPointer;                                            // 0x00A0(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    CameraShakeDataPointer;                                   // 0x00A8(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    ParticleDataParentPointer;                                // 0x00B0(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FPointer                                    ParticleDataChildPointer;                                 // 0x00B8(0x0008) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, ProtectedWrite, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	class UEFData_MeshLookInfo*                        cParts;                                                   // 0x0000(0x0008) (Edit, EditInline)
+	unsigned long                                      bDefaultHide : 1;                                         // 0x0008(0x0004) (Edit)
+	unsigned long                                      bDestroyedPartsHide : 1;                                  // 0x0008(0x0004) (Edit)
+	float                                              PartsActorDestroyDelay;                                   // 0x000C(0x0004) (Edit)
+	struct FEFDestructionPartsMatActionInfo            MatActionInfo;                                            // 0x0010(0x0048) (Edit, NeedCtorLink)
+	class UEFCameraViewShake*                          CameraShakeData;                                          // 0x0058(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UAkEvent*                                    cAkEvent;                                                 // 0x0060(0x0008) (Edit)
+	class UEFParticleData*                             ParticleDataParent;                                       // 0x0068(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UEFParticleData*                             ParticleDataChild;                                        // 0x0070(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	float                                              fImpulseSize;                                             // 0x0078(0x0004) (Edit)
+	struct FString                                     strCommonFXSocket;                                        // 0x007C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bCommonFXNoSound : 1;                                     // 0x008C(0x0004) (Edit)
+	struct FString                                     cAkEventPath;                                             // 0x0090(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FPointer                                    cPartsPointer;                                            // 0x00A0(0x0008) (Edit, Native, Transient)
+	struct FPointer                                    CameraShakeDataPointer;                                   // 0x00A8(0x0008) (Edit, Native, Transient)
+	struct FPointer                                    ParticleDataParentPointer;                                // 0x00B0(0x0008) (Edit, Native, Transient)
+	struct FPointer                                    ParticleDataChildPointer;                                 // 0x00B8(0x0008) (Edit, Native, Transient)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFOneShotBattleSoundInfo
 // 0x001C
 struct FEFOneShotBattleSoundInfo
 {
-	int                                                iCharID;                                                  // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	class UAkEvent*                                    OneShotBattleSound;                                       // 0x0004(0x0008) (RepNotify, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty, EditTextBox)
-	struct FString                                     OneShotBattleSoundPath;                                   // 0x000C(0x0010)
+	int                                                iCharID;                                                  // 0x0000(0x0004) (Edit)
+	class UAkEvent*                                    OneShotBattleSound;                                       // 0x0004(0x0008) (Edit)
+	struct FString                                     OneShotBattleSoundPath;                                   // 0x000C(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFVoiceSetInfo
 // 0x0014
 struct FEFVoiceSetInfo
 {
-	int                                                iCharID;                                                  // 0x0000(0x0004) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     VoiceSetKey;                                              // 0x0004(0x0010) (NonTransactional, ProtectedWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelActive)
+	int                                                iCharID;                                                  // 0x0000(0x0004) (Edit)
+	struct FString                                     VoiceSetKey;                                              // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFGibsGroup
 // 0x0120
 struct FEFGibsGroup
 {
-	struct FString                                     strNormal;                                                // 0x0000(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strFire;                                                  // 0x0010(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strElectric;                                              // 0x0020(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strPoison;                                                // 0x0030(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strFreeze;                                                // 0x0040(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strStone;                                                 // 0x0050(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strWind;                                                  // 0x0060(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strDark;                                                  // 0x0070(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strHoly;                                                  // 0x0080(0x0010) (RepNotify, NonTransactional, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	struct FString                                     strParticleNormal;                                        // 0x0090(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleFire;                                          // 0x00A0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleElectric;                                      // 0x00B0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticlePoison;                                        // 0x00C0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleFreeze;                                        // 0x00D0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleStone;                                         // 0x00E0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleWind;                                          // 0x00F0(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleDark;                                          // 0x0100(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
-	struct FString                                     strParticleHoly;                                          // 0x0110(0x0010) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, EditTextBox)
+	struct FString                                     strNormal;                                                // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strFire;                                                  // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strElectric;                                              // 0x0020(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strPoison;                                                // 0x0030(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strFreeze;                                                // 0x0040(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strStone;                                                 // 0x0050(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strWind;                                                  // 0x0060(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strDark;                                                  // 0x0070(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strHoly;                                                  // 0x0080(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleNormal;                                        // 0x0090(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleFire;                                          // 0x00A0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleElectric;                                      // 0x00B0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticlePoison;                                        // 0x00C0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleFreeze;                                        // 0x00D0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleStone;                                         // 0x00E0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleWind;                                          // 0x00F0(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleDark;                                          // 0x0100(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     strParticleHoly;                                          // 0x0110(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFMainEffectOption
 // 0x000C
 struct FEFMainEffectOption
 {
-	float                                              fElapsedTime;                                             // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	float                                              fStartTime;                                               // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bRandomActivity : 1;                                      // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bIgnoreSocketWorldRotation : 1;                           // 0x0008(0x0004) (RepNotify, Interp, EditorOnly, PrivateWrite, ProtectedWrite, CrossLevelPassive, CrossLevelActive)
+	float                                              fElapsedTime;                                             // 0x0000(0x0004) (Edit)
+	float                                              fStartTime;                                               // 0x0004(0x0004) (Edit)
+	unsigned long                                      bRandomActivity : 1;                                      // 0x0008(0x0004) (Edit)
+	unsigned long                                      bIgnoreSocketWorldRotation : 1;                           // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFMaskDataUnit
 // 0x0020
 struct FEFMaskDataUnit
 {
-	TEnumAsByte<EFEQUIP_PART>                          ePartnerPartsNew;                                         // 0x0000(0x0001) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	TEnumAsByte<EFEQUIP_PART>                          ePartnerPartsNew;                                         // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                iMaxStage;                                                // 0x0004(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TEnumAsByte<EFMASK_STAGE>                          eMaskStage;                                               // 0x0008(0x0001) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	int                                                iMaxStage;                                                // 0x0004(0x0004) (Edit)
+	TEnumAsByte<EFMASK_STAGE>                          eMaskStage;                                               // 0x0008(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	int                                                iMaskOwnLevel;                                            // 0x000C(0x0004) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FString                                     strParamName;                                             // 0x0010(0x0010) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	int                                                iMaskOwnLevel;                                            // 0x000C(0x0004) (Edit)
+	struct FString                                     strParamName;                                             // 0x0010(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFTagetAttachInfo
 // 0x0004
 struct FEFTagetAttachInfo
 {
-	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, CrossLevelActive)
-	TEnumAsByte<EeDirectAttachType>                    eTargetSocket;                                            // 0x0001(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, NotForConsole, PrivateWrite, CrossLevelActive)
+	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EeDirectAttachType>                    eTargetSocket;                                            // 0x0001(0x0001) (Edit)
 	unsigned char                                      dummy1;                                                   // 0x0002(0x0001)
 	unsigned char                                      dummy2;                                                   // 0x0003(0x0001)
 };
@@ -22437,8 +22437,8 @@ struct FEFTagetAttachInfo
 // 0x0004
 struct FEFTargetMaskDataInfo
 {
-	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TEnumAsByte<EeDirectMaskType>                      eTargetMaskType;                                          // 0x0001(0x0001) (PrivateWrite, ProtectedWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	TEnumAsByte<EFEQUIP_PART>                          eTargetParts;                                             // 0x0000(0x0001) (Edit)
+	TEnumAsByte<EeDirectMaskType>                      eTargetMaskType;                                          // 0x0001(0x0001) (Edit)
 	unsigned char                                      dummy1;                                                   // 0x0002(0x0001)
 	unsigned char                                      dummy2;                                                   // 0x0003(0x0001)
 };
@@ -22447,130 +22447,130 @@ struct FEFTargetMaskDataInfo
 // 0x0034
 struct FEFGibsUnit
 {
-	class USkeletalMesh*                               GibsMesh;                                                 // 0x0000(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	class UPhysicsAsset*                               GibsPhysics;                                              // 0x0008(0x0008) (RepNotify, Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty)
-	TEnumAsByte<EPst_SpawnType>                        ePSSpawnType;                                             // 0x0010(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty)
+	class USkeletalMesh*                               GibsMesh;                                                 // 0x0000(0x0008) (Edit)
+	class UPhysicsAsset*                               GibsPhysics;                                              // 0x0008(0x0008) (Edit)
+	TEnumAsByte<EPst_SpawnType>                        ePSSpawnType;                                             // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	struct FString                                     GibsMeshPath;                                             // 0x0014(0x0010)
-	struct FString                                     GibsPhysicsPath;                                          // 0x0024(0x0010)
+	struct FString                                     GibsMeshPath;                                             // 0x0014(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     GibsPhysicsPath;                                          // 0x0024(0x0010) (Transient, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFGibsSet
 // 0x0010
 struct FEFGibsSet
 {
-	TArray<struct FEFGibsUnit>                         GibsUnitList;                                             // 0x0000(0x0010) (Interp, EditorOnly, NotForConsole, ProtectedWrite, ArchetypeProperty)
+	TArray<struct FEFGibsUnit>                         GibsUnitList;                                             // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFLookInfoDataDefine.EFDropModelInfo
 // 0x01A8
 struct FEFDropModelInfo
 {
-	TEnumAsByte<EFDROPMODEL_SIZE>                      eModelSize;                                               // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFDROPMODEL_SIZE>                      eModelSize;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                iDropCount;                                               // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bCheckMoveOnDrop : 1;                                     // 0x0008(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	float                                              fMoveTime;                                                // 0x000C(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class USkeletalMesh*                               cMesh;                                                    // 0x0010(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAnimSet*                                    cAnimSet;                                                 // 0x0028(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    cAkEvent;                                                 // 0x0030(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    cAkEventLanding;                                          // 0x0038(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UAkEvent*                                    AkEventPickup;                                            // 0x0040(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                iHideElapseTime;                                          // 0x0048(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     vNameTagOffset;                                           // 0x004C(0x000C) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataOnDrop;                                       // 0x0058(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataOnModel;                                      // 0x0060(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataOnPickup;                                     // 0x0068(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	class UEFParticleData*                             ParticleDataOnTimeOut;                                    // 0x0070(0x0008) (RepNotify, Interp, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, EditHide, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     cMeshPath;                                                // 0x0078(0x0010)
-	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0088(0x0010)
-	struct FString                                     cAnimSetPath;                                             // 0x0098(0x0010)
-	struct FString                                     cAkEventPath;                                             // 0x00A8(0x0010)
-	struct FString                                     cAkEventLandingPath;                                      // 0x00B8(0x0010)
-	struct FString                                     AkEventPickupPath;                                        // 0x00C8(0x0010)
-	struct FPointer                                    ParticleDataOnDropPointer;                                // 0x00D8(0x0008)
-	struct FPointer                                    ParticleDataOnModelPointer;                               // 0x00E0(0x0008)
-	struct FPointer                                    ParticleDataOnPickupPointer;                              // 0x00E8(0x0008)
-	struct FPointer                                    ParticleDataOnTimeOutPointer;                             // 0x00F0(0x0008)
-	struct FObjectPath                                 PATH_Mesh;                                                // 0x00F8(0x0020)
-	TArray<struct FObjectPath>                         PATH_Material;                                            // 0x0118(0x0010)
-	struct FObjectPath                                 PATH_AnimSetTemplate;                                     // 0x0128(0x0020)
-	struct FObjectPath                                 PATH_AkEvent;                                             // 0x0148(0x0020)
-	struct FObjectPath                                 PATH_AkEventLanding;                                      // 0x0168(0x0020)
-	struct FObjectPath                                 PATH_AkEventPickup;                                       // 0x0188(0x0020)
+	int                                                iDropCount;                                               // 0x0004(0x0004) (Edit)
+	unsigned long                                      bCheckMoveOnDrop : 1;                                     // 0x0008(0x0004) (Edit)
+	float                                              fMoveTime;                                                // 0x000C(0x0004) (Edit)
+	class USkeletalMesh*                               cMesh;                                                    // 0x0010(0x0008) (Edit)
+	TArray<class UMaterialInterface*>                  Materials;                                                // 0x0018(0x0010) (Edit, EditFixedSize, AlwaysInit, NeedCtorLink)
+	class UAnimSet*                                    cAnimSet;                                                 // 0x0028(0x0008) (Edit)
+	class UAkEvent*                                    cAkEvent;                                                 // 0x0030(0x0008) (Edit)
+	class UAkEvent*                                    cAkEventLanding;                                          // 0x0038(0x0008) (Edit)
+	class UAkEvent*                                    AkEventPickup;                                            // 0x0040(0x0008) (Edit)
+	int                                                iHideElapseTime;                                          // 0x0048(0x0004) (Edit)
+	struct FVector                                     vNameTagOffset;                                           // 0x004C(0x000C) (Edit)
+	class UEFParticleData*                             ParticleDataOnDrop;                                       // 0x0058(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UEFParticleData*                             ParticleDataOnModel;                                      // 0x0060(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UEFParticleData*                             ParticleDataOnPickup;                                     // 0x0068(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	class UEFParticleData*                             ParticleDataOnTimeOut;                                    // 0x0070(0x0008) (Edit, ExportObject, NeedCtorLink, EditInline)
+	struct FString                                     cMeshPath;                                                // 0x0078(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	TArray<struct FString>                             MaterialsPathArray;                                       // 0x0088(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     cAnimSetPath;                                             // 0x0098(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     cAkEventPath;                                             // 0x00A8(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     cAkEventLandingPath;                                      // 0x00B8(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FString                                     AkEventPickupPath;                                        // 0x00C8(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	struct FPointer                                    ParticleDataOnDropPointer;                                // 0x00D8(0x0008) (Native, Transient)
+	struct FPointer                                    ParticleDataOnModelPointer;                               // 0x00E0(0x0008) (Native, Transient)
+	struct FPointer                                    ParticleDataOnPickupPointer;                              // 0x00E8(0x0008) (Native, Transient)
+	struct FPointer                                    ParticleDataOnTimeOutPointer;                             // 0x00F0(0x0008) (Native, Transient)
+	struct FObjectPath                                 PATH_Mesh;                                                // 0x00F8(0x0020) (NeedCtorLink)
+	TArray<struct FObjectPath>                         PATH_Material;                                            // 0x0118(0x0010) (NeedCtorLink)
+	struct FObjectPath                                 PATH_AnimSetTemplate;                                     // 0x0128(0x0020) (NeedCtorLink)
+	struct FObjectPath                                 PATH_AkEvent;                                             // 0x0148(0x0020) (NeedCtorLink)
+	struct FObjectPath                                 PATH_AkEventLanding;                                      // 0x0168(0x0020) (NeedCtorLink)
+	struct FObjectPath                                 PATH_AkEventPickup;                                       // 0x0188(0x0020) (NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcFunctionTalkInfo
 // 0x002C
 struct FEFNpcFunctionTalkInfo
 {
-	TEnumAsByte<ENpcFunctionTalk_FunctionType>         FunctionType;                                             // 0x0000(0x0001) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ENpcFunctionTalk_FunctionType>         FunctionType;                                             // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                CoopQuestIndex;                                           // 0x0004(0x0004) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                AISignalIndex;                                            // 0x0008(0x0004) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     AISignalString;                                           // 0x000C(0x0010) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                FriendshipTalkRewardIndex;                                // 0x001C(0x0004) (NonTransactional, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ETriggerContentType>                   ContentTriggerType;                                       // 0x0020(0x0001) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                CoopQuestIndex;                                           // 0x0004(0x0004) (Edit)
+	int                                                AISignalIndex;                                            // 0x0008(0x0004) (Edit)
+	struct FString                                     AISignalString;                                           // 0x000C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	int                                                FriendshipTalkRewardIndex;                                // 0x001C(0x0004) (Edit)
+	TEnumAsByte<ETriggerContentType>                   ContentTriggerType;                                       // 0x0020(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0021(0x0003) MISSED OFFSET
-	int                                                ContentTriggerZoneIndex;                                  // 0x0024(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                ContentTriggerSignalIndex;                                // 0x0028(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                ContentTriggerZoneIndex;                                  // 0x0024(0x0004) (Edit)
+	int                                                ContentTriggerSignalIndex;                                // 0x0028(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFTalkSelect
 // 0x0034
 struct FEFTalkSelect
 {
-	int                                                NeedIntellect;                                            // 0x0000(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	int                                                NeedCourage;                                              // 0x0004(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	int                                                NeedCharm;                                                // 0x0008(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	int                                                NeedKindness;                                             // 0x000C(0x0004) (Interp, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, CrossLevelActive)
-	struct FstGameMsgID                                GameMsgIndex;                                             // 0x0010(0x0024) (Interp, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                NeedIntellect;                                            // 0x0000(0x0004) (Edit)
+	int                                                NeedCourage;                                              // 0x0004(0x0004) (Edit)
+	int                                                NeedCharm;                                                // 0x0008(0x0004) (Edit)
+	int                                                NeedKindness;                                             // 0x000C(0x0004) (Edit)
+	struct FstGameMsgID                                GameMsgIndex;                                             // 0x0010(0x0024) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcClickServerEvent
 // 0x002D
 struct FEFNpcClickServerEvent
 {
-	TEnumAsByte<ENpcInteractionEventType>              EventType;                                                // 0x0000(0x0001) (Interp, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ENpcInteractionEventType>              EventType;                                                // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                SignalIndex;                                              // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelActive)
-	struct FString                                     AISignalString;                                           // 0x0008(0x0010) (Interp, NonTransactional, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelActive)
-	TEnumAsByte<EFactionType>                          FactionType;                                              // 0x0018(0x0001) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                SignalIndex;                                              // 0x0004(0x0004) (Edit)
+	struct FString                                     AISignalString;                                           // 0x0008(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TEnumAsByte<EFactionType>                          FactionType;                                              // 0x0018(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-	int                                                SubFactionID;                                             // 0x001C(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                NpcId;                                                    // 0x0020(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                DespawnDelayTime;                                         // 0x0024(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                SpawnDelayTime;                                           // 0x0028(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x002C(0x0001) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                SubFactionID;                                             // 0x001C(0x0004) (Edit)
+	int                                                NpcId;                                                    // 0x0020(0x0004) (Edit)
+	int                                                DespawnDelayTime;                                         // 0x0024(0x0004) (Edit)
+	int                                                SpawnDelayTime;                                           // 0x0028(0x0004) (Edit)
+	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x002C(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFQuestConditionInfo
 // 0x000C
 struct FEFQuestConditionInfo
 {
-	int                                                QuestIndex;                                               // 0x0000(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                StageIndex;                                               // 0x0004(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                SuccessCount;                                             // 0x0008(0x0004) (Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                QuestIndex;                                               // 0x0000(0x0004) (Edit)
+	int                                                StageIndex;                                               // 0x0004(0x0004) (Edit)
+	int                                                SuccessCount;                                             // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFSwitchInteractionInputCaseInfo
 // 0x0040
 struct FEFSwitchInteractionInputCaseInfo
 {
-	TEnumAsByte<ESwitchInteractionInputCaseType>       InputCaseType;                                            // 0x0000(0x0001) (NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ESwitchInteractionInputCaseType>       InputCaseType;                                            // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                ZoneIndex;                                                // 0x0004(0x0004) (NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                TriggerUnitIndex;                                         // 0x0008(0x0004) (NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     IconName;                                                 // 0x000C(0x0010) (NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FstGameMsgID                                IconText;                                                 // 0x001C(0x0024) (NonTransactional, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                ZoneIndex;                                                // 0x0004(0x0004) (Edit)
+	int                                                TriggerUnitIndex;                                         // 0x0008(0x0004) (Edit)
+	struct FString                                     IconName;                                                 // 0x000C(0x0010) (Edit, NeedCtorLink)
+	struct FstGameMsgID                                IconText;                                                 // 0x001C(0x0024) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFNPCFunctionDataDefine.EFNpcTalkInfo
 // 0x0024
 struct FEFNpcTalkInfo
 {
-	struct FstGameMsgID                                TalkMsg;                                                  // 0x0000(0x0024) (EditorOnly, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FstGameMsgID                                TalkMsg;                                                  // 0x0000(0x0024) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFParticleModuleVortex.VortexModuleInstancePayload
@@ -22587,28 +22587,28 @@ struct FVortexModuleInstancePayload
 // 0x0034
 struct FParticleSkeletalMeshParticleInstanceInfo
 {
-	class UEFAN_Params*                                pUParticleSkeletalMeshParticle;                           // 0x0000(0x0008)
-	struct FPointer                                    pParticleSkeletalMeshParticle;                            // 0x0008(0x0008)
-	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004)
-	float                                              CurrentTime;                                              // 0x0014(0x0004)
-	float                                              PlayStartTime;                                            // 0x0018(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004)
-	TArray<int>                                        SpawnedParticles;                                         // 0x0020(0x0010)
-	unsigned long                                      bForceFiniteLoop : 1;                                     // 0x0030(0x0004)
+	class UEFAN_Params*                                pUParticleSkeletalMeshParticle;                           // 0x0000(0x0008) (Transient)
+	struct FPointer                                    pParticleSkeletalMeshParticle;                            // 0x0008(0x0008) (Native, Transient)
+	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004) (Transient)
+	float                                              CurrentTime;                                              // 0x0014(0x0004) (Transient)
+	float                                              PlayStartTime;                                            // 0x0018(0x0004) (Transient)
+	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004) (Transient)
+	TArray<int>                                        SpawnedParticles;                                         // 0x0020(0x0010) (Transient, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bForceFiniteLoop : 1;                                     // 0x0030(0x0004) (Transient)
 };
 
 // ScriptStruct EFGame.EFParticleSkeletalMeshActor.ParticleSkeletalMeshActionInstanceInfo
 // 0x0034
 struct FParticleSkeletalMeshActionInstanceInfo
 {
-	class UEFActionNotify_AnimEvent*                   pUParticleSkeletalMeshAction;                             // 0x0000(0x0008)
-	struct FPointer                                    pParticleSkeletalMeshAction;                              // 0x0008(0x0008)
-	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004)
-	float                                              CurrentTime;                                              // 0x0014(0x0004)
-	float                                              PlayStartTime;                                            // 0x0018(0x0004)
-	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004)
-	struct FLinearColor                                CurrentLinearColor;                                       // 0x0020(0x0010)
-	float                                              CurrentScalar;                                            // 0x0030(0x0004)
+	class UEFActionNotify_AnimEvent*                   pUParticleSkeletalMeshAction;                             // 0x0000(0x0008) (Transient)
+	struct FPointer                                    pParticleSkeletalMeshAction;                              // 0x0008(0x0008) (Native, Transient)
+	unsigned long                                      IsPlaying : 1;                                            // 0x0010(0x0004) (Transient)
+	float                                              CurrentTime;                                              // 0x0014(0x0004) (Transient)
+	float                                              PlayStartTime;                                            // 0x0018(0x0004) (Transient)
+	unsigned long                                      bStarted : 1;                                             // 0x001C(0x0004) (Transient)
+	struct FLinearColor                                CurrentLinearColor;                                       // 0x0020(0x0010) (Transient)
+	float                                              CurrentScalar;                                            // 0x0030(0x0004) (Transient)
 };
 
 // ScriptStruct EFGame.EFPlayerController.EFInputEvent
@@ -22633,224 +22633,224 @@ struct FEFInputEvent
 // 0x0010
 struct FEFQuestAdditionalEndOption_GatherItem
 {
-	unsigned long                                      IsQuestItem : 1;                                          // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                ItemIndex;                                                // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                ItemAmount;                                               // 0x0008(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x000C(0x0004) (Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      IsQuestItem : 1;                                          // 0x0000(0x0004) (Edit)
+	int                                                ItemIndex;                                                // 0x0004(0x0004) (Edit)
+	int                                                ItemAmount;                                               // 0x0008(0x0004) (Edit)
+	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTokenItemAmount
 // 0x0008
 struct FEFTokenItemAmount
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Amount;                                                   // 0x0004(0x0004) (RepNotify, Interp, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Amount;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalEndOption_TokenItem
 // 0x000C
 struct FEFQuestAdditionalEndOption_TokenItem
 {
-	struct FEFTokenItemAmount                          TokenAmount;                                              // 0x0000(0x0008) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x0008(0x0004) (NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FEFTokenItemAmount                          TokenAmount;                                              // 0x0000(0x0008) (Edit)
+	unsigned long                                      NeedItemWithdraw : 1;                                     // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalEndOption_HonorTitle
 // 0x0008
 struct FEFQuestAdditionalEndOption_HonorTitle
 {
-	int                                                FirstTitle;                                               // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                SecondTitle;                                              // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                FirstTitle;                                               // 0x0000(0x0004) (Edit)
+	int                                                SecondTitle;                                              // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestAdditionalOfferOption_Item
 // 0x000C
 struct FEFQuestAdditionalOfferOption_Item
 {
-	int                                                ItemIndex;                                                // 0x0000(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                ItemAmount;                                               // 0x0004(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      CheckUnique : 1;                                          // 0x0008(0x0004) (RepNotify, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                ItemIndex;                                                // 0x0000(0x0004) (Edit)
+	int                                                ItemAmount;                                               // 0x0004(0x0004) (Edit)
+	unsigned long                                      CheckUnique : 1;                                          // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownResearch
 // 0x0008
 struct FEFTownResearch
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Level;                                                    // 0x0004(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Level;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestTriggerInfo
 // 0x0008
 struct FEFQuestTriggerInfo
 {
-	int                                                ZoneIndex;                                                // 0x0000(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                TriggerUnitIndex;                                         // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                ZoneIndex;                                                // 0x0000(0x0004) (Edit)
+	int                                                TriggerUnitIndex;                                         // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestOfferRootClassOptionData
 // 0x000C
 struct FEFQuestOfferRootClassOptionData
 {
-	TEnumAsByte<EPlayerClassDivision>                  eClassDivision;                                           // 0x0000(0x0001) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EPlayerClassDivision>                  eClassDivision;                                           // 0x0000(0x0001) (Edit, EditConst)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Index;                                                    // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                Amount;                                                   // 0x0008(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                Index;                                                    // 0x0004(0x0004) (Edit)
+	int                                                Amount;                                                   // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EQuestOfferFailOption
 // 0x0014
 struct FEQuestOfferFailOption
 {
-	TEnumAsByte<EQuestOfferFailOption_GiveObjectType>  GiveObjectType;                                           // 0x0000(0x0001) (EditorOnly, NotForConsole, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EQuestOfferFailOption_GiveObjectType>  GiveObjectType;                                           // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                GiveObjectIndex;                                          // 0x0004(0x0004) (EditorOnly, NotForConsole, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                GatherPercentage;                                         // 0x0008(0x0004) (EditorOnly, NotForConsole, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                GatherMinAmount;                                          // 0x000C(0x0004) (EditorOnly, NotForConsole, EditTextBox, CrossLevelPassive, CrossLevelActive)
-	int                                                GatherMaxAmount;                                          // 0x0010(0x0004) (EditorOnly, NotForConsole, EditTextBox, CrossLevelPassive, CrossLevelActive)
+	int                                                GiveObjectIndex;                                          // 0x0004(0x0004) (Edit)
+	int                                                GatherPercentage;                                         // 0x0008(0x0004) (Edit)
+	int                                                GatherMinAmount;                                          // 0x000C(0x0004) (Edit)
+	int                                                GatherMaxAmount;                                          // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFPointPerTarget
 // 0x0008
 struct FEFPointPerTarget
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (RepNotify, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                Point;                                                    // 0x0004(0x0004) (RepNotify, EditorOnly, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Point;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFProfessionPropCondition
 // 0x0008
 struct FEFProfessionPropCondition
 {
-	TEnumAsByte<EProfessionType>                       eType;                                                    // 0x0000(0x0001) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EProfessionType>                       eType;                                                    // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Tier;                                                     // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                Tier;                                                     // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFPrecedeQuestInfo
 // 0x000C
 struct FEFPrecedeQuestInfo
 {
-	int                                                QuestIndex;                                               // 0x0000(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                StepIndex;                                                // 0x0004(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	int                                                RepeatCount;                                              // 0x0008(0x0004) (RepNotify, NonTransactional, NotForConsole, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                QuestIndex;                                               // 0x0000(0x0004) (Edit)
+	int                                                StepIndex;                                                // 0x0004(0x0004) (Edit)
+	int                                                RepeatCount;                                              // 0x0008(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFNpcFriendShipCondition
 // 0x0005
 struct FEFNpcFriendShipCondition
 {
-	int                                                NpcId;                                                    // 0x0000(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EFriendshipGrade>                      eGrade;                                                   // 0x0004(0x0001) (RepNotify, Interp, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                NpcId;                                                    // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EFriendshipGrade>                      eGrade;                                                   // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownResourceCondition
 // 0x0008
 struct FEFTownResourceCondition
 {
-	TEnumAsByte<ETownResourceType>                     eType;                                                    // 0x0000(0x0001) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETownResourceType>                     eType;                                                    // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Amount;                                                   // 0x0004(0x0004) (Interp, NonTransactional, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Amount;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownBuildingCondition
 // 0x0008
 struct FEFTownBuildingCondition
 {
-	TEnumAsByte<ETownBuildingType>                     eType;                                                    // 0x0000(0x0001) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ETownBuildingType>                     eType;                                                    // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Amount;                                                   // 0x0004(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Amount;                                                   // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTownNpcLevelCondition
 // 0x0008
 struct FEFTownNpcLevelCondition
 {
-	int                                                NPCIndex;                                                 // 0x0000(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Level;                                                    // 0x0004(0x0004) (RepNotify, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                NPCIndex;                                                 // 0x0000(0x0004) (Edit)
+	int                                                Level;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestUIOption
 // 0x0004
 struct FEFQuestUIOption
 {
-	unsigned long                                      m_bShow : 1;                                              // 0x0000(0x0004) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      m_bAnnounce : 1;                                          // 0x0000(0x0004) (EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      m_bShow : 1;                                              // 0x0000(0x0004) (Edit)
+	unsigned long                                      m_bAnnounce : 1;                                          // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFAchievementCondition
 // 0x0008
 struct FEFAchievementCondition
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
-	int                                                Level;                                                    // 0x0004(0x0004) (EditorOnly, NotForConsole, RepRetry, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Level;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTendencyCondition
 // 0x0008
 struct FEFTendencyCondition
 {
-	TEnumAsByte<ECharacterTendencyType>                eType;                                                    // 0x0000(0x0001) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<ECharacterTendencyType>                eType;                                                    // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                Point;                                                    // 0x0004(0x0004) (RepNotify, NonTransactional, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Point;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFVoyageSkillCondition
 // 0x0008
 struct FEFVoyageSkillCondition
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Level;                                                    // 0x0004(0x0004) (Interp, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Level;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFShipCondition
 // 0x0008
 struct FEFShipCondition
 {
-	int                                                Id;                                                       // 0x0000(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                Level;                                                    // 0x0004(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                Id;                                                       // 0x0000(0x0004) (Edit)
+	int                                                Level;                                                    // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFTalkNpcInfo
 // 0x0008
 struct FEFTalkNpcInfo
 {
-	int                                                NpcId;                                                    // 0x0000(0x0004) (RepNotify, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                TalkNodeIndex;                                            // 0x0004(0x0004) (RepNotify, EditorOnly, NotForConsole, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                NpcId;                                                    // 0x0000(0x0004) (Edit)
+	int                                                TalkNodeIndex;                                            // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestFailUIInfo
 // 0x004C
 struct FEFQuestFailUIInfo
 {
-	unsigned long                                      bShow : 1;                                                // 0x0000(0x0004) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FEFIconInfo                                 Icon;                                                     // 0x0004(0x0024) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FstGameMsgID                                Message;                                                  // 0x0028(0x0024) (NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	unsigned long                                      bShow : 1;                                                // 0x0000(0x0004) (Edit)
+	struct FEFIconInfo                                 Icon;                                                     // 0x0004(0x0024) (Edit, NeedCtorLink)
+	struct FstGameMsgID                                Message;                                                  // 0x0028(0x0024) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestEnd
 // 0x0008
 struct FEFQuestEnd
 {
-	TEnumAsByte<EQuestEndType>                         End_Type;                                                 // 0x0000(0x0001) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EQuestEndType>                         End_Type;                                                 // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                End_NextQuestIndex;                                       // 0x0004(0x0004) (RepNotify, Interp, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                End_NextQuestIndex;                                       // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFQuestDataDefine.EFQuestItemWithdrawInfo
 // 0x0008
 struct FEFQuestItemWithdrawInfo
 {
-	TEnumAsByte<EQuestStatus>                          QuestStatus;                                              // 0x0000(0x0001) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EQuestStatus>                          QuestStatus;                                              // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	int                                                QuestItemIndex;                                           // 0x0004(0x0004) (RepNotify, NonTransactional, NotForConsole, RepRetry, PrivateWrite, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	int                                                QuestItemIndex;                                           // 0x0004(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequence.Matrix2D
 // 0x0024
 struct FMatrix2D
 {
-	struct FVector                                     M[0x3];                                                   // 0x0000(0x000C) (RepNotify, EditorOnly, NotForConsole, RepRetry, ArchetypeProperty)
+	struct FVector                                     M[0x3];                                                   // 0x0000(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFSequence.SRTMatrix2D
@@ -22864,218 +22864,218 @@ struct FSRTMatrix2D : public FMatrix2D
 // 0x0005
 struct FEFActiveAIInfo
 {
-	int                                                SpawnIndex;                                               // 0x0000(0x0004) (PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x0004(0x0001) (PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                SpawnIndex;                                               // 0x0000(0x0004) (Edit, EditInline)
+	TEnumAsByte<ENPCSpawnAction>                       SpawnAction;                                              // 0x0004(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Input
 // 0x0004
 struct FEFTriggerSceneEventInfo_Input
 {
-	unsigned long                                      bDisableInput : 1;                                        // 0x0000(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite)
-	unsigned long                                      bStandAction : 1;                                         // 0x0000(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite)
-	unsigned long                                      bBlockApporach : 1;                                       // 0x0000(0x0004) (RepNotify, Interp, RepRetry, ProtectedWrite)
+	unsigned long                                      bDisableInput : 1;                                        // 0x0000(0x0004) (Edit)
+	unsigned long                                      bStandAction : 1;                                         // 0x0000(0x0004) (Edit)
+	unsigned long                                      bBlockApporach : 1;                                       // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerOutputInfo
 // 0x0024
 struct FEFTriggerOutputInfo
 {
-	struct FString                                     OutputString;                                             // 0x0000(0x0010) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     OutputString;                                             // 0x0000(0x0010) (Edit, NeedCtorLink)
+	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	TArray<class USequenceObject*>                     TriggerNodeArray;                                         // 0x0014(0x0010) (Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<class USequenceObject*>                     TriggerNodeArray;                                         // 0x0014(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFClientEventTriggerAction_Warp
 // 0x0010
 struct FEFClientEventTriggerAction_Warp
 {
-	int                                                ZoneIndex;                                                // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<EZoneLevel>                            eZoneLevel;                                               // 0x0004(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                ZoneIndex;                                                // 0x0000(0x0004) (Edit)
+	TEnumAsByte<EZoneLevel>                            eZoneLevel;                                               // 0x0004(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-	int                                                PortalIndex;                                              // 0x0008(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	unsigned long                                      bSourceZoneWarp : 1;                                      // 0x000C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
+	int                                                PortalIndex;                                              // 0x0008(0x0004) (Edit)
+	unsigned long                                      bSourceZoneWarp : 1;                                      // 0x000C(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFClientEventTriggerAction_Teleport
 // 0x0030
 struct FEFClientEventTriggerAction_Teleport
 {
-	TArray<int>                                        TeleportIndexList;                                        // 0x0000(0x0010) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TArray<TEnumAsByte<EOceanAreaType>>                OceanAreaTypeList;                                        // 0x0010(0x0010) (NonTransactional, EditorOnly, NotForConsole, RepRetry, PrivateWrite, CrossLevelPassive, CrossLevelActive)
-	TArray<struct FVector>                             PositionList;                                             // 0x0020(0x0010)
+	TArray<int>                                        TeleportIndexList;                                        // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<TEnumAsByte<EOceanAreaType>>                OceanAreaTypeList;                                        // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TArray<struct FVector>                             PositionList;                                             // 0x0020(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerNodeOutputInfo
 // 0x0024
 struct FEFTriggerNodeOutputInfo
 {
-	struct FString                                     OutputString;                                             // 0x0000(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     OutputString;                                             // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	TEnumAsByte<ETriggerSignalType>                    SignalType;                                               // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
-	TArray<int>                                        NextTriggerNodeStepIndexArray;                            // 0x0014(0x0010) (RepNotify, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	TArray<int>                                        NextTriggerNodeStepIndexArray;                            // 0x0014(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_UI
 // 0x0014
 struct FEFTriggerSceneEventInfo_UI
 {
-	TArray<int>                                        UIWindowTypeArray;                                        // 0x0000(0x0010) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bHideUI : 1;                                              // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bHideBalloon : 1;                                         // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bHideQuestMark : 1;                                       // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
-	unsigned long                                      bHideNameTag : 1;                                         // 0x0010(0x0004) (RepNotify, Interp, NonTransactional, EditorOnly, PrivateWrite, ArchetypeProperty, EditHide)
+	TArray<int>                                        UIWindowTypeArray;                                        // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bHideUI : 1;                                              // 0x0010(0x0004) (Edit)
+	unsigned long                                      bHideBalloon : 1;                                         // 0x0010(0x0004) (Edit)
+	unsigned long                                      bHideQuestMark : 1;                                       // 0x0010(0x0004) (Edit)
+	unsigned long                                      bHideNameTag : 1;                                         // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Target
 // 0x0004
 struct FEFTriggerSceneEventInfo_Target
 {
-	int                                                TargetSpawnIndex;                                         // 0x0000(0x0004) (RepNotify, EditHide, EditTextBox)
+	int                                                TargetSpawnIndex;                                         // 0x0000(0x0004) (Edit, EditInline)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFPartyRemoteEventInfo
 // 0x0040
 struct FEFPartyRemoteEventInfo
 {
-	struct FString                                     PartyMemberRemoteEvent1;                                  // 0x0000(0x0010) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     PartyMemberRemoteEvent2;                                  // 0x0010(0x0010) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     PartyMemberRemoteEvent3;                                  // 0x0020(0x0010) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
-	struct FString                                     PartyMemberRemoteEvent4;                                  // 0x0030(0x0010) (EditorOnly, NotForConsole, RepRetry, ProtectedWrite, ArchetypeProperty, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     PartyMemberRemoteEvent1;                                  // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     PartyMemberRemoteEvent2;                                  // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     PartyMemberRemoteEvent3;                                  // 0x0020(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     PartyMemberRemoteEvent4;                                  // 0x0030(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Kismet
 // 0x0080
 struct FEFTriggerSceneEventInfo_Kismet
 {
-	unsigned long                                      bHideLocalPlayer : 1;                                     // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bHidePlayer : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bHideWeapon : 1;                                          // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bHideDropItem : 1;                                        // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bHideNPC : 1;                                             // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bHideMonster : 1;                                         // 0x0000(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	struct FString                                     KismetEvent;                                              // 0x0004(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	struct FEFPartyRemoteEventInfo                     PartyRemoteEventInfo;                                     // 0x0014(0x0040) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bUseSyncLocation : 1;                                     // 0x0054(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bVehicleSync : 1;                                         // 0x0054(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	TEnumAsByte<ETriggerKismetCombatStateType>         eStartCombatState;                                        // 0x0058(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	TEnumAsByte<ETriggerKismetCombatStateType>         eEndCombatState;                                          // 0x0059(0x0001) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
+	unsigned long                                      bHideLocalPlayer : 1;                                     // 0x0000(0x0004) (Edit)
+	unsigned long                                      bHidePlayer : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      bHideWeapon : 1;                                          // 0x0000(0x0004) (Edit)
+	unsigned long                                      bHideDropItem : 1;                                        // 0x0000(0x0004) (Edit)
+	unsigned long                                      bHideNPC : 1;                                             // 0x0000(0x0004) (Edit)
+	unsigned long                                      bHideMonster : 1;                                         // 0x0000(0x0004) (Edit)
+	struct FString                                     KismetEvent;                                              // 0x0004(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FEFPartyRemoteEventInfo                     PartyRemoteEventInfo;                                     // 0x0014(0x0040) (Edit, NeedCtorLink)
+	unsigned long                                      bUseSyncLocation : 1;                                     // 0x0054(0x0004) (Edit)
+	unsigned long                                      bVehicleSync : 1;                                         // 0x0054(0x0004) (Edit)
+	TEnumAsByte<ETriggerKismetCombatStateType>         eStartCombatState;                                        // 0x0058(0x0001) (Edit)
+	TEnumAsByte<ETriggerKismetCombatStateType>         eEndCombatState;                                          // 0x0059(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x005A(0x0002) MISSED OFFSET
-	TArray<int>                                        HiddenObjectSpawnIndexList;                               // 0x005C(0x0010) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bPlayWinnerPose : 1;                                      // 0x006C(0x0004) (RepNotify, NonTransactional, EditorOnly, NotForConsole, EditHide, CrossLevelActive)
-	unsigned long                                      bSetPlayerCamera : 1;                                     // 0x006C(0x0004) (Interp, NonTransactional, ProtectedWrite, EditHide)
-	TArray<TEnumAsByte<ECinematicSyncType>>            CinematicSyncTypeList;                                    // 0x0070(0x0010)
+	TArray<int>                                        HiddenObjectSpawnIndexList;                               // 0x005C(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      bPlayWinnerPose : 1;                                      // 0x006C(0x0004) (Edit)
+	unsigned long                                      bSetPlayerCamera : 1;                                     // 0x006C(0x0004) (Edit)
+	TArray<TEnumAsByte<ECinematicSyncType>>            CinematicSyncTypeList;                                    // 0x0070(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Delay
 // 0x0004
 struct FEFTriggerSceneEventInfo_Delay
 {
-	float                                              DelayTime;                                                // 0x0000(0x0004) (EditorOnly, ArchetypeProperty, EditHide, CrossLevelPassive)
+	float                                              DelayTime;                                                // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFSceneEventStringInfo
 // 0x0014
 struct FEFSceneEventStringInfo
 {
-	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (RepNotify, Interp, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
+	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     MsgID;                                                    // 0x0004(0x0010) (RepNotify, Interp, EditorOnly, NotForConsole, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     MsgID;                                                    // 0x0004(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_StringDispatcher
 // 0x0010
 struct FEFTriggerSceneEventInfo_StringDispatcher
 {
-	TArray<struct FEFSceneEventStringInfo>             StringDispatcherList;                                     // 0x0000(0x0010) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
+	TArray<struct FEFSceneEventStringInfo>             StringDispatcherList;                                     // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Announce
 // 0x0050
 struct FEFTriggerSceneEventInfo_Announce
 {
-	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
+	TEnumAsByte<EFGAMEMSG_TYPE>                        MsgType;                                                  // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	struct FString                                     MsgID;                                                    // 0x0004(0x0010) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
-	TEnumAsByte<EAnnounceCategory>                     CategoryType;                                             // 0x0014(0x0001) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
+	struct FString                                     MsgID;                                                    // 0x0004(0x0010) (Edit, NeedCtorLink)
+	TEnumAsByte<EAnnounceCategory>                     CategoryType;                                             // 0x0014(0x0001) (Edit)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0015(0x0003) MISSED OFFSET
-	int                                                SubCategoryType;                                          // 0x0018(0x0004) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FString                                     IconPath;                                                 // 0x001C(0x0010) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
-	int                                                IconIndex;                                                // 0x002C(0x0004) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FString                                     SoundTheme;                                               // 0x0030(0x0010) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
-	struct FString                                     SoundEvent;                                               // 0x0040(0x0010) (Interp, RepRetry, ArchetypeProperty, EditHide, CrossLevelActive)
+	int                                                SubCategoryType;                                          // 0x0018(0x0004) (Edit)
+	struct FString                                     IconPath;                                                 // 0x001C(0x0010) (Edit, NeedCtorLink)
+	int                                                IconIndex;                                                // 0x002C(0x0004) (Edit)
+	struct FString                                     SoundTheme;                                               // 0x0030(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     SoundEvent;                                               // 0x0040(0x0010) (Edit, NeedCtorLink)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_GameNote
 // 0x0004
 struct FEFTriggerSceneEventInfo_GameNote
 {
-	int                                                GameNoteIndex;                                            // 0x0000(0x0004) (RepNotify, NotForConsole, PrivateWrite, ArchetypeProperty)
+	int                                                GameNoteIndex;                                            // 0x0000(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_MapSymbol
 // 0x0014
 struct FEFTriggerSceneEventInfo_MapSymbol
 {
-	int                                                MapSymbolIndex;                                           // 0x0000(0x0004) (RepNotify, Interp, NotForConsole, ProtectedWrite)
-	TArray<int>                                        SpawnIndexList;                                           // 0x0004(0x0010) (RepNotify, Interp, NotForConsole, ProtectedWrite)
+	int                                                MapSymbolIndex;                                           // 0x0000(0x0004) (Edit)
+	TArray<int>                                        SpawnIndexList;                                           // 0x0004(0x0010) (Edit, NeedCtorLink, EditInline)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerSceneEventInfo_Fading
 // 0x0009
 struct FEFTriggerSceneEventInfo_Fading
 {
-	TEnumAsByte<ETriggerKismetFadingType>              FadingType;                                               // 0x0000(0x0001) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	TEnumAsByte<ETriggerKismetFadingType>              FadingType;                                               // 0x0000(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              FadingTime;                                               // 0x0004(0x0004) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
-	TEnumAsByte<ETriggerSceneEventFlagType>            EventFlag;                                                // 0x0008(0x0001) (Interp, NonTransactional, PrivateWrite, ArchetypeProperty, EditHide, CrossLevelActive)
+	float                                              FadingTime;                                               // 0x0004(0x0004) (Edit)
+	TEnumAsByte<ETriggerSceneEventFlagType>            EventFlag;                                                // 0x0008(0x0001) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerRandomCaseInfo
 // 0x0014
 struct FEFTriggerRandomCaseInfo
 {
-	struct FString                                     OutputString;                                             // 0x0000(0x0010)
-	int                                                Percentage;                                               // 0x0010(0x0004) (RepNotify, Interp, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	struct FString                                     OutputString;                                             // 0x0000(0x0010) (AlwaysInit, NeedCtorLink)
+	int                                                Percentage;                                               // 0x0010(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFTriggerDataDefine.EFTriggerTeleportNPCInfo
 // 0x0020
 struct FEFTriggerTeleportNPCInfo
 {
-	int                                                SpawnIndex;                                               // 0x0000(0x0004) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	int                                                TransitSpawnIndex;                                        // 0x0004(0x0004) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FVector                                     TeleportLocation;                                         // 0x0008(0x000C) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
-	struct FRotator                                    TeleportRotation;                                         // 0x0014(0x000C) (Interp, NonTransactional, PrivateWrite, ProtectedWrite, EditHide, CrossLevelPassive, CrossLevelActive)
+	int                                                SpawnIndex;                                               // 0x0000(0x0004) (Edit, EditInline)
+	int                                                TransitSpawnIndex;                                        // 0x0004(0x0004) (Edit, EditInline)
+	struct FVector                                     TeleportLocation;                                         // 0x0008(0x000C) (Edit)
+	struct FRotator                                    TeleportRotation;                                         // 0x0014(0x000C) (Edit)
 };
 
 // ScriptStruct EFGame.EFUIDataDefine.UIControlBindingInfo
 // 0x003C
 struct FUIControlBindingInfo
 {
-	struct FString                                     InstanceName;                                             // 0x0000(0x0010) (RepNotify, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     BindingDescription;                                       // 0x0010(0x0010) (RepNotify, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	class UClass*                                      SubWidgetBinding;                                         // 0x0020(0x0008) (RepNotify, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     SubWidgetBindingPath;                                     // 0x0028(0x0010)
-	unsigned long                                      ComponentOff : 1;                                         // 0x0038(0x0004) (RepNotify, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	struct FString                                     InstanceName;                                             // 0x0000(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	struct FString                                     BindingDescription;                                       // 0x0010(0x0010) (Edit, NeedCtorLink)
+	class UClass*                                      SubWidgetBinding;                                         // 0x0020(0x0008) (Edit)
+	struct FString                                     SubWidgetBindingPath;                                     // 0x0028(0x0010) (EditConst, NeedCtorLink)
+	unsigned long                                      ComponentOff : 1;                                         // 0x0038(0x0004) (Edit)
 };
 
 // ScriptStruct EFGame.EFUIDataDefine.UIStructureInfo
 // 0x0054
 struct FUIStructureInfo
 {
-	TArray<struct FUIControlBindingInfo>               BindingInfo;                                              // 0x0000(0x0010) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     FrameName;                                                // 0x0010(0x0010) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      OptionImmortal : 1;                                       // 0x0020(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      OptionShowWhenActive : 1;                                 // 0x0020(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	unsigned long                                      OptionHitTest : 1;                                        // 0x0020(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	TEnumAsByte<EFKEY_Function>                        OptionKeyBind;                                            // 0x0024(0x0001) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
+	TArray<struct FUIControlBindingInfo>               BindingInfo;                                              // 0x0000(0x0010) (Edit, NeedCtorLink)
+	struct FString                                     FrameName;                                                // 0x0010(0x0010) (Edit, AlwaysInit, NeedCtorLink)
+	unsigned long                                      OptionImmortal : 1;                                       // 0x0020(0x0004) (Edit)
+	unsigned long                                      OptionShowWhenActive : 1;                                 // 0x0020(0x0004) (Edit)
+	unsigned long                                      OptionHitTest : 1;                                        // 0x0020(0x0004) (Edit)
+	TEnumAsByte<EFKEY_Function>                        OptionKeyBind;                                            // 0x0024(0x0001) (Edit, Transient)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0025(0x0003) MISSED OFFSET
-	class UClass*                                      WidgetBinding;                                            // 0x0028(0x0008) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     WidgetBindingPath;                                        // 0x0030(0x0010)
-	unsigned long                                      OptionModal : 1;                                          // 0x0040(0x0004) (NonTransactional, EditorOnly, NotForConsole, RepRetry, ProtectedWrite, EditHide, EditTextBox, CrossLevelActive)
-	struct FString                                     KeyBindName;                                              // 0x0044(0x0010)
+	class UClass*                                      WidgetBinding;                                            // 0x0028(0x0008) (Edit)
+	struct FString                                     WidgetBindingPath;                                        // 0x0030(0x0010) (EditConst, NeedCtorLink)
+	unsigned long                                      OptionModal : 1;                                          // 0x0040(0x0004) (Edit)
+	struct FString                                     KeyBindName;                                              // 0x0044(0x0010) (AlwaysInit, NeedCtorLink)
 };
 
 }

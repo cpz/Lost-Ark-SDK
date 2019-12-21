@@ -14,12 +14,15 @@ namespace SDK
 
 // Function EFGame.EFCharacterParts.OnParticleSystemFinished
 // (Defined, Simulated, Public)
+// Parameters:
+// class UParticleSystemComponent* PSC                            (Parm, EditInline)
 
-void AEFCharacterParts::OnParticleSystemFinished()
+void AEFCharacterParts::OnParticleSystemFinished(class UParticleSystemComponent* PSC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.OnParticleSystemFinished");
 
 	AEFCharacterParts_OnParticleSystemFinished_Params params;
+	params.PSC = PSC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -84,29 +87,38 @@ void AEFCharacterParts::BaseChange()
 
 // Function EFGame.EFCharacterParts.EncroachingOn
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFCharacterParts::EncroachingOn()
+bool AEFCharacterParts::EncroachingOn(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.EncroachingOn");
 
 	AEFCharacterParts_EncroachingOn_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCharacterParts.EncroachedBy
 // (Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
 
-void AEFCharacterParts::EncroachedBy()
+void AEFCharacterParts::EncroachedBy(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCharacterParts.EncroachedBy");
 
 	AEFCharacterParts_EncroachedBy_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
@@ -171,12 +183,15 @@ void UEFCheatManager::InternalVisualizePhysicsCompartmentUsage()
 
 // Function EFGame.EFCheatManager.InternalSetPhysicsCompartmentCount
 // (Native, Public)
+// Parameters:
+// int                            inCount                        (Parm)
 
-void UEFCheatManager::InternalSetPhysicsCompartmentCount()
+void UEFCheatManager::InternalSetPhysicsCompartmentCount(int inCount)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCheatManager.InternalSetPhysicsCompartmentCount");
 
 	UEFCheatManager_InternalSetPhysicsCompartmentCount_Params params;
+	params.inCount = inCount;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -207,12 +222,17 @@ void UEFCheatManager::InternalTogglePhysicsCompartmentForEFPawns()
 
 // Function EFGame.EFCheatManager.InternalSetCamTargetBlendTime
 // (Native, Public)
+// Parameters:
+// float                          a_Time                         (Parm)
+// float                          a_Exp                          (Parm)
 
-void UEFCheatManager::InternalSetCamTargetBlendTime()
+void UEFCheatManager::InternalSetCamTargetBlendTime(float a_Time, float a_Exp)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCheatManager.InternalSetCamTargetBlendTime");
 
 	UEFCheatManager_InternalSetCamTargetBlendTime_Params params;
+	params.a_Time = a_Time;
+	params.a_Exp = a_Exp;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -243,12 +263,15 @@ void UEFCheatManager::InternalClearCamTarget()
 
 // Function EFGame.EFCheatManager.InternalSetCamTarget
 // (Native, Public)
+// Parameters:
+// struct FString                 a_Nickname                     (Parm, NeedCtorLink)
 
-void UEFCheatManager::InternalSetCamTarget()
+void UEFCheatManager::InternalSetCamTarget(const struct FString& a_Nickname)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCheatManager.InternalSetCamTarget");
 
 	UEFCheatManager_InternalSetCamTarget_Params params;
+	params.a_Nickname = a_Nickname;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -297,8 +320,10 @@ void UEFCheatManager::InternalCamNextTarget()
 
 // Function EFGame.EFCheatManager.InternalGetPlayerCamera
 // (Native, Public)
+// Parameters:
+// class AEFPlayerCamera*         ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCheatManager::InternalGetPlayerCamera()
+class AEFPlayerCamera* UEFCheatManager::InternalGetPlayerCamera()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCheatManager.InternalGetPlayerCamera");
 
@@ -310,6 +335,8 @@ void UEFCheatManager::InternalGetPlayerCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -333,12 +360,15 @@ void UEFCheatManager::InternalToggleCullDistanceVolume()
 
 // Function EFGame.EFCheatManager.InternalToggleCPUSkinning
 // (Native, Public)
+// Parameters:
+// struct FString                 InMeshName                     (Parm, NeedCtorLink)
 
-void UEFCheatManager::InternalToggleCPUSkinning()
+void UEFCheatManager::InternalToggleCPUSkinning(const struct FString& InMeshName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCheatManager.InternalToggleCPUSkinning");
 
 	UEFCheatManager_InternalToggleCPUSkinning_Params params;
+	params.InMeshName = InMeshName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -477,12 +507,16 @@ void UEFCheatManager::InternalToggleParticleOptimizeILG()
 
 // Function EFGame.EFConsole.IsValidEFCommand
 // (Final, Native, Public)
+// Parameters:
+// int                            Idx                            (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFConsole::IsValidEFCommand()
+bool UEFConsole::IsValidEFCommand(int Idx)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFConsole.IsValidEFCommand");
 
 	UEFConsole_IsValidEFCommand_Params params;
+	params.Idx = Idx;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -490,47 +524,80 @@ void UEFConsole::IsValidEFCommand()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFConsole.InputAxis
 // (Defined, HasOptionalParms, Public)
+// Parameters:
+// int                            ControllerId                   (Parm)
+// struct FName                   Key                            (Parm)
+// float                          Delta                          (Parm)
+// float                          DeltaTime                      (Parm)
+// bool                           bGamepad                       (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFConsole::InputAxis()
+bool UEFConsole::InputAxis(int ControllerId, const struct FName& Key, float Delta, float DeltaTime, bool bGamepad)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFConsole.InputAxis");
 
 	UEFConsole_InputAxis_Params params;
+	params.ControllerId = ControllerId;
+	params.Key = Key;
+	params.Delta = Delta;
+	params.DeltaTime = DeltaTime;
+	params.bGamepad = bGamepad;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFConsole.InputKey
 // (Defined, HasOptionalParms, Public)
+// Parameters:
+// int                            ControllerId                   (Parm)
+// struct FName                   Key                            (Parm)
+// TEnumAsByte<EInputEvent>       Event                          (Parm)
+// float                          AmountDepressed                (OptionalParm, Parm)
+// bool                           bGamepad                       (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFConsole::InputKey()
+bool UEFConsole::InputKey(int ControllerId, const struct FName& Key, TEnumAsByte<EInputEvent> Event, float AmountDepressed, bool bGamepad)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFConsole.InputKey");
 
 	UEFConsole_InputKey_Params params;
+	params.ControllerId = ControllerId;
+	params.Key = Key;
+	params.Event = Event;
+	params.AmountDepressed = AmountDepressed;
+	params.bGamepad = bGamepad;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDecalFloorActor.GetBoundingCylinder
 // (Native, Public, HasOutParms)
+// Parameters:
+// float                          CollisionRadius                (Parm, OutParm)
+// float                          CollisionHeight                (Parm, OutParm)
 
-void AEFDecalFloorActor::GetBoundingCylinder()
+void AEFDecalFloorActor::GetBoundingCylinder(float* CollisionRadius, float* CollisionHeight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDecalFloorActor.GetBoundingCylinder");
 
@@ -542,40 +609,73 @@ void AEFDecalFloorActor::GetBoundingCylinder()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (CollisionRadius != nullptr)
+		*CollisionRadius = params.CollisionRadius;
+	if (CollisionHeight != nullptr)
+		*CollisionHeight = params.CollisionHeight;
 }
 
 
 // Function EFGame.EFDecalManager.SpawnDecalMinimal
 // (Defined, Event, Public)
+// Parameters:
+// class UMaterialInterface*      DecalMaterial                  (Parm)
+// struct FVector                 DecalLocation                  (Parm)
+// struct FRotator                DecalOrientation               (Parm)
+// float                          Width                          (Parm)
+// float                          Height                         (Parm)
+// float                          InLifeSpan                     (Parm)
+// float                          Thickness                      (Parm)
+// bool                           bNoClip                        (Parm)
+// float                          DecalRotation                  (Parm)
+// class UDecalComponent*         ReturnValue                    (Parm, OutParm, ReturnParm, EditInline)
 
-void AEFDecalManager::SpawnDecalMinimal()
+class UDecalComponent* AEFDecalManager::SpawnDecalMinimal(class UMaterialInterface* DecalMaterial, const struct FVector& DecalLocation, const struct FRotator& DecalOrientation, float Width, float Height, float InLifeSpan, float Thickness, bool bNoClip, float DecalRotation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDecalManager.SpawnDecalMinimal");
 
 	AEFDecalManager_SpawnDecalMinimal_Params params;
+	params.DecalMaterial = DecalMaterial;
+	params.DecalLocation = DecalLocation;
+	params.DecalOrientation = DecalOrientation;
+	params.Width = Width;
+	params.Height = Height;
+	params.InLifeSpan = InLifeSpan;
+	params.Thickness = Thickness;
+	params.bNoClip = bNoClip;
+	params.DecalRotation = DecalRotation;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGameInfo.AllowCheats
 // (Defined, Public)
+// Parameters:
+// class APlayerController*       P                              (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFGameInfo::AllowCheats()
+bool AEFGameInfo::AllowCheats(class APlayerController* P)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.AllowCheats");
 
 	AEFGameInfo_AllowCheats_Params params;
+	params.P = P;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -635,12 +735,15 @@ void AEFGameInfo::NotifyMapLoaded()
 
 // Function EFGame.EFGameInfo.NotfiyLoadingStep
 // (Native, Event, Public)
+// Parameters:
+// struct FString                 InStepName                     (Parm, NeedCtorLink)
 
-void AEFGameInfo::NotfiyLoadingStep()
+void AEFGameInfo::NotfiyLoadingStep(const struct FString& InStepName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.NotfiyLoadingStep");
 
 	AEFGameInfo_NotfiyLoadingStep_Params params;
+	params.InStepName = InStepName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -653,12 +756,15 @@ void AEFGameInfo::NotfiyLoadingStep()
 
 // Function EFGame.EFGameInfo.Tick
 // (Defined, Event, Public)
+// Parameters:
+// float                          DeltaSeconds                   (Parm)
 
-void AEFGameInfo::Tick()
+void AEFGameInfo::Tick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.Tick");
 
 	AEFGameInfo_Tick_Params params;
+	params.DeltaSeconds = DeltaSeconds;
 
 	auto flags = fn->FunctionFlags;
 
@@ -670,12 +776,15 @@ void AEFGameInfo::Tick()
 
 // Function EFGame.EFGameInfo.PostLogin
 // (Defined, Event, Public)
+// Parameters:
+// class APlayerController*       NewPlayer                      (Parm)
 
-void AEFGameInfo::PostLogin()
+void AEFGameInfo::PostLogin(class APlayerController* NewPlayer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.PostLogin");
 
 	AEFGameInfo_PostLogin_Params params;
+	params.NewPlayer = NewPlayer;
 
 	auto flags = fn->FunctionFlags;
 
@@ -687,29 +796,46 @@ void AEFGameInfo::PostLogin()
 
 // Function EFGame.EFGameInfo.Login
 // (Defined, Event, Public, HasOutParms)
+// Parameters:
+// struct FString                 Portal                         (Parm, NeedCtorLink)
+// struct FString                 Options                        (Parm, NeedCtorLink)
+// struct FUniqueNetId            UniqueId                       (Const, Parm)
+// struct FString                 ErrorMessage                   (Parm, OutParm, NeedCtorLink)
+// class APlayerController*       ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFGameInfo::Login()
+class APlayerController* AEFGameInfo::Login(const struct FString& Portal, const struct FString& Options, const struct FUniqueNetId& UniqueId, struct FString* ErrorMessage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.Login");
 
 	AEFGameInfo_Login_Params params;
+	params.Portal = Portal;
+	params.Options = Options;
+	params.UniqueId = UniqueId;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (ErrorMessage != nullptr)
+		*ErrorMessage = params.ErrorMessage;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGameInfo.LoadLevel
 // (Defined, Public)
+// Parameters:
+// struct FString                 LevelName                      (Parm, NeedCtorLink)
 
-void AEFGameInfo::LoadLevel()
+void AEFGameInfo::LoadLevel(const struct FString& LevelName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.LoadLevel");
 
 	AEFGameInfo_LoadLevel_Params params;
+	params.LevelName = LevelName;
 
 	auto flags = fn->FunctionFlags;
 
@@ -721,12 +847,15 @@ void AEFGameInfo::LoadLevel()
 
 // Function EFGame.EFGameInfo.RestartPlayer
 // (Defined, Public)
+// Parameters:
+// class AController*             NewPlayer                      (Parm)
 
-void AEFGameInfo::RestartPlayer()
+void AEFGameInfo::RestartPlayer(class AController* NewPlayer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.RestartPlayer");
 
 	AEFGameInfo_RestartPlayer_Params params;
+	params.NewPlayer = NewPlayer;
 
 	auto flags = fn->FunctionFlags;
 
@@ -738,29 +867,39 @@ void AEFGameInfo::RestartPlayer()
 
 // Function EFGame.EFGameInfo.InitGame
 // (Defined, Event, Public, HasOutParms)
+// Parameters:
+// struct FString                 Options                        (Parm, NeedCtorLink)
+// struct FString                 ErrorMessage                   (Parm, OutParm, NeedCtorLink)
 
-void AEFGameInfo::InitGame()
+void AEFGameInfo::InitGame(const struct FString& Options, struct FString* ErrorMessage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.InitGame");
 
 	AEFGameInfo_InitGame_Params params;
+	params.Options = Options;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (ErrorMessage != nullptr)
+		*ErrorMessage = params.ErrorMessage;
 }
 
 
 // Function EFGame.EFGameInfo.GenericPlayerInitialization
 // (Defined, Public)
+// Parameters:
+// class AController*             C                              (Parm)
 
-void AEFGameInfo::GenericPlayerInitialization()
+void AEFGameInfo::GenericPlayerInitialization(class AController* C)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameInfo.GenericPlayerInitialization");
 
 	AEFGameInfo_GenericPlayerInitialization_Params params;
+	params.C = C;
 
 	auto flags = fn->FunctionFlags;
 
@@ -772,12 +911,15 @@ void AEFGameInfo::GenericPlayerInitialization()
 
 // Function EFGame.EFPawn.StopAfterImageEffect
 // (Native, Public)
+// Parameters:
+// bool                           bForceRemoveAllChildren        (Parm)
 
-void AEFPawn::StopAfterImageEffect()
+void AEFPawn::StopAfterImageEffect(bool bForceRemoveAllChildren)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.StopAfterImageEffect");
 
 	AEFPawn_StopAfterImageEffect_Params params;
+	params.bForceRemoveAllChildren = bForceRemoveAllChildren;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -790,8 +932,10 @@ void AEFPawn::StopAfterImageEffect()
 
 // Function EFGame.EFPawn.StartAfterImageEffect
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FEFCharacterAfterImageEffectInfo EffectParams                   (Const, Parm, OutParm)
 
-void AEFPawn::StartAfterImageEffect()
+void AEFPawn::StartAfterImageEffect(struct FEFCharacterAfterImageEffectInfo* EffectParams)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.StartAfterImageEffect");
 
@@ -803,17 +947,24 @@ void AEFPawn::StartAfterImageEffect()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (EffectParams != nullptr)
+		*EffectParams = params.EffectParams;
 }
 
 
 // Function EFGame.EFPawn.GetAnimTrailParticleSystem
 // (Native, Public)
+// Parameters:
+// class UAnimNotify_Trails*      AnimNotifyData                 (Const, Parm)
+// class UParticleSystem*         ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::GetAnimTrailParticleSystem()
+class UParticleSystem* AEFPawn::GetAnimTrailParticleSystem(class UAnimNotify_Trails* AnimNotifyData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetAnimTrailParticleSystem");
 
 	AEFPawn_GetAnimTrailParticleSystem_Params params;
+	params.AnimNotifyData = AnimNotifyData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -821,17 +972,22 @@ void AEFPawn::GetAnimTrailParticleSystem()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.ApplyFluidSurfaceContinuousForce
 // (Simulated, Native, Public)
+// Parameters:
+// class AFluidSurfaceActor*      Fluid                          (Parm)
 
-void AEFPawn::ApplyFluidSurfaceContinuousForce()
+void AEFPawn::ApplyFluidSurfaceContinuousForce(class AFluidSurfaceActor* Fluid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.ApplyFluidSurfaceContinuousForce");
 
 	AEFPawn_ApplyFluidSurfaceContinuousForce_Params params;
+	params.Fluid = Fluid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -844,12 +1000,16 @@ void AEFPawn::ApplyFluidSurfaceContinuousForce()
 
 // Function EFGame.EFPawn.ApplyFluidSurfaceImpact
 // (Simulated, Native, Public, HasOutParms)
+// Parameters:
+// class AFluidSurfaceActor*      Fluid                          (Parm)
+// struct FVector                 HitLocation                    (Const, Parm, OutParm)
 
-void AEFPawn::ApplyFluidSurfaceImpact()
+void AEFPawn::ApplyFluidSurfaceImpact(class AFluidSurfaceActor* Fluid, struct FVector* HitLocation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.ApplyFluidSurfaceImpact");
 
 	AEFPawn_ApplyFluidSurfaceImpact_Params params;
+	params.Fluid = Fluid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -857,6 +1017,9 @@ void AEFPawn::ApplyFluidSurfaceImpact()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (HitLocation != nullptr)
+		*HitLocation = params.HitLocation;
 }
 
 
@@ -897,12 +1060,15 @@ void AEFPawn::BaseChange()
 
 // Function EFGame.EFPawn.MAT_FinishAnimControl
 // (Native, Public)
+// Parameters:
+// class UInterpGroup*            InInterpGroup                  (Parm)
 
-void AEFPawn::MAT_FinishAnimControl()
+void AEFPawn::MAT_FinishAnimControl(class UInterpGroup* InInterpGroup)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.MAT_FinishAnimControl");
 
 	AEFPawn_MAT_FinishAnimControl_Params params;
+	params.InInterpGroup = InInterpGroup;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -915,12 +1081,15 @@ void AEFPawn::MAT_FinishAnimControl()
 
 // Function EFGame.EFPawn.MAT_BeginAnimControl
 // (Native, Public)
+// Parameters:
+// class UInterpGroup*            InInterpGroup                  (Parm)
 
-void AEFPawn::MAT_BeginAnimControl()
+void AEFPawn::MAT_BeginAnimControl(class UInterpGroup* InInterpGroup)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.MAT_BeginAnimControl");
 
 	AEFPawn_MAT_BeginAnimControl_Params params;
+	params.InInterpGroup = InInterpGroup;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -933,12 +1102,15 @@ void AEFPawn::MAT_BeginAnimControl()
 
 // Function EFGame.EFPawn.InterpolationFinished
 // (Simulated, Native, Event, Public)
+// Parameters:
+// class USeqAct_Interp*          InterpAction                   (Parm)
 
-void AEFPawn::InterpolationFinished()
+void AEFPawn::InterpolationFinished(class USeqAct_Interp* InterpAction)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationFinished");
 
 	AEFPawn_InterpolationFinished_Params params;
+	params.InterpAction = InterpAction;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -951,12 +1123,17 @@ void AEFPawn::InterpolationFinished()
 
 // Function EFGame.EFPawn.InterpolationStarted
 // (Simulated, Native, Event, Public)
+// Parameters:
+// class USeqAct_Interp*          InterpAction                   (Parm)
+// class UInterpGroupInst*        GroupInst                      (Parm)
 
-void AEFPawn::InterpolationStarted()
+void AEFPawn::InterpolationStarted(class USeqAct_Interp* InterpAction, class UInterpGroupInst* GroupInst)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.InterpolationStarted");
 
 	AEFPawn_InterpolationStarted_Params params;
+	params.InterpAction = InterpAction;
+	params.GroupInst = GroupInst;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -969,12 +1146,20 @@ void AEFPawn::InterpolationStarted()
 
 // Function EFGame.EFPawn.RigidBodyCollision
 // (Simulated, Native, Event, Public, HasOutParms)
+// Parameters:
+// class UPrimitiveComponent*     HitComponent                   (Parm, EditInline)
+// class UPrimitiveComponent*     OtherComponent                 (Parm, EditInline)
+// struct FCollisionImpactData    RigidCollisionData             (Const, Parm, OutParm, NeedCtorLink)
+// int                            ContactIndex                   (Parm)
 
-void AEFPawn::RigidBodyCollision()
+void AEFPawn::RigidBodyCollision(class UPrimitiveComponent* HitComponent, class UPrimitiveComponent* OtherComponent, int ContactIndex, struct FCollisionImpactData* RigidCollisionData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.RigidBodyCollision");
 
 	AEFPawn_RigidBodyCollision_Params params;
+	params.HitComponent = HitComponent;
+	params.OtherComponent = OtherComponent;
+	params.ContactIndex = ContactIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -982,17 +1167,25 @@ void AEFPawn::RigidBodyCollision()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (RigidCollisionData != nullptr)
+		*RigidCollisionData = params.RigidCollisionData;
 }
 
 
 // Function EFGame.EFPawn.DoKismetAttachment
 // (Defined, Public)
+// Parameters:
+// class AActor*                  Attachment                     (Parm)
+// class USeqAct_AttachToActor*   Action                         (Parm)
 
-void AEFPawn::DoKismetAttachment()
+void AEFPawn::DoKismetAttachment(class AActor* Attachment, class USeqAct_AttachToActor* Action)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.DoKismetAttachment");
 
 	AEFPawn_DoKismetAttachment_Params params;
+	params.Attachment = Attachment;
+	params.Action = Action;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1004,12 +1197,17 @@ void AEFPawn::DoKismetAttachment()
 
 // Function EFGame.EFPawn.AttachmentCameraActor
 // (Native, Public)
+// Parameters:
+// class AActor*                  Attachment                     (Parm)
+// struct FVector                 RelativeViewOffset             (Parm)
 
-void AEFPawn::AttachmentCameraActor()
+void AEFPawn::AttachmentCameraActor(class AActor* Attachment, const struct FVector& RelativeViewOffset)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttachmentCameraActor");
 
 	AEFPawn_AttachmentCameraActor_Params params;
+	params.Attachment = Attachment;
+	params.RelativeViewOffset = RelativeViewOffset;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1022,8 +1220,10 @@ void AEFPawn::AttachmentCameraActor()
 
 // Function EFGame.EFPawn.GetGravityZ
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::GetGravityZ()
+float AEFPawn::GetGravityZ()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetGravityZ");
 
@@ -1035,17 +1235,22 @@ void AEFPawn::GetGravityZ()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.OnForceFieldDestroy
 // (Defined, Simulated, Public)
+// Parameters:
+// class UNxForceFieldComponent*  FFC                            (Parm, EditInline)
 
-void AEFPawn::OnForceFieldDestroy()
+void AEFPawn::OnForceFieldDestroy(class UNxForceFieldComponent* FFC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.OnForceFieldDestroy");
 
 	AEFPawn_OnForceFieldDestroy_Params params;
+	params.FFC = FFC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1057,29 +1262,38 @@ void AEFPawn::OnForceFieldDestroy()
 
 // Function EFGame.EFPawn.CreateForceField
 // (Defined, Event, Public)
+// Parameters:
+// class UAnimNotify_ForceField*  AnimNotifyData                 (Const, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::CreateForceField()
+bool AEFPawn::CreateForceField(class UAnimNotify_ForceField* AnimNotifyData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.CreateForceField");
 
 	AEFPawn_CreateForceField_Params params;
+	params.AnimNotifyData = AnimNotifyData;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.ExplodeActor
 // (Native, Public)
+// Parameters:
+// class AActor*                  ExplodeActor                   (Parm)
 
-void AEFPawn::ExplodeActor()
+void AEFPawn::ExplodeActor(class AActor* ExplodeActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.ExplodeActor");
 
 	AEFPawn_ExplodeActor_Params params;
+	params.ExplodeActor = ExplodeActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1128,12 +1342,17 @@ void AEFPawn::SetDefaultStateColor()
 
 // Function EFGame.EFPawn.SetStateColor
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// struct FLinearColor            StateColor                     (Parm)
+// float                          fIntensity                     (OptionalParm, Parm)
 
-void AEFPawn::SetStateColor()
+void AEFPawn::SetStateColor(const struct FLinearColor& StateColor, float fIntensity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetStateColor");
 
 	AEFPawn_SetStateColor_Params params;
+	params.StateColor = StateColor;
+	params.fIntensity = fIntensity;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1146,12 +1365,15 @@ void AEFPawn::SetStateColor()
 
 // Function EFGame.EFPawn.AttackFreezeAnim
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// float                          PauseTime                      (OptionalParm, Parm)
 
-void AEFPawn::AttackFreezeAnim()
+void AEFPawn::AttackFreezeAnim(float PauseTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.AttackFreezeAnim");
 
 	AEFPawn_AttackFreezeAnim_Params params;
+	params.PauseTime = PauseTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1182,12 +1404,15 @@ void AEFPawn::AttackContinueAnim()
 
 // Function EFGame.EFPawn.SetPPOutlineWidth
 // (Native, Public)
+// Parameters:
+// float                          Width                          (Parm)
 
-void AEFPawn::SetPPOutlineWidth()
+void AEFPawn::SetPPOutlineWidth(float Width)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutlineWidth");
 
 	AEFPawn_SetPPOutlineWidth_Params params;
+	params.Width = Width;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1200,12 +1425,15 @@ void AEFPawn::SetPPOutlineWidth()
 
 // Function EFGame.EFPawn.SetPPOutlineColor
 // (Native, Public)
+// Parameters:
+// struct FVector                 InColor                        (Parm)
 
-void AEFPawn::SetPPOutlineColor()
+void AEFPawn::SetPPOutlineColor(const struct FVector& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutlineColor");
 
 	AEFPawn_SetPPOutlineColor_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1218,12 +1446,15 @@ void AEFPawn::SetPPOutlineColor()
 
 // Function EFGame.EFPawn.SetPPOutline
 // (Native, Public)
+// Parameters:
+// bool                           bPPOutline                     (Parm)
 
-void AEFPawn::SetPPOutline()
+void AEFPawn::SetPPOutline(bool bPPOutline)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetPPOutline");
 
 	AEFPawn_SetPPOutline_Params params;
+	params.bPPOutline = bPPOutline;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1236,12 +1467,19 @@ void AEFPawn::SetPPOutline()
 
 // Function EFGame.EFPawn.SetCloakMode
 // (Native, Public)
+// Parameters:
+// bool                           bEnable                        (Parm)
+// float                          CloakAlpha                     (Parm)
+// bool                           bRimLight                      (Parm)
 
-void AEFPawn::SetCloakMode()
+void AEFPawn::SetCloakMode(bool bEnable, float CloakAlpha, bool bRimLight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetCloakMode");
 
 	AEFPawn_SetCloakMode_Params params;
+	params.bEnable = bEnable;
+	params.CloakAlpha = CloakAlpha;
+	params.bRimLight = bRimLight;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1254,12 +1492,17 @@ void AEFPawn::SetCloakMode()
 
 // Function EFGame.EFPawn.SetOccludedOutlineColor
 // (Native, Public)
+// Parameters:
+// struct FVector                 InColor                        (Parm)
+// float                          InScale                        (Parm)
 
-void AEFPawn::SetOccludedOutlineColor()
+void AEFPawn::SetOccludedOutlineColor(const struct FVector& InColor, float InScale)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetOccludedOutlineColor");
 
 	AEFPawn_SetOccludedOutlineColor_Params params;
+	params.InColor = InColor;
+	params.InScale = InScale;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1272,12 +1515,17 @@ void AEFPawn::SetOccludedOutlineColor()
 
 // Function EFGame.EFPawn.SetOccludedOutline
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// bool                           bOutline                       (Parm)
+// float                          Width                          (OptionalParm, Parm)
 
-void AEFPawn::SetOccludedOutline()
+void AEFPawn::SetOccludedOutline(bool bOutline, float Width)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetOccludedOutline");
 
 	AEFPawn_SetOccludedOutline_Params params;
+	params.bOutline = bOutline;
+	params.Width = Width;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1308,12 +1556,15 @@ void AEFPawn::OutsideWorldBounds()
 
 // Function EFGame.EFPawn.FellOutOfWorld
 // (Simulated, Native, Event, Public)
+// Parameters:
+// class UClass*                  dmgType                        (Parm)
 
-void AEFPawn::FellOutOfWorld()
+void AEFPawn::FellOutOfWorld(class UClass* dmgType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.FellOutOfWorld");
 
 	AEFPawn_FellOutOfWorld_Params params;
+	params.dmgType = dmgType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1326,12 +1577,17 @@ void AEFPawn::FellOutOfWorld()
 
 // Function EFGame.EFPawn.Landed
 // (Native, Event, Public)
+// Parameters:
+// struct FVector                 HitNormal                      (Parm)
+// class AActor*                  FloorActor                     (Parm)
 
-void AEFPawn::Landed()
+void AEFPawn::Landed(const struct FVector& HitNormal, class AActor* FloorActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.Landed");
 
 	AEFPawn_Landed_Params params;
+	params.HitNormal = HitNormal;
+	params.FloorActor = FloorActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1362,12 +1618,24 @@ void AEFPawn::Falling()
 
 // Function EFGame.EFPawn.SetDesiredRotation
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// struct FRotator                TargetDesiredRotation          (Parm)
+// bool                           InLockDesiredRotation          (OptionalParm, Parm)
+// bool                           InUnlockWhenReached            (OptionalParm, Parm)
+// float                          InterpolationTime              (OptionalParm, Parm)
+// bool                           bResetRotationRate             (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::SetDesiredRotation()
+bool AEFPawn::SetDesiredRotation(const struct FRotator& TargetDesiredRotation, bool InLockDesiredRotation, bool InUnlockWhenReached, float InterpolationTime, bool bResetRotationRate)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.SetDesiredRotation");
 
 	AEFPawn_SetDesiredRotation_Params params;
+	params.TargetDesiredRotation = TargetDesiredRotation;
+	params.InLockDesiredRotation = InLockDesiredRotation;
+	params.InUnlockWhenReached = InUnlockWhenReached;
+	params.InterpolationTime = InterpolationTime;
+	params.bResetRotationRate = bResetRotationRate;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1375,17 +1643,22 @@ void AEFPawn::SetDesiredRotation()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.OnParticleSystemFinished
 // (Defined, Simulated, Public)
+// Parameters:
+// class UParticleSystemComponent* PSC                            (Parm, EditInline)
 
-void AEFPawn::OnParticleSystemFinished()
+void AEFPawn::OnParticleSystemFinished(class UParticleSystemComponent* PSC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.OnParticleSystemFinished");
 
 	AEFPawn_OnParticleSystemFinished_Params params;
+	params.PSC = PSC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1449,25 +1722,33 @@ void AEFPawn::Destroyed()
 
 // Function EFGame.EFPawn.GetDefaultCameraMode
 // (Defined, Simulated, Public)
+// Parameters:
+// class APlayerController*       RequestedBy                    (Parm)
+// struct FName                   ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::GetDefaultCameraMode()
+struct FName AEFPawn::GetDefaultCameraMode(class APlayerController* RequestedBy)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetDefaultCameraMode");
 
 	AEFPawn_GetDefaultCameraMode_Params params;
+	params.RequestedBy = RequestedBy;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.GetObjectCameraStyle
 // (Native, Public)
+// Parameters:
+// struct FName                   ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::GetObjectCameraStyle()
+struct FName AEFPawn::GetObjectCameraStyle()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.GetObjectCameraStyle");
 
@@ -1479,34 +1760,45 @@ void AEFPawn::GetObjectCameraStyle()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.EncroachingOn
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPawn::EncroachingOn()
+bool AEFPawn::EncroachingOn(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.EncroachingOn");
 
 	AEFPawn_EncroachingOn_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPawn.EncroachedBy
 // (Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
 
-void AEFPawn::EncroachedBy()
+void AEFPawn::EncroachedBy(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPawn.EncroachedBy");
 
 	AEFPawn_EncroachedBy_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1554,29 +1846,41 @@ void AEFPlayer::OnUpdatePropertyDrawScale3D()
 
 // Function EFGame.EFTransit.EncroachingOn
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFTransit::EncroachingOn()
+bool AEFTransit::EncroachingOn(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTransit.EncroachingOn");
 
 	AEFTransit_EncroachingOn_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerController.ConsoleCommand
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// struct FString                 Command                        (Parm, NeedCtorLink)
+// bool                           bWriteToLog                    (OptionalParm, Parm)
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void AEFPlayerController::ConsoleCommand()
+struct FString AEFPlayerController::ConsoleCommand(const struct FString& Command, bool bWriteToLog)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.ConsoleCommand");
 
 	AEFPlayerController_ConsoleCommand_Params params;
+	params.Command = Command;
+	params.bWriteToLog = bWriteToLog;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1584,17 +1888,22 @@ void AEFPlayerController::ConsoleCommand()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerController.ProcessCinematic
 // (Exec, Native, Public)
+// Parameters:
+// bool                           bInCinematicMode               (Parm)
 
-void AEFPlayerController::ProcessCinematic()
+void AEFPlayerController::ProcessCinematic(bool bInCinematicMode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.ProcessCinematic");
 
 	AEFPlayerController_ProcessCinematic_Params params;
+	params.bInCinematicMode = bInCinematicMode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1607,8 +1916,11 @@ void AEFPlayerController::ProcessCinematic()
 
 // Function EFGame.EFPlayerController.GetPlayerInitPosition
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FVector                 out_Location                   (Parm, OutParm)
+// struct FRotator                out_Rotation                   (Parm, OutParm)
 
-void AEFPlayerController::GetPlayerInitPosition()
+void AEFPlayerController::GetPlayerInitPosition(struct FVector* out_Location, struct FRotator* out_Rotation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.GetPlayerInitPosition");
 
@@ -1620,13 +1932,21 @@ void AEFPlayerController::GetPlayerInitPosition()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_Location != nullptr)
+		*out_Location = params.out_Location;
+	if (out_Rotation != nullptr)
+		*out_Rotation = params.out_Rotation;
 }
 
 
 // Function EFGame.EFPlayerController.GetPlayerViewPointQuat
 // (Simulated, Native, Event, Public, HasOutParms)
+// Parameters:
+// struct FVector                 out_Location                   (Parm, OutParm)
+// struct FQuat                   out_Quaternion                 (Parm, OutParm)
 
-void AEFPlayerController::GetPlayerViewPointQuat()
+void AEFPlayerController::GetPlayerViewPointQuat(struct FVector* out_Location, struct FQuat* out_Quaternion)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.GetPlayerViewPointQuat");
 
@@ -1638,13 +1958,21 @@ void AEFPlayerController::GetPlayerViewPointQuat()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_Location != nullptr)
+		*out_Location = params.out_Location;
+	if (out_Quaternion != nullptr)
+		*out_Quaternion = params.out_Quaternion;
 }
 
 
 // Function EFGame.EFPlayerController.GetPlayerViewPoint
 // (Defined, Simulated, Event, Public, HasOutParms)
+// Parameters:
+// struct FVector                 out_Location                   (Parm, OutParm)
+// struct FRotator                out_Rotation                   (Parm, OutParm)
 
-void AEFPlayerController::GetPlayerViewPoint()
+void AEFPlayerController::GetPlayerViewPoint(struct FVector* out_Location, struct FRotator* out_Rotation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.GetPlayerViewPoint");
 
@@ -1655,34 +1983,52 @@ void AEFPlayerController::GetPlayerViewPoint()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_Location != nullptr)
+		*out_Location = params.out_Location;
+	if (out_Rotation != nullptr)
+		*out_Rotation = params.out_Rotation;
 }
 
 
 // Function EFGame.EFPlayerController.DisplayDebug
 // (Defined, Simulated, Public, HasOutParms)
+// Parameters:
+// class AHUD*                    HUD                            (Parm)
+// float                          out_YL                         (Parm, OutParm)
+// float                          out_YPos                       (Parm, OutParm)
 
-void AEFPlayerController::DisplayDebug()
+void AEFPlayerController::DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.DisplayDebug");
 
 	AEFPlayerController_DisplayDebug_Params params;
+	params.HUD = HUD;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_YL != nullptr)
+		*out_YL = params.out_YL;
+	if (out_YPos != nullptr)
+		*out_YPos = params.out_YPos;
 }
 
 
 // Function EFGame.EFPlayerController.DrawHUD
 // (Defined, Public)
+// Parameters:
+// class AHUD*                    H                              (Parm)
 
-void AEFPlayerController::DrawHUD()
+void AEFPlayerController::DrawHUD(class AHUD* H)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.DrawHUD");
 
 	AEFPlayerController_DrawHUD_Params params;
+	params.H = H;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1711,8 +2057,10 @@ void AEFPlayerController::SpawnDefaultHUD()
 
 // Function EFGame.EFPlayerController.IsStopMovieLoading
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerController::IsStopMovieLoading()
+bool AEFPlayerController::IsStopMovieLoading()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.IsStopMovieLoading");
 
@@ -1724,17 +2072,22 @@ void AEFPlayerController::IsStopMovieLoading()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerController.PlayerTick
 // (Native, Event, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerController::PlayerTick()
+void AEFPlayerController::PlayerTick(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.PlayerTick");
 
 	AEFPlayerController_PlayerTick_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -1747,12 +2100,15 @@ void AEFPlayerController::PlayerTick()
 
 // Function EFGame.EFPlayerController.UpdateRotation
 // (Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerController::UpdateRotation()
+void AEFPlayerController::UpdateRotation(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerController.UpdateRotation");
 
 	AEFPlayerController_UpdateRotation_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1922,12 +2278,15 @@ void UEFPlayerInput::OnMouseScrollUp()
 
 // Function EFGame.EFPlayerInput.PlayerInput
 // (Defined, Event, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void UEFPlayerInput::PlayerInput()
+void UEFPlayerInput::PlayerInput(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.PlayerInput");
 
 	UEFPlayerInput_PlayerInput_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1939,18 +2298,32 @@ void UEFPlayerInput::PlayerInput()
 
 // Function EFGame.EFPlayerInput.InputAxis
 // (Defined, HasOptionalParms, Public)
+// Parameters:
+// int                            ControllerId                   (Parm)
+// struct FName                   Key                            (Parm)
+// float                          Delta                          (Parm)
+// float                          DeltaTime                      (Parm)
+// bool                           bGamepad                       (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFPlayerInput::InputAxis()
+bool UEFPlayerInput::InputAxis(int ControllerId, const struct FName& Key, float Delta, float DeltaTime, bool bGamepad)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerInput.InputAxis");
 
 	UEFPlayerInput_InputAxis_Params params;
+	params.ControllerId = ControllerId;
+	params.Key = Key;
+	params.Delta = Delta;
+	params.DeltaTime = DeltaTime;
+	params.bGamepad = bGamepad;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -2026,12 +2399,21 @@ void AEFProjectile::NotifyBaseChange()
 
 // Function EFGame.EFProjectile.ProcessTouch
 // (Simulated, Native, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
 
-void AEFProjectile::ProcessTouch()
+void AEFProjectile::ProcessTouch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFProjectile.ProcessTouch");
 
 	AEFProjectile_ProcessTouch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2114,12 +2496,15 @@ void AEFSkeletalMeshActor::Destroyed()
 
 // Function EFGame.EFVolume.UnTouch
 // (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
 
-void AEFVolume::UnTouch()
+void AEFVolume::UnTouch(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolume.UnTouch");
 
 	AEFVolume_UnTouch_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2132,12 +2517,21 @@ void AEFVolume::UnTouch()
 
 // Function EFGame.EFVolume.Touch
 // (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
 
-void AEFVolume::Touch()
+void AEFVolume::Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolume.Touch");
 
 	AEFVolume_Touch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2150,12 +2544,16 @@ void AEFVolume::Touch()
 
 // Function EFGame.EFGameEngine.TranslateGFxUIMessage
 // (Native, Public)
+// Parameters:
+// struct FString                 MessageCode                    (Parm, NeedCtorLink)
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFGameEngine::TranslateGFxUIMessage()
+struct FString UEFGameEngine::TranslateGFxUIMessage(const struct FString& MessageCode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameEngine.TranslateGFxUIMessage");
 
 	UEFGameEngine_TranslateGFxUIMessage_Params params;
+	params.MessageCode = MessageCode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2163,17 +2561,24 @@ void UEFGameEngine::TranslateGFxUIMessage()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGameEngine.ShowLineChecks
 // (Native, Public)
+// Parameters:
+// bool                           bLineCheck                     (Parm)
+// bool                           bExtentLineCheck               (Parm)
 
-void UEFGameEngine::ShowLineChecks()
+void UEFGameEngine::ShowLineChecks(bool bLineCheck, bool bExtentLineCheck)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameEngine.ShowLineChecks");
 
 	UEFGameEngine_ShowLineChecks_Params params;
+	params.bLineCheck = bLineCheck;
+	params.bExtentLineCheck = bExtentLineCheck;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2186,12 +2591,15 @@ void UEFGameEngine::ShowLineChecks()
 
 // Function EFGame.EFMapInfo.SaveCameraValue
 // (Defined, Public)
+// Parameters:
+// class UEFCameraBase*           Camera                         (Parm)
 
-void UEFMapInfo::SaveCameraValue()
+void UEFMapInfo::SaveCameraValue(class UEFCameraBase* Camera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMapInfo.SaveCameraValue");
 
 	UEFMapInfo_SaveCameraValue_Params params;
+	params.Camera = Camera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2203,12 +2611,15 @@ void UEFMapInfo::SaveCameraValue()
 
 // Function EFGame.EFMapInfo.LoadCameraValue
 // (Defined, Public)
+// Parameters:
+// class UEFCameraBase*           Camera                         (Parm)
 
-void UEFMapInfo::LoadCameraValue()
+void UEFMapInfo::LoadCameraValue(class UEFCameraBase* Camera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMapInfo.LoadCameraValue");
 
 	UEFMapInfo_LoadCameraValue_Params params;
+	params.Camera = Camera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2220,8 +2631,10 @@ void UEFMapInfo::LoadCameraValue()
 
 // Function EFGame.EFCameraBase.GetCurrentFOV
 // (Defined, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraBase::GetCurrentFOV()
+float UEFCameraBase::GetCurrentFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.GetCurrentFOV");
 
@@ -2232,13 +2645,17 @@ void UEFCameraBase::GetCurrentFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCameraBase.GetDefaultFOV
 // (Defined, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraBase::GetDefaultFOV()
+float UEFCameraBase::GetDefaultFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.GetDefaultFOV");
 
@@ -2249,17 +2666,22 @@ void UEFCameraBase::GetDefaultFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCameraBase.SetDefaultFOV
 // (Defined, Public)
+// Parameters:
+// float                          FOV                            (Parm)
 
-void UEFCameraBase::SetDefaultFOV()
+void UEFCameraBase::SetDefaultFOV(float FOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.SetDefaultFOV");
 
 	UEFCameraBase_SetDefaultFOV_Params params;
+	params.FOV = FOV;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2271,18 +2693,28 @@ void UEFCameraBase::SetDefaultFOV()
 
 // Function EFGame.EFCameraBase.DisplayDebug
 // (Defined, Simulated, Public, HasOutParms)
+// Parameters:
+// class AHUD*                    HUD                            (Parm)
+// float                          out_YL                         (Parm, OutParm)
+// float                          out_YPos                       (Parm, OutParm)
 
-void UEFCameraBase::DisplayDebug()
+void UEFCameraBase::DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.DisplayDebug");
 
 	UEFCameraBase_DisplayDebug_Params params;
+	params.HUD = HUD;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_YL != nullptr)
+		*out_YL = params.out_YL;
+	if (out_YPos != nullptr)
+		*out_YPos = params.out_YPos;
 }
 
 
@@ -2305,12 +2737,17 @@ void UEFCameraBase::UpdateRotation()
 
 // Function EFGame.EFCameraBase.SetCurrentCameraCut
 // (Native, Public)
+// Parameters:
+// struct FVector                 InPos                          (Parm)
+// float                          InLimitDistSeq                 (Parm)
 
-void UEFCameraBase::SetCurrentCameraCut()
+void UEFCameraBase::SetCurrentCameraCut(const struct FVector& InPos, float InLimitDistSeq)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.SetCurrentCameraCut");
 
 	UEFCameraBase_SetCurrentCameraCut_Params params;
+	params.InPos = InPos;
+	params.InLimitDistSeq = InLimitDistSeq;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2323,12 +2760,15 @@ void UEFCameraBase::SetCurrentCameraCut()
 
 // Function EFGame.EFCameraBase.SetContentsSettingTable
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void UEFCameraBase::SetContentsSettingTable()
+void UEFCameraBase::SetContentsSettingTable(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.SetContentsSettingTable");
 
 	UEFCameraBase_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2341,12 +2781,17 @@ void UEFCameraBase::SetContentsSettingTable()
 
 // Function EFGame.EFCameraBase.SetSettingTable
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
 
-void UEFCameraBase::SetSettingTable()
+void UEFCameraBase::SetSettingTable(int InTableId, bool InImmediateFlag)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.SetSettingTable");
 
 	UEFCameraBase_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2359,12 +2804,15 @@ void UEFCameraBase::SetSettingTable()
 
 // Function EFGame.EFCameraBase.InActivateSkeletalMeshForceLOD
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InNextCamera                   (Parm)
 
-void UEFCameraBase::InActivateSkeletalMeshForceLOD()
+void UEFCameraBase::InActivateSkeletalMeshForceLOD(class UEFCameraBase* InNextCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.InActivateSkeletalMeshForceLOD");
 
 	UEFCameraBase_InActivateSkeletalMeshForceLOD_Params params;
+	params.InNextCamera = InNextCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2395,12 +2843,15 @@ void UEFCameraBase::ActivateSkeletalMeshForceLOD()
 
 // Function EFGame.EFCameraBase.ChangeZoomStep
 // (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
 
-void UEFCameraBase::ChangeZoomStep()
+void UEFCameraBase::ChangeZoomStep(int iStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ChangeZoomStep");
 
 	UEFCameraBase_ChangeZoomStep_Params params;
+	params.iStep = iStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2413,8 +2864,10 @@ void UEFCameraBase::ChangeZoomStep()
 
 // Function EFGame.EFCameraBase.CheckZoom
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraBase::CheckZoom()
+bool UEFCameraBase::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.CheckZoom");
 
@@ -2426,6 +2879,8 @@ void UEFCameraBase::CheckZoom()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -2467,12 +2922,15 @@ void UEFCameraBase::ZoomIn()
 
 // Function EFGame.EFCameraBase.BecomeViewTarget
 // (Simulated, Public)
+// Parameters:
+// class AEFPlayerController*     PC                             (Parm)
 
-void UEFCameraBase::BecomeViewTarget()
+void UEFCameraBase::BecomeViewTarget(class AEFPlayerController* PC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.BecomeViewTarget");
 
 	UEFCameraBase_BecomeViewTarget_Params params;
+	params.PC = PC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2484,12 +2942,20 @@ void UEFCameraBase::BecomeViewTarget()
 
 // Function EFGame.EFCameraBase.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFCameraBase::UpdateCamera()
+void UEFCameraBase::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.UpdateCamera");
 
 	UEFCameraBase_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2497,6 +2963,9 @@ void UEFCameraBase::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
@@ -2520,12 +2989,15 @@ void UEFCameraBase::ResetInterpolation()
 
 // Function EFGame.EFCameraBase.OnBecomeInActive
 // (Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
 
-void UEFCameraBase::OnBecomeInActive()
+void UEFCameraBase::OnBecomeInActive(class UEFCameraBase* NewCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.OnBecomeInActive");
 
 	UEFCameraBase_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2537,12 +3009,15 @@ void UEFCameraBase::OnBecomeInActive()
 
 // Function EFGame.EFCameraBase.OnBecomeActive
 // (Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFCameraBase::OnBecomeActive()
+void UEFCameraBase::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.OnBecomeActive");
 
 	UEFCameraBase_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2571,12 +3046,20 @@ void UEFCameraBase::Init()
 
 // Function EFGame.EFBackViewCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFBackViewCamera::UpdateCamera()
+void UEFBackViewCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFBackViewCamera.UpdateCamera");
 
 	UEFBackViewCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2584,17 +3067,28 @@ void UEFBackViewCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFCustomizingCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFCustomizingCamera::UpdateCamera()
+void UEFCustomizingCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCustomizingCamera.UpdateCamera");
 
 	UEFCustomizingCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2602,6 +3096,9 @@ void UEFCustomizingCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
@@ -2660,12 +3157,15 @@ void UEFCustomizingCamera::Init()
 
 // Function EFGame.EFEditorViewCamera.OnBecomeInActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
 
-void UEFEditorViewCamera::OnBecomeInActive()
+void UEFEditorViewCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEditorViewCamera.OnBecomeInActive");
 
 	UEFEditorViewCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2677,12 +3177,15 @@ void UEFEditorViewCamera::OnBecomeInActive()
 
 // Function EFGame.EFEditorViewCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFEditorViewCamera::OnBecomeActive()
+void UEFEditorViewCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEditorViewCamera.OnBecomeActive");
 
 	UEFEditorViewCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2730,12 +3233,20 @@ void UEFEditorViewCamera::ZoomIn()
 
 // Function EFGame.EFEditorViewCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFEditorViewCamera::UpdateCamera()
+void UEFEditorViewCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEditorViewCamera.UpdateCamera");
 
 	UEFEditorViewCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2743,17 +3254,23 @@ void UEFEditorViewCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFFreeCamera.OnBecomeInActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
 
-void UEFFreeCamera::OnBecomeInActive()
+void UEFFreeCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFFreeCamera.OnBecomeInActive");
 
 	UEFFreeCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2765,12 +3282,15 @@ void UEFFreeCamera::OnBecomeInActive()
 
 // Function EFGame.EFFreeCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFFreeCamera::OnBecomeActive()
+void UEFFreeCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFFreeCamera.OnBecomeActive");
 
 	UEFFreeCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2854,12 +3374,20 @@ void UEFFreeCamera::ZoomIn()
 
 // Function EFGame.EFFreeCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFFreeCamera::UpdateCamera()
+void UEFFreeCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFFreeCamera.UpdateCamera");
 
 	UEFFreeCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2867,17 +3395,28 @@ void UEFFreeCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFInteractionCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFInteractionCamera::UpdateCamera()
+void UEFInteractionCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInteractionCamera.UpdateCamera");
 
 	UEFInteractionCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2885,13 +3424,18 @@ void UEFInteractionCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFInteractionCamera.GetCurrentFOV
 // (Defined, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFInteractionCamera::GetCurrentFOV()
+float UEFInteractionCamera::GetCurrentFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInteractionCamera.GetCurrentFOV");
 
@@ -2902,17 +3446,22 @@ void UEFInteractionCamera::GetCurrentFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFIsometricCamera.SetOverrideIsometricZoomStep
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void UEFIsometricCamera::SetOverrideIsometricZoomStep()
+void UEFIsometricCamera::SetOverrideIsometricZoomStep(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetOverrideIsometricZoomStep");
 
 	UEFIsometricCamera_SetOverrideIsometricZoomStep_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2925,12 +3474,17 @@ void UEFIsometricCamera::SetOverrideIsometricZoomStep()
 
 // Function EFGame.EFIsometricCamera.SetFixedCameraInterpSpeed
 // (Native, Public)
+// Parameters:
+// float                          speedXY                        (Parm)
+// float                          speedZ                         (Parm)
 
-void UEFIsometricCamera::SetFixedCameraInterpSpeed()
+void UEFIsometricCamera::SetFixedCameraInterpSpeed(float speedXY, float speedZ)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetFixedCameraInterpSpeed");
 
 	UEFIsometricCamera_SetFixedCameraInterpSpeed_Params params;
+	params.speedXY = speedXY;
+	params.speedZ = speedZ;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2943,8 +3497,10 @@ void UEFIsometricCamera::SetFixedCameraInterpSpeed()
 
 // Function EFGame.EFIsometricCamera.IsFixedCameraMode
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFIsometricCamera::IsFixedCameraMode()
+bool UEFIsometricCamera::IsFixedCameraMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.IsFixedCameraMode");
 
@@ -2956,6 +3512,8 @@ void UEFIsometricCamera::IsFixedCameraMode()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -2979,12 +3537,15 @@ void UEFIsometricCamera::ResetFixedCamera()
 
 // Function EFGame.EFIsometricCamera.SetFixedLookAtPos
 // (Native, Public)
+// Parameters:
+// struct FVector                 InPos                          (Parm)
 
-void UEFIsometricCamera::SetFixedLookAtPos()
+void UEFIsometricCamera::SetFixedLookAtPos(const struct FVector& InPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetFixedLookAtPos");
 
 	UEFIsometricCamera_SetFixedLookAtPos_Params params;
+	params.InPos = InPos;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2997,12 +3558,15 @@ void UEFIsometricCamera::SetFixedLookAtPos()
 
 // Function EFGame.EFIsometricCamera.SetCurIsometricZoomStep
 // (Native, Public)
+// Parameters:
+// int                            iClassID                       (Parm)
 
-void UEFIsometricCamera::SetCurIsometricZoomStep()
+void UEFIsometricCamera::SetCurIsometricZoomStep(int iClassID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetCurIsometricZoomStep");
 
 	UEFIsometricCamera_SetCurIsometricZoomStep_Params params;
+	params.iClassID = iClassID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3015,12 +3579,20 @@ void UEFIsometricCamera::SetCurIsometricZoomStep()
 
 // Function EFGame.EFIsometricCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFIsometricCamera::UpdateCamera()
+void UEFIsometricCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.UpdateCamera");
 
 	UEFIsometricCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3028,17 +3600,23 @@ void UEFIsometricCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFIsometricCamera.OnBecomeActive
 // (Defined, Event, Public, HasDefaults)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFIsometricCamera::OnBecomeActive()
+void UEFIsometricCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.OnBecomeActive");
 
 	UEFIsometricCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3050,12 +3628,15 @@ void UEFIsometricCamera::OnBecomeActive()
 
 // Function EFGame.EFIsometricCamera.SetContentsSettingTable
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void UEFIsometricCamera::SetContentsSettingTable()
+void UEFIsometricCamera::SetContentsSettingTable(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetContentsSettingTable");
 
 	UEFIsometricCamera_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3068,12 +3649,17 @@ void UEFIsometricCamera::SetContentsSettingTable()
 
 // Function EFGame.EFIsometricCamera.SetSettingTable
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
 
-void UEFIsometricCamera::SetSettingTable()
+void UEFIsometricCamera::SetSettingTable(int InTableId, bool InImmediateFlag)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.SetSettingTable");
 
 	UEFIsometricCamera_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3086,12 +3672,16 @@ void UEFIsometricCamera::SetSettingTable()
 
 // Function EFGame.EFIsometricCamera.RefineFOV
 // (Native, Public)
+// Parameters:
+// float                          FOV                            (Parm)
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFIsometricCamera::RefineFOV()
+float UEFIsometricCamera::RefineFOV(float FOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.RefineFOV");
 
 	UEFIsometricCamera_RefineFOV_Params params;
+	params.FOV = FOV;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3099,17 +3689,22 @@ void UEFIsometricCamera::RefineFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFIsometricCamera.InActivateSkeletalMeshForceLOD
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InNextCamera                   (Parm)
 
-void UEFIsometricCamera::InActivateSkeletalMeshForceLOD()
+void UEFIsometricCamera::InActivateSkeletalMeshForceLOD(class UEFCameraBase* InNextCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.InActivateSkeletalMeshForceLOD");
 
 	UEFIsometricCamera_InActivateSkeletalMeshForceLOD_Params params;
+	params.InNextCamera = InNextCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3140,12 +3735,15 @@ void UEFIsometricCamera::ActivateSkeletalMeshForceLOD()
 
 // Function EFGame.EFIsometricCamera.ChangeZoomStep
 // (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
 
-void UEFIsometricCamera::ChangeZoomStep()
+void UEFIsometricCamera::ChangeZoomStep(int iStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.ChangeZoomStep");
 
 	UEFIsometricCamera_ChangeZoomStep_Params params;
+	params.iStep = iStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3158,8 +3756,10 @@ void UEFIsometricCamera::ChangeZoomStep()
 
 // Function EFGame.EFIsometricCamera.CheckZoom
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFIsometricCamera::CheckZoom()
+bool UEFIsometricCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.CheckZoom");
 
@@ -3171,6 +3771,8 @@ void UEFIsometricCamera::CheckZoom()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -3283,12 +3885,20 @@ void UEFMacroCamera::ZoomIn()
 
 // Function EFGame.EFMacroCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFMacroCamera::UpdateCamera()
+void UEFMacroCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCamera.UpdateCamera");
 
 	UEFMacroCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3296,17 +3906,23 @@ void UEFMacroCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFPanningCamera.OnBecomeInActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
 
-void UEFPanningCamera::OnBecomeInActive()
+void UEFPanningCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPanningCamera.OnBecomeInActive");
 
 	UEFPanningCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3318,12 +3934,15 @@ void UEFPanningCamera::OnBecomeInActive()
 
 // Function EFGame.EFPanningCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFPanningCamera::OnBecomeActive()
+void UEFPanningCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPanningCamera.OnBecomeActive");
 
 	UEFPanningCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3407,12 +4026,20 @@ void UEFPanningCamera::ZoomIn()
 
 // Function EFGame.EFPanningCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFPanningCamera::UpdateCamera()
+void UEFPanningCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPanningCamera.UpdateCamera");
 
 	UEFPanningCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3420,6 +4047,9 @@ void UEFPanningCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
@@ -3478,12 +4108,20 @@ void UEFThirdPersonCamera::ZoomIn()
 
 // Function EFGame.EFThirdPersonCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFThirdPersonCamera::UpdateCamera()
+void UEFThirdPersonCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFThirdPersonCamera.UpdateCamera");
 
 	UEFThirdPersonCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3491,13 +4129,18 @@ void UEFThirdPersonCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFThirdPersonCamera.GetCurrentFOV
 // (Defined, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFThirdPersonCamera::GetCurrentFOV()
+float UEFThirdPersonCamera::GetCurrentFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFThirdPersonCamera.GetCurrentFOV");
 
@@ -3508,17 +4151,27 @@ void UEFThirdPersonCamera::GetCurrentFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFTopViewCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFTopViewCamera::UpdateCamera()
+void UEFTopViewCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.UpdateCamera");
 
 	UEFTopViewCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3526,17 +4179,23 @@ void UEFTopViewCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFTopViewCamera.OnBecomeInActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
 
-void UEFTopViewCamera::OnBecomeInActive()
+void UEFTopViewCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.OnBecomeInActive");
 
 	UEFTopViewCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3548,12 +4207,15 @@ void UEFTopViewCamera::OnBecomeInActive()
 
 // Function EFGame.EFTopViewCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFTopViewCamera::OnBecomeActive()
+void UEFTopViewCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.OnBecomeActive");
 
 	UEFTopViewCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3565,12 +4227,15 @@ void UEFTopViewCamera::OnBecomeActive()
 
 // Function EFGame.EFTopViewCamera.ProcessInActivateCameraType
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFTopViewCamera::ProcessInActivateCameraType()
+void UEFTopViewCamera::ProcessInActivateCameraType(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ProcessInActivateCameraType");
 
 	UEFTopViewCamera_ProcessInActivateCameraType_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3583,12 +4248,15 @@ void UEFTopViewCamera::ProcessInActivateCameraType()
 
 // Function EFGame.EFTopViewCamera.ProcessActivateCameraType
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFTopViewCamera::ProcessActivateCameraType()
+void UEFTopViewCamera::ProcessActivateCameraType(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ProcessActivateCameraType");
 
 	UEFTopViewCamera_ProcessActivateCameraType_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3601,12 +4269,15 @@ void UEFTopViewCamera::ProcessActivateCameraType()
 
 // Function EFGame.EFTopViewCamera.SetContentsSettingTable
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void UEFTopViewCamera::SetContentsSettingTable()
+void UEFTopViewCamera::SetContentsSettingTable(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.SetContentsSettingTable");
 
 	UEFTopViewCamera_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3619,12 +4290,17 @@ void UEFTopViewCamera::SetContentsSettingTable()
 
 // Function EFGame.EFTopViewCamera.SetSettingTable
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
 
-void UEFTopViewCamera::SetSettingTable()
+void UEFTopViewCamera::SetSettingTable(int InTableId, bool InImmediateFlag)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.SetSettingTable");
 
 	UEFTopViewCamera_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3637,12 +4313,15 @@ void UEFTopViewCamera::SetSettingTable()
 
 // Function EFGame.EFTopViewCamera.InActivateSkeletalMeshForceLOD
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InNextCamera                   (Parm)
 
-void UEFTopViewCamera::InActivateSkeletalMeshForceLOD()
+void UEFTopViewCamera::InActivateSkeletalMeshForceLOD(class UEFCameraBase* InNextCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.InActivateSkeletalMeshForceLOD");
 
 	UEFTopViewCamera_InActivateSkeletalMeshForceLOD_Params params;
+	params.InNextCamera = InNextCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3673,12 +4352,15 @@ void UEFTopViewCamera::ActivateSkeletalMeshForceLOD()
 
 // Function EFGame.EFTopViewCamera.ChangeZoomStep
 // (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
 
-void UEFTopViewCamera::ChangeZoomStep()
+void UEFTopViewCamera::ChangeZoomStep(int iStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.ChangeZoomStep");
 
 	UEFTopViewCamera_ChangeZoomStep_Params params;
+	params.iStep = iStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3691,8 +4373,10 @@ void UEFTopViewCamera::ChangeZoomStep()
 
 // Function EFGame.EFTopViewCamera.CheckZoom
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFTopViewCamera::CheckZoom()
+bool UEFTopViewCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTopViewCamera.CheckZoom");
 
@@ -3704,6 +4388,8 @@ void UEFTopViewCamera::CheckZoom()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -3763,12 +4449,17 @@ void UEFTopViewCamera::ResetInterpolation()
 
 // Function EFGame.EFTPSCamera.SetFixedCameraInterpSpeed
 // (Native, Public)
+// Parameters:
+// float                          speedXY                        (Parm)
+// float                          speedZ                         (Parm)
 
-void UEFTPSCamera::SetFixedCameraInterpSpeed()
+void UEFTPSCamera::SetFixedCameraInterpSpeed(float speedXY, float speedZ)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.SetFixedCameraInterpSpeed");
 
 	UEFTPSCamera_SetFixedCameraInterpSpeed_Params params;
+	params.speedXY = speedXY;
+	params.speedZ = speedZ;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3781,8 +4472,10 @@ void UEFTPSCamera::SetFixedCameraInterpSpeed()
 
 // Function EFGame.EFTPSCamera.IsFixedCameraMode
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFTPSCamera::IsFixedCameraMode()
+bool UEFTPSCamera::IsFixedCameraMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.IsFixedCameraMode");
 
@@ -3794,6 +4487,8 @@ void UEFTPSCamera::IsFixedCameraMode()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -3817,12 +4512,15 @@ void UEFTPSCamera::ResetFixedCamera()
 
 // Function EFGame.EFTPSCamera.SetFixedLookAtPos
 // (Native, Public)
+// Parameters:
+// struct FVector                 InPos                          (Parm)
 
-void UEFTPSCamera::SetFixedLookAtPos()
+void UEFTPSCamera::SetFixedLookAtPos(const struct FVector& InPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.SetFixedLookAtPos");
 
 	UEFTPSCamera_SetFixedLookAtPos_Params params;
+	params.InPos = InPos;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3835,12 +4533,20 @@ void UEFTPSCamera::SetFixedLookAtPos()
 
 // Function EFGame.EFTPSCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFTPSCamera::UpdateCamera()
+void UEFTPSCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.UpdateCamera");
 
 	UEFTPSCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3848,17 +4554,23 @@ void UEFTPSCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFTPSCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFTPSCamera::OnBecomeActive()
+void UEFTPSCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.OnBecomeActive");
 
 	UEFTPSCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -3870,12 +4582,15 @@ void UEFTPSCamera::OnBecomeActive()
 
 // Function EFGame.EFTPSCamera.SetContentsSettingTable
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void UEFTPSCamera::SetContentsSettingTable()
+void UEFTPSCamera::SetContentsSettingTable(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.SetContentsSettingTable");
 
 	UEFTPSCamera_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3888,12 +4603,17 @@ void UEFTPSCamera::SetContentsSettingTable()
 
 // Function EFGame.EFTPSCamera.SetSettingTable
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
 
-void UEFTPSCamera::SetSettingTable()
+void UEFTPSCamera::SetSettingTable(int InTableId, bool InImmediateFlag)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.SetSettingTable");
 
 	UEFTPSCamera_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3906,12 +4626,15 @@ void UEFTPSCamera::SetSettingTable()
 
 // Function EFGame.EFTPSCamera.InActivateSkeletalMeshForceLOD
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InNextCamera                   (Parm)
 
-void UEFTPSCamera::InActivateSkeletalMeshForceLOD()
+void UEFTPSCamera::InActivateSkeletalMeshForceLOD(class UEFCameraBase* InNextCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.InActivateSkeletalMeshForceLOD");
 
 	UEFTPSCamera_InActivateSkeletalMeshForceLOD_Params params;
+	params.InNextCamera = InNextCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3942,12 +4665,15 @@ void UEFTPSCamera::ActivateSkeletalMeshForceLOD()
 
 // Function EFGame.EFTPSCamera.ChangeZoomStep
 // (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
 
-void UEFTPSCamera::ChangeZoomStep()
+void UEFTPSCamera::ChangeZoomStep(int iStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.ChangeZoomStep");
 
 	UEFTPSCamera_ChangeZoomStep_Params params;
+	params.iStep = iStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3960,8 +4686,10 @@ void UEFTPSCamera::ChangeZoomStep()
 
 // Function EFGame.EFTPSCamera.CheckZoom
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFTPSCamera::CheckZoom()
+bool UEFTPSCamera::CheckZoom()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.CheckZoom");
 
@@ -3973,6 +4701,8 @@ void UEFTPSCamera::CheckZoom()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -4032,12 +4762,15 @@ void UEFTPSCamera::ResetInterpolation()
 
 // Function EFGame.EFWatchCamera.SetFixedLookAtPos
 // (Native, Public)
+// Parameters:
+// struct FVector                 InPos                          (Parm)
 
-void UEFWatchCamera::SetFixedLookAtPos()
+void UEFWatchCamera::SetFixedLookAtPos(const struct FVector& InPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFWatchCamera.SetFixedLookAtPos");
 
 	UEFWatchCamera_SetFixedLookAtPos_Params params;
+	params.InPos = InPos;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4050,12 +4783,15 @@ void UEFWatchCamera::SetFixedLookAtPos()
 
 // Function EFGame.EFWatchCamera.SetWatchCameraType
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<EFWatchCameraMode> InType                         (Parm)
 
-void UEFWatchCamera::SetWatchCameraType()
+void UEFWatchCamera::SetWatchCameraType(TEnumAsByte<EFWatchCameraMode> InType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFWatchCamera.SetWatchCameraType");
 
 	UEFWatchCamera_SetWatchCameraType_Params params;
+	params.InType = InType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4068,12 +4804,20 @@ void UEFWatchCamera::SetWatchCameraType()
 
 // Function EFGame.EFWatchCamera.UpdateCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
 
-void UEFWatchCamera::UpdateCamera()
+void UEFWatchCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFWatchCamera.UpdateCamera");
 
 	UEFWatchCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4081,17 +4825,23 @@ void UEFWatchCamera::UpdateCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFWatchCamera.OnBecomeActive
 // (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
 
-void UEFWatchCamera::OnBecomeActive()
+void UEFWatchCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFWatchCamera.OnBecomeActive");
 
 	UEFWatchCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4139,12 +4889,23 @@ void UEFWatchCamera::ZoomIn()
 
 // Function EFGame.EFCameraModifier_CameraShake.AddCameraShakeGame
 // (Defined, HasOptionalParms, Public)
+// Parameters:
+// class UCameraShake*            NewShake                       (Parm)
+// float                          Scale                          (Parm)
+// struct FString                 ShakeType                      (Parm, NeedCtorLink)
+// TEnumAsByte<ECameraAnimPlaySpace> PlaySpace                      (OptionalParm, Parm)
+// struct FRotator                UserPlaySpaceRot               (OptionalParm, Parm)
 
-void UEFCameraModifier_CameraShake::AddCameraShakeGame()
+void UEFCameraModifier_CameraShake::AddCameraShakeGame(class UCameraShake* NewShake, float Scale, const struct FString& ShakeType, TEnumAsByte<ECameraAnimPlaySpace> PlaySpace, const struct FRotator& UserPlaySpaceRot)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.AddCameraShakeGame");
 
 	UEFCameraModifier_CameraShake_AddCameraShakeGame_Params params;
+	params.NewShake = NewShake;
+	params.Scale = Scale;
+	params.ShakeType = ShakeType;
+	params.PlaySpace = PlaySpace;
+	params.UserPlaySpaceRot = UserPlaySpaceRot;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4156,12 +4917,17 @@ void UEFCameraModifier_CameraShake::AddCameraShakeGame()
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveGameCameraShake
 // (Defined, Public)
+// Parameters:
+// class UCameraShake*            Shake                          (Parm)
+// struct FString                 ShakeType                      (Parm, NeedCtorLink)
 
-void UEFCameraModifier_CameraShake::RemoveGameCameraShake()
+void UEFCameraModifier_CameraShake::RemoveGameCameraShake(class UCameraShake* Shake, const struct FString& ShakeType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.RemoveGameCameraShake");
 
 	UEFCameraModifier_CameraShake_RemoveGameCameraShake_Params params;
+	params.Shake = Shake;
+	params.ShakeType = ShakeType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4173,12 +4939,17 @@ void UEFCameraModifier_CameraShake::RemoveGameCameraShake()
 
 // Function EFGame.EFCameraModifier_CameraShake.OnRemoveGameCameraShake
 // (Defined, Event, Public)
+// Parameters:
+// class UCameraShake*            Shake                          (Parm)
+// struct FString                 ShakeType                      (Parm, NeedCtorLink)
 
-void UEFCameraModifier_CameraShake::OnRemoveGameCameraShake()
+void UEFCameraModifier_CameraShake::OnRemoveGameCameraShake(class UCameraShake* Shake, const struct FString& ShakeType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.OnRemoveGameCameraShake");
 
 	UEFCameraModifier_CameraShake_OnRemoveGameCameraShake_Params params;
+	params.Shake = Shake;
+	params.ShakeType = ShakeType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4190,12 +4961,23 @@ void UEFCameraModifier_CameraShake::OnRemoveGameCameraShake()
 
 // Function EFGame.EFCameraModifier_CameraShake.OnAddGameCameraShake
 // (Defined, Event, HasOptionalParms, Public)
+// Parameters:
+// class UCameraShake*            NewShake                       (Parm)
+// float                          Scale                          (Parm)
+// struct FString                 ShakeType                      (Parm, NeedCtorLink)
+// TEnumAsByte<ECameraAnimPlaySpace> PlaySpace                      (OptionalParm, Parm)
+// struct FRotator                UserPlaySpaceRot               (OptionalParm, Parm)
 
-void UEFCameraModifier_CameraShake::OnAddGameCameraShake()
+void UEFCameraModifier_CameraShake::OnAddGameCameraShake(class UCameraShake* NewShake, float Scale, const struct FString& ShakeType, TEnumAsByte<ECameraAnimPlaySpace> PlaySpace, const struct FRotator& UserPlaySpaceRot)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.OnAddGameCameraShake");
 
 	UEFCameraModifier_CameraShake_OnAddGameCameraShake_Params params;
+	params.NewShake = NewShake;
+	params.Scale = Scale;
+	params.ShakeType = ShakeType;
+	params.PlaySpace = PlaySpace;
+	params.UserPlaySpaceRot = UserPlaySpaceRot;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4207,12 +4989,19 @@ void UEFCameraModifier_CameraShake::OnAddGameCameraShake()
 
 // Function EFGame.EFCameraModifier_CameraShake.ModifyCamera
 // (Native, Public, HasOutParms)
+// Parameters:
+// class ACamera*                 Camera                         (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTPOV                   OutPOV                         (Parm, OutParm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraModifier_CameraShake::ModifyCamera()
+bool UEFCameraModifier_CameraShake::ModifyCamera(class ACamera* Camera, float DeltaTime, struct FTPOV* OutPOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.ModifyCamera");
 
 	UEFCameraModifier_CameraShake_ModifyCamera_Params params;
+	params.Camera = Camera;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4220,6 +5009,11 @@ void UEFCameraModifier_CameraShake::ModifyCamera()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutPOV != nullptr)
+		*OutPOV = params.OutPOV;
+
+	return params.ReturnValue;
 }
 
 
@@ -4243,12 +5037,16 @@ void UEFCameraModifier_CameraShake::RemoveAllEFViewShakes()
 
 // Function EFGame.EFCameraModifier_CameraShake.RemoveEFViewShake
 // (Native, Public)
+// Parameters:
+// struct FEFCameraViewShakePlayID InPlayID                       (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraModifier_CameraShake::RemoveEFViewShake()
+bool UEFCameraModifier_CameraShake::RemoveEFViewShake(const struct FEFCameraViewShakePlayID& InPlayID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.RemoveEFViewShake");
 
 	UEFCameraModifier_CameraShake_RemoveEFViewShake_Params params;
+	params.InPlayID = InPlayID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4256,17 +5054,37 @@ void UEFCameraModifier_CameraShake::RemoveEFViewShake()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCameraModifier_CameraShake.AddEFCameraViewShake
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// class UEFCameraViewShake*      InShake                        (Parm)
+// class UEFCameraViewShakeAnim*  InAnim                         (Parm)
+// bool                           InLocalPlayer                  (Parm)
+// float                          InPlayrate                     (OptionalParm, Parm)
+// struct FVector                 InLocation                     (OptionalParm, Parm)
+// class AActor*                  InProvidedActor                (OptionalParm, Parm)
+// TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace                    (OptionalParm, Parm)
+// struct FRotator                InUserPlaySpaceRot             (OptionalParm, Parm)
+// struct FEFCameraViewShakePlayID ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraModifier_CameraShake::AddEFCameraViewShake()
+struct FEFCameraViewShakePlayID UEFCameraModifier_CameraShake::AddEFCameraViewShake(class UEFCameraViewShake* InShake, class UEFCameraViewShakeAnim* InAnim, bool InLocalPlayer, float InPlayrate, const struct FVector& InLocation, class AActor* InProvidedActor, TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace, const struct FRotator& InUserPlaySpaceRot)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraModifier_CameraShake.AddEFCameraViewShake");
 
 	UEFCameraModifier_CameraShake_AddEFCameraViewShake_Params params;
+	params.InShake = InShake;
+	params.InAnim = InAnim;
+	params.InLocalPlayer = InLocalPlayer;
+	params.InPlayrate = InPlayrate;
+	params.InLocation = InLocation;
+	params.InProvidedActor = InProvidedActor;
+	params.InPlaySpace = InPlaySpace;
+	params.InUserPlaySpaceRot = InUserPlaySpaceRot;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4274,6 +5092,8 @@ void UEFCameraModifier_CameraShake::AddEFCameraViewShake()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -4296,12 +5116,20 @@ void UEFCameraModifier_CameraShake::RemoveAllCameraShakes()
 
 // Function EFGame.EFCameraShakePlayGroup.UpdateViewShake
 // (Native, Public, HasOutParms)
+// Parameters:
+// class ACamera*                 InCameraOwner                  (Parm)
+// float                          InDeltaTime                    (Parm)
+// float                          InModifierAlpha                (Parm)
+// struct FTPOV                   OutPOV                         (Parm, OutParm)
 
-void UEFCameraShakePlayGroup::UpdateViewShake()
+void UEFCameraShakePlayGroup::UpdateViewShake(class ACamera* InCameraOwner, float InDeltaTime, float InModifierAlpha, struct FTPOV* OutPOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.UpdateViewShake");
 
 	UEFCameraShakePlayGroup_UpdateViewShake_Params params;
+	params.InCameraOwner = InCameraOwner;
+	params.InDeltaTime = InDeltaTime;
+	params.InModifierAlpha = InModifierAlpha;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4309,17 +5137,27 @@ void UEFCameraShakePlayGroup::UpdateViewShake()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutPOV != nullptr)
+		*OutPOV = params.OutPOV;
 }
 
 
 // Function EFGame.EFCameraShakePlayGroup.PreUpdateViewShake
 // (Native, Public, HasOutParms)
+// Parameters:
+// class ACamera*                 InCameraOwner                  (Parm)
+// struct FVector                 InPlayerLocation               (Const, Parm, OutParm)
+// float                          InDeltaTime                    (Parm)
+// TEnumAsByte<EFShakePlayGroupState> ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraShakePlayGroup::PreUpdateViewShake()
+TEnumAsByte<EFShakePlayGroupState> UEFCameraShakePlayGroup::PreUpdateViewShake(class ACamera* InCameraOwner, float InDeltaTime, struct FVector* InPlayerLocation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.PreUpdateViewShake");
 
 	UEFCameraShakePlayGroup_PreUpdateViewShake_Params params;
+	params.InCameraOwner = InCameraOwner;
+	params.InDeltaTime = InDeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4327,17 +5165,25 @@ void UEFCameraShakePlayGroup::PreUpdateViewShake()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (InPlayerLocation != nullptr)
+		*InPlayerLocation = params.InPlayerLocation;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCameraShakePlayGroup.RemoveAllViewShake
 // (Native, Public)
+// Parameters:
+// class ACamera*                 InCameraOwner                  (Parm)
 
-void UEFCameraShakePlayGroup::RemoveAllViewShake()
+void UEFCameraShakePlayGroup::RemoveAllViewShake(class ACamera* InCameraOwner)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.RemoveAllViewShake");
 
 	UEFCameraShakePlayGroup_RemoveAllViewShake_Params params;
+	params.InCameraOwner = InCameraOwner;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4350,12 +5196,19 @@ void UEFCameraShakePlayGroup::RemoveAllViewShake()
 
 // Function EFGame.EFCameraShakePlayGroup.RemoveViewShake
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// class ACamera*                 InCameraOwner                  (Parm)
+// int                            InShakeID                      (Parm)
+// bool                           InForceStop                    (OptionalParm, Parm)
 
-void UEFCameraShakePlayGroup::RemoveViewShake()
+void UEFCameraShakePlayGroup::RemoveViewShake(class ACamera* InCameraOwner, int InShakeID, bool InForceStop)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.RemoveViewShake");
 
 	UEFCameraShakePlayGroup_RemoveViewShake_Params params;
+	params.InCameraOwner = InCameraOwner;
+	params.InShakeID = InShakeID;
+	params.InForceStop = InForceStop;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4368,12 +5221,30 @@ void UEFCameraShakePlayGroup::RemoveViewShake()
 
 // Function EFGame.EFCameraShakePlayGroup.AddViewShakeInstance
 // (Native, Protected, HasOutParms)
+// Parameters:
+// struct FEFShakeInstance        OutShakeInstance               (Parm, OutParm)
+// class ACamera*                 InCameraOwner                  (Parm)
+// class UEFCameraViewShake*      InShake                        (Parm)
+// class UEFCameraViewShakeAnim*  InAnim                         (Parm)
+// int                            InAmplitudeSize                (Parm)
+// float                          InPlayrate                     (Parm)
+// struct FVector                 InLocation                     (Parm)
+// TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace                    (Parm)
+// struct FRotator                InUserPlaySpaceRot             (Parm)
 
-void UEFCameraShakePlayGroup::AddViewShakeInstance()
+void UEFCameraShakePlayGroup::AddViewShakeInstance(class ACamera* InCameraOwner, class UEFCameraViewShake* InShake, class UEFCameraViewShakeAnim* InAnim, int InAmplitudeSize, float InPlayrate, const struct FVector& InLocation, TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace, const struct FRotator& InUserPlaySpaceRot, struct FEFShakeInstance* OutShakeInstance)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.AddViewShakeInstance");
 
 	UEFCameraShakePlayGroup_AddViewShakeInstance_Params params;
+	params.InCameraOwner = InCameraOwner;
+	params.InShake = InShake;
+	params.InAnim = InAnim;
+	params.InAmplitudeSize = InAmplitudeSize;
+	params.InPlayrate = InPlayrate;
+	params.InLocation = InLocation;
+	params.InPlaySpace = InPlaySpace;
+	params.InUserPlaySpaceRot = InUserPlaySpaceRot;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4381,17 +5252,38 @@ void UEFCameraShakePlayGroup::AddViewShakeInstance()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutShakeInstance != nullptr)
+		*OutShakeInstance = params.OutShakeInstance;
 }
 
 
 // Function EFGame.EFCameraShakePlayGroup.AddViewShake
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// class ACamera*                 InCameraOwner                  (Parm)
+// class UEFCameraViewShake*      InShake                        (Parm)
+// class UEFCameraViewShakeAnim*  InAnim                         (Parm)
+// float                          InPlayrate                     (Parm)
+// struct FVector                 InLocation                     (Parm)
+// class AActor*                  InProvidedActor                (OptionalParm, Parm)
+// TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace                    (OptionalParm, Parm)
+// struct FRotator                InUserPlaySpaceRot             (OptionalParm, Parm)
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraShakePlayGroup::AddViewShake()
+int UEFCameraShakePlayGroup::AddViewShake(class ACamera* InCameraOwner, class UEFCameraViewShake* InShake, class UEFCameraViewShakeAnim* InAnim, float InPlayrate, const struct FVector& InLocation, class AActor* InProvidedActor, TEnumAsByte<ECameraAnimPlaySpace> InPlaySpace, const struct FRotator& InUserPlaySpaceRot)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraShakePlayGroup.AddViewShake");
 
 	UEFCameraShakePlayGroup_AddViewShake_Params params;
+	params.InCameraOwner = InCameraOwner;
+	params.InShake = InShake;
+	params.InAnim = InAnim;
+	params.InPlayrate = InPlayrate;
+	params.InLocation = InLocation;
+	params.InProvidedActor = InProvidedActor;
+	params.InPlaySpace = InPlaySpace;
+	params.InUserPlaySpaceRot = InUserPlaySpaceRot;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4399,13 +5291,17 @@ void UEFCameraShakePlayGroup::AddViewShake()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFCameraViewShake.GetAmplitudeSize
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFCameraViewShake::GetAmplitudeSize()
+int UEFCameraViewShake::GetAmplitudeSize()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraViewShake.GetAmplitudeSize");
 
@@ -4417,34 +5313,46 @@ void UEFCameraViewShake::GetAmplitudeSize()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFInputRotCameraActor.GetCameraView
 // (Defined, Simulated, Public, HasOutParms)
+// Parameters:
+// float                          DeltaTime                      (Parm)
+// struct FTPOV                   OutPOV                         (Parm, OutParm)
 
-void AEFInputRotCameraActor::GetCameraView()
+void AEFInputRotCameraActor::GetCameraView(float DeltaTime, struct FTPOV* OutPOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.GetCameraView");
 
 	AEFInputRotCameraActor_GetCameraView_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutPOV != nullptr)
+		*OutPOV = params.OutPOV;
 }
 
 
 // Function EFGame.EFInputRotCameraActor.EndViewTarget
 // (Defined, Event, Public)
+// Parameters:
+// class APlayerController*       PC                             (Parm)
 
-void AEFInputRotCameraActor::EndViewTarget()
+void AEFInputRotCameraActor::EndViewTarget(class APlayerController* PC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.EndViewTarget");
 
 	AEFInputRotCameraActor_EndViewTarget_Params params;
+	params.PC = PC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4456,12 +5364,15 @@ void AEFInputRotCameraActor::EndViewTarget()
 
 // Function EFGame.EFInputRotCameraActor.BecomeViewTarget
 // (Defined, Event, Public)
+// Parameters:
+// class APlayerController*       PC                             (Parm)
 
-void AEFInputRotCameraActor::BecomeViewTarget()
+void AEFInputRotCameraActor::BecomeViewTarget(class APlayerController* PC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.BecomeViewTarget");
 
 	AEFInputRotCameraActor_BecomeViewTarget_Params params;
+	params.PC = PC;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4473,12 +5384,17 @@ void AEFInputRotCameraActor::BecomeViewTarget()
 
 // Function EFGame.EFInputRotCameraActor.ActivateInputRotMode
 // (Native, Public)
+// Parameters:
+// bool                           InFlag                         (Parm)
+// class APlayerController*       PC                             (Parm)
 
-void AEFInputRotCameraActor::ActivateInputRotMode()
+void AEFInputRotCameraActor::ActivateInputRotMode(bool InFlag, class APlayerController* PC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInputRotCameraActor.ActivateInputRotMode");
 
 	AEFInputRotCameraActor_ActivateInputRotMode_Params params;
+	params.InFlag = InFlag;
+	params.PC = PC;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4509,12 +5425,15 @@ void AEFMacroCameraSplineActor::BreakAllConnections()
 
 // Function EFGame.EFMacroCameraSplineActor.BreakConnectionTo
 // (Native, Public)
+// Parameters:
+// class AEFMacroCameraSplineActor* NextActor                      (Parm)
 
-void AEFMacroCameraSplineActor::BreakConnectionTo()
+void AEFMacroCameraSplineActor::BreakConnectionTo(class AEFMacroCameraSplineActor* NextActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCameraSplineActor.BreakConnectionTo");
 
 	AEFMacroCameraSplineActor_BreakConnectionTo_Params params;
+	params.NextActor = NextActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4527,12 +5446,18 @@ void AEFMacroCameraSplineActor::BreakConnectionTo()
 
 // Function EFGame.EFMacroCameraSplineActor.IsConnectedTo
 // (Native, Public)
+// Parameters:
+// class AEFMacroCameraSplineActor* NextActor                      (Parm)
+// bool                           bCheckForDisableDestination    (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFMacroCameraSplineActor::IsConnectedTo()
+bool AEFMacroCameraSplineActor::IsConnectedTo(class AEFMacroCameraSplineActor* NextActor, bool bCheckForDisableDestination)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCameraSplineActor.IsConnectedTo");
 
 	AEFMacroCameraSplineActor_IsConnectedTo_Params params;
+	params.NextActor = NextActor;
+	params.bCheckForDisableDestination = bCheckForDisableDestination;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4540,17 +5465,22 @@ void AEFMacroCameraSplineActor::IsConnectedTo()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFMacroCameraSplineActor.AddConnectionTo
 // (Native, Public)
+// Parameters:
+// class AEFMacroCameraSplineActor* NextActor                      (Parm)
 
-void AEFMacroCameraSplineActor::AddConnectionTo()
+void AEFMacroCameraSplineActor::AddConnectionTo(class AEFMacroCameraSplineActor* NextActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCameraSplineActor.AddConnectionTo");
 
 	AEFMacroCameraSplineActor_AddConnectionTo_Params params;
+	params.NextActor = NextActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4563,12 +5493,15 @@ void AEFMacroCameraSplineActor::AddConnectionTo()
 
 // Function EFGame.EFMacroCameraSplineActor.UpdateConnectedSplineComponents
 // (Native, Public)
+// Parameters:
+// bool                           bFinish                        (Parm)
 
-void AEFMacroCameraSplineActor::UpdateConnectedSplineComponents()
+void AEFMacroCameraSplineActor::UpdateConnectedSplineComponents(bool bFinish)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMacroCameraSplineActor.UpdateConnectedSplineComponents");
 
 	AEFMacroCameraSplineActor_UpdateConnectedSplineComponents_Params params;
+	params.bFinish = bFinish;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4617,12 +5550,15 @@ void AEFPlayerCamera::LoadOutlineData()
 
 // Function EFGame.EFPlayerCamera.UpdateTranslucentActorBlend
 // (Native, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerCamera::UpdateTranslucentActorBlend()
+void AEFPlayerCamera::UpdateTranslucentActorBlend(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.UpdateTranslucentActorBlend");
 
 	AEFPlayerCamera_UpdateTranslucentActorBlend_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4635,12 +5571,15 @@ void AEFPlayerCamera::UpdateTranslucentActorBlend()
 
 // Function EFGame.EFPlayerCamera.UpdateOccludedActorBlend
 // (Native, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerCamera::UpdateOccludedActorBlend()
+void AEFPlayerCamera::UpdateOccludedActorBlend(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.UpdateOccludedActorBlend");
 
 	AEFPlayerCamera_UpdateOccludedActorBlend_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4653,29 +5592,42 @@ void AEFPlayerCamera::UpdateOccludedActorBlend()
 
 // Function EFGame.EFPlayerCamera.DisplayDebug
 // (Defined, Simulated, Public, HasOutParms)
+// Parameters:
+// class AHUD*                    HUD                            (Parm)
+// float                          out_YL                         (Parm, OutParm)
+// float                          out_YPos                       (Parm, OutParm)
 
-void AEFPlayerCamera::DisplayDebug()
+void AEFPlayerCamera::DisplayDebug(class AHUD* HUD, float* out_YL, float* out_YPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.DisplayDebug");
 
 	AEFPlayerCamera_DisplayDebug_Params params;
+	params.HUD = HUD;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (out_YL != nullptr)
+		*out_YL = params.out_YL;
+	if (out_YPos != nullptr)
+		*out_YPos = params.out_YPos;
 }
 
 
 // Function EFGame.EFPlayerCamera.FOV
 // (Defined, Event, Public)
+// Parameters:
+// float                          NewFOV                         (Parm)
 
-void AEFPlayerCamera::FOV()
+void AEFPlayerCamera::FOV(float NewFOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.FOV");
 
 	AEFPlayerCamera_FOV_Params params;
+	params.NewFOV = NewFOV;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4687,8 +5639,10 @@ void AEFPlayerCamera::FOV()
 
 // Function EFGame.EFPlayerCamera.AdjustViewportFOV
 // (Defined, Public, HasOutParms)
+// Parameters:
+// float                          InOutFOV                       (Parm, OutParm)
 
-void AEFPlayerCamera::AdjustViewportFOV()
+void AEFPlayerCamera::AdjustViewportFOV(float* InOutFOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.AdjustViewportFOV");
 
@@ -4699,6 +5653,9 @@ void AEFPlayerCamera::AdjustViewportFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (InOutFOV != nullptr)
+		*InOutFOV = params.InOutFOV;
 }
 
 
@@ -4721,12 +5678,17 @@ void AEFPlayerCamera::SaveCameraValue()
 
 // Function EFGame.EFPlayerCamera.SetCameraType
 // (Defined, Event, HasOptionalParms, Public)
+// Parameters:
+// int                            InType                         (Parm)
+// bool                           bUpdateValue                   (OptionalParm, Parm)
 
-void AEFPlayerCamera::SetCameraType()
+void AEFPlayerCamera::SetCameraType(int InType, bool bUpdateValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.SetCameraType");
 
 	AEFPlayerCamera_SetCameraType_Params params;
+	params.InType = InType;
+	params.bUpdateValue = bUpdateValue;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4791,29 +5753,39 @@ void AEFPlayerCamera::ZoomIn()
 
 // Function EFGame.EFPlayerCamera.UpdateViewTarget
 // (Defined, Public, HasOutParms)
+// Parameters:
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerCamera::UpdateViewTarget()
+void AEFPlayerCamera::UpdateViewTarget(float DeltaTime, struct FTViewTarget* OutVT)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.UpdateViewTarget");
 
 	AEFPlayerCamera_UpdateViewTarget_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
 }
 
 
 // Function EFGame.EFPlayerCamera.DoUpdateCamera
 // (Defined, Simulated, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerCamera::DoUpdateCamera()
+void AEFPlayerCamera::DoUpdateCamera(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.DoUpdateCamera");
 
 	AEFPlayerCamera_DoUpdateCamera_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
@@ -4825,12 +5797,16 @@ void AEFPlayerCamera::DoUpdateCamera()
 
 // Function EFGame.EFPlayerCamera.ProcessTestInputCameraActor
 // (Final, Native, Public, HasOutParms)
+// Parameters:
+// class ACameraActor*            InCamera                       (Parm)
+// struct FTPOV                   OutPOV                         (Parm, OutParm)
 
-void AEFPlayerCamera::ProcessTestInputCameraActor()
+void AEFPlayerCamera::ProcessTestInputCameraActor(class ACameraActor* InCamera, struct FTPOV* OutPOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ProcessTestInputCameraActor");
 
 	AEFPlayerCamera_ProcessTestInputCameraActor_Params params;
+	params.InCamera = InCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4838,6 +5814,9 @@ void AEFPlayerCamera::ProcessTestInputCameraActor()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutPOV != nullptr)
+		*OutPOV = params.OutPOV;
 }
 
 
@@ -4861,12 +5840,19 @@ void AEFPlayerCamera::RestoreCameraMode()
 
 // Function EFGame.EFPlayerCamera.ChangeCameraMode
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// TEnumAsByte<ECameraStyle>      InEnum                         (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
+// bool                           InBlendCameraMode              (OptionalParm, Parm)
 
-void AEFPlayerCamera::ChangeCameraMode()
+void AEFPlayerCamera::ChangeCameraMode(TEnumAsByte<ECameraStyle> InEnum, bool InImmediateFlag, bool InBlendCameraMode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraMode");
 
 	AEFPlayerCamera_ChangeCameraMode_Params params;
+	params.InEnum = InEnum;
+	params.InImmediateFlag = InImmediateFlag;
+	params.InBlendCameraMode = InBlendCameraMode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4879,12 +5865,15 @@ void AEFPlayerCamera::ChangeCameraMode()
 
 // Function EFGame.EFPlayerCamera.ChangeCameraContentsSetting
 // (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
 
-void AEFPlayerCamera::ChangeCameraContentsSetting()
+void AEFPlayerCamera::ChangeCameraContentsSetting(int InTableId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraContentsSetting");
 
 	AEFPlayerCamera_ChangeCameraContentsSetting_Params params;
+	params.InTableId = InTableId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4897,12 +5886,15 @@ void AEFPlayerCamera::ChangeCameraContentsSetting()
 
 // Function EFGame.EFPlayerCamera.ChangeCameraZoomStep
 // (Native, Public)
+// Parameters:
+// int                            InZoomStep                     (Parm)
 
-void AEFPlayerCamera::ChangeCameraZoomStep()
+void AEFPlayerCamera::ChangeCameraZoomStep(int InZoomStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraZoomStep");
 
 	AEFPlayerCamera_ChangeCameraZoomStep_Params params;
+	params.InZoomStep = InZoomStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4915,12 +5907,19 @@ void AEFPlayerCamera::ChangeCameraZoomStep()
 
 // Function EFGame.EFPlayerCamera.ChangeCameraSetting
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
+// bool                           InBlendCameraMode              (OptionalParm, Parm)
 
-void AEFPlayerCamera::ChangeCameraSetting()
+void AEFPlayerCamera::ChangeCameraSetting(int InTableId, bool InImmediateFlag, bool InBlendCameraMode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ChangeCameraSetting");
 
 	AEFPlayerCamera_ChangeCameraSetting_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
+	params.InBlendCameraMode = InBlendCameraMode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4933,8 +5932,10 @@ void AEFPlayerCamera::ChangeCameraSetting()
 
 // Function EFGame.EFPlayerCamera.ApplyVehicleFOVAngle
 // (Native, Public, HasOutParms)
+// Parameters:
+// float                          OutFOV                         (Parm, OutParm)
 
-void AEFPlayerCamera::ApplyVehicleFOVAngle()
+void AEFPlayerCamera::ApplyVehicleFOVAngle(float* OutFOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ApplyVehicleFOVAngle");
 
@@ -4946,17 +5947,23 @@ void AEFPlayerCamera::ApplyVehicleFOVAngle()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutFOV != nullptr)
+		*OutFOV = params.OutFOV;
 }
 
 
 // Function EFGame.EFPlayerCamera.SetVehicleFOVAngle
 // (Native, Public)
+// Parameters:
+// float                          InFOV                          (Parm)
 
-void AEFPlayerCamera::SetVehicleFOVAngle()
+void AEFPlayerCamera::SetVehicleFOVAngle(float InFOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.SetVehicleFOVAngle");
 
 	AEFPlayerCamera_SetVehicleFOVAngle_Params params;
+	params.InFOV = InFOV;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4987,12 +5994,15 @@ void AEFPlayerCamera::ApplyCamOverrideFogSetting()
 
 // Function EFGame.EFPlayerCamera.ProcessTargetCameraActorBlend
 // (Native, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void AEFPlayerCamera::ProcessTargetCameraActorBlend()
+void AEFPlayerCamera::ProcessTargetCameraActorBlend(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ProcessTargetCameraActorBlend");
 
 	AEFPlayerCamera_ProcessTargetCameraActorBlend_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5023,25 +6033,33 @@ void AEFPlayerCamera::ResetAttachCameraActor()
 
 // Function EFGame.EFPlayerCamera.FindBestCameraType
 // (Defined, Protected)
+// Parameters:
+// class AActor*                  CameraTarget                   (Parm)
+// class UEFCameraBase*           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerCamera::FindBestCameraType()
+class UEFCameraBase* AEFPlayerCamera::FindBestCameraType(class AActor* CameraTarget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.FindBestCameraType");
 
 	AEFPlayerCamera_FindBestCameraType_Params params;
+	params.CameraTarget = CameraTarget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerCamera.GetCurrentCameraMode
 // (Native, Public)
+// Parameters:
+// class UEFCameraBase*           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerCamera::GetCurrentCameraMode()
+class UEFCameraBase* AEFPlayerCamera::GetCurrentCameraMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.GetCurrentCameraMode");
 
@@ -5053,23 +6071,31 @@ void AEFPlayerCamera::GetCurrentCameraMode()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerCamera.CreateCamera
 // (Defined, Protected)
+// Parameters:
+// class UClass*                  CameraClass                    (Parm)
+// class UEFCameraBase*           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerCamera::CreateCamera()
+class UEFCameraBase* AEFPlayerCamera::CreateCamera(class UClass* CameraClass)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.CreateCamera");
 
 	AEFPlayerCamera_CreateCamera_Params params;
+	params.CameraClass = CameraClass;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -5092,8 +6118,10 @@ void AEFPlayerCamera::PostBeginPlay()
 
 // Function EFGame.EFPlayerCamera.GetFOV
 // (Defined, Event, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerCamera::GetFOV()
+float AEFPlayerCamera::GetFOV()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.GetFOV");
 
@@ -5104,13 +6132,17 @@ void AEFPlayerCamera::GetFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPlayerCamera.GetCameraDistance
 // (Defined, Event, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPlayerCamera::GetCameraDistance()
+float AEFPlayerCamera::GetCameraDistance()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.GetCameraDistance");
 
@@ -5121,6 +6153,8 @@ void AEFPlayerCamera::GetCameraDistance()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -5143,8 +6177,10 @@ void AEFPlayerCamera::Destroyed()
 
 // Function EFGame.EFPlayerCamera.CalcVerticalFOV
 // (Final, Native, Public, HasOutParms)
+// Parameters:
+// float                          OutFOV                         (Parm, OutParm)
 
-void AEFPlayerCamera::CalcVerticalFOV()
+void AEFPlayerCamera::CalcVerticalFOV(float* OutFOV)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.CalcVerticalFOV");
 
@@ -5156,6 +6192,9 @@ void AEFPlayerCamera::CalcVerticalFOV()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (OutFOV != nullptr)
+		*OutFOV = params.OutFOV;
 }
 
 
@@ -5195,12 +6234,15 @@ void AEFEmitter::PostBeginPlay()
 
 // Function EFGame.EFEnvironmentActionEmitter.ClearExtendPool
 // (Simulated, Native, Public)
+// Parameters:
+// class UParticleSystemComponent* PSC                            (Parm, EditInline)
 
-void AEFEnvironmentActionEmitter::ClearExtendPool()
+void AEFEnvironmentActionEmitter::ClearExtendPool(class UParticleSystemComponent* PSC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentActionEmitter.ClearExtendPool");
 
 	AEFEnvironmentActionEmitter_ClearExtendPool_Params params;
+	params.PSC = PSC;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5213,12 +6255,15 @@ void AEFEnvironmentActionEmitter::ClearExtendPool()
 
 // Function EFGame.EFEnvironmentActionEmitter.OnParticleSystemFinished
 // (Simulated, Native, Public)
+// Parameters:
+// class UParticleSystemComponent* FinishedComponent              (Parm, EditInline)
 
-void AEFEnvironmentActionEmitter::OnParticleSystemFinished()
+void AEFEnvironmentActionEmitter::OnParticleSystemFinished(class UParticleSystemComponent* FinishedComponent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentActionEmitter.OnParticleSystemFinished");
 
 	AEFEnvironmentActionEmitter_OnParticleSystemFinished_Params params;
+	params.FinishedComponent = FinishedComponent;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5231,12 +6276,15 @@ void AEFEnvironmentActionEmitter::OnParticleSystemFinished()
 
 // Function EFGame.EFSpawnedEmitter.HideBecauseFinished
 // (Final, Defined, Public)
+// Parameters:
+// class UParticleSystemComponent* FinishedComponent              (Parm, EditInline)
 
-void AEFSpawnedEmitter::HideBecauseFinished()
+void AEFSpawnedEmitter::HideBecauseFinished(class UParticleSystemComponent* FinishedComponent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSpawnedEmitter.HideBecauseFinished");
 
 	AEFSpawnedEmitter_HideBecauseFinished_Params params;
+	params.FinishedComponent = FinishedComponent;
 
 	auto flags = fn->FunctionFlags;
 
@@ -5248,12 +6296,15 @@ void AEFSpawnedEmitter::HideBecauseFinished()
 
 // Function EFGame.EFSpawnedEmitter.ClearExtendPool
 // (Simulated, Native, Public)
+// Parameters:
+// class UParticleSystemComponent* PSC                            (Parm, EditInline)
 
-void AEFSpawnedEmitter::ClearExtendPool()
+void AEFSpawnedEmitter::ClearExtendPool(class UParticleSystemComponent* PSC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSpawnedEmitter.ClearExtendPool");
 
 	AEFSpawnedEmitter_ClearExtendPool_Params params;
+	params.PSC = PSC;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5266,12 +6317,15 @@ void AEFSpawnedEmitter::ClearExtendPool()
 
 // Function EFGame.EFSpawnedEmitter.OnParticleSystemFinished
 // (Simulated, Native, Public)
+// Parameters:
+// class UParticleSystemComponent* FinishedComponent              (Parm, EditInline)
 
-void AEFSpawnedEmitter::OnParticleSystemFinished()
+void AEFSpawnedEmitter::OnParticleSystemFinished(class UParticleSystemComponent* FinishedComponent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSpawnedEmitter.OnParticleSystemFinished");
 
 	AEFSpawnedEmitter_OnParticleSystemFinished_Params params;
+	params.FinishedComponent = FinishedComponent;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5284,12 +6338,15 @@ void AEFSpawnedEmitter::OnParticleSystemFinished()
 
 // Function EFGame.EFEmitterPool.ClearPoolPSInfoComponents
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// bool                           bClearActive                   (OptionalParm, Parm)
 
-void AEFEmitterPool::ClearPoolPSInfoComponents()
+void AEFEmitterPool::ClearPoolPSInfoComponents(bool bClearActive)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEmitterPool.ClearPoolPSInfoComponents");
 
 	AEFEmitterPool_ClearPoolPSInfoComponents_Params params;
+	params.bClearActive = bClearActive;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5302,12 +6359,15 @@ void AEFEmitterPool::ClearPoolPSInfoComponents()
 
 // Function EFGame.EFEmitterPool.OnPSInfoFinished
 // (Native, Public)
+// Parameters:
+// class UParticleSystemComponent* PSC                            (Parm, EditInline)
 
-void AEFEmitterPool::OnPSInfoFinished()
+void AEFEmitterPool::OnPSInfoFinished(class UParticleSystemComponent* PSC)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEmitterPool.OnPSInfoFinished");
 
 	AEFEmitterPool_OnPSInfoFinished_Params params;
+	params.PSC = PSC;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5338,8 +6398,10 @@ void AEFEmitterPool::ClearExtendPool()
 
 // Function EFGame.EFPickingEmitter.IsActivateEffect
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPickingEmitter::IsActivateEffect()
+bool AEFPickingEmitter::IsActivateEffect()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.IsActivateEffect");
 
@@ -5351,17 +6413,22 @@ void AEFPickingEmitter::IsActivateEffect()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFPickingEmitter.DeactivateEffect
 // (Native, Public)
+// Parameters:
+// bool                           bForceKill                     (Parm)
 
-void AEFPickingEmitter::DeactivateEffect()
+void AEFPickingEmitter::DeactivateEffect(bool bForceKill)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.DeactivateEffect");
 
 	AEFPickingEmitter_DeactivateEffect_Params params;
+	params.bForceKill = bForceKill;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5374,12 +6441,15 @@ void AEFPickingEmitter::DeactivateEffect()
 
 // Function EFGame.EFPickingEmitter.ActivateEffect
 // (Native, Public)
+// Parameters:
+// class AActor*                  BaseActor                      (Parm)
 
-void AEFPickingEmitter::ActivateEffect()
+void AEFPickingEmitter::ActivateEffect(class AActor* BaseActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.ActivateEffect");
 
 	AEFPickingEmitter_ActivateEffect_Params params;
+	params.BaseActor = BaseActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5392,12 +6462,15 @@ void AEFPickingEmitter::ActivateEffect()
 
 // Function EFGame.EFPickingEmitter.OnParticleSystemFinished
 // (Defined, Simulated, Public)
+// Parameters:
+// class UParticleSystemComponent* FinishedComponent              (Parm, EditInline)
 
-void AEFPickingEmitter::OnParticleSystemFinished()
+void AEFPickingEmitter::OnParticleSystemFinished(class UParticleSystemComponent* FinishedComponent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPickingEmitter.OnParticleSystemFinished");
 
 	AEFPickingEmitter_OnParticleSystemFinished_Params params;
+	params.FinishedComponent = FinishedComponent;
 
 	auto flags = fn->FunctionFlags;
 
@@ -5409,18 +6482,24 @@ void AEFPickingEmitter::OnParticleSystemFinished()
 
 // Function EFGame.EFSeqAct_NPCController.Update
 // (Defined, Event, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFSeqAct_NPCController::Update()
+bool UEFSeqAct_NPCController::Update(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.Update");
 
 	UEFSeqAct_NPCController_Update_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -5461,12 +6540,15 @@ void UEFSeqAct_NPCController::BackupMainMovingState()
 
 // Function EFGame.EFSeqAct_NPCController.SetEventMoveCompleteProcess
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<EUNM_SNPC_workCompletedState> swState                        (Parm)
 
-void UEFSeqAct_NPCController::SetEventMoveCompleteProcess()
+void UEFSeqAct_NPCController::SetEventMoveCompleteProcess(TEnumAsByte<EUNM_SNPC_workCompletedState> swState)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.SetEventMoveCompleteProcess");
 
 	UEFSeqAct_NPCController_SetEventMoveCompleteProcess_Params params;
+	params.swState = swState;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5479,12 +6561,15 @@ void UEFSeqAct_NPCController::SetEventMoveCompleteProcess()
 
 // Function EFGame.EFSeqAct_NPCController.SetMoving
 // (Native, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void UEFSeqAct_NPCController::SetMoving()
+void UEFSeqAct_NPCController::SetMoving(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.SetMoving");
 
 	UEFSeqAct_NPCController_SetMoving_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5497,12 +6582,15 @@ void UEFSeqAct_NPCController::SetMoving()
 
 // Function EFGame.EFSeqAct_NPCController.SettingReady
 // (Native, Public)
+// Parameters:
+// struct FSNPC_MovingState       CData                          (Parm, NeedCtorLink)
 
-void UEFSeqAct_NPCController::SettingReady()
+void UEFSeqAct_NPCController::SettingReady(const struct FSNPC_MovingState& CData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.SettingReady");
 
 	UEFSeqAct_NPCController_SettingReady_Params params;
+	params.CData = CData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5515,12 +6603,21 @@ void UEFSeqAct_NPCController::SettingReady()
 
 // Function EFGame.EFSeqAct_NPCController.setPlayWaitAnimation
 // (Native, Public)
+// Parameters:
+// struct FString                 aniName                        (Parm, NeedCtorLink)
+// bool                           isLoop                         (Parm)
+// float                          BlendTime                      (Parm)
+// bool                           isRandomStart                  (Parm)
 
-void UEFSeqAct_NPCController::setPlayWaitAnimation()
+void UEFSeqAct_NPCController::setPlayWaitAnimation(const struct FString& aniName, bool isLoop, float BlendTime, bool isRandomStart)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.setPlayWaitAnimation");
 
 	UEFSeqAct_NPCController_setPlayWaitAnimation_Params params;
+	params.aniName = aniName;
+	params.isLoop = isLoop;
+	params.BlendTime = BlendTime;
+	params.isRandomStart = isRandomStart;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5533,12 +6630,21 @@ void UEFSeqAct_NPCController::setPlayWaitAnimation()
 
 // Function EFGame.EFSeqAct_NPCController.setPlayAnimation
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<ENUM_SNPC_PlayAnimationName> aniEnumName                    (Parm)
+// bool                           isLoop                         (Parm)
+// float                          BlendTime                      (Parm)
+// bool                           isRandomStart                  (Parm)
 
-void UEFSeqAct_NPCController::setPlayAnimation()
+void UEFSeqAct_NPCController::setPlayAnimation(TEnumAsByte<ENUM_SNPC_PlayAnimationName> aniEnumName, bool isLoop, float BlendTime, bool isRandomStart)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.setPlayAnimation");
 
 	UEFSeqAct_NPCController_setPlayAnimation_Params params;
+	params.aniEnumName = aniEnumName;
+	params.isLoop = isLoop;
+	params.BlendTime = BlendTime;
+	params.isRandomStart = isRandomStart;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5551,12 +6657,18 @@ void UEFSeqAct_NPCController::setPlayAnimation()
 
 // Function EFGame.EFSeqAct_NPCController.GetAnimationName
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<ENUM_SNPC_PlayAnimationName> typAnim                        (Parm)
+// bool                           isSet                          (Parm)
+// struct FName                   ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFSeqAct_NPCController::GetAnimationName()
+struct FName UEFSeqAct_NPCController::GetAnimationName(TEnumAsByte<ENUM_SNPC_PlayAnimationName> typAnim, bool isSet)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_NPCController.GetAnimationName");
 
 	UEFSeqAct_NPCController_GetAnimationName_Params params;
+	params.typAnim = typAnim;
+	params.isSet = isSet;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5564,6 +6676,8 @@ void UEFSeqAct_NPCController::GetAnimationName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -5587,12 +6701,15 @@ void UEFSeqAct_NPCController::initial()
 
 // Function EFGame.EFEnvironmentInfoVolume.UnTouch
 // (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
 
-void AEFEnvironmentInfoVolume::UnTouch()
+void AEFEnvironmentInfoVolume::UnTouch(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.UnTouch");
 
 	AEFEnvironmentInfoVolume_UnTouch_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5605,12 +6722,21 @@ void AEFEnvironmentInfoVolume::UnTouch()
 
 // Function EFGame.EFEnvironmentInfoVolume.Touch
 // (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
 
-void AEFEnvironmentInfoVolume::Touch()
+void AEFEnvironmentInfoVolume::Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.Touch");
 
 	AEFEnvironmentInfoVolume_Touch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5623,12 +6749,19 @@ void AEFEnvironmentInfoVolume::Touch()
 
 // Function EFGame.EFEnvironmentInfoVolume.UpdateEnvironment
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// float                          InAlpha                        (Parm)
+// bool                           bUpdateComponent               (OptionalParm, Parm)
+// bool                           bIgnoreOverride                (OptionalParm, Parm)
 
-void AEFEnvironmentInfoVolume::UpdateEnvironment()
+void AEFEnvironmentInfoVolume::UpdateEnvironment(float InAlpha, bool bUpdateComponent, bool bIgnoreOverride)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.UpdateEnvironment");
 
 	AEFEnvironmentInfoVolume_UpdateEnvironment_Params params;
+	params.InAlpha = InAlpha;
+	params.bUpdateComponent = bUpdateComponent;
+	params.bIgnoreOverride = bIgnoreOverride;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5641,12 +6774,15 @@ void AEFEnvironmentInfoVolume::UpdateEnvironment()
 
 // Function EFGame.EFEnvironmentInfoVolume.OnToggle
 // (Defined, Simulated, Public)
+// Parameters:
+// class USeqAct_Toggle*          Action                         (Parm)
 
-void AEFEnvironmentInfoVolume::OnToggle()
+void AEFEnvironmentInfoVolume::OnToggle(class USeqAct_Toggle* Action)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFEnvironmentInfoVolume.OnToggle");
 
 	AEFEnvironmentInfoVolume_OnToggle_Params params;
+	params.Action = Action;
 
 	auto flags = fn->FunctionFlags;
 
@@ -5658,46 +6794,63 @@ void AEFEnvironmentInfoVolume::OnToggle()
 
 // Function EFGame.EFPathBlockingVolume.StopsProjectile
 // (Defined, Simulated, Public)
+// Parameters:
+// class AProjectile*             P                              (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFPathBlockingVolume::StopsProjectile()
+bool AEFPathBlockingVolume::StopsProjectile(class AProjectile* P)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPathBlockingVolume.StopsProjectile");
 
 	AEFPathBlockingVolume_StopsProjectile_Params params;
+	params.P = P;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMoviePlayer.GetStringINI
 // (Defined, Public)
+// Parameters:
+// struct FString                 Type                           (Parm, NeedCtorLink)
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFGFxMoviePlayer::GetStringINI()
+struct FString UEFGFxMoviePlayer::GetStringINI(const struct FString& Type)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.GetStringINI");
 
 	UEFGFxMoviePlayer_GetStringINI_Params params;
+	params.Type = Type;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMoviePlayer.SetStringINI
 // (Defined, Public, HasDefaults)
+// Parameters:
+// struct FString                 Type                           (Parm, NeedCtorLink)
+// struct FString                 Value                          (Parm, NeedCtorLink)
 
-void UEFGFxMoviePlayer::SetStringINI()
+void UEFGFxMoviePlayer::SetStringINI(const struct FString& Type, const struct FString& Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.SetStringINI");
 
 	UEFGFxMoviePlayer_SetStringINI_Params params;
+	params.Type = Type;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 
@@ -5709,12 +6862,18 @@ void UEFGFxMoviePlayer::SetStringINI()
 
 // Function EFGame.EFGFxMoviePlayer.CreateArrayEx
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// struct FString                 SourceFile                     (OptionalParm, Parm, NeedCtorLink)
+// int                            SourceLine                     (OptionalParm, Parm)
+// class UGFxObject*              ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMoviePlayer::CreateArrayEx()
+class UGFxObject* UEFGFxMoviePlayer::CreateArrayEx(const struct FString& SourceFile, int SourceLine)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.CreateArrayEx");
 
 	UEFGFxMoviePlayer_CreateArrayEx_Params params;
+	params.SourceFile = SourceFile;
+	params.SourceLine = SourceLine;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5722,17 +6881,31 @@ void UEFGFxMoviePlayer::CreateArrayEx()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMoviePlayer.CreateObjectEx
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// struct FString                 ASClass                        (Parm, NeedCtorLink)
+// class UClass*                  Type                           (OptionalParm, Parm)
+// TArray<struct FASValue>        args                           (OptionalParm, Parm, NeedCtorLink)
+// struct FString                 SourceFile                     (OptionalParm, Parm, NeedCtorLink)
+// int                            SourceLine                     (OptionalParm, Parm)
+// class UGFxObject*              ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMoviePlayer::CreateObjectEx()
+class UGFxObject* UEFGFxMoviePlayer::CreateObjectEx(const struct FString& ASClass, class UClass* Type, TArray<struct FASValue> args, const struct FString& SourceFile, int SourceLine)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.CreateObjectEx");
 
 	UEFGFxMoviePlayer_CreateObjectEx_Params params;
+	params.ASClass = ASClass;
+	params.Type = Type;
+	params.args = args;
+	params.SourceFile = SourceFile;
+	params.SourceLine = SourceLine;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5740,17 +6913,22 @@ void UEFGFxMoviePlayer::CreateObjectEx()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMoviePlayer.PostAdvance
 // (Native, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void UEFGFxMoviePlayer::PostAdvance()
+void UEFGFxMoviePlayer::PostAdvance(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.PostAdvance");
 
 	UEFGFxMoviePlayer_PostAdvance_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5763,63 +6941,93 @@ void UEFGFxMoviePlayer::PostAdvance()
 
 // Function EFGame.EFGFxMoviePlayer.WidgetUnloaded
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMoviePlayer::WidgetUnloaded()
+bool UEFGFxMoviePlayer::WidgetUnloaded(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.WidgetUnloaded");
 
 	UEFGFxMoviePlayer_WidgetUnloaded_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMoviePlayer.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMoviePlayer::WidgetInitialized()
+bool UEFGFxMoviePlayer::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMoviePlayer.WidgetInitialized");
 
 	UEFGFxMoviePlayer_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxEditorMoviePlayer.Start
 // (Defined, HasOptionalParms, Public)
+// Parameters:
+// bool                           StartPaused                    (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxEditorMoviePlayer::Start()
+bool UEFGFxEditorMoviePlayer::Start(bool StartPaused)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxEditorMoviePlayer.Start");
 
 	UEFGFxEditorMoviePlayer_Start_Params params;
+	params.StartPaused = StartPaused;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidget.GetExternalTexture
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Resource                       (Parm, NeedCtorLink)
+// class UTexture*                ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidget::GetExternalTexture()
+class UTexture* UEFGFxMovieWidget::GetExternalTexture(const struct FString& Resource)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.GetExternalTexture");
 
 	UEFGFxMovieWidget_GetExternalTexture_Params params;
+	params.Resource = Resource;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5827,17 +7035,23 @@ void UEFGFxMovieWidget::GetExternalTexture()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidget.HasGFxObjectBinding
 // (Final, Native, Public)
+// Parameters:
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidget::HasGFxObjectBinding()
+bool UEFGFxMovieWidget::HasGFxObjectBinding(class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.HasGFxObjectBinding");
 
 	UEFGFxMovieWidget_HasGFxObjectBinding_Params params;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5845,17 +7059,23 @@ void UEFGFxMovieWidget::HasGFxObjectBinding()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidget.DelGFxObjectBinding
 // (Final, Native, Public)
+// Parameters:
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidget::DelGFxObjectBinding()
+bool UEFGFxMovieWidget::DelGFxObjectBinding(class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.DelGFxObjectBinding");
 
 	UEFGFxMovieWidget_DelGFxObjectBinding_Params params;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5863,17 +7083,23 @@ void UEFGFxMovieWidget::DelGFxObjectBinding()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidget.AddGFxObjectBinding
 // (Final, Native, Public)
+// Parameters:
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidget::AddGFxObjectBinding()
+bool UEFGFxMovieWidget::AddGFxObjectBinding(class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.AddGFxObjectBinding");
 
 	UEFGFxMovieWidget_AddGFxObjectBinding_Params params;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5881,17 +7107,22 @@ void UEFGFxMovieWidget::AddGFxObjectBinding()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidget.SetVisible
 // (Final, Native, Public)
+// Parameters:
+// bool                           bVisible                       (Parm)
 
-void UEFGFxMovieWidget::SetVisible()
+void UEFGFxMovieWidget::SetVisible(bool bVisible)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.SetVisible");
 
 	UEFGFxMovieWidget_SetVisible_Params params;
+	params.bVisible = bVisible;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5940,12 +7171,16 @@ void UEFGFxMovieWidget::PostWidgetInit()
 
 // Function EFGame.EFGFxMovieWidget.Start
 // (Native, Event, HasOptionalParms, Public)
+// Parameters:
+// bool                           StartPaused                    (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidget::Start()
+bool UEFGFxMovieWidget::Start(bool StartPaused)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidget.Start");
 
 	UEFGFxMovieWidget_Start_Params params;
+	params.StartPaused = StartPaused;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5953,17 +7188,26 @@ void UEFGFxMovieWidget::Start()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidgetMain.ActivateFrame
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              FrameObject                    (Parm)
+// bool                           ActivateWhenShow               (Parm)
+// bool                           OnlyModal                      (Parm)
 
-void UEFGFxMovieWidgetMain::ActivateFrame()
+void UEFGFxMovieWidgetMain::ActivateFrame(class UGFxObject* FrameObject, bool ActivateWhenShow, bool OnlyModal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ActivateFrame");
 
 	UEFGFxMovieWidgetMain_ActivateFrame_Params params;
+	params.FrameObject = FrameObject;
+	params.ActivateWhenShow = ActivateWhenShow;
+	params.OnlyModal = OnlyModal;
 
 	auto flags = fn->FunctionFlags;
 
@@ -5975,12 +7219,15 @@ void UEFGFxMovieWidgetMain::ActivateFrame()
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseDoubleClick
 // (Native, Public)
+// Parameters:
+// class UEFUISlot*               SlotObj                        (Parm)
 
-void UEFGFxMovieWidgetMain::ARKSlotMouseDoubleClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseDoubleClick(class UEFUISlot* SlotObj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseDoubleClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseDoubleClick_Params params;
+	params.SlotObj = SlotObj;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5993,12 +7240,15 @@ void UEFGFxMovieWidgetMain::ARKSlotMouseDoubleClick()
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseRightClick
 // (Native, Public)
+// Parameters:
+// class UEFUISlot*               SlotObj                        (Parm)
 
-void UEFGFxMovieWidgetMain::ARKSlotMouseRightClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseRightClick(class UEFUISlot* SlotObj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseRightClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseRightClick_Params params;
+	params.SlotObj = SlotObj;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6011,12 +7261,15 @@ void UEFGFxMovieWidgetMain::ARKSlotMouseRightClick()
 
 // Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseLeftClick
 // (Native, Public)
+// Parameters:
+// class UEFUISlot*               SlotObj                        (Parm)
 
-void UEFGFxMovieWidgetMain::ARKSlotMouseLeftClick()
+void UEFGFxMovieWidgetMain::ARKSlotMouseLeftClick(class UEFUISlot* SlotObj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ARKSlotMouseLeftClick");
 
 	UEFGFxMovieWidgetMain_ARKSlotMouseLeftClick_Params params;
+	params.SlotObj = SlotObj;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6029,12 +7282,15 @@ void UEFGFxMovieWidgetMain::ARKSlotMouseLeftClick()
 
 // Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByName
 // (Final, Native, Public)
+// Parameters:
+// struct FName                   WidgetPath                     (Parm)
 
-void UEFGFxMovieWidgetMain::ClearBindWidgetByName()
+void UEFGFxMovieWidgetMain::ClearBindWidgetByName(const struct FName& WidgetPath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByName");
 
 	UEFGFxMovieWidgetMain_ClearBindWidgetByName_Params params;
+	params.WidgetPath = WidgetPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6047,12 +7303,15 @@ void UEFGFxMovieWidgetMain::ClearBindWidgetByName()
 
 // Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByWidget
 // (Final, Native, Public)
+// Parameters:
+// class UGFxObject*              Widget                         (Parm)
 
-void UEFGFxMovieWidgetMain::ClearBindWidgetByWidget()
+void UEFGFxMovieWidgetMain::ClearBindWidgetByWidget(class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.ClearBindWidgetByWidget");
 
 	UEFGFxMovieWidgetMain_ClearBindWidgetByWidget_Params params;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6065,69 +7324,109 @@ void UEFGFxMovieWidgetMain::ClearBindWidgetByWidget()
 
 // Function EFGame.EFGFxMovieWidgetMain.UnBindWidget
 // (Defined, Simulated, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidgetMain::UnBindWidget()
+bool UEFGFxMovieWidgetMain::UnBindWidget(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.UnBindWidget");
 
 	UEFGFxMovieWidgetMain_UnBindWidget_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidgetMain.BindWidget
 // (Defined, Simulated, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidgetMain::BindWidget()
+bool UEFGFxMovieWidgetMain::BindWidget(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.BindWidget");
 
 	UEFGFxMovieWidgetMain_BindWidget_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidgetMain.WidgetUnloaded
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidgetMain::WidgetUnloaded()
+bool UEFGFxMovieWidgetMain::WidgetUnloaded(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.WidgetUnloaded");
 
 	UEFGFxMovieWidgetMain_WidgetUnloaded_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxMovieWidgetMain.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxMovieWidgetMain::WidgetInitialized()
+bool UEFGFxMovieWidgetMain::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxMovieWidgetMain.WidgetInitialized");
 
 	UEFGFxMovieWidgetMain_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -6169,12 +7468,15 @@ void UEFUIComponent::InvalidateData()
 
 // Function EFGame.EFUIComponent.Invalidate
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Keyword                        (Parm, NeedCtorLink)
 
-void UEFUIComponent::Invalidate()
+void UEFUIComponent::Invalidate(const struct FString& Keyword)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.Invalidate");
 
 	UEFUIComponent_Invalidate_Params params;
+	params.Keyword = Keyword;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6205,8 +7507,10 @@ void UEFUIComponent::ValidateNow()
 
 // Function EFGame.EFUIComponent.HasFocus
 // (Final, Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::HasFocus()
+bool UEFUIComponent::HasFocus()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.HasFocus");
 
@@ -6218,13 +7522,17 @@ void UEFUIComponent::HasFocus()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.GetY
 // (Final, Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetY()
+float UEFUIComponent::GetY()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetY");
 
@@ -6236,17 +7544,22 @@ void UEFUIComponent::GetY()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetY
 // (Final, Native, Public)
+// Parameters:
+// float                          Y                              (Parm)
 
-void UEFUIComponent::SetY()
+void UEFUIComponent::SetY(float Y)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetY");
 
 	UEFUIComponent_SetY_Params params;
+	params.Y = Y;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6259,8 +7572,10 @@ void UEFUIComponent::SetY()
 
 // Function EFGame.EFUIComponent.GetX
 // (Final, Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetX()
+float UEFUIComponent::GetX()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetX");
 
@@ -6272,17 +7587,22 @@ void UEFUIComponent::GetX()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetX
 // (Final, Native, Public)
+// Parameters:
+// float                          X                              (Parm)
 
-void UEFUIComponent::SetX()
+void UEFUIComponent::SetX(float X)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetX");
 
 	UEFUIComponent_SetX_Params params;
+	params.X = X;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6295,8 +7615,10 @@ void UEFUIComponent::SetX()
 
 // Function EFGame.EFUIComponent.GetHeight
 // (Final, Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetHeight()
+float UEFUIComponent::GetHeight()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetHeight");
 
@@ -6308,17 +7630,22 @@ void UEFUIComponent::GetHeight()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetHeight
 // (Final, Native, Public)
+// Parameters:
+// float                          Height                         (Parm)
 
-void UEFUIComponent::SetHeight()
+void UEFUIComponent::SetHeight(float Height)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetHeight");
 
 	UEFUIComponent_SetHeight_Params params;
+	params.Height = Height;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6331,8 +7658,10 @@ void UEFUIComponent::SetHeight()
 
 // Function EFGame.EFUIComponent.GetWidth
 // (Final, Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetWidth()
+float UEFUIComponent::GetWidth()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetWidth");
 
@@ -6344,17 +7673,22 @@ void UEFUIComponent::GetWidth()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetWidth
 // (Final, Native, Public)
+// Parameters:
+// float                          Width                          (Parm)
 
-void UEFUIComponent::SetWidth()
+void UEFUIComponent::SetWidth(float Width)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetWidth");
 
 	UEFUIComponent_SetWidth_Params params;
+	params.Width = Width;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6367,8 +7701,10 @@ void UEFUIComponent::SetWidth()
 
 // Function EFGame.EFUIComponent.GetEnabled
 // (Final, Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetEnabled()
+bool UEFUIComponent::GetEnabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetEnabled");
 
@@ -6380,17 +7716,22 @@ void UEFUIComponent::GetEnabled()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetEnabled
 // (Final, Native, Public)
+// Parameters:
+// bool                           Enabled                        (Parm)
 
-void UEFUIComponent::SetEnabled()
+void UEFUIComponent::SetEnabled(bool Enabled)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetEnabled");
 
 	UEFUIComponent_SetEnabled_Params params;
+	params.Enabled = Enabled;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6403,8 +7744,10 @@ void UEFUIComponent::SetEnabled()
 
 // Function EFGame.EFUIComponent.GetVisible
 // (Final, Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::GetVisible()
+bool UEFUIComponent::GetVisible()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetVisible");
 
@@ -6416,17 +7759,22 @@ void UEFUIComponent::GetVisible()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetVisible
 // (Native, Public)
+// Parameters:
+// bool                           Visible                        (Parm)
 
-void UEFUIComponent::SetVisible()
+void UEFUIComponent::SetVisible(bool Visible)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetVisible");
 
 	UEFUIComponent_SetVisible_Params params;
+	params.Visible = Visible;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6439,8 +7787,10 @@ void UEFUIComponent::SetVisible()
 
 // Function EFGame.EFUIComponent.GetName
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIComponent::GetName()
+struct FString UEFUIComponent::GetName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.GetName");
 
@@ -6452,17 +7802,22 @@ void UEFUIComponent::GetName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIComponent.SetName
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 strName                        (Parm, NeedCtorLink)
 
-void UEFUIComponent::SetName()
+void UEFUIComponent::SetName(const struct FString& strName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.SetName");
 
 	UEFUIComponent_SetName_Params params;
+	params.strName = strName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6475,29 +7830,42 @@ void UEFUIComponent::SetName()
 
 // Function EFGame.EFUIComponent.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIComponent::WidgetInitialized()
+bool UEFUIComponent::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIComponent.WidgetInitialized");
 
 	UEFUIComponent_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetItemData
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              SlotDataObject                 (Parm)
 
-void UEFUISlot::SetItemData()
+void UEFUISlot::SetItemData(class UGFxObject* SlotDataObject)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetItemData");
 
 	UEFUISlot_SetItemData_Params params;
+	params.SlotDataObject = SlotDataObject;
 
 	auto flags = fn->FunctionFlags;
 
@@ -6509,12 +7877,15 @@ void UEFUISlot::SetItemData()
 
 // Function EFGame.EFUISlot.SetDisableType
 // (Native, Public)
+// Parameters:
+// int                            iType                          (Parm)
 
-void UEFUISlot::SetDisableType()
+void UEFUISlot::SetDisableType(int iType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetDisableType");
 
 	UEFUISlot_SetDisableType_Params params;
+	params.iType = iType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6527,12 +7898,15 @@ void UEFUISlot::SetDisableType()
 
 // Function EFGame.EFUISlot.SetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 NewUniqueData                  (Parm, NeedCtorLink)
 
-void UEFUISlot::SetUniqueData()
+void UEFUISlot::SetUniqueData(const struct FString& NewUniqueData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetUniqueData");
 
 	UEFUISlot_SetUniqueData_Params params;
+	params.NewUniqueData = NewUniqueData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6545,8 +7919,10 @@ void UEFUISlot::SetUniqueData()
 
 // Function EFGame.EFUISlot.GetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlot::GetUniqueData()
+struct FString UEFUISlot::GetUniqueData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetUniqueData");
 
@@ -6558,17 +7934,22 @@ void UEFUISlot::GetUniqueData()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetLocked
 // (Native, Public)
+// Parameters:
+// int                            iLockType                      (Parm)
 
-void UEFUISlot::SetLocked()
+void UEFUISlot::SetLocked(int iLockType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetLocked");
 
 	UEFUISlot_SetLocked_Params params;
+	params.iLockType = iLockType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6581,8 +7962,10 @@ void UEFUISlot::SetLocked()
 
 // Function EFGame.EFUISlot.IsLocked
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::IsLocked()
+bool UEFUISlot::IsLocked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.IsLocked");
 
@@ -6594,17 +7977,22 @@ void UEFUISlot::IsLocked()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            NewGrade                       (Parm)
 
-void UEFUISlot::SetItemGrade()
+void UEFUISlot::SetItemGrade(int NewGrade)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetItemGrade");
 
 	UEFUISlot_SetItemGrade_Params params;
+	params.NewGrade = NewGrade;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6617,8 +8005,10 @@ void UEFUISlot::SetItemGrade()
 
 // Function EFGame.EFUISlot.GetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetItemGrade()
+int UEFUISlot::GetItemGrade()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetItemGrade");
 
@@ -6630,17 +8020,22 @@ void UEFUISlot::GetItemGrade()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSoundTheme                  (Parm, NeedCtorLink)
 
-void UEFUISlot::SetSoundTheme()
+void UEFUISlot::SetSoundTheme(const struct FString& NewSoundTheme)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetSoundTheme");
 
 	UEFUISlot_SetSoundTheme_Params params;
+	params.NewSoundTheme = NewSoundTheme;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6653,8 +8048,10 @@ void UEFUISlot::SetSoundTheme()
 
 // Function EFGame.EFUISlot.GetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlot::GetSoundTheme()
+struct FString UEFUISlot::GetSoundTheme()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetSoundTheme");
 
@@ -6666,17 +8063,22 @@ void UEFUISlot::GetSoundTheme()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetDisabled
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlot::SetDisabled()
+void UEFUISlot::SetDisabled(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetDisabled");
 
 	UEFUISlot_SetDisabled_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6689,8 +8091,10 @@ void UEFUISlot::SetDisabled()
 
 // Function EFGame.EFUISlot.IsDisabled
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::IsDisabled()
+bool UEFUISlot::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.IsDisabled");
 
@@ -6702,17 +8106,24 @@ void UEFUISlot::IsDisabled()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetCooltime
 // (Native, Public)
+// Parameters:
+// float                          NewRemainTime                  (Parm)
+// float                          NewTotalTime                   (Parm)
 
-void UEFUISlot::SetCooltime()
+void UEFUISlot::SetCooltime(float NewRemainTime, float NewTotalTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetCooltime");
 
 	UEFUISlot_SetCooltime_Params params;
+	params.NewRemainTime = NewRemainTime;
+	params.NewTotalTime = NewTotalTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6725,8 +8136,10 @@ void UEFUISlot::SetCooltime()
 
 // Function EFGame.EFUISlot.GetTotalCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetTotalCoolTime()
+float UEFUISlot::GetTotalCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetTotalCoolTime");
 
@@ -6738,13 +8151,17 @@ void UEFUISlot::GetTotalCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.GetRemainCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetRemainCoolTime()
+float UEFUISlot::GetRemainCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetRemainCoolTime");
 
@@ -6756,17 +8173,22 @@ void UEFUISlot::GetRemainCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            NewIconHeight                  (Parm)
 
-void UEFUISlot::SetIconHeight()
+void UEFUISlot::SetIconHeight(int NewIconHeight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconHeight");
 
 	UEFUISlot_SetIconHeight_Params params;
+	params.NewIconHeight = NewIconHeight;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6779,8 +8201,10 @@ void UEFUISlot::SetIconHeight()
 
 // Function EFGame.EFUISlot.GetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetIconHeight()
+int UEFUISlot::GetIconHeight()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconHeight");
 
@@ -6792,17 +8216,22 @@ void UEFUISlot::GetIconHeight()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            NewIconWidth                   (Parm)
 
-void UEFUISlot::SetIconWidth()
+void UEFUISlot::SetIconWidth(int NewIconWidth)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconWidth");
 
 	UEFUISlot_SetIconWidth_Params params;
+	params.NewIconWidth = NewIconWidth;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6815,8 +8244,10 @@ void UEFUISlot::SetIconWidth()
 
 // Function EFGame.EFUISlot.GetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetIconWidth()
+int UEFUISlot::GetIconWidth()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconWidth");
 
@@ -6828,17 +8259,22 @@ void UEFUISlot::GetIconWidth()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconY
 // (Native, Public)
+// Parameters:
+// int                            NewIconY                       (Parm)
 
-void UEFUISlot::SetIconY()
+void UEFUISlot::SetIconY(int NewIconY)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconY");
 
 	UEFUISlot_SetIconY_Params params;
+	params.NewIconY = NewIconY;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6851,8 +8287,10 @@ void UEFUISlot::SetIconY()
 
 // Function EFGame.EFUISlot.GetIconY
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetIconY()
+int UEFUISlot::GetIconY()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconY");
 
@@ -6864,17 +8302,22 @@ void UEFUISlot::GetIconY()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconX
 // (Native, Public)
+// Parameters:
+// int                            NewIconX                       (Parm)
 
-void UEFUISlot::SetIconX()
+void UEFUISlot::SetIconX(int NewIconX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconX");
 
 	UEFUISlot_SetIconX_Params params;
+	params.NewIconX = NewIconX;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6887,8 +8330,10 @@ void UEFUISlot::SetIconX()
 
 // Function EFGame.EFUISlot.GetIconX
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetIconX()
+int UEFUISlot::GetIconX()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconX");
 
@@ -6900,17 +8345,22 @@ void UEFUISlot::GetIconX()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconCount
 // (Native, Public)
+// Parameters:
+// int                            NewIconIndex                   (Parm)
 
-void UEFUISlot::SetIconCount()
+void UEFUISlot::SetIconCount(int NewIconIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconCount");
 
 	UEFUISlot_SetIconCount_Params params;
+	params.NewIconIndex = NewIconIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6923,8 +8373,10 @@ void UEFUISlot::SetIconCount()
 
 // Function EFGame.EFUISlot.GetIconCount
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetIconCount()
+int UEFUISlot::GetIconCount()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconCount");
 
@@ -6936,17 +8388,22 @@ void UEFUISlot::GetIconCount()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 NewIconPath                    (Parm, NeedCtorLink)
 
-void UEFUISlot::SetIconPath()
+void UEFUISlot::SetIconPath(const struct FString& NewIconPath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconPath");
 
 	UEFUISlot_SetIconPath_Params params;
+	params.NewIconPath = NewIconPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6959,8 +8416,10 @@ void UEFUISlot::SetIconPath()
 
 // Function EFGame.EFUISlot.GetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlot::GetIconPath()
+struct FString UEFUISlot::GetIconPath()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetIconPath");
 
@@ -6972,17 +8431,22 @@ void UEFUISlot::GetIconPath()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetWindowType
 // (Native, Public)
+// Parameters:
+// int                            NewWindowType                  (Parm)
 
-void UEFUISlot::SetWindowType()
+void UEFUISlot::SetWindowType(int NewWindowType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetWindowType");
 
 	UEFUISlot_SetWindowType_Params params;
+	params.NewWindowType = NewWindowType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6995,8 +8459,10 @@ void UEFUISlot::SetWindowType()
 
 // Function EFGame.EFUISlot.GetWindowType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetWindowType()
+int UEFUISlot::GetWindowType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetWindowType");
 
@@ -7008,17 +8474,22 @@ void UEFUISlot::GetWindowType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            NewSlotIndex                   (Parm)
 
-void UEFUISlot::SetSlotIndex()
+void UEFUISlot::SetSlotIndex(int NewSlotIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetSlotIndex");
 
 	UEFUISlot_SetSlotIndex_Params params;
+	params.NewSlotIndex = NewSlotIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7031,8 +8502,10 @@ void UEFUISlot::SetSlotIndex()
 
 // Function EFGame.EFUISlot.GetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetSlotIndex()
+int UEFUISlot::GetSlotIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetSlotIndex");
 
@@ -7044,17 +8517,22 @@ void UEFUISlot::GetSlotIndex()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSlotID                      (Parm, NeedCtorLink)
 
-void UEFUISlot::SetBindID()
+void UEFUISlot::SetBindID(const struct FString& NewSlotID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetBindID");
 
 	UEFUISlot_SetBindID_Params params;
+	params.NewSlotID = NewSlotID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7067,8 +8545,10 @@ void UEFUISlot::SetBindID()
 
 // Function EFGame.EFUISlot.GetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlot::GetBindID()
+struct FString UEFUISlot::GetBindID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetBindID");
 
@@ -7080,17 +8560,22 @@ void UEFUISlot::GetBindID()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetSlotType
 // (Native, Public)
+// Parameters:
+// int                            NewSlotType                    (Parm)
 
-void UEFUISlot::SetSlotType()
+void UEFUISlot::SetSlotType(int NewSlotType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetSlotType");
 
 	UEFUISlot_SetSlotType_Params params;
+	params.NewSlotType = NewSlotType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7103,8 +8588,10 @@ void UEFUISlot::SetSlotType()
 
 // Function EFGame.EFUISlot.GetSlotType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetSlotType()
+int UEFUISlot::GetSlotType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetSlotType");
 
@@ -7116,17 +8603,36 @@ void UEFUISlot::GetSlotType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlot.SetIconData
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconPath                       (Parm, NeedCtorLink)
+// int                            IconIndex                      (Parm)
+// TEnumAsByte<EItemGrade>        eItemGrade                     (Parm)
+// int                            TableID                        (OptionalParm, Parm)
+// int                            IconCount                      (OptionalParm, Parm)
 
-void UEFUISlot::SetIconData()
+void UEFUISlot::SetIconData(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconPath, int IconIndex, TEnumAsByte<EItemGrade> eItemGrade, int TableID, int IconCount)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.SetIconData");
 
 	UEFUISlot_SetIconData_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconPath = IconPath;
+	params.IconIndex = IconIndex;
+	params.eItemGrade = eItemGrade;
+	params.TableID = TableID;
+	params.IconCount = IconCount;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7139,8 +8645,10 @@ void UEFUISlot::SetIconData()
 
 // Function EFGame.EFUISlot.GetSlotItemData
 // (Native, Public)
+// Parameters:
+// class UEFUISlotData*           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlot::GetSlotItemData()
+class UEFUISlotData* UEFUISlot::GetSlotItemData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlot.GetSlotItemData");
 
@@ -7152,17 +8660,22 @@ void UEFUISlot::GetSlotItemData()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIChatTabControl.ChatLogInputSelectType
 // (Native, Public)
+// Parameters:
+// int                            InChannelType                  (Parm)
 
-void UEFUIChatTabControl::ChatLogInputSelectType()
+void UEFUIChatTabControl::ChatLogInputSelectType(int InChannelType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogInputSelectType");
 
 	UEFUIChatTabControl_ChatLogInputSelectType_Params params;
+	params.InChannelType = InChannelType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7175,12 +8688,15 @@ void UEFUIChatTabControl::ChatLogInputSelectType()
 
 // Function EFGame.EFUIChatTabControl.ChatLogMainWidgetTabInsertGroup
 // (Native, Public)
+// Parameters:
+// int                            InTabID                        (Parm)
 
-void UEFUIChatTabControl::ChatLogMainWidgetTabInsertGroup()
+void UEFUIChatTabControl::ChatLogMainWidgetTabInsertGroup(int InTabID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogMainWidgetTabInsertGroup");
 
 	UEFUIChatTabControl_ChatLogMainWidgetTabInsertGroup_Params params;
+	params.InTabID = InTabID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7193,12 +8709,19 @@ void UEFUIChatTabControl::ChatLogMainWidgetTabInsertGroup()
 
 // Function EFGame.EFUIChatTabControl.ChatLogInTabGroupElementStartDrag
 // (Native, Public)
+// Parameters:
+// int                            InTabID                        (Parm)
+// float                          InTabX                         (Parm)
+// float                          InTabY                         (Parm)
 
-void UEFUIChatTabControl::ChatLogInTabGroupElementStartDrag()
+void UEFUIChatTabControl::ChatLogInTabGroupElementStartDrag(int InTabID, float InTabX, float InTabY)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogInTabGroupElementStartDrag");
 
 	UEFUIChatTabControl_ChatLogInTabGroupElementStartDrag_Params params;
+	params.InTabID = InTabID;
+	params.InTabX = InTabX;
+	params.InTabY = InTabY;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7211,12 +8734,19 @@ void UEFUIChatTabControl::ChatLogInTabGroupElementStartDrag()
 
 // Function EFGame.EFUIChatTabControl.ChatLogLinkClick
 // (Native, Public)
+// Parameters:
+// struct FString                 InLinkName                     (Parm, NeedCtorLink)
+// int                            InLinkCode                     (Parm)
+// int                            InMouseClick                   (Parm)
 
-void UEFUIChatTabControl::ChatLogLinkClick()
+void UEFUIChatTabControl::ChatLogLinkClick(const struct FString& InLinkName, int InLinkCode, int InMouseClick)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogLinkClick");
 
 	UEFUIChatTabControl_ChatLogLinkClick_Params params;
+	params.InLinkName = InLinkName;
+	params.InLinkCode = InLinkCode;
+	params.InMouseClick = InMouseClick;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7229,12 +8759,15 @@ void UEFUIChatTabControl::ChatLogLinkClick()
 
 // Function EFGame.EFUIChatTabControl.ChatLogTabContextMenuShow
 // (Native, Public)
+// Parameters:
+// int                            InTabID                        (Parm)
 
-void UEFUIChatTabControl::ChatLogTabContextMenuShow()
+void UEFUIChatTabControl::ChatLogTabContextMenuShow(int InTabID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIChatTabControl.ChatLogTabContextMenuShow");
 
 	UEFUIChatTabControl_ChatLogTabContextMenuShow_Params params;
+	params.InTabID = InTabID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7265,12 +8798,15 @@ void UEFUIChatTabControl::ChatLogMainWidgetSizeUpdated()
 
 // Function EFGame.EFUIList.SetSelectedIndex
 // (Defined, Public)
+// Parameters:
+// int                            NewListIndex                   (Parm)
 
-void UEFUIList::SetSelectedIndex()
+void UEFUIList::SetSelectedIndex(int NewListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIList.SetSelectedIndex");
 
 	UEFUIList_SetSelectedIndex_Params params;
+	params.NewListIndex = NewListIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -7282,8 +8818,10 @@ void UEFUIList::SetSelectedIndex()
 
 // Function EFGame.EFUIList.GetSelectedIndex
 // (Defined, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIList::GetSelectedIndex()
+int UEFUIList::GetSelectedIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIList.GetSelectedIndex");
 
@@ -7294,17 +8832,25 @@ void UEFUIList::GetSelectedIndex()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIList.GetData
 // (Native, Public)
+// Parameters:
+// int                            DataIndex                      (Parm)
+// class UClass*                  ListItemClass                  (Parm)
+// class UEFUIListItem*           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIList::GetData()
+class UEFUIListItem* UEFUIList::GetData(int DataIndex, class UClass* ListItemClass)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIList.GetData");
 
 	UEFUIList_GetData_Params params;
+	params.DataIndex = DataIndex;
+	params.ListItemClass = ListItemClass;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7312,13 +8858,17 @@ void UEFUIList::GetData()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItem.HasAttribute
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItem::HasAttribute()
+bool UEFUIListItem::HasAttribute()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItem.HasAttribute");
 
@@ -7330,17 +8880,22 @@ void UEFUIListItem::HasAttribute()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetTownShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetTownShow()
+void UEFUIListItemSlot::SetTownShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetTownShow");
 
 	UEFUIListItemSlot_SetTownShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7353,12 +8908,15 @@ void UEFUIListItemSlot::SetTownShow()
 
 // Function EFGame.EFUIListItemSlot.SetFriendshipShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetFriendshipShow()
+void UEFUIListItemSlot::SetFriendshipShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetFriendshipShow");
 
 	UEFUIListItemSlot_SetFriendshipShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7371,12 +8929,15 @@ void UEFUIListItemSlot::SetFriendshipShow()
 
 // Function EFGame.EFUIListItemSlot.SetAdvBookShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetAdvBookShow()
+void UEFUIListItemSlot::SetAdvBookShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetAdvBookShow");
 
 	UEFUIListItemSlot_SetAdvBookShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7389,12 +8950,15 @@ void UEFUIListItemSlot::SetAdvBookShow()
 
 // Function EFGame.EFUIListItemSlot.SetTemporary
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetTemporary()
+void UEFUIListItemSlot::SetTemporary(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetTemporary");
 
 	UEFUIListItemSlot_SetTemporary_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7407,12 +8971,15 @@ void UEFUIListItemSlot::SetTemporary()
 
 // Function EFGame.EFUIListItemSlot.SetTrash
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetTrash()
+void UEFUIListItemSlot::SetTrash(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetTrash");
 
 	UEFUIListItemSlot_SetTrash_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7425,12 +8992,15 @@ void UEFUIListItemSlot::SetTrash()
 
 // Function EFGame.EFUIListItemSlot.SetDisableType
 // (Native, Public)
+// Parameters:
+// int                            iType                          (Parm)
 
-void UEFUIListItemSlot::SetDisableType()
+void UEFUIListItemSlot::SetDisableType(int iType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetDisableType");
 
 	UEFUIListItemSlot_SetDisableType_Params params;
+	params.iType = iType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7443,12 +9013,15 @@ void UEFUIListItemSlot::SetDisableType()
 
 // Function EFGame.EFUIListItemSlot.SetTableID
 // (Native, Public)
+// Parameters:
+// int                            NewTableID                     (Parm)
 
-void UEFUIListItemSlot::SetTableID()
+void UEFUIListItemSlot::SetTableID(int NewTableID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetTableID");
 
 	UEFUIListItemSlot_SetTableID_Params params;
+	params.NewTableID = NewTableID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7461,8 +9034,10 @@ void UEFUIListItemSlot::SetTableID()
 
 // Function EFGame.EFUIListItemSlot.GetTableID
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetTableID()
+int UEFUIListItemSlot::GetTableID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetTableID");
 
@@ -7474,17 +9049,22 @@ void UEFUIListItemSlot::GetTableID()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 NewUniqueData                  (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetUniqueData()
+void UEFUIListItemSlot::SetUniqueData(const struct FString& NewUniqueData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetUniqueData");
 
 	UEFUIListItemSlot_SetUniqueData_Params params;
+	params.NewUniqueData = NewUniqueData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7497,8 +9077,10 @@ void UEFUIListItemSlot::SetUniqueData()
 
 // Function EFGame.EFUIListItemSlot.GetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetUniqueData()
+struct FString UEFUIListItemSlot::GetUniqueData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetUniqueData");
 
@@ -7510,17 +9092,22 @@ void UEFUIListItemSlot::GetUniqueData()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetLocked
 // (Native, Public)
+// Parameters:
+// int                            iLockType                      (Parm)
 
-void UEFUIListItemSlot::SetLocked()
+void UEFUIListItemSlot::SetLocked(int iLockType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetLocked");
 
 	UEFUIListItemSlot_SetLocked_Params params;
+	params.iLockType = iLockType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7533,8 +9120,10 @@ void UEFUIListItemSlot::SetLocked()
 
 // Function EFGame.EFUIListItemSlot.IsLocked
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::IsLocked()
+bool UEFUIListItemSlot::IsLocked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.IsLocked");
 
@@ -7546,17 +9135,22 @@ void UEFUIListItemSlot::IsLocked()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            NewGrade                       (Parm)
 
-void UEFUIListItemSlot::SetItemGrade()
+void UEFUIListItemSlot::SetItemGrade(int NewGrade)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetItemGrade");
 
 	UEFUIListItemSlot_SetItemGrade_Params params;
+	params.NewGrade = NewGrade;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7569,8 +9163,10 @@ void UEFUIListItemSlot::SetItemGrade()
 
 // Function EFGame.EFUIListItemSlot.GetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetItemGrade()
+int UEFUIListItemSlot::GetItemGrade()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetItemGrade");
 
@@ -7582,17 +9178,22 @@ void UEFUIListItemSlot::GetItemGrade()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSoundTheme                  (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetSoundTheme()
+void UEFUIListItemSlot::SetSoundTheme(const struct FString& NewSoundTheme)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetSoundTheme");
 
 	UEFUIListItemSlot_SetSoundTheme_Params params;
+	params.NewSoundTheme = NewSoundTheme;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7605,8 +9206,10 @@ void UEFUIListItemSlot::SetSoundTheme()
 
 // Function EFGame.EFUIListItemSlot.GetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetSoundTheme()
+struct FString UEFUIListItemSlot::GetSoundTheme()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetSoundTheme");
 
@@ -7618,17 +9221,22 @@ void UEFUIListItemSlot::GetSoundTheme()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetDisabled
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUIListItemSlot::SetDisabled()
+void UEFUIListItemSlot::SetDisabled(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetDisabled");
 
 	UEFUIListItemSlot_SetDisabled_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7641,8 +9249,10 @@ void UEFUIListItemSlot::SetDisabled()
 
 // Function EFGame.EFUIListItemSlot.IsDisabled
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::IsDisabled()
+bool UEFUIListItemSlot::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.IsDisabled");
 
@@ -7654,17 +9264,22 @@ void UEFUIListItemSlot::IsDisabled()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetItemName
 // (Native, Public)
+// Parameters:
+// struct FString                 ItemName                       (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetItemName()
+void UEFUIListItemSlot::SetItemName(const struct FString& ItemName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetItemName");
 
 	UEFUIListItemSlot_SetItemName_Params params;
+	params.ItemName = ItemName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7677,8 +9292,10 @@ void UEFUIListItemSlot::SetItemName()
 
 // Function EFGame.EFUIListItemSlot.GetItemName
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetItemName()
+struct FString UEFUIListItemSlot::GetItemName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetItemName");
 
@@ -7690,17 +9307,22 @@ void UEFUIListItemSlot::GetItemName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetLabel
 // (Native, Public)
+// Parameters:
+// struct FString                 Label                          (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetLabel()
+void UEFUIListItemSlot::SetLabel(const struct FString& Label)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetLabel");
 
 	UEFUIListItemSlot_SetLabel_Params params;
+	params.Label = Label;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7713,8 +9335,10 @@ void UEFUIListItemSlot::SetLabel()
 
 // Function EFGame.EFUIListItemSlot.GetLabel
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetLabel()
+struct FString UEFUIListItemSlot::GetLabel()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetLabel");
 
@@ -7726,17 +9350,24 @@ void UEFUIListItemSlot::GetLabel()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetCooltime
 // (Native, Public)
+// Parameters:
+// float                          NewRemainTime                  (Parm)
+// float                          NewTotalTime                   (Parm)
 
-void UEFUIListItemSlot::SetCooltime()
+void UEFUIListItemSlot::SetCooltime(float NewRemainTime, float NewTotalTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetCooltime");
 
 	UEFUIListItemSlot_SetCooltime_Params params;
+	params.NewRemainTime = NewRemainTime;
+	params.NewTotalTime = NewTotalTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7749,8 +9380,10 @@ void UEFUIListItemSlot::SetCooltime()
 
 // Function EFGame.EFUIListItemSlot.GetTotalCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetTotalCoolTime()
+float UEFUIListItemSlot::GetTotalCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetTotalCoolTime");
 
@@ -7762,13 +9395,17 @@ void UEFUIListItemSlot::GetTotalCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.GetRemainCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetRemainCoolTime()
+float UEFUIListItemSlot::GetRemainCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetRemainCoolTime");
 
@@ -7780,17 +9417,22 @@ void UEFUIListItemSlot::GetRemainCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            NewIconHeight                  (Parm)
 
-void UEFUIListItemSlot::SetIconHeight()
+void UEFUIListItemSlot::SetIconHeight(int NewIconHeight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconHeight");
 
 	UEFUIListItemSlot_SetIconHeight_Params params;
+	params.NewIconHeight = NewIconHeight;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7803,8 +9445,10 @@ void UEFUIListItemSlot::SetIconHeight()
 
 // Function EFGame.EFUIListItemSlot.GetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetIconHeight()
+int UEFUIListItemSlot::GetIconHeight()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconHeight");
 
@@ -7816,17 +9460,22 @@ void UEFUIListItemSlot::GetIconHeight()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            NewIconWidth                   (Parm)
 
-void UEFUIListItemSlot::SetIconWidth()
+void UEFUIListItemSlot::SetIconWidth(int NewIconWidth)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconWidth");
 
 	UEFUIListItemSlot_SetIconWidth_Params params;
+	params.NewIconWidth = NewIconWidth;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7839,8 +9488,10 @@ void UEFUIListItemSlot::SetIconWidth()
 
 // Function EFGame.EFUIListItemSlot.GetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetIconWidth()
+int UEFUIListItemSlot::GetIconWidth()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconWidth");
 
@@ -7852,17 +9503,22 @@ void UEFUIListItemSlot::GetIconWidth()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconY
 // (Native, Public)
+// Parameters:
+// int                            NewIconY                       (Parm)
 
-void UEFUIListItemSlot::SetIconY()
+void UEFUIListItemSlot::SetIconY(int NewIconY)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconY");
 
 	UEFUIListItemSlot_SetIconY_Params params;
+	params.NewIconY = NewIconY;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7875,8 +9531,10 @@ void UEFUIListItemSlot::SetIconY()
 
 // Function EFGame.EFUIListItemSlot.GetIconY
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetIconY()
+int UEFUIListItemSlot::GetIconY()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconY");
 
@@ -7888,17 +9546,22 @@ void UEFUIListItemSlot::GetIconY()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconX
 // (Native, Public)
+// Parameters:
+// int                            NewIconX                       (Parm)
 
-void UEFUIListItemSlot::SetIconX()
+void UEFUIListItemSlot::SetIconX(int NewIconX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconX");
 
 	UEFUIListItemSlot_SetIconX_Params params;
+	params.NewIconX = NewIconX;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7911,8 +9574,10 @@ void UEFUIListItemSlot::SetIconX()
 
 // Function EFGame.EFUIListItemSlot.GetIconX
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetIconX()
+int UEFUIListItemSlot::GetIconX()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconX");
 
@@ -7924,17 +9589,22 @@ void UEFUIListItemSlot::GetIconX()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconCount
 // (Native, Public)
+// Parameters:
+// int                            NewIconIndex                   (Parm)
 
-void UEFUIListItemSlot::SetIconCount()
+void UEFUIListItemSlot::SetIconCount(int NewIconIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconCount");
 
 	UEFUIListItemSlot_SetIconCount_Params params;
+	params.NewIconIndex = NewIconIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7947,8 +9617,10 @@ void UEFUIListItemSlot::SetIconCount()
 
 // Function EFGame.EFUIListItemSlot.GetIconCount
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetIconCount()
+int UEFUIListItemSlot::GetIconCount()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconCount");
 
@@ -7960,17 +9632,22 @@ void UEFUIListItemSlot::GetIconCount()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 NewIconPath                    (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetIconPath()
+void UEFUIListItemSlot::SetIconPath(const struct FString& NewIconPath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconPath");
 
 	UEFUIListItemSlot_SetIconPath_Params params;
+	params.NewIconPath = NewIconPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -7983,8 +9660,10 @@ void UEFUIListItemSlot::SetIconPath()
 
 // Function EFGame.EFUIListItemSlot.GetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetIconPath()
+struct FString UEFUIListItemSlot::GetIconPath()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetIconPath");
 
@@ -7996,17 +9675,22 @@ void UEFUIListItemSlot::GetIconPath()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetWindowType
 // (Native, Public)
+// Parameters:
+// int                            NewWindowType                  (Parm)
 
-void UEFUIListItemSlot::SetWindowType()
+void UEFUIListItemSlot::SetWindowType(int NewWindowType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetWindowType");
 
 	UEFUIListItemSlot_SetWindowType_Params params;
+	params.NewWindowType = NewWindowType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8019,8 +9703,10 @@ void UEFUIListItemSlot::SetWindowType()
 
 // Function EFGame.EFUIListItemSlot.GetWindowType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetWindowType()
+int UEFUIListItemSlot::GetWindowType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetWindowType");
 
@@ -8032,17 +9718,22 @@ void UEFUIListItemSlot::GetWindowType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            NewSlotIndex                   (Parm)
 
-void UEFUIListItemSlot::SetSlotIndex()
+void UEFUIListItemSlot::SetSlotIndex(int NewSlotIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetSlotIndex");
 
 	UEFUIListItemSlot_SetSlotIndex_Params params;
+	params.NewSlotIndex = NewSlotIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8055,8 +9746,10 @@ void UEFUIListItemSlot::SetSlotIndex()
 
 // Function EFGame.EFUIListItemSlot.GetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetSlotIndex()
+int UEFUIListItemSlot::GetSlotIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetSlotIndex");
 
@@ -8068,17 +9761,22 @@ void UEFUIListItemSlot::GetSlotIndex()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSlotID                      (Parm, NeedCtorLink)
 
-void UEFUIListItemSlot::SetBindID()
+void UEFUIListItemSlot::SetBindID(const struct FString& NewSlotID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetBindID");
 
 	UEFUIListItemSlot_SetBindID_Params params;
+	params.NewSlotID = NewSlotID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8091,8 +9789,10 @@ void UEFUIListItemSlot::SetBindID()
 
 // Function EFGame.EFUIListItemSlot.GetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUIListItemSlot::GetBindID()
+struct FString UEFUIListItemSlot::GetBindID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetBindID");
 
@@ -8104,17 +9804,22 @@ void UEFUIListItemSlot::GetBindID()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetSlotType
 // (Native, Public)
+// Parameters:
+// int                            NewSlotType                    (Parm)
 
-void UEFUIListItemSlot::SetSlotType()
+void UEFUIListItemSlot::SetSlotType(int NewSlotType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetSlotType");
 
 	UEFUIListItemSlot_SetSlotType_Params params;
+	params.NewSlotType = NewSlotType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8127,8 +9832,10 @@ void UEFUIListItemSlot::SetSlotType()
 
 // Function EFGame.EFUIListItemSlot.GetSlotType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIListItemSlot::GetSlotType()
+int UEFUIListItemSlot::GetSlotType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.GetSlotType");
 
@@ -8140,17 +9847,38 @@ void UEFUIListItemSlot::GetSlotType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUIListItemSlot.SetIconData
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconPath                       (Parm, NeedCtorLink)
+// int                            IconIndex                      (Parm)
+// int                            TableID                        (OptionalParm, Parm)
+// int                            IconCount                      (OptionalParm, Parm)
+// bool                           bTrash                         (OptionalParm, Parm)
+// bool                           bTemporary                     (OptionalParm, Parm)
 
-void UEFUIListItemSlot::SetIconData()
+void UEFUIListItemSlot::SetIconData(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconPath, int IconIndex, int TableID, int IconCount, bool bTrash, bool bTemporary)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetIconData");
 
 	UEFUIListItemSlot_SetIconData_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconPath = IconPath;
+	params.IconIndex = IconIndex;
+	params.TableID = TableID;
+	params.IconCount = IconCount;
+	params.bTrash = bTrash;
+	params.bTemporary = bTemporary;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8163,12 +9891,15 @@ void UEFUIListItemSlot::SetIconData()
 
 // Function EFGame.EFGFxWidgetAchievement.AchievementRewardTakeBtnClick
 // (Native, Public)
+// Parameters:
+// int                            iRewardIndex                   (Parm)
 
-void UEFGFxWidgetAchievement::AchievementRewardTakeBtnClick()
+void UEFGFxWidgetAchievement::AchievementRewardTakeBtnClick(int iRewardIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAchievement.AchievementRewardTakeBtnClick");
 
 	UEFGFxWidgetAchievement_AchievementRewardTakeBtnClick_Params params;
+	params.iRewardIndex = iRewardIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8181,12 +9912,15 @@ void UEFGFxWidgetAchievement::AchievementRewardTakeBtnClick()
 
 // Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewSkillSlotClick
 // (Native, Public)
+// Parameters:
+// int                            slotIndexInPage                (Parm)
 
-void UEFGFxWidgetAnchorModeCrew::AnchorCrewSkillSlotClick()
+void UEFGFxWidgetAnchorModeCrew::AnchorCrewSkillSlotClick(int slotIndexInPage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewSkillSlotClick");
 
 	UEFGFxWidgetAnchorModeCrew_AnchorCrewSkillSlotClick_Params params;
+	params.slotIndexInPage = slotIndexInPage;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8199,12 +9933,15 @@ void UEFGFxWidgetAnchorModeCrew::AnchorCrewSkillSlotClick()
 
 // Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewPageIndexChanged
 // (Native, Public)
+// Parameters:
+// int                            pageIndex                      (Parm)
 
-void UEFGFxWidgetAnchorModeCrew::AnchorCrewPageIndexChanged()
+void UEFGFxWidgetAnchorModeCrew::AnchorCrewPageIndexChanged(int pageIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnchorModeCrew.AnchorCrewPageIndexChanged");
 
 	UEFGFxWidgetAnchorModeCrew_AnchorCrewPageIndexChanged_Params params;
+	params.pageIndex = pageIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8234,12 +9971,15 @@ void UEFGFxWidgetBuddy::showNew()
 
 // Function EFGame.EFGFxWidgetBuddy.setSelectedTab
 // (Defined, Event, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetBuddy::setSelectedTab()
+void UEFGFxWidgetBuddy::setSelectedTab(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.setSelectedTab");
 
 	UEFGFxWidgetBuddy_setSelectedTab_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8251,12 +9991,15 @@ void UEFGFxWidgetBuddy::setSelectedTab()
 
 // Function EFGame.EFGFxWidgetBuddy.setAFK
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bAFK                           (Parm)
 
-void UEFGFxWidgetBuddy::setAFK()
+void UEFGFxWidgetBuddy::setAFK(bool bAFK)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.setAFK");
 
 	UEFGFxWidgetBuddy_setAFK_Params params;
+	params.bAFK = bAFK;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8268,12 +10011,15 @@ void UEFGFxWidgetBuddy::setAFK()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererMouseOver
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsGroupRendererMouseOver()
+void UEFGFxWidgetBuddy::FriendsGroupRendererMouseOver(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererMouseOver");
 
 	UEFGFxWidgetBuddy_FriendsGroupRendererMouseOver_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8286,12 +10032,15 @@ void UEFGFxWidgetBuddy::FriendsGroupRendererMouseOver()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererRightClick
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsGroupRendererRightClick()
+void UEFGFxWidgetBuddy::FriendsGroupRendererRightClick(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererRightClick");
 
 	UEFGFxWidgetBuddy_FriendsGroupRendererRightClick_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8304,12 +10053,17 @@ void UEFGFxWidgetBuddy::FriendsGroupRendererRightClick()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererExtended
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
+// bool                           bShow                          (Parm)
 
-void UEFGFxWidgetBuddy::FriendsGroupRendererExtended()
+void UEFGFxWidgetBuddy::FriendsGroupRendererExtended(const struct FString& strUID, bool bShow)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsGroupRendererExtended");
 
 	UEFGFxWidgetBuddy_FriendsGroupRendererExtended_Params params;
+	params.strUID = strUID;
+	params.bShow = bShow;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8322,12 +10076,15 @@ void UEFGFxWidgetBuddy::FriendsGroupRendererExtended()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsRendererRightClick
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsRendererRightClick()
+void UEFGFxWidgetBuddy::FriendsRendererRightClick(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsRendererRightClick");
 
 	UEFGFxWidgetBuddy_FriendsRendererRightClick_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8340,12 +10097,15 @@ void UEFGFxWidgetBuddy::FriendsRendererRightClick()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsInvite
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsInvite()
+void UEFGFxWidgetBuddy::FriendsInvite(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsInvite");
 
 	UEFGFxWidgetBuddy_FriendsInvite_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8358,12 +10118,15 @@ void UEFGFxWidgetBuddy::FriendsInvite()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBlock
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsBlock()
+void UEFGFxWidgetBuddy::FriendsBlock(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBlock");
 
 	UEFGFxWidgetBuddy_FriendsBlock_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8376,12 +10139,15 @@ void UEFGFxWidgetBuddy::FriendsBlock()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsUnBlock
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsUnBlock()
+void UEFGFxWidgetBuddy::FriendsUnBlock(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsUnBlock");
 
 	UEFGFxWidgetBuddy_FriendsUnBlock_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8394,12 +10160,15 @@ void UEFGFxWidgetBuddy::FriendsUnBlock()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyCancel
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsBuddyCancel()
+void UEFGFxWidgetBuddy::FriendsBuddyCancel(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyCancel");
 
 	UEFGFxWidgetBuddy_FriendsBuddyCancel_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8412,12 +10181,15 @@ void UEFGFxWidgetBuddy::FriendsBuddyCancel()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyReject
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsBuddyReject()
+void UEFGFxWidgetBuddy::FriendsBuddyReject(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyReject");
 
 	UEFGFxWidgetBuddy_FriendsBuddyReject_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8430,12 +10202,15 @@ void UEFGFxWidgetBuddy::FriendsBuddyReject()
 
 // Function EFGame.EFGFxWidgetBuddy.FriendsBuddyAgree
 // (Native, Public)
+// Parameters:
+// struct FString                 strUID                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetBuddy::FriendsBuddyAgree()
+void UEFGFxWidgetBuddy::FriendsBuddyAgree(const struct FString& strUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetBuddy.FriendsBuddyAgree");
 
 	UEFGFxWidgetBuddy_FriendsBuddyAgree_Params params;
+	params.strUID = strUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8448,12 +10223,15 @@ void UEFGFxWidgetBuddy::FriendsBuddyAgree()
 
 // Function EFGame.EFGFxWidgetCandidate.SetCandidateFocus
 // (Native, Public)
+// Parameters:
+// bool                           isFocus                        (Parm)
 
-void UEFGFxWidgetCandidate::SetCandidateFocus()
+void UEFGFxWidgetCandidate::SetCandidateFocus(bool isFocus)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCandidate.SetCandidateFocus");
 
 	UEFGFxWidgetCandidate_SetCandidateFocus_Params params;
+	params.isFocus = isFocus;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8466,12 +10244,17 @@ void UEFGFxWidgetCandidate::SetCandidateFocus()
 
 // Function EFGame.EFGFxWidgetChattingOption.SetChannelColor
 // (Defined, Event, Public)
+// Parameters:
+// int                            ChannelIndex                   (Parm)
+// struct FString                 colorCode                      (Parm, NeedCtorLink)
 
-void UEFGFxWidgetChattingOption::SetChannelColor()
+void UEFGFxWidgetChattingOption::SetChannelColor(int ChannelIndex, const struct FString& colorCode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.SetChannelColor");
 
 	UEFGFxWidgetChattingOption_SetChannelColor_Params params;
+	params.ChannelIndex = ChannelIndex;
+	params.colorCode = colorCode;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8483,12 +10266,15 @@ void UEFGFxWidgetChattingOption::SetChannelColor()
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAddTab
 // (Native, Public)
+// Parameters:
+// TArray<int>                    ArrFilterList                  (Parm, NeedCtorLink)
 
-void UEFGFxWidgetChattingOption::ChatLogFilterOptionAddTab()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionAddTab(TArray<int> ArrFilterList)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAddTab");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionAddTab_Params params;
+	params.ArrFilterList = ArrFilterList;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8501,12 +10287,15 @@ void UEFGFxWidgetChattingOption::ChatLogFilterOptionAddTab()
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionOKWnd
 // (Native, Public)
+// Parameters:
+// TArray<int>                    ArrFilterList                  (Parm, NeedCtorLink)
 
-void UEFGFxWidgetChattingOption::ChatLogFilterOptionOKWnd()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionOKWnd(TArray<int> ArrFilterList)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionOKWnd");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionOKWnd_Params params;
+	params.ArrFilterList = ArrFilterList;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8537,12 +10326,15 @@ void UEFGFxWidgetChattingOption::ChatLogFilterOptionResetData()
 
 // Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAppliedChannelList
 // (Native, Public)
+// Parameters:
+// TArray<int>                    ArrFilterList                  (Parm, NeedCtorLink)
 
-void UEFGFxWidgetChattingOption::ChatLogFilterOptionAppliedChannelList()
+void UEFGFxWidgetChattingOption::ChatLogFilterOptionAppliedChannelList(TArray<int> ArrFilterList)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetChattingOption.ChatLogFilterOptionAppliedChannelList");
 
 	UEFGFxWidgetChattingOption_ChatLogFilterOptionAppliedChannelList_Params params;
+	params.ArrFilterList = ArrFilterList;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8555,12 +10347,15 @@ void UEFGFxWidgetChattingOption::ChatLogFilterOptionAppliedChannelList()
 
 // Function EFGame.EFGFxWidgetCinematicDungeonEntrance.DungeonEntranceDifficultyIndex
 // (Native, Public)
+// Parameters:
+// int                            InIndex                        (Parm)
 
-void UEFGFxWidgetCinematicDungeonEntrance::DungeonEntranceDifficultyIndex()
+void UEFGFxWidgetCinematicDungeonEntrance::DungeonEntranceDifficultyIndex(int InIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCinematicDungeonEntrance.DungeonEntranceDifficultyIndex");
 
 	UEFGFxWidgetCinematicDungeonEntrance_DungeonEntranceDifficultyIndex_Params params;
+	params.InIndex = InIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8573,12 +10368,21 @@ void UEFGFxWidgetCinematicDungeonEntrance::DungeonEntranceDifficultyIndex()
 
 // Function EFGame.EFGFxWidgetColorPicker.SetTargetPosition
 // (Defined, Event, Public)
+// Parameters:
+// float                          X                              (Parm)
+// float                          Y                              (Parm)
+// float                          W                              (Parm)
+// float                          H                              (Parm)
 
-void UEFGFxWidgetColorPicker::SetTargetPosition()
+void UEFGFxWidgetColorPicker::SetTargetPosition(float X, float Y, float W, float H)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.SetTargetPosition");
 
 	UEFGFxWidgetColorPicker_SetTargetPosition_Params params;
+	params.X = X;
+	params.Y = Y;
+	params.W = W;
+	params.H = H;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8590,12 +10394,15 @@ void UEFGFxWidgetColorPicker::SetTargetPosition()
 
 // Function EFGame.EFGFxWidgetColorPicker.SetTargetCode
 // (Defined, Event, Public)
+// Parameters:
+// int                            InCode                         (Parm)
 
-void UEFGFxWidgetColorPicker::SetTargetCode()
+void UEFGFxWidgetColorPicker::SetTargetCode(int InCode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.SetTargetCode");
 
 	UEFGFxWidgetColorPicker_SetTargetCode_Params params;
+	params.InCode = InCode;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8607,12 +10414,15 @@ void UEFGFxWidgetColorPicker::SetTargetCode()
 
 // Function EFGame.EFGFxWidgetColorPicker.SetColor
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 InColor                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetColorPicker::SetColor()
+void UEFGFxWidgetColorPicker::SetColor(const struct FString& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.SetColor");
 
 	UEFGFxWidgetColorPicker_SetColor_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8624,12 +10434,15 @@ void UEFGFxWidgetColorPicker::SetColor()
 
 // Function EFGame.EFGFxWidgetColorPicker.SetDefaultColor
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 InColor                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetColorPicker::SetDefaultColor()
+void UEFGFxWidgetColorPicker::SetDefaultColor(const struct FString& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.SetDefaultColor");
 
 	UEFGFxWidgetColorPicker_SetDefaultColor_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8641,12 +10454,15 @@ void UEFGFxWidgetColorPicker::SetDefaultColor()
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerCursorDragEnd
 // (Native, Public)
+// Parameters:
+// struct FString                 InColor                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetColorPicker::RequestEventColorPickerCursorDragEnd()
+void UEFGFxWidgetColorPicker::RequestEventColorPickerCursorDragEnd(const struct FString& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerCursorDragEnd");
 
 	UEFGFxWidgetColorPicker_RequestEventColorPickerCursorDragEnd_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8659,12 +10475,15 @@ void UEFGFxWidgetColorPicker::RequestEventColorPickerCursorDragEnd()
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerProgressValueChange
 // (Native, Public)
+// Parameters:
+// struct FString                 InColor                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetColorPicker::RequestEventColorPickerProgressValueChange()
+void UEFGFxWidgetColorPicker::RequestEventColorPickerProgressValueChange(const struct FString& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.RequestEventColorPickerProgressValueChange");
 
 	UEFGFxWidgetColorPicker_RequestEventColorPickerProgressValueChange_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8677,12 +10496,15 @@ void UEFGFxWidgetColorPicker::RequestEventColorPickerProgressValueChange()
 
 // Function EFGame.EFGFxWidgetColorPicker.ChatMessageInputTextHasFocus
 // (Native, Public)
+// Parameters:
+// bool                           InFocus                        (Parm)
 
-void UEFGFxWidgetColorPicker::ChatMessageInputTextHasFocus()
+void UEFGFxWidgetColorPicker::ChatMessageInputTextHasFocus(bool InFocus)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.ChatMessageInputTextHasFocus");
 
 	UEFGFxWidgetColorPicker_ChatMessageInputTextHasFocus_Params params;
+	params.InFocus = InFocus;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8713,12 +10535,17 @@ void UEFGFxWidgetColorPicker::RequestARKColorPickerDefaultSetting()
 
 // Function EFGame.EFGFxWidgetColorPicker.RequestARKColorPickerSaveSetting
 // (Native, Public)
+// Parameters:
+// struct FString                 InChannelColor                 (Parm, NeedCtorLink)
+// int                            InTargetCode                   (Parm)
 
-void UEFGFxWidgetColorPicker::RequestARKColorPickerSaveSetting()
+void UEFGFxWidgetColorPicker::RequestARKColorPickerSaveSetting(const struct FString& InChannelColor, int InTargetCode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColorPicker.RequestARKColorPickerSaveSetting");
 
 	UEFGFxWidgetColorPicker_RequestARKColorPickerSaveSetting_Params params;
+	params.InChannelColor = InChannelColor;
+	params.InTargetCode = InTargetCode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8749,12 +10576,15 @@ void UEFGFxWidgetColorPicker::RequestARKColorPickerClose()
 
 // Function EFGame.EFGFxWidgetCurrencyInfo.CurrencyInfoTreeItemClick
 // (Native, Public)
+// Parameters:
+// int                            InCurrencyIndex                (Parm)
 
-void UEFGFxWidgetCurrencyInfo::CurrencyInfoTreeItemClick()
+void UEFGFxWidgetCurrencyInfo::CurrencyInfoTreeItemClick(int InCurrencyIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCurrencyInfo.CurrencyInfoTreeItemClick");
 
 	UEFGFxWidgetCurrencyInfo_CurrencyInfoTreeItemClick_Params params;
+	params.InCurrencyIndex = InCurrencyIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8767,12 +10597,21 @@ void UEFGFxWidgetCurrencyInfo::CurrencyInfoTreeItemClick()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetPosition
 // (Defined, Event, Public)
+// Parameters:
+// float                          X                              (Parm)
+// float                          Y                              (Parm)
+// float                          W                              (Parm)
+// float                          H                              (Parm)
 
-void UEFGFxWidgetCustomColorPicker::SetTargetPosition()
+void UEFGFxWidgetCustomColorPicker::SetTargetPosition(float X, float Y, float W, float H)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetPosition");
 
 	UEFGFxWidgetCustomColorPicker_SetTargetPosition_Params params;
+	params.X = X;
+	params.Y = Y;
+	params.W = W;
+	params.H = H;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8784,12 +10623,15 @@ void UEFGFxWidgetCustomColorPicker::SetTargetPosition()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetCode
 // (Defined, Event, Public)
+// Parameters:
+// int                            InCode                         (Parm)
 
-void UEFGFxWidgetCustomColorPicker::SetTargetCode()
+void UEFGFxWidgetCustomColorPicker::SetTargetCode(int InCode)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.SetTargetCode");
 
 	UEFGFxWidgetCustomColorPicker_SetTargetCode_Params params;
+	params.InCode = InCode;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8801,12 +10643,15 @@ void UEFGFxWidgetCustomColorPicker::SetTargetCode()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetColor
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 InColor                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetCustomColorPicker::SetColor()
+void UEFGFxWidgetCustomColorPicker::SetColor(const struct FString& InColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.SetColor");
 
 	UEFGFxWidgetCustomColorPicker_SetColor_Params params;
+	params.InColor = InColor;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8818,12 +10663,27 @@ void UEFGFxWidgetCustomColorPicker::SetColor()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.SetInit
 // (Defined, Event, Public)
+// Parameters:
+// float                          InRadian                       (Parm)
+// float                          InDistance                     (Parm)
+// float                          InLightness                    (Parm)
+// struct FString                 InColor                        (Parm, NeedCtorLink)
+// struct FString                 InColorPalette                 (Parm, NeedCtorLink)
+// float                          InMinLightness                 (Parm)
+// float                          InMaxLightness                 (Parm)
 
-void UEFGFxWidgetCustomColorPicker::SetInit()
+void UEFGFxWidgetCustomColorPicker::SetInit(float InRadian, float InDistance, float InLightness, const struct FString& InColor, const struct FString& InColorPalette, float InMinLightness, float InMaxLightness)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.SetInit");
 
 	UEFGFxWidgetCustomColorPicker_SetInit_Params params;
+	params.InRadian = InRadian;
+	params.InDistance = InDistance;
+	params.InLightness = InLightness;
+	params.InColor = InColor;
+	params.InColorPalette = InColorPalette;
+	params.InMinLightness = InMinLightness;
+	params.InMaxLightness = InMaxLightness;
 
 	auto flags = fn->FunctionFlags;
 
@@ -8835,12 +10695,17 @@ void UEFGFxWidgetCustomColorPicker::SetInit()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerColorChanged
 // (Native, Public)
+// Parameters:
+// float                          InRadian                       (Parm)
+// float                          InDistance                     (Parm)
 
-void UEFGFxWidgetCustomColorPicker::ColorPickerColorChanged()
+void UEFGFxWidgetCustomColorPicker::ColorPickerColorChanged(float InRadian, float InDistance)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerColorChanged");
 
 	UEFGFxWidgetCustomColorPicker_ColorPickerColorChanged_Params params;
+	params.InRadian = InRadian;
+	params.InDistance = InDistance;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8853,12 +10718,15 @@ void UEFGFxWidgetCustomColorPicker::ColorPickerColorChanged()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerLightnessChanged
 // (Native, Public)
+// Parameters:
+// float                          InLightness                    (Parm)
 
-void UEFGFxWidgetCustomColorPicker::ColorPickerLightnessChanged()
+void UEFGFxWidgetCustomColorPicker::ColorPickerLightnessChanged(float InLightness)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.ColorPickerLightnessChanged");
 
 	UEFGFxWidgetCustomColorPicker_ColorPickerLightnessChanged_Params params;
+	params.InLightness = InLightness;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8889,12 +10757,21 @@ void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerDefaultSetting()
 
 // Function EFGame.EFGFxWidgetCustomColorPicker.RequestARKColorPickerSaveSetting
 // (Native, Public)
+// Parameters:
+// int                            InTargetCode                   (Parm)
+// float                          InRadian                       (Parm)
+// float                          InDistance                     (Parm)
+// float                          InLightness                    (Parm)
 
-void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerSaveSetting()
+void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerSaveSetting(int InTargetCode, float InRadian, float InDistance, float InLightness)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCustomColorPicker.RequestARKColorPickerSaveSetting");
 
 	UEFGFxWidgetCustomColorPicker_RequestARKColorPickerSaveSetting_Params params;
+	params.InTargetCode = InTargetCode;
+	params.InRadian = InRadian;
+	params.InDistance = InDistance;
+	params.InLightness = InLightness;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8925,12 +10802,15 @@ void UEFGFxWidgetCustomColorPicker::RequestARKColorPickerClose()
 
 // Function EFGame.EFGFxWidgetGuild.GuildApplicantRightClick
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildApplicantRightClick()
+void UEFGFxWidgetGuild::GuildApplicantRightClick(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildApplicantRightClick");
 
 	UEFGFxWidgetGuild_GuildApplicantRightClick_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8943,12 +10823,15 @@ void UEFGFxWidgetGuild::GuildApplicantRightClick()
 
 // Function EFGame.EFGFxWidgetGuild.GuildMemberRightClick
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildMemberRightClick()
+void UEFGFxWidgetGuild::GuildMemberRightClick(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildMemberRightClick");
 
 	UEFGFxWidgetGuild_GuildMemberRightClick_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8961,12 +10844,15 @@ void UEFGFxWidgetGuild::GuildMemberRightClick()
 
 // Function EFGame.EFGFxWidgetGuild.GuildReject
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildReject()
+void UEFGFxWidgetGuild::GuildReject(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildReject");
 
 	UEFGFxWidgetGuild_GuildReject_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8979,12 +10865,15 @@ void UEFGFxWidgetGuild::GuildReject()
 
 // Function EFGame.EFGFxWidgetGuild.GuildAccept
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildAccept()
+void UEFGFxWidgetGuild::GuildAccept(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildAccept");
 
 	UEFGFxWidgetGuild_GuildAccept_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8997,12 +10886,15 @@ void UEFGFxWidgetGuild::GuildAccept()
 
 // Function EFGame.EFGFxWidgetGuild.GuildNoticeCopyButtonClick
 // (Native, Public)
+// Parameters:
+// struct FString                 sNotice                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick()
+void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick(const struct FString& sNotice)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildNoticeCopyButtonClick");
 
 	UEFGFxWidgetGuild_GuildNoticeCopyButtonClick_Params params;
+	params.sNotice = sNotice;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9015,12 +10907,15 @@ void UEFGFxWidgetGuild::GuildNoticeCopyButtonClick()
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildIntroduction
 // (Native, Public)
+// Parameters:
+// struct FString                 sIntroduction                  (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildChangeGuildIntroduction()
+void UEFGFxWidgetGuild::GuildChangeGuildIntroduction(const struct FString& sIntroduction)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildChangeGuildIntroduction");
 
 	UEFGFxWidgetGuild_GuildChangeGuildIntroduction_Params params;
+	params.sIntroduction = sIntroduction;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9033,12 +10928,15 @@ void UEFGFxWidgetGuild::GuildChangeGuildIntroduction()
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildNotice
 // (Native, Public)
+// Parameters:
+// struct FString                 sNotice                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildChangeGuildNotice()
+void UEFGFxWidgetGuild::GuildChangeGuildNotice(const struct FString& sNotice)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildChangeGuildNotice");
 
 	UEFGFxWidgetGuild_GuildChangeGuildNotice_Params params;
+	params.sNotice = sNotice;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9051,12 +10949,15 @@ void UEFGFxWidgetGuild::GuildChangeGuildNotice()
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeBtnClick
 // (Native, Public)
+// Parameters:
+// bool                           bShow                          (Parm)
 
-void UEFGFxWidgetGuild::GuildChangeBtnClick()
+void UEFGFxWidgetGuild::GuildChangeBtnClick(bool bShow)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildChangeBtnClick");
 
 	UEFGFxWidgetGuild_GuildChangeBtnClick_Params params;
+	params.bShow = bShow;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9069,12 +10970,15 @@ void UEFGFxWidgetGuild::GuildChangeBtnClick()
 
 // Function EFGame.EFGFxWidgetGuild.GuildChangeGuildMark
 // (Native, Public)
+// Parameters:
+// struct FString                 sMarkIdx                       (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildChangeGuildMark()
+void UEFGFxWidgetGuild::GuildChangeGuildMark(const struct FString& sMarkIdx)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildChangeGuildMark");
 
 	UEFGFxWidgetGuild_GuildChangeGuildMark_Params params;
+	params.sMarkIdx = sMarkIdx;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9087,12 +10991,21 @@ void UEFGFxWidgetGuild::GuildChangeGuildMark()
 
 // Function EFGame.EFGFxWidgetGuild.GuildCreate
 // (Native, Public)
+// Parameters:
+// struct FString                 imarkIdx                       (Parm, NeedCtorLink)
+// struct FString                 sGuildName                     (Parm, NeedCtorLink)
+// struct FString                 sGuildDesc                     (Parm, NeedCtorLink)
+// bool                           bRecommend                     (Parm)
 
-void UEFGFxWidgetGuild::GuildCreate()
+void UEFGFxWidgetGuild::GuildCreate(const struct FString& imarkIdx, const struct FString& sGuildName, const struct FString& sGuildDesc, bool bRecommend)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildCreate");
 
 	UEFGFxWidgetGuild_GuildCreate_Params params;
+	params.imarkIdx = imarkIdx;
+	params.sGuildName = sGuildName;
+	params.sGuildDesc = sGuildDesc;
+	params.bRecommend = bRecommend;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9105,12 +11018,15 @@ void UEFGFxWidgetGuild::GuildCreate()
 
 // Function EFGame.EFGFxWidgetGuild.GuildCancel
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildCancel()
+void UEFGFxWidgetGuild::GuildCancel(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildCancel");
 
 	UEFGFxWidgetGuild_GuildCancel_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9123,12 +11039,15 @@ void UEFGFxWidgetGuild::GuildCancel()
 
 // Function EFGame.EFGFxWidgetGuild.GuildApply
 // (Native, Public)
+// Parameters:
+// struct FString                 Uid                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetGuild::GuildApply()
+void UEFGFxWidgetGuild::GuildApply(const struct FString& Uid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetGuild.GuildApply");
 
 	UEFGFxWidgetGuild_GuildApply_Params params;
+	params.Uid = Uid;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9158,12 +11077,15 @@ void UEFGFxWidgetHotKey::killOptionKey()
 
 // Function EFGame.EFGFxWidgetHotKey.selectOptionHotKeyMainMenu
 // (Defined, Event, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetHotKey::selectOptionHotKeyMainMenu()
+void UEFGFxWidgetHotKey::selectOptionHotKeyMainMenu(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHotKey.selectOptionHotKeyMainMenu");
 
 	UEFGFxWidgetHotKey_selectOptionHotKeyMainMenu_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9283,12 +11205,19 @@ void UEFGFxWidgetHotKey::OptionHotKeyResetClick()
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyButtonChange
 // (Native, Public)
+// Parameters:
+// int                            mainListIndex                  (Parm)
+// struct FString                 buttonType                     (Parm, NeedCtorLink)
+// int                            subListIndex                   (Parm)
 
-void UEFGFxWidgetHotKey::OptionHotKeyButtonChange()
+void UEFGFxWidgetHotKey::OptionHotKeyButtonChange(int mainListIndex, const struct FString& buttonType, int subListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHotKey.OptionHotKeyButtonChange");
 
 	UEFGFxWidgetHotKey_OptionHotKeyButtonChange_Params params;
+	params.mainListIndex = mainListIndex;
+	params.buttonType = buttonType;
+	params.subListIndex = subListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9301,12 +11230,15 @@ void UEFGFxWidgetHotKey::OptionHotKeyButtonChange()
 
 // Function EFGame.EFGFxWidgetHotKey.OptionHotKeyMainListIndexChange
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetHotKey::OptionHotKeyMainListIndexChange()
+void UEFGFxWidgetHotKey::OptionHotKeyMainListIndexChange(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHotKey.OptionHotKeyMainListIndexChange");
 
 	UEFGFxWidgetHotKey_OptionHotKeyMainListIndexChange_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9319,12 +11251,15 @@ void UEFGFxWidgetHotKey::OptionHotKeyMainListIndexChange()
 
 // Function EFGame.EFGFxWidgetInstanceDungeonEntrance.DungeonEntranceDifficultyIndex
 // (Native, Public)
+// Parameters:
+// int                            InIndex                        (Parm)
 
-void UEFGFxWidgetInstanceDungeonEntrance::DungeonEntranceDifficultyIndex()
+void UEFGFxWidgetInstanceDungeonEntrance::DungeonEntranceDifficultyIndex(int InIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInstanceDungeonEntrance.DungeonEntranceDifficultyIndex");
 
 	UEFGFxWidgetInstanceDungeonEntrance_DungeonEntranceDifficultyIndex_Params params;
+	params.InIndex = InIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9337,12 +11272,15 @@ void UEFGFxWidgetInstanceDungeonEntrance::DungeonEntranceDifficultyIndex()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOut
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut()
+void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOut");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneRollOut_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9354,12 +11292,15 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOut()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOver
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOver()
+void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOver(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneRollOver");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneRollOver_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9371,12 +11312,15 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneRollOver()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor
 // (Native, Public)
+// Parameters:
+// int                            Row                            (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::ChangeCursor()
+void UEFGFxWidgetInteractionAbility_Refine::ChangeCursor(int Row)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.ChangeCursor");
 
 	UEFGFxWidgetInteractionAbility_Refine_ChangeCursor_Params params;
+	params.Row = Row;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9389,12 +11333,15 @@ void UEFGFxWidgetInteractionAbility_Refine::ChangeCursor()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneClick
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneClick()
+void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneClick");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9407,12 +11354,15 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneClick()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleChangeTabClick
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleChangeTabClick()
+void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleChangeTabClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleChangeTabClick");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleChangeTabClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9425,12 +11375,15 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleChangeTabClick()
 
 // Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneSelected
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneSelected()
+void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneSelected(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionAbility_Refine.InteractionMarbleStoneSelected");
 
 	UEFGFxWidgetInteractionAbility_Refine_InteractionMarbleStoneSelected_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9443,12 +11396,15 @@ void UEFGFxWidgetInteractionAbility_Refine::InteractionMarbleStoneSelected()
 
 // Function EFGame.EFGFxWidgetInteractionBarter.BarterShopPurchaseItem
 // (Native, Public)
+// Parameters:
+// struct FString                 strUniqueData                  (Parm, NeedCtorLink)
 
-void UEFGFxWidgetInteractionBarter::BarterShopPurchaseItem()
+void UEFGFxWidgetInteractionBarter::BarterShopPurchaseItem(const struct FString& strUniqueData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionBarter.BarterShopPurchaseItem");
 
 	UEFGFxWidgetInteractionBarter_BarterShopPurchaseItem_Params params;
+	params.strUniqueData = strUniqueData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9529,12 +11485,15 @@ void UEFGFxWidgetInteractionMail::ASSetNextSlotEnable()
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetMailOpenType
 // (Defined, Event, Public)
+// Parameters:
+// TEnumAsByte<EFMailOpenType>    MailOpenType                   (Parm)
 
-void UEFGFxWidgetInteractionMail::SetMailOpenType()
+void UEFGFxWidgetInteractionMail::SetMailOpenType(TEnumAsByte<EFMailOpenType> MailOpenType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.SetMailOpenType");
 
 	UEFGFxWidgetInteractionMail_SetMailOpenType_Params params;
+	params.MailOpenType = MailOpenType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9546,12 +11505,15 @@ void UEFGFxWidgetInteractionMail::SetMailOpenType()
 
 // Function EFGame.EFGFxWidgetInteractionMail.SetOpenType
 // (Defined, Public)
+// Parameters:
+// TEnumAsByte<EFMailOpenType>    MailOpenType                   (Parm)
 
-void UEFGFxWidgetInteractionMail::SetOpenType()
+void UEFGFxWidgetInteractionMail::SetOpenType(TEnumAsByte<EFMailOpenType> MailOpenType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.SetOpenType");
 
 	UEFGFxWidgetInteractionMail_SetOpenType_Params params;
+	params.MailOpenType = MailOpenType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9599,12 +11561,17 @@ void UEFGFxWidgetInteractionMail::StructReceiverCacheData()
 
 // Function EFGame.EFGFxWidgetInteractionMail.AddReceiverData
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<EFMailReceiverType> ReceiverType                   (Parm)
+// struct FString                 ReceiverName                   (Parm, NeedCtorLink)
 
-void UEFGFxWidgetInteractionMail::AddReceiverData()
+void UEFGFxWidgetInteractionMail::AddReceiverData(TEnumAsByte<EFMailReceiverType> ReceiverType, const struct FString& ReceiverName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteractionMail.AddReceiverData");
 
 	UEFGFxWidgetInteractionMail_AddReceiverData_Params params;
+	params.ReceiverType = ReceiverType;
+	params.ReceiverName = ReceiverName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9635,12 +11602,15 @@ void UEFGFxWidgetItemAssembly::ItemCraftAlarmEffectLuckyPlayEnd()
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelNoramlSkillClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick()
+void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.LifeLevelNoramlSkillClick");
 
 	UEFGFxWidgetLifeSkill_LifeLevelNoramlSkillClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9652,12 +11622,15 @@ void UEFGFxWidgetLifeSkill::LifeLevelNoramlSkillClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillPlusClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick()
+void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillPlusClick");
 
 	UEFGFxWidgetLifeSkill_LifeLevelMasterSkillPlusClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9669,12 +11642,15 @@ void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillPlusClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillMinusClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillMinusClick()
+void UEFGFxWidgetLifeSkill::LifeLevelMasterSkillMinusClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.LifeLevelMasterSkillMinusClick");
 
 	UEFGFxWidgetLifeSkill_LifeLevelMasterSkillMinusClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9720,12 +11696,15 @@ void UEFGFxWidgetLifeSkill::LifeLevelPointMinusClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuideBtnClick
 // (Defined, Public)
+// Parameters:
+// int                            Category                       (Parm)
 
-void UEFGFxWidgetLifeSkill::LifeLevelGuideBtnClick()
+void UEFGFxWidgetLifeSkill::LifeLevelGuideBtnClick(int Category)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuideBtnClick");
 
 	UEFGFxWidgetLifeSkill_LifeLevelGuideBtnClick_Params params;
+	params.Category = Category;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9754,12 +11733,15 @@ void UEFGFxWidgetLifeSkill::LifeLevelGuideClosed()
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeNoramlSkillClick
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::OnLifeNoramlSkillClick()
+void UEFGFxWidgetLifeSkill::OnLifeNoramlSkillClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.OnLifeNoramlSkillClick");
 
 	UEFGFxWidgetLifeSkill_OnLifeNoramlSkillClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9772,12 +11754,15 @@ void UEFGFxWidgetLifeSkill::OnLifeNoramlSkillClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillPlusClick
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::OnLifeMasterSkillPlusClick()
+void UEFGFxWidgetLifeSkill::OnLifeMasterSkillPlusClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillPlusClick");
 
 	UEFGFxWidgetLifeSkill_OnLifeMasterSkillPlusClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9790,12 +11775,15 @@ void UEFGFxWidgetLifeSkill::OnLifeMasterSkillPlusClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillMinusClick
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetLifeSkill::OnLifeMasterSkillMinusClick()
+void UEFGFxWidgetLifeSkill::OnLifeMasterSkillMinusClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.OnLifeMasterSkillMinusClick");
 
 	UEFGFxWidgetLifeSkill_OnLifeMasterSkillMinusClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9844,12 +11832,15 @@ void UEFGFxWidgetLifeSkill::OnLifePointMinusClick()
 
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuide
 // (Native, Public)
+// Parameters:
+// int                            Category                       (Parm)
 
-void UEFGFxWidgetLifeSkill::LifeLevelGuide()
+void UEFGFxWidgetLifeSkill::LifeLevelGuide(int Category)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.LifeLevelGuide");
 
 	UEFGFxWidgetLifeSkill_LifeLevelGuide_Params params;
+	params.Category = Category;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -9880,12 +11871,15 @@ void UEFGFxWidgetLifeSkill::OnLifeLevelGuideClosed()
 
 // Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuideUI
 // (Defined, Event, Public)
+// Parameters:
+// int                            Category                       (Parm)
 
-void UEFGFxWidgetLifeSkill::OpenLifeLevelGuideUI()
+void UEFGFxWidgetLifeSkill::OpenLifeLevelGuideUI(int Category)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuideUI");
 
 	UEFGFxWidgetLifeSkill_OpenLifeLevelGuideUI_Params params;
+	params.Category = Category;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9897,12 +11891,15 @@ void UEFGFxWidgetLifeSkill::OpenLifeLevelGuideUI()
 
 // Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuide
 // (Defined, Public)
+// Parameters:
+// int                            Category                       (Parm)
 
-void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide()
+void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide(int Category)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.OpenLifeLevelGuide");
 
 	UEFGFxWidgetLifeSkill_OpenLifeLevelGuide_Params params;
+	params.Category = Category;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9914,12 +11911,15 @@ void UEFGFxWidgetLifeSkill::OpenLifeLevelGuide()
 
 // Function EFGame.EFGFxWidgetLifeSkill.SetNoSkillUI
 // (Defined, Event, Public)
+// Parameters:
+// bool                           isNoSkill                      (Parm)
 
-void UEFGFxWidgetLifeSkill::SetNoSkillUI()
+void UEFGFxWidgetLifeSkill::SetNoSkillUI(bool isNoSkill)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.SetNoSkillUI");
 
 	UEFGFxWidgetLifeSkill_SetNoSkillUI_Params params;
+	params.isNoSkill = isNoSkill;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9931,12 +11931,15 @@ void UEFGFxWidgetLifeSkill::SetNoSkillUI()
 
 // Function EFGame.EFGFxWidgetLifeSkill.SetNoSkill
 // (Defined, Public)
+// Parameters:
+// bool                           isNoSkill                      (Parm)
 
-void UEFGFxWidgetLifeSkill::SetNoSkill()
+void UEFGFxWidgetLifeSkill::SetNoSkill(bool isNoSkill)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeSkill.SetNoSkill");
 
 	UEFGFxWidgetLifeSkill_SetNoSkill_Params params;
+	params.isNoSkill = isNoSkill;
 
 	auto flags = fn->FunctionFlags;
 
@@ -9984,12 +11987,15 @@ void UEFGFxWidgetMap::RequestWorldMapUpperDepth()
 
 // Function EFGame.EFGFxWidgetMap.WorldMapZoneIndex
 // (Native, Public)
+// Parameters:
+// int                            ZoneIndex                      (Parm)
 
-void UEFGFxWidgetMap::WorldMapZoneIndex()
+void UEFGFxWidgetMap::WorldMapZoneIndex(int ZoneIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMap.WorldMapZoneIndex");
 
 	UEFGFxWidgetMap_WorldMapZoneIndex_Params params;
+	params.ZoneIndex = ZoneIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10002,12 +12008,15 @@ void UEFGFxWidgetMap::WorldMapZoneIndex()
 
 // Function EFGame.EFGFxWidgetMap.WorldMapContinentType
 // (Native, Public)
+// Parameters:
+// int                            ContinentType                  (Parm)
 
-void UEFGFxWidgetMap::WorldMapContinentType()
+void UEFGFxWidgetMap::WorldMapContinentType(int ContinentType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMap.WorldMapContinentType");
 
 	UEFGFxWidgetMap_WorldMapContinentType_Params params;
+	params.ContinentType = ContinentType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10020,12 +12029,15 @@ void UEFGFxWidgetMap::WorldMapContinentType()
 
 // Function EFGame.EFGFxWidgetMODWatingInfo.MinimapAlarmListRightBtnClick
 // (Native, Public)
+// Parameters:
+// int                            InListIndex                    (Parm)
 
-void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick()
+void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick(int InListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMODWatingInfo.MinimapAlarmListRightBtnClick");
 
 	UEFGFxWidgetMODWatingInfo_MinimapAlarmListRightBtnClick_Params params;
+	params.InListIndex = InListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10038,12 +12050,15 @@ void UEFGFxWidgetMODWatingInfo::MinimapAlarmListRightBtnClick()
 
 // Function EFGame.EFGFxWidgetMoviePlayer.TestLabSendInputMessage
 // (Native, Public)
+// Parameters:
+// struct FString                 InputText                      (Parm, NeedCtorLink)
 
-void UEFGFxWidgetMoviePlayer::TestLabSendInputMessage()
+void UEFGFxWidgetMoviePlayer::TestLabSendInputMessage(const struct FString& InputText)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMoviePlayer.TestLabSendInputMessage");
 
 	UEFGFxWidgetMoviePlayer_TestLabSendInputMessage_Params params;
+	params.InputText = InputText;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10074,12 +12089,15 @@ void UEFGFxWidgetNormalBox::NormalBoxItemSelected()
 
 // Function EFGame.EFGFxWidgetNoticeMOD.NoticeModWaitListItemClick
 // (Native, Public)
+// Parameters:
+// int                            ListIndex                      (Parm)
 
-void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick()
+void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick(int ListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetNoticeMOD.NoticeModWaitListItemClick");
 
 	UEFGFxWidgetNoticeMOD_NoticeModWaitListItemClick_Params params;
+	params.ListIndex = ListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10092,12 +12110,15 @@ void UEFGFxWidgetNoticeMOD::NoticeModWaitListItemClick()
 
 // Function EFGame.EFGFxWidgetQuestJournal.SetMaxTreeItemCheckNumber
 // (Defined, Event, Public)
+// Parameters:
+// int                            InMaxQuestCheckNumber          (Parm)
 
-void UEFGFxWidgetQuestJournal::SetMaxTreeItemCheckNumber()
+void UEFGFxWidgetQuestJournal::SetMaxTreeItemCheckNumber(int InMaxQuestCheckNumber)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.SetMaxTreeItemCheckNumber");
 
 	UEFGFxWidgetQuestJournal_SetMaxTreeItemCheckNumber_Params params;
+	params.InMaxQuestCheckNumber = InMaxQuestCheckNumber;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10109,12 +12130,15 @@ void UEFGFxWidgetQuestJournal::SetMaxTreeItemCheckNumber()
 
 // Function EFGame.EFGFxWidgetQuestJournal.SetMaxQuestCheckNumber
 // (Defined, Public)
+// Parameters:
+// int                            InMaxQuestCheckNumber          (Parm)
 
-void UEFGFxWidgetQuestJournal::SetMaxQuestCheckNumber()
+void UEFGFxWidgetQuestJournal::SetMaxQuestCheckNumber(int InMaxQuestCheckNumber)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.SetMaxQuestCheckNumber");
 
 	UEFGFxWidgetQuestJournal_SetMaxQuestCheckNumber_Params params;
+	params.InMaxQuestCheckNumber = InMaxQuestCheckNumber;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10126,12 +12150,15 @@ void UEFGFxWidgetQuestJournal::SetMaxQuestCheckNumber()
 
 // Function EFGame.EFGFxWidgetQuestJournal.ARKQuestTraceButtonClicked
 // (Defined, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestJournal::ARKQuestTraceButtonClicked()
+void UEFGFxWidgetQuestJournal::ARKQuestTraceButtonClicked(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.ARKQuestTraceButtonClicked");
 
 	UEFGFxWidgetQuestJournal_ARKQuestTraceButtonClicked_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10143,12 +12170,15 @@ void UEFGFxWidgetQuestJournal::ARKQuestTraceButtonClicked()
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnClicked_TraceQuestButton
 // (Native, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestJournal::OnClicked_TraceQuestButton()
+void UEFGFxWidgetQuestJournal::OnClicked_TraceQuestButton(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.OnClicked_TraceQuestButton");
 
 	UEFGFxWidgetQuestJournal_OnClicked_TraceQuestButton_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10196,12 +12226,15 @@ void UEFGFxWidgetQuestJournal::OnCheckedTreeItemOverPool()
 
 // Function EFGame.EFGFxWidgetQuestJournal.ARKQuestGiveUpButtonClicked
 // (Defined, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestJournal::ARKQuestGiveUpButtonClicked()
+void UEFGFxWidgetQuestJournal::ARKQuestGiveUpButtonClicked(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.ARKQuestGiveUpButtonClicked");
 
 	UEFGFxWidgetQuestJournal_ARKQuestGiveUpButtonClicked_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10213,12 +12246,15 @@ void UEFGFxWidgetQuestJournal::ARKQuestGiveUpButtonClicked()
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnClicked_GiveUpButton
 // (Native, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestJournal::OnClicked_GiveUpButton()
+void UEFGFxWidgetQuestJournal::OnClicked_GiveUpButton(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.OnClicked_GiveUpButton");
 
 	UEFGFxWidgetQuestJournal_OnClicked_GiveUpButton_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10231,12 +12267,15 @@ void UEFGFxWidgetQuestJournal::OnClicked_GiveUpButton()
 
 // Function EFGame.EFGFxWidgetQuestJournal.QuestJournalTreeItemMultiCheck
 // (Defined, Public)
+// Parameters:
+// class UGFxObject*              InArray                        (Parm)
 
-void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck()
+void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck(class UGFxObject* InArray)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.QuestJournalTreeItemMultiCheck");
 
 	UEFGFxWidgetQuestJournal_QuestJournalTreeItemMultiCheck_Params params;
+	params.InArray = InArray;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10248,12 +12287,15 @@ void UEFGFxWidgetQuestJournal::QuestJournalTreeItemMultiCheck()
 
 // Function EFGame.EFGFxWidgetQuestJournal.OnChecked_QuestTreeItem
 // (Native, Public)
+// Parameters:
+// TArray<int>                    InQuestIndexArray              (Parm, NeedCtorLink)
 
-void UEFGFxWidgetQuestJournal::OnChecked_QuestTreeItem()
+void UEFGFxWidgetQuestJournal::OnChecked_QuestTreeItem(TArray<int> InQuestIndexArray)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestJournal.OnChecked_QuestTreeItem");
 
 	UEFGFxWidgetQuestJournal_OnChecked_QuestTreeItem_Params params;
+	params.InQuestIndexArray = InQuestIndexArray;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10301,12 +12343,15 @@ void UEFGFxWidgetQuestSummary::OnHideQuestSummary()
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestSelectedRewardItem
 // (Defined, Public)
+// Parameters:
+// int                            InIndex                        (Parm)
 
-void UEFGFxWidgetQuestSummary::ARKQuestSelectedRewardItem()
+void UEFGFxWidgetQuestSummary::ARKQuestSelectedRewardItem(int InIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestSelectedRewardItem");
 
 	UEFGFxWidgetQuestSummary_ARKQuestSelectedRewardItem_Params params;
+	params.InIndex = InIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10318,12 +12363,15 @@ void UEFGFxWidgetQuestSummary::ARKQuestSelectedRewardItem()
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_SelectChoiceItem
 // (Native, Public)
+// Parameters:
+// int                            InIndex                        (Parm)
 
-void UEFGFxWidgetQuestSummary::OnClicked_SelectChoiceItem()
+void UEFGFxWidgetQuestSummary::OnClicked_SelectChoiceItem(int InIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.OnClicked_SelectChoiceItem");
 
 	UEFGFxWidgetQuestSummary_OnClicked_SelectChoiceItem_Params params;
+	params.InIndex = InIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10336,12 +12384,15 @@ void UEFGFxWidgetQuestSummary::OnClicked_SelectChoiceItem()
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestCompleteButtonClicked
 // (Defined, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestSummary::ARKQuestCompleteButtonClicked()
+void UEFGFxWidgetQuestSummary::ARKQuestCompleteButtonClicked(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestCompleteButtonClicked");
 
 	UEFGFxWidgetQuestSummary_ARKQuestCompleteButtonClicked_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10353,12 +12404,15 @@ void UEFGFxWidgetQuestSummary::ARKQuestCompleteButtonClicked()
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_CompleteButton
 // (Native, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestSummary::OnClicked_CompleteButton()
+void UEFGFxWidgetQuestSummary::OnClicked_CompleteButton(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.OnClicked_CompleteButton");
 
 	UEFGFxWidgetQuestSummary_OnClicked_CompleteButton_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10371,12 +12425,15 @@ void UEFGFxWidgetQuestSummary::OnClicked_CompleteButton()
 
 // Function EFGame.EFGFxWidgetQuestSummary.ARKQuestAcceptButtonClicked
 // (Defined, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestSummary::ARKQuestAcceptButtonClicked()
+void UEFGFxWidgetQuestSummary::ARKQuestAcceptButtonClicked(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.ARKQuestAcceptButtonClicked");
 
 	UEFGFxWidgetQuestSummary_ARKQuestAcceptButtonClicked_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10388,12 +12445,15 @@ void UEFGFxWidgetQuestSummary::ARKQuestAcceptButtonClicked()
 
 // Function EFGame.EFGFxWidgetQuestSummary.OnClicked_AcceptButton
 // (Native, Public)
+// Parameters:
+// int                            InQuestIndex                   (Parm)
 
-void UEFGFxWidgetQuestSummary::OnClicked_AcceptButton()
+void UEFGFxWidgetQuestSummary::OnClicked_AcceptButton(int InQuestIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.OnClicked_AcceptButton");
 
 	UEFGFxWidgetQuestSummary_OnClicked_AcceptButton_Params params;
+	params.InQuestIndex = InQuestIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10406,12 +12466,15 @@ void UEFGFxWidgetQuestSummary::OnClicked_AcceptButton()
 
 // Function EFGame.EFGFxWidgetQuestSummary.SelectChoiceRewardItem
 // (Defined, Event, Public)
+// Parameters:
+// int                            InSelectIndex                  (Parm)
 
-void UEFGFxWidgetQuestSummary::SelectChoiceRewardItem()
+void UEFGFxWidgetQuestSummary::SelectChoiceRewardItem(int InSelectIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.SelectChoiceRewardItem");
 
 	UEFGFxWidgetQuestSummary_SelectChoiceRewardItem_Params params;
+	params.InSelectIndex = InSelectIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10423,12 +12486,15 @@ void UEFGFxWidgetQuestSummary::SelectChoiceRewardItem()
 
 // Function EFGame.EFGFxWidgetQuestSummary.SetSelectedIndex_ChoiceRewardItem
 // (Defined, Public)
+// Parameters:
+// int                            InSelectIndex                  (Parm)
 
-void UEFGFxWidgetQuestSummary::SetSelectedIndex_ChoiceRewardItem()
+void UEFGFxWidgetQuestSummary::SetSelectedIndex_ChoiceRewardItem(int InSelectIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetQuestSummary.SetSelectedIndex_ChoiceRewardItem");
 
 	UEFGFxWidgetQuestSummary_SetSelectedIndex_ChoiceRewardItem_Params params;
+	params.InSelectIndex = InSelectIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10510,12 +12576,15 @@ void UEFGFxWidgetRandomBox::RandomBoxClosed()
 
 // Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemReceiveAll
 // (Native, Public)
+// Parameters:
+// struct FString                 ItemId                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll()
+void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll(const struct FString& ItemId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemReceiveAll");
 
 	UEFGFxWidgetSelectBox_SelectBoxItemReceiveAll_Params params;
+	params.ItemId = ItemId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10528,12 +12597,15 @@ void UEFGFxWidgetSelectBox::SelectBoxItemReceiveAll()
 
 // Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemSelected
 // (Native, Public)
+// Parameters:
+// struct FString                 ItemId                         (Parm, NeedCtorLink)
 
-void UEFGFxWidgetSelectBox::SelectBoxItemSelected()
+void UEFGFxWidgetSelectBox::SelectBoxItemSelected(const struct FString& ItemId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSelectBox.SelectBoxItemSelected");
 
 	UEFGFxWidgetSelectBox_SelectBoxItemSelected_Params params;
+	params.ItemId = ItemId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10597,12 +12669,15 @@ void UEFGFxWidgetSkillBook::cancelSelection()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetUnlock
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookPresetUnlock()
+void UEFGFxWidgetSkillBook::SkillBookPresetUnlock(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetUnlock");
 
 	UEFGFxWidgetSkillBook_SkillBookPresetUnlock_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10615,12 +12690,15 @@ void UEFGFxWidgetSkillBook::SkillBookPresetUnlock()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetApply
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookPresetApply()
+void UEFGFxWidgetSkillBook::SkillBookPresetApply(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetApply");
 
 	UEFGFxWidgetSkillBook_SkillBookPresetApply_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10633,12 +12711,15 @@ void UEFGFxWidgetSkillBook::SkillBookPresetApply()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetSelected
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookPresetSelected()
+void UEFGFxWidgetSkillBook::SkillBookPresetSelected(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookPresetSelected");
 
 	UEFGFxWidgetSkillBook_SkillBookPresetSelected_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10669,12 +12750,15 @@ void UEFGFxWidgetSkillBook::SkillBookInitCancel()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookInitConfirm
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookInitConfirm()
+void UEFGFxWidgetSkillBook::SkillBookInitConfirm(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookInitConfirm");
 
 	UEFGFxWidgetSkillBook_SkillBookInitConfirm_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10705,12 +12789,15 @@ void UEFGFxWidgetSkillBook::SkillBookPresetEdit()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookListSelected
 // (Native, Public)
+// Parameters:
+// int                            TierId                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookListSelected()
+void UEFGFxWidgetSkillBook::SkillBookListSelected(int TierId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookListSelected");
 
 	UEFGFxWidgetSkillBook_SkillBookListSelected_Params params;
+	params.TierId = TierId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10723,12 +12810,15 @@ void UEFGFxWidgetSkillBook::SkillBookListSelected()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookTierBtnClick
 // (Native, Public)
+// Parameters:
+// int                            TierId                         (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookTierBtnClick()
+void UEFGFxWidgetSkillBook::SkillBookTierBtnClick(int TierId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookTierBtnClick");
 
 	UEFGFxWidgetSkillBook_SkillBookTierBtnClick_Params params;
+	params.TierId = TierId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10741,12 +12831,15 @@ void UEFGFxWidgetSkillBook::SkillBookTierBtnClick()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookDownBtnClick
 // (Native, Public)
+// Parameters:
+// int                            SkillId                        (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookDownBtnClick()
+void UEFGFxWidgetSkillBook::SkillBookDownBtnClick(int SkillId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookDownBtnClick");
 
 	UEFGFxWidgetSkillBook_SkillBookDownBtnClick_Params params;
+	params.SkillId = SkillId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10759,12 +12852,15 @@ void UEFGFxWidgetSkillBook::SkillBookDownBtnClick()
 
 // Function EFGame.EFGFxWidgetSkillBook.SkillBookUpBtnClick
 // (Native, Public)
+// Parameters:
+// int                            SkillId                        (Parm)
 
-void UEFGFxWidgetSkillBook::SkillBookUpBtnClick()
+void UEFGFxWidgetSkillBook::SkillBookUpBtnClick(int SkillId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSkillBook.SkillBookUpBtnClick");
 
 	UEFGFxWidgetSkillBook_SkillBookUpBtnClick_Params params;
+	params.SkillId = SkillId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10777,12 +12873,15 @@ void UEFGFxWidgetSkillBook::SkillBookUpBtnClick()
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionButtonClickHandler
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
 
-void UEFGFxWidgetSystemOption::SystemOptionButtonClickHandler()
+void UEFGFxWidgetSystemOption::SystemOptionButtonClickHandler(int iUID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionButtonClickHandler");
 
 	UEFGFxWidgetSystemOption_SystemOptionButtonClickHandler_Params params;
+	params.iUID = iUID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10795,12 +12894,17 @@ void UEFGFxWidgetSystemOption::SystemOptionButtonClickHandler()
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionListIndexChange
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSystemOption::SystemOptionListIndexChange()
+void UEFGFxWidgetSystemOption::SystemOptionListIndexChange(int iUID, int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionListIndexChange");
 
 	UEFGFxWidgetSystemOption_SystemOptionListIndexChange_Params params;
+	params.iUID = iUID;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10813,12 +12917,25 @@ void UEFGFxWidgetSystemOption::SystemOptionListIndexChange()
 
 // Function EFGame.EFGFxWidgetSystemOption.OpenChattingOptionColorPicker
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// struct FString                 sColor                         (Parm, NeedCtorLink)
+// float                          X                              (Parm)
+// float                          Y                              (Parm)
+// float                          W                              (Parm)
+// float                          H                              (Parm)
 
-void UEFGFxWidgetSystemOption::OpenChattingOptionColorPicker()
+void UEFGFxWidgetSystemOption::OpenChattingOptionColorPicker(int iUID, const struct FString& sColor, float X, float Y, float W, float H)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.OpenChattingOptionColorPicker");
 
 	UEFGFxWidgetSystemOption_OpenChattingOptionColorPicker_Params params;
+	params.iUID = iUID;
+	params.sColor = sColor;
+	params.X = X;
+	params.Y = Y;
+	params.W = W;
+	params.H = H;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10849,12 +12966,17 @@ void UEFGFxWidgetSystemOption::OptionHotKeyKillFocus()
 
 // Function EFGame.EFGFxWidgetSystemOption.OptionHotKeyButtonChange
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSystemOption::OptionHotKeyButtonChange()
+void UEFGFxWidgetSystemOption::OptionHotKeyButtonChange(int iUID, int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.OptionHotKeyButtonChange");
 
 	UEFGFxWidgetSystemOption_OptionHotKeyButtonChange_Params params;
+	params.iUID = iUID;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10885,12 +13007,17 @@ void UEFGFxWidgetSystemOption::SystemOptionWndCloseButtonClicked()
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionChangedSlider
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// int                            iValue                         (Parm)
 
-void UEFGFxWidgetSystemOption::SystemOptionChangedSlider()
+void UEFGFxWidgetSystemOption::SystemOptionChangedSlider(int iUID, int iValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionChangedSlider");
 
 	UEFGFxWidgetSystemOption_SystemOptionChangedSlider_Params params;
+	params.iUID = iUID;
+	params.iValue = iValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10903,12 +13030,17 @@ void UEFGFxWidgetSystemOption::SystemOptionChangedSlider()
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedComboBox
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetSystemOption::SystemOptionSelectedComboBox()
+void UEFGFxWidgetSystemOption::SystemOptionSelectedComboBox(int iUID, int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedComboBox");
 
 	UEFGFxWidgetSystemOption_SystemOptionSelectedComboBox_Params params;
+	params.iUID = iUID;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10921,12 +13053,17 @@ void UEFGFxWidgetSystemOption::SystemOptionSelectedComboBox()
 
 // Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedCheckBox
 // (Native, Public)
+// Parameters:
+// int                            iUID                           (Parm)
+// bool                           bCheck                         (Parm)
 
-void UEFGFxWidgetSystemOption::SystemOptionSelectedCheckBox()
+void UEFGFxWidgetSystemOption::SystemOptionSelectedCheckBox(int iUID, bool bCheck)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetSystemOption.SystemOptionSelectedCheckBox");
 
 	UEFGFxWidgetSystemOption_SystemOptionSelectedCheckBox_Params params;
+	params.iUID = iUID;
+	params.bCheck = bCheck;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10975,12 +13112,15 @@ void UEFGFxWidgetUnLockBox::UnlockBoxItemClosed()
 
 // Function EFGame.EFGFxWidgetUserTrade.SetOtherTradeReady
 // (Defined, Event, Public)
+// Parameters:
+// bool                           Ready                          (Parm)
 
-void UEFGFxWidgetUserTrade::SetOtherTradeReady()
+void UEFGFxWidgetUserTrade::SetOtherTradeReady(bool Ready)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.SetOtherTradeReady");
 
 	UEFGFxWidgetUserTrade_SetOtherTradeReady_Params params;
+	params.Ready = Ready;
 
 	auto flags = fn->FunctionFlags;
 
@@ -10992,12 +13132,15 @@ void UEFGFxWidgetUserTrade::SetOtherTradeReady()
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeReady
 // (Defined, Public)
+// Parameters:
+// bool                           Ready                          (Parm)
 
-void UEFGFxWidgetUserTrade::ASSetOtherTradeReady()
+void UEFGFxWidgetUserTrade::ASSetOtherTradeReady(bool Ready)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetOtherTradeReady");
 
 	UEFGFxWidgetUserTrade_ASSetOtherTradeReady_Params params;
+	params.Ready = Ready;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11009,12 +13152,15 @@ void UEFGFxWidgetUserTrade::ASSetOtherTradeReady()
 
 // Function EFGame.EFGFxWidgetUserTrade.SetMyTradeReady
 // (Defined, Event, Public)
+// Parameters:
+// bool                           Ready                          (Parm)
 
-void UEFGFxWidgetUserTrade::SetMyTradeReady()
+void UEFGFxWidgetUserTrade::SetMyTradeReady(bool Ready)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.SetMyTradeReady");
 
 	UEFGFxWidgetUserTrade_SetMyTradeReady_Params params;
+	params.Ready = Ready;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11026,12 +13172,15 @@ void UEFGFxWidgetUserTrade::SetMyTradeReady()
 
 // Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeReady
 // (Defined, Public)
+// Parameters:
+// bool                           Ready                          (Parm)
 
-void UEFGFxWidgetUserTrade::ASSetMyTradeReady()
+void UEFGFxWidgetUserTrade::ASSetMyTradeReady(bool Ready)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeReady");
 
 	UEFGFxWidgetUserTrade_ASSetMyTradeReady_Params params;
+	params.Ready = Ready;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11111,12 +13260,15 @@ void UEFGFxWidgetUserTrade::ASSetMyTradeConfirm()
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick
 // (Native, Public)
+// Parameters:
+// int                            iPlateIndex                    (Parm)
 
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowConfirmBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowConfirmBtnClick(int iPlateIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick");
 
 	UEFGFxWidgetVictoryCrest_VictoryCrestWindowConfirmBtnClick_Params params;
+	params.iPlateIndex = iPlateIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11129,12 +13281,15 @@ void UEFGFxWidgetVictoryCrest::VictoryCrestWindowConfirmBtnClick()
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick
 // (Native, Public)
+// Parameters:
+// int                            iPlateIndex                    (Parm)
 
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowExchangeBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowExchangeBtnClick(int iPlateIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick");
 
 	UEFGFxWidgetVictoryCrest_VictoryCrestWindowExchangeBtnClick_Params params;
+	params.iPlateIndex = iPlateIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11147,12 +13302,15 @@ void UEFGFxWidgetVictoryCrest::VictoryCrestWindowExchangeBtnClick()
 
 // Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick
 // (Native, Public)
+// Parameters:
+// int                            iPlateIndex                    (Parm)
 
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowUnlockBtnClick()
+void UEFGFxWidgetVictoryCrest::VictoryCrestWindowUnlockBtnClick(int iPlateIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick");
 
 	UEFGFxWidgetVictoryCrest_VictoryCrestWindowUnlockBtnClick_Params params;
+	params.iPlateIndex = iPlateIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11165,18 +13323,28 @@ void UEFGFxWidgetVictoryCrest::VictoryCrestWindowUnlockBtnClick()
 
 // Function EFGame.EFUIFrame.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUIFrame::WidgetInitialized()
+bool UEFUIFrame::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIFrame.WidgetInitialized");
 
 	UEFUIFrame_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -11216,12 +13384,15 @@ void UEFUIFrame::Activate()
 
 // Function EFGame.EFGFxWidgetAnnounce.AnnounceFrameMotionComplete
 // (Native, Public)
+// Parameters:
+// int                            Layer                          (Parm)
 
-void UEFGFxWidgetAnnounce::AnnounceFrameMotionComplete()
+void UEFGFxWidgetAnnounce::AnnounceFrameMotionComplete(int Layer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.AnnounceFrameMotionComplete");
 
 	UEFGFxWidgetAnnounce_AnnounceFrameMotionComplete_Params params;
+	params.Layer = Layer;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11234,12 +13405,15 @@ void UEFGFxWidgetAnnounce::AnnounceFrameMotionComplete()
 
 // Function EFGame.EFGFxWidgetAnnounce.cleanUpLayer
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
 
-void UEFGFxWidgetAnnounce::cleanUpLayer()
+void UEFGFxWidgetAnnounce::cleanUpLayer(int Layer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.cleanUpLayer");
 
 	UEFGFxWidgetAnnounce_cleanUpLayer_Params params;
+	params.Layer = Layer;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11251,12 +13425,17 @@ void UEFGFxWidgetAnnounce::cleanUpLayer()
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnouncePosition
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// float                          YPos                           (Parm)
 
-void UEFGFxWidgetAnnounce::setAnnouncePosition()
+void UEFGFxWidgetAnnounce::setAnnouncePosition(int Layer, float YPos)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.setAnnouncePosition");
 
 	UEFGFxWidgetAnnounce_setAnnouncePosition_Params params;
+	params.Layer = Layer;
+	params.YPos = YPos;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11268,29 +13447,42 @@ void UEFGFxWidgetAnnounce::setAnnouncePosition()
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceListPosition
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// class UGFxObject*              ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetAnnounce::getAnnounceListPosition()
+class UGFxObject* UEFGFxWidgetAnnounce::getAnnounceListPosition(int Layer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.getAnnounceListPosition");
 
 	UEFGFxWidgetAnnounce_getAnnounceListPosition_Params params;
+	params.Layer = Layer;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnounceItemTime
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            Index                          (Parm)
+// float                          Time                           (Parm)
 
-void UEFGFxWidgetAnnounce::setAnnounceItemTime()
+void UEFGFxWidgetAnnounce::setAnnounceItemTime(int Layer, int Index, float Time)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.setAnnounceItemTime");
 
 	UEFGFxWidgetAnnounce_setAnnounceItemTime_Params params;
+	params.Layer = Layer;
+	params.Index = Index;
+	params.Time = Time;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11302,46 +13494,67 @@ void UEFGFxWidgetAnnounce::setAnnounceItemTime()
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceItemTime
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            Index                          (Parm)
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetAnnounce::getAnnounceItemTime()
+float UEFGFxWidgetAnnounce::getAnnounceItemTime(int Layer, int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.getAnnounceItemTime");
 
 	UEFGFxWidgetAnnounce_getAnnounceItemTime_Params params;
+	params.Layer = Layer;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceListItem
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            Index                          (Parm)
+// class UGFxObject*              ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetAnnounce::getAnnounceListItem()
+class UGFxObject* UEFGFxWidgetAnnounce::getAnnounceListItem(int Layer, int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.getAnnounceListItem");
 
 	UEFGFxWidgetAnnounce_getAnnounceListItem_Params params;
+	params.Layer = Layer;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetAnnounce.setAnnounceTotalItem
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            Count                          (Parm)
 
-void UEFGFxWidgetAnnounce::setAnnounceTotalItem()
+void UEFGFxWidgetAnnounce::setAnnounceTotalItem(int Layer, int Count)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.setAnnounceTotalItem");
 
 	UEFGFxWidgetAnnounce_setAnnounceTotalItem_Params params;
+	params.Layer = Layer;
+	params.Count = Count;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11353,46 +13566,63 @@ void UEFGFxWidgetAnnounce::setAnnounceTotalItem()
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceMaxItem
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetAnnounce::getAnnounceMaxItem()
+int UEFGFxWidgetAnnounce::getAnnounceMaxItem(int Layer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.getAnnounceMaxItem");
 
 	UEFGFxWidgetAnnounce_getAnnounceMaxItem_Params params;
+	params.Layer = Layer;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetAnnounce.getAnnounceCurrentItem
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetAnnounce::getAnnounceCurrentItem()
+int UEFGFxWidgetAnnounce::getAnnounceCurrentItem(int Layer)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.getAnnounceCurrentItem");
 
 	UEFGFxWidgetAnnounce_getAnnounceCurrentItem_Params params;
+	params.Layer = Layer;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetAnnounce.addAnnounceMessage
 // (Defined, Event, Public)
+// Parameters:
+// int                            Layer                          (Parm)
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetAnnounce::addAnnounceMessage()
+void UEFGFxWidgetAnnounce::addAnnounceMessage(int Layer, class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetAnnounce.addAnnounceMessage");
 
 	UEFGFxWidgetAnnounce_addAnnounceMessage_Params params;
+	params.Layer = Layer;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11404,12 +13634,15 @@ void UEFGFxWidgetAnnounce::addAnnounceMessage()
 
 // Function EFGame.EFGFxWidgetClassPreview.SetEnableResetButton
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bEnable                        (Parm)
 
-void UEFGFxWidgetClassPreview::SetEnableResetButton()
+void UEFGFxWidgetClassPreview::SetEnableResetButton(bool bEnable)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.SetEnableResetButton");
 
 	UEFGFxWidgetClassPreview_SetEnableResetButton_Params params;
+	params.bEnable = bEnable;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11421,12 +13654,15 @@ void UEFGFxWidgetClassPreview::SetEnableResetButton()
 
 // Function EFGame.EFGFxWidgetClassPreview.SetShowType
 // (Defined, Event, Public)
+// Parameters:
+// int                            Type                           (Parm)
 
-void UEFGFxWidgetClassPreview::SetShowType()
+void UEFGFxWidgetClassPreview::SetShowType(int Type)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.SetShowType");
 
 	UEFGFxWidgetClassPreview_SetShowType_Params params;
+	params.Type = Type;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11438,12 +13674,15 @@ void UEFGFxWidgetClassPreview::SetShowType()
 
 // Function EFGame.EFGFxWidgetClassPreview.SetClassUpgradeChoiceInfo
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              ClassDataList                  (Parm)
 
-void UEFGFxWidgetClassPreview::SetClassUpgradeChoiceInfo()
+void UEFGFxWidgetClassPreview::SetClassUpgradeChoiceInfo(class UGFxObject* ClassDataList)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.SetClassUpgradeChoiceInfo");
 
 	UEFGFxWidgetClassPreview_SetClassUpgradeChoiceInfo_Params params;
+	params.ClassDataList = ClassDataList;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11455,12 +13694,19 @@ void UEFGFxWidgetClassPreview::SetClassUpgradeChoiceInfo()
 
 // Function EFGame.EFGFxWidgetClassPreview.SetPlayingClassData
 // (Defined, Event, Public)
+// Parameters:
+// int                            ClassID                        (Parm)
+// struct FString                 ClassName                      (Parm, NeedCtorLink)
+// struct FString                 classInfo                      (Parm, NeedCtorLink)
 
-void UEFGFxWidgetClassPreview::SetPlayingClassData()
+void UEFGFxWidgetClassPreview::SetPlayingClassData(int ClassID, const struct FString& ClassName, const struct FString& classInfo)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.SetPlayingClassData");
 
 	UEFGFxWidgetClassPreview_SetPlayingClassData_Params params;
+	params.ClassID = ClassID;
+	params.ClassName = ClassName;
+	params.classInfo = classInfo;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11490,12 +13736,15 @@ void UEFGFxWidgetClassPreview::ClassUpgradeCancelRelease()
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeSelectClassID
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetClassPreview::ClassUpgradeSelectClassID()
+void UEFGFxWidgetClassPreview::ClassUpgradeSelectClassID(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeSelectClassID");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeSelectClassID_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11508,12 +13757,15 @@ void UEFGFxWidgetClassPreview::ClassUpgradeSelectClassID()
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeConfirmClass
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetClassPreview::ClassUpgradeConfirmClass()
+void UEFGFxWidgetClassPreview::ClassUpgradeConfirmClass(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradeConfirmClass");
 
 	UEFGFxWidgetClassPreview_ClassUpgradeConfirmClass_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11616,12 +13868,15 @@ void UEFGFxWidgetClassPreview::RequestStopMovie()
 
 // Function EFGame.EFGFxWidgetClassPreview.RequestPlayMovieClassUpgradePreview
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetClassPreview::RequestPlayMovieClassUpgradePreview()
+void UEFGFxWidgetClassPreview::RequestPlayMovieClassUpgradePreview(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.RequestPlayMovieClassUpgradePreview");
 
 	UEFGFxWidgetClassPreview_RequestPlayMovieClassUpgradePreview_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11652,12 +13907,15 @@ void UEFGFxWidgetClassPreview::ClassUpgradePreviewRequestCloseWnd()
 
 // Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewPlaySelectClass
 // (Native, Public)
+// Parameters:
+// int                            iIndex                         (Parm)
 
-void UEFGFxWidgetClassPreview::ClassUpgradePreviewPlaySelectClass()
+void UEFGFxWidgetClassPreview::ClassUpgradePreviewPlaySelectClass(int iIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetClassPreview.ClassUpgradePreviewPlaySelectClass");
 
 	UEFGFxWidgetClassPreview_ClassUpgradePreviewPlaySelectClass_Params params;
+	params.iIndex = iIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11670,12 +13928,17 @@ void UEFGFxWidgetClassPreview::ClassUpgradePreviewPlaySelectClass()
 
 // Function EFGame.EFGFxWidgetColosseum_New.setObserverMod
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMode                          (Parm)
+// int                            iSide                          (Parm)
 
-void UEFGFxWidgetColosseum_New::setObserverMod()
+void UEFGFxWidgetColosseum_New::setObserverMod(int iMode, int iSide)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.setObserverMod");
 
 	UEFGFxWidgetColosseum_New_setObserverMod_Params params;
+	params.iMode = iMode;
+	params.iSide = iSide;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11687,12 +13950,15 @@ void UEFGFxWidgetColosseum_New::setObserverMod()
 
 // Function EFGame.EFGFxWidgetColosseum_New.setTimerPause
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bPause                         (Parm)
 
-void UEFGFxWidgetColosseum_New::setTimerPause()
+void UEFGFxWidgetColosseum_New::setTimerPause(bool bPause)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.setTimerPause");
 
 	UEFGFxWidgetColosseum_New_setTimerPause_Params params;
+	params.bPause = bPause;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11704,12 +13970,15 @@ void UEFGFxWidgetColosseum_New::setTimerPause()
 
 // Function EFGame.EFGFxWidgetColosseum_New.AddItem
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Object                         (Parm)
 
-void UEFGFxWidgetColosseum_New::AddItem()
+void UEFGFxWidgetColosseum_New::AddItem(class UGFxObject* Object)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.AddItem");
 
 	UEFGFxWidgetColosseum_New_AddItem_Params params;
+	params.Object = Object;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11721,12 +13990,15 @@ void UEFGFxWidgetColosseum_New::AddItem()
 
 // Function EFGame.EFGFxWidgetColosseum_New.setModType
 // (Defined, Event, Public)
+// Parameters:
+// int                            iType                          (Parm)
 
-void UEFGFxWidgetColosseum_New::setModType()
+void UEFGFxWidgetColosseum_New::setModType(int iType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.setModType");
 
 	UEFGFxWidgetColosseum_New_setModType_Params params;
+	params.iType = iType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11738,12 +14010,19 @@ void UEFGFxWidgetColosseum_New::setModType()
 
 // Function EFGame.EFGFxWidgetColosseum_New.roundAnnounceShowType
 // (Defined, Event, Public)
+// Parameters:
+// int                            iType                          (Parm)
+// struct FString                 Title                          (Parm, NeedCtorLink)
+// struct FString                 Subtitle                       (Parm, NeedCtorLink)
 
-void UEFGFxWidgetColosseum_New::roundAnnounceShowType()
+void UEFGFxWidgetColosseum_New::roundAnnounceShowType(int iType, const struct FString& Title, const struct FString& Subtitle)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.roundAnnounceShowType");
 
 	UEFGFxWidgetColosseum_New_roundAnnounceShowType_Params params;
+	params.iType = iType;
+	params.Title = Title;
+	params.Subtitle = Subtitle;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11755,12 +14034,15 @@ void UEFGFxWidgetColosseum_New::roundAnnounceShowType()
 
 // Function EFGame.EFGFxWidgetColosseum_New.announceShowType
 // (Defined, Event, Public)
+// Parameters:
+// int                            iType                          (Parm)
 
-void UEFGFxWidgetColosseum_New::announceShowType()
+void UEFGFxWidgetColosseum_New::announceShowType(int iType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.announceShowType");
 
 	UEFGFxWidgetColosseum_New_announceShowType_Params params;
+	params.iType = iType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11772,12 +14054,15 @@ void UEFGFxWidgetColosseum_New::announceShowType()
 
 // Function EFGame.EFGFxWidgetColosseum_New.setStartData
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Object                         (Parm)
 
-void UEFGFxWidgetColosseum_New::setStartData()
+void UEFGFxWidgetColosseum_New::setStartData(class UGFxObject* Object)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.setStartData");
 
 	UEFGFxWidgetColosseum_New_setStartData_Params params;
+	params.Object = Object;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11789,12 +14074,15 @@ void UEFGFxWidgetColosseum_New::setStartData()
 
 // Function EFGame.EFGFxWidgetColosseum_New.setWaitData
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Object                         (Parm)
 
-void UEFGFxWidgetColosseum_New::setWaitData()
+void UEFGFxWidgetColosseum_New::setWaitData(class UGFxObject* Object)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetColosseum_New.setWaitData");
 
 	UEFGFxWidgetColosseum_New_setWaitData_Params params;
+	params.Object = Object;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11806,12 +14094,15 @@ void UEFGFxWidgetColosseum_New::setWaitData()
 
 // Function EFGame.EFGFxWidgetCommon.SetPartyMemberValue
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 remainPartyMember              (Parm, NeedCtorLink)
 
-void UEFGFxWidgetCommon::SetPartyMemberValue()
+void UEFGFxWidgetCommon::SetPartyMemberValue(const struct FString& remainPartyMember)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCommon.SetPartyMemberValue");
 
 	UEFGFxWidgetCommon_SetPartyMemberValue_Params params;
+	params.remainPartyMember = remainPartyMember;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11823,12 +14114,17 @@ void UEFGFxWidgetCommon::SetPartyMemberValue()
 
 // Function EFGame.EFGFxWidgetCommon.SetCommonObjectAvailableSkip
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bShow                          (Parm)
+// int                            skipType                       (Parm)
 
-void UEFGFxWidgetCommon::SetCommonObjectAvailableSkip()
+void UEFGFxWidgetCommon::SetCommonObjectAvailableSkip(bool bShow, int skipType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCommon.SetCommonObjectAvailableSkip");
 
 	UEFGFxWidgetCommon_SetCommonObjectAvailableSkip_Params params;
+	params.bShow = bShow;
+	params.skipType = skipType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11840,12 +14136,15 @@ void UEFGFxWidgetCommon::SetCommonObjectAvailableSkip()
 
 // Function EFGame.EFGFxWidgetCommon.ShowCommonObjectAvailableSkip
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bShow                          (Parm)
 
-void UEFGFxWidgetCommon::ShowCommonObjectAvailableSkip()
+void UEFGFxWidgetCommon::ShowCommonObjectAvailableSkip(bool bShow)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCommon.ShowCommonObjectAvailableSkip");
 
 	UEFGFxWidgetCommon_ShowCommonObjectAvailableSkip_Params params;
+	params.bShow = bShow;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11857,29 +14156,42 @@ void UEFGFxWidgetCommon::ShowCommonObjectAvailableSkip()
 
 // Function EFGame.EFGFxWidgetCommon.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetCommon::WidgetInitialized()
+bool UEFGFxWidgetCommon::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetCommon.WidgetInitialized");
 
 	UEFGFxWidgetCommon_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetContentsUnlock.ContentsUnlockCallbackTypeID
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetContentsUnlock::ContentsUnlockCallbackTypeID()
+void UEFGFxWidgetContentsUnlock::ContentsUnlockCallbackTypeID(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetContentsUnlock.ContentsUnlockCallbackTypeID");
 
 	UEFGFxWidgetContentsUnlock_ContentsUnlockCallbackTypeID_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11891,12 +14203,15 @@ void UEFGFxWidgetContentsUnlock::ContentsUnlockCallbackTypeID()
 
 // Function EFGame.EFGFxWidgetContentsUnlock.OnContentsUnlockCallbackTypeID
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetContentsUnlock::OnContentsUnlockCallbackTypeID()
+void UEFGFxWidgetContentsUnlock::OnContentsUnlockCallbackTypeID(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetContentsUnlock.OnContentsUnlockCallbackTypeID");
 
 	UEFGFxWidgetContentsUnlock_OnContentsUnlockCallbackTypeID_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11909,29 +14224,44 @@ void UEFGFxWidgetContentsUnlock::OnContentsUnlockCallbackTypeID()
 
 // Function EFGame.EFGFxWidgetDamage.EFDataBinding_UpdateData
 // (Defined, Public)
+// Parameters:
+// struct FString                 BindName                       (Parm, NeedCtorLink)
+// class UGFxObject*              DataProvider                   (Parm)
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetDamage::EFDataBinding_UpdateData()
+int UEFGFxWidgetDamage::EFDataBinding_UpdateData(const struct FString& BindName, class UGFxObject* DataProvider)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetDamage.EFDataBinding_UpdateData");
 
 	UEFGFxWidgetDamage_EFDataBinding_UpdateData_Params params;
+	params.BindName = BindName;
+	params.DataProvider = DataProvider;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.MiniGameStateChanged
 // (Defined, Public)
+// Parameters:
+// struct FString                 WndName                        (Parm, NeedCtorLink)
+// int                            currentGameState               (Parm)
+// int                            lastGameState                  (Parm)
 
-void UEFGFxWidgetExcavationMiniGame::MiniGameStateChanged()
+void UEFGFxWidgetExcavationMiniGame::MiniGameStateChanged(const struct FString& WndName, int currentGameState, int lastGameState)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetExcavationMiniGame.MiniGameStateChanged");
 
 	UEFGFxWidgetExcavationMiniGame_MiniGameStateChanged_Params params;
+	params.WndName = WndName;
+	params.currentGameState = currentGameState;
+	params.lastGameState = lastGameState;
 
 	auto flags = fn->FunctionFlags;
 
@@ -11943,12 +14273,19 @@ void UEFGFxWidgetExcavationMiniGame::MiniGameStateChanged()
 
 // Function EFGame.EFGFxWidgetExcavationMiniGame.OnChangeGameState
 // (Native, Public)
+// Parameters:
+// struct FString                 WndName                        (Parm, NeedCtorLink)
+// int                            currentGameState               (Parm)
+// int                            lastGameState                  (Parm)
 
-void UEFGFxWidgetExcavationMiniGame::OnChangeGameState()
+void UEFGFxWidgetExcavationMiniGame::OnChangeGameState(const struct FString& WndName, int currentGameState, int lastGameState)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetExcavationMiniGame.OnChangeGameState");
 
 	UEFGFxWidgetExcavationMiniGame_OnChangeGameState_Params params;
+	params.WndName = WndName;
+	params.currentGameState = currentGameState;
+	params.lastGameState = lastGameState;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11996,12 +14333,19 @@ void UEFGFxWidgetExcavationMiniGame::OnResultComplete()
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.MiniGameStateChanged
 // (Defined, Public)
+// Parameters:
+// struct FString                 WndName                        (Parm, NeedCtorLink)
+// int                            currentGameState               (Parm)
+// int                            lastGameState                  (Parm)
 
-void UEFGFxWidgetFishingNetMiniGame::MiniGameStateChanged()
+void UEFGFxWidgetFishingNetMiniGame::MiniGameStateChanged(const struct FString& WndName, int currentGameState, int lastGameState)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetFishingNetMiniGame.MiniGameStateChanged");
 
 	UEFGFxWidgetFishingNetMiniGame_MiniGameStateChanged_Params params;
+	params.WndName = WndName;
+	params.currentGameState = currentGameState;
+	params.lastGameState = lastGameState;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12013,12 +14357,19 @@ void UEFGFxWidgetFishingNetMiniGame::MiniGameStateChanged()
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.OnChangeGameState
 // (Native, Public)
+// Parameters:
+// struct FString                 WndName                        (Parm, NeedCtorLink)
+// int                            currentGameState               (Parm)
+// int                            lastGameState                  (Parm)
 
-void UEFGFxWidgetFishingNetMiniGame::OnChangeGameState()
+void UEFGFxWidgetFishingNetMiniGame::OnChangeGameState(const struct FString& WndName, int currentGameState, int lastGameState)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetFishingNetMiniGame.OnChangeGameState");
 
 	UEFGFxWidgetFishingNetMiniGame_OnChangeGameState_Params params;
+	params.WndName = WndName;
+	params.currentGameState = currentGameState;
+	params.lastGameState = lastGameState;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12031,12 +14382,15 @@ void UEFGFxWidgetFishingNetMiniGame::OnChangeGameState()
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.FishingGameOver
 // (Defined, Public)
+// Parameters:
+// int                            overType                       (Parm)
 
-void UEFGFxWidgetFishingNetMiniGame::FishingGameOver()
+void UEFGFxWidgetFishingNetMiniGame::FishingGameOver(int overType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetFishingNetMiniGame.FishingGameOver");
 
 	UEFGFxWidgetFishingNetMiniGame_FishingGameOver_Params params;
+	params.overType = overType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12048,12 +14402,15 @@ void UEFGFxWidgetFishingNetMiniGame::FishingGameOver()
 
 // Function EFGame.EFGFxWidgetFishingNetMiniGame.OnFishingGameOver
 // (Native, Public)
+// Parameters:
+// int                            overType                       (Parm)
 
-void UEFGFxWidgetFishingNetMiniGame::OnFishingGameOver()
+void UEFGFxWidgetFishingNetMiniGame::OnFishingGameOver(int overType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetFishingNetMiniGame.OnFishingGameOver");
 
 	UEFGFxWidgetFishingNetMiniGame_OnFishingGameOver_Params params;
+	params.overType = overType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12066,12 +14423,21 @@ void UEFGFxWidgetFishingNetMiniGame::OnFishingGameOver()
 
 // Function EFGame.EFGFxWidgetHeadStatus.MoveHeadStatus
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 strID                          (Parm, NeedCtorLink)
+// float                          fX                             (Parm)
+// float                          fY                             (Parm)
+// float                          fZ                             (Parm)
 
-void UEFGFxWidgetHeadStatus::MoveHeadStatus()
+void UEFGFxWidgetHeadStatus::MoveHeadStatus(const struct FString& strID, float fX, float fY, float fZ)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHeadStatus.MoveHeadStatus");
 
 	UEFGFxWidgetHeadStatus_MoveHeadStatus_Params params;
+	params.strID = strID;
+	params.fX = fX;
+	params.fY = fY;
+	params.fZ = fZ;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12083,12 +14449,15 @@ void UEFGFxWidgetHeadStatus::MoveHeadStatus()
 
 // Function EFGame.EFGFxWidgetHudCommonExp.HUD_CommonTabIndex
 // (Defined, Public)
+// Parameters:
+// int                            TabIndex                       (Parm)
 
-void UEFGFxWidgetHudCommonExp::HUD_CommonTabIndex()
+void UEFGFxWidgetHudCommonExp::HUD_CommonTabIndex(int TabIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudCommonExp.HUD_CommonTabIndex");
 
 	UEFGFxWidgetHudCommonExp_HUD_CommonTabIndex_Params params;
+	params.TabIndex = TabIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12100,12 +14469,15 @@ void UEFGFxWidgetHudCommonExp::HUD_CommonTabIndex()
 
 // Function EFGame.EFGFxWidgetHudCommonExp.CommonTabIndex
 // (Native, Public)
+// Parameters:
+// int                            TabIndex                       (Parm)
 
-void UEFGFxWidgetHudCommonExp::CommonTabIndex()
+void UEFGFxWidgetHudCommonExp::CommonTabIndex(int TabIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudCommonExp.CommonTabIndex");
 
 	UEFGFxWidgetHudCommonExp_CommonTabIndex_Params params;
+	params.TabIndex = TabIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12118,12 +14490,15 @@ void UEFGFxWidgetHudCommonExp::CommonTabIndex()
 
 // Function EFGame.EFGFxWidgetHudIdentity.SummonerSkillButtonClick
 // (Native, Public)
+// Parameters:
+// int                            iButtonIndex                   (Parm)
 
-void UEFGFxWidgetHudIdentity::SummonerSkillButtonClick()
+void UEFGFxWidgetHudIdentity::SummonerSkillButtonClick(int iButtonIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudIdentity.SummonerSkillButtonClick");
 
 	UEFGFxWidgetHudIdentity_SummonerSkillButtonClick_Params params;
+	params.iButtonIndex = iButtonIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12136,12 +14511,15 @@ void UEFGFxWidgetHudIdentity::SummonerSkillButtonClick()
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListRightBtnClick
 // (Native, Public)
+// Parameters:
+// int                            InListIndex                    (Parm)
 
-void UEFGFxWidgetHudLeftTop::TopHUDAlarmListRightBtnClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListRightBtnClick(int InListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListRightBtnClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListRightBtnClick_Params params;
+	params.InListIndex = InListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12154,12 +14532,15 @@ void UEFGFxWidgetHudLeftTop::TopHUDAlarmListRightBtnClick()
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListLeftBtnClick
 // (Native, Public)
+// Parameters:
+// int                            InListIndex                    (Parm)
 
-void UEFGFxWidgetHudLeftTop::TopHUDAlarmListLeftBtnClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListLeftBtnClick(int InListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListLeftBtnClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListLeftBtnClick_Params params;
+	params.InListIndex = InListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12172,12 +14553,15 @@ void UEFGFxWidgetHudLeftTop::TopHUDAlarmListLeftBtnClick()
 
 // Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListItemClick
 // (Native, Public)
+// Parameters:
+// int                            InListIndex                    (Parm)
 
-void UEFGFxWidgetHudLeftTop::TopHUDAlarmListItemClick()
+void UEFGFxWidgetHudLeftTop::TopHUDAlarmListItemClick(int InListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetHudLeftTop.TopHUDAlarmListItemClick");
 
 	UEFGFxWidgetHudLeftTop_TopHUDAlarmListItemClick_Params params;
+	params.InListIndex = InListIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12275,12 +14659,15 @@ void UEFGFxWidgetInteraction::InteractionOpenBackGround()
 
 // Function EFGame.EFGFxWidgetInteraction.SelectQuestListIndex
 // (Defined, Event, Public)
+// Parameters:
+// int                            ListIndex                      (Parm)
 
-void UEFGFxWidgetInteraction::SelectQuestListIndex()
+void UEFGFxWidgetInteraction::SelectQuestListIndex(int ListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.SelectQuestListIndex");
 
 	UEFGFxWidgetInteraction_SelectQuestListIndex_Params params;
+	params.ListIndex = ListIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12292,12 +14679,15 @@ void UEFGFxWidgetInteraction::SelectQuestListIndex()
 
 // Function EFGame.EFGFxWidgetInteraction.SelectQuestList
 // (Defined, Public)
+// Parameters:
+// int                            ListIndex                      (Parm)
 
-void UEFGFxWidgetInteraction::SelectQuestList()
+void UEFGFxWidgetInteraction::SelectQuestList(int ListIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.SelectQuestList");
 
 	UEFGFxWidgetInteraction_SelectQuestList_Params params;
+	params.ListIndex = ListIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12309,12 +14699,15 @@ void UEFGFxWidgetInteraction::SelectQuestList()
 
 // Function EFGame.EFGFxWidgetInteraction.SelectFunctionType
 // (Defined, Event, Public)
+// Parameters:
+// int                            Type                           (Parm)
 
-void UEFGFxWidgetInteraction::SelectFunctionType()
+void UEFGFxWidgetInteraction::SelectFunctionType(int Type)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.SelectFunctionType");
 
 	UEFGFxWidgetInteraction_SelectFunctionType_Params params;
+	params.Type = Type;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12326,12 +14719,15 @@ void UEFGFxWidgetInteraction::SelectFunctionType()
 
 // Function EFGame.EFGFxWidgetInteraction.SelectFunctionContainer
 // (Defined, Public)
+// Parameters:
+// int                            Type                           (Parm)
 
-void UEFGFxWidgetInteraction::SelectFunctionContainer()
+void UEFGFxWidgetInteraction::SelectFunctionContainer(int Type)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.SelectFunctionContainer");
 
 	UEFGFxWidgetInteraction_SelectFunctionContainer_Params params;
+	params.Type = Type;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12343,12 +14739,15 @@ void UEFGFxWidgetInteraction::SelectFunctionContainer()
 
 // Function EFGame.EFGFxWidgetInteraction.ShowMaxIntimatePoint
 // (Defined, Event, Public)
+// Parameters:
+// bool                           B                              (Parm)
 
-void UEFGFxWidgetInteraction::ShowMaxIntimatePoint()
+void UEFGFxWidgetInteraction::ShowMaxIntimatePoint(bool B)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ShowMaxIntimatePoint");
 
 	UEFGFxWidgetInteraction_ShowMaxIntimatePoint_Params params;
+	params.B = B;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12360,12 +14759,15 @@ void UEFGFxWidgetInteraction::ShowMaxIntimatePoint()
 
 // Function EFGame.EFGFxWidgetInteraction.ShowMaximumIntimatePoint
 // (Defined, Public)
+// Parameters:
+// bool                           B                              (Parm)
 
-void UEFGFxWidgetInteraction::ShowMaximumIntimatePoint()
+void UEFGFxWidgetInteraction::ShowMaximumIntimatePoint(bool B)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ShowMaximumIntimatePoint");
 
 	UEFGFxWidgetInteraction_ShowMaximumIntimatePoint_Params params;
+	params.B = B;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12446,12 +14848,15 @@ void UEFGFxWidgetInteraction::EndInteractionMode()
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonPlayerTalkListClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick()
+void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.InteractionCommonPlayerTalkListClick");
 
 	UEFGFxWidgetInteraction_InteractionCommonPlayerTalkListClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12463,12 +14868,15 @@ void UEFGFxWidgetInteraction::InteractionCommonPlayerTalkListClick()
 
 // Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkSelectList
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::ClickInteractionTalkSelectList()
+void UEFGFxWidgetInteraction::ClickInteractionTalkSelectList(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkSelectList");
 
 	UEFGFxWidgetInteraction_ClickInteractionTalkSelectList_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12481,12 +14889,15 @@ void UEFGFxWidgetInteraction::ClickInteractionTalkSelectList()
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonNPCTalkListClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick()
+void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.InteractionCommonNPCTalkListClick");
 
 	UEFGFxWidgetInteraction_InteractionCommonNPCTalkListClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12498,12 +14909,15 @@ void UEFGFxWidgetInteraction::InteractionCommonNPCTalkListClick()
 
 // Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkList
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::ClickInteractionTalkList()
+void UEFGFxWidgetInteraction::ClickInteractionTalkList(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionTalkList");
 
 	UEFGFxWidgetInteraction_ClickInteractionTalkList_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12516,12 +14930,15 @@ void UEFGFxWidgetInteraction::ClickInteractionTalkList()
 
 // Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick
 // (Defined, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::InteractionCommonMenuListClick()
+void UEFGFxWidgetInteraction::InteractionCommonMenuListClick(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.InteractionCommonMenuListClick");
 
 	UEFGFxWidgetInteraction_InteractionCommonMenuListClick_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12533,12 +14950,15 @@ void UEFGFxWidgetInteraction::InteractionCommonMenuListClick()
 
 // Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetInteraction::ClickInteractionFunctionMenu()
+void UEFGFxWidgetInteraction::ClickInteractionFunctionMenu(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.ClickInteractionFunctionMenu");
 
 	UEFGFxWidgetInteraction_ClickInteractionFunctionMenu_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12551,18 +14971,28 @@ void UEFGFxWidgetInteraction::ClickInteractionFunctionMenu()
 
 // Function EFGame.EFGFxWidgetInteraction.WidgetInitialized
 // (Defined, Event, Public)
+// Parameters:
+// struct FName                   WidgetName                     (Parm)
+// struct FName                   WidgetPath                     (Parm)
+// class UGFxObject*              Widget                         (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetInteraction::WidgetInitialized()
+bool UEFGFxWidgetInteraction::WidgetInitialized(const struct FName& WidgetName, const struct FName& WidgetPath, class UGFxObject* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetInteraction.WidgetInitialized");
 
 	UEFGFxWidgetInteraction_WidgetInitialized_Params params;
+	params.WidgetName = WidgetName;
+	params.WidgetPath = WidgetPath;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -12620,12 +15050,17 @@ void UEFGFxWidgetLifeToolDurability::HideLifeDurability()
 
 // Function EFGame.EFGFxWidgetLifeToolDurability.DecreaseLifeDurability
 // (Defined, Event, Public)
+// Parameters:
+// int                            CurrentValue                   (Parm)
+// int                            decreaseValue                  (Parm)
 
-void UEFGFxWidgetLifeToolDurability::DecreaseLifeDurability()
+void UEFGFxWidgetLifeToolDurability::DecreaseLifeDurability(int CurrentValue, int decreaseValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeToolDurability.DecreaseLifeDurability");
 
 	UEFGFxWidgetLifeToolDurability_DecreaseLifeDurability_Params params;
+	params.CurrentValue = CurrentValue;
+	params.decreaseValue = decreaseValue;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12637,12 +15072,17 @@ void UEFGFxWidgetLifeToolDurability::DecreaseLifeDurability()
 
 // Function EFGame.EFGFxWidgetLifeToolDurability.ShowLifeDurability
 // (Defined, Event, Public)
+// Parameters:
+// int                            iconType                       (Parm)
+// int                            CurrentValue                   (Parm)
 
-void UEFGFxWidgetLifeToolDurability::ShowLifeDurability()
+void UEFGFxWidgetLifeToolDurability::ShowLifeDurability(int iconType, int CurrentValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeToolDurability.ShowLifeDurability");
 
 	UEFGFxWidgetLifeToolDurability_ShowLifeDurability_Params params;
+	params.iconType = iconType;
+	params.CurrentValue = CurrentValue;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12654,12 +15094,15 @@ void UEFGFxWidgetLifeToolDurability::ShowLifeDurability()
 
 // Function EFGame.EFGFxWidgetLifeVessel.LifeVesselCompleteAnimationEnd
 // (Native, Public)
+// Parameters:
+// int                            iCompleteIndex                 (Parm)
 
-void UEFGFxWidgetLifeVessel::LifeVesselCompleteAnimationEnd()
+void UEFGFxWidgetLifeVessel::LifeVesselCompleteAnimationEnd(int iCompleteIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetLifeVessel.LifeVesselCompleteAnimationEnd");
 
 	UEFGFxWidgetLifeVessel_LifeVesselCompleteAnimationEnd_Params params;
+	params.iCompleteIndex = iCompleteIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12672,12 +15115,15 @@ void UEFGFxWidgetLifeVessel::LifeVesselCompleteAnimationEnd()
 
 // Function EFGame.EFGFxWidgetMenu.QuickSlotMenuClick
 // (Native, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
 
-void UEFGFxWidgetMenu::QuickSlotMenuClick()
+void UEFGFxWidgetMenu::QuickSlotMenuClick(int iMenuIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.QuickSlotMenuClick");
 
 	UEFGFxWidgetMenu_QuickSlotMenuClick_Params params;
+	params.iMenuIndex = iMenuIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12690,29 +15136,40 @@ void UEFGFxWidgetMenu::QuickSlotMenuClick()
 
 // Function EFGame.EFGFxWidgetMenu.GetMenu
 // (Defined, Event, Public)
+// Parameters:
+// int                            iSlotIndex                     (Parm)
+// class UGFxObject*              ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGFxWidgetMenu::GetMenu()
+class UGFxObject* UEFGFxWidgetMenu::GetMenu(int iSlotIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.GetMenu");
 
 	UEFGFxWidgetMenu_GetMenu_Params params;
+	params.iSlotIndex = iSlotIndex;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGFxWidgetMenu.SetEnableButton
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
+// bool                           bEnable                        (Parm)
 
-void UEFGFxWidgetMenu::SetEnableButton()
+void UEFGFxWidgetMenu::SetEnableButton(int iMenuIndex, bool bEnable)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.SetEnableButton");
 
 	UEFGFxWidgetMenu_SetEnableButton_Params params;
+	params.iMenuIndex = iMenuIndex;
+	params.bEnable = bEnable;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12724,12 +15181,17 @@ void UEFGFxWidgetMenu::SetEnableButton()
 
 // Function EFGame.EFGFxWidgetMenu.SetToolTip
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
+// struct FString                 strToolTip                     (Parm, NeedCtorLink)
 
-void UEFGFxWidgetMenu::SetToolTip()
+void UEFGFxWidgetMenu::SetToolTip(int iMenuIndex, const struct FString& strToolTip)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.SetToolTip");
 
 	UEFGFxWidgetMenu_SetToolTip_Params params;
+	params.iMenuIndex = iMenuIndex;
+	params.strToolTip = strToolTip;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12741,12 +15203,17 @@ void UEFGFxWidgetMenu::SetToolTip()
 
 // Function EFGame.EFGFxWidgetMenu.SetBindKey
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
+// struct FString                 strBindKey                     (Parm, NeedCtorLink)
 
-void UEFGFxWidgetMenu::SetBindKey()
+void UEFGFxWidgetMenu::SetBindKey(int iMenuIndex, const struct FString& strBindKey)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.SetBindKey");
 
 	UEFGFxWidgetMenu_SetBindKey_Params params;
+	params.iMenuIndex = iMenuIndex;
+	params.strBindKey = strBindKey;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12758,12 +15225,17 @@ void UEFGFxWidgetMenu::SetBindKey()
 
 // Function EFGame.EFGFxWidgetMenu.SetSelectButton
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
+// bool                           bSelect                        (Parm)
 
-void UEFGFxWidgetMenu::SetSelectButton()
+void UEFGFxWidgetMenu::SetSelectButton(int iMenuIndex, bool bSelect)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.SetSelectButton");
 
 	UEFGFxWidgetMenu_SetSelectButton_Params params;
+	params.iMenuIndex = iMenuIndex;
+	params.bSelect = bSelect;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12775,12 +15247,17 @@ void UEFGFxWidgetMenu::SetSelectButton()
 
 // Function EFGame.EFGFxWidgetMenu.SelectButton
 // (Defined, Event, Public)
+// Parameters:
+// int                            iMenuIndex                     (Parm)
+// bool                           bSelect                        (Parm)
 
-void UEFGFxWidgetMenu::SelectButton()
+void UEFGFxWidgetMenu::SelectButton(int iMenuIndex, bool bSelect)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMenu.SelectButton");
 
 	UEFGFxWidgetMenu_SelectButton_Params params;
+	params.iMenuIndex = iMenuIndex;
+	params.bSelect = bSelect;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12845,12 +15322,19 @@ void UEFGFxWidgetMOD_Cube::FinishMergeCompensation()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.ModCommonEndCubeEffect
 // (Defined, Public)
+// Parameters:
+// int                            TabIndex                       (Parm)
+// int                            selectZoneID                   (Parm)
+// int                            selectDifficulty               (Parm)
 
-void UEFGFxWidgetMOD_Cube::ModCommonEndCubeEffect()
+void UEFGFxWidgetMOD_Cube::ModCommonEndCubeEffect(int TabIndex, int selectZoneID, int selectDifficulty)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.ModCommonEndCubeEffect");
 
 	UEFGFxWidgetMOD_Cube_ModCommonEndCubeEffect_Params params;
+	params.TabIndex = TabIndex;
+	params.selectZoneID = selectZoneID;
+	params.selectDifficulty = selectDifficulty;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12880,12 +15364,15 @@ void UEFGFxWidgetMOD_Cube::EndBuffEffect()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.PlayModCommonMergeCompensation
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bSuccess                       (Parm)
 
-void UEFGFxWidgetMOD_Cube::PlayModCommonMergeCompensation()
+void UEFGFxWidgetMOD_Cube::PlayModCommonMergeCompensation(bool bSuccess)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.PlayModCommonMergeCompensation");
 
 	UEFGFxWidgetMOD_Cube_PlayModCommonMergeCompensation_Params params;
+	params.bSuccess = bSuccess;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12897,12 +15384,17 @@ void UEFGFxWidgetMOD_Cube::PlayModCommonMergeCompensation()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonRandomState
 // (Defined, Event, Public)
+// Parameters:
+// bool                           bStart                         (Parm)
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonRandomState()
+void UEFGFxWidgetMOD_Cube::SetModCommonRandomState(bool bStart, class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonRandomState");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonRandomState_Params params;
+	params.bStart = bStart;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12914,12 +15406,15 @@ void UEFGFxWidgetMOD_Cube::SetModCommonRandomState()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonCurrentCompensation
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonCurrentCompensation()
+void UEFGFxWidgetMOD_Cube::SetModCommonCurrentCompensation(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonCurrentCompensation");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonCurrentCompensation_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12931,12 +15426,15 @@ void UEFGFxWidgetMOD_Cube::SetModCommonCurrentCompensation()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonAccumulateCompensation
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonAccumulateCompensation()
+void UEFGFxWidgetMOD_Cube::SetModCommonAccumulateCompensation(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonAccumulateCompensation");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonAccumulateCompensation_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12948,12 +15446,19 @@ void UEFGFxWidgetMOD_Cube::SetModCommonAccumulateCompensation()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.UpdateModCommonCubeState
 // (Defined, Event, Public)
+// Parameters:
+// int                            SkillEffectIndex               (Parm)
+// int                            StackCount                     (Parm)
+// int                            ExpireStageIndex               (Parm)
 
-void UEFGFxWidgetMOD_Cube::UpdateModCommonCubeState()
+void UEFGFxWidgetMOD_Cube::UpdateModCommonCubeState(int SkillEffectIndex, int StackCount, int ExpireStageIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.UpdateModCommonCubeState");
 
 	UEFGFxWidgetMOD_Cube_UpdateModCommonCubeState_Params params;
+	params.SkillEffectIndex = SkillEffectIndex;
+	params.StackCount = StackCount;
+	params.ExpireStageIndex = ExpireStageIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12965,12 +15470,15 @@ void UEFGFxWidgetMOD_Cube::UpdateModCommonCubeState()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.RemoveModCommonCubeState
 // (Defined, Event, Public)
+// Parameters:
+// int                            SkillEffectIndex               (Parm)
 
-void UEFGFxWidgetMOD_Cube::RemoveModCommonCubeState()
+void UEFGFxWidgetMOD_Cube::RemoveModCommonCubeState(int SkillEffectIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.RemoveModCommonCubeState");
 
 	UEFGFxWidgetMOD_Cube_RemoveModCommonCubeState_Params params;
+	params.SkillEffectIndex = SkillEffectIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12982,12 +15490,15 @@ void UEFGFxWidgetMOD_Cube::RemoveModCommonCubeState()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.AddModCommonCubeState
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::AddModCommonCubeState()
+void UEFGFxWidgetMOD_Cube::AddModCommonCubeState(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.AddModCommonCubeState");
 
 	UEFGFxWidgetMOD_Cube_AddModCommonCubeState_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -12999,12 +15510,15 @@ void UEFGFxWidgetMOD_Cube::AddModCommonCubeState()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonStateList
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonStateList()
+void UEFGFxWidgetMOD_Cube::SetModCommonStateList(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonStateList");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonStateList_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13016,12 +15530,15 @@ void UEFGFxWidgetMOD_Cube::SetModCommonStateList()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonWaveStep
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonWaveStep()
+void UEFGFxWidgetMOD_Cube::SetModCommonWaveStep(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonWaveStep");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonWaveStep_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13033,12 +15550,15 @@ void UEFGFxWidgetMOD_Cube::SetModCommonWaveStep()
 
 // Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonHudType
 // (Defined, Event, Public)
+// Parameters:
+// int                            ModType                        (Parm)
 
-void UEFGFxWidgetMOD_Cube::SetModCommonHudType()
+void UEFGFxWidgetMOD_Cube::SetModCommonHudType(int ModType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_Cube.SetModCommonHudType");
 
 	UEFGFxWidgetMOD_Cube_SetModCommonHudType_Params params;
+	params.ModType = ModType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13050,12 +15570,15 @@ void UEFGFxWidgetMOD_Cube::SetModCommonHudType()
 
 // Function EFGame.EFGFxWidgetMOD_PlatinumArea.ModPlatinumCoopComplete
 // (Native, Public)
+// Parameters:
+// int                            InCompleteCoopStep             (Parm)
 
-void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete()
+void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete(int InCompleteCoopStep)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMOD_PlatinumArea.ModPlatinumCoopComplete");
 
 	UEFGFxWidgetMOD_PlatinumArea_ModPlatinumCoopComplete_Params params;
+	params.InCompleteCoopStep = InCompleteCoopStep;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13068,12 +15591,15 @@ void UEFGFxWidgetMOD_PlatinumArea::ModPlatinumCoopComplete()
 
 // Function EFGame.EFGFxWidgetMODEntrance.ModEntranceMapCanvasItemClick
 // (Native, Public)
+// Parameters:
+// int                            ZoneID                         (Parm)
 
-void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick()
+void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick(int ZoneID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetMODEntrance.ModEntranceMapCanvasItemClick");
 
 	UEFGFxWidgetMODEntrance_ModEntranceMapCanvasItemClick_Params params;
+	params.ZoneID = ZoneID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13086,12 +15612,19 @@ void UEFGFxWidgetMODEntrance::ModEntranceMapCanvasItemClick()
 
 // Function EFGame.EFGFxWidgetNotice.setNoticeIcon
 // (Defined, Event, Public)
+// Parameters:
+// bool                           show                           (Parm)
+// int                            noticeType                     (Parm)
+// int                            StackCount                     (Parm)
 
-void UEFGFxWidgetNotice::setNoticeIcon()
+void UEFGFxWidgetNotice::setNoticeIcon(bool show, int noticeType, int StackCount)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetNotice.setNoticeIcon");
 
 	UEFGFxWidgetNotice_setNoticeIcon_Params params;
+	params.show = show;
+	params.noticeType = noticeType;
+	params.StackCount = StackCount;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13103,12 +15636,15 @@ void UEFGFxWidgetNotice::setNoticeIcon()
 
 // Function EFGame.EFGFxWidgetNotice.NoticeFrameAlarmBtnClick
 // (Native, Public)
+// Parameters:
+// int                            noticeType                     (Parm)
 
-void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick()
+void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick(int noticeType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetNotice.NoticeFrameAlarmBtnClick");
 
 	UEFGFxWidgetNotice_NoticeFrameAlarmBtnClick_Params params;
+	params.noticeType = noticeType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13121,12 +15657,15 @@ void UEFGFxWidgetNotice::NoticeFrameAlarmBtnClick()
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.SetDefaultClassData
 // (Defined, Event, Public)
+// Parameters:
+// TArray<class UGFxObject*>      pObject                        (Parm, NeedCtorLink)
 
-void UEFGFxWidgetPcCreateHUD::SetDefaultClassData()
+void UEFGFxWidgetPcCreateHUD::SetDefaultClassData(TArray<class UGFxObject*> pObject)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCreateHUD.SetDefaultClassData");
 
 	UEFGFxWidgetPcCreateHUD_SetDefaultClassData_Params params;
+	params.pObject = pObject;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13156,12 +15695,15 @@ void UEFGFxWidgetPcCreateHUD::RequestStopMovie()
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.RequestPlayMovieClassSelectPreview
 // (Native, Public)
+// Parameters:
+// int                            ClassID                        (Parm)
 
-void UEFGFxWidgetPcCreateHUD::RequestPlayMovieClassSelectPreview()
+void UEFGFxWidgetPcCreateHUD::RequestPlayMovieClassSelectPreview(int ClassID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCreateHUD.RequestPlayMovieClassSelectPreview");
 
 	UEFGFxWidgetPcCreateHUD_RequestPlayMovieClassSelectPreview_Params params;
+	params.ClassID = ClassID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13174,12 +15716,15 @@ void UEFGFxWidgetPcCreateHUD::RequestPlayMovieClassSelectPreview()
 
 // Function EFGame.EFGFxWidgetPcCreateHUD.RequestUpdateClassSelectData
 // (Native, Public)
+// Parameters:
+// int                            ClassID                        (Parm)
 
-void UEFGFxWidgetPcCreateHUD::RequestUpdateClassSelectData()
+void UEFGFxWidgetPcCreateHUD::RequestUpdateClassSelectData(int ClassID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCreateHUD.RequestUpdateClassSelectData");
 
 	UEFGFxWidgetPcCreateHUD_RequestUpdateClassSelectData_Params params;
+	params.ClassID = ClassID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13192,12 +15737,15 @@ void UEFGFxWidgetPcCreateHUD::RequestUpdateClassSelectData()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.previewImg
 // (Defined, Event, Public)
+// Parameters:
+// class UGFxObject*              Obj                            (Parm)
 
-void UEFGFxWidgetPcCustomizing::previewImg()
+void UEFGFxWidgetPcCustomizing::previewImg(class UGFxObject* Obj)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.previewImg");
 
 	UEFGFxWidgetPcCustomizing_previewImg_Params params;
+	params.Obj = Obj;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13209,12 +15757,15 @@ void UEFGFxWidgetPcCustomizing::previewImg()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setCostume
 // (Defined, Event, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcCustomizing::setCostume()
+void UEFGFxWidgetPcCustomizing::setCostume(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.setCostume");
 
 	UEFGFxWidgetPcCustomizing_setCostume_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13226,12 +15777,15 @@ void UEFGFxWidgetPcCustomizing::setCostume()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setClassID
 // (Defined, Event, Public)
+// Parameters:
+// int                            ClassID                        (Parm)
 
-void UEFGFxWidgetPcCustomizing::setClassID()
+void UEFGFxWidgetPcCustomizing::setClassID(int ClassID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.setClassID");
 
 	UEFGFxWidgetPcCustomizing_setClassID_Params params;
+	params.ClassID = ClassID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13243,12 +15797,15 @@ void UEFGFxWidgetPcCustomizing::setClassID()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setPreviewcostumeData
 // (Defined, Event, Public)
+// Parameters:
+// TArray<unsigned long>          Array                          (Parm, NeedCtorLink)
 
-void UEFGFxWidgetPcCustomizing::setPreviewcostumeData()
+void UEFGFxWidgetPcCustomizing::setPreviewcostumeData(TArray<unsigned long> Array)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.setPreviewcostumeData");
 
 	UEFGFxWidgetPcCustomizing_setPreviewcostumeData_Params params;
+	params.Array = Array;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13260,12 +15817,15 @@ void UEFGFxWidgetPcCustomizing::setPreviewcostumeData()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.setPresetData
 // (Defined, Event, Public)
+// Parameters:
+// TArray<unsigned long>          Array                          (Parm, NeedCtorLink)
 
-void UEFGFxWidgetPcCustomizing::setPresetData()
+void UEFGFxWidgetPcCustomizing::setPresetData(TArray<unsigned long> Array)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.setPresetData");
 
 	UEFGFxWidgetPcCustomizing_setPresetData_Params params;
+	params.Array = Array;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13277,12 +15837,21 @@ void UEFGFxWidgetPcCustomizing::setPresetData()
 
 // Function EFGame.EFGFxWidgetPcCustomizing.CustomizingSettingValueChanged
 // (Native, Public)
+// Parameters:
+// struct FString                 InFirstCategory                (Parm, NeedCtorLink)
+// struct FString                 InSecondCategory               (Parm, NeedCtorLink)
+// int                            iValue                         (Parm)
+// float                          fValue                         (Parm)
 
-void UEFGFxWidgetPcCustomizing::CustomizingSettingValueChanged()
+void UEFGFxWidgetPcCustomizing::CustomizingSettingValueChanged(const struct FString& InFirstCategory, const struct FString& InSecondCategory, int iValue, float fValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcCustomizing.CustomizingSettingValueChanged");
 
 	UEFGFxWidgetPcCustomizing_CustomizingSettingValueChanged_Params params;
+	params.InFirstCategory = InFirstCategory;
+	params.InSecondCategory = InSecondCategory;
+	params.iValue = iValue;
+	params.fValue = fValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13312,12 +15881,15 @@ void UEFGFxWidgetPcSelect::ShowAnim()
 
 // Function EFGame.EFGFxWidgetPcSelect.ShowNotice
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 Str                            (Parm, NeedCtorLink)
 
-void UEFGFxWidgetPcSelect::ShowNotice()
+void UEFGFxWidgetPcSelect::ShowNotice(const struct FString& Str)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.ShowNotice");
 
 	UEFGFxWidgetPcSelect_ShowNotice_Params params;
+	params.Str = Str;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13329,12 +15901,15 @@ void UEFGFxWidgetPcSelect::ShowNotice()
 
 // Function EFGame.EFGFxWidgetPcSelect.SetCharacterSelect
 // (Defined, Event, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::SetCharacterSelect()
+void UEFGFxWidgetPcSelect::SetCharacterSelect(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.SetCharacterSelect");
 
 	UEFGFxWidgetPcSelect_SetCharacterSelect_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 
@@ -13346,12 +15921,15 @@ void UEFGFxWidgetPcSelect::SetCharacterSelect()
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectMoving
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::CharacterSelectMoving()
+void UEFGFxWidgetPcSelect::CharacterSelectMoving(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectMoving");
 
 	UEFGFxWidgetPcSelect_CharacterSelectMoving_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13382,12 +15960,15 @@ void UEFGFxWidgetPcSelect::WallpaperCancel()
 
 // Function EFGame.EFGFxWidgetPcSelect.WallpaperSelected
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::WallpaperSelected()
+void UEFGFxWidgetPcSelect::WallpaperSelected(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.WallpaperSelected");
 
 	UEFGFxWidgetPcSelect_WallpaperSelected_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13400,12 +15981,15 @@ void UEFGFxWidgetPcSelect::WallpaperSelected()
 
 // Function EFGame.EFGFxWidgetPcSelect.WallpaperConfirm
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::WallpaperConfirm()
+void UEFGFxWidgetPcSelect::WallpaperConfirm(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.WallpaperConfirm");
 
 	UEFGFxWidgetPcSelect_WallpaperConfirm_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13418,12 +16002,15 @@ void UEFGFxWidgetPcSelect::WallpaperConfirm()
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectDeleteCancel
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::CharacterSelectDeleteCancel()
+void UEFGFxWidgetPcSelect::CharacterSelectDeleteCancel(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectDeleteCancel");
 
 	UEFGFxWidgetPcSelect_CharacterSelectDeleteCancel_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13436,12 +16023,15 @@ void UEFGFxWidgetPcSelect::CharacterSelectDeleteCancel()
 
 // Function EFGame.EFGFxWidgetPcSelect.CharacterSelectedIndex
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::CharacterSelectedIndex()
+void UEFGFxWidgetPcSelect::CharacterSelectedIndex(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.CharacterSelectedIndex");
 
 	UEFGFxWidgetPcSelect_CharacterSelectedIndex_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13454,12 +16044,15 @@ void UEFGFxWidgetPcSelect::CharacterSelectedIndex()
 
 // Function EFGame.EFGFxWidgetPcSelect.RequestNewCharacter
 // (Native, Public)
+// Parameters:
+// int                            Index                          (Parm)
 
-void UEFGFxWidgetPcSelect::RequestNewCharacter()
+void UEFGFxWidgetPcSelect::RequestNewCharacter(int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetPcSelect.RequestNewCharacter");
 
 	UEFGFxWidgetPcSelect_RequestNewCharacter_Params params;
+	params.Index = Index;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13544,12 +16137,15 @@ void UEFGFxWidgetRaidHUD::RaidProcessTimeOut()
 
 // Function EFGame.EFUISlotData.SetTownShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetTownShow()
+void UEFUISlotData::SetTownShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetTownShow");
 
 	UEFUISlotData_SetTownShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13562,12 +16158,15 @@ void UEFUISlotData::SetTownShow()
 
 // Function EFGame.EFUISlotData.SetToolTip
 // (Native, Public)
+// Parameters:
+// struct FString                 Tooltipdata                    (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetToolTip()
+void UEFUISlotData::SetToolTip(const struct FString& Tooltipdata)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetToolTip");
 
 	UEFUISlotData_SetToolTip_Params params;
+	params.Tooltipdata = Tooltipdata;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13580,12 +16179,15 @@ void UEFUISlotData::SetToolTip()
 
 // Function EFGame.EFUISlotData.SetRecommend
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetRecommend()
+void UEFUISlotData::SetRecommend(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetRecommend");
 
 	UEFUISlotData_SetRecommend_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13598,12 +16200,15 @@ void UEFUISlotData::SetRecommend()
 
 // Function EFGame.EFUISlotData.SetFriendshipShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetFriendshipShow()
+void UEFUISlotData::SetFriendshipShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetFriendshipShow");
 
 	UEFUISlotData_SetFriendshipShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13616,12 +16221,15 @@ void UEFUISlotData::SetFriendshipShow()
 
 // Function EFGame.EFUISlotData.SetAdvBookShow
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetAdvBookShow()
+void UEFUISlotData::SetAdvBookShow(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetAdvBookShow");
 
 	UEFUISlotData_SetAdvBookShow_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13634,12 +16242,15 @@ void UEFUISlotData::SetAdvBookShow()
 
 // Function EFGame.EFUISlotData.SetTemporary
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetTemporary()
+void UEFUISlotData::SetTemporary(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetTemporary");
 
 	UEFUISlotData_SetTemporary_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13652,12 +16263,15 @@ void UEFUISlotData::SetTemporary()
 
 // Function EFGame.EFUISlotData.SetTrash
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetTrash()
+void UEFUISlotData::SetTrash(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetTrash");
 
 	UEFUISlotData_SetTrash_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13670,12 +16284,15 @@ void UEFUISlotData::SetTrash()
 
 // Function EFGame.EFUISlotData.SetDisableType
 // (Native, Public)
+// Parameters:
+// int                            iType                          (Parm)
 
-void UEFUISlotData::SetDisableType()
+void UEFUISlotData::SetDisableType(int iType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetDisableType");
 
 	UEFUISlotData_SetDisableType_Params params;
+	params.iType = iType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13688,12 +16305,15 @@ void UEFUISlotData::SetDisableType()
 
 // Function EFGame.EFUISlotData.SetTableID
 // (Native, Public)
+// Parameters:
+// int                            NewTableID                     (Parm)
 
-void UEFUISlotData::SetTableID()
+void UEFUISlotData::SetTableID(int NewTableID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetTableID");
 
 	UEFUISlotData_SetTableID_Params params;
+	params.NewTableID = NewTableID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13706,8 +16326,10 @@ void UEFUISlotData::SetTableID()
 
 // Function EFGame.EFUISlotData.GetTableID
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetTableID()
+int UEFUISlotData::GetTableID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetTableID");
 
@@ -13719,17 +16341,22 @@ void UEFUISlotData::GetTableID()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 NewUniqueData                  (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetUniqueData()
+void UEFUISlotData::SetUniqueData(const struct FString& NewUniqueData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetUniqueData");
 
 	UEFUISlotData_SetUniqueData_Params params;
+	params.NewUniqueData = NewUniqueData;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13742,8 +16369,10 @@ void UEFUISlotData::SetUniqueData()
 
 // Function EFGame.EFUISlotData.GetUniqueData
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlotData::GetUniqueData()
+struct FString UEFUISlotData::GetUniqueData()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetUniqueData");
 
@@ -13755,17 +16384,22 @@ void UEFUISlotData::GetUniqueData()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetLocked
 // (Native, Public)
+// Parameters:
+// int                            iLockType                      (Parm)
 
-void UEFUISlotData::SetLocked()
+void UEFUISlotData::SetLocked(int iLockType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetLocked");
 
 	UEFUISlotData_SetLocked_Params params;
+	params.iLockType = iLockType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13778,8 +16412,10 @@ void UEFUISlotData::SetLocked()
 
 // Function EFGame.EFUISlotData.IsLocked
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::IsLocked()
+bool UEFUISlotData::IsLocked()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.IsLocked");
 
@@ -13791,17 +16427,22 @@ void UEFUISlotData::IsLocked()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            NewGrade                       (Parm)
 
-void UEFUISlotData::SetItemGrade()
+void UEFUISlotData::SetItemGrade(int NewGrade)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetItemGrade");
 
 	UEFUISlotData_SetItemGrade_Params params;
+	params.NewGrade = NewGrade;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13814,8 +16455,10 @@ void UEFUISlotData::SetItemGrade()
 
 // Function EFGame.EFUISlotData.GetItemGrade
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetItemGrade()
+int UEFUISlotData::GetItemGrade()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetItemGrade");
 
@@ -13827,17 +16470,22 @@ void UEFUISlotData::GetItemGrade()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSoundTheme                  (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetSoundTheme()
+void UEFUISlotData::SetSoundTheme(const struct FString& NewSoundTheme)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetSoundTheme");
 
 	UEFUISlotData_SetSoundTheme_Params params;
+	params.NewSoundTheme = NewSoundTheme;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13850,8 +16498,10 @@ void UEFUISlotData::SetSoundTheme()
 
 // Function EFGame.EFUISlotData.GetSoundTheme
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlotData::GetSoundTheme()
+struct FString UEFUISlotData::GetSoundTheme()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetSoundTheme");
 
@@ -13863,17 +16513,22 @@ void UEFUISlotData::GetSoundTheme()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetDisabled
 // (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
 
-void UEFUISlotData::SetDisabled()
+void UEFUISlotData::SetDisabled(bool bValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetDisabled");
 
 	UEFUISlotData_SetDisabled_Params params;
+	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13886,8 +16541,10 @@ void UEFUISlotData::SetDisabled()
 
 // Function EFGame.EFUISlotData.IsDisabled
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::IsDisabled()
+bool UEFUISlotData::IsDisabled()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.IsDisabled");
 
@@ -13899,17 +16556,22 @@ void UEFUISlotData::IsDisabled()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetLabelName
 // (Native, Public)
+// Parameters:
+// struct FString                 NewLabelName                   (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetLabelName()
+void UEFUISlotData::SetLabelName(const struct FString& NewLabelName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetLabelName");
 
 	UEFUISlotData_SetLabelName_Params params;
+	params.NewLabelName = NewLabelName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13922,8 +16584,10 @@ void UEFUISlotData::SetLabelName()
 
 // Function EFGame.EFUISlotData.GetLabelName
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlotData::GetLabelName()
+struct FString UEFUISlotData::GetLabelName()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetLabelName");
 
@@ -13935,17 +16599,24 @@ void UEFUISlotData::GetLabelName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetCooltime
 // (Native, Public)
+// Parameters:
+// float                          NewRemainTime                  (Parm)
+// float                          NewTotalTime                   (Parm)
 
-void UEFUISlotData::SetCooltime()
+void UEFUISlotData::SetCooltime(float NewRemainTime, float NewTotalTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetCooltime");
 
 	UEFUISlotData_SetCooltime_Params params;
+	params.NewRemainTime = NewRemainTime;
+	params.NewTotalTime = NewTotalTime;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13958,8 +16629,10 @@ void UEFUISlotData::SetCooltime()
 
 // Function EFGame.EFUISlotData.GetTotalCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetTotalCoolTime()
+float UEFUISlotData::GetTotalCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetTotalCoolTime");
 
@@ -13971,13 +16644,17 @@ void UEFUISlotData::GetTotalCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.GetRemainCoolTime
 // (Native, Public)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetRemainCoolTime()
+float UEFUISlotData::GetRemainCoolTime()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetRemainCoolTime");
 
@@ -13989,17 +16666,22 @@ void UEFUISlotData::GetRemainCoolTime()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            NewIconHeight                  (Parm)
 
-void UEFUISlotData::SetIconHeight()
+void UEFUISlotData::SetIconHeight(int NewIconHeight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconHeight");
 
 	UEFUISlotData_SetIconHeight_Params params;
+	params.NewIconHeight = NewIconHeight;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14012,8 +16694,10 @@ void UEFUISlotData::SetIconHeight()
 
 // Function EFGame.EFUISlotData.GetIconHeight
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetIconHeight()
+int UEFUISlotData::GetIconHeight()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconHeight");
 
@@ -14025,17 +16709,22 @@ void UEFUISlotData::GetIconHeight()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            NewIconWidth                   (Parm)
 
-void UEFUISlotData::SetIconWidth()
+void UEFUISlotData::SetIconWidth(int NewIconWidth)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconWidth");
 
 	UEFUISlotData_SetIconWidth_Params params;
+	params.NewIconWidth = NewIconWidth;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14048,8 +16737,10 @@ void UEFUISlotData::SetIconWidth()
 
 // Function EFGame.EFUISlotData.GetIconWidth
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetIconWidth()
+int UEFUISlotData::GetIconWidth()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconWidth");
 
@@ -14061,17 +16752,22 @@ void UEFUISlotData::GetIconWidth()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconY
 // (Native, Public)
+// Parameters:
+// int                            NewIconY                       (Parm)
 
-void UEFUISlotData::SetIconY()
+void UEFUISlotData::SetIconY(int NewIconY)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconY");
 
 	UEFUISlotData_SetIconY_Params params;
+	params.NewIconY = NewIconY;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14084,8 +16780,10 @@ void UEFUISlotData::SetIconY()
 
 // Function EFGame.EFUISlotData.GetIconY
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetIconY()
+int UEFUISlotData::GetIconY()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconY");
 
@@ -14097,17 +16795,22 @@ void UEFUISlotData::GetIconY()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconX
 // (Native, Public)
+// Parameters:
+// int                            NewIconX                       (Parm)
 
-void UEFUISlotData::SetIconX()
+void UEFUISlotData::SetIconX(int NewIconX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconX");
 
 	UEFUISlotData_SetIconX_Params params;
+	params.NewIconX = NewIconX;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14120,8 +16823,10 @@ void UEFUISlotData::SetIconX()
 
 // Function EFGame.EFUISlotData.GetIconX
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetIconX()
+int UEFUISlotData::GetIconX()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconX");
 
@@ -14133,17 +16838,22 @@ void UEFUISlotData::GetIconX()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconCount
 // (Native, Public)
+// Parameters:
+// int                            NewIconIndex                   (Parm)
 
-void UEFUISlotData::SetIconCount()
+void UEFUISlotData::SetIconCount(int NewIconIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconCount");
 
 	UEFUISlotData_SetIconCount_Params params;
+	params.NewIconIndex = NewIconIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14156,8 +16866,10 @@ void UEFUISlotData::SetIconCount()
 
 // Function EFGame.EFUISlotData.GetIconCount
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetIconCount()
+int UEFUISlotData::GetIconCount()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconCount");
 
@@ -14169,17 +16881,22 @@ void UEFUISlotData::GetIconCount()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 NewIconPath                    (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetIconPath()
+void UEFUISlotData::SetIconPath(const struct FString& NewIconPath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconPath");
 
 	UEFUISlotData_SetIconPath_Params params;
+	params.NewIconPath = NewIconPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14192,8 +16909,10 @@ void UEFUISlotData::SetIconPath()
 
 // Function EFGame.EFUISlotData.GetIconPath
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlotData::GetIconPath()
+struct FString UEFUISlotData::GetIconPath()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetIconPath");
 
@@ -14205,17 +16924,22 @@ void UEFUISlotData::GetIconPath()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetWindowType
 // (Native, Public)
+// Parameters:
+// int                            NewWindowType                  (Parm)
 
-void UEFUISlotData::SetWindowType()
+void UEFUISlotData::SetWindowType(int NewWindowType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetWindowType");
 
 	UEFUISlotData_SetWindowType_Params params;
+	params.NewWindowType = NewWindowType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14228,8 +16952,10 @@ void UEFUISlotData::SetWindowType()
 
 // Function EFGame.EFUISlotData.GetWindowType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetWindowType()
+int UEFUISlotData::GetWindowType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetWindowType");
 
@@ -14241,17 +16967,22 @@ void UEFUISlotData::GetWindowType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            NewSlotIndex                   (Parm)
 
-void UEFUISlotData::SetSlotIndex()
+void UEFUISlotData::SetSlotIndex(int NewSlotIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetSlotIndex");
 
 	UEFUISlotData_SetSlotIndex_Params params;
+	params.NewSlotIndex = NewSlotIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14264,8 +16995,10 @@ void UEFUISlotData::SetSlotIndex()
 
 // Function EFGame.EFUISlotData.GetSlotIndex
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetSlotIndex()
+int UEFUISlotData::GetSlotIndex()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetSlotIndex");
 
@@ -14277,17 +17010,22 @@ void UEFUISlotData::GetSlotIndex()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 NewSlotID                      (Parm, NeedCtorLink)
 
-void UEFUISlotData::SetBindID()
+void UEFUISlotData::SetBindID(const struct FString& NewSlotID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetBindID");
 
 	UEFUISlotData_SetBindID_Params params;
+	params.NewSlotID = NewSlotID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14300,8 +17038,10 @@ void UEFUISlotData::SetBindID()
 
 // Function EFGame.EFUISlotData.GetBindID
 // (Native, Public)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ReturnParm, NeedCtorLink)
 
-void UEFUISlotData::GetBindID()
+struct FString UEFUISlotData::GetBindID()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetBindID");
 
@@ -14313,17 +17053,22 @@ void UEFUISlotData::GetBindID()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetSlotType
 // (Native, Public)
+// Parameters:
+// int                            NewSlotType                    (Parm)
 
-void UEFUISlotData::SetSlotType()
+void UEFUISlotData::SetSlotType(int NewSlotType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetSlotType");
 
 	UEFUISlotData_SetSlotType_Params params;
+	params.NewSlotType = NewSlotType;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14336,8 +17081,10 @@ void UEFUISlotData::SetSlotType()
 
 // Function EFGame.EFUISlotData.GetSlotType
 // (Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFUISlotData::GetSlotType()
+int UEFUISlotData::GetSlotType()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.GetSlotType");
 
@@ -14349,17 +17096,38 @@ void UEFUISlotData::GetSlotType()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFUISlotData.SetIconData_New
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconKey                        (Parm, NeedCtorLink)
+// TEnumAsByte<EItemGrade>        eItemGrade                     (Parm)
+// int                            TableID                        (OptionalParm, Parm)
+// int                            IconCount                      (OptionalParm, Parm)
+// bool                           bTrash                         (OptionalParm, Parm)
+// bool                           bTemporary                     (OptionalParm, Parm)
 
-void UEFUISlotData::SetIconData_New()
+void UEFUISlotData::SetIconData_New(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconKey, TEnumAsByte<EItemGrade> eItemGrade, int TableID, int IconCount, bool bTrash, bool bTemporary)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconData_New");
 
 	UEFUISlotData_SetIconData_New_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconKey = IconKey;
+	params.eItemGrade = eItemGrade;
+	params.TableID = TableID;
+	params.IconCount = IconCount;
+	params.bTrash = bTrash;
+	params.bTemporary = bTemporary;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14372,12 +17140,35 @@ void UEFUISlotData::SetIconData_New()
 
 // Function EFGame.EFUISlotData.SetIconData
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconPath                       (Parm, NeedCtorLink)
+// int                            IconIndex                      (Parm)
+// TEnumAsByte<EItemGrade>        eItemGrade                     (Parm)
+// int                            TableID                        (OptionalParm, Parm)
+// int                            IconCount                      (OptionalParm, Parm)
+// bool                           bTrash                         (OptionalParm, Parm)
+// bool                           bTemporary                     (OptionalParm, Parm)
+// struct FString                 Tooltipdata                    (OptionalParm, Parm, NeedCtorLink)
 
-void UEFUISlotData::SetIconData()
+void UEFUISlotData::SetIconData(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconPath, int IconIndex, TEnumAsByte<EItemGrade> eItemGrade, int TableID, int IconCount, bool bTrash, bool bTemporary, const struct FString& Tooltipdata)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetIconData");
 
 	UEFUISlotData_SetIconData_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconPath = IconPath;
+	params.IconIndex = IconIndex;
+	params.eItemGrade = eItemGrade;
+	params.TableID = TableID;
+	params.IconCount = IconCount;
+	params.bTrash = bTrash;
+	params.bTemporary = bTemporary;
+	params.Tooltipdata = Tooltipdata;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14390,12 +17181,23 @@ void UEFUISlotData::SetIconData()
 
 // Function EFGame.EFUISlotData.SetImageData_New
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconKey                        (Parm, NeedCtorLink)
+// int                            TableID                        (OptionalParm, Parm)
 
-void UEFUISlotData::SetImageData_New()
+void UEFUISlotData::SetImageData_New(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconKey, int TableID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetImageData_New");
 
 	UEFUISlotData_SetImageData_New_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconKey = IconKey;
+	params.TableID = TableID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14408,12 +17210,25 @@ void UEFUISlotData::SetImageData_New()
 
 // Function EFGame.EFUISlotData.SetImageData
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            SlotType                       (Parm)
+// int                            SlotIndex                      (Parm)
+// struct FString                 BindID                         (Parm, NeedCtorLink)
+// struct FString                 IconPath                       (Parm, NeedCtorLink)
+// int                            IconIndex                      (Parm)
+// int                            TableID                        (OptionalParm, Parm)
 
-void UEFUISlotData::SetImageData()
+void UEFUISlotData::SetImageData(int SlotType, int SlotIndex, const struct FString& BindID, const struct FString& IconPath, int IconIndex, int TableID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetImageData");
 
 	UEFUISlotData_SetImageData_Params params;
+	params.SlotType = SlotType;
+	params.SlotIndex = SlotIndex;
+	params.BindID = BindID;
+	params.IconPath = IconPath;
+	params.IconIndex = IconIndex;
+	params.TableID = TableID;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14426,12 +17241,15 @@ void UEFUISlotData::SetImageData()
 
 // Function EFGame.EFGameViewportClient.Tick
 // (Defined, Event, Public)
+// Parameters:
+// float                          DeltaTime                      (Parm)
 
-void UEFGameViewportClient::Tick()
+void UEFGameViewportClient::Tick(float DeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.Tick");
 
 	UEFGameViewportClient_Tick_Params params;
+	params.DeltaTime = DeltaTime;
 
 	auto flags = fn->FunctionFlags;
 
@@ -14443,12 +17261,15 @@ void UEFGameViewportClient::Tick()
 
 // Function EFGame.EFGameViewportClient.PostRender
 // (Defined, Event, Public)
+// Parameters:
+// class UCanvas*                 Canvas                         (Parm)
 
-void UEFGameViewportClient::PostRender()
+void UEFGameViewportClient::PostRender(class UCanvas* Canvas)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.PostRender");
 
 	UEFGameViewportClient_PostRender_Params params;
+	params.Canvas = Canvas;
 
 	auto flags = fn->FunctionFlags;
 
@@ -14460,12 +17281,20 @@ void UEFGameViewportClient::PostRender()
 
 // Function EFGame.EFGameViewportClient.CreateScreenshot
 // (Native, HasOptionalParms, Public, HasOutParms)
+// Parameters:
+// struct FString                 ScreenshotFilename             (Const, Parm, OutParm, NeedCtorLink)
+// bool                           bCreateAsync                   (OptionalParm, Parm)
+// bool                           bAddInputInfo                  (OptionalParm, Parm)
+// bool                           bUseBMP                        (OptionalParm, Parm)
 
-void UEFGameViewportClient::CreateScreenshot()
+void UEFGameViewportClient::CreateScreenshot(bool bCreateAsync, bool bAddInputInfo, bool bUseBMP, struct FString* ScreenshotFilename)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.CreateScreenshot");
 
 	UEFGameViewportClient_CreateScreenshot_Params params;
+	params.bCreateAsync = bCreateAsync;
+	params.bAddInputInfo = bAddInputInfo;
+	params.bUseBMP = bUseBMP;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14473,6 +17302,9 @@ void UEFGameViewportClient::CreateScreenshot()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (ScreenshotFilename != nullptr)
+		*ScreenshotFilename = params.ScreenshotFilename;
 }
 
 
@@ -14496,12 +17328,16 @@ void UEFGameViewportClient::InitRelativeTimeFadeInfo()
 
 // Function EFGame.EFGameViewportClient.CacheViewProjectionMatrix
 // (Native, HasOptionalParms, Public)
+// Parameters:
+// bool                           bForceUpdate                   (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFGameViewportClient::CacheViewProjectionMatrix()
+bool UEFGameViewportClient::CacheViewProjectionMatrix(bool bForceUpdate)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.CacheViewProjectionMatrix");
 
 	UEFGameViewportClient_CacheViewProjectionMatrix_Params params;
+	params.bForceUpdate = bForceUpdate;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14509,17 +17345,22 @@ void UEFGameViewportClient::CacheViewProjectionMatrix()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFGameViewportClient.PostFadeInOutRender
 // (Native, Public)
+// Parameters:
+// class UCanvas*                 Canvas                         (Parm)
 
-void UEFGameViewportClient::PostFadeInOutRender()
+void UEFGameViewportClient::PostFadeInOutRender(class UCanvas* Canvas)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.PostFadeInOutRender");
 
 	UEFGameViewportClient_PostFadeInOutRender_Params params;
+	params.Canvas = Canvas;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14532,12 +17373,15 @@ void UEFGameViewportClient::PostFadeInOutRender()
 
 // Function EFGame.EFGameViewportClient.SetHardwareMouseCursorVisibility
 // (Defined, Simulated, Event, Public)
+// Parameters:
+// bool                           bIsVisible                     (Parm)
 
-void UEFGameViewportClient::SetHardwareMouseCursorVisibility()
+void UEFGameViewportClient::SetHardwareMouseCursorVisibility(bool bIsVisible)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGameViewportClient.SetHardwareMouseCursorVisibility");
 
 	UEFGameViewportClient_SetHardwareMouseCursorVisibility_Params params;
+	params.bIsVisible = bIsVisible;
 
 	auto flags = fn->FunctionFlags;
 
@@ -14720,12 +17564,20 @@ void AEFNxForceFieldTornado::OnUpdatePropertyRadialStrength()
 
 // Function EFGame.EFData_MaskInfo.GetProperLevel
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<EFEQUIP_PART>      ePartsOwn                      (Parm)
+// TEnumAsByte<EFEQUIP_PART>      ePartsRelated                  (Parm)
+// TEnumAsByte<EFMASK_LEVEL>      eCurLevel                      (Parm)
+// unsigned char                  ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFData_MaskInfo::GetProperLevel()
+unsigned char UEFData_MaskInfo::GetProperLevel(TEnumAsByte<EFEQUIP_PART> ePartsOwn, TEnumAsByte<EFEQUIP_PART> ePartsRelated, TEnumAsByte<EFMASK_LEVEL> eCurLevel)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFData_MaskInfo.GetProperLevel");
 
 	UEFData_MaskInfo_GetProperLevel_Params params;
+	params.ePartsOwn = ePartsOwn;
+	params.ePartsRelated = ePartsRelated;
+	params.eCurLevel = eCurLevel;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14733,23 +17585,31 @@ void UEFData_MaskInfo::GetProperLevel()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.GetColumNum
 // (Defined, Event, Public)
+// Parameters:
+// struct FString                 strName                        (Parm, NeedCtorLink)
+// int                            ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::GetColumNum()
+int UEFExcelShell::GetColumNum(const struct FString& strName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.GetColumNum");
 
 	UEFExcelShell_GetColumNum_Params params;
+	params.strName = strName;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -14789,12 +17649,19 @@ void UEFExcelShell::ResetEdit()
 
 // Function EFGame.EFExcelShell.SetLookPresetPosition
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// int                            RowNo                          (Parm)
+// TEnumAsByte<ECELL_LOOK>        eLook                          (Parm)
 
-void UEFExcelShell::SetLookPresetPosition()
+void UEFExcelShell::SetLookPresetPosition(int ColNo, int RowNo, TEnumAsByte<ECELL_LOOK> eLook)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetLookPresetPosition");
 
 	UEFExcelShell_SetLookPresetPosition_Params params;
+	params.ColNo = ColNo;
+	params.RowNo = RowNo;
+	params.eLook = eLook;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14807,12 +17674,17 @@ void UEFExcelShell::SetLookPresetPosition()
 
 // Function EFGame.EFExcelShell.SetLookPresetRange
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Range                          (Parm, NeedCtorLink)
+// TEnumAsByte<ECELL_LOOK>        eLook                          (Parm)
 
-void UEFExcelShell::SetLookPresetRange()
+void UEFExcelShell::SetLookPresetRange(const struct FString& Range, TEnumAsByte<ECELL_LOOK> eLook)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetLookPresetRange");
 
 	UEFExcelShell_SetLookPresetRange_Params params;
+	params.Range = Range;
+	params.eLook = eLook;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14825,12 +17697,19 @@ void UEFExcelShell::SetLookPresetRange()
 
 // Function EFGame.EFExcelShell.ReadStringRange
 // (Final, Native, HasOptionalParms, Public, HasOutParms)
+// Parameters:
+// struct FString                 Range                          (Parm, NeedCtorLink)
+// TArray<struct FString>         outStringArr                   (Parm, OutParm, NeedCtorLink)
+// bool                           IsRaw                          (OptionalParm, Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::ReadStringRange()
+bool UEFExcelShell::ReadStringRange(const struct FString& Range, bool IsRaw, TArray<struct FString>* outStringArr)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.ReadStringRange");
 
 	UEFExcelShell_ReadStringRange_Params params;
+	params.Range = Range;
+	params.IsRaw = IsRaw;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14838,17 +17717,26 @@ void UEFExcelShell::ReadStringRange()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (outStringArr != nullptr)
+		*outStringArr = params.outStringArr;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.ReadString
 // (Final, Native, Public, HasOutParms)
+// Parameters:
+// int                            ColNo                          (Parm)
+// struct FString                 Value                          (Parm, OutParm, NeedCtorLink)
 
-void UEFExcelShell::ReadString()
+void UEFExcelShell::ReadString(int ColNo, struct FString* Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.ReadString");
 
 	UEFExcelShell_ReadString_Params params;
+	params.ColNo = ColNo;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14856,17 +17744,25 @@ void UEFExcelShell::ReadString()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (Value != nullptr)
+		*Value = params.Value;
 }
 
 
 // Function EFGame.EFExcelShell.WriteString
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// struct FString                 Value                          (Parm, NeedCtorLink)
 
-void UEFExcelShell::WriteString()
+void UEFExcelShell::WriteString(int ColNo, const struct FString& Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteString");
 
 	UEFExcelShell_WriteString_Params params;
+	params.ColNo = ColNo;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14879,12 +17775,17 @@ void UEFExcelShell::WriteString()
 
 // Function EFGame.EFExcelShell.WriteName
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// struct FName                   Value                          (Parm)
 
-void UEFExcelShell::WriteName()
+void UEFExcelShell::WriteName(int ColNo, const struct FName& Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteName");
 
 	UEFExcelShell_WriteName_Params params;
+	params.ColNo = ColNo;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14897,12 +17798,17 @@ void UEFExcelShell::WriteName()
 
 // Function EFGame.EFExcelShell.WriteFloat
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// float                          Value                          (Parm)
 
-void UEFExcelShell::WriteFloat()
+void UEFExcelShell::WriteFloat(int ColNo, float Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteFloat");
 
 	UEFExcelShell_WriteFloat_Params params;
+	params.ColNo = ColNo;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14915,12 +17821,17 @@ void UEFExcelShell::WriteFloat()
 
 // Function EFGame.EFExcelShell.WriteInt
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// int                            Value                          (Parm)
 
-void UEFExcelShell::WriteInt()
+void UEFExcelShell::WriteInt(int ColNo, int Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteInt");
 
 	UEFExcelShell_WriteInt_Params params;
+	params.ColNo = ColNo;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14933,12 +17844,17 @@ void UEFExcelShell::WriteInt()
 
 // Function EFGame.EFExcelShell.WriteUINT
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// int                            Value                          (Parm)
 
-void UEFExcelShell::WriteUINT()
+void UEFExcelShell::WriteUINT(int ColNo, int Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.WriteUINT");
 
 	UEFExcelShell_WriteUINT_Params params;
+	params.ColNo = ColNo;
+	params.Value = Value;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14951,12 +17867,18 @@ void UEFExcelShell::WriteUINT()
 
 // Function EFGame.EFExcelShell.SetSheetName
 // (Final, Native, Public)
+// Parameters:
+// int                            nSheeteIndex                   (Parm)
+// struct FString                 szSheetName                    (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SetSheetName()
+bool UEFExcelShell::SetSheetName(int nSheeteIndex, const struct FString& szSheetName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetSheetName");
 
 	UEFExcelShell_SetSheetName_Params params;
+	params.nSheeteIndex = nSheeteIndex;
+	params.szSheetName = szSheetName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14964,17 +17886,33 @@ void UEFExcelShell::SetSheetName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SetFont
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Range                          (Parm, NeedCtorLink)
+// struct FString                 FontName                       (Parm, NeedCtorLink)
+// int                            FontSize                       (Parm)
+// int                            FontColor                      (Parm)
+// bool                           bBold                          (Parm)
+// bool                           bItalic                        (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SetFont()
+bool UEFExcelShell::SetFont(const struct FString& Range, const struct FString& FontName, int FontSize, int FontColor, bool bBold, bool bItalic)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetFont");
 
 	UEFExcelShell_SetFont_Params params;
+	params.Range = Range;
+	params.FontName = FontName;
+	params.FontSize = FontSize;
+	params.FontColor = FontColor;
+	params.bBold = bBold;
+	params.bItalic = bItalic;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14982,17 +17920,23 @@ void UEFExcelShell::SetFont()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SetBorder
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Range                          (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SetBorder()
+bool UEFExcelShell::SetBorder(const struct FString& Range)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetBorder");
 
 	UEFExcelShell_SetBorder_Params params;
+	params.Range = Range;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15000,17 +17944,25 @@ void UEFExcelShell::SetBorder()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SetBackgroundColor
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 Range                          (Parm, NeedCtorLink)
+// int                            BGColor                        (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SetBackgroundColor()
+bool UEFExcelShell::SetBackgroundColor(const struct FString& Range, int BGColor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SetBackgroundColor");
 
 	UEFExcelShell_SetBackgroundColor_Params params;
+	params.Range = Range;
+	params.BGColor = BGColor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15018,17 +17970,24 @@ void UEFExcelShell::SetBackgroundColor()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.GetWorkSheetName
 // (Final, Native, Public, HasOutParms)
+// Parameters:
+// int                            nSheetIndex                    (Parm)
+// struct FString                 strSheetName                   (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::GetWorkSheetName()
+bool UEFExcelShell::GetWorkSheetName(int nSheetIndex, struct FString* strSheetName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.GetWorkSheetName");
 
 	UEFExcelShell_GetWorkSheetName_Params params;
+	params.nSheetIndex = nSheetIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15036,17 +17995,26 @@ void UEFExcelShell::GetWorkSheetName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strSheetName != nullptr)
+		*strSheetName = params.strSheetName;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SelectWorkSheet
 // (Final, Native, Public)
+// Parameters:
+// int                            nSheetIndex                    (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SelectWorkSheet()
+bool UEFExcelShell::SelectWorkSheet(int nSheetIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SelectWorkSheet");
 
 	UEFExcelShell_SelectWorkSheet_Params params;
+	params.nSheetIndex = nSheetIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15054,17 +18022,23 @@ void UEFExcelShell::SelectWorkSheet()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SelectWorkSheetByName
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 strSheetName                   (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SelectWorkSheetByName()
+bool UEFExcelShell::SelectWorkSheetByName(const struct FString& strSheetName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SelectWorkSheetByName");
 
 	UEFExcelShell_SelectWorkSheetByName_Params params;
+	params.strSheetName = strSheetName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15072,17 +18046,23 @@ void UEFExcelShell::SelectWorkSheetByName()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.SaveAs
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 FilePath                       (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::SaveAs()
+bool UEFExcelShell::SaveAs(const struct FString& FilePath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.SaveAs");
 
 	UEFExcelShell_SaveAs_Params params;
+	params.FilePath = FilePath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15090,17 +18070,23 @@ void UEFExcelShell::SaveAs()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.OpenExcelFile
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 FilePath                       (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::OpenExcelFile()
+bool UEFExcelShell::OpenExcelFile(const struct FString& FilePath)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.OpenExcelFile");
 
 	UEFExcelShell_OpenExcelFile_Params params;
+	params.FilePath = FilePath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15108,13 +18094,17 @@ void UEFExcelShell::OpenExcelFile()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.NewSheet
 // (Final, Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::NewSheet()
+bool UEFExcelShell::NewSheet()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.NewSheet");
 
@@ -15126,13 +18116,17 @@ void UEFExcelShell::NewSheet()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.NewExcelFile
 // (Final, Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::NewExcelFile()
+bool UEFExcelShell::NewExcelFile()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.NewExcelFile");
 
@@ -15144,17 +18138,23 @@ void UEFExcelShell::NewExcelFile()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.AutoFitColomn
 // (Final, Native, Public)
+// Parameters:
+// int                            ColNo                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::AutoFitColomn()
+bool UEFExcelShell::AutoFitColomn(int ColNo)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.AutoFitColomn");
 
 	UEFExcelShell_AutoFitColomn_Params params;
+	params.ColNo = ColNo;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15162,17 +18162,23 @@ void UEFExcelShell::AutoFitColomn()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFExcelShell.AutoFitColumn
 // (Final, Native, Public)
+// Parameters:
+// struct FString                 ColName                        (Parm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFExcelShell::AutoFitColumn()
+bool UEFExcelShell::AutoFitColumn(const struct FString& ColName)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFExcelShell.AutoFitColumn");
 
 	UEFExcelShell_AutoFitColumn_Params params;
+	params.ColName = ColName;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15180,17 +18186,28 @@ void UEFExcelShell::AutoFitColumn()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFLocalTrigger.Touch
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
 
-void AEFLocalTrigger::Touch()
+void AEFLocalTrigger::Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTrigger.Touch");
 
 	AEFLocalTrigger_Touch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
 
 	auto flags = fn->FunctionFlags;
 
@@ -15219,8 +18236,10 @@ void AEFLocalTrigger::PostBeginPlay()
 
 // Function EFGame.EFLocalTrigger.IsCinematicControl
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFLocalTrigger::IsCinematicControl()
+bool AEFLocalTrigger::IsCinematicControl()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTrigger.IsCinematicControl");
 
@@ -15232,13 +18251,17 @@ void AEFLocalTrigger::IsCinematicControl()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFLocalTrigger.IsLocalMode
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFLocalTrigger::IsLocalMode()
+bool AEFLocalTrigger::IsLocalMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTrigger.IsLocalMode");
 
@@ -15250,17 +18273,28 @@ void AEFLocalTrigger::IsLocalMode()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFLocalTriggerVolume.Touch
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
 
-void AEFLocalTriggerVolume::Touch()
+void AEFLocalTriggerVolume::Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTriggerVolume.Touch");
 
 	AEFLocalTriggerVolume_Touch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
 
 	auto flags = fn->FunctionFlags;
 
@@ -15289,8 +18323,10 @@ void AEFLocalTriggerVolume::PostBeginPlay()
 
 // Function EFGame.EFLocalTriggerVolume.IsCinematicControl
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFLocalTriggerVolume::IsCinematicControl()
+bool AEFLocalTriggerVolume::IsCinematicControl()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTriggerVolume.IsCinematicControl");
 
@@ -15302,13 +18338,17 @@ void AEFLocalTriggerVolume::IsCinematicControl()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFLocalTriggerVolume.IsLocalMode
 // (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFLocalTriggerVolume::IsLocalMode()
+bool AEFLocalTriggerVolume::IsLocalMode()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLocalTriggerVolume.IsLocalMode");
 
@@ -15320,17 +18360,24 @@ void AEFLocalTriggerVolume::IsLocalMode()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer::XmlExport()
+bool UEFDataContainer::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XmlExport");
 
 	UEFDataContainer_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15338,17 +18385,26 @@ void UEFDataContainer::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer.XlsExport
 // (Native, Public)
+// Parameters:
+// class UEFExcelShell*           Shell                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer::XlsExport()
+bool UEFDataContainer::XlsExport(class UEFExcelShell* Shell)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XlsExport");
 
 	UEFDataContainer_XlsExport_Params params;
+	params.Shell = Shell;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15356,17 +18412,23 @@ void UEFDataContainer::XlsExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer.XlsImport
 // (Native, Public)
+// Parameters:
+// class UEFExcelShell*           Shell                          (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer::XlsImport()
+bool UEFDataContainer::XlsImport(class UEFExcelShell* Shell)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer.XlsImport");
 
 	UEFDataContainer_XlsImport_Params params;
+	params.Shell = Shell;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15374,17 +18436,24 @@ void UEFDataContainer::XlsImport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_CharacterCustomizing.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_CharacterCustomizing::XmlExport()
+bool UEFDataContainer_CharacterCustomizing::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_CharacterCustomizing.XmlExport");
 
 	UEFDataContainer_CharacterCustomizing_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15392,17 +18461,27 @@ void UEFDataContainer_CharacterCustomizing::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_ColorPalette.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_ColorPalette::XmlExport()
+bool UEFDataContainer_ColorPalette::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_ColorPalette.XmlExport");
 
 	UEFDataContainer_ColorPalette_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15410,17 +18489,27 @@ void UEFDataContainer_ColorPalette::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_CustomizeBoneScale.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_CustomizeBoneScale::XmlExport()
+bool UEFDataContainer_CustomizeBoneScale::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_CustomizeBoneScale.XmlExport");
 
 	UEFDataContainer_CustomizeBoneScale_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15428,17 +18517,27 @@ void UEFDataContainer_CustomizeBoneScale::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_LookInfos.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_LookInfos::XmlExport()
+bool UEFDataContainer_LookInfos::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_LookInfos.XmlExport");
 
 	UEFDataContainer_LookInfos_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15446,17 +18545,27 @@ void UEFDataContainer_LookInfos::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_NpcFunction.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_NpcFunction::XmlExport()
+bool UEFDataContainer_NpcFunction::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_NpcFunction.XmlExport");
 
 	UEFDataContainer_NpcFunction_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15464,17 +18573,27 @@ void UEFDataContainer_NpcFunction::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_Quest.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_Quest::XmlExport()
+bool UEFDataContainer_Quest::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_Quest.XmlExport");
 
 	UEFDataContainer_Quest_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15482,17 +18601,27 @@ void UEFDataContainer_Quest::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFDataContainer_TexturePalette.XmlExport
 // (Native, Public, HasOutParms)
+// Parameters:
+// struct FString                 strPath                        (Parm, NeedCtorLink)
+// struct FString                 strErrorMsg                    (Parm, OutParm, NeedCtorLink)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UEFDataContainer_TexturePalette::XmlExport()
+bool UEFDataContainer_TexturePalette::XmlExport(const struct FString& strPath, struct FString* strErrorMsg)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFDataContainer_TexturePalette.XmlExport");
 
 	UEFDataContainer_TexturePalette_XmlExport_Params params;
+	params.strPath = strPath;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15500,17 +18629,25 @@ void UEFDataContainer_TexturePalette::XmlExport()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (strErrorMsg != nullptr)
+		*strErrorMsg = params.strErrorMsg;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFLightBeam.SetActive
 // (Native, Public)
+// Parameters:
+// bool                           bAct                           (Parm)
 
-void AEFLightBeam::SetActive()
+void AEFLightBeam::SetActive(bool bAct)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFLightBeam.SetActive");
 
 	AEFLightBeam_SetActive_Params params;
+	params.bAct = bAct;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15523,12 +18660,15 @@ void AEFLightBeam::SetActive()
 
 // Function EFGame.EFItem.SetLocationForceUpdateComponent
 // (Native, Public)
+// Parameters:
+// struct FVector                 NewLocation                    (Parm)
 
-void AEFItem::SetLocationForceUpdateComponent()
+void AEFItem::SetLocationForceUpdateComponent(const struct FVector& NewLocation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFItem.SetLocationForceUpdateComponent");
 
 	AEFItem_SetLocationForceUpdateComponent_Params params;
+	params.NewLocation = NewLocation;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15541,12 +18681,15 @@ void AEFItem::SetLocationForceUpdateComponent()
 
 // Function EFGame.EFItem.SetLocationForce
 // (Native, Public)
+// Parameters:
+// struct FVector                 NewLocation                    (Parm)
 
-void AEFItem::SetLocationForce()
+void AEFItem::SetLocationForce(const struct FVector& NewLocation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFItem.SetLocationForce");
 
 	AEFItem_SetLocationForce_Params params;
+	params.NewLocation = NewLocation;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15595,12 +18738,15 @@ void AEFItem::NotifyChangedBase()
 
 // Function EFGame.EFItem.EncroachedBy
 // (Defined, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
 
-void AEFItem::EncroachedBy()
+void AEFItem::EncroachedBy(class AActor* Other)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFItem.EncroachedBy");
 
 	AEFItem_EncroachedBy_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 
@@ -15646,12 +18792,27 @@ void AEFItem::Destroyed()
 
 // Function EFGame.EFInteractiveFoliageActor.TakeDamage
 // (Simulated, Native, Event, HasOptionalParms, Public)
+// Parameters:
+// int                            Damage                         (Parm)
+// class AController*             EventInstigator                (Parm)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 Momentum                       (Parm)
+// class UClass*                  DamageType                     (Parm)
+// struct FTraceHitInfo           HitInfo                        (OptionalParm, Parm)
+// class AActor*                  DamageCauser                   (OptionalParm, Parm)
 
-void AEFInteractiveFoliageActor::TakeDamage()
+void AEFInteractiveFoliageActor::TakeDamage(int Damage, class AController* EventInstigator, const struct FVector& HitLocation, const struct FVector& Momentum, class UClass* DamageType, const struct FTraceHitInfo& HitInfo, class AActor* DamageCauser)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFInteractiveFoliageActor.TakeDamage");
 
 	AEFInteractiveFoliageActor_TakeDamage_Params params;
+	params.Damage = Damage;
+	params.EventInstigator = EventInstigator;
+	params.HitLocation = HitLocation;
+	params.Momentum = Momentum;
+	params.DamageType = DamageType;
+	params.HitInfo = HitInfo;
+	params.DamageCauser = DamageCauser;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15700,12 +18861,15 @@ void AEFMatineePathNode::BreakAllConnections()
 
 // Function EFGame.EFMatineePathNode.BreakConnectionTo
 // (Native, Public)
+// Parameters:
+// class AEFMatineePathNode*      NextActor                      (Parm)
 
-void AEFMatineePathNode::BreakConnectionTo()
+void AEFMatineePathNode::BreakConnectionTo(class AEFMatineePathNode* NextActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.BreakConnectionTo");
 
 	AEFMatineePathNode_BreakConnectionTo_Params params;
+	params.NextActor = NextActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15718,12 +18882,16 @@ void AEFMatineePathNode::BreakConnectionTo()
 
 // Function EFGame.EFMatineePathNode.IsConnectedTo
 // (Native, Public)
+// Parameters:
+// class AEFMatineePathNode*      NextActor                      (Parm)
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void AEFMatineePathNode::IsConnectedTo()
+bool AEFMatineePathNode::IsConnectedTo(class AEFMatineePathNode* NextActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.IsConnectedTo");
 
 	AEFMatineePathNode_IsConnectedTo_Params params;
+	params.NextActor = NextActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15731,17 +18899,22 @@ void AEFMatineePathNode::IsConnectedTo()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
 // Function EFGame.EFMatineePathNode.AddConnectionTo
 // (Native, Public)
+// Parameters:
+// class AEFMatineePathNode*      NextActor                      (Parm)
 
-void AEFMatineePathNode::AddConnectionTo()
+void AEFMatineePathNode::AddConnectionTo(class AEFMatineePathNode* NextActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.AddConnectionTo");
 
 	AEFMatineePathNode_AddConnectionTo_Params params;
+	params.NextActor = NextActor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15754,12 +18927,15 @@ void AEFMatineePathNode::AddConnectionTo()
 
 // Function EFGame.EFMatineePathNode.UpdateConnectedLineComponents
 // (Native, Public)
+// Parameters:
+// bool                           bFinish                        (Parm)
 
-void AEFMatineePathNode::UpdateConnectedLineComponents()
+void AEFMatineePathNode::UpdateConnectedLineComponents(bool bFinish)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFMatineePathNode.UpdateConnectedLineComponents");
 
 	AEFMatineePathNode_UpdateConnectedLineComponents_Params params;
+	params.bFinish = bFinish;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -15841,18 +19017,25 @@ void AEFGFxHUDWrapper::Destroyed()
 
 // Function EFGame.EFSeqAct_SetPostProcessEffectProperties.GetPostProcessEffects
 // (Defined, HasOptionalParms, Public, HasOutParms)
+// Parameters:
+// TArray<class UPostProcessEffect*> PostProcessEffects             (Parm, OutParm, NeedCtorLink)
+// class UClass*                  MatchingPostProcessEffectClass (OptionalParm, Parm)
 
-void UEFSeqAct_SetPostProcessEffectProperties::GetPostProcessEffects()
+void UEFSeqAct_SetPostProcessEffectProperties::GetPostProcessEffects(class UClass* MatchingPostProcessEffectClass, TArray<class UPostProcessEffect*>* PostProcessEffects)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_SetPostProcessEffectProperties.GetPostProcessEffects");
 
 	UEFSeqAct_SetPostProcessEffectProperties_GetPostProcessEffects_Params params;
+	params.MatchingPostProcessEffectClass = MatchingPostProcessEffectClass;
 
 	auto flags = fn->FunctionFlags;
 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (PostProcessEffects != nullptr)
+		*PostProcessEffects = params.PostProcessEffects;
 }
 
 
@@ -15892,12 +19075,15 @@ void UEFSeqAct_SetBlurEffectProperties::Activated()
 
 // Function EFGame.EFSeqAct_SetDOFEffectProperties.SetProperties
 // (Defined, Public)
+// Parameters:
+// class UPostProcessEffect*      PostProcessEffect              (Parm)
 
-void UEFSeqAct_SetDOFEffectProperties::SetProperties()
+void UEFSeqAct_SetDOFEffectProperties::SetProperties(class UPostProcessEffect* PostProcessEffect)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_SetDOFEffectProperties.SetProperties");
 
 	UEFSeqAct_SetDOFEffectProperties_SetProperties_Params params;
+	params.PostProcessEffect = PostProcessEffect;
 
 	auto flags = fn->FunctionFlags;
 
@@ -15926,12 +19112,15 @@ void UEFSeqAct_SetDOFEffectProperties::Activated()
 
 // Function EFGame.EFSeqAct_SetDOFAndBloomEffectProperties.SetProperties
 // (Defined, Public)
+// Parameters:
+// class UPostProcessEffect*      PostProcessEffect              (Parm)
 
-void UEFSeqAct_SetDOFAndBloomEffectProperties::SetProperties()
+void UEFSeqAct_SetDOFAndBloomEffectProperties::SetProperties(class UPostProcessEffect* PostProcessEffect)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_SetDOFAndBloomEffectProperties.SetProperties");
 
 	UEFSeqAct_SetDOFAndBloomEffectProperties_SetProperties_Params params;
+	params.PostProcessEffect = PostProcessEffect;
 
 	auto flags = fn->FunctionFlags;
 
@@ -15943,12 +19132,15 @@ void UEFSeqAct_SetDOFAndBloomEffectProperties::SetProperties()
 
 // Function EFGame.EFSeqAct_SetDOFBloomMotionBlurEffect.SetProperties
 // (Defined, Public)
+// Parameters:
+// class UPostProcessEffect*      PostProcessEffect              (Parm)
 
-void UEFSeqAct_SetDOFBloomMotionBlurEffect::SetProperties()
+void UEFSeqAct_SetDOFBloomMotionBlurEffect::SetProperties(class UPostProcessEffect* PostProcessEffect)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSeqAct_SetDOFBloomMotionBlurEffect.SetProperties");
 
 	UEFSeqAct_SetDOFBloomMotionBlurEffect_SetProperties_Params params;
+	params.PostProcessEffect = PostProcessEffect;
 
 	auto flags = fn->FunctionFlags;
 
