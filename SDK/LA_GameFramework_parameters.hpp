@@ -8,7 +8,7 @@
 
 #include "LA_GameFramework_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Parameters

@@ -8,7 +8,7 @@
 
 #include "LA_AkAudio_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Parameters

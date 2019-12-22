@@ -8,7 +8,7 @@
 
 #include "LA_GFxUI_structs.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Classes

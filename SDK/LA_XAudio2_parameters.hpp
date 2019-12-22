@@ -8,7 +8,7 @@
 
 #include "LA_XAudio2_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Parameters

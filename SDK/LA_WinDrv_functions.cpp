@@ -6,7 +6,7 @@
 
 #include "LA_WinDrv_parameters.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Functions

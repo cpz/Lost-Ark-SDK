@@ -6,7 +6,7 @@
 
 #include "LA_EFGame_parameters.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Functions

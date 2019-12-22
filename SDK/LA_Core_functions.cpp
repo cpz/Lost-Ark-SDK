@@ -6,7 +6,7 @@
 
 #include "LA_Core_parameters.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Functions

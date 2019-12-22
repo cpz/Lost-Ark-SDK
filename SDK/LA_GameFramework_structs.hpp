@@ -10,7 +10,7 @@
 #include "LA_Engine_classes.hpp"
 #include "LA_Core_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Constants

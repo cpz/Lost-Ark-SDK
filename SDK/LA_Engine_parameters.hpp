@@ -8,7 +8,7 @@
 
 #include "LA_Engine_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Parameters

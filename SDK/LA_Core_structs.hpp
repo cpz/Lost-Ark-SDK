@@ -8,7 +8,7 @@
 
 #include "LA_Basic.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Constants

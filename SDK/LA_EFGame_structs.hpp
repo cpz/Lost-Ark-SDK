@@ -14,7 +14,7 @@
 #include "LA_WinDrv_classes.hpp"
 #include "LA_GFxUI_classes.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Constants

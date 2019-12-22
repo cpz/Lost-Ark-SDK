@@ -8,7 +8,7 @@
 
 #include "LA_Core_structs.hpp"
 
-namespace SDK
+namespace LASDK
 {
 //---------------------------------------------------------------------------
 //Classes
