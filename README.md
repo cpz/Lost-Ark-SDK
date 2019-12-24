@@ -7,7 +7,7 @@ Lost Ark SDK generated for CIS Region game version - 1.12.11.0
 * Hook ProcessEvent and do your magic.
 
 
-*SDK has misalignment, so if you want to use it change it to 4.*
+*SDK does have misalignment, so if you want to use it change it to 4.*
 ###
 ---
 Generated with KN4CK3R SDKGen.
