@@ -6,6 +6,8 @@ Lost Ark SDK generated for CIS Region game version - 1.12.11.0
 * Don't forget to set GObjects and GNames adress in LA_Basic.cpp
 * Hook ProcessEvent and do your magic.
 
+
+*SDK has misalignment, so if you want to use it change it to 4.*
 ###
 ---
 Generated with KN4CK3R SDKGen.
