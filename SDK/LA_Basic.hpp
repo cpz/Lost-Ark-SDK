@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.12.11.0) SDK
+// Lost Ark (1.61.63.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -9,7 +9,7 @@
 #include <unordered_set>
 #include <string>
 
-namespace LASDK
+namespace SDK
 {
 template<typename Fn>
 inline Fn GetVFunction(const void *instance, std::size_t index)
