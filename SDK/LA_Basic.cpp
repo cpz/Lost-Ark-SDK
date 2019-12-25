@@ -6,7 +6,7 @@
 
 #include "../SDK.hpp"
 
-namespace SDK
+namespace LASDK
 {
 TArray<FNameEntry*>* FName::GNames = nullptr;
 TArray<UObject*>* UObject::GObjects = nullptr;

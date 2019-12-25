@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.12.11.0) SDK
+// Lost Ark (1.61.63.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -10,7 +10,7 @@
 #include "LA_Engine_classes.hpp"
 #include "LA_Core_classes.hpp"
 
-namespace LASDK
+namespace SDK
 {
 //---------------------------------------------------------------------------
 //Script Structs

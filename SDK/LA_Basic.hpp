@@ -9,7 +9,7 @@
 #include <unordered_set>
 #include <string>
 
-namespace SDK
+namespace LASDK
 {
 template<typename Fn>
 inline Fn GetVFunction(const void *instance, std::size_t index)
@@ -274,7 +274,8 @@ public:
 
 struct FScriptDelegate
 {
-	char UnknownData[0x0C];
+	class UObject*		Object;
+	struct FName		FunctionName;
 };
 }
 
