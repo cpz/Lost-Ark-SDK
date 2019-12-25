@@ -1,5 +1,5 @@
 # Lost Ark SDK
-Lost Ark SDK generated for CIS Region game version - 1.12.11.0
+Lost Ark SDK generated for CIS Region game version - 1.61.63.0
 
 ## How to use SDK
 * Make sure to add in your Project both LA_Basic.hpp/cpp and LA_Core_functions.cpp (or just SDK.hpp)
