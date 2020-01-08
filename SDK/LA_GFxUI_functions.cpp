@@ -1,7 +1,7 @@
 // Lost Ark (1.61.63.0) SDK
 
 #ifdef _MSC_VER
-	#pragma pack(push, 0x8)
+	#pragma pack(push, 0x4)
 #endif
 
 #include "LA_GFxUI_parameters.hpp"
