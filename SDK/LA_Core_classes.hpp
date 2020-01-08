@@ -1152,7 +1152,9 @@ public:
 class UClass : public UState
 {
 public:
-	unsigned char                                      UnknownData00[0x1B8];                                     // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      char UnknownData00[0xB0];                                 // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	UObject*                                           ClassDefaultObject;                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	char                                               UnknownData01[0xAC];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	template<typename T>
 	inline T* CreateDefaultObject()
