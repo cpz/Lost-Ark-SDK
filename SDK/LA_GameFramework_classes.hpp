@@ -27,7 +27,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.DynamicSpriteComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.DynamicSpriteComponent");
 		return ptr;
 	}
 
@@ -43,7 +45,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.FrameworkGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.FrameworkGame");
 		return ptr;
 	}
 
@@ -72,7 +76,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameAIController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameAIController");
 		return ptr;
 	}
 
@@ -115,7 +121,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameAICommand");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameAICommand");
 		return ptr;
 	}
 
@@ -156,7 +164,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCameraBlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCameraBlockingVolume");
 		return ptr;
 	}
 
@@ -176,7 +186,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GamePlayerController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GamePlayerController");
 		return ptr;
 	}
 
@@ -210,7 +222,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCheatManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCheatManager");
 		return ptr;
 	}
 
@@ -330,7 +344,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdAgent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdAgent");
 		return ptr;
 	}
 
@@ -416,7 +432,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentSkeletal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentSkeletal");
 		return ptr;
 	}
 
@@ -444,7 +462,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentSM");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentSM");
 		return ptr;
 	}
 
@@ -483,7 +503,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentBehavior");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdAgentBehavior");
 		return ptr;
 	}
 
@@ -528,7 +550,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_PlayAnimation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_PlayAnimation");
 		return ptr;
 	}
 
@@ -552,7 +576,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_RunFromPanic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_RunFromPanic");
 		return ptr;
 	}
 
@@ -575,7 +601,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_WaitForGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_WaitForGroup");
 		return ptr;
 	}
 
@@ -597,7 +625,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_WaitInQueue");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdBehavior_WaitInQueue");
 		return ptr;
 	}
 
@@ -620,7 +650,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdGroup");
 		return ptr;
 	}
 
@@ -640,7 +672,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdInfoVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdInfoVolume");
 		return ptr;
 	}
 
@@ -660,7 +694,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdInteractionPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdInteractionPoint");
 		return ptr;
 	}
 
@@ -683,7 +719,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdBehaviorPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdBehaviorPoint");
 		return ptr;
 	}
 
@@ -739,7 +777,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdDestination");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdDestination");
 		return ptr;
 	}
 
@@ -778,7 +818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdDestinationQueuePoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdDestinationQueuePoint");
 		return ptr;
 	}
 
@@ -817,7 +859,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdPopulationManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdPopulationManager");
 		return ptr;
 	}
 
@@ -862,7 +906,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdReplicationActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdReplicationActor");
 		return ptr;
 	}
 
@@ -879,7 +925,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnRelativeActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnRelativeActor");
 		return ptr;
 	}
 
@@ -894,7 +942,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameDestinationConnRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameDestinationConnRenderingComponent");
 		return ptr;
 	}
 
@@ -960,7 +1010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameExplosion");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameExplosion");
 		return ptr;
 	}
 
@@ -996,7 +1048,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameExplosionActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameExplosionActor");
 		return ptr;
 	}
 
@@ -1033,7 +1087,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GamePawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GamePawn");
 		return ptr;
 	}
 
@@ -1064,7 +1120,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.DebugCameraController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.DebugCameraController");
 		return ptr;
 	}
 
@@ -1094,7 +1152,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameTypes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameTypes");
 		return ptr;
 	}
 
@@ -1135,7 +1195,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileHUD");
 		return ptr;
 	}
 
@@ -1249,7 +1311,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileInputZone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileInputZone");
 		return ptr;
 	}
 
@@ -1312,7 +1376,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuObject");
 		return ptr;
 	}
 
@@ -1339,7 +1405,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuImage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuImage");
 		return ptr;
 	}
 
@@ -1383,7 +1451,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuScene");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuScene");
 		return ptr;
 	}
 
@@ -1451,7 +1521,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobilePlayerInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobilePlayerInput");
 		return ptr;
 	}
 
@@ -1505,7 +1577,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.NavMeshGoal_OutOfViewFrom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.NavMeshGoal_OutOfViewFrom");
 		return ptr;
 	}
 
@@ -1528,7 +1602,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.NavMeshPath_BiasAgainstPolysWithinDistanceOfLocations");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.NavMeshPath_BiasAgainstPolysWithinDistanceOfLocations");
 		return ptr;
 	}
 
@@ -1546,7 +1622,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SecondaryViewportClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SecondaryViewportClient");
 		return ptr;
 	}
 
@@ -1563,7 +1641,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileSecondaryViewportClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileSecondaryViewportClient");
 		return ptr;
 	}
 
@@ -1583,7 +1663,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_ControlGameMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_ControlGameMovie");
 		return ptr;
 	}
 
@@ -1604,7 +1686,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_Deproject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_Deproject");
 		return ptr;
 	}
 
@@ -1637,7 +1721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_GameCrowdPopulationManagerToggle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_GameCrowdPopulationManagerToggle");
 		return ptr;
 	}
 
@@ -1657,7 +1743,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_GameCrowdSpawner");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_GameCrowdSpawner");
 		return ptr;
 	}
 
@@ -1676,7 +1764,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileAddInputZones");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileAddInputZones");
 		return ptr;
 	}
 
@@ -1691,7 +1781,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileClearInputZones");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileClearInputZones");
 		return ptr;
 	}
 
@@ -1707,7 +1799,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileRemoveInputZone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileRemoveInputZone");
 		return ptr;
 	}
 
@@ -1722,7 +1816,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileSaveLoadValue");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_MobileSaveLoadValue");
 		return ptr;
 	}
 
@@ -1740,7 +1836,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_ModifyProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_ModifyProperty");
 		return ptr;
 	}
 
@@ -1765,7 +1863,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_PlayAgentAnimation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_PlayAgentAnimation");
 		return ptr;
 	}
 
@@ -1783,7 +1883,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_CrowdAgentReachedDestination");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_CrowdAgentReachedDestination");
 		return ptr;
 	}
 
@@ -1801,7 +1903,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRender");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRender");
 		return ptr;
 	}
 
@@ -1819,7 +1923,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileBase");
 		return ptr;
 	}
 
@@ -1843,7 +1949,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileMotion");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileMotion");
 		return ptr;
 	}
 
@@ -1861,7 +1969,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileZoneBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileZoneBase");
 		return ptr;
 	}
 
@@ -1881,7 +1991,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileButton");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileButton");
 		return ptr;
 	}
 
@@ -1902,7 +2014,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileInput");
 		return ptr;
 	}
 
@@ -1920,7 +2034,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileLook");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileLook");
 		return ptr;
 	}
 
@@ -1940,7 +2056,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileRawInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileRawInput");
 		return ptr;
 	}
 
@@ -1963,7 +2081,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileObjectPicker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileObjectPicker");
 		return ptr;
 	}
 
@@ -1983,7 +2103,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileSwipe");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileSwipe");
 		return ptr;
 	}
 
@@ -2004,7 +2126,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameSkelCtrl_Recoil");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameSkelCtrl_Recoil");
 		return ptr;
 	}
 
@@ -2021,7 +2145,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCameraBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCameraBase");
 		return ptr;
 	}
 
@@ -2097,7 +2223,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCamera");
 		return ptr;
 	}
 
@@ -2149,7 +2277,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GamePlayerCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GamePlayerCamera");
 		return ptr;
 	}
 
@@ -2235,7 +2365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCameraMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCameraMode");
 		return ptr;
 	}
 
@@ -2268,7 +2400,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCameraMode_Default");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameThirdPersonCameraMode_Default");
 		return ptr;
 	}
 
@@ -2297,7 +2431,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameSpecialMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameSpecialMove");
 		return ptr;
 	}
 
@@ -2342,7 +2478,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameStateObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameStateObject");
 		return ptr;
 	}
 
@@ -2372,7 +2510,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameStatsAggregator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameStatsAggregator");
 		return ptr;
 	}
 
@@ -2392,7 +2532,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqAct_ToggleMouseCursor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqAct_ToggleMouseCursor");
 		return ptr;
 	}
 
@@ -2411,7 +2553,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameWaveForms");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameWaveForms");
 		return ptr;
 	}
 
@@ -2427,7 +2571,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.DebugCameraHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.DebugCameraHUD");
 		return ptr;
 	}
 
@@ -2446,7 +2592,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.DebugCameraInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.DebugCameraInput");
 		return ptr;
 	}
 
@@ -2463,7 +2611,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnerInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnerInterface");
 		return ptr;
 	}
 
@@ -2481,7 +2631,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdSpawnInterface");
 		return ptr;
 	}
 
@@ -2498,7 +2650,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.DynamicGameCrowdDestination");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.DynamicGameCrowdDestination");
 		return ptr;
 	}
 
@@ -2524,7 +2678,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameAICmd_Hover_MoveToGoal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameAICmd_Hover_MoveToGoal");
 		return ptr;
 	}
 
@@ -2561,7 +2717,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameAICmd_Hover_MoveToGoal_Mesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameAICmd_Hover_MoveToGoal_Mesh");
 		return ptr;
 	}
 
@@ -2590,7 +2748,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowd_ListOfAgents");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowd_ListOfAgents");
 		return ptr;
 	}
 
@@ -2605,7 +2765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameCrowdInteractionDestination");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameCrowdInteractionDestination");
 		return ptr;
 	}
 
@@ -2639,7 +2801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameExplosionContent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameExplosionContent");
 		return ptr;
 	}
 
@@ -2655,7 +2819,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameFixedCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameFixedCamera");
 		return ptr;
 	}
 
@@ -2673,7 +2839,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.GameKActorSpawnableEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.GameKActorSpawnableEffect");
 		return ptr;
 	}
 
@@ -2694,7 +2862,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraController");
 		return ptr;
 	}
 
@@ -2715,7 +2885,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraInput");
 		return ptr;
 	}
 
@@ -2733,7 +2905,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileDebugCameraHUD");
 		return ptr;
 	}
 
@@ -2757,7 +2931,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuBar");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuBar");
 		return ptr;
 	}
 
@@ -2785,7 +2961,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuBarItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuBarItem");
 		return ptr;
 	}
 
@@ -2807,7 +2985,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuButton");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuButton");
 		return ptr;
 	}
 
@@ -2830,7 +3010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuElement");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuElement");
 		return ptr;
 	}
 
@@ -2850,7 +3032,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuGame");
 		return ptr;
 	}
 
@@ -2869,7 +3053,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuPlayerController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuPlayerController");
 		return ptr;
 	}
 
@@ -2895,7 +3081,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuInventory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuInventory");
 		return ptr;
 	}
 
@@ -2935,7 +3123,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuLabel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuLabel");
 		return ptr;
 	}
 
@@ -2970,7 +3160,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuList");
 		return ptr;
 	}
 
@@ -3004,7 +3196,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuListItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuListItem");
 		return ptr;
 	}
 
@@ -3023,7 +3217,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileMenuObjectProxy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileMenuObjectProxy");
 		return ptr;
 	}
 
@@ -3044,7 +3240,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.MobileTouchInputVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.MobileTouchInputVolume");
 		return ptr;
 	}
 
@@ -3064,7 +3262,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileTouchInputVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_MobileTouchInputVolume");
 		return ptr;
 	}
 
@@ -3079,7 +3279,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.TouchableElement3D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.TouchableElement3D");
 		return ptr;
 	}
 
@@ -3100,7 +3302,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.PlayerCollectorGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.PlayerCollectorGame");
 		return ptr;
 	}
 
@@ -3119,7 +3323,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.PMESTG_LeaveADecalBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.PMESTG_LeaveADecalBase");
 		return ptr;
 	}
 
@@ -3143,7 +3349,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRenderImage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRenderImage");
 		return ptr;
 	}
 
@@ -3165,7 +3373,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRenderText");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GameFramework.SeqEvent_HudRenderText");
 		return ptr;
 	}
 

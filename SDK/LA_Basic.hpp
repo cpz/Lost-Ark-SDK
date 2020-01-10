@@ -145,19 +145,12 @@ private:
 class FNameEntry
 {
 public:
-	char pad_0000[8]; //0x0000
-	uint32_t Index; //0x0008
-	char pad_000C[8]; //0x000C
-	char CharName[1024]; //0x0014
-
-	int32_t GetIndex() const
-	{
-		return Index;
-	}
+	char UnknownData00[0x14]; //0x000A
+	char name[0x14]; //0x0014 
 
 	std::string GetName() const
 	{
-		return CharName;
+		return name;
 	}
 };
 

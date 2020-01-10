@@ -24,7 +24,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxEngine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxEngine");
 		return ptr;
 	}
 
@@ -39,7 +41,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxFSCmdHandler");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxFSCmdHandler");
 		return ptr;
 	}
 
@@ -58,7 +62,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxInteraction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxInteraction");
 		return ptr;
 	}
 
@@ -130,7 +136,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxMoviePlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxMoviePlayer");
 		return ptr;
 	}
 
@@ -224,7 +232,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxObject");
 		return ptr;
 	}
 
@@ -320,7 +330,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxClikWidget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxClikWidget");
 		return ptr;
 	}
 
@@ -348,7 +360,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxRawData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxRawData");
 		return ptr;
 	}
 
@@ -376,7 +390,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.SwfMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.SwfMovie");
 		return ptr;
 	}
 
@@ -391,7 +407,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.FlashMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.FlashMovie");
 		return ptr;
 	}
 
@@ -408,7 +426,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_CloseMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_CloseMovie");
 		return ptr;
 	}
 
@@ -427,7 +447,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_GetVariable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_GetVariable");
 		return ptr;
 	}
 
@@ -447,7 +469,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_Invoke");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_Invoke");
 		return ptr;
 	}
 
@@ -477,7 +501,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_OpenMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_OpenMovie");
 		return ptr;
 	}
 
@@ -496,7 +522,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_SetCaptureKeys");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_SetCaptureKeys");
 		return ptr;
 	}
 
@@ -513,7 +541,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxAction_SetVariable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxAction_SetVariable");
 		return ptr;
 	}
 
@@ -533,7 +563,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxEvent_FSCommand");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxEvent_FSCommand");
 		return ptr;
 	}
 
@@ -548,7 +580,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GFxUI.GFxFSCmdHandler_Kismet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class GFxUI.GFxFSCmdHandler_Kismet");
 		return ptr;
 	}
 

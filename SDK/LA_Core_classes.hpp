@@ -85,7 +85,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Object");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Object");
 		return ptr;
 	}
 
@@ -411,7 +413,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.TextBuffer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.TextBuffer");
 		return ptr;
 	}
 
@@ -427,7 +431,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Subsystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Subsystem");
 		return ptr;
 	}
 
@@ -461,7 +467,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.System");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.System");
 		return ptr;
 	}
 
@@ -477,7 +485,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.PackageMap");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.PackageMap");
 		return ptr;
 	}
 
@@ -493,7 +503,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ObjectSerializer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ObjectSerializer");
 		return ptr;
 	}
 
@@ -509,7 +521,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ObjectRedirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ObjectRedirector");
 		return ptr;
 	}
 
@@ -525,7 +539,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.LocAssetRedirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.LocAssetRedirector");
 		return ptr;
 	}
 
@@ -541,7 +557,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.MetaData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.MetaData");
 		return ptr;
 	}
 
@@ -557,7 +575,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Linker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Linker");
 		return ptr;
 	}
 
@@ -573,7 +593,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.LinkerSave");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.LinkerSave");
 		return ptr;
 	}
 
@@ -589,7 +611,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.LinkerLoad");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.LinkerLoad");
 		return ptr;
 	}
 
@@ -604,7 +628,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Interface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Interface");
 		return ptr;
 	}
 
@@ -620,7 +646,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Field");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Field");
 		return ptr;
 	}
 
@@ -640,7 +668,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Struct");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Struct");
 		return ptr;
 	}
 
@@ -656,7 +686,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ScriptStruct");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ScriptStruct");
 		return ptr;
 	}
 
@@ -680,7 +712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Function");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Function");
 		return ptr;
 	}
 
@@ -696,7 +730,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Property");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Property");
 		return ptr;
 	}
 
@@ -712,7 +748,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.StructProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.StructProperty");
 		return ptr;
 	}
 
@@ -727,7 +765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.StrProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.StrProperty");
 		return ptr;
 	}
 
@@ -743,7 +783,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ObjectProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ObjectProperty");
 		return ptr;
 	}
 
@@ -758,7 +800,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ComponentProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ComponentProperty");
 		return ptr;
 	}
 
@@ -774,7 +818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ClassProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ClassProperty");
 		return ptr;
 	}
 
@@ -789,7 +835,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.NameProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.NameProperty");
 		return ptr;
 	}
 
@@ -805,7 +853,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.MapProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.MapProperty");
 		return ptr;
 	}
 
@@ -821,7 +871,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.IntProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.IntProperty");
 		return ptr;
 	}
 
@@ -837,7 +889,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.InterfaceProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.InterfaceProperty");
 		return ptr;
 	}
 
@@ -852,7 +906,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.FloatProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.FloatProperty");
 		return ptr;
 	}
 
@@ -868,7 +924,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.DelegateProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.DelegateProperty");
 		return ptr;
 	}
 
@@ -884,7 +942,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ByteProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ByteProperty");
 		return ptr;
 	}
 
@@ -900,7 +960,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.BoolProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.BoolProperty");
 		return ptr;
 	}
 
@@ -916,7 +978,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.ArrayProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.ArrayProperty");
 		return ptr;
 	}
 
@@ -932,7 +996,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Enum");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Enum");
 		return ptr;
 	}
 
@@ -948,7 +1014,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Const");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Const");
 		return ptr;
 	}
 
@@ -973,7 +1041,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Factory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Factory");
 		return ptr;
 	}
 
@@ -988,7 +1058,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.TextBufferFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.TextBufferFactory");
 		return ptr;
 	}
 
@@ -1007,7 +1079,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Exporter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Exporter");
 		return ptr;
 	}
 
@@ -1024,7 +1098,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Component");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Component");
 		return ptr;
 	}
 
@@ -1042,7 +1118,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.DistributionVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.DistributionVector");
 		return ptr;
 	}
 
@@ -1062,7 +1140,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.DistributionFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.DistributionFloat");
 		return ptr;
 	}
 
@@ -1089,7 +1169,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Commandlet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Commandlet");
 		return ptr;
 	}
 
@@ -1106,7 +1188,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.HelpCommandlet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.HelpCommandlet");
 		return ptr;
 	}
 
@@ -1124,7 +1208,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Package");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Package");
 		return ptr;
 	}
 
@@ -1140,7 +1226,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.State");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.State");
 		return ptr;
 	}
 
@@ -1175,7 +1263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Core.Class");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Core.Class");
 		return ptr;
 	}
 

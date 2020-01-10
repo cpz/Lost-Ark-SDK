@@ -29,7 +29,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class WinDrv.WindowsClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class WinDrv.WindowsClient");
 		return ptr;
 	}
 

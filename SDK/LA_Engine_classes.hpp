@@ -187,7 +187,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Actor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Actor");
 		return ptr;
 	}
 
@@ -465,7 +467,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Info");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Info");
 		return ptr;
 	}
 
@@ -484,7 +488,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ZoneInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ZoneInfo");
 		return ptr;
 	}
 
@@ -668,7 +674,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WorldInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WorldInfo");
 		return ptr;
 	}
 
@@ -748,7 +756,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DownloadableContentEnumerator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DownloadableContentEnumerator");
 		return ptr;
 	}
 
@@ -780,7 +790,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DownloadableContentManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DownloadableContentManager");
 		return ptr;
 	}
 
@@ -1069,7 +1081,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Engine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Engine");
 		return ptr;
 	}
 
@@ -1157,7 +1171,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameEngine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameEngine");
 		return ptr;
 	}
 
@@ -1179,7 +1195,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EngineBaseTypes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EngineBaseTypes");
 		return ptr;
 	}
 
@@ -1204,7 +1222,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Brush");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Brush");
 		return ptr;
 	}
 
@@ -1219,7 +1239,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BrushShape");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BrushShape");
 		return ptr;
 	}
 
@@ -1238,7 +1260,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Volume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Volume");
 		return ptr;
 	}
 
@@ -1262,7 +1286,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BlockingVolume");
 		return ptr;
 	}
 
@@ -1280,7 +1306,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicBlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicBlockingVolume");
 		return ptr;
 	}
 
@@ -1301,7 +1329,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CullDistanceVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CullDistanceVolume");
 		return ptr;
 	}
 
@@ -1316,7 +1346,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DDLExcludeVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DDLExcludeVolume");
 		return ptr;
 	}
 
@@ -1338,7 +1370,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelGridVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelGridVolume");
 		return ptr;
 	}
 
@@ -1361,7 +1395,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreamingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreamingVolume");
 		return ptr;
 	}
 
@@ -1380,7 +1416,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassCharacterIndirectDetailVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightmassCharacterIndirectDetailVolume");
 		return ptr;
 	}
 
@@ -1395,7 +1433,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassImportanceVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightmassImportanceVolume");
 		return ptr;
 	}
 
@@ -1410,7 +1450,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MassiveLODOverrideVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MassiveLODOverrideVolume");
 		return ptr;
 	}
 
@@ -1425,7 +1467,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathBlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathBlockingVolume");
 		return ptr;
 	}
 
@@ -1466,7 +1510,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicsVolume");
 		return ptr;
 	}
 
@@ -1502,7 +1548,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DefaultPhysicsVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DefaultPhysicsVolume");
 		return ptr;
 	}
 
@@ -1520,7 +1568,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GravityVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GravityVolume");
 		return ptr;
 	}
 
@@ -1544,7 +1594,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LadderVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LadderVolume");
 		return ptr;
 	}
 
@@ -1566,7 +1618,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PortalVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PortalVolume");
 		return ptr;
 	}
 
@@ -1586,7 +1640,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PostProcessVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PostProcessVolume");
 		return ptr;
 	}
 
@@ -1605,7 +1661,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrecomputedVisibilityOverrideVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrecomputedVisibilityOverrideVolume");
 		return ptr;
 	}
 
@@ -1620,7 +1678,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrecomputedVisibilityVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrecomputedVisibilityVolume");
 		return ptr;
 	}
 
@@ -1640,7 +1700,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ReverbVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ReverbVolume");
 		return ptr;
 	}
 
@@ -1655,7 +1717,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TriggerVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TriggerVolume");
 		return ptr;
 	}
 
@@ -1677,7 +1741,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DroppedPickup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DroppedPickup");
 		return ptr;
 	}
 
@@ -1717,7 +1783,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicSMActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicSMActor");
 		return ptr;
 	}
 
@@ -1760,7 +1828,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpActor");
 		return ptr;
 	}
 
@@ -1800,7 +1870,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Emitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Emitter");
 		return ptr;
 	}
 
@@ -1846,7 +1918,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EmitterPool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EmitterPool");
 		return ptr;
 	}
 
@@ -1910,7 +1984,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HUD");
 		return ptr;
 	}
 
@@ -1992,7 +2068,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AutoTestManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AutoTestManager");
 		return ptr;
 	}
 
@@ -2034,7 +2112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverGroup");
 		return ptr;
 	}
 
@@ -2056,7 +2136,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ExponentialHeightFog");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ExponentialHeightFog");
 		return ptr;
 	}
 
@@ -2081,7 +2163,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FileWriter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FileWriter");
 		return ptr;
 	}
 
@@ -2101,7 +2185,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FileLog");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FileLog");
 		return ptr;
 	}
 
@@ -2220,7 +2306,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameInfo");
 		return ptr;
 	}
 
@@ -2403,7 +2491,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Mutator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Mutator");
 		return ptr;
 	}
 
@@ -2445,7 +2535,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PotentialClimbWatcher");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PotentialClimbWatcher");
 		return ptr;
 	}
 
@@ -2468,7 +2560,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Route");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Route");
 		return ptr;
 	}
 
@@ -2487,7 +2581,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WindPointSource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WindPointSource");
 		return ptr;
 	}
 
@@ -2517,7 +2613,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Inventory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Inventory");
 		return ptr;
 	}
 
@@ -2572,7 +2670,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Weapon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Weapon");
 		return ptr;
 	}
 
@@ -2673,7 +2773,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InventoryManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InventoryManager");
 		return ptr;
 	}
 
@@ -2721,7 +2823,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Keypoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Keypoint");
 		return ptr;
 	}
 
@@ -2738,7 +2842,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TargetPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TargetPoint");
 		return ptr;
 	}
 
@@ -2754,7 +2860,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInstanceActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInstanceActor");
 		return ptr;
 	}
 
@@ -2780,7 +2888,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MatineeActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MatineeActor");
 		return ptr;
 	}
 
@@ -2857,7 +2967,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavigationPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavigationPoint");
 		return ptr;
 	}
 
@@ -2926,7 +3038,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverLink");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverLink");
 		return ptr;
 	}
 
@@ -2992,7 +3106,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DoorMarker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DoorMarker");
 		return ptr;
 	}
 
@@ -3015,7 +3131,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicAnchor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicAnchor");
 		return ptr;
 	}
 
@@ -3032,7 +3150,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Ladder");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Ladder");
 		return ptr;
 	}
 
@@ -3049,7 +3169,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AutoLadder");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AutoLadder");
 		return ptr;
 	}
 
@@ -3070,7 +3192,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LiftCenter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LiftCenter");
 		return ptr;
 	}
 
@@ -3092,7 +3216,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LiftExit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LiftExit");
 		return ptr;
 	}
 
@@ -3111,7 +3237,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathNode");
 		return ptr;
 	}
 
@@ -3130,7 +3258,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.VolumePathNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.VolumePathNode");
 		return ptr;
 	}
 
@@ -3156,7 +3286,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PickupFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PickupFactory");
 		return ptr;
 	}
 
@@ -3200,7 +3332,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlayerStart");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlayerStart");
 		return ptr;
 	}
 
@@ -3219,7 +3353,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PortalMarker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PortalMarker");
 		return ptr;
 	}
 
@@ -3280,7 +3416,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Pylon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Pylon");
 		return ptr;
 	}
 
@@ -3308,7 +3446,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AISwitchablePylon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AISwitchablePylon");
 		return ptr;
 	}
 
@@ -3328,7 +3468,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicPylon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicPylon");
 		return ptr;
 	}
 
@@ -3360,7 +3502,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Teleporter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Teleporter");
 		return ptr;
 	}
 
@@ -3383,7 +3527,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Note");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Note");
 		return ptr;
 	}
 
@@ -3404,7 +3550,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NoteBalloon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NoteBalloon");
 		return ptr;
 	}
 
@@ -3438,7 +3586,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Projectile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Projectile");
 		return ptr;
 	}
 
@@ -3475,7 +3625,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RigidBodyBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RigidBodyBase");
 		return ptr;
 	}
 
@@ -3491,7 +3643,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureActor");
 		return ptr;
 	}
 
@@ -3509,7 +3663,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCapture2DActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCapture2DActor");
 		return ptr;
 	}
 
@@ -3526,7 +3682,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureCubeMapActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureCubeMapActor");
 		return ptr;
 	}
 
@@ -3543,7 +3701,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureReflectActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureReflectActor");
 		return ptr;
 	}
 
@@ -3558,7 +3718,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCapturePortalActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCapturePortalActor");
 		return ptr;
 	}
 
@@ -3580,7 +3742,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PortalTeleporter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PortalTeleporter");
 		return ptr;
 	}
 
@@ -3601,7 +3765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshActorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshActorBase");
 		return ptr;
 	}
 
@@ -3627,7 +3793,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshActor");
 		return ptr;
 	}
 
@@ -3646,7 +3814,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshCollectionActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshCollectionActor");
 		return ptr;
 	}
 
@@ -3664,7 +3834,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshActorBasedOnExtremeContent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshActorBasedOnExtremeContent");
 		return ptr;
 	}
 
@@ -3685,7 +3857,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Trigger");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Trigger");
 		return ptr;
 	}
 
@@ -3709,7 +3883,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Trigger_PawnsOnly");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Trigger_PawnsOnly");
 		return ptr;
 	}
 
@@ -3734,7 +3910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorComponent");
 		return ptr;
 	}
 
@@ -3831,7 +4009,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AudioComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AudioComponent");
 		return ptr;
 	}
 
@@ -3864,7 +4044,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineAudioComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineAudioComponent");
 		return ptr;
 	}
 
@@ -3881,7 +4063,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MultiCueSplineAudioComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MultiCueSplineAudioComponent");
 		return ptr;
 	}
 
@@ -3907,7 +4091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SimpleSplineAudioComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SimpleSplineAudioComponent");
 		return ptr;
 	}
 
@@ -3932,7 +4118,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SimpleSplineNonLoopAudioComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SimpleSplineNonLoopAudioComponent");
 		return ptr;
 	}
 
@@ -3954,7 +4142,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HeightFogComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HeightFogComponent");
 		return ptr;
 	}
 
@@ -4102,7 +4292,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrimitiveComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrimitiveComponent");
 		return ptr;
 	}
 
@@ -4173,7 +4365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ArrowComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ArrowComponent");
 		return ptr;
 	}
 
@@ -4194,7 +4388,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BrushComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BrushComponent");
 		return ptr;
 	}
 
@@ -4209,7 +4405,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraConeComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraConeComponent");
 		return ptr;
 	}
 
@@ -4230,7 +4428,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CylinderComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CylinderComponent");
 		return ptr;
 	}
 
@@ -4253,7 +4453,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawBoxComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawBoxComponent");
 		return ptr;
 	}
 
@@ -4275,7 +4477,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawCapsuleComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawCapsuleComponent");
 		return ptr;
 	}
 
@@ -4294,7 +4498,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawConeComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawConeComponent");
 		return ptr;
 	}
 
@@ -4320,7 +4526,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawCylinderComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawCylinderComponent");
 		return ptr;
 	}
 
@@ -4341,7 +4549,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawFrustumComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawFrustumComponent");
 		return ptr;
 	}
 
@@ -4359,7 +4569,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawQuadComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawQuadComponent");
 		return ptr;
 	}
 
@@ -4381,7 +4593,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawSphereComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawSphereComponent");
 		return ptr;
 	}
 
@@ -4396,7 +4610,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawPylonRadiusComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawPylonRadiusComponent");
 		return ptr;
 	}
 
@@ -4411,7 +4627,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawSoundRadiusComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawSoundRadiusComponent");
 		return ptr;
 	}
 
@@ -4426,7 +4644,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelGridVolumeRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelGridVolumeRenderingComponent");
 		return ptr;
 	}
 
@@ -4446,7 +4666,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LineBatchComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LineBatchComponent");
 		return ptr;
 	}
 
@@ -4466,7 +4688,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ModelComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ModelComponent");
 		return ptr;
 	}
 
@@ -4489,7 +4713,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpriteComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpriteComponent");
 		return ptr;
 	}
 
@@ -4520,7 +4746,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RadialBlurComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RadialBlurComponent");
 		return ptr;
 	}
 
@@ -4564,7 +4792,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureComponent");
 		return ptr;
 	}
 
@@ -4591,7 +4821,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCapture2DComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCapture2DComponent");
 		return ptr;
 	}
 
@@ -4618,7 +4850,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCapture2DHitMaskComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCapture2DHitMaskComponent");
 		return ptr;
 	}
 
@@ -4641,7 +4875,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureCubeMapComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureCubeMapComponent");
 		return ptr;
 	}
 
@@ -4659,7 +4895,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCapturePortalComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCapturePortalComponent");
 		return ptr;
 	}
 
@@ -4678,7 +4916,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureReflectComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SceneCaptureReflectComponent");
 		return ptr;
 	}
 
@@ -4698,7 +4938,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WindDirectionalSourceComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WindDirectionalSourceComponent");
 		return ptr;
 	}
 
@@ -4715,7 +4957,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WindPointSourceComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WindPointSourceComponent");
 		return ptr;
 	}
 
@@ -4738,7 +4982,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactory");
 		return ptr;
 	}
 
@@ -4756,7 +5002,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryActor");
 		return ptr;
 	}
 
@@ -4777,7 +5025,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAI");
 		return ptr;
 	}
 
@@ -4793,7 +5043,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSound");
 		return ptr;
 	}
 
@@ -4808,7 +5060,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundMovable");
 		return ptr;
 	}
 
@@ -4824,7 +5078,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundSimple");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundSimple");
 		return ptr;
 	}
 
@@ -4839,7 +5095,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundNonLoop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundNonLoop");
 		return ptr;
 	}
 
@@ -4854,7 +5112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundSimpleToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundSimpleToggleable");
 		return ptr;
 	}
 
@@ -4869,7 +5129,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundNonLoopingToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryAmbientSoundNonLoopingToggleable");
 		return ptr;
 	}
 
@@ -4889,7 +5151,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryApexDestructible");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryApexDestructible");
 		return ptr;
 	}
 
@@ -4905,7 +5169,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryArchetype");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryArchetype");
 		return ptr;
 	}
 
@@ -4920,7 +5186,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryCoverLink");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryCoverLink");
 		return ptr;
 	}
 
@@ -4935,7 +5203,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryDominantDirectionalLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryDominantDirectionalLight");
 		return ptr;
 	}
 
@@ -4950,7 +5220,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryDominantDirectionalLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryDominantDirectionalLightMovable");
 		return ptr;
 	}
 
@@ -4973,7 +5245,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryDynamicSM");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryDynamicSM");
 		return ptr;
 	}
 
@@ -4989,7 +5263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryMover");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryMover");
 		return ptr;
 	}
 
@@ -5016,7 +5292,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryRigidBody");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryRigidBody");
 		return ptr;
 	}
 
@@ -5032,7 +5310,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryEmitter");
 		return ptr;
 	}
 
@@ -5049,7 +5329,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryFracturedStaticMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryFracturedStaticMesh");
 		return ptr;
 	}
 
@@ -5065,7 +5347,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryLensFlare");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryLensFlare");
 		return ptr;
 	}
 
@@ -5080,7 +5364,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryLight");
 		return ptr;
 	}
 
@@ -5095,7 +5381,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryPathNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryPathNode");
 		return ptr;
 	}
 
@@ -5119,7 +5407,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryPhysicsAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryPhysicsAsset");
 		return ptr;
 	}
 
@@ -5134,7 +5424,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryPlayerStart");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryPlayerStart");
 		return ptr;
 	}
 
@@ -5149,7 +5441,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryPylon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryPylon");
 		return ptr;
 	}
 
@@ -5167,7 +5461,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMesh");
 		return ptr;
 	}
 
@@ -5184,7 +5480,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryStaticMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryStaticMesh");
 		return ptr;
 	}
 
@@ -5199,7 +5497,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryTrigger");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryTrigger");
 		return ptr;
 	}
 
@@ -5215,7 +5515,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryVehicle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryVehicle");
 		return ptr;
 	}
 
@@ -5235,7 +5537,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AkBank");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AkBank");
 		return ptr;
 	}
 
@@ -5250,7 +5554,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AkBaseSoundObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AkBaseSoundObject");
 		return ptr;
 	}
 
@@ -5281,7 +5587,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AkEvent");
 		return ptr;
 	}
 
@@ -5312,7 +5620,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundCue");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundCue");
 		return ptr;
 	}
 
@@ -5332,7 +5642,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BookMark");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BookMark");
 		return ptr;
 	}
 
@@ -5349,7 +5661,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BookMark2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BookMark2D");
 		return ptr;
 	}
 
@@ -5365,7 +5679,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KismetBookMark");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KismetBookMark");
 		return ptr;
 	}
 
@@ -5400,7 +5716,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Canvas");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Canvas");
 		return ptr;
 	}
 
@@ -5460,7 +5778,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Channel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Channel");
 		return ptr;
 	}
 
@@ -5476,7 +5796,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorChannel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorChannel");
 		return ptr;
 	}
 
@@ -5492,7 +5814,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ControlChannel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ControlChannel");
 		return ptr;
 	}
 
@@ -5508,7 +5832,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FileChannel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FileChannel");
 		return ptr;
 	}
 
@@ -5524,7 +5850,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.VoiceChannel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.VoiceChannel");
 		return ptr;
 	}
 
@@ -5603,7 +5931,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Controller");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Controller");
 		return ptr;
 	}
 
@@ -5866,7 +6196,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlayerController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlayerController");
 		return ptr;
 	}
 
@@ -6290,7 +6622,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CheatManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CheatManager");
 		return ptr;
 	}
 
@@ -6411,7 +6745,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Client");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Client");
 		return ptr;
 	}
 
@@ -6428,7 +6764,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ClipPadEntry");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ClipPadEntry");
 		return ptr;
 	}
 
@@ -6452,7 +6790,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudSaveSystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudSaveSystem");
 		return ptr;
 	}
 
@@ -6491,7 +6831,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CodecMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CodecMovie");
 		return ptr;
 	}
 
@@ -6507,7 +6849,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CodecMovieBink");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CodecMovieBink");
 		return ptr;
 	}
 
@@ -6523,7 +6867,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CodecMovieFallback");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CodecMovieFallback");
 		return ptr;
 	}
 
@@ -6540,7 +6886,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CurveEdPresetCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CurveEdPresetCurve");
 		return ptr;
 	}
 
@@ -6555,7 +6903,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CustomPropertyItemHandler");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CustomPropertyItemHandler");
 		return ptr;
 	}
 
@@ -6584,7 +6934,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DamageType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DamageType");
 		return ptr;
 	}
 
@@ -6601,7 +6953,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KillZDamageType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KillZDamageType");
 		return ptr;
 	}
 
@@ -6617,7 +6971,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatConstant");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatConstant");
 		return ptr;
 	}
 
@@ -6638,7 +6994,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatParameterBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatParameterBase");
 		return ptr;
 	}
 
@@ -6654,7 +7012,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatConstantCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatConstantCurve");
 		return ptr;
 	}
 
@@ -6671,7 +7031,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatUniform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatUniform");
 		return ptr;
 	}
 
@@ -6687,7 +7049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatUniformCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatUniformCurve");
 		return ptr;
 	}
 
@@ -6707,7 +7071,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatUniformRange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatUniformRange");
 		return ptr;
 	}
 
@@ -6725,7 +7091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorConstant");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorConstant");
 		return ptr;
 	}
 
@@ -6747,7 +7115,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorParameterBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorParameterBase");
 		return ptr;
 	}
 
@@ -6765,7 +7135,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorConstantCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorConstantCurve");
 		return ptr;
 	}
 
@@ -6786,7 +7158,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorUniform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorUniform");
 		return ptr;
 	}
 
@@ -6807,7 +7181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorUniformCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorUniformCurve");
 		return ptr;
 	}
 
@@ -6826,7 +7202,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorUniformRange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorUniformRange");
 		return ptr;
 	}
 
@@ -6842,7 +7220,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Download");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Download");
 		return ptr;
 	}
 
@@ -6858,7 +7238,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ChannelDownload");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ChannelDownload");
 		return ptr;
 	}
 
@@ -6876,7 +7258,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EdCoordSystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EdCoordSystem");
 		return ptr;
 	}
 
@@ -6891,7 +7275,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EditorLinkSelectionInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EditorLinkSelectionInterface");
 		return ptr;
 	}
 
@@ -6906,7 +7292,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EngineTypes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EngineTypes");
 		return ptr;
 	}
 
@@ -6928,7 +7316,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FaceFXAnimSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FaceFXAnimSet");
 		return ptr;
 	}
 
@@ -6952,7 +7342,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FaceFXAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FaceFXAsset");
 		return ptr;
 	}
 
@@ -6983,7 +7375,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Font");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Font");
 		return ptr;
 	}
 
@@ -7005,7 +7399,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MultiFont");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MultiFont");
 		return ptr;
 	}
 
@@ -7023,7 +7419,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FontImportOptions");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FontImportOptions");
 		return ptr;
 	}
 
@@ -7045,7 +7443,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFeedbackManager");
 		return ptr;
 	}
 
@@ -7068,7 +7468,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackWaveform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFeedbackWaveform");
 		return ptr;
 	}
 
@@ -7096,7 +7498,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEvents");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEvents");
 		return ptr;
 	}
 
@@ -7116,7 +7520,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEventsReader");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEventsReader");
 		return ptr;
 	}
 
@@ -7148,7 +7554,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEventsWriterBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEventsWriterBase");
 		return ptr;
 	}
 
@@ -7194,7 +7602,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEventsUploadAnalytics");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEventsUploadAnalytics");
 		return ptr;
 	}
 
@@ -7234,7 +7644,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEventsWriter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEventsWriter");
 		return ptr;
 	}
 
@@ -7283,7 +7695,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameplayEventsHandler");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameplayEventsHandler");
 		return ptr;
 	}
 
@@ -7307,7 +7721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GenericParamListStatEntry");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GenericParamListStatEntry");
 		return ptr;
 	}
 
@@ -7333,7 +7749,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GuidCache");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GuidCache");
 		return ptr;
 	}
 
@@ -7348,7 +7766,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HttpBaseInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HttpBaseInterface");
 		return ptr;
 	}
 
@@ -7372,7 +7792,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HttpRequestInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HttpRequestInterface");
 		return ptr;
 	}
 
@@ -7397,7 +7819,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HttpResponseInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HttpResponseInterface");
 		return ptr;
 	}
 
@@ -7423,7 +7847,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.IniLocPatcher");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.IniLocPatcher");
 		return ptr;
 	}
 
@@ -7456,7 +7882,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_NavigationHandle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_NavigationHandle");
 		return ptr;
 	}
 
@@ -7473,7 +7901,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_Speaker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_Speaker");
 		return ptr;
 	}
 
@@ -7492,7 +7922,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpCurveEdSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpCurveEdSetup");
 		return ptr;
 	}
 
@@ -7525,7 +7957,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrack");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrack");
 		return ptr;
 	}
 
@@ -7544,7 +7978,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.JsonObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.JsonObject");
 		return ptr;
 	}
 
@@ -7575,7 +8011,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KMeshProps");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KMeshProps");
 		return ptr;
 	}
 
@@ -7591,7 +8029,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelBase");
 		return ptr;
 	}
 
@@ -7610,7 +8050,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Level");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Level");
 		return ptr;
 	}
 
@@ -7626,7 +8068,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PendingLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PendingLevel");
 		return ptr;
 	}
 
@@ -7641,7 +8085,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DemoPlayPendingLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DemoPlayPendingLevel");
 		return ptr;
 	}
 
@@ -7656,7 +8102,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NetPendingLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NetPendingLevel");
 		return ptr;
 	}
 
@@ -7697,7 +8145,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreaming");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreaming");
 		return ptr;
 	}
 
@@ -7713,7 +8163,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreamingAlwaysLoaded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreamingAlwaysLoaded");
 		return ptr;
 	}
 
@@ -7730,7 +8182,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreamingDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreamingDistance");
 		return ptr;
 	}
 
@@ -7745,7 +8199,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreamingKismet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreamingKismet");
 		return ptr;
 	}
 
@@ -7760,7 +8216,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LevelStreamingPersistent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelStreamingPersistent");
 		return ptr;
 	}
 
@@ -7777,7 +8235,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmappedSurfaceCollection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightmappedSurfaceCollection");
 		return ptr;
 	}
 
@@ -7805,7 +8265,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassLevelSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightmassLevelSettings");
 		return ptr;
 	}
 
@@ -7821,7 +8283,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassPrimitiveSettingsObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightmassPrimitiveSettingsObject");
 		return ptr;
 	}
 
@@ -7836,7 +8300,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MapInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MapInfo");
 		return ptr;
 	}
 
@@ -7852,7 +8318,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Model");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Model");
 		return ptr;
 	}
 
@@ -7867,7 +8335,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MusicTrackDataStructures");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MusicTrackDataStructures");
 		return ptr;
 	}
 
@@ -7883,7 +8353,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavigationMeshBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavigationMeshBase");
 		return ptr;
 	}
 
@@ -7921,7 +8393,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NetDriver");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NetDriver");
 		return ptr;
 	}
 
@@ -7944,7 +8418,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DemoRecDriver");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DemoRecDriver");
 		return ptr;
 	}
 
@@ -7960,7 +8436,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ObjectReferencer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ObjectReferencer");
 		return ptr;
 	}
 
@@ -7975,7 +8453,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineAuthInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineAuthInterface");
 		return ptr;
 	}
 
@@ -8053,7 +8533,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineMatchmakingStats");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineMatchmakingStats");
 		return ptr;
 	}
 
@@ -8079,7 +8561,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlinePlayerStorage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlinePlayerStorage");
 		return ptr;
 	}
 
@@ -8130,7 +8614,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineProfileSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineProfileSettings");
 		return ptr;
 	}
 
@@ -8153,7 +8639,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineStats");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineStats");
 		return ptr;
 	}
 
@@ -8179,7 +8667,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineStatsRead");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineStatsRead");
 		return ptr;
 	}
 
@@ -8210,7 +8700,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineStatsWrite");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineStatsWrite");
 		return ptr;
 	}
 
@@ -8260,7 +8752,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineSubsystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineSubsystem");
 		return ptr;
 	}
 
@@ -8307,7 +8801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PackageMapLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PackageMapLevel");
 		return ptr;
 	}
 
@@ -8322,7 +8818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PackageMapSeekFree");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PackageMapSeekFree");
 		return ptr;
 	}
 
@@ -8338,7 +8836,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PatchScriptCommandlet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PatchScriptCommandlet");
 		return ptr;
 	}
 
@@ -8355,7 +8855,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlatformInterfaceBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlatformInterfaceBase");
 		return ptr;
 	}
 
@@ -8388,7 +8890,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MicroTransactionBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MicroTransactionBase");
 		return ptr;
 	}
 
@@ -8409,7 +8913,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MicroTransactionProxy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MicroTransactionProxy");
 		return ptr;
 	}
 
@@ -8433,7 +8939,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Player");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Player");
 		return ptr;
 	}
 
@@ -8478,7 +8986,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LocalPlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LocalPlayer");
 		return ptr;
 	}
 
@@ -8531,7 +9041,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NetConnection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NetConnection");
 		return ptr;
 	}
 
@@ -8547,7 +9059,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ChildConnection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ChildConnection");
 		return ptr;
 	}
 
@@ -8562,7 +9076,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DemoRecConnection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DemoRecConnection");
 		return ptr;
 	}
 
@@ -8578,7 +9094,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Polys");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Polys");
 		return ptr;
 	}
 
@@ -8594,7 +9112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PostProcessChain");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PostProcessChain");
 		return ptr;
 	}
 
@@ -8624,7 +9144,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PostProcessEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PostProcessEffect");
 		return ptr;
 	}
 
@@ -8662,7 +9184,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientOcclusionEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientOcclusionEffect");
 		return ptr;
 	}
 
@@ -8679,7 +9203,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BlurEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BlurEffect");
 		return ptr;
 	}
 
@@ -8705,7 +9231,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DOFEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DOFEffect");
 		return ptr;
 	}
 
@@ -8731,7 +9259,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DOFAndBloomEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DOFAndBloomEffect");
 		return ptr;
 	}
 
@@ -8751,7 +9281,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DOFBloomMotionBlurEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DOFBloomMotionBlurEffect");
 		return ptr;
 	}
 
@@ -8793,7 +9325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UberPostProcessEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UberPostProcessEffect");
 		return ptr;
 	}
 
@@ -8809,7 +9343,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DwTriovizImplEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DwTriovizImplEffect");
 		return ptr;
 	}
 
@@ -8826,7 +9362,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialEffect");
 		return ptr;
 	}
 
@@ -8847,7 +9385,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MotionBlurEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MotionBlurEffect");
 		return ptr;
 	}
 
@@ -8870,7 +9410,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrimitiveComponentFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrimitiveComponentFactory");
 		return ptr;
 	}
 
@@ -8886,7 +9428,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MeshComponentFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MeshComponentFactory");
 		return ptr;
 	}
 
@@ -8902,7 +9446,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshComponentFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshComponentFactory");
 		return ptr;
 	}
 
@@ -8936,7 +9482,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ReachSpec");
 		return ptr;
 	}
 
@@ -8956,7 +9504,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AdvancedReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AdvancedReachSpec");
 		return ptr;
 	}
 
@@ -8971,7 +9521,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CeilingReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CeilingReachSpec");
 		return ptr;
 	}
 
@@ -8986,7 +9538,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForcedReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForcedReachSpec");
 		return ptr;
 	}
 
@@ -9002,7 +9556,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverSlipReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverSlipReachSpec");
 		return ptr;
 	}
 
@@ -9017,7 +9573,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FloorToCeilingReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FloorToCeilingReachSpec");
 		return ptr;
 	}
 
@@ -9033,7 +9591,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MantleReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MantleReachSpec");
 		return ptr;
 	}
 
@@ -9049,7 +9609,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SlotToSlotReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SlotToSlotReachSpec");
 		return ptr;
 	}
 
@@ -9065,7 +9627,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SwatTurnReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SwatTurnReachSpec");
 		return ptr;
 	}
 
@@ -9080,7 +9644,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WallTransReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WallTransReachSpec");
 		return ptr;
 	}
 
@@ -9095,7 +9661,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LadderReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LadderReachSpec");
 		return ptr;
 	}
 
@@ -9110,7 +9678,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ProscribedReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ProscribedReachSpec");
 		return ptr;
 	}
 
@@ -9125,7 +9695,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TeleportReachSpec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TeleportReachSpec");
 		return ptr;
 	}
 
@@ -9171,7 +9743,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SavedMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SavedMove");
 		return ptr;
 	}
 
@@ -9201,7 +9775,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SaveGameSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SaveGameSummary");
 		return ptr;
 	}
 
@@ -9217,7 +9793,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ScriptViewportClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ScriptViewportClient");
 		return ptr;
 	}
 
@@ -9269,7 +9847,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameViewportClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameViewportClient");
 		return ptr;
 	}
 
@@ -9348,7 +9928,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Selection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Selection");
 		return ptr;
 	}
 
@@ -9363,7 +9945,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ServerCommandlet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ServerCommandlet");
 		return ptr;
 	}
 
@@ -9382,7 +9966,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Settings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Settings");
 		return ptr;
 	}
 
@@ -9465,7 +10051,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineGameSearch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineGameSearch");
 		return ptr;
 	}
 
@@ -9509,7 +10097,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineGameSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineGameSettings");
 		return ptr;
 	}
 
@@ -9525,7 +10115,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ShaderCache");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ShaderCache");
 		return ptr;
 	}
 
@@ -9541,7 +10133,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ShadowMap1D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ShadowMap1D");
 		return ptr;
 	}
 
@@ -9563,7 +10157,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ShadowMap2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ShadowMap2D");
 		return ptr;
 	}
 
@@ -9578,7 +10174,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SmokeTestCommandlet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SmokeTestCommandlet");
 		return ptr;
 	}
 
@@ -9603,7 +10201,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeechRecognition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeechRecognition");
 		return ptr;
 	}
 
@@ -9655,7 +10255,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMesh");
 		return ptr;
 	}
 
@@ -9670,7 +10272,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Surface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Surface");
 		return ptr;
 	}
 
@@ -9795,7 +10399,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInterface");
 		return ptr;
 	}
 
@@ -9845,7 +10451,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_BodySetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_BodySetup");
 		return ptr;
 	}
 
@@ -9924,7 +10532,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InstancedFoliageSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InstancedFoliageSettings");
 		return ptr;
 	}
 
@@ -9973,7 +10583,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedStaticMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedStaticMesh");
 		return ptr;
 	}
 
@@ -10041,7 +10653,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleSystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleSystem");
 		return ptr;
 	}
 
@@ -10104,7 +10718,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Texture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Texture");
 		return ptr;
 	}
 
@@ -10156,7 +10772,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Texture2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Texture2D");
 		return ptr;
 	}
 
@@ -10179,7 +10797,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightMapTexture2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightMapTexture2D");
 		return ptr;
 	}
 
@@ -10195,7 +10815,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ShadowMapTexture2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ShadowMapTexture2D");
 		return ptr;
 	}
 
@@ -10211,7 +10833,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TranslationContext");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TranslationContext");
 		return ptr;
 	}
 
@@ -10229,7 +10853,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TranslatorTag");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TranslatorTag");
 		return ptr;
 	}
 
@@ -10246,7 +10872,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StringsTag");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StringsTag");
 		return ptr;
 	}
 
@@ -10264,7 +10892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIRoot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIRoot");
 		return ptr;
 	}
 
@@ -10292,7 +10922,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interaction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interaction");
 		return ptr;
 	}
 
@@ -10339,7 +10971,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIInteraction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIInteraction");
 		return ptr;
 	}
 
@@ -10372,7 +11006,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIManager");
 		return ptr;
 	}
 
@@ -10395,7 +11031,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WaveFormBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WaveFormBase");
 		return ptr;
 	}
 
@@ -10411,7 +11049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.World");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.World");
 		return ptr;
 	}
 
@@ -10429,7 +11069,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EnvironmentVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EnvironmentVolume");
 		return ptr;
 	}
 
@@ -10447,7 +11089,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TestSplittingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TestSplittingVolume");
 		return ptr;
 	}
 
@@ -10469,7 +11113,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AIController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AIController");
 		return ptr;
 	}
 
@@ -10495,7 +11141,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CrowdAgentBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CrowdAgentBase");
 		return ptr;
 	}
 
@@ -10512,7 +11160,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CrowdPopulationManagerBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CrowdPopulationManagerBase");
 		return ptr;
 	}
 
@@ -10527,7 +11177,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathTargetPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathTargetPoint");
 		return ptr;
 	}
 
@@ -10547,7 +11199,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshObstacle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshObstacle");
 		return ptr;
 	}
 
@@ -10572,7 +11226,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PylonSeed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PylonSeed");
 		return ptr;
 	}
 
@@ -10587,7 +11243,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverGroupRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverGroupRenderingComponent");
 		return ptr;
 	}
 
@@ -10603,7 +11261,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MeshComponent");
 		return ptr;
 	}
 
@@ -10649,7 +11309,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticMeshComponent");
 		return ptr;
 	}
 
@@ -10675,7 +11337,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverMeshComponent");
 		return ptr;
 	}
 
@@ -10690,7 +11354,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshRenderingComponent");
 		return ptr;
 	}
 
@@ -10705,7 +11371,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathRenderingComponent");
 		return ptr;
 	}
 
@@ -10720,7 +11388,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RouteRenderingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RouteRenderingComponent");
 		return ptr;
 	}
 
@@ -10735,7 +11405,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AICommandBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AICommandBase");
 		return ptr;
 	}
 
@@ -10753,7 +11425,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AutoNavMeshPathObstacleUnregister");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AutoNavMeshPathObstacleUnregister");
 		return ptr;
 	}
 
@@ -10768,7 +11442,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathObject");
 		return ptr;
 	}
 
@@ -10783,7 +11459,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathSwitch");
 		return ptr;
 	}
 
@@ -10800,7 +11478,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathObstacle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_NavMeshPathObstacle");
 		return ptr;
 	}
 
@@ -10815,7 +11495,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_PylonGeometryProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_PylonGeometryProvider");
 		return ptr;
 	}
 
@@ -10830,7 +11512,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_RVO");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Interface_RVO");
 		return ptr;
 	}
 
@@ -10867,7 +11551,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavigationHandle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavigationHandle");
 		return ptr;
 	}
 
@@ -10932,7 +11618,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_Filter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_Filter");
 		return ptr;
 	}
 
@@ -10950,7 +11638,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_MinPathDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_MinPathDistance");
 		return ptr;
 	}
 
@@ -10968,7 +11658,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_NotNearOtherAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_NotNearOtherAI");
 		return ptr;
 	}
 
@@ -10987,7 +11679,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_OutOfViewFrom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_OutOfViewFrom");
 		return ptr;
 	}
 
@@ -11007,7 +11701,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_OutSideOfDotProductWedge");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_OutSideOfDotProductWedge");
 		return ptr;
 	}
 
@@ -11025,7 +11721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_PolyEncompassesAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoalFilter_PolyEncompassesAI");
 		return ptr;
 	}
 
@@ -11047,7 +11745,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPathConstraint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPathConstraint");
 		return ptr;
 	}
 
@@ -11066,7 +11766,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_AlongLine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_AlongLine");
 		return ptr;
 	}
 
@@ -11084,7 +11786,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_EnforceTwoWayEdges");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_EnforceTwoWayEdges");
 		return ptr;
 	}
 
@@ -11106,7 +11810,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_MinDistBetweenSpecsOfType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_MinDistBetweenSpecsOfType");
 		return ptr;
 	}
 
@@ -11125,7 +11831,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_SameCoverLink");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_SameCoverLink");
 		return ptr;
 	}
 
@@ -11147,7 +11855,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_Toward");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_Toward");
 		return ptr;
 	}
 
@@ -11172,7 +11882,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_WithinDistanceEnvelope");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_WithinDistanceEnvelope");
 		return ptr;
 	}
 
@@ -11193,7 +11905,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPath_WithinTraversalDist");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPath_WithinTraversalDist");
 		return ptr;
 	}
 
@@ -11218,7 +11932,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshPathGoalEvaluator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshPathGoalEvaluator");
 		return ptr;
 	}
 
@@ -11244,7 +11960,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_At");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_At");
 		return ptr;
 	}
 
@@ -11267,7 +11985,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_ClosestActorInList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_ClosestActorInList");
 		return ptr;
 	}
 
@@ -11290,7 +12010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_GenericFilterContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_GenericFilterContainer");
 		return ptr;
 	}
 
@@ -11312,7 +12034,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_Null");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_Null");
 		return ptr;
 	}
 
@@ -11332,7 +12056,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_PolyEncompassesAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_PolyEncompassesAI");
 		return ptr;
 	}
 
@@ -11353,7 +12079,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_Random");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_Random");
 		return ptr;
 	}
 
@@ -11376,7 +12104,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshGoal_WithinDistanceEnvelope");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshGoal_WithinDistanceEnvelope");
 		return ptr;
 	}
 
@@ -11396,7 +12126,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathConstraint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathConstraint");
 		return ptr;
 	}
 
@@ -11415,7 +12147,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_AlongLine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_AlongLine");
 		return ptr;
 	}
 
@@ -11437,7 +12171,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_AvoidInEscapableNodes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_AvoidInEscapableNodes");
 		return ptr;
 	}
 
@@ -11459,7 +12195,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_MinDistBetweenSpecsOfType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_MinDistBetweenSpecsOfType");
 		return ptr;
 	}
 
@@ -11478,7 +12216,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_TowardGoal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_TowardGoal");
 		return ptr;
 	}
 
@@ -11497,7 +12237,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_TowardPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_TowardPoint");
 		return ptr;
 	}
 
@@ -11521,7 +12263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_WithinDistanceEnvelope");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_WithinDistanceEnvelope");
 		return ptr;
 	}
 
@@ -11542,7 +12286,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Path_WithinTraversalDist");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Path_WithinTraversalDist");
 		return ptr;
 	}
 
@@ -11564,7 +12310,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathGoalEvaluator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathGoalEvaluator");
 		return ptr;
 	}
 
@@ -11585,7 +12333,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Goal_AtActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Goal_AtActor");
 		return ptr;
 	}
 
@@ -11603,7 +12353,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Goal_Null");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Goal_Null");
 		return ptr;
 	}
 
@@ -11645,7 +12397,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActor");
 		return ptr;
 	}
 
@@ -11692,7 +12446,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActorBasedOnExtremeContent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActorBasedOnExtremeContent");
 		return ptr;
 	}
 
@@ -11710,7 +12466,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActorSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActorSpawnable");
 		return ptr;
 	}
 
@@ -11725,7 +12483,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshCinematicActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshCinematicActor");
 		return ptr;
 	}
 
@@ -11741,7 +12501,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMAT");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMAT");
 		return ptr;
 	}
 
@@ -11785,7 +12547,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HeadTrackingComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HeadTrackingComponent");
 		return ptr;
 	}
 
@@ -11805,7 +12569,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm");
 		return ptr;
 	}
 
@@ -11829,7 +12595,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_Automatic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_Automatic");
 		return ptr;
 	}
 
@@ -11845,7 +12613,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_BitwiseCompressOnly");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_BitwiseCompressOnly");
 		return ptr;
 	}
 
@@ -11861,7 +12631,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_LeastDestructive");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_LeastDestructive");
 		return ptr;
 	}
 
@@ -11879,7 +12651,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveEverySecondKey");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveEverySecondKey");
 		return ptr;
 	}
 
@@ -11904,7 +12678,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveLinearKeys");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveLinearKeys");
 		return ptr;
 	}
 
@@ -11941,7 +12717,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_PerTrackCompression");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_PerTrackCompression");
 		return ptr;
 	}
 
@@ -11960,7 +12738,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveTrivialKeys");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RemoveTrivialKeys");
 		return ptr;
 	}
 
@@ -11976,7 +12756,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RevertToRaw");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimationCompressionAlgorithm_RevertToRaw");
 		return ptr;
 	}
 
@@ -11991,7 +12773,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimMetaData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimMetaData");
 		return ptr;
 	}
 
@@ -12009,7 +12793,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimMetaData_SkelControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimMetaData_SkelControl");
 		return ptr;
 	}
 
@@ -12025,7 +12811,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimMetaData_SkelControlKeyFrame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimMetaData_SkelControlKeyFrame");
 		return ptr;
 	}
 
@@ -12042,7 +12830,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify");
 		return ptr;
 	}
 
@@ -12062,7 +12852,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_AkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_AkEvent");
 		return ptr;
 	}
 
@@ -12078,7 +12870,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_CameraEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_CameraEffect");
 		return ptr;
 	}
 
@@ -12098,7 +12892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ClothingMaxDistanceScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_ClothingMaxDistanceScale");
 		return ptr;
 	}
 
@@ -12114,7 +12910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Footstep");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Footstep");
 		return ptr;
 	}
 
@@ -12133,7 +12931,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_ForceField");
 		return ptr;
 	}
 
@@ -12149,7 +12949,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Kismet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Kismet");
 		return ptr;
 	}
 
@@ -12173,7 +12975,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_PlayParticleEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_PlayParticleEffect");
 		return ptr;
 	}
 
@@ -12192,7 +12996,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Rumble");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Rumble");
 		return ptr;
 	}
 
@@ -12210,7 +13016,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Script");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Script");
 		return ptr;
 	}
 
@@ -12225,7 +13033,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Scripted");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Scripted");
 		return ptr;
 	}
 
@@ -12244,7 +13054,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_PawnMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_PawnMaterialParam");
 		return ptr;
 	}
 
@@ -12273,7 +13085,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ViewShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_ViewShake");
 		return ptr;
 	}
 
@@ -12297,7 +13111,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Sound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Sound");
 		return ptr;
 	}
 
@@ -12334,7 +13150,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_Trails");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_Trails");
 		return ptr;
 	}
 
@@ -12358,7 +13176,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimObject");
 		return ptr;
 	}
 
@@ -12398,7 +13218,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNode");
 		return ptr;
 	}
 
@@ -12424,7 +13246,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendBase");
 		return ptr;
 	}
 
@@ -12450,7 +13274,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNode_MultiBlendPerBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNode_MultiBlendPerBone");
 		return ptr;
 	}
 
@@ -12482,7 +13308,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeAimOffset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeAimOffset");
 		return ptr;
 	}
 
@@ -12505,7 +13333,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlend");
 		return ptr;
 	}
 
@@ -12523,7 +13353,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeAdditiveBlending");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeAdditiveBlending");
 		return ptr;
 	}
 
@@ -12544,7 +13376,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendPerBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendPerBone");
 		return ptr;
 	}
 
@@ -12564,7 +13398,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeCrossfader");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeCrossfader");
 		return ptr;
 	}
 
@@ -12586,7 +13422,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodePlayCustomAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodePlayCustomAnim");
 		return ptr;
 	}
 
@@ -12615,7 +13453,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendDirectional");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendDirectional");
 		return ptr;
 	}
 
@@ -12639,7 +13479,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendList");
 		return ptr;
 	}
 
@@ -12662,7 +13504,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendByBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendByBase");
 		return ptr;
 	}
 
@@ -12677,7 +13521,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendByPhysics");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendByPhysics");
 		return ptr;
 	}
 
@@ -12692,7 +13538,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendByPosture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendByPosture");
 		return ptr;
 	}
 
@@ -12722,7 +13570,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendByProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendByProperty");
 		return ptr;
 	}
 
@@ -12747,7 +13597,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendBySpeed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendBySpeed");
 		return ptr;
 	}
 
@@ -12766,7 +13618,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeRandom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeRandom");
 		return ptr;
 	}
 
@@ -12784,7 +13638,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeBlendMultiBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeBlendMultiBone");
 		return ptr;
 	}
 
@@ -12803,7 +13659,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeMirror");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeMirror");
 		return ptr;
 	}
 
@@ -12820,7 +13678,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeScalePlayRate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeScalePlayRate");
 		return ptr;
 	}
 
@@ -12836,7 +13696,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeScaleRateBySpeed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeScaleRateBySpeed");
 		return ptr;
 	}
 
@@ -12864,7 +13726,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeSlot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeSlot");
 		return ptr;
 	}
 
@@ -12893,7 +13757,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeSynch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeSynch");
 		return ptr;
 	}
 
@@ -12952,7 +13818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimTree");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimTree");
 		return ptr;
 	}
 
@@ -13021,7 +13889,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeSequence");
 		return ptr;
 	}
 
@@ -13052,7 +13922,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeSequenceBlendBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeSequenceBlendBase");
 		return ptr;
 	}
 
@@ -13081,7 +13953,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeSequenceBlendByAim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeSequenceBlendByAim");
 		return ptr;
 	}
 
@@ -13109,7 +13983,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNodeFrame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNodeFrame");
 		return ptr;
 	}
 
@@ -13126,7 +14002,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeBase");
 		return ptr;
 	}
 
@@ -13144,7 +14022,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeMultiPose");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeMultiPose");
 		return ptr;
 	}
 
@@ -13166,7 +14046,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodePose");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodePose");
 		return ptr;
 	}
 
@@ -13184,7 +14066,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeWeightBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeWeightBase");
 		return ptr;
 	}
 
@@ -13200,7 +14084,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeWeight");
 		return ptr;
 	}
 
@@ -13231,7 +14117,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeWeightByBoneAngle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeWeightByBoneAngle");
 		return ptr;
 	}
 
@@ -13257,7 +14145,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphNodeWeightByBoneRotation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphNodeWeightByBoneRotation");
 		return ptr;
 	}
 
@@ -13301,7 +14191,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlBase");
 		return ptr;
 	}
 
@@ -13334,7 +14226,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControl_CCD_IK");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControl_CCD_IK");
 		return ptr;
 	}
 
@@ -13350,7 +14244,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControl_Multiply");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControl_Multiply");
 		return ptr;
 	}
 
@@ -13367,7 +14263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControl_TwistBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControl_TwistBone");
 		return ptr;
 	}
 
@@ -13402,7 +14300,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlLimb");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlLimb");
 		return ptr;
 	}
 
@@ -13427,7 +14327,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlFootPlacement");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlFootPlacement");
 		return ptr;
 	}
 
@@ -13477,7 +14379,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlLookAt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlLookAt");
 		return ptr;
 	}
 
@@ -13509,7 +14413,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlSingleBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlSingleBone");
 		return ptr;
 	}
 
@@ -13530,7 +14436,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlHandlebars");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlHandlebars");
 		return ptr;
 	}
 
@@ -13554,7 +14462,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlWheel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlWheel");
 		return ptr;
 	}
 
@@ -13576,7 +14486,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlSpline");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlSpline");
 		return ptr;
 	}
 
@@ -13610,7 +14522,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkelControlTrail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkelControlTrail");
 		return ptr;
 	}
 
@@ -13663,7 +14577,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimSequence");
 		return ptr;
 	}
 
@@ -13693,7 +14609,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimSet");
 		return ptr;
 	}
 
@@ -13711,7 +14629,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphTarget");
 		return ptr;
 	}
 
@@ -13729,7 +14649,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphTargetSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphTargetSet");
 		return ptr;
 	}
 
@@ -13746,7 +14668,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MorphWeightSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MorphWeightSequence");
 		return ptr;
 	}
 
@@ -13763,7 +14687,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalActorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalActorBase");
 		return ptr;
 	}
 
@@ -13778,7 +14704,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalActor");
 		return ptr;
 	}
 
@@ -13793,7 +14721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalActorMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalActorMovable");
 		return ptr;
 	}
 
@@ -13817,7 +14747,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalManager");
 		return ptr;
 	}
 
@@ -13895,7 +14827,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalComponent");
 		return ptr;
 	}
 
@@ -13916,7 +14850,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryDecal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryDecal");
 		return ptr;
 	}
 
@@ -13931,7 +14867,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryDecalMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryDecalMovable");
 		return ptr;
 	}
 
@@ -14045,7 +14983,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Material");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Material");
 		return ptr;
 	}
 
@@ -14060,7 +15000,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DecalMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DecalMaterial");
 		return ptr;
 	}
 
@@ -14078,7 +15020,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeDensityInfo");
 		return ptr;
 	}
 
@@ -14100,7 +15044,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeConeDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeConeDensityInfo");
 		return ptr;
 	}
 
@@ -14115,7 +15061,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeConstantDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeConstantDensityInfo");
 		return ptr;
 	}
 
@@ -14130,7 +15078,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeLinearHalfspaceDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeLinearHalfspaceDensityInfo");
 		return ptr;
 	}
 
@@ -14145,7 +15095,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeSphericalDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeSphericalDensityInfo");
 		return ptr;
 	}
 
@@ -14171,7 +15123,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ExponentialHeightFogComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ExponentialHeightFogComponent");
 		return ptr;
 	}
 
@@ -14198,7 +15152,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeDensityComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeDensityComponent");
 		return ptr;
 	}
 
@@ -14221,7 +15177,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeConeDensityComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeConeDensityComponent");
 		return ptr;
 	}
 
@@ -14237,7 +15195,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeConstantDensityComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeConstantDensityComponent");
 		return ptr;
 	}
 
@@ -14255,7 +15215,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeLinearHalfspaceDensityComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeLinearHalfspaceDensityComponent");
 		return ptr;
 	}
 
@@ -14274,7 +15236,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FogVolumeSphericalDensityComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FogVolumeSphericalDensityComponent");
 		return ptr;
 	}
 
@@ -14291,7 +15255,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeConstantDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeConstantDensityInfo");
 		return ptr;
 	}
 
@@ -14306,7 +15272,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeLinearHalfspaceDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeLinearHalfspaceDensityInfo");
 		return ptr;
 	}
 
@@ -14321,7 +15289,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeSphericalDensityInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryFogVolumeSphericalDensityInfo");
 		return ptr;
 	}
 
@@ -14345,7 +15315,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexDestructibleActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexDestructibleActor");
 		return ptr;
 	}
 
@@ -14385,7 +15357,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedStaticMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedStaticMeshActor");
 		return ptr;
 	}
 
@@ -14434,7 +15408,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedStaticMeshPart");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedStaticMeshPart");
 		return ptr;
 	}
 
@@ -14466,7 +15442,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FractureManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FractureManager");
 		return ptr;
 	}
 
@@ -14499,7 +15477,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageReflection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageReflection");
 		return ptr;
 	}
 
@@ -14520,7 +15500,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageReflectionSceneCapture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageReflectionSceneCapture");
 		return ptr;
 	}
 
@@ -14537,7 +15519,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageReflectionShadowPlane");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageReflectionShadowPlane");
 		return ptr;
 	}
 
@@ -14557,7 +15541,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageReflectionComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageReflectionComponent");
 		return ptr;
 	}
 
@@ -14575,7 +15561,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageReflectionShadowPlaneComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageReflectionShadowPlaneComponent");
 		return ptr;
 	}
 
@@ -14597,7 +15585,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexComponentBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexComponentBase");
 		return ptr;
 	}
 
@@ -14613,7 +15603,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexDynamicComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexDynamicComponent");
 		return ptr;
 	}
 
@@ -14628,7 +15620,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexStaticComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexStaticComponent");
 		return ptr;
 	}
 
@@ -14648,7 +15642,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexStaticDestructibleComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexStaticDestructibleComponent");
 		return ptr;
 	}
 
@@ -14673,7 +15669,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedBaseComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedBaseComponent");
 		return ptr;
 	}
 
@@ -14699,7 +15697,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedSkinnedMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedSkinnedMeshComponent");
 		return ptr;
 	}
 
@@ -14725,7 +15725,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedStaticMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedStaticMeshComponent");
 		return ptr;
 	}
 
@@ -14756,7 +15758,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImageBasedReflectionComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ImageBasedReflectionComponent");
 		return ptr;
 	}
 
@@ -14785,7 +15789,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InstancedStaticMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InstancedStaticMeshComponent");
 		return ptr;
 	}
 
@@ -14803,7 +15809,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineMeshComponent");
 		return ptr;
 	}
 
@@ -14823,7 +15831,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexAsset");
 		return ptr;
 	}
 
@@ -14865,7 +15875,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexClothingAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexClothingAsset");
 		return ptr;
 	}
 
@@ -14891,7 +15903,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexDestructibleAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexDestructibleAsset");
 		return ptr;
 	}
 
@@ -14908,7 +15922,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexGenericAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexGenericAsset");
 		return ptr;
 	}
 
@@ -14924,7 +15940,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpFilter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpFilter");
 		return ptr;
 	}
 
@@ -14941,7 +15959,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpFilter_Classes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpFilter_Classes");
 		return ptr;
 	}
 
@@ -14957,7 +15977,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpFilter_Custom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpFilter_Custom");
 		return ptr;
 	}
 
@@ -14984,7 +16006,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroup");
 		return ptr;
 	}
 
@@ -15009,7 +16033,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupAI");
 		return ptr;
 	}
 
@@ -15027,7 +16053,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupCamera");
 		return ptr;
 	}
 
@@ -15042,7 +16070,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupDirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupDirector");
 		return ptr;
 	}
 
@@ -15061,7 +16091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInst");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupInst");
 		return ptr;
 	}
 
@@ -15085,7 +16117,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInstAI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupInstAI");
 		return ptr;
 	}
 
@@ -15100,7 +16134,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInstCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupInstCamera");
 		return ptr;
 	}
 
@@ -15115,7 +16151,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInstDirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpGroupInstDirector");
 		return ptr;
 	}
 
@@ -15132,7 +16170,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackBoolProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackBoolProp");
 		return ptr;
 	}
 
@@ -15149,7 +16189,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackDirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackDirector");
 		return ptr;
 	}
 
@@ -15168,7 +16210,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackEvent");
 		return ptr;
 	}
 
@@ -15187,7 +16231,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFaceFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFaceFX");
 		return ptr;
 	}
 
@@ -15204,7 +16250,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFloatBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFloatBase");
 		return ptr;
 	}
 
@@ -15224,7 +16272,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackAnimControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackAnimControl");
 		return ptr;
 	}
 
@@ -15239,7 +16289,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackAnimControlBlendKey");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackAnimControlBlendKey");
 		return ptr;
 	}
 
@@ -15255,7 +16307,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFade");
 		return ptr;
 	}
 
@@ -15278,7 +16332,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFloatMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFloatMaterialParam");
 		return ptr;
 	}
 
@@ -15294,7 +16350,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFloatParticleParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFloatParticleParam");
 		return ptr;
 	}
 
@@ -15310,7 +16368,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFloatProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackFloatProp");
 		return ptr;
 	}
 
@@ -15326,7 +16386,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMorphWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackMorphWeight");
 		return ptr;
 	}
 
@@ -15344,7 +16406,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMoveAxis");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackMoveAxis");
 		return ptr;
 	}
 
@@ -15360,7 +16424,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSkelControlScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackSkelControlScale");
 		return ptr;
 	}
 
@@ -15376,7 +16442,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSkelControlStrength");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackSkelControlStrength");
 		return ptr;
 	}
 
@@ -15393,7 +16461,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSlomo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackSlomo");
 		return ptr;
 	}
 
@@ -15419,7 +16489,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackHeadTracking");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackHeadTracking");
 		return ptr;
 	}
 
@@ -15436,7 +16508,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackLinearColorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackLinearColorBase");
 		return ptr;
 	}
 
@@ -15452,7 +16526,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackLinearColorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackLinearColorProp");
 		return ptr;
 	}
 
@@ -15469,7 +16545,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMaterialEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackMaterialEffect");
 		return ptr;
 	}
 
@@ -15500,7 +16578,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackMove");
 		return ptr;
 	}
 
@@ -15520,7 +16600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackNotify");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackNotify");
 		return ptr;
 	}
 
@@ -15538,7 +16620,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackParticleReplay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackParticleReplay");
 		return ptr;
 	}
 
@@ -15559,7 +16643,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackToggle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackToggle");
 		return ptr;
 	}
 
@@ -15576,7 +16662,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVectorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackVectorBase");
 		return ptr;
 	}
 
@@ -15591,7 +16679,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackAudioMaster");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackAudioMaster");
 		return ptr;
 	}
 
@@ -15607,7 +16697,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackColorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackColorProp");
 		return ptr;
 	}
 
@@ -15622,7 +16714,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackColorScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackColorScale");
 		return ptr;
 	}
 
@@ -15642,7 +16736,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackSound");
 		return ptr;
 	}
 
@@ -15665,7 +16761,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVectorMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackVectorMaterialParam");
 		return ptr;
 	}
 
@@ -15681,7 +16779,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVectorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackVectorProp");
 		return ptr;
 	}
 
@@ -15700,7 +16800,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVisibility");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackVisibility");
 		return ptr;
 	}
 
@@ -15715,7 +16817,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInst");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInst");
 		return ptr;
 	}
 
@@ -15734,7 +16838,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstAnimControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstAnimControl");
 		return ptr;
 	}
 
@@ -15749,7 +16855,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstAudioMaster");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstAudioMaster");
 		return ptr;
 	}
 
@@ -15764,7 +16872,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstColorScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstColorScale");
 		return ptr;
 	}
 
@@ -15782,7 +16892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstDirector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstDirector");
 		return ptr;
 	}
 
@@ -15798,7 +16910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstEvent");
 		return ptr;
 	}
 
@@ -15815,7 +16929,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFaceFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstFaceFX");
 		return ptr;
 	}
 
@@ -15830,7 +16946,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstFade");
 		return ptr;
 	}
 
@@ -15847,7 +16965,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatMaterialParam");
 		return ptr;
 	}
 
@@ -15863,7 +16983,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatParticleParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatParticleParam");
 		return ptr;
 	}
 
@@ -15884,7 +17006,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstHeadTracking");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstHeadTracking");
 		return ptr;
 	}
 
@@ -15903,7 +17027,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstMaterialEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstMaterialEffect");
 		return ptr;
 	}
 
@@ -15918,7 +17044,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstMorphWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstMorphWeight");
 		return ptr;
 	}
 
@@ -15937,7 +17065,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstMove");
 		return ptr;
 	}
 
@@ -15953,7 +17083,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstNotify");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstNotify");
 		return ptr;
 	}
 
@@ -15969,7 +17101,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstParticleReplay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstParticleReplay");
 		return ptr;
 	}
 
@@ -15986,7 +17120,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstProperty");
 		return ptr;
 	}
 
@@ -16004,7 +17140,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstBoolProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstBoolProp");
 		return ptr;
 	}
 
@@ -16021,7 +17159,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstColorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstColorProp");
 		return ptr;
 	}
 
@@ -16039,7 +17179,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatProp");
 		return ptr;
 	}
 
@@ -16056,7 +17198,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstLinearColorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstLinearColorProp");
 		return ptr;
 	}
 
@@ -16073,7 +17217,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorProp");
 		return ptr;
 	}
 
@@ -16088,7 +17234,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSkelControlScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstSkelControlScale");
 		return ptr;
 	}
 
@@ -16104,7 +17252,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSkelControlStrength");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstSkelControlStrength");
 		return ptr;
 	}
 
@@ -16120,7 +17270,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSlomo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstSlomo");
 		return ptr;
 	}
 
@@ -16137,7 +17289,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstSound");
 		return ptr;
 	}
 
@@ -16156,7 +17310,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstToggle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstToggle");
 		return ptr;
 	}
 
@@ -16173,7 +17329,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorMaterialParam");
 		return ptr;
 	}
 
@@ -16191,7 +17349,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVisibility");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpTrackInstVisibility");
 		return ptr;
 	}
 
@@ -16225,7 +17385,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpression");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpression");
 		return ptr;
 	}
 
@@ -16241,7 +17403,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAbs");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionAbs");
 		return ptr;
 	}
 
@@ -16256,7 +17420,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionActorWorldPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionActorWorldPosition");
 		return ptr;
 	}
 
@@ -16273,7 +17439,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAdd");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionAdd");
 		return ptr;
 	}
 
@@ -16290,7 +17458,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAppendVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionAppendVector");
 		return ptr;
 	}
 
@@ -16310,7 +17480,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBumpOffset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionBumpOffset");
 		return ptr;
 	}
 
@@ -16325,7 +17497,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraVector");
 		return ptr;
 	}
 
@@ -16340,7 +17514,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraWorldPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraWorldPosition");
 		return ptr;
 	}
 
@@ -16356,7 +17532,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCeil");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCeil");
 		return ptr;
 	}
 
@@ -16374,7 +17552,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionClamp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionClamp");
 		return ptr;
 	}
 
@@ -16395,7 +17575,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComment");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionComment");
 		return ptr;
 	}
 
@@ -16415,7 +17597,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComponentMask");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionComponentMask");
 		return ptr;
 	}
 
@@ -16431,7 +17615,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant");
 		return ptr;
 	}
 
@@ -16448,7 +17634,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant2Vector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant2Vector");
 		return ptr;
 	}
 
@@ -16466,7 +17654,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant3Vector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant3Vector");
 		return ptr;
 	}
 
@@ -16485,7 +17675,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant4Vector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant4Vector");
 		return ptr;
 	}
 
@@ -16503,7 +17695,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantBiasScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantBiasScale");
 		return ptr;
 	}
 
@@ -16521,7 +17715,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantClamp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantClamp");
 		return ptr;
 	}
 
@@ -16538,7 +17734,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCosine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCosine");
 		return ptr;
 	}
 
@@ -16555,7 +17753,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCrossProduct");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCrossProduct");
 		return ptr;
 	}
 
@@ -16575,7 +17775,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCustom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCustom");
 		return ptr;
 	}
 
@@ -16591,7 +17793,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCustomTexture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionCustomTexture");
 		return ptr;
 	}
 
@@ -16610,7 +17814,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasedAlpha");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasedAlpha");
 		return ptr;
 	}
 
@@ -16630,7 +17836,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasedBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasedBlend");
 		return ptr;
 	}
 
@@ -16648,7 +17856,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthOfFieldFunction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthOfFieldFunction");
 		return ptr;
 	}
 
@@ -16664,7 +17874,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDeriveNormalZ");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDeriveNormalZ");
 		return ptr;
 	}
 
@@ -16682,7 +17894,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDesaturation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDesaturation");
 		return ptr;
 	}
 
@@ -16697,7 +17911,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDestColor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDestColor");
 		return ptr;
 	}
 
@@ -16713,7 +17929,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDestDepth");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDestDepth");
 		return ptr;
 	}
 
@@ -16728,7 +17946,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDestOutlineDepth");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDestOutlineDepth");
 		return ptr;
 	}
 
@@ -16745,7 +17965,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDistance");
 		return ptr;
 	}
 
@@ -16762,7 +17984,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDivide");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDivide");
 		return ptr;
 	}
 
@@ -16779,7 +18003,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDotProduct");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDotProduct");
 		return ptr;
 	}
 
@@ -16795,7 +18021,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDynamicParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDynamicParameter");
 		return ptr;
 	}
 
@@ -16810,7 +18038,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshEmitterDynamicParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshEmitterDynamicParameter");
 		return ptr;
 	}
 
@@ -16826,7 +18056,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFloor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFloor");
 		return ptr;
 	}
 
@@ -16842,7 +18074,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFluidNormal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFluidNormal");
 		return ptr;
 	}
 
@@ -16859,7 +18093,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFmod");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFmod");
 		return ptr;
 	}
 
@@ -16874,7 +18110,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFoliageImpulseDirection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFoliageImpulseDirection");
 		return ptr;
 	}
 
@@ -16889,7 +18127,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFoliageNormalizedRotationAxisAndAngle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFoliageNormalizedRotationAxisAndAngle");
 		return ptr;
 	}
 
@@ -16906,7 +18146,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFontSample");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFontSample");
 		return ptr;
 	}
 
@@ -16924,7 +18166,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFontSampleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFontSampleParameter");
 		return ptr;
 	}
 
@@ -16940,7 +18184,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFrac");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFrac");
 		return ptr;
 	}
 
@@ -16957,7 +18203,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFresnel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFresnel");
 		return ptr;
 	}
 
@@ -16982,7 +18230,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionInput");
 		return ptr;
 	}
 
@@ -17003,7 +18253,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionOutput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionOutput");
 		return ptr;
 	}
 
@@ -17023,7 +18275,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionIf");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionIf");
 		return ptr;
 	}
 
@@ -17040,7 +18294,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLandscapeLayerBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLandscapeLayerBlend");
 		return ptr;
 	}
 
@@ -17055,7 +18311,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareIntensity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareIntensity");
 		return ptr;
 	}
 
@@ -17070,7 +18328,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareOcclusion");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareOcclusion");
 		return ptr;
 	}
 
@@ -17085,7 +18345,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareRadialDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareRadialDistance");
 		return ptr;
 	}
 
@@ -17100,7 +18362,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareRayDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareRayDistance");
 		return ptr;
 	}
 
@@ -17115,7 +18379,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareSourceDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLensFlareSourceDistance");
 		return ptr;
 	}
 
@@ -17130,7 +18396,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmapUVs");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmapUVs");
 		return ptr;
 	}
 
@@ -17147,7 +18415,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmassReplace");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmassReplace");
 		return ptr;
 	}
 
@@ -17162,7 +18432,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLightVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLightVector");
 		return ptr;
 	}
 
@@ -17180,7 +18452,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLinearInterpolate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionLinearInterpolate");
 		return ptr;
 	}
 
@@ -17198,7 +18472,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMaterialFunctionCall");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMaterialFunctionCall");
 		return ptr;
 	}
 
@@ -17213,7 +18489,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshEmitterVertexColor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshEmitterVertexColor");
 		return ptr;
 	}
 
@@ -17230,7 +18508,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMultiply");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMultiply");
 		return ptr;
 	}
 
@@ -17246,7 +18526,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionNormalize");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionNormalize");
 		return ptr;
 	}
 
@@ -17265,7 +18547,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectDimension");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectDimension");
 		return ptr;
 	}
 
@@ -17280,7 +18564,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectOrientation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectOrientation");
 		return ptr;
 	}
 
@@ -17295,7 +18581,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectRadius");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectRadius");
 		return ptr;
 	}
 
@@ -17310,7 +18598,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectWorldPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectWorldPosition");
 		return ptr;
 	}
 
@@ -17325,7 +18615,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionOcclusionPercentage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionOcclusionPercentage");
 		return ptr;
 	}
 
@@ -17341,7 +18633,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionOneMinus");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionOneMinus");
 		return ptr;
 	}
 
@@ -17360,7 +18654,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPanner");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionPanner");
 		return ptr;
 	}
 
@@ -17378,7 +18674,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionParameter");
 		return ptr;
 	}
 
@@ -17394,7 +18692,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScalarParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionScalarParameter");
 		return ptr;
 	}
 
@@ -17412,7 +18712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBoolParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBoolParameter");
 		return ptr;
 	}
 
@@ -17429,7 +18731,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitchParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitchParameter");
 		return ptr;
 	}
 
@@ -17450,7 +18754,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticComponentMaskParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticComponentMaskParameter");
 		return ptr;
 	}
 
@@ -17466,7 +18772,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTexAddressParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTexAddressParameter");
 		return ptr;
 	}
 
@@ -17482,7 +18790,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVectorParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionVectorParameter");
 		return ptr;
 	}
 
@@ -17498,7 +18808,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleMacroUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleMacroUV");
 		return ptr;
 	}
 
@@ -17513,7 +18825,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPerInstanceRandom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionPerInstanceRandom");
 		return ptr;
 	}
 
@@ -17529,7 +18843,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPixelDepth");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionPixelDepth");
 		return ptr;
 	}
 
@@ -17546,7 +18862,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPower");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionPower");
 		return ptr;
 	}
 
@@ -17563,7 +18881,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionQualitySwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionQualitySwitch");
 		return ptr;
 	}
 
@@ -17578,7 +18898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionReflectionVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionReflectionVector");
 		return ptr;
 	}
 
@@ -17596,7 +18918,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionRotateAboutAxis");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionRotateAboutAxis");
 		return ptr;
 	}
 
@@ -17616,7 +18940,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionRotator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionRotator");
 		return ptr;
 	}
 
@@ -17637,7 +18963,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionScale");
 		return ptr;
 	}
 
@@ -17654,7 +18982,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneDepth");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneDepth");
 		return ptr;
 	}
 
@@ -17673,7 +19003,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneTexture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneTexture");
 		return ptr;
 	}
 
@@ -17689,7 +19021,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenPosition");
 		return ptr;
 	}
 
@@ -17704,7 +19038,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenSize");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenSize");
 		return ptr;
 	}
 
@@ -17719,7 +19055,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionShadowFactor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionShadowFactor");
 		return ptr;
 	}
 
@@ -17736,7 +19074,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSine");
 		return ptr;
 	}
 
@@ -17757,7 +19097,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSphereMask");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSphereMask");
 		return ptr;
 	}
 
@@ -17773,7 +19115,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSquareRoot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSquareRoot");
 		return ptr;
 	}
 
@@ -17789,7 +19133,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBool");
 		return ptr;
 	}
 
@@ -17809,7 +19155,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitch");
 		return ptr;
 	}
 
@@ -17826,7 +19174,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSubtract");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionSubtract");
 		return ptr;
 	}
 
@@ -17847,7 +19197,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerCoords");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerCoords");
 		return ptr;
 	}
 
@@ -17868,7 +19220,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerSwitch");
 		return ptr;
 	}
 
@@ -17889,7 +19243,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTerrainLayerWeight");
 		return ptr;
 	}
 
@@ -17904,7 +19260,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTexelSize");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTexelSize");
 		return ptr;
 	}
 
@@ -17924,7 +19282,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureCoordinate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureCoordinate");
 		return ptr;
 	}
 
@@ -17940,7 +19300,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureObject");
 		return ptr;
 	}
 
@@ -17959,7 +19321,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSample");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSample");
 		return ptr;
 	}
 
@@ -17977,7 +19341,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthBiasBlend");
 		return ptr;
 	}
 
@@ -17992,7 +19358,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFlipBookSample");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionFlipBookSample");
 		return ptr;
 	}
 
@@ -18007,7 +19375,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshSubUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshSubUV");
 		return ptr;
 	}
 
@@ -18022,7 +19392,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshSubUVBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionMeshSubUVBlend");
 		return ptr;
 	}
 
@@ -18037,7 +19409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleSubUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleSubUV");
 		return ptr;
 	}
 
@@ -18055,7 +19429,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameter");
 		return ptr;
 	}
 
@@ -18070,7 +19446,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureObjectParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureObjectParameter");
 		return ptr;
 	}
 
@@ -18085,7 +19463,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameter2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameter2D");
 		return ptr;
 	}
 
@@ -18102,7 +19482,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAntialiasedTextureMask");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionAntialiasedTextureMask");
 		return ptr;
 	}
 
@@ -18117,7 +19499,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterFlipbook");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterFlipbook");
 		return ptr;
 	}
 
@@ -18132,7 +19516,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMeshSubUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMeshSubUV");
 		return ptr;
 	}
 
@@ -18147,7 +19533,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMeshSubUVBlend");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMeshSubUVBlend");
 		return ptr;
 	}
 
@@ -18162,7 +19550,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterSubUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterSubUV");
 		return ptr;
 	}
 
@@ -18177,7 +19567,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterCube");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterCube");
 		return ptr;
 	}
 
@@ -18192,7 +19584,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterMovie");
 		return ptr;
 	}
 
@@ -18208,7 +19602,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterNormal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterNormal");
 		return ptr;
 	}
 
@@ -18224,7 +19620,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTime");
 		return ptr;
 	}
 
@@ -18242,7 +19640,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTransform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTransform");
 		return ptr;
 	}
 
@@ -18260,7 +19660,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTransformPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTransformPosition");
 		return ptr;
 	}
 
@@ -18275,7 +19677,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTwoSidedSign");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionTwoSidedSign");
 		return ptr;
 	}
 
@@ -18290,7 +19694,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVertexColor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionVertexColor");
 		return ptr;
 	}
 
@@ -18305,7 +19711,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionWindDirectionAndSpeed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionWindDirectionAndSpeed");
 		return ptr;
 	}
 
@@ -18320,7 +19728,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionWorldNormal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionWorldNormal");
 		return ptr;
 	}
 
@@ -18335,7 +19745,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionWorldPosition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialExpressionWorldPosition");
 		return ptr;
 	}
 
@@ -18358,7 +19770,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialFunction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialFunction");
 		return ptr;
 	}
 
@@ -18390,7 +19804,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInstance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInstance");
 		return ptr;
 	}
 
@@ -18421,7 +19837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInstanceConstant");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInstanceConstant");
 		return ptr;
 	}
 
@@ -18450,7 +19868,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeMaterialInstanceConstant");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeMaterialInstanceConstant");
 		return ptr;
 	}
 
@@ -18472,7 +19892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInstanceTimeVarying");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInstanceTimeVarying");
 		return ptr;
 	}
 
@@ -18510,7 +19932,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EmitterCameraLensEffectBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EmitterCameraLensEffectBase");
 		return ptr;
 	}
 
@@ -18532,7 +19956,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleEventManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleEventManager");
 		return ptr;
 	}
 
@@ -18623,7 +20049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleSystemComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleSystemComponent");
 		return ptr;
 	}
 
@@ -18692,7 +20120,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatParticleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatParticleParameter");
 		return ptr;
 	}
 
@@ -18708,7 +20138,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorParticleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionVectorParticleParameter");
 		return ptr;
 	}
 
@@ -18736,7 +20168,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleEmitter");
 		return ptr;
 	}
 
@@ -18753,7 +20187,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleSpriteEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleSpriteEmitter");
 		return ptr;
 	}
 
@@ -18782,7 +20218,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleLODLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleLODLevel");
 		return ptr;
 	}
 
@@ -18812,7 +20250,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModule");
 		return ptr;
 	}
 
@@ -18828,7 +20268,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationBase");
 		return ptr;
 	}
 
@@ -18845,7 +20287,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAcceleration");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAcceleration");
 		return ptr;
 	}
 
@@ -18861,7 +20305,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationOverLifetime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationOverLifetime");
 		return ptr;
 	}
 
@@ -18876,7 +20322,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorBase");
 		return ptr;
 	}
 
@@ -18907,7 +20355,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorBoneSocket");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorBoneSocket");
 		return ptr;
 	}
 
@@ -18926,7 +20376,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorLine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorLine");
 		return ptr;
 	}
 
@@ -18951,7 +20403,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorParticle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorParticle");
 		return ptr;
 	}
 
@@ -18973,7 +20427,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorPoint");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorPoint");
 		return ptr;
 	}
 
@@ -19007,7 +20463,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorSkelVertSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleAttractorSkelVertSurface");
 		return ptr;
 	}
 
@@ -19022,7 +20480,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleBeamBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleBeamBase");
 		return ptr;
 	}
 
@@ -19046,7 +20506,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleBeamModifier");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleBeamModifier");
 		return ptr;
 	}
 
@@ -19081,7 +20543,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleBeamNoise");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleBeamNoise");
 		return ptr;
 	}
 
@@ -19107,7 +20571,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleBeamSource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleBeamSource");
 		return ptr;
 	}
 
@@ -19134,7 +20600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleBeamTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleBeamTarget");
 		return ptr;
 	}
 
@@ -19149,7 +20617,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleCameraBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleCameraBase");
 		return ptr;
 	}
 
@@ -19167,7 +20637,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleCameraOffset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleCameraOffset");
 		return ptr;
 	}
 
@@ -19182,7 +20654,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleCollisionBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleCollisionBase");
 		return ptr;
 	}
 
@@ -19215,7 +20689,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleCollision");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleCollision");
 		return ptr;
 	}
 
@@ -19232,7 +20708,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleCollisionActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleCollisionActor");
 		return ptr;
 	}
 
@@ -19247,7 +20725,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColorBase");
 		return ptr;
 	}
 
@@ -19265,7 +20745,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColor");
 		return ptr;
 	}
 
@@ -19281,7 +20763,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColor_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColor_Seeded");
 		return ptr;
 	}
 
@@ -19298,7 +20782,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorByParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColorByParameter");
 		return ptr;
 	}
 
@@ -19316,7 +20802,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorOverLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColorOverLife");
 		return ptr;
 	}
 
@@ -19333,7 +20821,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverDensity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverDensity");
 		return ptr;
 	}
 
@@ -19351,7 +20841,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverLife");
 		return ptr;
 	}
 
@@ -19366,7 +20858,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventBase");
 		return ptr;
 	}
 
@@ -19382,7 +20876,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventGenerator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventGenerator");
 		return ptr;
 	}
 
@@ -19400,7 +20896,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverBase");
 		return ptr;
 	}
 
@@ -19416,7 +20914,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverKillParticles");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverKillParticles");
 		return ptr;
 	}
 
@@ -19436,7 +20936,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverSpawn");
 		return ptr;
 	}
 
@@ -19451,7 +20953,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleKillBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleKillBase");
 		return ptr;
 	}
 
@@ -19471,7 +20975,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleKillBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleKillBox");
 		return ptr;
 	}
 
@@ -19490,7 +20996,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleKillHeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleKillHeight");
 		return ptr;
 	}
 
@@ -19505,7 +21013,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLifetimeBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLifetimeBase");
 		return ptr;
 	}
 
@@ -19521,7 +21031,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLifetime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLifetime");
 		return ptr;
 	}
 
@@ -19537,7 +21049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLifetime_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLifetime_Seeded");
 		return ptr;
 	}
 
@@ -19552,7 +21066,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBase");
 		return ptr;
 	}
 
@@ -19570,7 +21086,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocation");
 		return ptr;
 	}
 
@@ -19586,7 +21104,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocation_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocation_Seeded");
 		return ptr;
 	}
 
@@ -19601,7 +21121,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationWorldOffset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationWorldOffset");
 		return ptr;
 	}
 
@@ -19617,7 +21139,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationWorldOffset_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationWorldOffset_Seeded");
 		return ptr;
 	}
 
@@ -19643,7 +21167,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBoneSocket");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBoneSocket");
 		return ptr;
 	}
 
@@ -19662,7 +21188,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationDirect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationDirect");
 		return ptr;
 	}
 
@@ -19684,7 +21212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationEmitter");
 		return ptr;
 	}
 
@@ -19700,7 +21230,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationEmitterDirect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationEmitterDirect");
 		return ptr;
 	}
 
@@ -19725,7 +21257,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveBase");
 		return ptr;
 	}
 
@@ -19745,7 +21279,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder");
 		return ptr;
 	}
 
@@ -19762,7 +21298,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded");
 		return ptr;
 	}
 
@@ -19778,7 +21316,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveSphere");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveSphere");
 		return ptr;
 	}
 
@@ -19794,7 +21334,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveSphere_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveSphere_Seeded");
 		return ptr;
 	}
 
@@ -19822,7 +21364,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationSkelVertSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationSkelVertSurface");
 		return ptr;
 	}
 
@@ -19849,7 +21393,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationStaticVertSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleLocationStaticVertSurface");
 		return ptr;
 	}
 
@@ -19865,7 +21411,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSourceMovement");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSourceMovement");
 		return ptr;
 	}
 
@@ -19880,7 +21428,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMaterialBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMaterialBase");
 		return ptr;
 	}
 
@@ -19897,7 +21447,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMaterialByParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMaterialByParameter");
 		return ptr;
 	}
 
@@ -19913,7 +21465,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshMaterial");
 		return ptr;
 	}
 
@@ -19929,7 +21483,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrbitBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleOrbitBase");
 		return ptr;
 	}
 
@@ -19952,7 +21508,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrbit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleOrbit");
 		return ptr;
 	}
 
@@ -19967,7 +21525,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationBase");
 		return ptr;
 	}
 
@@ -19985,7 +21545,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationAxisLock");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationAxisLock");
 		return ptr;
 	}
 
@@ -20000,7 +21562,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleParameterBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleParameterBase");
 		return ptr;
 	}
 
@@ -20018,7 +21582,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleParameterDynamic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleParameterDynamic");
 		return ptr;
 	}
 
@@ -20034,7 +21600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleParameterDynamic_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleParameterDynamic_Seeded");
 		return ptr;
 	}
 
@@ -20107,7 +21675,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRequired");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRequired");
 		return ptr;
 	}
 
@@ -20122,7 +21692,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationBase");
 		return ptr;
 	}
 
@@ -20139,7 +21711,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotation");
 		return ptr;
 	}
 
@@ -20155,7 +21729,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotation_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotation_Seeded");
 		return ptr;
 	}
 
@@ -20171,7 +21747,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotation");
 		return ptr;
 	}
 
@@ -20187,7 +21765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotation_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotation_Seeded");
 		return ptr;
 	}
 
@@ -20204,7 +21784,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationOverLifetime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationOverLifetime");
 		return ptr;
 	}
 
@@ -20219,7 +21801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRateBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRateBase");
 		return ptr;
 	}
 
@@ -20235,7 +21819,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRate");
 		return ptr;
 	}
 
@@ -20251,7 +21837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRate_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRate_Seeded");
 		return ptr;
 	}
 
@@ -20267,7 +21855,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateMultiplyLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateMultiplyLife");
 		return ptr;
 	}
 
@@ -20284,7 +21874,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateOverLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateOverLife");
 		return ptr;
 	}
 
@@ -20300,7 +21892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate");
 		return ptr;
 	}
 
@@ -20316,7 +21910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate_Seeded");
 		return ptr;
 	}
 
@@ -20332,7 +21928,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRateMultiplyLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRateMultiplyLife");
 		return ptr;
 	}
 
@@ -20347,7 +21945,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeBase");
 		return ptr;
 	}
 
@@ -20363,7 +21963,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSize");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSize");
 		return ptr;
 	}
 
@@ -20379,7 +21981,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSize_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSize_Seeded");
 		return ptr;
 	}
 
@@ -20398,7 +22002,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeMultiplyLife");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeMultiplyLife");
 		return ptr;
 	}
 
@@ -20419,7 +22025,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeMultiplyVelocity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeMultiplyVelocity");
 		return ptr;
 	}
 
@@ -20438,7 +22046,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScale");
 		return ptr;
 	}
 
@@ -20457,7 +22067,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScaleByTime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScaleByTime");
 		return ptr;
 	}
 
@@ -20473,7 +22085,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScaleOverDensity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScaleOverDensity");
 		return ptr;
 	}
 
@@ -20490,7 +22104,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnBase");
 		return ptr;
 	}
 
@@ -20510,7 +22126,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSpawn");
 		return ptr;
 	}
 
@@ -20534,7 +22152,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnPerUnit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnPerUnit");
 		return ptr;
 	}
 
@@ -20549,7 +22169,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleStoreSpawnTimeBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleStoreSpawnTimeBase");
 		return ptr;
 	}
 
@@ -20564,7 +22186,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleStoreSpawnTime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleStoreSpawnTime");
 		return ptr;
 	}
 
@@ -20579,7 +22203,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVBase");
 		return ptr;
 	}
 
@@ -20597,7 +22223,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUV");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSubUV");
 		return ptr;
 	}
 
@@ -20615,7 +22243,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVMovie");
 		return ptr;
 	}
 
@@ -20632,7 +22262,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVDirect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVDirect");
 		return ptr;
 	}
 
@@ -20648,7 +22280,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVSelect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVSelect");
 		return ptr;
 	}
 
@@ -20663,7 +22297,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTrailBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTrailBase");
 		return ptr;
 	}
 
@@ -20687,7 +22323,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTrailSource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTrailSource");
 		return ptr;
 	}
 
@@ -20704,7 +22342,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTrailSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTrailSpawn");
 		return ptr;
 	}
 
@@ -20722,7 +22362,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTrailTaper");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTrailTaper");
 		return ptr;
 	}
 
@@ -20737,7 +22379,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBase");
 		return ptr;
 	}
 
@@ -20765,7 +22409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataAnimTrail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataAnimTrail");
 		return ptr;
 	}
 
@@ -20782,7 +22428,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataApex");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataApex");
 		return ptr;
 	}
 
@@ -20811,7 +22459,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam");
 		return ptr;
 	}
 
@@ -20845,7 +22495,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam2");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam2");
 		return ptr;
 	}
 
@@ -20874,7 +22526,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataMesh");
 		return ptr;
 	}
 
@@ -20895,7 +22549,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataMeshPhysX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataMeshPhysX");
 		return ptr;
 	}
 
@@ -20912,7 +22568,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataPhysX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataPhysX");
 		return ptr;
 	}
 
@@ -20949,7 +22607,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataRibbon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataRibbon");
 		return ptr;
 	}
 
@@ -20972,7 +22632,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataTrail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataTrail");
 		return ptr;
 	}
 
@@ -21000,7 +22662,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataTrail2");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataTrail2");
 		return ptr;
 	}
 
@@ -21016,7 +22680,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberBase");
 		return ptr;
 	}
 
@@ -21037,7 +22703,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCL");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCL");
 		return ptr;
 	}
 
@@ -21059,7 +22727,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCLIL");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCLIL");
 		return ptr;
 	}
 
@@ -21087,7 +22757,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCLILIRSSBLIRR");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberLTISIVCLILIRSSBLIRR");
 		return ptr;
 	}
 
@@ -21130,7 +22802,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainDrops");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainDrops");
 		return ptr;
 	}
 
@@ -21171,7 +22845,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainImpacts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainImpacts");
 		return ptr;
 	}
 
@@ -21196,7 +22872,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainSplashA");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainSplashA");
 		return ptr;
 	}
 
@@ -21220,7 +22898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainSplashB");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleUberRainSplashB");
 		return ptr;
 	}
 
@@ -21237,7 +22917,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityBase");
 		return ptr;
 	}
 
@@ -21254,7 +22936,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocity");
 		return ptr;
 	}
 
@@ -21270,7 +22954,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocity_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocity_Seeded");
 		return ptr;
 	}
 
@@ -21288,7 +22974,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityCone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityCone");
 		return ptr;
 	}
 
@@ -21304,7 +22992,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityInheritParent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityInheritParent");
 		return ptr;
 	}
 
@@ -21321,7 +23011,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityOverLifetime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleVelocityOverLifetime");
 		return ptr;
 	}
 
@@ -21336,7 +23028,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleWorldForcesBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleWorldForcesBase");
 		return ptr;
 	}
 
@@ -21353,7 +23047,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModulePhysicsVolumes");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModulePhysicsVolumes");
 		return ptr;
 	}
 
@@ -21370,7 +23066,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleWorldAttractor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleWorldAttractor");
 		return ptr;
 	}
 
@@ -21385,7 +23083,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventSendToGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleModuleEventSendToGame");
 		return ptr;
 	}
 
@@ -21404,7 +23104,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleSystemReplay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleSystemReplay");
 		return ptr;
 	}
 
@@ -21451,7 +23153,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysXParticleSystem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysXParticleSystem");
 		return ptr;
 	}
 
@@ -21492,7 +23196,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KActor");
 		return ptr;
 	}
 
@@ -21524,7 +23230,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KActorFromStatic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KActorFromStatic");
 		return ptr;
 	}
 
@@ -21553,7 +23261,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KActorSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KActorSpawnable");
 		return ptr;
 	}
 
@@ -21579,7 +23289,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KAsset");
 		return ptr;
 	}
 
@@ -21792,7 +23504,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Pawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Pawn");
 		return ptr;
 	}
 
@@ -22073,7 +23787,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Vehicle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Vehicle");
 		return ptr;
 	}
 
@@ -22197,7 +23913,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SVehicle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SVehicle");
 		return ptr;
 	}
 
@@ -22254,7 +23972,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ConstraintActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ConstraintActor");
 		return ptr;
 	}
 
@@ -22283,7 +24003,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_LineImpulseActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_LineImpulseActor");
 		return ptr;
 	}
 
@@ -22305,7 +24027,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_RadialImpulseActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_RadialImpulseActor");
 		return ptr;
 	}
 
@@ -22325,7 +24049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_Thruster");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_Thruster");
 		return ptr;
 	}
 
@@ -22353,7 +24079,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WorldAttractor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WorldAttractor");
 		return ptr;
 	}
 
@@ -22371,7 +24099,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ConstraintDrawComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ConstraintDrawComponent");
 		return ptr;
 	}
 
@@ -22393,7 +24123,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_RadialImpulseComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_RadialImpulseComponent");
 		return ptr;
 	}
 
@@ -22427,7 +24159,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_Handle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_Handle");
 		return ptr;
 	}
 
@@ -22466,7 +24200,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_Spring");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_Spring");
 		return ptr;
 	}
 
@@ -22500,7 +24236,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SVehicleSimBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SVehicleSimBase");
 		return ptr;
 	}
 
@@ -22525,7 +24263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SVehicleSimCar");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SVehicleSimCar");
 		return ptr;
 	}
 
@@ -22552,7 +24292,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SVehicleSimTank");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SVehicleSimTank");
 		return ptr;
 	}
 
@@ -22571,7 +24313,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryApexClothing");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryApexClothing");
 		return ptr;
 	}
 
@@ -22587,7 +24331,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexDestructibleDamageParameters");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexDestructibleDamageParameters");
 		return ptr;
 	}
 
@@ -22604,7 +24350,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FractureMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FractureMaterial");
 		return ptr;
 	}
 
@@ -22643,7 +24391,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicalMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicalMaterial");
 		return ptr;
 	}
 
@@ -22662,7 +24412,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicalMaterialPropertyBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicalMaterialPropertyBase");
 		return ptr;
 	}
 
@@ -22683,7 +24435,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsAsset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicsAsset");
 		return ptr;
 	}
 
@@ -22712,7 +24466,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsAssetInstance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicsAssetInstance");
 		return ptr;
 	}
 
@@ -22746,7 +24502,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsLODVerticalEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PhysicsLODVerticalEmitter");
 		return ptr;
 	}
 
@@ -22792,7 +24550,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_BodyInstance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_BodyInstance");
 		return ptr;
 	}
 
@@ -22855,7 +24615,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ConstraintInstance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ConstraintInstance");
 		return ptr;
 	}
 
@@ -22924,7 +24686,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ConstraintSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ConstraintSetup");
 		return ptr;
 	}
 
@@ -22939,7 +24703,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_BSJointSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_BSJointSetup");
 		return ptr;
 	}
 
@@ -22954,7 +24720,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_DistanceJointSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_DistanceJointSetup");
 		return ptr;
 	}
 
@@ -22969,7 +24737,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_HingeSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_HingeSetup");
 		return ptr;
 	}
 
@@ -22984,7 +24754,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_PrismaticSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_PrismaticSetup");
 		return ptr;
 	}
 
@@ -22999,7 +24771,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_PulleyJointSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_PulleyJointSetup");
 		return ptr;
 	}
 
@@ -23014,7 +24788,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_SkelJointSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_SkelJointSetup");
 		return ptr;
 	}
 
@@ -23029,7 +24805,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_StayUprightSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_StayUprightSetup");
 		return ptr;
 	}
 
@@ -23088,7 +24866,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SVehicleWheel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SVehicleWheel");
 		return ptr;
 	}
 
@@ -23126,7 +24906,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxGenericForceFieldBrush");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxGenericForceFieldBrush");
 		return ptr;
 	}
 
@@ -23146,7 +24928,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ForceFieldExcludeVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ForceFieldExcludeVolume");
 		return ptr;
 	}
 
@@ -23172,7 +24956,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceField");
 		return ptr;
 	}
 
@@ -23201,7 +24987,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxCylindricalForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxCylindricalForceField");
 		return ptr;
 	}
 
@@ -23217,7 +25005,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxCylindricalForceFieldCapsule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxCylindricalForceFieldCapsule");
 		return ptr;
 	}
 
@@ -23255,7 +25045,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldGeneric");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldGeneric");
 		return ptr;
 	}
 
@@ -23280,7 +25072,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldRadial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldRadial");
 		return ptr;
 	}
 
@@ -23311,7 +25105,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldTornado");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldTornado");
 		return ptr;
 	}
 
@@ -23344,7 +25140,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxGenericForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxGenericForceField");
 		return ptr;
 	}
 
@@ -23361,7 +25159,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxGenericForceFieldBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxGenericForceFieldBox");
 		return ptr;
 	}
 
@@ -23381,7 +25181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxGenericForceFieldCapsule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxGenericForceFieldCapsule");
 		return ptr;
 	}
 
@@ -23402,7 +25204,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxRadialForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxRadialForceField");
 		return ptr;
 	}
 
@@ -23419,7 +25223,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxRadialCustomForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxRadialCustomForceField");
 		return ptr;
 	}
 
@@ -23446,7 +25252,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxTornadoAngularForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxTornadoAngularForceField");
 		return ptr;
 	}
 
@@ -23462,7 +25270,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxTornadoAngularForceFieldCapsule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxTornadoAngularForceFieldCapsule");
 		return ptr;
 	}
 
@@ -23488,7 +25298,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxTornadoForceField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxTornadoForceField");
 		return ptr;
 	}
 
@@ -23504,7 +25316,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxTornadoForceFieldCapsule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxTornadoForceFieldCapsule");
 		return ptr;
 	}
 
@@ -23520,7 +25334,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldSpawnable");
 		return ptr;
 	}
 
@@ -23553,7 +25369,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_CylindricalForceActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_CylindricalForceActor");
 		return ptr;
 	}
 
@@ -23584,7 +25402,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_RadialForceActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_RadialForceActor");
 		return ptr;
 	}
 
@@ -23617,7 +25437,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldComponent");
 		return ptr;
 	}
 
@@ -23646,7 +25468,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldCylindricalComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldCylindricalComponent");
 		return ptr;
 	}
 
@@ -23680,7 +25504,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldGenericComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldGenericComponent");
 		return ptr;
 	}
 
@@ -23701,7 +25527,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldRadialComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldRadialComponent");
 		return ptr;
 	}
 
@@ -23728,7 +25556,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NxForceFieldTornadoComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NxForceFieldTornadoComponent");
 		return ptr;
 	}
 
@@ -23743,7 +25573,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFieldShape");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFieldShape");
 		return ptr;
 	}
 
@@ -23765,7 +25597,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFieldShapeBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFieldShapeBox");
 		return ptr;
 	}
 
@@ -23788,7 +25622,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFieldShapeCapsule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFieldShapeCapsule");
 		return ptr;
 	}
 
@@ -23812,7 +25648,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFieldShapeSphere");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForceFieldShapeSphere");
 		return ptr;
 	}
 
@@ -23845,7 +25683,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrefabInstance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrefabInstance");
 		return ptr;
 	}
 
@@ -23865,7 +25705,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Prefab");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Prefab");
 		return ptr;
 	}
 
@@ -23897,7 +25739,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceObject");
 		return ptr;
 	}
 
@@ -23929,7 +25773,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceFrame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceFrame");
 		return ptr;
 	}
 
@@ -23944,7 +25790,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceFrameWrapped");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceFrameWrapped");
 		return ptr;
 	}
 
@@ -23987,7 +25835,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceOp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceOp");
 		return ptr;
 	}
 
@@ -24033,7 +25883,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Sequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Sequence");
 		return ptr;
 	}
 
@@ -24054,7 +25906,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrefabSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrefabSequence");
 		return ptr;
 	}
 
@@ -24072,7 +25926,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PrefabSequenceContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PrefabSequenceContainer");
 		return ptr;
 	}
 
@@ -24092,7 +25948,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceAction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceAction");
 		return ptr;
 	}
 
@@ -24111,7 +25969,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ActivateRemoteEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ActivateRemoteEvent");
 		return ptr;
 	}
 
@@ -24131,7 +25991,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AndGate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AndGate");
 		return ptr;
 	}
 
@@ -24148,7 +26010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ApplySoundNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ApplySoundNode");
 		return ptr;
 	}
 
@@ -24164,7 +26028,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AttachToEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AttachToEvent");
 		return ptr;
 	}
 
@@ -24187,7 +26053,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CameraFade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CameraFade");
 		return ptr;
 	}
 
@@ -24223,7 +26091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CameraLookAt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CameraLookAt");
 		return ptr;
 	}
 
@@ -24251,7 +26121,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CameraShake");
 		return ptr;
 	}
 
@@ -24272,7 +26144,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ChangeCollision");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ChangeCollision");
 		return ptr;
 	}
 
@@ -24289,7 +26163,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CommitMapChange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CommitMapChange");
 		return ptr;
 	}
 
@@ -24307,7 +26183,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ConvertToString");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ConvertToString");
 		return ptr;
 	}
 
@@ -24327,7 +26205,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_DrawText");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_DrawText");
 		return ptr;
 	}
 
@@ -24345,7 +26225,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_FinishSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_FinishSequence");
 		return ptr;
 	}
 
@@ -24363,7 +26245,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Gate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Gate");
 		return ptr;
 	}
 
@@ -24379,7 +26263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GetDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GetDistance");
 		return ptr;
 	}
 
@@ -24398,7 +26284,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GetLocationAndRotation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GetLocationAndRotation");
 		return ptr;
 	}
 
@@ -24416,7 +26304,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GetProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GetProperty");
 		return ptr;
 	}
 
@@ -24435,7 +26325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GetVectorComponents");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GetVectorComponents");
 		return ptr;
 	}
 
@@ -24452,7 +26344,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GetVelocity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GetVelocity");
 		return ptr;
 	}
 
@@ -24481,7 +26375,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_HeadTrackingControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_HeadTrackingControl");
 		return ptr;
 	}
 
@@ -24501,7 +26397,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_IsInObjectList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_IsInObjectList");
 		return ptr;
 	}
 
@@ -24519,7 +26417,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Latent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Latent");
 		return ptr;
 	}
 
@@ -24552,7 +26452,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ActorFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ActorFactory");
 		return ptr;
 	}
 
@@ -24569,7 +26471,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ActorFactoryEx");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ActorFactoryEx");
 		return ptr;
 	}
 
@@ -24587,7 +26491,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ProjectileFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ProjectileFactory");
 		return ptr;
 	}
 
@@ -24610,7 +26516,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AIMoveToActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AIMoveToActor");
 		return ptr;
 	}
 
@@ -24634,7 +26542,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Delay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Delay");
 		return ptr;
 	}
 
@@ -24656,7 +26566,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_DelaySwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_DelaySwitch");
 		return ptr;
 	}
 
@@ -24671,7 +26583,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ForceGarbageCollection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ForceGarbageCollection");
 		return ptr;
 	}
 
@@ -24721,7 +26635,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Interp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Interp");
 		return ptr;
 	}
 
@@ -24744,7 +26660,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_LevelStreamingBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_LevelStreamingBase");
 		return ptr;
 	}
 
@@ -24762,7 +26680,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_LevelStreaming");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_LevelStreaming");
 		return ptr;
 	}
 
@@ -24781,7 +26701,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_MultiLevelStreaming");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_MultiLevelStreaming");
 		return ptr;
 	}
 
@@ -24799,7 +26721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_LevelVisibility");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_LevelVisibility");
 		return ptr;
 	}
 
@@ -24825,7 +26749,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_PlaySound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_PlaySound");
 		return ptr;
 	}
 
@@ -24846,7 +26772,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_PrepareMapChange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_PrepareMapChange");
 		return ptr;
 	}
 
@@ -24879,7 +26807,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetDOFParams");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetDOFParams");
 		return ptr;
 	}
 
@@ -24898,7 +26828,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMotionBlurParams");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMotionBlurParams");
 		return ptr;
 	}
 
@@ -24924,7 +26856,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_StreamInTextures");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_StreamInTextures");
 		return ptr;
 	}
 
@@ -24943,7 +26877,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_WaitForLevelsVisible");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_WaitForLevelsVisible");
 		return ptr;
 	}
 
@@ -24966,7 +26902,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Log");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Log");
 		return ptr;
 	}
 
@@ -24987,7 +26925,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_FeatureTest");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_FeatureTest");
 		return ptr;
 	}
 
@@ -25006,7 +26946,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ModifyCover");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ModifyCover");
 		return ptr;
 	}
 
@@ -25029,7 +26971,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ModifyHealth");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ModifyHealth");
 		return ptr;
 	}
 
@@ -25055,7 +26999,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ParticleEventGenerator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ParticleEventGenerator");
 		return ptr;
 	}
 
@@ -25082,7 +27028,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_PlayCameraAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_PlayCameraAnim");
 		return ptr;
 	}
 
@@ -25104,7 +27052,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_PlayFaceFXAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_PlayFaceFXAnim");
 		return ptr;
 	}
 
@@ -25120,7 +27070,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_PlayMusicTrack");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_PlayMusicTrack");
 		return ptr;
 	}
 
@@ -25138,7 +27090,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Possess");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Possess");
 		return ptr;
 	}
 
@@ -25154,7 +27108,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_RangeSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_RangeSwitch");
 		return ptr;
 	}
 
@@ -25172,7 +27128,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetActiveAnimChild");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetActiveAnimChild");
 		return ptr;
 	}
 
@@ -25188,7 +27146,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetApexClothingParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetApexClothingParam");
 		return ptr;
 	}
 
@@ -25203,7 +27163,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetBlockRigidBody");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetBlockRigidBody");
 		return ptr;
 	}
 
@@ -25220,7 +27182,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetCameraTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetCameraTarget");
 		return ptr;
 	}
 
@@ -25239,7 +27203,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMaterial");
 		return ptr;
 	}
 
@@ -25257,7 +27223,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstScalarParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstScalarParam");
 		return ptr;
 	}
 
@@ -25278,7 +27246,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMesh");
 		return ptr;
 	}
 
@@ -25294,7 +27264,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetPhysics");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetPhysics");
 		return ptr;
 	}
 
@@ -25309,7 +27281,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetRigidBodyIgnoreVehicles");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetRigidBodyIgnoreVehicles");
 		return ptr;
 	}
 
@@ -25324,7 +27298,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetSequenceVariable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetSequenceVariable");
 		return ptr;
 	}
 
@@ -25341,7 +27317,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AccessObjectList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AccessObjectList");
 		return ptr;
 	}
 
@@ -25360,7 +27338,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AddFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AddFloat");
 		return ptr;
 	}
 
@@ -25379,7 +27359,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AddInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AddInt");
 		return ptr;
 	}
 
@@ -25396,7 +27378,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CastToFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CastToFloat");
 		return ptr;
 	}
 
@@ -25414,7 +27398,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_CastToInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_CastToInt");
 		return ptr;
 	}
 
@@ -25433,7 +27419,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_DivideFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_DivideFloat");
 		return ptr;
 	}
 
@@ -25452,7 +27440,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_DivideInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_DivideInt");
 		return ptr;
 	}
 
@@ -25468,7 +27458,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ModifyObjectList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ModifyObjectList");
 		return ptr;
 	}
 
@@ -25487,7 +27479,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_MultiplyFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_MultiplyFloat");
 		return ptr;
 	}
 
@@ -25506,7 +27500,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_MultiplyInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_MultiplyInt");
 		return ptr;
 	}
 
@@ -25522,7 +27518,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetBool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetBool");
 		return ptr;
 	}
 
@@ -25539,7 +27537,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetFloat");
 		return ptr;
 	}
 
@@ -25558,7 +27558,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetInt");
 		return ptr;
 	}
 
@@ -25580,7 +27582,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetLocation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetLocation");
 		return ptr;
 	}
 
@@ -25599,7 +27603,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetObject");
 		return ptr;
 	}
 
@@ -25618,7 +27624,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetString");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetString");
 		return ptr;
 	}
 
@@ -25639,7 +27647,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SubtractFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SubtractFloat");
 		return ptr;
 	}
 
@@ -25658,7 +27668,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SubtractInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SubtractInt");
 		return ptr;
 	}
 
@@ -25677,7 +27689,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetVectorComponents");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetVectorComponents");
 		return ptr;
 	}
 
@@ -25704,7 +27718,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetWorldAttractorParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetWorldAttractorParam");
 		return ptr;
 	}
 
@@ -25724,7 +27740,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Switch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Switch");
 		return ptr;
 	}
 
@@ -25740,7 +27758,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_RandomSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_RandomSwitch");
 		return ptr;
 	}
 
@@ -25759,7 +27779,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Timer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Timer");
 		return ptr;
 	}
 
@@ -25774,7 +27796,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Toggle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Toggle");
 		return ptr;
 	}
 
@@ -25789,7 +27813,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleCinematicMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleCinematicMode");
 		return ptr;
 	}
 
@@ -25814,7 +27840,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Trace");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Trace");
 		return ptr;
 	}
 
@@ -25831,7 +27859,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceCondition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceCondition");
 		return ptr;
 	}
 
@@ -25847,7 +27877,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_CompareBool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_CompareBool");
 		return ptr;
 	}
 
@@ -25866,7 +27898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_CompareFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_CompareFloat");
 		return ptr;
 	}
 
@@ -25883,7 +27917,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_CompareInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_CompareInt");
 		return ptr;
 	}
 
@@ -25898,7 +27934,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_CompareObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_CompareObject");
 		return ptr;
 	}
 
@@ -25913,7 +27951,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_GetServerType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_GetServerType");
 		return ptr;
 	}
 
@@ -25933,7 +27973,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_Increment");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_Increment");
 		return ptr;
 	}
 
@@ -25951,7 +27993,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IncrementFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IncrementFloat");
 		return ptr;
 	}
 
@@ -25966,7 +28010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsAlive");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsAlive");
 		return ptr;
 	}
 
@@ -25981,7 +28027,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsBenchmarking");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsBenchmarking");
 		return ptr;
 	}
 
@@ -25998,7 +28046,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsConsole");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsConsole");
 		return ptr;
 	}
 
@@ -26013,7 +28063,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsInCombat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsInCombat");
 		return ptr;
 	}
 
@@ -26029,7 +28081,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsLoggedIn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsLoggedIn");
 		return ptr;
 	}
 
@@ -26046,7 +28100,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsPIE");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsPIE");
 		return ptr;
 	}
 
@@ -26063,7 +28119,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_IsSameTeam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_IsSameTeam");
 		return ptr;
 	}
 
@@ -26078,7 +28136,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_MatureLanguage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_MatureLanguage");
 		return ptr;
 	}
 
@@ -26093,7 +28153,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_ShowGore");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_ShowGore");
 		return ptr;
 	}
 
@@ -26108,7 +28170,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_SwitchBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_SwitchBase");
 		return ptr;
 	}
 
@@ -26129,7 +28193,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_SwitchClass");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_SwitchClass");
 		return ptr;
 	}
 
@@ -26150,7 +28216,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_SwitchObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_SwitchObject");
 		return ptr;
 	}
 
@@ -26170,7 +28238,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqCond_SwitchPlatform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqCond_SwitchPlatform");
 		return ptr;
 	}
 
@@ -26199,7 +28269,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceEvent");
 		return ptr;
 	}
 
@@ -26220,7 +28292,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_AISeeEnemy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_AISeeEnemy");
 		return ptr;
 	}
 
@@ -26238,7 +28312,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_AnalogInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_AnalogInput");
 		return ptr;
 	}
 
@@ -26254,7 +28330,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_AnimNotify");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_AnimNotify");
 		return ptr;
 	}
 
@@ -26271,7 +28349,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Console");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Console");
 		return ptr;
 	}
 
@@ -26286,7 +28366,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_ConstraintBroken");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_ConstraintBroken");
 		return ptr;
 	}
 
@@ -26301,7 +28383,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Destroyed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Destroyed");
 		return ptr;
 	}
 
@@ -26316,7 +28400,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_GetInventory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_GetInventory");
 		return ptr;
 	}
 
@@ -26334,7 +28420,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Input");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Input");
 		return ptr;
 	}
 
@@ -26349,7 +28437,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_LevelBeginning");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_LevelBeginning");
 		return ptr;
 	}
 
@@ -26364,7 +28454,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_LevelLoaded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_LevelLoaded");
 		return ptr;
 	}
 
@@ -26381,7 +28473,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_LevelStartup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_LevelStartup");
 		return ptr;
 	}
 
@@ -26397,7 +28491,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Mover");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Mover");
 		return ptr;
 	}
 
@@ -26426,7 +28522,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_ParticleEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_ParticleEvent");
 		return ptr;
 	}
 
@@ -26444,7 +28542,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_ProjectileLanded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_ProjectileLanded");
 		return ptr;
 	}
 
@@ -26463,7 +28563,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_RemoteEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_RemoteEvent");
 		return ptr;
 	}
 
@@ -26481,7 +28583,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_RigidBodyCollision");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_RigidBodyCollision");
 		return ptr;
 	}
 
@@ -26496,7 +28600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_SeeDeath");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_SeeDeath");
 		return ptr;
 	}
 
@@ -26512,7 +28618,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_SequenceActivated");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_SequenceActivated");
 		return ptr;
 	}
 
@@ -26533,7 +28641,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_TakeDamage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_TakeDamage");
 		return ptr;
 	}
 
@@ -26561,7 +28671,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Touch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Touch");
 		return ptr;
 	}
 
@@ -26586,7 +28698,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_TouchInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_TouchInput");
 		return ptr;
 	}
 
@@ -26607,7 +28721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Used");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Used");
 		return ptr;
 	}
 
@@ -26623,7 +28739,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SequenceVariable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SequenceVariable");
 		return ptr;
 	}
 
@@ -26650,7 +28768,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpData");
 		return ptr;
 	}
 
@@ -26666,7 +28786,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Bool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Bool");
 		return ptr;
 	}
 
@@ -26683,7 +28805,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_External");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_External");
 		return ptr;
 	}
 
@@ -26699,7 +28823,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Float");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Float");
 		return ptr;
 	}
 
@@ -26716,7 +28842,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_RandomFloat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_RandomFloat");
 		return ptr;
 	}
 
@@ -26732,7 +28860,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Int");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Int");
 		return ptr;
 	}
 
@@ -26749,7 +28879,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_RandomInt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_RandomInt");
 		return ptr;
 	}
 
@@ -26767,7 +28899,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Named");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Named");
 		return ptr;
 	}
 
@@ -26786,7 +28920,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Object");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Object");
 		return ptr;
 	}
 
@@ -26805,7 +28941,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Character");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Character");
 		return ptr;
 	}
 
@@ -26823,7 +28961,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Group");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Group");
 		return ptr;
 	}
 
@@ -26839,7 +28979,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_ObjectList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_ObjectList");
 		return ptr;
 	}
 
@@ -26861,7 +29003,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_ObjectVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_ObjectVolume");
 		return ptr;
 	}
 
@@ -26879,7 +29023,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Player");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Player");
 		return ptr;
 	}
 
@@ -26898,7 +29044,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_String");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_String");
 		return ptr;
 	}
 
@@ -26914,7 +29062,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Vector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Vector");
 		return ptr;
 	}
 
@@ -26932,7 +29082,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSound");
 		return ptr;
 	}
 
@@ -26947,7 +29099,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundMovable");
 		return ptr;
 	}
 
@@ -26965,7 +29119,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSimple");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSimple");
 		return ptr;
 	}
 
@@ -26980,7 +29136,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundNonLoop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundNonLoop");
 		return ptr;
 	}
 
@@ -27002,7 +29160,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleToggleable");
 		return ptr;
 	}
 
@@ -27025,7 +29185,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundNonLoopingToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundNonLoopingToggleable");
 		return ptr;
 	}
 
@@ -27043,7 +29205,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSpline");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSpline");
 		return ptr;
 	}
 
@@ -27059,7 +29223,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleSpline");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleSpline");
 		return ptr;
 	}
 
@@ -27075,7 +29241,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSplineMultiCue");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSplineMultiCue");
 		return ptr;
 	}
 
@@ -27091,7 +29259,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatSoundParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DistributionFloatSoundParameter");
 		return ptr;
 	}
 
@@ -27108,7 +29278,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNode");
 		return ptr;
 	}
 
@@ -27123,7 +29295,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForcedLoopSoundNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ForcedLoopSoundNode");
 		return ptr;
 	}
 
@@ -27153,7 +29327,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAmbient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeAmbient");
 		return ptr;
 	}
 
@@ -27171,7 +29347,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAmbientNonLoop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeAmbientNonLoop");
 		return ptr;
 	}
 
@@ -27186,7 +29364,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAmbientNonLoopToggle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeAmbientNonLoopToggle");
 		return ptr;
 	}
 
@@ -27213,7 +29393,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAttenuation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeAttenuation");
 		return ptr;
 	}
 
@@ -27245,7 +29427,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAttenuationAndGain");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeAttenuationAndGain");
 		return ptr;
 	}
 
@@ -27261,7 +29445,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeConcatenator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeConcatenator");
 		return ptr;
 	}
 
@@ -27276,7 +29462,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeConcatenatorRadio");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeConcatenatorRadio");
 		return ptr;
 	}
 
@@ -27294,7 +29482,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDelay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeDelay");
 		return ptr;
 	}
 
@@ -27310,7 +29500,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDistanceCrossFade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeDistanceCrossFade");
 		return ptr;
 	}
 
@@ -27326,7 +29518,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDoppler");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeDoppler");
 		return ptr;
 	}
 
@@ -27349,7 +29543,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeEnveloper");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeEnveloper");
 		return ptr;
 	}
 
@@ -27368,7 +29564,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeLooping");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeLooping");
 		return ptr;
 	}
 
@@ -27383,7 +29581,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeMature");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeMature");
 		return ptr;
 	}
 
@@ -27399,7 +29599,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeMixer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeMixer");
 		return ptr;
 	}
 
@@ -27420,7 +29622,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeModulator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeModulator");
 		return ptr;
 	}
 
@@ -27437,7 +29641,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeModulatorContinuous");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeModulatorContinuous");
 		return ptr;
 	}
 
@@ -27466,7 +29672,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeOscillator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeOscillator");
 		return ptr;
 	}
 
@@ -27486,7 +29694,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeRandom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeRandom");
 		return ptr;
 	}
 
@@ -27540,7 +29750,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWave");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeWave");
 		return ptr;
 	}
 
@@ -27559,7 +29771,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWaveStreaming");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeWaveStreaming");
 		return ptr;
 	}
 
@@ -27581,7 +29795,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWaveParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundNodeWaveParam");
 		return ptr;
 	}
 
@@ -27621,7 +29837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeProxy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeProxy");
 		return ptr;
 	}
 
@@ -27638,7 +29856,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Landscape");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Landscape");
 		return ptr;
 	}
 
@@ -27700,7 +29920,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Terrain");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Terrain");
 		return ptr;
 	}
 
@@ -27725,7 +29947,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeGizmoActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeGizmoActor");
 		return ptr;
 	}
 
@@ -27758,7 +29982,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeGizmoActiveActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeGizmoActiveActor");
 		return ptr;
 	}
 
@@ -27806,7 +30032,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeComponent");
 		return ptr;
 	}
 
@@ -27821,7 +30049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeGizmoRenderComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeGizmoRenderComponent");
 		return ptr;
 	}
 
@@ -27849,7 +30079,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeHeightfieldCollisionComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeHeightfieldCollisionComponent");
 		return ptr;
 	}
 
@@ -27881,7 +30113,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TerrainComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TerrainComponent");
 		return ptr;
 	}
 
@@ -27910,7 +30144,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeInfo");
 		return ptr;
 	}
 
@@ -27931,7 +30167,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LandscapeLayerInfoObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LandscapeLayerInfoObject");
 		return ptr;
 	}
 
@@ -27948,7 +30186,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TerrainWeightMapTexture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TerrainWeightMapTexture");
 		return ptr;
 	}
 
@@ -27964,7 +30204,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TerrainLayerSetup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TerrainLayerSetup");
 		return ptr;
 	}
 
@@ -27992,7 +30234,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TerrainMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TerrainMaterial");
 		return ptr;
 	}
 
@@ -28012,7 +30256,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DataStoreClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DataStoreClient");
 		return ptr;
 	}
 
@@ -28065,7 +30311,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Console");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Console");
 		return ptr;
 	}
 
@@ -28111,7 +30359,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Input");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Input");
 		return ptr;
 	}
 
@@ -28189,7 +30439,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlayerInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlayerInput");
 		return ptr;
 	}
 
@@ -28224,7 +30476,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlayerManagerInteraction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlayerManagerInteraction");
 		return ptr;
 	}
 
@@ -28248,7 +30502,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UISceneClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UISceneClient");
 		return ptr;
 	}
 
@@ -28269,7 +30525,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UISoundTheme");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UISoundTheme");
 		return ptr;
 	}
 
@@ -28286,7 +30544,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStoreSubscriber");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStoreSubscriber");
 		return ptr;
 	}
 
@@ -28308,7 +30568,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStorePublisher");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStorePublisher");
 		return ptr;
 	}
 
@@ -28325,7 +30587,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider");
 		return ptr;
 	}
 
@@ -28341,7 +30605,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerDataBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerDataBase");
 		return ptr;
 	}
 
@@ -28366,7 +30632,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineFriendMessages");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineFriendMessages");
 		return ptr;
 	}
 
@@ -28404,7 +30672,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineFriends");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineFriends");
 		return ptr;
 	}
 
@@ -28434,7 +30704,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePartyChatList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePartyChatList");
 		return ptr;
 	}
 
@@ -28461,7 +30733,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerStorage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerStorage");
 		return ptr;
 	}
 
@@ -28491,7 +30765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineProfileSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlineProfileSettings");
 		return ptr;
 	}
 
@@ -28515,7 +30791,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_PlayerAchievements");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_PlayerAchievements");
 		return ptr;
 	}
 
@@ -28546,7 +30824,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerStorageArray");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_OnlinePlayerStorageArray");
 		return ptr;
 	}
 
@@ -28566,7 +30846,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_SettingsArray");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_SettingsArray");
 		return ptr;
 	}
 
@@ -28584,7 +30866,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore");
 		return ptr;
 	}
 
@@ -28612,7 +30896,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_DynamicResource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_DynamicResource");
 		return ptr;
 	}
 
@@ -28633,7 +30919,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_Fonts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_Fonts");
 		return ptr;
 	}
 
@@ -28650,7 +30938,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_GameResource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_GameResource");
 		return ptr;
 	}
 
@@ -28671,7 +30961,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_MenuItems");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_MenuItems");
 		return ptr;
 	}
 
@@ -28691,7 +30983,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_GameState");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_GameState");
 		return ptr;
 	}
 
@@ -28710,7 +31004,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_Registry");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_Registry");
 		return ptr;
 	}
 
@@ -28728,7 +31024,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_Remote");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_Remote");
 		return ptr;
 	}
 
@@ -28749,7 +31047,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineGameSearch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineGameSearch");
 		return ptr;
 	}
 
@@ -28804,7 +31104,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_OnlinePlayerData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_OnlinePlayerData");
 		return ptr;
 	}
 
@@ -28839,7 +31141,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineStats");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineStats");
 		return ptr;
 	}
 
@@ -28861,7 +31165,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_Settings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_Settings");
 		return ptr;
 	}
 
@@ -28879,7 +31185,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineGameSettings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_OnlineGameSettings");
 		return ptr;
 	}
 
@@ -28904,7 +31212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_StringBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_StringBase");
 		return ptr;
 	}
 
@@ -28921,7 +31231,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_InputAlias");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_InputAlias");
 		return ptr;
 	}
 
@@ -28948,7 +31260,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataStore_StringAliasMap");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataStore_StringAliasMap");
 		return ptr;
 	}
 
@@ -28969,7 +31283,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIPropertyDataProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIPropertyDataProvider");
 		return ptr;
 	}
 
@@ -28988,7 +31304,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_Settings");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_Settings");
 		return ptr;
 	}
 
@@ -29004,7 +31322,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIResourceDataProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIResourceDataProvider");
 		return ptr;
 	}
 
@@ -29043,7 +31363,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIDataProvider_MenuItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIDataProvider_MenuItem");
 		return ptr;
 	}
 
@@ -29060,7 +31382,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIResourceCombinationProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIResourceCombinationProvider");
 		return ptr;
 	}
 
@@ -29089,7 +31413,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameUISceneClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameUISceneClient");
 		return ptr;
 	}
 
@@ -29114,7 +31440,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Scene");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Scene");
 		return ptr;
 	}
 
@@ -29132,7 +31460,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InstancedFoliageActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InstancedFoliageActor");
 		return ptr;
 	}
 
@@ -29162,7 +31492,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InteractiveFoliageActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InteractiveFoliageActor");
 		return ptr;
 	}
 
@@ -29181,7 +31513,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InteractiveFoliageComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InteractiveFoliageComponent");
 		return ptr;
 	}
 
@@ -29196,7 +31530,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactoryInteractiveFoliage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactoryInteractiveFoliage");
 		return ptr;
 	}
 
@@ -29216,7 +31552,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FluidInfluenceActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FluidInfluenceActor");
 		return ptr;
 	}
 
@@ -29236,7 +31574,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FluidSurfaceActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FluidSurfaceActor");
 		return ptr;
 	}
 
@@ -29254,7 +31594,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FluidSurfaceActorMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FluidSurfaceActorMovable");
 		return ptr;
 	}
 
@@ -29296,7 +31638,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FluidInfluenceComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FluidInfluenceComponent");
 		return ptr;
 	}
 
@@ -29364,7 +31708,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FluidSurfaceComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FluidSurfaceComponent");
 		return ptr;
 	}
 
@@ -29384,7 +31730,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeedTreeActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeedTreeActor");
 		return ptr;
 	}
 
@@ -29426,7 +31774,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeedTreeComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeedTreeComponent");
 		return ptr;
 	}
 
@@ -29445,7 +31795,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeedTreeActorFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeedTreeActorFactory");
 		return ptr;
 	}
 
@@ -29461,7 +31813,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeedTreeComponentFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeedTreeComponentFactory");
 		return ptr;
 	}
 
@@ -29488,7 +31842,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpeedTree");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpeedTree");
 		return ptr;
 	}
 
@@ -29505,7 +31861,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LensFlareSource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LensFlareSource");
 		return ptr;
 	}
 
@@ -29552,7 +31910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LensFlareComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LensFlareComponent");
 		return ptr;
 	}
 
@@ -29596,7 +31956,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LensFlare");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LensFlare");
 		return ptr;
 	}
 
@@ -29631,7 +31993,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureFlipBook");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureFlipBook");
 		return ptr;
 	}
 
@@ -29655,7 +32019,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Texture2DComposite");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Texture2DComposite");
 		return ptr;
 	}
 
@@ -29680,7 +32046,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Texture2DDynamic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Texture2DDynamic");
 		return ptr;
 	}
 
@@ -29712,7 +32080,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureCube");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureCube");
 		return ptr;
 	}
 
@@ -29742,7 +32112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureMovie");
 		return ptr;
 	}
 
@@ -29767,7 +32139,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureRenderTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureRenderTarget");
 		return ptr;
 	}
 
@@ -29790,7 +32164,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureRenderTarget2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureRenderTarget2D");
 		return ptr;
 	}
 
@@ -29810,7 +32186,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ScriptedTexture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ScriptedTexture");
 		return ptr;
 	}
 
@@ -29829,7 +32207,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureRenderTargetCube");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TextureRenderTargetCube");
 		return ptr;
 	}
 
@@ -29892,7 +32272,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AudioDevice");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AudioDevice");
 		return ptr;
 	}
 
@@ -29915,7 +32297,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundClass");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundClass");
 		return ptr;
 	}
 
@@ -29937,7 +32321,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SoundMode");
 		return ptr;
 	}
 
@@ -29953,7 +32339,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MatineePawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MatineePawn");
 		return ptr;
 	}
 
@@ -30000,7 +32388,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Scout");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Scout");
 		return ptr;
 	}
 
@@ -30019,7 +32409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Light");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Light");
 		return ptr;
 	}
 
@@ -30037,7 +32429,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DirectionalLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DirectionalLight");
 		return ptr;
 	}
 
@@ -30052,7 +32446,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DirectionalLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DirectionalLightMovable");
 		return ptr;
 	}
 
@@ -30067,7 +32463,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DirectionalLightToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DirectionalLightToggleable");
 		return ptr;
 	}
 
@@ -30083,7 +32481,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantDirectionalLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantDirectionalLight");
 		return ptr;
 	}
 
@@ -30098,7 +32498,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantDirectionalLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantDirectionalLightMovable");
 		return ptr;
 	}
 
@@ -30113,7 +32515,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PointLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PointLight");
 		return ptr;
 	}
 
@@ -30128,7 +32532,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantPointLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantPointLight");
 		return ptr;
 	}
 
@@ -30143,7 +32549,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PointLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PointLightMovable");
 		return ptr;
 	}
 
@@ -30158,7 +32566,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PointLightToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PointLightToggleable");
 		return ptr;
 	}
 
@@ -30177,7 +32587,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkyLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkyLight");
 		return ptr;
 	}
 
@@ -30192,7 +32604,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkyLightToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkyLightToggleable");
 		return ptr;
 	}
 
@@ -30207,7 +32621,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpotLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpotLight");
 		return ptr;
 	}
 
@@ -30222,7 +32638,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantSpotLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantSpotLight");
 		return ptr;
 	}
 
@@ -30237,7 +32655,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GeneratedMeshAreaLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GeneratedMeshAreaLight");
 		return ptr;
 	}
 
@@ -30252,7 +32672,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpotLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpotLightMovable");
 		return ptr;
 	}
 
@@ -30267,7 +32689,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpotLightToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpotLightToggleable");
 		return ptr;
 	}
 
@@ -30288,7 +32712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.StaticLightCollectionActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.StaticLightCollectionActor");
 		return ptr;
 	}
 
@@ -30354,7 +32780,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightComponent");
 		return ptr;
 	}
 
@@ -30387,7 +32815,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DirectionalLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DirectionalLightComponent");
 		return ptr;
 	}
 
@@ -30407,7 +32837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantDirectionalLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantDirectionalLightComponent");
 		return ptr;
 	}
 
@@ -30435,7 +32867,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PointLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PointLightComponent");
 		return ptr;
 	}
 
@@ -30454,7 +32888,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantPointLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantPointLightComponent");
 		return ptr;
 	}
 
@@ -30475,7 +32911,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpotLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SpotLightComponent");
 		return ptr;
 	}
 
@@ -30495,7 +32933,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DominantSpotLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DominantSpotLightComponent");
 		return ptr;
 	}
 
@@ -30512,7 +32952,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkyLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkyLightComponent");
 		return ptr;
 	}
 
@@ -30529,7 +32971,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SphericalHarmonicLightComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SphericalHarmonicLightComponent");
 		return ptr;
 	}
 
@@ -30552,7 +32996,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightEnvironmentComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightEnvironmentComponent");
 		return ptr;
 	}
 
@@ -30608,7 +33054,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicLightEnvironmentComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicLightEnvironmentComponent");
 		return ptr;
 	}
 
@@ -30630,7 +33078,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleLightEnvironmentComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ParticleLightEnvironmentComponent");
 		return ptr;
 	}
 
@@ -30645,7 +33095,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawLightConeComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawLightConeComponent");
 		return ptr;
 	}
 
@@ -30660,7 +33112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DrawLightRadiusComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DrawLightRadiusComponent");
 		return ptr;
 	}
 
@@ -30678,7 +33132,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LightFunction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LightFunction");
 		return ptr;
 	}
 
@@ -30920,7 +33376,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshComponent");
 		return ptr;
 	}
 
@@ -31194,7 +33652,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMesh");
 		return ptr;
 	}
 
@@ -31222,7 +33682,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshSocket");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshSocket");
 		return ptr;
 	}
 
@@ -31253,7 +33715,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineActor");
 		return ptr;
 	}
 
@@ -31297,7 +33761,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineLoftActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineLoftActor");
 		return ptr;
 	}
 
@@ -31315,7 +33781,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineLoftActorMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineLoftActorMovable");
 		return ptr;
 	}
 
@@ -31338,7 +33806,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineComponent");
 		return ptr;
 	}
 
@@ -31396,7 +33866,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ProcBuilding");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ProcBuilding");
 		return ptr;
 	}
 
@@ -31419,7 +33891,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ProcBuilding_SimpleLODActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ProcBuilding_SimpleLODActor");
 		return ptr;
 	}
 
@@ -31441,7 +33915,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeBase");
 		return ptr;
 	}
 
@@ -31462,7 +33938,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeAlternate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeAlternate");
 		return ptr;
 	}
 
@@ -31483,7 +33961,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeComment");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeComment");
 		return ptr;
 	}
 
@@ -31508,7 +33988,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeCorner");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeCorner");
 		return ptr;
 	}
 
@@ -31528,7 +34010,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeCycle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeCycle");
 		return ptr;
 	}
 
@@ -31546,7 +34030,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeEdgeAngle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeEdgeAngle");
 		return ptr;
 	}
 
@@ -31563,7 +34049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeEdgeMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeEdgeMesh");
 		return ptr;
 	}
 
@@ -31582,7 +34070,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeExtractTopBottom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeExtractTopBottom");
 		return ptr;
 	}
 
@@ -31598,7 +34088,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeLODQuad");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeLODQuad");
 		return ptr;
 	}
 
@@ -31617,7 +34109,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeMesh");
 		return ptr;
 	}
 
@@ -31634,7 +34128,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeOcclusion");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeOcclusion");
 		return ptr;
 	}
 
@@ -31655,7 +34151,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeQuad");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeQuad");
 		return ptr;
 	}
 
@@ -31673,7 +34171,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeRandom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeRandom");
 		return ptr;
 	}
 
@@ -31691,7 +34191,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeRepeat");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeRepeat");
 		return ptr;
 	}
 
@@ -31710,7 +34212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeSize");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeSize");
 		return ptr;
 	}
 
@@ -31728,7 +34232,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeSplit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeSplit");
 		return ptr;
 	}
 
@@ -31744,7 +34250,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeSubRuleset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeSubRuleset");
 		return ptr;
 	}
 
@@ -31762,7 +34270,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeTransform");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeTransform");
 		return ptr;
 	}
 
@@ -31778,7 +34288,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeVariation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeVariation");
 		return ptr;
 	}
 
@@ -31802,7 +34314,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PBRuleNodeWindowWall");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PBRuleNodeWindowWall");
 		return ptr;
 	}
 
@@ -31838,7 +34352,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ProcBuildingRuleset");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ProcBuildingRuleset");
 		return ptr;
 	}
 
@@ -31853,7 +34369,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ReplicationInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ReplicationInfo");
 		return ptr;
 	}
 
@@ -31882,7 +34400,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameReplicationInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameReplicationInfo");
 		return ptr;
 	}
 
@@ -31954,7 +34474,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlayerReplicationInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlayerReplicationInfo");
 		return ptr;
 	}
 
@@ -31998,7 +34520,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TeamInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TeamInfo");
 		return ptr;
 	}
 
@@ -32069,7 +34593,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Camera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Camera");
 		return ptr;
 	}
 
@@ -32136,7 +34662,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraActor");
 		return ptr;
 	}
 
@@ -32154,7 +34682,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicCameraActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicCameraActor");
 		return ptr;
 	}
 
@@ -32176,7 +34706,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraAnim");
 		return ptr;
 	}
 
@@ -32219,7 +34751,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraAnimInst");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraAnimInst");
 		return ptr;
 	}
 
@@ -32252,7 +34786,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraModifier");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraModifier");
 		return ptr;
 	}
 
@@ -32280,7 +34816,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraModifier_CameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraModifier_CameraShake");
 		return ptr;
 	}
 
@@ -32319,7 +34857,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CameraShake");
 		return ptr;
 	}
 
@@ -32337,7 +34877,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudStorageUpgradeHelper");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudStorageUpgradeHelper");
 		return ptr;
 	}
 
@@ -32360,7 +34902,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnalyticEventsBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnalyticEventsBase");
 		return ptr;
 	}
 
@@ -32396,7 +34940,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MultiProviderAnalytics");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MultiProviderAnalytics");
 		return ptr;
 	}
 
@@ -32434,7 +34980,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AppNotificationsBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AppNotificationsBase");
 		return ptr;
 	}
 
@@ -32467,7 +35015,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudStorageBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudStorageBase");
 		return ptr;
 	}
 
@@ -32512,7 +35062,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FacebookIntegration");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FacebookIntegration");
 		return ptr;
 	}
 
@@ -32544,7 +35096,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GoogleIntegration");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GoogleIntegration");
 		return ptr;
 	}
 
@@ -32565,7 +35119,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InAppMessageBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InAppMessageBase");
 		return ptr;
 	}
 
@@ -32585,7 +35141,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InGameAdManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InGameAdManager");
 		return ptr;
 	}
 
@@ -32606,7 +35164,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TwitterIntegrationBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TwitterIntegrationBase");
 		return ptr;
 	}
 
@@ -32636,7 +35196,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PlatformInterfaceWebResponse");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PlatformInterfaceWebResponse");
 		return ptr;
 	}
 
@@ -32655,7 +35217,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_HitWall");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_HitWall");
 		return ptr;
 	}
 
@@ -32680,7 +35244,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.LocalMessage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LocalMessage");
 		return ptr;
 	}
 
@@ -32707,7 +35273,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Destroy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Destroy");
 		return ptr;
 	}
 
@@ -32726,7 +35294,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_Teleport");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_Teleport");
 		return ptr;
 	}
 
@@ -32747,7 +35317,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetVelocity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetVelocity");
 		return ptr;
 	}
 
@@ -32766,7 +35338,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleHidden");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleHidden");
 		return ptr;
 	}
 
@@ -32791,7 +35365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AttachToActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AttachToActor");
 		return ptr;
 	}
 
@@ -32808,7 +35384,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_MobileTouch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_MobileTouch");
 		return ptr;
 	}
 
@@ -32823,7 +35401,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlinePlayerInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlinePlayerInterface");
 		return ptr;
 	}
 
@@ -32947,7 +35527,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SharedCloudFileInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SharedCloudFileInterface");
 		return ptr;
 	}
 
@@ -32974,7 +35556,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UserCloudFileInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UserCloudFileInterface");
 		return ptr;
 	}
 
@@ -33016,7 +35600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineSocialInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineSocialInterface");
 		return ptr;
 	}
 
@@ -33044,7 +35630,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineTitleFileCacheInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineTitleFileCacheInterface");
 		return ptr;
 	}
 
@@ -33076,7 +35664,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineTitleFileInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineTitleFileInterface");
 		return ptr;
 	}
 
@@ -33105,7 +35695,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlinePartyChatInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlinePartyChatInterface");
 		return ptr;
 	}
 
@@ -33139,7 +35731,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineNewsInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineNewsInterface");
 		return ptr;
 	}
 
@@ -33160,7 +35754,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineStatsInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineStatsInterface");
 		return ptr;
 	}
 
@@ -33198,7 +35794,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineVoiceInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineVoiceInterface");
 		return ptr;
 	}
 
@@ -33239,7 +35837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineContentInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineContentInterface");
 		return ptr;
 	}
 
@@ -33292,7 +35892,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineGameInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineGameInterface");
 		return ptr;
 	}
 
@@ -33382,7 +35984,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineSystemInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineSystemInterface");
 		return ptr;
 	}
 
@@ -33419,7 +36023,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlinePlayerInterfaceEx");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlinePlayerInterfaceEx");
 		return ptr;
 	}
 
@@ -33463,7 +36069,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineAccountInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineAccountInterface");
 		return ptr;
 	}
 
@@ -33515,7 +36123,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AccessControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AccessControl");
 		return ptr;
 	}
 
@@ -33573,7 +36183,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Admin");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Admin");
 		return ptr;
 	}
 
@@ -33601,7 +36213,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ApexDestructibleActorSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ApexDestructibleActorSpawnable");
 		return ptr;
 	}
 
@@ -33617,7 +36231,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.EmitterSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.EmitterSpawnable");
 		return ptr;
 	}
 
@@ -33635,7 +36251,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.KAssetSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.KAssetSpawnable");
 		return ptr;
 	}
 
@@ -33650,7 +36268,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMeshCinematic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMeshCinematic");
 		return ptr;
 	}
 
@@ -33665,7 +36285,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMeshMAT");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ActorFactorySkeletalMeshMAT");
 		return ptr;
 	}
 
@@ -33680,7 +36302,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_Death");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_Death");
 		return ptr;
 	}
 
@@ -33695,7 +36319,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleGodMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleGodMode");
 		return ptr;
 	}
 
@@ -33711,7 +36337,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ControlMovieTexture");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ControlMovieTexture");
 		return ptr;
 	}
 
@@ -33729,7 +36357,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CoverReplicator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CoverReplicator");
 		return ptr;
 	}
 
@@ -33788,7 +36418,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameMessage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.GameMessage");
 		return ptr;
 	}
 
@@ -33805,7 +36437,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DmgType_Suicided");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DmgType_Suicided");
 		return ptr;
 	}
 
@@ -33822,7 +36456,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleInput");
 		return ptr;
 	}
 
@@ -33837,7 +36473,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleHUD");
 		return ptr;
 	}
 
@@ -33856,7 +36494,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ForceFeedback");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ForceFeedback");
 		return ptr;
 	}
 
@@ -33873,7 +36513,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ConsoleCommand");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ConsoleCommand");
 		return ptr;
 	}
 
@@ -33891,7 +36533,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_FlyThroughHasEnded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_FlyThroughHasEnded");
 		return ptr;
 	}
 
@@ -33908,7 +36552,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetSoundMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetSoundMode");
 		return ptr;
 	}
 
@@ -33926,7 +36572,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineComponentSimplified");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SplineComponentSimplified");
 		return ptr;
 	}
 
@@ -33941,7 +36589,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleSplineNonLoop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AmbientSoundSimpleSplineNonLoop");
 		return ptr;
 	}
 
@@ -33963,7 +36613,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_PlayFaceFXAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.AnimNotify_PlayFaceFXAnim");
 		return ptr;
 	}
 
@@ -33982,7 +36634,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BroadcastHandler");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.BroadcastHandler");
 		return ptr;
 	}
 
@@ -34007,7 +36661,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HttpFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HttpFactory");
 		return ptr;
 	}
 
@@ -34024,7 +36680,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudSaveSystemKVSInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudSaveSystemKVSInterface");
 		return ptr;
 	}
 
@@ -34042,7 +36700,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudSaveSystemDataBlobStoreInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudSaveSystemDataBlobStoreInterface");
 		return ptr;
 	}
 
@@ -34065,7 +36725,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.CloudStorageBaseCloudSaveSystemKVS");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.CloudStorageBaseCloudSaveSystemKVS");
 		return ptr;
 	}
 
@@ -34087,7 +36749,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ColorScaleVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ColorScaleVolume");
 		return ptr;
 	}
 
@@ -34106,7 +36770,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.VolumeTimer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.VolumeTimer");
 		return ptr;
 	}
 
@@ -34125,7 +36791,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetDamageInstigator");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetDamageInstigator");
 		return ptr;
 	}
 
@@ -34140,7 +36808,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DmgType_Crushed");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DmgType_Crushed");
 		return ptr;
 	}
 
@@ -34155,7 +36825,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DmgType_Fell");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DmgType_Fell");
 		return ptr;
 	}
 
@@ -34170,7 +36842,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DmgType_Telefragged");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DmgType_Telefragged");
 		return ptr;
 	}
 
@@ -34186,7 +36860,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicPhysicsVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicPhysicsVolume");
 		return ptr;
 	}
 
@@ -34203,7 +36879,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicSMActor_Spawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicSMActor_Spawnable");
 		return ptr;
 	}
 
@@ -34219,7 +36897,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DynamicTriggerVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.DynamicTriggerVolume");
 		return ptr;
 	}
 
@@ -34239,7 +36919,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetParticleSysParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetParticleSysParam");
 		return ptr;
 	}
 
@@ -34255,7 +36937,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FailedConnect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FailedConnect");
 		return ptr;
 	}
 
@@ -34273,7 +36957,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedSMActorSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedSMActorSpawnable");
 		return ptr;
 	}
 
@@ -34288,7 +36974,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.FracturedStaticMeshActor_Spawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.FracturedStaticMeshActor_Spawnable");
 		return ptr;
 	}
 
@@ -34304,7 +36992,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_PlayerSpawned");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_PlayerSpawned");
 		return ptr;
 	}
 
@@ -34321,7 +37011,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HeightFog");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.HeightFog");
 		return ptr;
 	}
 
@@ -34340,7 +37032,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpActor_ForCinematic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.InterpActor_ForCinematic");
 		return ptr;
 	}
 
@@ -34356,7 +37050,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialInstanceTimeVaryingActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.MaterialInstanceTimeVaryingActor");
 		return ptr;
 	}
 
@@ -34372,7 +37068,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AssignController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AssignController");
 		return ptr;
 	}
 
@@ -34390,7 +37088,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_GiveInventory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_GiveInventory");
 		return ptr;
 	}
 
@@ -34405,7 +37105,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavMeshBoundsVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.NavMeshBoundsVolume");
 		return ptr;
 	}
 
@@ -34420,7 +37122,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineCommunityContentInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineCommunityContentInterface");
 		return ptr;
 	}
 
@@ -34461,7 +37165,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineEventsInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineEventsInterface");
 		return ptr;
 	}
 
@@ -34484,7 +37190,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlinePlaylistGameTypeProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlinePlaylistGameTypeProvider");
 		return ptr;
 	}
 
@@ -34507,7 +37215,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineRecentPlayersList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineRecentPlayersList");
 		return ptr;
 	}
 
@@ -34538,7 +37248,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.OnlineSuppliedUIInterface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.OnlineSuppliedUIInterface");
 		return ptr;
 	}
 
@@ -34559,7 +37271,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathNode_Dynamic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.PathNode_Dynamic");
 		return ptr;
 	}
 
@@ -34576,7 +37290,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_AIReachedRouteActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_AIReachedRouteActor");
 		return ptr;
 	}
 
@@ -34591,7 +37307,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_PickupStatusChange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_PickupStatusChange");
 		return ptr;
 	}
 
@@ -34607,7 +37325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RadialBlurActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RadialBlurActor");
 		return ptr;
 	}
 
@@ -34626,7 +37346,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleConstraintDrive");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleConstraintDrive");
 		return ptr;
 	}
 
@@ -34641,7 +37363,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_BSJointActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_BSJointActor");
 		return ptr;
 	}
 
@@ -34656,7 +37380,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_ConstraintActorSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_ConstraintActorSpawnable");
 		return ptr;
 	}
 
@@ -34671,7 +37397,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_HingeActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_HingeActor");
 		return ptr;
 	}
 
@@ -34686,7 +37414,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_PrismaticActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_PrismaticActor");
 		return ptr;
 	}
 
@@ -34701,7 +37431,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RB_PulleyJointActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.RB_PulleyJointActor");
 		return ptr;
 	}
 
@@ -34716,7 +37448,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ReverbVolumeToggleable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.ReverbVolumeToggleable");
 		return ptr;
 	}
 
@@ -34734,7 +37468,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AddRemoveFaceFXAnimSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AddRemoveFaceFXAnimSet");
 		return ptr;
 	}
 
@@ -34749,7 +37485,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_AIAbortMoveToActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_AIAbortMoveToActor");
 		return ptr;
 	}
 
@@ -34765,7 +37503,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_MITV_Activate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_MITV_Activate");
 		return ptr;
 	}
 
@@ -34786,7 +37526,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstTexParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstTexParam");
 		return ptr;
 	}
 
@@ -34804,7 +37546,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstVectorParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetMatInstVectorParam");
 		return ptr;
 	}
 
@@ -34823,7 +37567,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetSkelControlTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetSkelControlTarget");
 		return ptr;
 	}
 
@@ -34839,7 +37585,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_SetVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_SetVector");
 		return ptr;
 	}
 
@@ -34856,7 +37604,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_ToggleAffectedByHitEffects");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_ToggleAffectedByHitEffects");
 		return ptr;
 	}
 
@@ -34871,7 +37621,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqAct_UpdatePhysBonesFromAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqAct_UpdatePhysBonesFromAnim");
 		return ptr;
 	}
 
@@ -34891,7 +37643,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqEvent_LOS");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqEvent_LOS");
 		return ptr;
 	}
 
@@ -34908,7 +37662,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Byte");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Byte");
 		return ptr;
 	}
 
@@ -34923,7 +37679,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Name");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Name");
 		return ptr;
 	}
 
@@ -34938,7 +37696,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SeqVar_Union");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SeqVar_Union");
 		return ptr;
 	}
 
@@ -34953,7 +37713,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMATSpawnable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMATSpawnable");
 		return ptr;
 	}
 
@@ -34968,7 +37730,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMATWalkable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.SkeletalMeshActorMATWalkable");
 		return ptr;
 	}
 
@@ -34983,7 +37747,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Trigger_Dynamic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Trigger_Dynamic");
 		return ptr;
 	}
 
@@ -34999,7 +37765,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Trigger_LOS");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.Trigger_LOS");
 		return ptr;
 	}
 
@@ -35018,7 +37786,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TriggeredPath");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TriggeredPath");
 		return ptr;
 	}
 
@@ -35038,7 +37808,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TriggerStreamingLevel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.TriggerStreamingLevel");
 		return ptr;
 	}
 
@@ -35059,7 +37831,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UICharacterSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UICharacterSummary");
 		return ptr;
 	}
 
@@ -35082,7 +37856,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIGameInfoSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIGameInfoSummary");
 		return ptr;
 	}
 
@@ -35101,7 +37877,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIMapSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIMapSummary");
 		return ptr;
 	}
 
@@ -35120,7 +37898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UIWeaponSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UIWeaponSummary");
 		return ptr;
 	}
 
@@ -35142,7 +37922,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.UserCloudFileCloudSaveSystemDataBlobStore");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.UserCloudFileCloudSaveSystemDataBlobStore");
 		return ptr;
 	}
 
@@ -35172,7 +37954,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WaterVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WaterVolume");
 		return ptr;
 	}
 
@@ -35193,7 +37977,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.WindDirectionalSource");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.WindDirectionalSource");
 		return ptr;
 	}
 

@@ -26,7 +26,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent");
 		return ptr;
 	}
 
@@ -41,7 +43,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_CancelParticles");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_CancelParticles");
 		return ptr;
 	}
 
@@ -59,7 +63,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_MaterialParamterLinearColor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_MaterialParamterLinearColor");
 		return ptr;
 	}
 
@@ -77,7 +83,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_MaterialParamterScalar");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimEvent_MaterialParamterScalar");
 		return ptr;
 	}
 
@@ -92,7 +100,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActorMotionBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActorMotionBase");
 		return ptr;
 	}
 
@@ -112,7 +122,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActorMotionLocationCycle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActorMotionLocationCycle");
 		return ptr;
 	}
 
@@ -129,7 +141,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActorMotionRotationAcyclic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActorMotionRotationAcyclic");
 		return ptr;
 	}
 
@@ -149,7 +163,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActorMotionRotationCyclic");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActorMotionRotationCyclic");
 		return ptr;
 	}
 
@@ -164,7 +180,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAfterImageSkeletalMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAfterImageSkeletalMeshComponent");
 		return ptr;
 	}
 
@@ -180,7 +198,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAkAudioDevice");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAkAudioDevice");
 		return ptr;
 	}
 
@@ -199,7 +219,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAN_Params");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAN_Params");
 		return ptr;
 	}
 
@@ -220,7 +242,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAN_Particle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAN_Particle");
 		return ptr;
 	}
 
@@ -242,7 +266,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAN_Trail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAN_Trail");
 		return ptr;
 	}
 
@@ -258,7 +284,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBarrier");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBarrier");
 		return ptr;
 	}
 
@@ -279,7 +307,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCharacterParts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCharacterParts");
 		return ptr;
 	}
 
@@ -302,7 +332,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCheatManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCheatManager");
 		return ptr;
 	}
 
@@ -338,7 +370,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFClient");
 		return ptr;
 	}
 
@@ -355,7 +389,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFConsole");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFConsole");
 		return ptr;
 	}
 
@@ -379,7 +415,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDecalCollisionComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDecalCollisionComponent");
 		return ptr;
 	}
 
@@ -399,7 +437,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDecalComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDecalComponent");
 		return ptr;
 	}
 
@@ -416,7 +456,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDecalFloorActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDecalFloorActor");
 		return ptr;
 	}
 
@@ -433,7 +475,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDecalManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDecalManager");
 		return ptr;
 	}
 
@@ -451,7 +495,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFFracturedStaticMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFFracturedStaticMeshActor");
 		return ptr;
 	}
 
@@ -519,7 +565,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGameInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGameInfo");
 		return ptr;
 	}
 
@@ -552,7 +600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMotionSkeletalMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMotionSkeletalMeshActor");
 		return ptr;
 	}
 
@@ -572,7 +622,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMotionStaticMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMotionStaticMeshActor");
 		return ptr;
 	}
 
@@ -603,7 +655,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSkeletalMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSkeletalMeshActor");
 		return ptr;
 	}
 
@@ -704,7 +758,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPawn");
 		return ptr;
 	}
 
@@ -762,7 +818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMonster");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMonster");
 		return ptr;
 	}
 
@@ -777,7 +835,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFNonPlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFNonPlayer");
 		return ptr;
 	}
 
@@ -792,7 +852,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPet");
 		return ptr;
 	}
 
@@ -812,7 +874,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPlayer");
 		return ptr;
 	}
 
@@ -830,7 +894,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSummonNpc");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSummonNpc");
 		return ptr;
 	}
 
@@ -847,7 +913,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTransit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTransit");
 		return ptr;
 	}
 
@@ -864,7 +932,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTrap");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTrap");
 		return ptr;
 	}
 
@@ -879,7 +949,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFVehicle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFVehicle");
 		return ptr;
 	}
 
@@ -895,7 +967,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPhysicalMaterialProperty");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPhysicalMaterialProperty");
 		return ptr;
 	}
 
@@ -950,7 +1024,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPlayerController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPlayerController");
 		return ptr;
 	}
 
@@ -1002,7 +1078,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPlayerInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPlayerInput");
 		return ptr;
 	}
 
@@ -1084,7 +1162,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectile");
 		return ptr;
 	}
 
@@ -1118,7 +1198,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectileFixArea");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectileFixArea");
 		return ptr;
 	}
 
@@ -1135,7 +1217,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectileGrenade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectileGrenade");
 		return ptr;
 	}
 
@@ -1150,7 +1234,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectileMissile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectileMissile");
 		return ptr;
 	}
 
@@ -1178,7 +1264,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectileTrace");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectileTrace");
 		return ptr;
 	}
 
@@ -1195,7 +1283,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActor");
 		return ptr;
 	}
 
@@ -1230,7 +1320,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActorLookInfoMAT");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActorLookInfoMAT");
 		return ptr;
 	}
 
@@ -1249,7 +1341,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActorPCLookInfoMAT");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshActorPCLookInfoMAT");
 		return ptr;
 	}
 
@@ -1271,7 +1365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkeletalMeshComponent");
 		return ptr;
 	}
 
@@ -1292,7 +1388,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMainSkelComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMainSkelComponent");
 		return ptr;
 	}
 
@@ -1323,7 +1421,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPartsSkelComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPartsSkelComponent");
 		return ptr;
 	}
 
@@ -1341,7 +1441,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTexture2DComposite");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTexture2DComposite");
 		return ptr;
 	}
 
@@ -1358,7 +1460,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFVolume");
 		return ptr;
 	}
 
@@ -1386,7 +1490,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFVolumeProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFVolumeProp");
 		return ptr;
 	}
 
@@ -1413,7 +1519,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGameEngine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGameEngine");
 		return ptr;
 	}
 
@@ -1445,7 +1553,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMapInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMapInfo");
 		return ptr;
 	}
 
@@ -1466,7 +1576,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNodeAim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNodeAim");
 		return ptr;
 	}
 
@@ -1482,7 +1594,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNodeBlendDirectional");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNodeBlendDirectional");
 		return ptr;
 	}
 
@@ -1500,7 +1614,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNodeBlendPerBone");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNodeBlendPerBone");
 		return ptr;
 	}
 
@@ -1518,7 +1634,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNodeLookAt");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNodeLookAt");
 		return ptr;
 	}
 
@@ -1537,7 +1655,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNotify_AkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNotify_AkEvent");
 		return ptr;
 	}
 
@@ -1556,7 +1676,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNotify_AkEventSwitchFloorMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNotify_AkEventSwitchFloorMaterial");
 		return ptr;
 	}
 
@@ -1573,7 +1695,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNotify_DropItemEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNotify_DropItemEvent");
 		return ptr;
 	}
 
@@ -1588,7 +1712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNotify_Trails");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNotify_Trails");
 		return ptr;
 	}
 
@@ -1603,7 +1729,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAnimNotify_ViewShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAnimNotify_ViewShake");
 		return ptr;
 	}
 
@@ -1631,7 +1759,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkelControl_Spring");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkelControl_Spring");
 		return ptr;
 	}
 
@@ -1647,7 +1777,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSkelControlSingleBoneOnlyScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSkelControlSingleBoneOnlyScale");
 		return ptr;
 	}
 
@@ -1669,7 +1801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTable");
 		return ptr;
 	}
 
@@ -1700,7 +1834,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCameraBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCameraBase");
 		return ptr;
 	}
 
@@ -1740,7 +1876,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBackViewCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBackViewCamera");
 		return ptr;
 	}
 
@@ -1761,7 +1899,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCustomizingCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCustomizingCamera");
 		return ptr;
 	}
 
@@ -1790,7 +1930,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEditorViewCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEditorViewCamera");
 		return ptr;
 	}
 
@@ -1826,7 +1968,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFFreeCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFFreeCamera");
 		return ptr;
 	}
 
@@ -1849,7 +1993,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInteractionCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInteractionCamera");
 		return ptr;
 	}
 
@@ -1892,7 +2038,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFIsometricCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFIsometricCamera");
 		return ptr;
 	}
 
@@ -1941,7 +2089,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMacroCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMacroCamera");
 		return ptr;
 	}
 
@@ -1978,7 +2128,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPanningCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPanningCamera");
 		return ptr;
 	}
 
@@ -2003,7 +2155,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFThirdPersonCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFThirdPersonCamera");
 		return ptr;
 	}
 
@@ -2027,7 +2181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTopViewCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTopViewCamera");
 		return ptr;
 	}
 
@@ -2066,7 +2222,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTPSCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTPSCamera");
 		return ptr;
 	}
 
@@ -2102,7 +2260,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFWatchCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFWatchCamera");
 		return ptr;
 	}
 
@@ -2126,7 +2286,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCameraModifier_CameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCameraModifier_CameraShake");
 		return ptr;
 	}
 
@@ -2154,7 +2316,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCameraShakePlayGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCameraShakePlayGroup");
 		return ptr;
 	}
 
@@ -2185,7 +2349,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCameraViewShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCameraViewShake");
 		return ptr;
 	}
 
@@ -2210,7 +2376,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCameraViewShakeAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCameraViewShakeAnim");
 		return ptr;
 	}
 
@@ -2238,7 +2406,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInputRotCameraActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInputRotCameraActor");
 		return ptr;
 	}
 
@@ -2258,7 +2428,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpGroupMacroCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpGroupMacroCamera");
 		return ptr;
 	}
 
@@ -2275,7 +2447,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackMacroCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackMacroCamera");
 		return ptr;
 	}
 
@@ -2294,7 +2468,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMacroCameraActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMacroCameraActor");
 		return ptr;
 	}
 
@@ -2318,7 +2494,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMacroCameraSplineActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMacroCameraSplineActor");
 		return ptr;
 	}
 
@@ -2340,7 +2518,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMacroCameraComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMacroCameraComponent");
 		return ptr;
 	}
 
@@ -2410,7 +2590,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPlayerCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPlayerCamera");
 		return ptr;
 	}
 
@@ -2458,7 +2640,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSimpleCameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSimpleCameraShake");
 		return ptr;
 	}
 
@@ -2481,7 +2665,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionParticleData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionParticleData");
 		return ptr;
 	}
 
@@ -2496,7 +2682,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBeamActionBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBeamActionBase");
 		return ptr;
 	}
 
@@ -2524,7 +2712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBeamActionDirection");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBeamActionDirection");
 		return ptr;
 	}
 
@@ -2542,7 +2732,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBeamActionSelf");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBeamActionSelf");
 		return ptr;
 	}
 
@@ -2566,7 +2758,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFBeamActionTargetPos");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFBeamActionTargetPos");
 		return ptr;
 	}
 
@@ -2582,7 +2776,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDistributionFloatMultiplyParticleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDistributionFloatMultiplyParticleParameter");
 		return ptr;
 	}
 
@@ -2598,7 +2794,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDistributionVectorMultiplyParticleParameter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDistributionVectorMultiplyParticleParameter");
 		return ptr;
 	}
 
@@ -2614,7 +2812,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEffectSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEffectSpawn");
 		return ptr;
 	}
 
@@ -2631,7 +2831,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEmitter");
 		return ptr;
 	}
 
@@ -2652,7 +2854,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEnvironmentActionEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEnvironmentActionEmitter");
 		return ptr;
 	}
 
@@ -2670,7 +2874,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSpawnedEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSpawnedEmitter");
 		return ptr;
 	}
 
@@ -2697,7 +2903,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEmitterPool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEmitterPool");
 		return ptr;
 	}
 
@@ -2718,7 +2926,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEnvironmentEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEnvironmentEmitter");
 		return ptr;
 	}
 
@@ -2736,7 +2946,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGroundEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGroundEffect");
 		return ptr;
 	}
 
@@ -2754,7 +2966,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGroundEffectContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGroundEffectContainer");
 		return ptr;
 	}
 
@@ -2770,7 +2984,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLoopingEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLoopingEmitter");
 		return ptr;
 	}
 
@@ -2786,7 +3002,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMarkEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMarkEffect");
 		return ptr;
 	}
 
@@ -2807,7 +3025,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataBase");
 		return ptr;
 	}
 
@@ -2849,7 +3069,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleData");
 		return ptr;
 	}
 
@@ -2879,7 +3101,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataIdentity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataIdentity");
 		return ptr;
 	}
 
@@ -2896,7 +3120,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataSimple");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataSimple");
 		return ptr;
 	}
 
@@ -2915,7 +3141,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataModifier");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataModifier");
 		return ptr;
 	}
 
@@ -2931,7 +3159,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataModulePawnMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataModulePawnMaterialParam");
 		return ptr;
 	}
 
@@ -2951,7 +3181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataModuleSoundBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataModuleSoundBase");
 		return ptr;
 	}
 
@@ -2969,7 +3201,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleDataModuleSingleAKEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleDataModuleSingleAKEvent");
 		return ptr;
 	}
 
@@ -2993,7 +3227,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleGroundData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleGroundData");
 		return ptr;
 	}
 
@@ -3008,7 +3244,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleAkEventBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleAkEventBase");
 		return ptr;
 	}
 
@@ -3025,7 +3263,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleAkEvent");
 		return ptr;
 	}
 
@@ -3042,7 +3282,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleKillLength");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleKillLength");
 		return ptr;
 	}
 
@@ -3066,7 +3308,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationCircleSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationCircleSurface");
 		return ptr;
 	}
 
@@ -3081,7 +3325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationEmitter");
 		return ptr;
 	}
 
@@ -3097,7 +3343,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationEmitterDirect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationEmitterDirect");
 		return ptr;
 	}
 
@@ -3120,7 +3368,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationOnGround");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationOnGround");
 		return ptr;
 	}
 
@@ -3140,7 +3390,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPath");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPath");
 		return ptr;
 	}
 
@@ -3163,7 +3415,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveCylinderSpin");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveCylinderSpin");
 		return ptr;
 	}
 
@@ -3179,7 +3433,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveCylinderSpin_Seeded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveCylinderSpin_Seeded");
 		return ptr;
 	}
 
@@ -3195,7 +3451,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveMesh");
 		return ptr;
 	}
 
@@ -3211,7 +3469,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveSphere");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationPrimitiveSphere");
 		return ptr;
 	}
 
@@ -3231,7 +3491,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationSkelVertSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationSkelVertSurface");
 		return ptr;
 	}
 
@@ -3251,7 +3513,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationStaticVertSurface");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleLocationStaticVertSurface");
 		return ptr;
 	}
 
@@ -3274,7 +3538,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleTypeDataDecal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleTypeDataDecal");
 		return ptr;
 	}
 
@@ -3290,7 +3556,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleTypeDataLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleTypeDataLight");
 		return ptr;
 	}
 
@@ -3307,7 +3575,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleVelocityOverLifetime");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleVelocityOverLifetime");
 		return ptr;
 	}
 
@@ -3330,7 +3600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleModuleVortex");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleModuleVortex");
 		return ptr;
 	}
 
@@ -3345,7 +3617,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticlePathCurve");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticlePathCurve");
 		return ptr;
 	}
 
@@ -3397,7 +3671,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSystemData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSystemData");
 		return ptr;
 	}
 
@@ -3412,7 +3688,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSystemType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSystemType");
 		return ptr;
 	}
 
@@ -3429,7 +3707,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPickingEmitter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPickingEmitter");
 		return ptr;
 	}
 
@@ -3454,7 +3734,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialContainer");
 		return ptr;
 	}
 
@@ -3474,7 +3756,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffect");
 		return ptr;
 	}
 
@@ -3491,7 +3775,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialChaosGateEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialChaosGateEffect");
 		return ptr;
 	}
 
@@ -3508,7 +3794,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialDeadEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialDeadEffect");
 		return ptr;
 	}
 
@@ -3528,7 +3816,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectCamera");
 		return ptr;
 	}
 
@@ -3545,7 +3835,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectHit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectHit");
 		return ptr;
 	}
 
@@ -3566,7 +3858,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectSkill");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectSkill");
 		return ptr;
 	}
 
@@ -3584,7 +3878,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectStatus");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialEffectStatus");
 		return ptr;
 	}
 
@@ -3602,7 +3898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialHPEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialHPEffect");
 		return ptr;
 	}
 
@@ -3619,7 +3917,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialShipWreckEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPostProcessMaterialShipWreckEffect");
 		return ptr;
 	}
 
@@ -3643,7 +3943,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFProjectileParticleData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFProjectileParticleData");
 		return ptr;
 	}
 
@@ -3660,7 +3962,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSimpleEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSimpleEffect");
 		return ptr;
 	}
 
@@ -3677,7 +3981,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSpawnEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSpawnEffect");
 		return ptr;
 	}
 
@@ -3692,7 +3998,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_ApplyReverbVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_ApplyReverbVolume");
 		return ptr;
 	}
 
@@ -3707,7 +4015,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_Bridge");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_Bridge");
 		return ptr;
 	}
 
@@ -3727,7 +4037,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_ChangeCullDistance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_ChangeCullDistance");
 		return ptr;
 	}
 
@@ -3743,7 +4055,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_EndRemoteEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_EndRemoteEvent");
 		return ptr;
 	}
 
@@ -3758,7 +4072,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_GlobalCharLight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_GlobalCharLight");
 		return ptr;
 	}
 
@@ -3784,7 +4100,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_Matinee");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_Matinee");
 		return ptr;
 	}
 
@@ -3805,7 +4123,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_MovePlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_MovePlayer");
 		return ptr;
 	}
 
@@ -3852,7 +4172,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_NPCController");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_NPCController");
 		return ptr;
 	}
 
@@ -3878,7 +4200,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_PlayCameraAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_PlayCameraAnim");
 		return ptr;
 	}
 
@@ -3897,7 +4221,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_PlaySwf");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_PlaySwf");
 		return ptr;
 	}
 
@@ -3923,7 +4249,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetRagdoll");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetRagdoll");
 		return ptr;
 	}
 
@@ -3939,7 +4267,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetWorldGravityZ");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetWorldGravityZ");
 		return ptr;
 	}
 
@@ -3955,7 +4285,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_StopParticle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_StopParticle");
 		return ptr;
 	}
 
@@ -3972,7 +4304,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_UIWindowClientEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_UIWindowClientEvent");
 		return ptr;
 	}
 
@@ -3989,7 +4323,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_WeaponOnOff");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_WeaponOnOff");
 		return ptr;
 	}
 
@@ -4005,7 +4341,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequence");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequence");
 		return ptr;
 	}
 
@@ -4022,7 +4360,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqVar_SpawnedObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqVar_SpawnedObject");
 		return ptr;
 	}
 
@@ -4037,7 +4377,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLevelStreamingAlwaysLoaded");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLevelStreamingAlwaysLoaded");
 		return ptr;
 	}
 
@@ -4052,7 +4394,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLevelStreamingEditorOnly");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLevelStreamingEditorOnly");
 		return ptr;
 	}
 
@@ -4067,7 +4411,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSceneCapture2DActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSceneCapture2DActor");
 		return ptr;
 	}
 
@@ -4085,7 +4431,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPCSelectStart");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPCSelectStart");
 		return ptr;
 	}
 
@@ -4100,7 +4448,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPlayerStart");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPlayerStart");
 		return ptr;
 	}
 
@@ -4121,7 +4471,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSceneCapture2DActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSceneCapture2DActor");
 		return ptr;
 	}
 
@@ -4145,7 +4497,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSceneCapture2DComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSceneCapture2DComponent");
 		return ptr;
 	}
 
@@ -4165,7 +4519,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSceneCaptureObjectLocation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSceneCaptureObjectLocation");
 		return ptr;
 	}
 
@@ -4222,7 +4578,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfoData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfoData");
 		return ptr;
 	}
 
@@ -4268,7 +4626,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfoVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfoVolume");
 		return ptr;
 	}
 
@@ -4289,7 +4649,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLevelStreamingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLevelStreamingVolume");
 		return ptr;
 	}
 
@@ -4305,7 +4667,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAreaNameVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAreaNameVolume");
 		return ptr;
 	}
 
@@ -4336,7 +4700,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCharPerfOptionOverrideVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCharPerfOptionOverrideVolume");
 		return ptr;
 	}
 
@@ -4351,7 +4717,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCoastVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCoastVolume");
 		return ptr;
 	}
 
@@ -4366,7 +4734,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDynamicBlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDynamicBlockingVolume");
 		return ptr;
 	}
 
@@ -4381,7 +4751,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDynamicVolumeBrush");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDynamicVolumeBrush");
 		return ptr;
 	}
 
@@ -4408,7 +4780,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMatineePathNodeVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMatineePathNodeVolume");
 		return ptr;
 	}
 
@@ -4423,7 +4797,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMovingNavigationVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMovingNavigationVolume");
 		return ptr;
 	}
 
@@ -4439,7 +4815,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFNamingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFNamingVolume");
 		return ptr;
 	}
 
@@ -4454,7 +4832,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFOcclusionOutlineVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFOcclusionOutlineVolume");
 		return ptr;
 	}
 
@@ -4469,7 +4849,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPathBlockingVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPathBlockingVolume");
 		return ptr;
 	}
 
@@ -4486,7 +4868,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSearchPathObjectVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSearchPathObjectVolume");
 		return ptr;
 	}
 
@@ -4501,7 +4885,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSightVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSightVolume");
 		return ptr;
 	}
 
@@ -4520,7 +4906,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSoundMusicVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSoundMusicVolume");
 		return ptr;
 	}
 
@@ -4535,7 +4923,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSoundAmbientVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSoundAmbientVolume");
 		return ptr;
 	}
 
@@ -4554,7 +4944,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSoundReverbVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSoundReverbVolume");
 		return ptr;
 	}
 
@@ -4570,7 +4962,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTranslucentVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTranslucentVolume");
 		return ptr;
 	}
 
@@ -4678,7 +5072,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCursorData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCursorData");
 		return ptr;
 	}
 
@@ -4693,7 +5089,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxDataProvider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxDataProvider");
 		return ptr;
 	}
 
@@ -4712,7 +5110,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxMoviePlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxMoviePlayer");
 		return ptr;
 	}
 
@@ -4735,7 +5135,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxEditorMoviePlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxEditorMoviePlayer");
 		return ptr;
 	}
 
@@ -4753,7 +5155,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxMovieWidget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxMovieWidget");
 		return ptr;
 	}
 
@@ -4777,7 +5181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxMovieWidgetMain");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxMovieWidgetMain");
 		return ptr;
 	}
 
@@ -4806,7 +5212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSwfMovie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSwfMovie");
 		return ptr;
 	}
 
@@ -4821,7 +5229,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIComponent");
 		return ptr;
 	}
 
@@ -4857,7 +5267,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIControl");
 		return ptr;
 	}
 
@@ -4872,7 +5284,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIBuffManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIBuffManager");
 		return ptr;
 	}
 
@@ -4887,7 +5301,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIButton");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIButton");
 		return ptr;
 	}
 
@@ -4902,7 +5318,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUICheckBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUICheckBox");
 		return ptr;
 	}
 
@@ -4917,7 +5335,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIComboBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIComboBox");
 		return ptr;
 	}
 
@@ -4933,7 +5353,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlot");
 		return ptr;
 	}
 
@@ -4987,7 +5409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIChatTabControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIChatTabControl");
 		return ptr;
 	}
 
@@ -5009,7 +5433,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIComponentContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIComponentContainer");
 		return ptr;
 	}
 
@@ -5024,7 +5450,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIDynamicList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIDynamicList");
 		return ptr;
 	}
 
@@ -5039,7 +5467,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIFactory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIFactory");
 		return ptr;
 	}
 
@@ -5054,7 +5484,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIGradientLabel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIGradientLabel");
 		return ptr;
 	}
 
@@ -5069,7 +5501,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIIcon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIIcon");
 		return ptr;
 	}
 
@@ -5084,7 +5518,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlot2");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlot2");
 		return ptr;
 	}
 
@@ -5099,7 +5535,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUILabel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUILabel");
 		return ptr;
 	}
 
@@ -5115,7 +5553,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIList");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIList");
 		return ptr;
 	}
 
@@ -5134,7 +5574,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlotManager");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlotManager");
 		return ptr;
 	}
 
@@ -5149,7 +5591,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlotManager2");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlotManager2");
 		return ptr;
 	}
 
@@ -5164,7 +5608,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUITree");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUITree");
 		return ptr;
 	}
 
@@ -5180,7 +5626,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIListItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIListItem");
 		return ptr;
 	}
 
@@ -5197,7 +5645,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIListItemSlot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIListItemSlot");
 		return ptr;
 	}
 
@@ -5259,7 +5709,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUINumericStepper");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUINumericStepper");
 		return ptr;
 	}
 
@@ -5274,7 +5726,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIProgress");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIProgress");
 		return ptr;
 	}
 
@@ -5289,7 +5743,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUITimingBar");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUITimingBar");
 		return ptr;
 	}
 
@@ -5304,7 +5760,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIScrollBar");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIScrollBar");
 		return ptr;
 	}
 
@@ -5319,7 +5777,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIScrollView");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIScrollView");
 		return ptr;
 	}
 
@@ -5334,7 +5794,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIMinimapView");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIMinimapView");
 		return ptr;
 	}
 
@@ -5349,7 +5811,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlider");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlider");
 		return ptr;
 	}
 
@@ -5364,7 +5828,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUITextField");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUITextField");
 		return ptr;
 	}
 
@@ -5379,7 +5845,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUITextInput");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUITextInput");
 		return ptr;
 	}
 
@@ -5394,7 +5862,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUITextArea");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUITextArea");
 		return ptr;
 	}
 
@@ -5409,7 +5879,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIWindowContent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIWindowContent");
 		return ptr;
 	}
 
@@ -5424,7 +5896,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAchievement");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAchievement");
 		return ptr;
 	}
 
@@ -5441,7 +5915,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAnchorModeCrew");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAnchorModeCrew");
 		return ptr;
 	}
 
@@ -5460,7 +5936,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetBuddy");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetBuddy");
 		return ptr;
 	}
 
@@ -5489,7 +5967,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCandidate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCandidate");
 		return ptr;
 	}
 
@@ -5506,7 +5986,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetChattingOption");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetChattingOption");
 		return ptr;
 	}
 
@@ -5527,7 +6009,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCinematicDungeonEntrance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCinematicDungeonEntrance");
 		return ptr;
 	}
 
@@ -5544,7 +6028,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetColorPicker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetColorPicker");
 		return ptr;
 	}
 
@@ -5570,7 +6056,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCurrencyInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCurrencyInfo");
 		return ptr;
 	}
 
@@ -5587,7 +6075,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCustomColorPicker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCustomColorPicker");
 		return ptr;
 	}
 
@@ -5612,7 +6102,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetFriendship");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetFriendship");
 		return ptr;
 	}
 
@@ -5627,7 +6119,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetGuild");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetGuild");
 		return ptr;
 	}
 
@@ -5655,7 +6149,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHotKey");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHotKey");
 		return ptr;
 	}
 
@@ -5681,7 +6177,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInstanceDungeonEntrance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInstanceDungeonEntrance");
 		return ptr;
 	}
 
@@ -5698,7 +6196,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionAbility_Refine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionAbility_Refine");
 		return ptr;
 	}
 
@@ -5720,7 +6220,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionBarter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionBarter");
 		return ptr;
 	}
 
@@ -5737,7 +6239,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionColosseum");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionColosseum");
 		return ptr;
 	}
 
@@ -5755,7 +6259,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionMail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionMail");
 		return ptr;
 	}
 
@@ -5780,7 +6286,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionShop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionShop");
 		return ptr;
 	}
 
@@ -5795,7 +6303,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionWarehouse");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionWarehouse");
 		return ptr;
 	}
 
@@ -5810,7 +6320,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInventory");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInventory");
 		return ptr;
 	}
 
@@ -5825,7 +6337,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetItemAssembly");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetItemAssembly");
 		return ptr;
 	}
 
@@ -5842,7 +6356,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetItemDisassembly");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetItemDisassembly");
 		return ptr;
 	}
 
@@ -5857,7 +6373,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeSkill");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeSkill");
 		return ptr;
 	}
 
@@ -5891,7 +6409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMap");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMap");
 		return ptr;
 	}
 
@@ -5911,7 +6431,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMarket");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMarket");
 		return ptr;
 	}
 
@@ -5926,7 +6448,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_BossRush");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_BossRush");
 		return ptr;
 	}
 
@@ -5941,7 +6465,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_Tower");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_Tower");
 		return ptr;
 	}
 
@@ -5956,7 +6482,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMODWatingInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMODWatingInfo");
 		return ptr;
 	}
 
@@ -5973,7 +6501,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMoviePlayer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMoviePlayer");
 		return ptr;
 	}
 
@@ -5990,7 +6520,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNormalBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNormalBox");
 		return ptr;
 	}
 
@@ -6007,7 +6539,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNoticeMOD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNoticeMOD");
 		return ptr;
 	}
 
@@ -6024,7 +6558,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetQuestJournal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetQuestJournal");
 		return ptr;
 	}
 
@@ -6050,7 +6586,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetQuestSummary");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetQuestSummary");
 		return ptr;
 	}
 
@@ -6076,7 +6614,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRandomBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRandomBox");
 		return ptr;
 	}
 
@@ -6096,7 +6636,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSelectBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSelectBox");
 		return ptr;
 	}
 
@@ -6114,7 +6656,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSkillBook");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSkillBook");
 		return ptr;
 	}
 
@@ -6143,7 +6687,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSocialSkill");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSocialSkill");
 		return ptr;
 	}
 
@@ -6158,7 +6704,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSystemOption");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetSystemOption");
 		return ptr;
 	}
 
@@ -6183,7 +6731,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetTrophyAuction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetTrophyAuction");
 		return ptr;
 	}
 
@@ -6198,7 +6748,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetUnLockBox");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetUnLockBox");
 		return ptr;
 	}
 
@@ -6216,7 +6768,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetUserTrade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetUserTrade");
 		return ptr;
 	}
 
@@ -6240,7 +6794,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetVictoryCrest");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetVictoryCrest");
 		return ptr;
 	}
 
@@ -6260,7 +6816,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIFrame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIFrame");
 		return ptr;
 	}
 
@@ -6279,7 +6837,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAcquireItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAcquireItem");
 		return ptr;
 	}
 
@@ -6294,7 +6854,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAnnounce");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetAnnounce");
 		return ptr;
 	}
 
@@ -6322,7 +6884,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetClassPreview");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetClassPreview");
 		return ptr;
 	}
 
@@ -6353,7 +6917,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetColosseum_New");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetColosseum_New");
 		return ptr;
 	}
 
@@ -6378,7 +6944,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCommon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetCommon");
 		return ptr;
 	}
 
@@ -6398,7 +6966,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetContentsUnlock");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetContentsUnlock");
 		return ptr;
 	}
 
@@ -6416,7 +6986,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetDamage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetDamage");
 		return ptr;
 	}
 
@@ -6433,7 +7005,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetExcavationMiniGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetExcavationMiniGame");
 		return ptr;
 	}
 
@@ -6468,7 +7042,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetFishingNetMiniGame");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetFishingNetMiniGame");
 		return ptr;
 	}
 
@@ -6488,7 +7064,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHeadStatus");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHeadStatus");
 		return ptr;
 	}
 
@@ -6505,7 +7083,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudCommon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudCommon");
 		return ptr;
 	}
 
@@ -6520,7 +7100,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudCommonExp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudCommonExp");
 		return ptr;
 	}
 
@@ -6538,7 +7120,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudIdentity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudIdentity");
 		return ptr;
 	}
 
@@ -6555,7 +7139,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudLeftTop");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetHudLeftTop");
 		return ptr;
 	}
 
@@ -6576,7 +7162,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteraction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteraction");
 		return ptr;
 	}
 
@@ -6614,7 +7202,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionKeyIcon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionKeyIcon");
 		return ptr;
 	}
 
@@ -6632,7 +7222,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionMark");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetInteractionMark");
 		return ptr;
 	}
 
@@ -6647,7 +7239,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeToolDurability");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeToolDurability");
 		return ptr;
 	}
 
@@ -6666,7 +7260,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeVessel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetLifeVessel");
 		return ptr;
 	}
 
@@ -6683,7 +7279,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMenu");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMenu");
 		return ptr;
 	}
 
@@ -6706,7 +7304,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMinimap");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMinimap");
 		return ptr;
 	}
 
@@ -6723,7 +7323,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_Cube");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_Cube");
 		return ptr;
 	}
 
@@ -6753,7 +7355,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_PlatinumArea");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMOD_PlatinumArea");
 		return ptr;
 	}
 
@@ -6770,7 +7374,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMODEntrance");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetMODEntrance");
 		return ptr;
 	}
 
@@ -6787,7 +7393,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNotice");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetNotice");
 		return ptr;
 	}
 
@@ -6805,7 +7413,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcCreateHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcCreateHUD");
 		return ptr;
 	}
 
@@ -6825,7 +7435,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcCustomizing");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcCustomizing");
 		return ptr;
 	}
 
@@ -6847,7 +7459,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcSelect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetPcSelect");
 		return ptr;
 	}
 
@@ -6873,7 +7487,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidClear");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidClear");
 		return ptr;
 	}
 
@@ -6890,7 +7506,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidExitNotice");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidExitNotice");
 		return ptr;
 	}
 
@@ -6907,7 +7525,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidFail");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidFail");
 		return ptr;
 	}
 
@@ -6924,7 +7544,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidHUD");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxWidgetRaidHUD");
 		return ptr;
 	}
 
@@ -6942,7 +7564,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIWindow");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIWindow");
 		return ptr;
 	}
 
@@ -6957,7 +7581,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUISlotData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUISlotData");
 		return ptr;
 	}
 
@@ -7024,7 +7650,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpGroupSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpGroupSpawn");
 		return ptr;
 	}
 
@@ -7043,7 +7671,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpGroupSpawnInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpGroupSpawnInfo");
 		return ptr;
 	}
 
@@ -7059,7 +7689,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnAnimControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnAnimControl");
 		return ptr;
 	}
 
@@ -7074,7 +7706,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnEffectControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnEffectControl");
 		return ptr;
 	}
 
@@ -7089,7 +7723,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnEvent");
 		return ptr;
 	}
 
@@ -7107,7 +7743,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSpawnMove");
 		return ptr;
 	}
 
@@ -7143,7 +7781,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSpawnEnvirNpc");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSpawnEnvirNpc");
 		return ptr;
 	}
 
@@ -7161,7 +7801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSpawnMatineeActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSpawnMatineeActor");
 		return ptr;
 	}
 
@@ -7197,7 +7839,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGameViewportClient");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGameViewportClient");
 		return ptr;
 	}
 
@@ -7220,7 +7864,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFNxForceFieldTornado");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFNxForceFieldTornado");
 		return ptr;
 	}
 
@@ -7247,7 +7893,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAbilityEffectInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAbilityEffectInfo");
 		return ptr;
 	}
 
@@ -7262,7 +7910,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFCommonDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFCommonDataDefine");
 		return ptr;
 	}
 
@@ -7281,7 +7931,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData");
 		return ptr;
 	}
 
@@ -7297,7 +7949,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_Action");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_Action");
 		return ptr;
 	}
 
@@ -7326,7 +7980,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_CharacterCustomizing");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_CharacterCustomizing");
 		return ptr;
 	}
 
@@ -7359,7 +8015,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_CharacterCustomizingRule");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_CharacterCustomizingRule");
 		return ptr;
 	}
 
@@ -7376,7 +8034,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_CustomizeBoneScaleItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_CustomizeBoneScaleItem");
 		return ptr;
 	}
 
@@ -7394,7 +8054,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_MeshLookInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_MeshLookInfo");
 		return ptr;
 	}
 
@@ -7413,7 +8075,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_NpcPartInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_NpcPartInfo");
 		return ptr;
 	}
 
@@ -7429,7 +8093,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_PaletteItemBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_PaletteItemBase");
 		return ptr;
 	}
 
@@ -7450,7 +8116,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_ColorPaletteItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_ColorPaletteItem");
 		return ptr;
 	}
 
@@ -7466,7 +8134,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_TexturePaletteItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_TexturePaletteItem");
 		return ptr;
 	}
 
@@ -7505,7 +8175,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_PartsMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_PartsMesh");
 		return ptr;
 	}
 
@@ -7521,7 +8193,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_AnimNotify_Trails");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_AnimNotify_Trails");
 		return ptr;
 	}
 
@@ -7537,7 +8211,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_MaskInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_MaskInfo");
 		return ptr;
 	}
 
@@ -7555,7 +8231,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFData_SkelControlGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFData_SkelControlGroup");
 		return ptr;
 	}
 
@@ -7577,7 +8255,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFExcelShell");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFExcelShell");
 		return ptr;
 	}
 
@@ -7621,7 +8301,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFKismetData_Pack");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFKismetData_Pack");
 		return ptr;
 	}
 
@@ -7643,7 +8325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFKismetData_Unit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFKismetData_Unit");
 		return ptr;
 	}
 
@@ -7661,7 +8345,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFKismetMapData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFKismetMapData");
 		return ptr;
 	}
 
@@ -7677,7 +8363,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLocalTrigger");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLocalTrigger");
 		return ptr;
 	}
 
@@ -7698,7 +8386,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLocalTriggerVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLocalTriggerVolume");
 		return ptr;
 	}
 
@@ -7719,7 +8409,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleBuffInfoBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleBuffInfoBase");
 		return ptr;
 	}
 
@@ -7738,7 +8430,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleBuffInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleBuffInfo");
 		return ptr;
 	}
 
@@ -7756,7 +8450,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleStackBuffInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleStackBuffInfo");
 		return ptr;
 	}
 
@@ -7777,7 +8473,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainer");
 		return ptr;
 	}
 
@@ -7794,7 +8492,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerArmorHitSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerArmorHitSet");
 		return ptr;
 	}
 
@@ -7812,7 +8512,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerBeHittedSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerBeHittedSet");
 		return ptr;
 	}
 
@@ -7830,7 +8532,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerBuffSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerBuffSet");
 		return ptr;
 	}
 
@@ -7850,7 +8554,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerCommon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerCommon");
 		return ptr;
 	}
 
@@ -7873,7 +8579,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerDown");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerDown");
 		return ptr;
 	}
 
@@ -7894,7 +8602,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerFootStep");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerFootStep");
 		return ptr;
 	}
 
@@ -7914,7 +8624,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerGroundEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerGroundEffect");
 		return ptr;
 	}
 
@@ -7931,7 +8643,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerKnockback");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerKnockback");
 		return ptr;
 	}
 
@@ -7947,7 +8661,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerPostProcessEffectCamera");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerPostProcessEffectCamera");
 		return ptr;
 	}
 
@@ -7965,7 +8681,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSkillHitSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSkillHitSet");
 		return ptr;
 	}
 
@@ -8003,7 +8721,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponAttributeEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponAttributeEffect");
 		return ptr;
 	}
 
@@ -8021,7 +8741,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponFX");
 		return ptr;
 	}
 
@@ -8058,7 +8780,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponHitSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerWeaponHitSet");
 		return ptr;
 	}
 
@@ -8075,7 +8799,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSetBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSetBase");
 		return ptr;
 	}
 
@@ -8098,7 +8824,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGameObjectParticleSoundContainerSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGameObjectParticleSoundContainerSet");
 		return ptr;
 	}
 
@@ -8128,7 +8856,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundContainerSet");
 		return ptr;
 	}
 
@@ -8151,7 +8881,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundData");
 		return ptr;
 	}
 
@@ -8179,7 +8911,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataArmorMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataArmorMaterial");
 		return ptr;
 	}
 
@@ -8203,7 +8937,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBeHittedPawnMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBeHittedPawnMaterial");
 		return ptr;
 	}
 
@@ -8230,7 +8966,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffBeam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffBeam");
 		return ptr;
 	}
 
@@ -8284,7 +9022,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffFX");
 		return ptr;
 	}
 
@@ -8309,7 +9049,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataComment");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataComment");
 		return ptr;
 	}
 
@@ -8327,7 +9069,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataCommon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataCommon");
 		return ptr;
 	}
 
@@ -8357,7 +9101,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataFloorMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataFloorMaterial");
 		return ptr;
 	}
 
@@ -8387,7 +9133,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataFloorMaterialSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataFloorMaterialSound");
 		return ptr;
 	}
 
@@ -8405,7 +9153,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataGroundEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataGroundEffect");
 		return ptr;
 	}
 
@@ -8421,7 +9171,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedArmorSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedArmorSet");
 		return ptr;
 	}
 
@@ -8439,7 +9191,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedSkillSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedSkillSet");
 		return ptr;
 	}
 
@@ -8460,7 +9214,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedWeaponSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataHittedWeaponSet");
 		return ptr;
 	}
 
@@ -8486,7 +9242,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponAttribute");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponAttribute");
 		return ptr;
 	}
 
@@ -8512,7 +9270,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponAttributeEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponAttributeEffect");
 		return ptr;
 	}
 
@@ -8534,7 +9294,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXDir");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXDir");
 		return ptr;
 	}
 
@@ -8550,7 +9312,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffWeaponFXDir");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataBuffWeaponFXDir");
 		return ptr;
 	}
 
@@ -8569,7 +9333,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXAttacker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXAttacker");
 		return ptr;
 	}
 
@@ -8586,7 +9352,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXDelay");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundDataWeaponFXDelay");
 		return ptr;
 	}
 
@@ -8604,7 +9372,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFParticleSoundSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFParticleSoundSet");
 		return ptr;
 	}
 
@@ -8620,7 +9390,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTeleportLocationActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTeleportLocationActor");
 		return ptr;
 	}
 
@@ -8640,7 +9412,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer");
 		return ptr;
 	}
 
@@ -8661,7 +9435,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_Action");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_Action");
 		return ptr;
 	}
 
@@ -8679,7 +9455,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_CharacterCustomizing");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_CharacterCustomizing");
 		return ptr;
 	}
 
@@ -8697,7 +9475,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_ColorPalette");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_ColorPalette");
 		return ptr;
 	}
 
@@ -8715,7 +9495,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_CustomizeBoneScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_CustomizeBoneScale");
 		return ptr;
 	}
 
@@ -8733,7 +9515,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfos");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfos");
 		return ptr;
 	}
 
@@ -8751,7 +9535,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfosGibs");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfosGibs");
 		return ptr;
 	}
 
@@ -8767,7 +9553,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfosPC");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_LookInfosPC");
 		return ptr;
 	}
 
@@ -8793,7 +9581,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_NpcFunction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_NpcFunction");
 		return ptr;
 	}
 
@@ -8829,7 +9619,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_Quest");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_Quest");
 		return ptr;
 	}
 
@@ -8847,7 +9639,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDataContainer_TexturePalette");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDataContainer_TexturePalette");
 		return ptr;
 	}
 
@@ -8872,7 +9666,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFEnvironmentInfo");
 		return ptr;
 	}
 
@@ -8893,7 +9689,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLightBeam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLightBeam");
 		return ptr;
 	}
 
@@ -8910,7 +9708,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFPointLightMovable");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFPointLightMovable");
 		return ptr;
 	}
 
@@ -8933,7 +9733,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDropItemEffectInfo");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDropItemEffectInfo");
 		return ptr;
 	}
 
@@ -8948,7 +9750,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFItem");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFItem");
 		return ptr;
 	}
 
@@ -8980,7 +9784,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInteractiveFoliageActor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInteractiveFoliageActor");
 		return ptr;
 	}
 
@@ -9005,7 +9811,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFDebugTransportComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFDebugTransportComponent");
 		return ptr;
 	}
 
@@ -9041,7 +9849,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFAction_Notify");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFAction_Notify");
 		return ptr;
 	}
 
@@ -9058,7 +9868,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AddClientStatusEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AddClientStatusEffect");
 		return ptr;
 	}
 
@@ -9086,7 +9898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AKEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AKEvent");
 		return ptr;
 	}
 
@@ -9104,7 +9918,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AkEventSwitchFloorMaterial");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AkEventSwitchFloorMaterial");
 		return ptr;
 	}
 
@@ -9137,7 +9953,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Anim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Anim");
 		return ptr;
 	}
 
@@ -9158,7 +9976,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Stance_Anim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Stance_Anim");
 		return ptr;
 	}
 
@@ -9179,7 +9999,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimBlendDirectional");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_AnimBlendDirectional");
 		return ptr;
 	}
 
@@ -9198,7 +10020,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ChangeFigurePropState");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ChangeFigurePropState");
 		return ptr;
 	}
 
@@ -9214,7 +10038,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ClientProjectile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ClientProjectile");
 		return ptr;
 	}
 
@@ -9229,7 +10055,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_CommonActionExcute");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_CommonActionExcute");
 		return ptr;
 	}
 
@@ -9247,7 +10075,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_CommonActionVoiceSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_CommonActionVoiceSet");
 		return ptr;
 	}
 
@@ -9265,7 +10095,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Condition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Condition");
 		return ptr;
 	}
 
@@ -9280,7 +10112,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ConsumeSkillCost");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ConsumeSkillCost");
 		return ptr;
 	}
 
@@ -9298,7 +10132,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_DefaultParticle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_DefaultParticle");
 		return ptr;
 	}
 
@@ -9318,7 +10154,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_DetachParts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_DetachParts");
 		return ptr;
 	}
 
@@ -9343,7 +10181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_DominantDirectionalLight_Control");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_DominantDirectionalLight_Control");
 		return ptr;
 	}
 
@@ -9362,7 +10202,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Down");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Down");
 		return ptr;
 	}
 
@@ -9385,7 +10227,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Effect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Effect");
 		return ptr;
 	}
 
@@ -9401,7 +10245,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_EmitTriggerSignal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_EmitTriggerSignal");
 		return ptr;
 	}
 
@@ -9424,7 +10270,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_EquipCommonActionTool");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_EquipCommonActionTool");
 		return ptr;
 	}
 
@@ -9440,7 +10288,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_FakeEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_FakeEffect");
 		return ptr;
 	}
 
@@ -9458,7 +10308,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Footstep");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Footstep");
 		return ptr;
 	}
 
@@ -9473,7 +10325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_GameActionExcute");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_GameActionExcute");
 		return ptr;
 	}
 
@@ -9489,7 +10343,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_GameNote");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_GameNote");
 		return ptr;
 	}
 
@@ -9509,7 +10365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_HidePawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_HidePawn");
 		return ptr;
 	}
 
@@ -9527,7 +10385,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_IdentityParts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_IdentityParts");
 		return ptr;
 	}
 
@@ -9551,7 +10411,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_InputTiming");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_InputTiming");
 		return ptr;
 	}
 
@@ -9567,7 +10429,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_LifeActionRemainCountUI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_LifeActionRemainCountUI");
 		return ptr;
 	}
 
@@ -9585,7 +10449,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_LifeToolDurabilityUI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_LifeToolDurabilityUI");
 		return ptr;
 	}
 
@@ -9603,7 +10469,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_LookTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_LookTarget");
 		return ptr;
 	}
 
@@ -9618,7 +10486,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MaintainHidePawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MaintainHidePawn");
 		return ptr;
 	}
 
@@ -9634,7 +10504,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MemoryPos");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MemoryPos");
 		return ptr;
 	}
 
@@ -9649,7 +10521,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageBase");
 		return ptr;
 	}
 
@@ -9664,7 +10538,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStage");
 		return ptr;
 	}
 
@@ -9681,7 +10557,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionBase");
 		return ptr;
 	}
 
@@ -9698,7 +10576,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionCheckArea");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionCheckArea");
 		return ptr;
 	}
 
@@ -9714,7 +10594,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionProbability");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionProbability");
 		return ptr;
 	}
 
@@ -9730,7 +10612,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionSkillEffectHit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_MonsterMoveNextStageConditionSkillEffectHit");
 		return ptr;
 	}
 
@@ -9748,7 +10632,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_NpcLimbState");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_NpcLimbState");
 		return ptr;
 	}
 
@@ -9770,7 +10656,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_NPCSkillMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_NPCSkillMove");
 		return ptr;
 	}
 
@@ -9786,7 +10674,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_NpcStatus");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_NpcStatus");
 		return ptr;
 	}
 
@@ -9802,7 +10692,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Paralyzation");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Paralyzation");
 		return ptr;
 	}
 
@@ -9818,7 +10710,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ParticleControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ParticleControl");
 		return ptr;
 	}
 
@@ -9834,7 +10728,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ParticleHit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ParticleHit");
 		return ptr;
 	}
 
@@ -9853,7 +10749,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PartsAnim");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PartsAnim");
 		return ptr;
 	}
 
@@ -9871,7 +10769,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PawnMaterialChange");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PawnMaterialChange");
 		return ptr;
 	}
 
@@ -9889,7 +10789,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PawnMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PawnMaterialParam");
 		return ptr;
 	}
 
@@ -9907,7 +10809,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Physics");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Physics");
 		return ptr;
 	}
 
@@ -9923,7 +10827,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PhysicsParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PhysicsParam");
 		return ptr;
 	}
 
@@ -9946,7 +10852,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayBeamEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayBeamEffect");
 		return ptr;
 	}
 
@@ -9970,7 +10878,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayCameraParticleEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayCameraParticleEffect");
 		return ptr;
 	}
 
@@ -10007,7 +10917,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayDecalEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayDecalEffect");
 		return ptr;
 	}
 
@@ -10046,7 +10958,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayParticleEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayParticleEffect");
 		return ptr;
 	}
 
@@ -10065,7 +10979,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayPIPUI");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayPIPUI");
 		return ptr;
 	}
 
@@ -10090,7 +11006,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayProjectileDecalEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlayProjectileDecalEffect");
 		return ptr;
 	}
 
@@ -10114,7 +11032,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlaySkeletalMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlaySkeletalMesh");
 		return ptr;
 	}
 
@@ -10132,7 +11052,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlaySkeletalMeshMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PlaySkeletalMeshMaterialParam");
 		return ptr;
 	}
 
@@ -10152,7 +11074,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PostProcessChain");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PostProcessChain");
 		return ptr;
 	}
 
@@ -10167,7 +11091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_PostProcessCrossHair");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_PostProcessCrossHair");
 		return ptr;
 	}
 
@@ -10184,7 +11110,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ReAttachParts");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ReAttachParts");
 		return ptr;
 	}
 
@@ -10202,7 +11130,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Rotate");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Rotate");
 		return ptr;
 	}
 
@@ -10219,7 +11149,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SendNpcSignal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SendNpcSignal");
 		return ptr;
 	}
 
@@ -10234,7 +11166,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SkillCancelEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SkillCancelEffect");
 		return ptr;
 	}
 
@@ -10249,7 +11183,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetDownMid");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetDownMid");
 		return ptr;
 	}
 
@@ -10264,7 +11200,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetDownSmall");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetDownSmall");
 		return ptr;
 	}
 
@@ -10280,7 +11218,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetFootStep");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetFootStep");
 		return ptr;
 	}
 
@@ -10295,7 +11235,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetKnockback");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetKnockback");
 		return ptr;
 	}
 
@@ -10310,7 +11252,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetLanding");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetLanding");
 		return ptr;
 	}
 
@@ -10325,7 +11269,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetSpringBound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetSpringBound");
 		return ptr;
 	}
 
@@ -10341,7 +11287,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetStuff");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SoundSetStuff");
 		return ptr;
 	}
 
@@ -10359,7 +11307,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_StopParticleEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_StopParticleEffect");
 		return ptr;
 	}
 
@@ -10377,7 +11327,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_SuperArmor");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_SuperArmor");
 		return ptr;
 	}
 
@@ -10396,7 +11348,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_TargetPosControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_TargetPosControl");
 		return ptr;
 	}
 
@@ -10411,7 +11365,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_TimingCancel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_TimingCancel");
 		return ptr;
 	}
 
@@ -10427,7 +11383,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ToggleCollision");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ToggleCollision");
 		return ptr;
 	}
 
@@ -10456,7 +11414,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_TrailGhostEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_TrailGhostEffect");
 		return ptr;
 	}
 
@@ -10482,7 +11442,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_Trails");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_Trails");
 		return ptr;
 	}
 
@@ -10505,7 +11467,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_UIEventChecker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_UIEventChecker");
 		return ptr;
 	}
 
@@ -10528,7 +11492,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_ViewShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_ViewShake");
 		return ptr;
 	}
 
@@ -10544,7 +11510,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAdditional");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAdditional");
 		return ptr;
 	}
 
@@ -10560,7 +11528,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackCast");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackCast");
 		return ptr;
 	}
 
@@ -10576,7 +11546,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackCastLong");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackCastLong");
 		return ptr;
 	}
 
@@ -10592,7 +11564,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackExec");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackExec");
 		return ptr;
 	}
 
@@ -10608,7 +11582,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackShot");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetAttackShot");
 		return ptr;
 	}
 
@@ -10624,7 +11600,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDamage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDamage");
 		return ptr;
 	}
 
@@ -10640,7 +11618,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDeath");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDeath");
 		return ptr;
 	}
 
@@ -10656,7 +11636,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDown");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetDown");
 		return ptr;
 	}
 
@@ -10672,7 +11654,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetIdle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetIdle");
 		return ptr;
 	}
 
@@ -10688,7 +11672,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetRun");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetRun");
 		return ptr;
 	}
 
@@ -10704,7 +11690,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetSpawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetSpawn");
 		return ptr;
 	}
 
@@ -10720,7 +11708,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetStandUp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetStandUp");
 		return ptr;
 	}
 
@@ -10736,7 +11726,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetWalk");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_VoiceSetWalk");
 		return ptr;
 	}
 
@@ -10753,7 +11745,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_WeaponCustomAttach");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_WeaponCustomAttach");
 		return ptr;
 	}
 
@@ -10769,7 +11763,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionNotify_WeaponMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionNotify_WeaponMode");
 		return ptr;
 	}
 
@@ -10787,7 +11783,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionCondition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionCondition");
 		return ptr;
 	}
 
@@ -10803,7 +11801,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionAbility");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionAbility");
 		return ptr;
 	}
 
@@ -10818,7 +11818,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionAbnormal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionAbnormal");
 		return ptr;
 	}
 
@@ -10833,7 +11835,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionAlreadyDie");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionAlreadyDie");
 		return ptr;
 	}
 
@@ -10848,7 +11852,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionBattleMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionBattleMode");
 		return ptr;
 	}
 
@@ -10863,7 +11869,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionBurrow");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionBurrow");
 		return ptr;
 	}
 
@@ -10878,7 +11886,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionComaDuraion");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionComaDuraion");
 		return ptr;
 	}
 
@@ -10893,7 +11903,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionDespawn");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionDespawn");
 		return ptr;
 	}
 
@@ -10908,7 +11920,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionDespawnAnimIndex");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionDespawnAnimIndex");
 		return ptr;
 	}
 
@@ -10923,7 +11937,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionDyingType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionDyingType");
 		return ptr;
 	}
 
@@ -10938,7 +11954,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionForcedMove");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionForcedMove");
 		return ptr;
 	}
 
@@ -10953,7 +11971,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionGadgetExitType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionGadgetExitType");
 		return ptr;
 	}
 
@@ -10968,7 +11988,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionGadgetState");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionGadgetState");
 		return ptr;
 	}
 
@@ -10983,7 +12005,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionHitAdditive");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionHitAdditive");
 		return ptr;
 	}
 
@@ -10998,7 +12022,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionHitReaction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionHitReaction");
 		return ptr;
 	}
 
@@ -11013,7 +12039,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionIdentity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionIdentity");
 		return ptr;
 	}
 
@@ -11028,7 +12056,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionInputDirLeftRight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionInputDirLeftRight");
 		return ptr;
 	}
 
@@ -11043,7 +12073,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionIsDeleteMe");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionIsDeleteMe");
 		return ptr;
 	}
 
@@ -11059,7 +12091,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionLearnCommonActionEffectType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionLearnCommonActionEffectType");
 		return ptr;
 	}
 
@@ -11074,7 +12108,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionMoveAni");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionMoveAni");
 		return ptr;
 	}
 
@@ -11089,7 +12125,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionNpcStatus");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionNpcStatus");
 		return ptr;
 	}
 
@@ -11104,7 +12142,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionPickupMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionPickupMode");
 		return ptr;
 	}
 
@@ -11119,7 +12159,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionPlayerClass");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionPlayerClass");
 		return ptr;
 	}
 
@@ -11135,7 +12177,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionProbablity");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionProbablity");
 		return ptr;
 	}
 
@@ -11151,7 +12195,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionRandom");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionRandom");
 		return ptr;
 	}
 
@@ -11166,7 +12212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionRidingMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionRidingMode");
 		return ptr;
 	}
 
@@ -11182,7 +12230,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionSelectNpcIdleType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionSelectNpcIdleType");
 		return ptr;
 	}
 
@@ -11197,7 +12247,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionShipAnchorMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionShipAnchorMode");
 		return ptr;
 	}
 
@@ -11212,7 +12264,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionShipBoostMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionShipBoostMode");
 		return ptr;
 	}
 
@@ -11228,7 +12282,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionSkillEffectHit");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionSkillEffectHit");
 		return ptr;
 	}
 
@@ -11243,7 +12299,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionSpawnAnimIndex");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionSpawnAnimIndex");
 		return ptr;
 	}
 
@@ -11258,7 +12316,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionSpawnType");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionSpawnType");
 		return ptr;
 	}
 
@@ -11273,7 +12333,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionStanceMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionStanceMode");
 		return ptr;
 	}
 
@@ -11290,7 +12352,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionStatusEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionStatusEffect");
 		return ptr;
 	}
 
@@ -11305,7 +12369,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionTakeDamage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionTakeDamage");
 		return ptr;
 	}
 
@@ -11320,7 +12386,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionConditionWeaponMode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionConditionWeaponMode");
 		return ptr;
 	}
 
@@ -11350,7 +12418,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionObject");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionObject");
 		return ptr;
 	}
 
@@ -11379,7 +12449,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionObjectGroup");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionObjectGroup");
 		return ptr;
 	}
 
@@ -11397,7 +12469,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionSkelControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionSkelControl");
 		return ptr;
 	}
 
@@ -11455,7 +12529,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFActionStage");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFActionStage");
 		return ptr;
 	}
 
@@ -11474,7 +12550,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMatineePathNode");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMatineePathNode");
 		return ptr;
 	}
 
@@ -11497,7 +12575,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGlobal");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGlobal");
 		return ptr;
 	}
 
@@ -11521,7 +12601,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummons");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummons");
 		return ptr;
 	}
 
@@ -11538,7 +12620,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsBase");
 		return ptr;
 	}
 
@@ -11561,7 +12645,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsAction");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsAction");
 		return ptr;
 	}
 
@@ -11581,7 +12667,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAccel");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAccel");
 		return ptr;
 	}
 
@@ -11600,7 +12688,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAkEvent");
 		return ptr;
 	}
 
@@ -11619,7 +12709,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAuraBuff");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionAuraBuff");
 		return ptr;
 	}
 
@@ -11638,7 +12730,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionBankData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionBankData");
 		return ptr;
 	}
 
@@ -11655,7 +12749,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionCameraShake");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionCameraShake");
 		return ptr;
 	}
 
@@ -11671,7 +12767,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionCreateFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionCreateFX");
 		return ptr;
 	}
 
@@ -11688,7 +12786,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionPostProcessChainTimeVarying");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionPostProcessChainTimeVarying");
 		return ptr;
 	}
 
@@ -11722,7 +12822,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSetSkeletalMesh");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSetSkeletalMesh");
 		return ptr;
 	}
 
@@ -11738,7 +12840,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkeletalMeshFX");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkeletalMeshFX");
 		return ptr;
 	}
 
@@ -11755,7 +12859,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkeletalMeshFXMaterialParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkeletalMeshFXMaterialParam");
 		return ptr;
 	}
 
@@ -11774,7 +12880,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkillEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSkillEffect");
 		return ptr;
 	}
 
@@ -11794,7 +12902,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSequentialSkillEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionSequentialSkillEffect");
 		return ptr;
 	}
 
@@ -11813,7 +12923,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTimer");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTimer");
 		return ptr;
 	}
 
@@ -11830,7 +12942,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsCondition");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsCondition");
 		return ptr;
 	}
 
@@ -11846,7 +12960,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTierChecker");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTierChecker");
 		return ptr;
 	}
 
@@ -11861,7 +12977,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTierChecker4BankData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsActionTierChecker4BankData");
 		return ptr;
 	}
 
@@ -11887,7 +13005,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsComment");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsComment");
 		return ptr;
 	}
 
@@ -11934,7 +13054,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectile");
 		return ptr;
 	}
 
@@ -11961,7 +13083,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileFixArea");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileFixArea");
 		return ptr;
 	}
 
@@ -11981,7 +13105,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileGrenade");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileGrenade");
 		return ptr;
 	}
 
@@ -12000,7 +13126,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileMissile");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileMissile");
 		return ptr;
 	}
 
@@ -12027,7 +13155,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileTrace");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsProjectileTrace");
 		return ptr;
 	}
 
@@ -12043,7 +13173,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsData");
 		return ptr;
 	}
 
@@ -12059,7 +13191,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsEditorFilter");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsEditorFilter");
 		return ptr;
 	}
 
@@ -12078,7 +13212,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsEditorFilterData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSequenceSummonsEditorFilterData");
 		return ptr;
 	}
 
@@ -12094,7 +13230,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpGroupGameOption");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpGroupGameOption");
 		return ptr;
 	}
 
@@ -12111,7 +13249,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAnimBlendingControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAnimBlendingControl");
 		return ptr;
 	}
 
@@ -12128,7 +13268,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAnimNodeBlendWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAnimNodeBlendWeight");
 		return ptr;
 	}
 
@@ -12143,7 +13285,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendBase");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendBase");
 		return ptr;
 	}
 
@@ -12161,7 +13305,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendColorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendColorProp");
 		return ptr;
 	}
 
@@ -12179,7 +13325,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendFloatProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendFloatProp");
 		return ptr;
 	}
 
@@ -12197,7 +13345,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendVectorProp");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackAutoBlendVectorProp");
 		return ptr;
 	}
 
@@ -12218,7 +13368,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstAnimBlendingControl");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstAnimBlendingControl");
 		return ptr;
 	}
 
@@ -12233,7 +13385,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstAnimNodeBlendWeight");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstAnimNodeBlendWeight");
 		return ptr;
 	}
 
@@ -12249,7 +13403,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstNearPlaneScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstNearPlaneScale");
 		return ptr;
 	}
 
@@ -12265,7 +13421,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstPlayerClassAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstPlayerClassAkEvent");
 		return ptr;
 	}
 
@@ -12281,7 +13439,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSkelControlMulti");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSkelControlMulti");
 		return ptr;
 	}
 
@@ -12302,7 +13462,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSkelControlVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSkelControlVector");
 		return ptr;
 	}
 
@@ -12318,7 +13480,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSoundSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSoundSet");
 		return ptr;
 	}
 
@@ -12334,7 +13498,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSubtitle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSubtitle");
 		return ptr;
 	}
 
@@ -12350,7 +13516,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSubtitleBalloon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstSubtitleBalloon");
 		return ptr;
 	}
 
@@ -12367,7 +13535,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstUnfixedPhysicBody");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstUnfixedPhysicBody");
 		return ptr;
 	}
 
@@ -12383,7 +13553,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstVectorParticleParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstVectorParticleParam");
 		return ptr;
 	}
 
@@ -12399,7 +13571,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstVoiceSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackInstVoiceSet");
 		return ptr;
 	}
 
@@ -12414,7 +13588,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackNearPlaneScale");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackNearPlaneScale");
 		return ptr;
 	}
 
@@ -12430,7 +13606,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackPlayerClassAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackPlayerClassAkEvent");
 		return ptr;
 	}
 
@@ -12446,7 +13624,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSkelControlMulti");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSkelControlMulti");
 		return ptr;
 	}
 
@@ -12467,7 +13647,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSkelControlVector");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSkelControlVector");
 		return ptr;
 	}
 
@@ -12483,7 +13665,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSoundSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSoundSet");
 		return ptr;
 	}
 
@@ -12506,7 +13690,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSubtitle");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSubtitle");
 		return ptr;
 	}
 
@@ -12526,7 +13712,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackSubtitleBalloon");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackSubtitleBalloon");
 		return ptr;
 	}
 
@@ -12546,7 +13734,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackUnfixedPhysicBody");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackUnfixedPhysicBody");
 		return ptr;
 	}
 
@@ -12562,7 +13752,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackVectorParticleParam");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackVectorParticleParam");
 		return ptr;
 	}
 
@@ -12578,7 +13770,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInterpTrackVoiceSet");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInterpTrackVoiceSet");
 		return ptr;
 	}
 
@@ -12597,7 +13791,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTexture2D");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTexture2D");
 		return ptr;
 	}
 
@@ -12614,7 +13810,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTextureRenderTarget");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTextureRenderTarget");
 		return ptr;
 	}
 
@@ -12634,7 +13832,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTextureWeb");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTextureWeb");
 		return ptr;
 	}
 
@@ -12655,7 +13855,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMinimapData");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMinimapData");
 		return ptr;
 	}
 
@@ -12675,7 +13877,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFExpandedMinimapVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFExpandedMinimapVolume");
 		return ptr;
 	}
 
@@ -12694,7 +13898,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFInDoorVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFInDoorVolume");
 		return ptr;
 	}
 
@@ -12724,7 +13930,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFMinimapVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFMinimapVolume");
 		return ptr;
 	}
 
@@ -12740,7 +13948,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFVoyagemapVolume");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFVoyagemapVolume");
 		return ptr;
 	}
 
@@ -12755,7 +13965,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFTriggerDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFTriggerDataDefine");
 		return ptr;
 	}
 
@@ -12770,7 +13982,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFQuestDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFQuestDataDefine");
 		return ptr;
 	}
 
@@ -12785,7 +13999,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFNPCFunctionDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFNPCFunctionDataDefine");
 		return ptr;
 	}
 
@@ -12800,7 +14016,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFUIDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFUIDataDefine");
 		return ptr;
 	}
 
@@ -12815,7 +14033,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLookInfoDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLookInfoDataDefine");
 		return ptr;
 	}
 
@@ -12830,7 +14050,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFLOAGoDataDefine");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFLOAGoDataDefine");
 		return ptr;
 	}
 
@@ -12845,7 +14067,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFConst");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFConst");
 		return ptr;
 	}
 
@@ -12860,7 +14084,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFGFxHUDWrapper");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFGFxHUDWrapper");
 		return ptr;
 	}
 
@@ -12880,7 +14106,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetPostProcessEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetPostProcessEffectProperties");
 		return ptr;
 	}
 
@@ -12916,7 +14144,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetAmbientOcclusionEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetAmbientOcclusionEffectProperties");
 		return ptr;
 	}
 
@@ -12934,7 +14164,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetBlurEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetBlurEffectProperties");
 		return ptr;
 	}
 
@@ -12961,7 +14193,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFEffectProperties");
 		return ptr;
 	}
 
@@ -12988,7 +14222,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFAndBloomEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFAndBloomEffectProperties");
 		return ptr;
 	}
 
@@ -13010,7 +14246,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFBloomMotionBlurEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetDOFBloomMotionBlurEffect");
 		return ptr;
 	}
 
@@ -13029,7 +14267,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetMaterialEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetMaterialEffectProperties");
 		return ptr;
 	}
 
@@ -13051,7 +14291,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetMotionBlurEffectProperties");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetMotionBlurEffectProperties");
 		return ptr;
 	}
 
@@ -13088,7 +14330,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetUberPostProcessEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_SetUberPostProcessEffect");
 		return ptr;
 	}
 
@@ -13106,7 +14350,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class EFGame.EFSeqAct_TogglePostProcessEffect");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class EFGame.EFSeqAct_TogglePostProcessEffect");
 		return ptr;
 	}
 

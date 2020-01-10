@@ -23,7 +23,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.ActorFactoryAkAmbientSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.ActorFactoryAkAmbientSound");
 		return ptr;
 	}
 
@@ -49,7 +51,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.AkAmbientSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.AkAmbientSound");
 		return ptr;
 	}
 
@@ -65,7 +69,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.AkAudioDevice");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.AkAudioDevice");
 		return ptr;
 	}
 
@@ -87,7 +93,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.AkComponent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.AkComponent");
 		return ptr;
 	}
 
@@ -103,7 +111,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.InterpTrackAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.InterpTrackAkEvent");
 		return ptr;
 	}
 
@@ -119,7 +129,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.InterpTrackAkRTPC");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.InterpTrackAkRTPC");
 		return ptr;
 	}
 
@@ -135,7 +147,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.InterpTrackInstAkEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.InterpTrackInstAkEvent");
 		return ptr;
 	}
 
@@ -150,7 +164,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.InterpTrackInstAkRTPC");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.InterpTrackInstAkRTPC");
 		return ptr;
 	}
 
@@ -165,7 +181,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkClearBanks");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkClearBanks");
 		return ptr;
 	}
 
@@ -184,7 +202,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkLoadBank");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkLoadBank");
 		return ptr;
 	}
 
@@ -201,7 +221,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkPostEvent");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkPostEvent");
 		return ptr;
 	}
 
@@ -217,7 +239,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkPostTrigger");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkPostTrigger");
 		return ptr;
 	}
 
@@ -235,7 +259,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetRTPCValue");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetRTPCValue");
 		return ptr;
 	}
 
@@ -252,7 +278,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetState");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetState");
 		return ptr;
 	}
 
@@ -269,7 +297,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetSwitch");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkSetSwitch");
 		return ptr;
 	}
 
@@ -284,7 +314,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkStartAmbientSound");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkStartAmbientSound");
 		return ptr;
 	}
 
@@ -299,7 +331,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AkAudio.SeqAct_AkStopAll");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class AkAudio.SeqAct_AkStopAll");
 		return ptr;
 	}
 

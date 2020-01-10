@@ -23,7 +23,9 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class XAudio2.XAudio2Device");
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class XAudio2.XAudio2Device");
 		return ptr;
 	}
 
