@@ -701,14 +701,14 @@ class UFunction : public UStruct
 {
 public:
 	uint32_t                                           FunctionFlags;                                            // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	char                                               UnknownData00[0x4];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	FName                                              FriendlyName;                                             // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t                                           iNative;                                                  // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t                                           RepOffset;                                                // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint8_t                                            NumParms;                                                 // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t*                                          ParmsSize;                                                // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	uint16_t*                                          ReturnValueOffset;                                        // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	char*                                              UnknownData01[0x10];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	static UClass* StaticClass()
 	{
