@@ -9,4 +9,5 @@ Lost Ark SDK generated for CIS Region game version - 1.61.63.0
 ###
 ---
 Generated with KN4CK3R SDKGen.
+
 Thanks to @realrespecter for his dump for Korea.
