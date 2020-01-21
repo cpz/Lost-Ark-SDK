@@ -3,7 +3,7 @@
     OUTPUT_DIRECTORY       = docs
     BUILTIN_STL_SUPPORT    = YES
     EXTRACT_ALL            = YES
-    INPUT                  = ./SDK
+    INPUT                  = .
     RECURSIVE              = YES
     HIDE_UNDOC_RELATIONS   = NO
     HAVE_DOT               = YES
