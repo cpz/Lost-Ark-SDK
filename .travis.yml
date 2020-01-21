@@ -1,12 +1,9 @@
-# This will run on Travis' 'new' container-based infrastructure
 sudo: false
 
-# Blacklist
 branches:
   only:
     - master
 
-# Install dependencies
 addons:
   apt:
     packages:
@@ -16,12 +13,10 @@ addons:
       - doxygen-gui
       - graphviz
 
-# Build your code e.g. by calling make
 script:
   - cd docs
-  - doxygen Doxyfile
+  - doxygen collab.dox
 
-# Deploy using travis builtin GitHub Pages support
 deploy:
   provider: pages
   skip_cleanup: true
