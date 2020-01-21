@@ -10,13 +10,12 @@ addons:
       - doxygen
 
 script:
-  - cd docs
   - doxygen Doxyfile
 
 deploy:
   provider: pages
-  skip-cleanup: true
-  local-dir: docs/html
-  github-token: $GH_REPO_TOKEN
+  skip_cleanup: true
+  local_dir: docs/html
+  github_token: $GH_REPO_TOKEN
   on:
     branch: master
