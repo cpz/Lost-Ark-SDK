@@ -15,7 +15,7 @@ addons:
 
 script:
   - cd docs
-  - doxygen collab.dox
+  - doxygen Doxyfile
 
 deploy:
   provider: pages
