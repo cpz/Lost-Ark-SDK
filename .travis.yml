@@ -25,6 +25,7 @@ before_install:
 - cmake ../doxygen-Release_1_8_17/
 - make
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
+- cd ${TMPDIR-/tmp}
 - zcat graphviz-2.40.1.tar.gz | tar xfvo -
 - cd graphviz-2.40.1
 - ./configure
