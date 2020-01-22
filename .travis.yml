@@ -1,5 +1,11 @@
 sudo: false
 
+language: python
+python:
+ - "3.6"
+ - "3.7"
+ - "3.8-dev"
+
 branches:
   only:
     - master
@@ -27,6 +33,13 @@ before_install:
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ../../
 - cd "${TRAVIS_BUILD_DIR}";
+ # We need GraphViz to draw figures of graphs and lattices:
+ - "sudo apt-get install graphviz"
+ - "pip install --upgrade pip"
+ # We need these to call GraphViz from Python:
+ - "pip install pydot-ng pyparsing"
+ - "pip install flake8 flake8-black black flake8-comprehensions flake8-blind-except flake8-bugbear flake8-docstrings flake8-rst-docstrings"
+ - flake8 .
 
 deploy:
   provider: pages
