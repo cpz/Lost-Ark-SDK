@@ -1,12 +1,35 @@
-# Lost Ark SDK
-Lost Ark SDK generated for CIS Region game version - 1.76.76.0
+# Lost Ark SDK Documentation
+
+[Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK)
 
 ---
 
-### How to use SDK
-* Make sure to add in your Project both LA_Basic.hpp/cpp and LA_Core_functions.cpp (or just SDK.hpp)
-* Don't forget to set GObjects and GNames address in LA_Basic.cpp
-* Hook ProcessEvent and do your magic.
+## FindPattern Signatures
+
+####  1.76.76.0
+```C++
+BYTE* __GObjects = (BYTE*)PatternScan("EFEngine.dll", "48 8B 05 E3 21 A5 01 48 8B 14 C8 48 8B 4A 50 48 85 C9");
+if (__GObjects == nullptr)
+{
+   return;
+}
+
+_GObjects = (BYTE*)*(DWORD*)(__GObjects + 0x03);
+_GObjects += (unsigned __int64)__GObjects + 0x03 + sizeof(DWORD);
+
+UObject::GObjects = reinterpret_cast<decltype(UObject::GObjects)>(_GObjects);
+
+BYTE* __GNames = (BYTE*)PatternScan("EFEngine.dll", "48 8B 05 F6 22 B6 01 4C 8B 04 D0 48 8B 81 9C 00 00 00");
+if (__GNames == nullptr)
+{
+   return;
+}
+
+_GNames = (BYTE*)*(DWORD*)(__GNames + 0x03);
+_GNames += (unsigned __int64)__GNames + 0x03 + sizeof(DWORD);
+
+FName::GNames = reinterpret_cast<decltype(FName::GNames)>(_GNames);
+```
 
 ---
 
