@@ -30,7 +30,7 @@ before_install:
 - sudo pip install travis-wait-improved
 - cd ${TMPDIR-/tmp}
 - curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz --silent
-- tar zxvf doxygen.tar.gz C ~/tmp1
+- tar zxvf doxygen.tar.gz
 - mkdir doxygen_build
 - cd doxygen_build
 - cmake ../doxygen-Release_1_8_17/
