@@ -33,11 +33,11 @@ before_install:
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ../../
 - cd "${TRAVIS_BUILD_DIR}";
-- sudo apt-get install graphviz
-- pip install --upgrade pip
-- pip install pydot-ng pyparsing
-- pip install flake8 flake8-black black flake8-comprehensions flake8-blind-except flake8-bugbear flake8-docstrings flake8-rst-docstrings
-- flake8 .
+- zcat graphviz-2.40.1.tar.gz | tar xfvo -
+- cd graphviz-2.40.1
+- ./configure
+- make
+- make install
 
 deploy:
   provider: pages
