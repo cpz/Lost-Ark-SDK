@@ -8,7 +8,7 @@ PROJECT_NAME           = "Lost Ark SDK"
 PROJECT_NUMBER         = 1.61.63.0
 PROJECT_BRIEF          =
 PROJECT_LOGO           =
-OUTPUT_DIRECTORY       = /docs
+OUTPUT_DIRECTORY       = ./docs
 CREATE_SUBDIRS         = YES
 ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
@@ -116,7 +116,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = .
+INPUT                  = ./
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
