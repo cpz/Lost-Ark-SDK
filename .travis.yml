@@ -25,13 +25,13 @@ before_install:
 - cmake ../doxygen-Release_1_8_17/
 - make
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
-- cd ../../
-- cd "${TRAVIS_BUILD_DIR}";
 - zcat graphviz-2.40.1.tar.gz | tar xfvo -
 - cd graphviz-2.40.1
 - ./configure
 - make
 - make install
+- cd ../../
+- cd "${TRAVIS_BUILD_DIR}";
 
 deploy:
   provider: pages
