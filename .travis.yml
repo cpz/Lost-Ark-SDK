@@ -14,9 +14,8 @@ addons:
       - graphviz
 
 script:
-  - cd $TRAVIS_BUILD_DIR/docs
+  - cd docs
   - doxygen Doxyfile
-  - cd $TRAVIS_BUILD_DIR/
 
 deploy:
   provider: pages
