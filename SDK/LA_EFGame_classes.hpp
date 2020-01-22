@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.61.63.0) SDK
+// Lost Ark (1.76.76.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x4)
@@ -2566,6 +2566,7 @@ public:
 	unsigned long                                      bUseTargetBlend : 1;                                      // 0x06A8(0x0004) (Config)
 	unsigned long                                      bPossessViewTargetChangeMode : 1;                         // 0x06A8(0x0004) (Transient)
 	unsigned long                                      bUseVehicleFOVAngle : 1;                                  // 0x06A8(0x0004) (Transient)
+	unsigned long                                      AllowWatchCameraZoomInOut : 1;                            // 0x06A8(0x0004) (Transient)
 	float                                              OccludedActorBlendMaxTime;                                // 0x06AC(0x0004) (Transient)
 	TArray<struct FOccludedActorInfo>                  OccludedStaticActors;                                     // 0x06B0(0x0010) (Transient, NeedCtorLink)
 	TArray<struct FOccludedActorInfo>                  OccludedDynamicActors;                                    // 0x06C0(0x0010) (Transient, NeedCtorLink)
@@ -6928,8 +6929,8 @@ public:
 	void setTimerPause(bool bPause);
 	void AddItem(class UGFxObject* Object);
 	void setModType(int iType);
-	void roundAnnounceShowType(int iType, const struct FString& Title, const struct FString& Subtitle);
-	void announceShowType(int iType);
+	void roundAnnounceShowType(int iType, const struct FString& Title, const struct FString& Subtitle, int iTeamType);
+	void announceShowType(int iType, const struct FString& Title, int iTeamType);
 	void setStartData(class UGFxObject* Object);
 	void setWaitData(class UGFxObject* Object);
 };
