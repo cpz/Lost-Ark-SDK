@@ -10,8 +10,6 @@ Lost Ark SDK generated for CIS Region game version - 1.76.76.0
 
 ---
 
-### Snippets
-
 ## ULocalPlayer, APlayerController and APawn from LocalPlayer
 
 ##### ULocalPlayer
@@ -31,7 +29,7 @@ auto m_pPC = static_cast<SDK::APlayerController*>(GetLocalPlayer()->Actor);
 
 ##### APawn
 ```C++
-auto m_pLocalPlayerPawn = static_cast<SDK::APawn*>(SDK::g_pPC->AcknowledgedPawn);
+auto m_pLocalPlayerPawn = static_cast<SDK::APawn*>(m_pPC->AcknowledgedPawn);
 	if (m_pLocalPlayerPawn == nullptr)
 		return false;
 ```
@@ -161,9 +159,6 @@ if (SDK::g_pPC->GetFOVAngle() != 100.0f)
 ```C++
 void DrawPlayerSkeleton(SDK::UCanvas* pCanvas, SDK::AEFPawn* pEntity, SDK::FColor Color)
 {
-	if (SDK::IsPet(pEntity) || SDK::IsVehicle(pEntity) || SDK::IsSummonNPC(pEntity))
-		return;
- 
 	std::vector<std::vector<std::string>> BonesVector =
 	{
 	{ "Bip001-Head", "Bip001-Neck", "Bip001-Pelvis" },
