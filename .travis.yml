@@ -14,7 +14,6 @@ addons:
       - graphviz
 
 script:
-  - cd docs
   - doxygen Doxyfile
 
 deploy:
