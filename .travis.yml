@@ -18,7 +18,7 @@ script:
 
 before_install:
 - cd ${TMPDIR-/tmp}
-- curl ${DOXYGEN_URL} -o doxygen.tar.gz
+- curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz
 - tar zxvf doxygen.tar.gz
 - mkdir doxygen_build
 - cd doxygen_build
