@@ -31,9 +31,9 @@ before_install:
 - sudo apt install -y libcairo2-dev
 - sudo apt install -y libpango1.0-dev
 - sudo apt install -y libgts-dev
-- curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-2.41.20171026.tar.gz
-- zcat graphviz-2.41.20171026.tar.gz | tar xfvo -
-- cd graphviz-2.41.20171026
+- curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz
+- zcat graphviz-working.tar.gz | tar xfvo -
+- cd graphviz-working
 - ./configure
 - make
 - sudo make install
