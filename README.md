@@ -38,7 +38,7 @@ auto m_pLocalPlayerPawn = static_cast<SDK::APawn*>(SDK::g_pPC->AcknowledgedPawn)
 
 ## Actor Array location
 
-#### ULevel Class with Actor Array
+#### ULevelBase Class with Actor Array
 ```C++
 class ULevelBase : public UObject
 {
