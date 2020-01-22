@@ -31,8 +31,6 @@ _GNames += (unsigned __int64)__GNames + 0x03 + sizeof(DWORD);
 FName::GNames = reinterpret_cast<decltype(FName::GNames)>(_GNames);
 ```
 
----
-
 ## ULocalPlayer, APlayerController and APawn from LocalPlayer
 
 ##### ULocalPlayer
