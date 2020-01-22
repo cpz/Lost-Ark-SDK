@@ -4,10 +4,6 @@ branches:
   only:
     - master
 
-cache:
-  directories:
-  - $HOME/.m2
-  
 addons:
   apt:
     packages:
@@ -22,6 +18,9 @@ addons:
       - doxygen-gui
       - graphviz
 
+git:
+  quiet: true
+
 script:
   - doxygen Doxyfile
 
@@ -30,20 +29,20 @@ install:
 
 before_install:
 - cd ${TMPDIR-/tmp}
-- curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz
-- tar zxvf doxygen.tar.gz
+- curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz --quiet
+- tar zxvf doxygen.tar.gz --quiet
 - mkdir doxygen_build
 - cd doxygen_build
-- cmake ../doxygen-Release_1_8_17/
-- make
+- cmake ../doxygen-Release_1_8_17/ --quiet
+- make --quiet
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ${TMPDIR-/tmp}
-- curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz
-- zcat graphviz-working.tar.gz | tar xfvo -
+- curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz --quiet
+- zcat graphviz-working.tar.gz | tar xfvo - --quiet
 - cd graphviz-2.41.20171026.1811
 - ./configure
-- make
-- sudo make install
+- make --quiet
+- sudo make install --quiet
 - cd ../../
 - cd "${TRAVIS_BUILD_DIR}";
 
