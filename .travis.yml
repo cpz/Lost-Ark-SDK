@@ -38,7 +38,7 @@ before_install:
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ${TMPDIR-/tmp}
 - curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz --silent
-- zcat graphviz-working.tar.gz | tar xfvo - --quiet
+- zcat graphviz-working.tar.gz | tar xfvo -
 - cd graphviz-2.41.20171026.1811
 - ./configure
 - make --quiet
