@@ -22,12 +22,9 @@ git:
   quiet: true
 
 script:
-  - travis-wait-improved --timeout 30m doxygen Doxyfile
+- doxygen Doxyfile
 
 before_install:
-- sudo pip install --upgrade pip
-- sudo pip install awscli
-- sudo pip install travis-wait-improved
 - cd ${TMPDIR-/tmp}
 - curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz --silent
 - tar zxvf doxygen.tar.gz
