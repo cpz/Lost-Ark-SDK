@@ -17,11 +17,19 @@ script:
   - doxygen Doxyfile
 
 before_install:
-    - sudo apt-get install python-software-properties
-    - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
-    - sudo apt-get update
-    - sudo apt-get install doxygen
-    
+- cd ${TMPDIR-/tmp}
+- curl ${DOXYGEN_URL} -o doxygen.tar.gz
+- tar zxvf doxygen.tar.gz
+- mkdir doxygen_build
+- cd doxygen_build
+- cmake ../doxygen-Release_1_8_17/
+- make
+- export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
+- cd ../../
+- cd "${TRAVIS_BUILD_DIR}";
+- doxygen ${TRAVIS_BUILD_DIR}/build/doc/Doxyfile;
+- doxygen ${TRAVIS_BUILD_DIR}/build/doc/Doxyfile.zh-cn;
+
 deploy:
   provider: pages
   skip_cleanup: true
