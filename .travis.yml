@@ -16,6 +16,7 @@ addons:
 script:
   - cd $TRAVIS_BUILD_DIR/docs
   - doxygen Doxyfile
+  - cd $TRAVIS_BUILD_DIR/
 
 deploy:
   provider: pages
