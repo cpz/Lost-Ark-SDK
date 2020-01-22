@@ -81,14 +81,14 @@ public:
 ```C++
 enum eFuncId
 {
-	EFGame_EFGFxHUDWrapper_PostRender = 41422,            /// EFGame.EFGFxHUDWrapper.PostRender
-	EFGame_EFGameViewportClient_PostRender = 41344,       /// EFGame.EFGameViewportClient.PostRender
-	EFGame_EFGameViewportClient_Tick = 41346,             /// EFGame.EFGameViewportClient.Tick
+	EFGame_EFGFxHUDWrapper_PostRender = 41429,            /// EFGame.EFGFxHUDWrapper.PostRender
+	EFGame_EFGameViewportClient_PostRender = 41350,       /// EFGame.EFGameViewportClient.PostRender
+	EFGame_EFGameViewportClient_Tick = 41352,             /// EFGame.EFGameViewportClient.Tick
 	Engine_GameViewportClient_LayoutPlayers = 19931,      /// Engine.GameViewportClient.LayoutPlayers
-	EFGame_EFGFxHUDWrapper_Destroyed = 41420,             /// EFGame.EFGFxHUDWrapper.Destroyed
-	Engine_PlayerController_Destroyed = 44330,            /// Engine.PlayerController.Destroyed
+	EFGame_EFGFxHUDWrapper_Destroyed = 41427,             /// EFGame.EFGFxHUDWrapper.Destroyed
+	Engine_PlayerController_Destroyed = 44341,            /// Engine.PlayerController.Destroyed
 	Engine_PlayerController_GetFOVAngle = 4408,           /// Engine.PlayerController.GetFOVAngle
-	EFGame_EFPlayerController_PlayerTick = 44335          /// EFGame.EFPlayerController.PlayerTick
+	EFGame_EFPlayerController_PlayerTick = 44346          /// EFGame.EFPlayerController.PlayerTick
 };
 ```
 
@@ -106,12 +106,12 @@ if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)
 ```C++
 enum eTagId
 {
-	Player = 15254,
-	Monster = 15248,
-	NPC = 15250,
-	SummonNPC = 15256,
-	Pet = 15252,
-	Vehicle = 15262
+	Player = 15266,
+	Monster = 15260,
+	NPC = 15262,
+	SummonNPC = 15268,
+	Pet = 15264,
+	Vehicle = 15274
 };
 ```
 
