@@ -7,6 +7,11 @@ branches:
 addons:
   apt:
     packages:
+      - libgd-dev
+      - fontconfig
+      - libcairo2-dev
+      - libpango1.0-dev
+      - libgts-dev
       - doxygen
       - doxygen-doc
       - doxygen-latex
@@ -26,11 +31,6 @@ before_install:
 - make
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ${TMPDIR-/tmp}
-- sudo apt install -y libgd-dev
-- sudo apt install -y fontconfig
-- sudo apt install -y libcairo2-dev
-- sudo apt install -y libpango1.0-dev
-- sudo apt install -y libgts-dev
 - curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz
 - zcat graphviz-working.tar.gz | tar xfvo -
 - cd graphviz-2.41.20171026.1811
