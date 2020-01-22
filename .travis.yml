@@ -26,9 +26,9 @@ before_install:
 - make
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ${TMPDIR-/tmp}
-- curl https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz -o graphviz-2.40.1.tar.gz
-- zcat graphviz-2.40.1.tar.gz | tar xfvo -
-- cd graphviz-2.40.1
+- curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-2.41.20171026.tar.gz
+- zcat graphviz-2.41.20171026.tar.gz | tar xfvo -
+- cd graphviz-2.41.20171026
 - ./configure
 - make
 - sudo make install
