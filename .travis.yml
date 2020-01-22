@@ -21,6 +21,9 @@ addons:
 script:
   - doxygen Doxyfile
 
+install:
+  - export DISPLAY=:99.0
+  
 before_install:
 - cd ${TMPDIR-/tmp}
 - curl https://codeload.github.com/doxygen/doxygen/tar.gz/Release_1_8_17 -o doxygen.tar.gz
