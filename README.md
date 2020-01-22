@@ -12,7 +12,9 @@ Lost Ark SDK generated for CIS Region game version - 1.76.76.0
 
 ### Snippets
 
-How to get localplayer:
+## ULocalPlayer, APlayerController and APawn from LocalPlayer
+
+##### ULocalPlayer
 ```C++
 ULocalPlayer* GetLocalPlayer()
 {
@@ -20,53 +22,43 @@ ULocalPlayer* GetLocalPlayer()
 }
 ```
 
-Functions names and ID's for ProcessEvent Hook:
+##### APlayerController
 ```C++
-enum eFuncId
+auto m_pPC = static_cast<SDK::APlayerController*>(GetLocalPlayer()->Actor);
+      if (m_pPC == nullptr)
+	return;
+```
+
+##### APawn
+```C++
+auto m_pLocalPlayerPawn = static_cast<SDK::APawn*>(SDK::g_pPC->AcknowledgedPawn);
+	if (m_pLocalPlayerPawn == nullptr)
+		return false;
+```
+
+## Actor Array location
+
+#### ULevel Class with Actor Array
+```C++
+class ULevelBase : public UObject
 {
-	EFGame_EFGFxHUDWrapper_PostRender = 41422,            /// EFGame.EFGFxHUDWrapper.PostRender
-	EFGame_EFGameViewportClient_PostRender = 41344,       /// EFGame.EFGameViewportClient.PostRender
-	EFGame_EFGameViewportClient_Tick = 41346,             /// EFGame.EFGameViewportClient.Tick
-	Engine_GameViewportClient_LayoutPlayers = 19931,      /// Engine.GameViewportClient.LayoutPlayers
-	EFGame_EFGFxHUDWrapper_Destroyed = 41420,             /// EFGame.EFGFxHUDWrapper.Destroyed
-	Engine_PlayerController_Destroyed = 44330,            /// Engine.PlayerController.Destroyed
-	Engine_PlayerController_GetFOVAngle = 4408,           /// Engine.PlayerController.GetFOVAngle
-	EFGame_EFPlayerController_PlayerTick = 44335          /// EFGame.EFPlayerController.PlayerTick
+	public:
+		TArray<AActor*>                                    Actors;
+		unsigned char                                      UnknownData00[0x64];
+
+	static UClass* StaticClass()
+	{
+		static UClass* ptr = nullptr; 
+        if (!ptr) 
+           ptr = UObject::FindClass("Class Engine.LevelBase");
+		return ptr;
+	}
+
 };
+
 ```
 
-Example usage of eFuncId:
-```C++
-auto iIndex = pUFunc->ObjectInternalInteger;
- 
-if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)	
-{		
-    PostRender();		
-}
-```
-
-Actor Tag ID's:
-```C++
-enum eTagId
-{
-	Player = 15254,
-	Monster = 15248,
-	NPC = 15250,
-	SummonNPC = 15256,
-	Pet = 15252,
-	Vehicle = 15262
-};
-```
-
-Example usage of eTagId:
-```C++
-bool IsPlayer(AEFPawn* pEntity)
-{
-	return (pEntity->Tag.Index == eTagId::Player);
-}
-```
-
-UWorld class with PersistentLevel:
+##### UWorld class with PersistentLevel:
 ```C++
 class UWorld : public UObject
 {
@@ -86,7 +78,54 @@ public:
 };
 ```
 
-Visible check:
+## Snippets
+##### Functions names and ID's for ProcessEvent Hook:
+```C++
+enum eFuncId
+{
+	EFGame_EFGFxHUDWrapper_PostRender = 41422,            /// EFGame.EFGFxHUDWrapper.PostRender
+	EFGame_EFGameViewportClient_PostRender = 41344,       /// EFGame.EFGameViewportClient.PostRender
+	EFGame_EFGameViewportClient_Tick = 41346,             /// EFGame.EFGameViewportClient.Tick
+	Engine_GameViewportClient_LayoutPlayers = 19931,      /// Engine.GameViewportClient.LayoutPlayers
+	EFGame_EFGFxHUDWrapper_Destroyed = 41420,             /// EFGame.EFGFxHUDWrapper.Destroyed
+	Engine_PlayerController_Destroyed = 44330,            /// Engine.PlayerController.Destroyed
+	Engine_PlayerController_GetFOVAngle = 4408,           /// Engine.PlayerController.GetFOVAngle
+	EFGame_EFPlayerController_PlayerTick = 44335          /// EFGame.EFPlayerController.PlayerTick
+};
+```
+
+##### Example usage of eFuncId:
+```C++
+auto iIndex = pUFunc->ObjectInternalInteger;
+ 
+if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)	
+{		
+    PostRender();		
+}
+```
+
+##### Actor Tag ID's:
+```C++
+enum eTagId
+{
+	Player = 15254,
+	Monster = 15248,
+	NPC = 15250,
+	SummonNPC = 15256,
+	Pet = 15252,
+	Vehicle = 15262
+};
+```
+
+##### Example usage of eTagId:
+```C++
+bool IsPlayer(AEFPawn* pEntity)
+{
+	return (pEntity->Tag.Index == eTagId::Player);
+}
+```
+
+##### Visible check:
 ```C++
 bool IsVisible(AEFPawn* pEntity)
 {
@@ -106,7 +145,7 @@ bool IsVisible(AEFPawn* pEntity)
 }
 ```
 
-Modify FOV of Camera:
+##### Modify FOV of Camera:
 ```C++
 /// CustomFOV
 if (SDK::g_pPC->GetFOVAngle() != 100.0f)
@@ -118,7 +157,7 @@ if (SDK::g_pPC->GetFOVAngle() != 100.0f)
 }
 ```
 
-Skeleton ESP:
+##### Skeleton ESP:
 ```C++
 void DrawPlayerSkeleton(SDK::UCanvas* pCanvas, SDK::AEFPawn* pEntity, SDK::FColor Color)
 {
@@ -159,7 +198,14 @@ void DrawPlayerSkeleton(SDK::UCanvas* pCanvas, SDK::AEFPawn* pEntity, SDK::FColo
 
 Name | Reason
 ------------ | -------------
-KN4CK3R | Unreal Engine SDK Generator
 realrespecter | Korea SDK Dump
 iCollin\qmp | Original Skeleton ESP Function
 Revenge282 | Inspired by sot.exiled.dev
+
+### Special thanks to the OSH Community
+Name | Reason
+------------ | -------------
+KN4CK3R	| SDK Generator and ReClass.NET
+Dr.Pepper | Help with SDK Generator, Unreal Engine, C++ and ASM
+SilverDeath | C++, ASM, Math and some UE SDK stuff
+Jeon | C++ and ASM
