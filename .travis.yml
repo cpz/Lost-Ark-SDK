@@ -33,7 +33,7 @@ before_install:
 - sudo apt install -y libgts-dev
 - curl https://graphviz.gitlab.io/pub/graphviz/development/SOURCES/graphviz-working.tar.gz -o graphviz-working.tar.gz
 - zcat graphviz-working.tar.gz | tar xfvo -
-- cd graphviz-working
+- cd graphviz-2.41.20171026.1811
 - ./configure
 - make
 - sudo make install
