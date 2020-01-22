@@ -27,8 +27,6 @@ before_install:
 - export PATH="${TMPDIR-/tmp}/doxygen_build/bin:$PATH"
 - cd ../../
 - cd "${TRAVIS_BUILD_DIR}";
-- doxygen ${TRAVIS_BUILD_DIR}/build/doc/Doxyfile;
-- doxygen ${TRAVIS_BUILD_DIR}/build/doc/Doxyfile.zh-cn;
 
 deploy:
   provider: pages
