@@ -6,7 +6,7 @@
 
 ## FindPattern Signatures
 
-####  1.76.76.0 (Codename: Silmael)
+####  v1.76.76.0 (Codename: Silmael)
 ```C++
 BYTE* __GObjects = (BYTE*)PatternScan("EFEngine.dll", "48 8B 05 E3 21 A5 01 48 8B 14 C8 48 8B 4A 50 48 85 C9");
 if (__GObjects == nullptr)
