@@ -210,7 +210,7 @@ void DrawPlayerSkeleton(SDK::UCanvas* pCanvas, SDK::AEFPawn* pEntity, SDK::FColo
 
 ---
 
-### Credits
+## Credits
 
 Name | Reason
 ------------ | -------------
