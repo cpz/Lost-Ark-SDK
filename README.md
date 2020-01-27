@@ -1,6 +1,14 @@
 # Lost Ark SDK Documentation
 
-[Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK)
+---
+
+### [Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK) [![Build Status](https://travis-ci.com/cpz/Lost-Ark-SDK.svg?branch=gh-sdk)](https://travis-ci.com/cpz/Lost-Ark-SDK)
+
+
+<p align="center">
+    <img src="https://i.gyazo.com/e24422ce70b228133c8cfa7ae4f7a405.png">
+</p>
+
 
 ---
 
