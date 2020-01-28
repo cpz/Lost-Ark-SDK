@@ -2,7 +2,8 @@
 
 ---
 
-### [Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK) [![Build Status](https://travis-ci.com/cpz/Lost-Ark-SDK.svg?branch=gh-sdk)](https://travis-ci.com/cpz/Lost-Ark-SDK)
+### [Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK) 
+[![Build Status](https://travis-ci.com/cpz/Lost-Ark-SDK.svg?branch=gh-sdk)](https://travis-ci.com/cpz/Lost-Ark-SDK)
 
 
 <p align="center">
