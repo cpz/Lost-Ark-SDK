@@ -109,14 +109,14 @@ public:
 ```C++
 enum eFuncId
 {
-	EFGame_EFGFxHUDWrapper_PostRender = 41429,            /// EFGame.EFGFxHUDWrapper.PostRender
-	EFGame_EFGameViewportClient_PostRender = 41350,       /// EFGame.EFGameViewportClient.PostRender
-	EFGame_EFGameViewportClient_Tick = 41352,             /// EFGame.EFGameViewportClient.Tick
+	EFGame_EFGFxHUDWrapper_PostRender = 41432,            /// EFGame.EFGFxHUDWrapper.PostRender
+	EFGame_EFGameViewportClient_PostRender = 41353,       /// EFGame.EFGameViewportClient.PostRender
+	EFGame_EFGameViewportClient_Tick = 41355,             /// EFGame.EFGameViewportClient.Tick
 	Engine_GameViewportClient_LayoutPlayers = 19931,      /// Engine.GameViewportClient.LayoutPlayers
-	EFGame_EFGFxHUDWrapper_Destroyed = 41427,             /// EFGame.EFGFxHUDWrapper.Destroyed
-	Engine_PlayerController_Destroyed = 44341,            /// Engine.PlayerController.Destroyed
+	EFGame_EFGFxHUDWrapper_Destroyed = 41430,             /// EFGame.EFGFxHUDWrapper.Destroyed
+	Engine_PlayerController_Destroyed = 44344,            /// Engine.PlayerController.Destroyed
 	Engine_PlayerController_GetFOVAngle = 4408,           /// Engine.PlayerController.GetFOVAngle
-	EFGame_EFPlayerController_PlayerTick = 44346          /// EFGame.EFPlayerController.PlayerTick
+	EFGame_EFPlayerController_PlayerTick = 44349          /// EFGame.EFPlayerController.PlayerTick
 };
 ```
 
