@@ -728,6 +728,15 @@ enum class EBattlefieldRule : uint8_t
 };
 
 
+// Enum EFGame.EFConst.BattlefieldRuleMode
+enum class EBattlefieldRuleMode : uint8_t
+{
+	BATTLEFIELD_RULE_MODE_NONE     = 0,
+	BATTLEFIELD_RULE_MODE_COOPERATION = 1,
+	BATTLEFIELD_RULE_MODE_MAX      = 2
+};
+
+
 // Enum EFGame.EFConst.BattlefieldTeam
 enum class EBattlefieldTeam : uint8_t
 {
@@ -876,6 +885,17 @@ enum class EBladeBurstType : uint8_t
 };
 
 
+// Enum EFGame.EFConst.BusinessEventRecycleType
+enum class EBusinessEventRecycleType : uint8_t
+{
+	BUSINESS_EVENT_RECYCLE_TYPE_NONE = 0,
+	BUSINESS_EVENT_RECYCLE_TYPE_DAILY = 1,
+	BUSINESS_EVENT_RECYCLE_TYPE_WEEKLY = 2,
+	BUSINESS_EVENT_RECYCLE_TYPE_ONCE = 3,
+	BUSINESS_EVENT_RECYCLE_TYPE_MAX = 4
+};
+
+
 // Enum EFGame.EFConst.ContentsMaskType
 enum class EContentsMaskType : uint8_t
 {
@@ -916,7 +936,9 @@ enum class EContentsMaskType : uint8_t
 	CONTENTS_MASK_TYPE_TROOP       = 34,
 	CONTENTS_MASK_TYPE_BM          = 35,
 	CONTENTS_MASK_TYPE_NATION      = 36,
-	CONTENTS_MASK_TYPE_MAX         = 37
+	CONTENTS_MASK_TYPE_NOCOOK      = 37,
+	CONTENTS_MASK_TYPE_JUMPING     = 38,
+	CONTENTS_MASK_TYPE_MAX         = 39
 };
 
 
@@ -1387,7 +1409,8 @@ enum class EColosseumRuleType : uint8_t
 	COLOSSEUM_RULE_TYPE_TEAM_DEATHMATCH = 2,
 	COLOSSEUM_RULE_TYPE_FREE_FOR_ALL = 3,
 	COLOSSEUM_RULE_TYPE_TEAM_DEATHMATCH_RANK = 4,
-	COLOSSEUM_RULE_TYPE_MAX        = 5
+	COLOSSEUM_RULE_TYPE_COOPERATION = 5,
+	COLOSSEUM_RULE_TYPE_MAX        = 6
 };
 
 
@@ -3645,6 +3668,16 @@ enum class EHideAvatarType : uint8_t
 };
 
 
+// Enum EFGame.EFConst.HotTimeType
+enum class EHotTimeType : uint8_t
+{
+	HOT_TIME_TYPE_TIME_EVENT       = 0,
+	HOT_TIME_TYPE_URL_EVENT        = 1,
+	HOT_TIME_TYPE_URL_EVENT01      = 2,
+	HOT_TIME_TYPE_MAX              = 3
+};
+
+
 // Enum EFGame.EFConst.IslandHeartCheckType
 enum class EIslandHeartCheckType : uint8_t
 {
@@ -4321,7 +4354,8 @@ enum class EMatchType : uint8_t
 	MATCH_TYPE_RAID_WEEKLY         = 4,
 	MATCH_TYPE_RAID_EPIC           = 5,
 	MATCH_TYPE_REVERSE_RUIN        = 6,
-	MATCH_TYPE_MAX                 = 7
+	MATCH_TYPE_BATTLEFIELD         = 7,
+	MATCH_TYPE_MAX                 = 8
 };
 
 
@@ -10186,7 +10220,8 @@ enum class ETroopLeaveType : uint8_t
 	TROOP_LEAVE_TYPE_SYSTEM_BATTLEFIELD = 12,
 	TROOP_LEAVE_TYPE_MATCHING_IN_PERSISTENT = 13,
 	TROOP_LEAVE_TYPE_SYSTEM_COLOSSEUM = 14,
-	TROOP_LEAVE_TYPE_MAX           = 15
+	TROOP_LEAVE_TYPE_EXIT_TROOP_ZONE_RE_PARTY = 15,
+	TROOP_LEAVE_TYPE_MAX           = 16
 };
 
 
@@ -10606,7 +10641,8 @@ enum class EZoneContentType : uint8_t
 	ZONE_CONTENT_TYPE_DUNGEON_TROOP_SET = 12,
 	ZONE_CONTENT_TYPE_REVERSE_RUIN = 13,
 	ZONE_CONTENT_TYPE_REVERSE_RUIN_LOBBY = 14,
-	ZONE_CONTENT_TYPE_MAX          = 15
+	ZONE_CONTENT_TYPE_BATTLEFIELD_OPEN_MATCH = 15,
+	ZONE_CONTENT_TYPE_MAX          = 16
 };
 
 
@@ -11535,7 +11571,9 @@ enum class EPutDamageResult : uint8_t
 	PUT_DAMAGE_RESULT_FAILURE_UNKNOWN = 1,
 	PUT_DAMAGE_RESULT_FAILURE_DEAD = 2,
 	PUT_DAMAGE_RESULT_FAILURE_INVINCIBLE = 3,
-	PUT_DAMAGE_RESULT_MAX          = 4
+	PUT_DAMAGE_RESULT_FAILURE_LIFE_VESSEL = 4,
+	PUT_DAMAGE_RESULT_FAILURE_INVALID_HP = 5,
+	PUT_DAMAGE_RESULT_MAX          = 6
 };
 
 
@@ -14430,7 +14468,8 @@ enum class EInstantRecallType : uint8_t
 	INSTANT_RECALL_TYPE_MOD        = 3,
 	INSTANT_RECALL_TYPE_DUNGEON    = 4,
 	INSTANT_RECALL_TYPE_RAID       = 5,
-	INSTANT_RECALL_TYPE_MAX        = 6
+	INSTANT_RECALL_TYPE_BATTLEFIELD = 6,
+	INSTANT_RECALL_TYPE_MAX        = 7
 };
 
 
@@ -15141,7 +15180,10 @@ enum class EUIUnitTypeIndex : uint8_t
 	UI_UNIT_TYPE_CONTENTS_TIMER_CONFIG = 360,
 	UI_UNIT_TYPE_COLOSSEUM_CUSTOM_WAIT_ROOM = 361,
 	UI_UNIT_TYPE_COLOSSEUM_CUSTOM_MATCHING_ROOM = 362,
-	UI_UNIT_TYPE_MAX               = 363
+	UI_UNIT_TYPE_BATTLEFIELD_COOPERATION_ENTER = 363,
+	UI_UNIT_TYPE_BATTLEFIELD_COOPERATION_SCORE = 364,
+	UI_UNIT_TYPE_BATTLEFIELD_COOPERATION_RESULT = 365,
+	UI_UNIT_TYPE_MAX               = 366
 };
 
 
