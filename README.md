@@ -13,9 +13,9 @@
 
 ## FindPattern Signatures
 
-####  v1.76.76.0 (Codename: Silmael)
+####  v1.148.153.0 (Codename: Assasin)
 ```C++
-BYTE* __GObjects = (BYTE*)PatternScan("EFEngine.dll", "48 8B 05 E3 21 A5 01 48 8B 14 C8 48 8B 4A 50 48 85 C9");
+BYTE* __GObjects = (BYTE*)PatternScan("EFEngine.dll", "48 8B ? ? ? ? ? 48 8B 34 C8 49 8B D6 48 8B CE");
 if (__GObjects == nullptr)
 {
    return;
@@ -26,7 +26,7 @@ _GObjects += (unsigned __int64)__GObjects + 0x03 + sizeof(DWORD);
 
 UObject::GObjects = reinterpret_cast<decltype(UObject::GObjects)>(_GObjects);
 
-BYTE* __GNames = (BYTE*)PatternScan("EFEngine.dll", "48 8B 05 F6 22 B6 01 4C 8B 04 D0 48 8B 81 9C 00 00 00");
+BYTE* __GNames = (BYTE*)PatternScan("EFEngine.dll", "48 89 ? ? ? ? ? 48 89 ? ? ? ? ? 48 8B ? ? ? ? ? 48 2B C1 48 83 F8 19");
 if (__GNames == nullptr)
 {
    return;
