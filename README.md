@@ -1,5 +1,5 @@
 # Lost Ark SDK
-Lost Ark SDK generated for CIS Region game version - 1.76.76.0
+Lost Ark SDK generated for CIS Region game version - 1.148.153.0
 
 [Lost Ark SDK Documentation](https://cpz.github.io/Lost-Ark-SDK/)
 
