@@ -1,6 +1,6 @@
 # Lost Ark SDK Documentation
 
-[Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK) 
+[Lost Ark SDK](https://github.com/cpz/Lost-Ark-SDK)
 [![Build Status](https://travis-ci.com/cpz/Lost-Ark-SDK.svg?branch=gh-sdk)](https://travis-ci.com/cpz/Lost-Ark-SDK)
 
 
@@ -17,9 +17,7 @@
 ```C++
 BYTE* __GObjects = (BYTE*)PatternScan("EFEngine.dll", "48 8B ? ? ? ? ? 48 8B 34 C8 49 8B D6 48 8B CE");
 if (__GObjects == nullptr)
-{
    return;
-}
 
 _GObjects = (BYTE*)*(DWORD*)(__GObjects + 0x03);
 _GObjects += (unsigned __int64)__GObjects + 0x03 + sizeof(DWORD);
@@ -28,9 +26,7 @@ UObject::GObjects = reinterpret_cast<decltype(UObject::GObjects)>(_GObjects);
 
 BYTE* __GNames = (BYTE*)PatternScan("EFEngine.dll", "48 89 ? ? ? ? ? 48 89 ? ? ? ? ? 48 8B ? ? ? ? ? 48 2B C1 48 83 F8 19");
 if (__GNames == nullptr)
-{
    return;
-}
 
 _GNames = (BYTE*)*(DWORD*)(__GNames + 0x03);
 _GNames += (unsigned __int64)__GNames + 0x03 + sizeof(DWORD);
@@ -74,8 +70,8 @@ class ULevelBase : public UObject
 
 	static UClass* StaticClass()
 	{
-		static UClass* ptr = nullptr; 
-        if (!ptr) 
+		static UClass* ptr = nullptr;
+        if (!ptr)
            ptr = UObject::FindClass("Class Engine.LevelBase");
 		return ptr;
 	}
@@ -90,9 +86,9 @@ class UWorld : public UObject
 {
 public:
 	unsigned char                                      UnknownData00[0x20];                                       // 0x0058
-	class ULevel*                                      PersistentLevel;                                          // 0x0060(0x0008) 
+	class ULevel*                                      PersistentLevel;                                          // 0x0060(0x0008)
 	unsigned char                                      UnknownData01[0x384];                                     // 0x0058(0x0354) MISSED OFFSET
- 
+
 	static UClass* StaticClass()
 	{
 		static UClass* ptr = nullptr;
@@ -100,7 +96,7 @@ public:
 			ptr = UObject::FindClass("Class Engine.World");
 		return ptr;
 	}
- 
+
 };
 ```
 
@@ -123,8 +119,8 @@ enum eFuncId
 ##### Example usage of eFuncId:
 ```C++
 auto iIndex = pUFunc->ObjectInternalInteger;
- 
-if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)	
+
+if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)
 {		
     PostRender();		
 }
@@ -157,16 +153,16 @@ bool IsVisible(AEFPawn* pEntity)
 {
 	if (g_pLocalPlayer == nullptr)
 		return false;
- 
+
 	if (g_pPC == nullptr)
 		return false;
- 
+
 	if (g_pLocalPlayerPawn == nullptr)
 			return false;
- 
+
 	if (g_pLocalPlayerPawn->LineOfSightTo(pEntity))
 			return true;
- 
+
 	return false;
 }
 ```
@@ -195,20 +191,20 @@ void DrawPlayerSkeleton(SDK::UCanvas* pCanvas, SDK::AEFPawn* pEntity, SDK::FColo
 	{ "Bip001-R-Clavicle", "Bip001-R-Forearm", "Bip001-R-Hand", "bip001-r-thigh" },
 	{ "bip001-r-calf", "bip001-r-foot" }
 	};
- 
+
 	for (auto pBoneVector : BonesVector)
 	{
 		SDK::FVector FVPrev, FVCur;
 		FVPrev = pCanvas->Project(pEntity->Mesh->GetBoneLocation(pBoneVector.at(0).c_str(), 0));
- 
+
 		for (size_t bone = 1; bone < pBoneVector.size(); bone++)
 		{
 			FVCur = pCanvas->Project(pEntity->Mesh->GetBoneLocation(pBoneVector.at(bone).c_str(), 0));
 			if (!FVCur.X || !FVCur.Y || !FVCur.Z)
 				break;
- 
+
 			pCanvas->Draw2DLine(FVPrev.X, FVPrev.Y, FVCur.X, FVCur.Y, Color);
- 
+
 			FVPrev = FVCur;
 		}
 	}
