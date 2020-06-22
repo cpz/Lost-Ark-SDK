@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.76.76.0) SDK
+// Lost Ark (1.148.153.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x4)
@@ -15,23 +15,22 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Class Core.Object
-// 0x0058
+// 0x0050
 class UObject
 {
 public:
 	static TArray<UObject*>*                           GObjects;                                                 // 0x0000(0x0000)
 	struct FPointer                                    VfTableObject;                                            // 0x0000(0x0008) (Const, Native, EditConst, NoExport)
-	struct FPointer                                    HashNext;                                                 // 0x0008(0x0008) (Const, Native, EditConst)
-	struct FQWord                                      ObjectFlags;                                              // 0x0010(0x0008) (Const, Native, EditConst)
-	struct FPointer                                    StateFrame;                                               // 0x0018(0x0008) (Const, Native, EditConst)
-	class UObject*                                     Linker;                                                   // 0x0020(0x0008) (Const, Native, EditConst, NoExport)
-	struct FPointer                                    LinkerIndex;                                              // 0x0028(0x0008) (Const, Native, EditConst, NoExport)
-	int                                                ObjectInternalInteger;                                    // 0x0030(0x0004) (Const, Native, EditConst, NoExport)
-	int                                                NetIndex;                                                 // 0x0034(0x0004) (Const, Native, EditConst, NoExport)
-	class UObject*                                     Outer;                                                    // 0x0038(0x0008) (Const, Native, EditConst)
-	struct FName                                       Name;                                                     // 0x0040(0x0008) (Edit, Const, Native, EditConst)
-	class UClass*                                      Class;                                                    // 0x0048(0x0008) (Const, Native, EditConst)
-	class UObject*                                     ObjectArchetype;                                          // 0x0050(0x0008) (Edit, Const, Native, EditConst)
+	struct FQWord                                      ObjectFlags;                                              // 0x0008(0x0008) (Const, Native, EditConst)
+	struct FPointer                                    StateFrame;                                               // 0x0010(0x0008) (Const, Native, EditConst)
+	class UObject*                                     Linker;                                                   // 0x0018(0x0008) (Const, Native, EditConst, NoExport)
+	struct FPointer                                    LinkerIndex;                                              // 0x0020(0x0008) (Const, Native, EditConst, NoExport)
+	int                                                ObjectInternalInteger;                                    // 0x0028(0x0004) (Const, Native, EditConst, NoExport)
+	int                                                NetIndex;                                                 // 0x002C(0x0004) (Const, Native, EditConst, NoExport)
+	class UObject*                                     Outer;                                                    // 0x0030(0x0008) (Const, Native, EditConst)
+	struct FName                                       Name;                                                     // 0x0038(0x0008) (Edit, Const, Native, EditConst)
+	class UClass*                                      Class;                                                    // 0x0040(0x0008) (Const, Native, EditConst)
+	class UObject*                                     ObjectArchetype;                                          // 0x0048(0x0008) (Edit, Const, Native, EditConst)
 
 	static inline TArray<UObject*>& GetGlobalObjects()
 	{
@@ -405,11 +404,11 @@ public:
 
 
 // Class Core.TextBuffer
-// 0x0030 (0x0088 - 0x0058)
+// 0x0030 (0x0080 - 0x0050)
 class UTextBuffer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0058(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0050(0x0030) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -423,11 +422,11 @@ public:
 
 
 // Class Core.Subsystem
-// 0x0008 (0x0060 - 0x0058)
+// 0x0008 (0x0058 - 0x0050)
 class USubsystem : public UObject
 {
 public:
-	struct FPointer                                    VfTable_FExec;                                            // 0x0058(0x0008) (Const, Native, NoExport)
+	struct FPointer                                    VfTable_FExec;                                            // 0x0050(0x0008) (Const, Native, NoExport)
 
 	static UClass* StaticClass()
 	{
@@ -441,29 +440,29 @@ public:
 
 
 // Class Core.System
-// 0x00F4 (0x0154 - 0x0060)
+// 0x00F4 (0x014C - 0x0058)
 class USystem : public USubsystem
 {
 public:
-	int                                                StaleCacheDays;                                           // 0x0060(0x0004) (Config)
-	int                                                MaxStaleCacheSize;                                        // 0x0064(0x0004) (Config)
-	int                                                MaxOverallCacheSize;                                      // 0x0068(0x0004) (Config)
-	int                                                PackageSizeSoftLimit;                                     // 0x006C(0x0004) (Config)
-	float                                              AsyncIOBandwidthLimit;                                    // 0x0070(0x0004) (Config)
-	struct FString                                     SavePath;                                                 // 0x0074(0x0010) (Config, NeedCtorLink)
-	struct FString                                     CachePath;                                                // 0x0084(0x0010) (Config, NeedCtorLink)
-	struct FString                                     CacheExt;                                                 // 0x0094(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             Paths;                                                    // 0x00A4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             ReleaseCookedPaths;                                       // 0x00B4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             SeekFreePCPaths;                                          // 0x00C4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             ScriptPaths;                                              // 0x00D4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             FRScriptPaths;                                            // 0x00E4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             CutdownPaths;                                             // 0x00F4(0x0010) (Config, NeedCtorLink)
-	TArray<struct FName>                               Suppress;                                                 // 0x0104(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             Extensions;                                               // 0x0114(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             SeekFreePCExtensions;                                     // 0x0124(0x0010) (Config, NeedCtorLink)
-	TArray<struct FString>                             LocalizationPaths;                                        // 0x0134(0x0010) (Config, NeedCtorLink)
-	struct FString                                     TextureFileCacheExtension;                                // 0x0144(0x0010) (Config, NeedCtorLink)
+	int                                                StaleCacheDays;                                           // 0x0058(0x0004) (Config)
+	int                                                MaxStaleCacheSize;                                        // 0x005C(0x0004) (Config)
+	int                                                MaxOverallCacheSize;                                      // 0x0060(0x0004) (Config)
+	int                                                PackageSizeSoftLimit;                                     // 0x0064(0x0004) (Config)
+	float                                              AsyncIOBandwidthLimit;                                    // 0x0068(0x0004) (Config)
+	struct FString                                     SavePath;                                                 // 0x006C(0x0010) (Config, NeedCtorLink)
+	struct FString                                     CachePath;                                                // 0x007C(0x0010) (Config, NeedCtorLink)
+	struct FString                                     CacheExt;                                                 // 0x008C(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             Paths;                                                    // 0x009C(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             ReleaseCookedPaths;                                       // 0x00AC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             SeekFreePCPaths;                                          // 0x00BC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             ScriptPaths;                                              // 0x00CC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             FRScriptPaths;                                            // 0x00DC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             CutdownPaths;                                             // 0x00EC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FName>                               Suppress;                                                 // 0x00FC(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             Extensions;                                               // 0x010C(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             SeekFreePCExtensions;                                     // 0x011C(0x0010) (Config, NeedCtorLink)
+	TArray<struct FString>                             LocalizationPaths;                                        // 0x012C(0x0010) (Config, NeedCtorLink)
+	struct FString                                     TextureFileCacheExtension;                                // 0x013C(0x0010) (Config, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -477,11 +476,11 @@ public:
 
 
 // Class Core.PackageMap
-// 0x00A0 (0x00F8 - 0x0058)
+// 0x00A0 (0x00F0 - 0x0050)
 class UPackageMap : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xA0];                                      // 0x0058(0x00A0) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xA0];                                      // 0x0050(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -495,11 +494,11 @@ public:
 
 
 // Class Core.ObjectSerializer
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0060 - 0x0050)
 class UObjectSerializer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0050(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -513,11 +512,11 @@ public:
 
 
 // Class Core.ObjectRedirector
-// 0x0008 (0x0060 - 0x0058)
+// 0x0008 (0x0058 - 0x0050)
 class UObjectRedirector : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -531,11 +530,11 @@ public:
 
 
 // Class Core.LocAssetRedirector
-// 0x0010 (0x0070 - 0x0060)
+// 0x0010 (0x0068 - 0x0058)
 class ULocAssetRedirector : public UObjectRedirector
 {
 public:
-	TArray<struct FDestinationLocObject>               DestinationLocObjectInfoList;                             // 0x0060(0x0010) (Edit, NeedCtorLink)
+	TArray<struct FDestinationLocObject>               DestinationLocObjectInfoList;                             // 0x0058(0x0010) (Edit, NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -549,11 +548,11 @@ public:
 
 
 // Class Core.MetaData
-// 0x0048 (0x00A0 - 0x0058)
+// 0x0048 (0x0098 - 0x0050)
 class UMetaData : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x48];                                      // 0x0058(0x0048) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x48];                                      // 0x0050(0x0048) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -567,11 +566,11 @@ public:
 
 
 // Class Core.Linker
-// 0x0168 (0x01C0 - 0x0058)
+// 0x0168 (0x01B8 - 0x0050)
 class ULinker : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x168];                                     // 0x0058(0x0168) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x168];                                     // 0x0050(0x0168) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -585,11 +584,11 @@ public:
 
 
 // Class Core.LinkerSave
-// 0x00C4 (0x0284 - 0x01C0)
+// 0x00C4 (0x027C - 0x01B8)
 class ULinkerSave : public ULinker
 {
 public:
-	unsigned char                                      UnknownData00[0xC4];                                      // 0x01C0(0x00C4) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xC4];                                      // 0x01B8(0x00C4) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -603,11 +602,11 @@ public:
 
 
 // Class Core.LinkerLoad
-// 0x0610 (0x07D0 - 0x01C0)
+// 0x0610 (0x07C8 - 0x01B8)
 class ULinkerLoad : public ULinker
 {
 public:
-	unsigned char                                      UnknownData00[0x610];                                     // 0x01C0(0x0610) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x610];                                     // 0x01B8(0x0610) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -621,7 +620,7 @@ public:
 
 
 // Class Core.Interface
-// 0x0000 (0x0058 - 0x0058)
+// 0x0000 (0x0050 - 0x0050)
 class UInterface : public UObject
 {
 public:
@@ -638,7 +637,7 @@ public:
 
 
 // Class Core.Field
-// 0x0008 (0x0060 - 0x0058)
+// 0x0008 (0x0058 - 0x0050)
 class UField : public UObject
 {
 public:
@@ -656,7 +655,7 @@ public:
 
 
 // Class Core.Struct
-// 0x0068 (0x00C8 - 0x0060)
+// 0x0068 (0x00C0 - 0x0058)
 class UStruct : public UField
 {
 public:
@@ -678,11 +677,11 @@ public:
 
 
 // Class Core.ScriptStruct
-// 0x0024 (0x00EC - 0x00C8)
+// 0x0024 (0x00E4 - 0x00C0)
 class UScriptStruct : public UStruct
 {
 public:
-	unsigned char                                      UnknownData00[0x24];                                      // 0x00C8(0x0024) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x24];                                      // 0x00C0(0x0024) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -696,7 +695,7 @@ public:
 
 
 // Class Core.Function
-// 0x0028 (0x00F0 - 0x00C8)
+// 0x0028 (0x00E8 - 0x00C0)
 class UFunction : public UStruct
 {
 public:
@@ -722,11 +721,11 @@ public:
 
 
 // Class Core.Property
-// 0x0040 (0x00A0 - 0x0060)
+// 0x0040 (0x0098 - 0x0058)
 class UProperty : public UField
 {
 public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0060(0x0040) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x40];                                      // 0x0058(0x0040) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -740,11 +739,11 @@ public:
 
 
 // Class Core.StructProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UStructProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -758,7 +757,7 @@ public:
 
 
 // Class Core.StrProperty
-// 0x0000 (0x00A0 - 0x00A0)
+// 0x0000 (0x0098 - 0x0098)
 class UStrProperty : public UProperty
 {
 public:
@@ -775,11 +774,11 @@ public:
 
 
 // Class Core.ObjectProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UObjectProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -793,7 +792,7 @@ public:
 
 
 // Class Core.ComponentProperty
-// 0x0000 (0x00A8 - 0x00A8)
+// 0x0000 (0x00A0 - 0x00A0)
 class UComponentProperty : public UObjectProperty
 {
 public:
@@ -810,11 +809,11 @@ public:
 
 
 // Class Core.ClassProperty
-// 0x0008 (0x00B0 - 0x00A8)
+// 0x0008 (0x00A8 - 0x00A0)
 class UClassProperty : public UObjectProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A8(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -828,7 +827,7 @@ public:
 
 
 // Class Core.NameProperty
-// 0x0000 (0x00A0 - 0x00A0)
+// 0x0000 (0x0098 - 0x0098)
 class UNameProperty : public UProperty
 {
 public:
@@ -845,11 +844,11 @@ public:
 
 
 // Class Core.MapProperty
-// 0x0010 (0x00B0 - 0x00A0)
+// 0x0010 (0x00A8 - 0x0098)
 class UMapProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00A0(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0098(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -863,11 +862,11 @@ public:
 
 
 // Class Core.IntProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UIntProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -881,11 +880,11 @@ public:
 
 
 // Class Core.InterfaceProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UInterfaceProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -899,7 +898,7 @@ public:
 
 
 // Class Core.FloatProperty
-// 0x0000 (0x00A0 - 0x00A0)
+// 0x0000 (0x0098 - 0x0098)
 class UFloatProperty : public UProperty
 {
 public:
@@ -916,11 +915,11 @@ public:
 
 
 // Class Core.DelegateProperty
-// 0x0010 (0x00B0 - 0x00A0)
+// 0x0010 (0x00A8 - 0x0098)
 class UDelegateProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00A0(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0098(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -934,11 +933,11 @@ public:
 
 
 // Class Core.ByteProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UByteProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -952,11 +951,11 @@ public:
 
 
 // Class Core.BoolProperty
-// 0x0004 (0x00A4 - 0x00A0)
+// 0x0004 (0x009C - 0x0098)
 class UBoolProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00A0(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0098(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -970,11 +969,11 @@ public:
 
 
 // Class Core.ArrayProperty
-// 0x0008 (0x00A8 - 0x00A0)
+// 0x0008 (0x00A0 - 0x0098)
 class UArrayProperty : public UProperty
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A0(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -988,11 +987,11 @@ public:
 
 
 // Class Core.Enum
-// 0x0010 (0x0070 - 0x0060)
+// 0x0010 (0x0068 - 0x0058)
 class UEnum : public UField
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1006,11 +1005,11 @@ public:
 
 
 // Class Core.Const
-// 0x0010 (0x0070 - 0x0060)
+// 0x0010 (0x0068 - 0x0058)
 class UConst : public UField
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0058(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1024,20 +1023,20 @@ public:
 
 
 // Class Core.Factory
-// 0x0048 (0x00A0 - 0x0058)
+// 0x0048 (0x0098 - 0x0050)
 class UFactory : public UObject
 {
 public:
-	class UClass*                                      SupportedClass;                                           // 0x0058(0x0008)
-	class UClass*                                      ContextClass;                                             // 0x0060(0x0008)
-	struct FString                                     Description;                                              // 0x0068(0x0010) (NeedCtorLink)
-	TArray<struct FString>                             Formats;                                                  // 0x0078(0x0010) (NeedCtorLink)
-	unsigned long                                      bCreateNew : 1;                                           // 0x0088(0x0004)
-	unsigned long                                      bEditAfterNew : 1;                                        // 0x0088(0x0004)
-	unsigned long                                      bEditorImport : 1;                                        // 0x0088(0x0004)
-	unsigned long                                      bText : 1;                                                // 0x0088(0x0004)
-	int                                                AutoPriority;                                             // 0x008C(0x0004)
-	TArray<struct FString>                             ValidGameNames;                                           // 0x0090(0x0010) (NeedCtorLink)
+	class UClass*                                      SupportedClass;                                           // 0x0050(0x0008)
+	class UClass*                                      ContextClass;                                             // 0x0058(0x0008)
+	struct FString                                     Description;                                              // 0x0060(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             Formats;                                                  // 0x0070(0x0010) (NeedCtorLink)
+	unsigned long                                      bCreateNew : 1;                                           // 0x0080(0x0004)
+	unsigned long                                      bEditAfterNew : 1;                                        // 0x0080(0x0004)
+	unsigned long                                      bEditorImport : 1;                                        // 0x0080(0x0004)
+	unsigned long                                      bText : 1;                                                // 0x0080(0x0004)
+	int                                                AutoPriority;                                             // 0x0084(0x0004)
+	TArray<struct FString>                             ValidGameNames;                                           // 0x0088(0x0010) (NeedCtorLink)
 
 	static UClass* StaticClass()
 	{
@@ -1051,7 +1050,7 @@ public:
 
 
 // Class Core.TextBufferFactory
-// 0x0000 (0x00A0 - 0x00A0)
+// 0x0000 (0x0098 - 0x0098)
 class UTextBufferFactory : public UFactory
 {
 public:
@@ -1068,14 +1067,14 @@ public:
 
 
 // Class Core.Exporter
-// 0x0034 (0x008C - 0x0058)
+// 0x0034 (0x0084 - 0x0050)
 class UExporter : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-	TArray<struct FString>                             FormatExtension;                                          // 0x0060(0x0010) (NeedCtorLink)
-	TArray<struct FString>                             FormatDescription;                                        // 0x0070(0x0010) (NeedCtorLink)
-	unsigned char                                      UnknownData01[0xC];                                       // 0x0080(0x000C) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	TArray<struct FString>                             FormatExtension;                                          // 0x0058(0x0010) (NeedCtorLink)
+	TArray<struct FString>                             FormatDescription;                                        // 0x0068(0x0010) (NeedCtorLink)
+	unsigned char                                      UnknownData01[0xC];                                       // 0x0078(0x000C) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1089,12 +1088,12 @@ public:
 
 
 // Class Core.Component
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0060 - 0x0050)
 class UComponent : public UObject
 {
 public:
-	class UClass*                                      TemplateOwnerClass;                                       // 0x0058(0x0008) (Const, Native)
-	struct FName                                       TemplateName;                                             // 0x0060(0x0008) (Const, Native)
+	class UClass*                                      TemplateOwnerClass;                                       // 0x0050(0x0008) (Const, Native)
+	struct FName                                       TemplateName;                                             // 0x0058(0x0008) (Const, Native)
 
 	static UClass* StaticClass()
 	{
@@ -1108,13 +1107,13 @@ public:
 
 
 // Class Core.DistributionVector
-// 0x000C (0x0074 - 0x0068)
+// 0x000C (0x006C - 0x0060)
 class UDistributionVector : public UComponent
 {
 public:
-	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008) (Const, Native, NoExport)
-	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004) (Edit)
-	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
+	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0060(0x0008) (Const, Native, NoExport)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0068(0x0004) (Edit)
+	unsigned long                                      bIsDirty : 1;                                             // 0x0068(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1130,13 +1129,13 @@ public:
 
 
 // Class Core.DistributionFloat
-// 0x000C (0x0074 - 0x0068)
+// 0x000C (0x006C - 0x0060)
 class UDistributionFloat : public UComponent
 {
 public:
-	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0068(0x0008) (Const, Native, NoExport)
-	unsigned long                                      bCanBeBaked : 1;                                          // 0x0070(0x0004) (Edit)
-	unsigned long                                      bIsDirty : 1;                                             // 0x0070(0x0004)
+	struct FPointer                                    VfTable_FCurveEdInterface;                                // 0x0060(0x0008) (Const, Native, NoExport)
+	unsigned long                                      bCanBeBaked : 1;                                          // 0x0068(0x0004) (Edit)
+	unsigned long                                      bIsDirty : 1;                                             // 0x0068(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1152,20 +1151,20 @@ public:
 
 
 // Class Core.Commandlet
-// 0x0054 (0x00AC - 0x0058)
+// 0x0054 (0x00A4 - 0x0050)
 class UCommandlet : public UObject
 {
 public:
-	struct FString                                     HelpDescription;                                          // 0x0058(0x0010) (Const, Localized, NeedCtorLink)
-	struct FString                                     HelpUsage;                                                // 0x0068(0x0010) (Const, Localized, NeedCtorLink)
-	struct FString                                     HelpWebLink;                                              // 0x0078(0x0010) (Const, Localized, NeedCtorLink)
-	TArray<struct FString>                             HelpParamNames;                                           // 0x0088(0x0010) (Const, Localized, NeedCtorLink)
-	TArray<struct FString>                             HelpParamDescriptions;                                    // 0x0098(0x0010) (Const, Localized, NeedCtorLink)
-	unsigned long                                      IsServer : 1;                                             // 0x00A8(0x0004)
-	unsigned long                                      IsClient : 1;                                             // 0x00A8(0x0004)
-	unsigned long                                      IsEditor : 1;                                             // 0x00A8(0x0004)
-	unsigned long                                      LogToConsole : 1;                                         // 0x00A8(0x0004)
-	unsigned long                                      ShowErrorCount : 1;                                       // 0x00A8(0x0004)
+	struct FString                                     HelpDescription;                                          // 0x0050(0x0010) (Const, Localized, NeedCtorLink)
+	struct FString                                     HelpUsage;                                                // 0x0060(0x0010) (Const, Localized, NeedCtorLink)
+	struct FString                                     HelpWebLink;                                              // 0x0070(0x0010) (Const, Localized, NeedCtorLink)
+	TArray<struct FString>                             HelpParamNames;                                           // 0x0080(0x0010) (Const, Localized, NeedCtorLink)
+	TArray<struct FString>                             HelpParamDescriptions;                                    // 0x0090(0x0010) (Const, Localized, NeedCtorLink)
+	unsigned long                                      IsServer : 1;                                             // 0x00A0(0x0004)
+	unsigned long                                      IsClient : 1;                                             // 0x00A0(0x0004)
+	unsigned long                                      IsEditor : 1;                                             // 0x00A0(0x0004)
+	unsigned long                                      LogToConsole : 1;                                         // 0x00A0(0x0004)
+	unsigned long                                      ShowErrorCount : 1;                                       // 0x00A0(0x0004)
 
 	static UClass* StaticClass()
 	{
@@ -1181,7 +1180,7 @@ public:
 
 
 // Class Core.HelpCommandlet
-// 0x0000 (0x00AC - 0x00AC)
+// 0x0000 (0x00A4 - 0x00A4)
 class UHelpCommandlet : public UCommandlet
 {
 public:
@@ -1200,11 +1199,11 @@ public:
 
 
 // Class Core.Package
-// 0x00D4 (0x012C - 0x0058)
+// 0x00D4 (0x0124 - 0x0050)
 class UPackage : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0xD4];                                      // 0x0058(0x00D4) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xD4];                                      // 0x0050(0x00D4) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1218,11 +1217,11 @@ public:
 
 
 // Class Core.State
-// 0x0054 (0x011C - 0x00C8)
+// 0x0054 (0x0114 - 0x00C0)
 class UState : public UStruct
 {
 public:
-	unsigned char                                      UnknownData00[0x54];                                      // 0x00C8(0x0054) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x54];                                      // 0x00C0(0x0054) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1236,7 +1235,7 @@ public:
 
 
 // Class Core.Class
-// 0x0164 (0x0280 - 0x011C)
+// 0x0164 (0x0278 - 0x0114)
 class UClass : public UState
 {
 public:

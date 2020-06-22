@@ -1,4 +1,4 @@
-// Lost Ark (1.76.76.0) SDK
+// Lost Ark (1.148.153.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x4)
@@ -2494,6 +2494,76 @@ void AEFSkeletalMeshActor::Destroyed()
 }
 
 
+// Function EFGame.EFStaticMeshActor.ClearAttachedPSIIndex
+// (Native, Public)
+
+void AEFStaticMeshActor::ClearAttachedPSIIndex()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFStaticMeshActor.ClearAttachedPSIIndex");
+
+	AEFStaticMeshActor_ClearAttachedPSIIndex_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFStaticMeshActor.NotifyChangedBase
+// (Native, Public)
+
+void AEFStaticMeshActor::NotifyChangedBase()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFStaticMeshActor.NotifyChangedBase");
+
+	AEFStaticMeshActor_NotifyChangedBase_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFStaticMeshActor.BaseChange
+// (Defined, Singular, Event, Public)
+
+void AEFStaticMeshActor::BaseChange()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFStaticMeshActor.BaseChange");
+
+	AEFStaticMeshActor_BaseChange_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFStaticMeshActor.Destroyed
+// (Defined, Simulated, Event, Public)
+
+void AEFStaticMeshActor::Destroyed()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFStaticMeshActor.Destroyed");
+
+	AEFStaticMeshActor_Destroyed_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function EFGame.EFVolume.UnTouch
 // (Native, Event, Public)
 // Parameters:
@@ -2728,6 +2798,52 @@ void UEFCameraBase::UpdateRotation()
 	UEFCameraBase_UpdateRotation_Params params;
 
 	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFCameraBase.ProcessBlendingStyle
+// (Native, Public, HasOutParms)
+// Parameters:
+// struct FTPOV                   OutPOV                         (Parm, OutParm)
+// float                          InDeltaSeconds                 (Parm)
+
+void UEFCameraBase::ProcessBlendingStyle(float InDeltaSeconds, struct FTPOV* OutPOV)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ProcessBlendingStyle");
+
+	UEFCameraBase_ProcessBlendingStyle_Params params;
+	params.InDeltaSeconds = InDeltaSeconds;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutPOV != nullptr)
+		*OutPOV = params.OutPOV;
+}
+
+
+// Function EFGame.EFCameraBase.ActivateBlendingStyle
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InOldCamera                    (Parm)
+
+void UEFCameraBase::ActivateBlendingStyle(class UEFCameraBase* InOldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFCameraBase.ActivateBlendingStyle");
+
+	UEFCameraBase_ActivateBlendingStyle_Params params;
+	params.InOldCamera = InOldCamera;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3626,6 +3742,27 @@ void UEFIsometricCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
 }
 
 
+// Function EFGame.EFIsometricCamera.ActivateBlendingStyle
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InOldCamera                    (Parm)
+
+void UEFIsometricCamera::ActivateBlendingStyle(class UEFCameraBase* InOldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFIsometricCamera.ActivateBlendingStyle");
+
+	UEFIsometricCamera_ActivateBlendingStyle_Params params;
+	params.InOldCamera = InOldCamera;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function EFGame.EFIsometricCamera.SetContentsSettingTable
 // (Native, Public)
 // Parameters:
@@ -4050,6 +4187,258 @@ void UEFPanningCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* Camer
 
 	if (OutVT != nullptr)
 		*OutVT = params.OutVT;
+}
+
+
+// Function EFGame.EFSelfCamera.SetContentsSettingTable
+// (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+
+void UEFSelfCamera::SetContentsSettingTable(int InTableId)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.SetContentsSettingTable");
+
+	UEFSelfCamera_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.SetSettingTable
+// (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
+
+void UEFSelfCamera::SetSettingTable(int InTableId, bool InImmediateFlag)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.SetSettingTable");
+
+	UEFSelfCamera_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.ChangeZoomStep
+// (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
+
+void UEFSelfCamera::ChangeZoomStep(int iStep)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.ChangeZoomStep");
+
+	UEFSelfCamera_ChangeZoomStep_Params params;
+	params.iStep = iStep;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.CheckZoom
+// (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
+
+bool UEFSelfCamera::CheckZoom()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.CheckZoom");
+
+	UEFSelfCamera_CheckZoom_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function EFGame.EFSelfCamera.ZoomOut
+// (Native, Public)
+
+void UEFSelfCamera::ZoomOut()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.ZoomOut");
+
+	UEFSelfCamera_ZoomOut_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.ZoomIn
+// (Native, Public)
+
+void UEFSelfCamera::ZoomIn()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.ZoomIn");
+
+	UEFSelfCamera_ZoomIn_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.UpdateCamera
+// (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
+
+void UEFSelfCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.UpdateCamera");
+
+	UEFSelfCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
+}
+
+
+// Function EFGame.EFSelfCamera.ResetInterpolation
+// (Native, Public)
+
+void UEFSelfCamera::ResetInterpolation()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.ResetInterpolation");
+
+	UEFSelfCamera_ResetInterpolation_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.OnBecomeInActive
+// (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
+
+void UEFSelfCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.OnBecomeInActive");
+
+	UEFSelfCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.OnBecomeActive
+// (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
+
+void UEFSelfCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.OnBecomeActive");
+
+	UEFSelfCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.InActivateOperationMode
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
+
+void UEFSelfCamera::InActivateOperationMode(class UEFCameraBase* OldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.InActivateOperationMode");
+
+	UEFSelfCamera_InActivateOperationMode_Params params;
+	params.OldCamera = OldCamera;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFSelfCamera.ActivateOperationMode
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
+
+void UEFSelfCamera::ActivateOperationMode(class UEFCameraBase* OldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFSelfCamera.ActivateOperationMode");
+
+	UEFSelfCamera_ActivateOperationMode_Params params;
+	params.OldCamera = OldCamera;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -4750,6 +5139,297 @@ void UEFTPSCamera::ResetInterpolation()
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTPSCamera.ResetInterpolation");
 
 	UEFTPSCamera_ResetInterpolation_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.OnBecomeInActive
+// (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           NewCamera                      (Parm)
+
+void UEFVolumeCamera::OnBecomeInActive(class UEFCameraBase* NewCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.OnBecomeInActive");
+
+	UEFVolumeCamera_OnBecomeInActive_Params params;
+	params.NewCamera = NewCamera;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.OnBecomeActive
+// (Defined, Event, Public)
+// Parameters:
+// class UEFCameraBase*           OldCamera                      (Parm)
+
+void UEFVolumeCamera::OnBecomeActive(class UEFCameraBase* OldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.OnBecomeActive");
+
+	UEFVolumeCamera_OnBecomeActive_Params params;
+	params.OldCamera = OldCamera;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.NotifyActivate
+// (Native, Public)
+// Parameters:
+// bool                           InActivated                    (Parm)
+
+void UEFVolumeCamera::NotifyActivate(bool InActivated)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.NotifyActivate");
+
+	UEFVolumeCamera_NotifyActivate_Params params;
+	params.InActivated = InActivated;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.SetContentsSettingTable
+// (Native, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+
+void UEFVolumeCamera::SetContentsSettingTable(int InTableId)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.SetContentsSettingTable");
+
+	UEFVolumeCamera_SetContentsSettingTable_Params params;
+	params.InTableId = InTableId;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.SetSettingTable
+// (Native, HasOptionalParms, Public)
+// Parameters:
+// int                            InTableId                      (Parm)
+// bool                           InImmediateFlag                (OptionalParm, Parm)
+
+void UEFVolumeCamera::SetSettingTable(int InTableId, bool InImmediateFlag)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.SetSettingTable");
+
+	UEFVolumeCamera_SetSettingTable_Params params;
+	params.InTableId = InTableId;
+	params.InImmediateFlag = InImmediateFlag;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.InActivateSkeletalMeshForceLOD
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InNextCamera                   (Parm)
+
+void UEFVolumeCamera::InActivateSkeletalMeshForceLOD(class UEFCameraBase* InNextCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.InActivateSkeletalMeshForceLOD");
+
+	UEFVolumeCamera_InActivateSkeletalMeshForceLOD_Params params;
+	params.InNextCamera = InNextCamera;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.ActivateSkeletalMeshForceLOD
+// (Native, Public)
+
+void UEFVolumeCamera::ActivateSkeletalMeshForceLOD()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ActivateSkeletalMeshForceLOD");
+
+	UEFVolumeCamera_ActivateSkeletalMeshForceLOD_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.ChangeZoomStep
+// (Native, Public)
+// Parameters:
+// int                            iStep                          (Parm)
+
+void UEFVolumeCamera::ChangeZoomStep(int iStep)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ChangeZoomStep");
+
+	UEFVolumeCamera_ChangeZoomStep_Params params;
+	params.iStep = iStep;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.CheckZoom
+// (Native, Public)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ReturnParm)
+
+bool UEFVolumeCamera::CheckZoom()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.CheckZoom");
+
+	UEFVolumeCamera_CheckZoom_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function EFGame.EFVolumeCamera.ZoomOut
+// (Native, Public)
+
+void UEFVolumeCamera::ZoomOut()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ZoomOut");
+
+	UEFVolumeCamera_ZoomOut_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.ZoomIn
+// (Native, Public)
+
+void UEFVolumeCamera::ZoomIn()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ZoomIn");
+
+	UEFVolumeCamera_ZoomIn_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.UpdateCamera
+// (Native, Public, HasOutParms)
+// Parameters:
+// class APawn*                   P                              (Parm)
+// class AEFPlayerCamera*         CameraActor                    (Parm)
+// float                          DeltaTime                      (Parm)
+// struct FTViewTarget            OutVT                          (Parm, OutParm)
+
+void UEFVolumeCamera::UpdateCamera(class APawn* P, class AEFPlayerCamera* CameraActor, float DeltaTime, struct FTViewTarget* OutVT)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.UpdateCamera");
+
+	UEFVolumeCamera_UpdateCamera_Params params;
+	params.P = P;
+	params.CameraActor = CameraActor;
+	params.DeltaTime = DeltaTime;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutVT != nullptr)
+		*OutVT = params.OutVT;
+}
+
+
+// Function EFGame.EFVolumeCamera.ResetInterpolation
+// (Native, Public)
+
+void UEFVolumeCamera::ResetInterpolation()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ResetInterpolation");
+
+	UEFVolumeCamera_ResetInterpolation_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFVolumeCamera.ActivateBlendingStyle
+// (Native, Public)
+// Parameters:
+// class UEFCameraBase*           InOldCamera                    (Parm)
+
+void UEFVolumeCamera::ActivateBlendingStyle(class UEFCameraBase* InOldCamera)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFVolumeCamera.ActivateBlendingStyle");
+
+	UEFVolumeCamera_ActivateBlendingStyle_Params params;
+	params.InOldCamera = InOldCamera;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5820,6 +6500,48 @@ void AEFPlayerCamera::ProcessTestInputCameraActor(class ACameraActor* InCamera, 
 }
 
 
+// Function EFGame.EFPlayerCamera.DeactivateVolumeCamera
+// (Native, Public)
+// Parameters:
+// class AActor*                  InTriggerActor                 (Parm)
+
+void AEFPlayerCamera::DeactivateVolumeCamera(class AActor* InTriggerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.DeactivateVolumeCamera");
+
+	AEFPlayerCamera_DeactivateVolumeCamera_Params params;
+	params.InTriggerActor = InTriggerActor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFPlayerCamera.ActivateVolumeCamera
+// (Native, Public)
+// Parameters:
+// class AActor*                  InTriggerActor                 (Parm)
+
+void AEFPlayerCamera::ActivateVolumeCamera(class AActor* InTriggerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFPlayerCamera.ActivateVolumeCamera");
+
+	AEFPlayerCamera_ActivateVolumeCamera_Params params;
+	params.InTriggerActor = InTriggerActor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function EFGame.EFPlayerCamera.RestoreCameraMode
 // (Native, Public)
 
@@ -6699,6 +7421,54 @@ void UEFSeqAct_NPCController::initial()
 }
 
 
+// Function EFGame.EFChangePlayerCameraVolume.UnTouch
+// (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+
+void AEFChangePlayerCameraVolume::UnTouch(class AActor* Other)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFChangePlayerCameraVolume.UnTouch");
+
+	AEFChangePlayerCameraVolume_UnTouch_Params params;
+	params.Other = Other;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFChangePlayerCameraVolume.Touch
+// (Native, Event, Public)
+// Parameters:
+// class AActor*                  Other                          (Parm)
+// class UPrimitiveComponent*     OtherComp                      (Parm, EditInline)
+// struct FVector                 HitLocation                    (Parm)
+// struct FVector                 HitNormal                      (Parm)
+
+void AEFChangePlayerCameraVolume::Touch(class AActor* Other, class UPrimitiveComponent* OtherComp, const struct FVector& HitLocation, const struct FVector& HitNormal)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFChangePlayerCameraVolume.Touch");
+
+	AEFChangePlayerCameraVolume_Touch_Params params;
+	params.Other = Other;
+	params.OtherComp = OtherComp;
+	params.HitLocation = HitLocation;
+	params.HitNormal = HitNormal;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function EFGame.EFEnvironmentInfoVolume.UnTouch
 // (Native, Event, Public)
 // Parameters:
@@ -6812,6 +7582,27 @@ bool AEFPathBlockingVolume::StopsProjectile(class AProjectile* P)
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function EFGame.EFTranslucentVolume.OnChangeTranslucentVolumeAction
+// (Native, Public)
+// Parameters:
+// class UEFSeqAct_ChangeTranslucentVolumeAction* InSeqAction                    (Parm)
+
+void AEFTranslucentVolume::OnChangeTranslucentVolumeAction(class UEFSeqAct_ChangeTranslucentVolumeAction* InSeqAction)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFTranslucentVolume.OnChangeTranslucentVolumeAction");
+
+	AEFTranslucentVolume_OnChangeTranslucentVolumeAction_Params params;
+	params.InSeqAction = InSeqAction;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -8916,6 +9707,27 @@ void UEFUIListItemSlot::SetFriendshipShow(bool bValue)
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetFriendshipShow");
 
 	UEFUIListItemSlot_SetFriendshipShow_Params params;
+	params.bValue = bValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFUIListItemSlot.SetSealShow
+// (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
+
+void UEFUIListItemSlot::SetSealShow(bool bValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUIListItemSlot.SetSealShow");
+
+	UEFUIListItemSlot_SetSealShow_Params params;
 	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;
@@ -11582,24 +12394,6 @@ void UEFGFxWidgetInteractionMail::AddReceiverData(TEnumAsByte<EFMailReceiverType
 }
 
 
-// Function EFGame.EFGFxWidgetItemAssembly.ItemCraftAlarmEffectLuckyPlayEnd
-// (Native, Public)
-
-void UEFGFxWidgetItemAssembly::ItemCraftAlarmEffectLuckyPlayEnd()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetItemAssembly.ItemCraftAlarmEffectLuckyPlayEnd");
-
-	UEFGFxWidgetItemAssembly_ItemCraftAlarmEffectLuckyPlayEnd_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelNoramlSkillClick
 // (Defined, Public)
 // Parameters:
@@ -13251,69 +14045,6 @@ void UEFGFxWidgetUserTrade::ASSetMyTradeConfirm()
 	UEFGFxWidgetUserTrade_ASSetMyTradeConfirm_Params params;
 
 	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick
-// (Native, Public)
-// Parameters:
-// int                            iPlateIndex                    (Parm)
-
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowConfirmBtnClick(int iPlateIndex)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick");
-
-	UEFGFxWidgetVictoryCrest_VictoryCrestWindowConfirmBtnClick_Params params;
-	params.iPlateIndex = iPlateIndex;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick
-// (Native, Public)
-// Parameters:
-// int                            iPlateIndex                    (Parm)
-
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowExchangeBtnClick(int iPlateIndex)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick");
-
-	UEFGFxWidgetVictoryCrest_VictoryCrestWindowExchangeBtnClick_Params params;
-	params.iPlateIndex = iPlateIndex;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick
-// (Native, Public)
-// Parameters:
-// int                            iPlateIndex                    (Parm)
-
-void UEFGFxWidgetVictoryCrest::VictoryCrestWindowUnlockBtnClick(int iPlateIndex)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick");
-
-	UEFGFxWidgetVictoryCrest_VictoryCrestWindowUnlockBtnClick_Params params;
-	params.iPlateIndex = iPlateIndex;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -16214,6 +16945,27 @@ void UEFUISlotData::SetFriendshipShow(bool bValue)
 	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetFriendshipShow");
 
 	UEFUISlotData_SetFriendshipShow_Params params;
+	params.bValue = bValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function EFGame.EFUISlotData.SetSealShow
+// (Native, Public)
+// Parameters:
+// bool                           bValue                         (Parm)
+
+void UEFUISlotData::SetSealShow(bool bValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EFGame.EFUISlotData.SetSealShow");
+
+	UEFUISlotData_SetSealShow_Params params;
 	params.bValue = bValue;
 
 	auto flags = fn->FunctionFlags;

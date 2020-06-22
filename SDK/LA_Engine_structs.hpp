@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.76.76.0) SDK
+// Lost Ark (1.148.153.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x4)
@@ -920,7 +920,41 @@ enum class EAnimationKeyFormat : uint8_t
 	AKF_ConstantKeyLerp            = 0,
 	AKF_VariableKeyLerp            = 1,
 	AKF_PerTrackCompression        = 2,
-	AKF_MAX                        = 3
+	AKF_ACLDefault                 = 3,
+	AKF_ACLCustom                  = 4,
+	AKF_ACLSafe                    = 5,
+	AKF_MAX                        = 6
+};
+
+
+// Enum Engine.AnimCompress_ACL.ACLRotationFormat
+enum class EACLRotationFormat : uint8_t
+{
+	ACLRF_Quat                     = 0,
+	ACLRF_QuatDropW                = 1,
+	ACLRF_QuatDropW_Variable       = 2,
+	ACLRF_MAX                      = 3
+};
+
+
+// Enum Engine.AnimCompress_ACL.ACLVectorFormat
+enum class EACLVectorFormat : uint8_t
+{
+	ACLVF_Vector3                  = 0,
+	ACLVF_Vector3_Variable         = 1,
+	ACLVF_Vector3_MAX              = 2
+};
+
+
+// Enum Engine.AnimCompress_ACL.ACLCompressionLevel
+enum class EACLCompressionLevel : uint8_t
+{
+	ACL_Lowest                     = 0,
+	ACL_Low                        = 1,
+	ACL_Medium                     = 2,
+	ACL_High                       = 3,
+	ACL_Highest                    = 4,
+	ACL_MAX                        = 5
 };
 
 

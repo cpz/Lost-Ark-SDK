@@ -1,6 +1,6 @@
 #pragma once
 
-// Lost Ark (1.76.76.0) SDK
+// Lost Ark (1.148.153.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x4)
@@ -744,6 +744,26 @@ struct AEFSkeletalMeshActor_Destroyed_Params
 {
 };
 
+// Function EFGame.EFStaticMeshActor.ClearAttachedPSIIndex
+struct AEFStaticMeshActor_ClearAttachedPSIIndex_Params
+{
+};
+
+// Function EFGame.EFStaticMeshActor.NotifyChangedBase
+struct AEFStaticMeshActor_NotifyChangedBase_Params
+{
+};
+
+// Function EFGame.EFStaticMeshActor.BaseChange
+struct AEFStaticMeshActor_BaseChange_Params
+{
+};
+
+// Function EFGame.EFStaticMeshActor.Destroyed
+struct AEFStaticMeshActor_Destroyed_Params
+{
+};
+
 // Function EFGame.EFVolume.UnTouch
 struct AEFVolume_UnTouch_Params
 {
@@ -814,6 +834,19 @@ struct UEFCameraBase_DisplayDebug_Params
 // Function EFGame.EFCameraBase.UpdateRotation
 struct UEFCameraBase_UpdateRotation_Params
 {
+};
+
+// Function EFGame.EFCameraBase.ProcessBlendingStyle
+struct UEFCameraBase_ProcessBlendingStyle_Params
+{
+	struct FTPOV                                       OutPOV;                                                   // (Parm, OutParm)
+	float                                              InDeltaSeconds;                                           // (Parm)
+};
+
+// Function EFGame.EFCameraBase.ActivateBlendingStyle
+struct UEFCameraBase_ActivateBlendingStyle_Params
+{
+	class UEFCameraBase*                               InOldCamera;                                              // (Parm)
 };
 
 // Function EFGame.EFCameraBase.SetCurrentCameraCut
@@ -1077,6 +1110,12 @@ struct UEFIsometricCamera_OnBecomeActive_Params
 	class UEFCameraBase*                               OldCamera;                                                // (Parm)
 };
 
+// Function EFGame.EFIsometricCamera.ActivateBlendingStyle
+struct UEFIsometricCamera_ActivateBlendingStyle_Params
+{
+	class UEFCameraBase*                               InOldCamera;                                              // (Parm)
+};
+
 // Function EFGame.EFIsometricCamera.SetContentsSettingTable
 struct UEFIsometricCamera_SetContentsSettingTable_Params
 {
@@ -1198,6 +1237,79 @@ struct UEFPanningCamera_UpdateCamera_Params
 	class AEFPlayerCamera*                             CameraActor;                                              // (Parm)
 	float                                              DeltaTime;                                                // (Parm)
 	struct FTViewTarget                                OutVT;                                                    // (Parm, OutParm)
+};
+
+// Function EFGame.EFSelfCamera.SetContentsSettingTable
+struct UEFSelfCamera_SetContentsSettingTable_Params
+{
+	int                                                InTableId;                                                // (Parm)
+};
+
+// Function EFGame.EFSelfCamera.SetSettingTable
+struct UEFSelfCamera_SetSettingTable_Params
+{
+	int                                                InTableId;                                                // (Parm)
+	bool                                               InImmediateFlag;                                          // (OptionalParm, Parm)
+};
+
+// Function EFGame.EFSelfCamera.ChangeZoomStep
+struct UEFSelfCamera_ChangeZoomStep_Params
+{
+	int                                                iStep;                                                    // (Parm)
+};
+
+// Function EFGame.EFSelfCamera.CheckZoom
+struct UEFSelfCamera_CheckZoom_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function EFGame.EFSelfCamera.ZoomOut
+struct UEFSelfCamera_ZoomOut_Params
+{
+};
+
+// Function EFGame.EFSelfCamera.ZoomIn
+struct UEFSelfCamera_ZoomIn_Params
+{
+};
+
+// Function EFGame.EFSelfCamera.UpdateCamera
+struct UEFSelfCamera_UpdateCamera_Params
+{
+	class APawn*                                       P;                                                        // (Parm)
+	class AEFPlayerCamera*                             CameraActor;                                              // (Parm)
+	float                                              DeltaTime;                                                // (Parm)
+	struct FTViewTarget                                OutVT;                                                    // (Parm, OutParm)
+};
+
+// Function EFGame.EFSelfCamera.ResetInterpolation
+struct UEFSelfCamera_ResetInterpolation_Params
+{
+};
+
+// Function EFGame.EFSelfCamera.OnBecomeInActive
+struct UEFSelfCamera_OnBecomeInActive_Params
+{
+	class UEFCameraBase*                               NewCamera;                                                // (Parm)
+};
+
+// Function EFGame.EFSelfCamera.OnBecomeActive
+struct UEFSelfCamera_OnBecomeActive_Params
+{
+	class UEFCameraBase*                               OldCamera;                                                // (Parm)
+};
+
+// Function EFGame.EFSelfCamera.InActivateOperationMode
+struct UEFSelfCamera_InActivateOperationMode_Params
+{
+	class UEFCameraBase*                               OldCamera;                                                // (Parm)
+};
+
+// Function EFGame.EFSelfCamera.ActivateOperationMode
+struct UEFSelfCamera_ActivateOperationMode_Params
+{
+	class UEFCameraBase*                               OldCamera;                                                // (Parm)
 };
 
 // Function EFGame.EFThirdPersonCamera.UpdateRotation
@@ -1402,6 +1514,90 @@ struct UEFTPSCamera_ZoomIn_Params
 // Function EFGame.EFTPSCamera.ResetInterpolation
 struct UEFTPSCamera_ResetInterpolation_Params
 {
+};
+
+// Function EFGame.EFVolumeCamera.OnBecomeInActive
+struct UEFVolumeCamera_OnBecomeInActive_Params
+{
+	class UEFCameraBase*                               NewCamera;                                                // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.OnBecomeActive
+struct UEFVolumeCamera_OnBecomeActive_Params
+{
+	class UEFCameraBase*                               OldCamera;                                                // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.NotifyActivate
+struct UEFVolumeCamera_NotifyActivate_Params
+{
+	bool                                               InActivated;                                              // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.SetContentsSettingTable
+struct UEFVolumeCamera_SetContentsSettingTable_Params
+{
+	int                                                InTableId;                                                // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.SetSettingTable
+struct UEFVolumeCamera_SetSettingTable_Params
+{
+	int                                                InTableId;                                                // (Parm)
+	bool                                               InImmediateFlag;                                          // (OptionalParm, Parm)
+};
+
+// Function EFGame.EFVolumeCamera.InActivateSkeletalMeshForceLOD
+struct UEFVolumeCamera_InActivateSkeletalMeshForceLOD_Params
+{
+	class UEFCameraBase*                               InNextCamera;                                             // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.ActivateSkeletalMeshForceLOD
+struct UEFVolumeCamera_ActivateSkeletalMeshForceLOD_Params
+{
+};
+
+// Function EFGame.EFVolumeCamera.ChangeZoomStep
+struct UEFVolumeCamera_ChangeZoomStep_Params
+{
+	int                                                iStep;                                                    // (Parm)
+};
+
+// Function EFGame.EFVolumeCamera.CheckZoom
+struct UEFVolumeCamera_CheckZoom_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function EFGame.EFVolumeCamera.ZoomOut
+struct UEFVolumeCamera_ZoomOut_Params
+{
+};
+
+// Function EFGame.EFVolumeCamera.ZoomIn
+struct UEFVolumeCamera_ZoomIn_Params
+{
+};
+
+// Function EFGame.EFVolumeCamera.UpdateCamera
+struct UEFVolumeCamera_UpdateCamera_Params
+{
+	class APawn*                                       P;                                                        // (Parm)
+	class AEFPlayerCamera*                             CameraActor;                                              // (Parm)
+	float                                              DeltaTime;                                                // (Parm)
+	struct FTViewTarget                                OutVT;                                                    // (Parm, OutParm)
+};
+
+// Function EFGame.EFVolumeCamera.ResetInterpolation
+struct UEFVolumeCamera_ResetInterpolation_Params
+{
+};
+
+// Function EFGame.EFVolumeCamera.ActivateBlendingStyle
+struct UEFVolumeCamera_ActivateBlendingStyle_Params
+{
+	class UEFCameraBase*                               InOldCamera;                                              // (Parm)
 };
 
 // Function EFGame.EFWatchCamera.SetFixedLookAtPos
@@ -1727,6 +1923,18 @@ struct AEFPlayerCamera_ProcessTestInputCameraActor_Params
 	struct FTPOV                                       OutPOV;                                                   // (Parm, OutParm)
 };
 
+// Function EFGame.EFPlayerCamera.DeactivateVolumeCamera
+struct AEFPlayerCamera_DeactivateVolumeCamera_Params
+{
+	class AActor*                                      InTriggerActor;                                           // (Parm)
+};
+
+// Function EFGame.EFPlayerCamera.ActivateVolumeCamera
+struct AEFPlayerCamera_ActivateVolumeCamera_Params
+{
+	class AActor*                                      InTriggerActor;                                           // (Parm)
+};
+
 // Function EFGame.EFPlayerCamera.RestoreCameraMode
 struct AEFPlayerCamera_RestoreCameraMode_Params
 {
@@ -1983,6 +2191,21 @@ struct UEFSeqAct_NPCController_initial_Params
 {
 };
 
+// Function EFGame.EFChangePlayerCameraVolume.UnTouch
+struct AEFChangePlayerCameraVolume_UnTouch_Params
+{
+	class AActor*                                      Other;                                                    // (Parm)
+};
+
+// Function EFGame.EFChangePlayerCameraVolume.Touch
+struct AEFChangePlayerCameraVolume_Touch_Params
+{
+	class AActor*                                      Other;                                                    // (Parm)
+	class UPrimitiveComponent*                         OtherComp;                                                // (Parm, EditInline)
+	struct FVector                                     HitLocation;                                              // (Parm)
+	struct FVector                                     HitNormal;                                                // (Parm)
+};
+
 // Function EFGame.EFEnvironmentInfoVolume.UnTouch
 struct AEFEnvironmentInfoVolume_UnTouch_Params
 {
@@ -2017,6 +2240,12 @@ struct AEFPathBlockingVolume_StopsProjectile_Params
 {
 	class AProjectile*                                 P;                                                        // (Parm)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function EFGame.EFTranslucentVolume.OnChangeTranslucentVolumeAction
+struct AEFTranslucentVolume_OnChangeTranslucentVolumeAction_Params
+{
+	class UEFSeqAct_ChangeTranslucentVolumeAction*     InSeqAction;                                              // (Parm)
 };
 
 // Function EFGame.EFGFxMoviePlayer.GetStringINI
@@ -2631,6 +2860,12 @@ struct UEFUIListItemSlot_SetTownShow_Params
 
 // Function EFGame.EFUIListItemSlot.SetFriendshipShow
 struct UEFUIListItemSlot_SetFriendshipShow_Params
+{
+	bool                                               bValue;                                                   // (Parm)
+};
+
+// Function EFGame.EFUIListItemSlot.SetSealShow
+struct UEFUIListItemSlot_SetSealShow_Params
 {
 	bool                                               bValue;                                                   // (Parm)
 };
@@ -3406,11 +3641,6 @@ struct UEFGFxWidgetInteractionMail_AddReceiverData_Params
 	struct FString                                     ReceiverName;                                             // (Parm, NeedCtorLink)
 };
 
-// Function EFGame.EFGFxWidgetItemAssembly.ItemCraftAlarmEffectLuckyPlayEnd
-struct UEFGFxWidgetItemAssembly_ItemCraftAlarmEffectLuckyPlayEnd_Params
-{
-};
-
 // Function EFGame.EFGFxWidgetLifeSkill.LifeLevelNoramlSkillClick
 struct UEFGFxWidgetLifeSkill_LifeLevelNoramlSkillClick_Params
 {
@@ -3893,24 +4123,6 @@ struct UEFGFxWidgetUserTrade_SetMyTradeConfirm_Params
 // Function EFGame.EFGFxWidgetUserTrade.ASSetMyTradeConfirm
 struct UEFGFxWidgetUserTrade_ASSetMyTradeConfirm_Params
 {
-};
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowConfirmBtnClick
-struct UEFGFxWidgetVictoryCrest_VictoryCrestWindowConfirmBtnClick_Params
-{
-	int                                                iPlateIndex;                                              // (Parm)
-};
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowExchangeBtnClick
-struct UEFGFxWidgetVictoryCrest_VictoryCrestWindowExchangeBtnClick_Params
-{
-	int                                                iPlateIndex;                                              // (Parm)
-};
-
-// Function EFGame.EFGFxWidgetVictoryCrest.VictoryCrestWindowUnlockBtnClick
-struct UEFGFxWidgetVictoryCrest_VictoryCrestWindowUnlockBtnClick_Params
-{
-	int                                                iPlateIndex;                                              // (Parm)
 };
 
 // Function EFGame.EFUIFrame.WidgetInitialized
@@ -4782,6 +4994,12 @@ struct UEFUISlotData_SetRecommend_Params
 
 // Function EFGame.EFUISlotData.SetFriendshipShow
 struct UEFUISlotData_SetFriendshipShow_Params
+{
+	bool                                               bValue;                                                   // (Parm)
+};
+
+// Function EFGame.EFUISlotData.SetSealShow
+struct UEFUISlotData_SetSealShow_Params
 {
 	bool                                               bValue;                                                   // (Parm)
 };
