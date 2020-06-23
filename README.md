@@ -105,14 +105,17 @@ public:
 ```C++
 enum eFuncId
 {
-	EFGame_EFGFxHUDWrapper_PostRender = 41432,            /// EFGame.EFGFxHUDWrapper.PostRender
-	EFGame_EFGameViewportClient_PostRender = 41353,       /// EFGame.EFGameViewportClient.PostRender
-	EFGame_EFGameViewportClient_Tick = 41355,             /// EFGame.EFGameViewportClient.Tick
-	Engine_GameViewportClient_LayoutPlayers = 19931,      /// Engine.GameViewportClient.LayoutPlayers
+	EFGame_EFGFxHUDWrapper_PostRender = 41542,            /// EFGame.EFGFxHUDWrapper.PostRender
+	EFGame_EFGameViewportClient_PostRender = 41463,       /// EFGame.EFGameViewportClient.PostRender
+	EFGame_EFGameViewportClient_Tick = 41465,             /// EFGame.EFGameViewportClient.Tick
+	Engine_GameViewportClient_LayoutPlayers = 19948,      /// Engine.GameViewportClient.LayoutPlayers
 	EFGame_EFGFxHUDWrapper_Destroyed = 41430,             /// EFGame.EFGFxHUDWrapper.Destroyed
 	Engine_PlayerController_Destroyed = 44344,            /// Engine.PlayerController.Destroyed
-	Engine_PlayerController_GetFOVAngle = 4408,           /// Engine.PlayerController.GetFOVAngle
-	EFGame_EFPlayerController_PlayerTick = 44349          /// EFGame.EFPlayerController.PlayerTick
+	Engine_PlayerController_GetFOVAngle = 4416,           /// Engine.PlayerController.GetFOVAngle
+	EFGame_EFPlayerController_PlayerTick = 44490,         /// EFGame.EFPlayerController.PlayerTick
+	Engine_GameViewportClient_GetViewportSize = 19850,    /// Engine.GameViewportClient.GetViewportSize
+	Engine_GameViewportClient_GetMousePosition =  19865,  /// Engine.GameViewportClient.GetMousePosition
+	EFGame_EFPlayerController_GetPlayerViewPoint = 44505  /// EFGame.EFPlayerController.GetPlayerViewPoint
 };
 ```
 
@@ -130,12 +133,12 @@ if (iIndex == SDK::eFuncId::EFGame_EFGFxHUDWrapper_PostRender)
 ```C++
 enum eTagId
 {
-	Player = 15266,
-	Monster = 15260,
-	NPC = 15262,
-	SummonNPC = 15268,
-	Pet = 15264,
-	Vehicle = 15274
+	Player = 15163,
+	Monster = 15157,
+	NPC = 15159,
+	SummonNPC = 15165,
+	Pet = 15161,
+	Vehicle = 15171
 };
 ```
 
