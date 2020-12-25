@@ -1,0 +1,25 @@
+var classSDK_1_1UEFActionNotify__PlayDecalEffect =
+[
+    [ "StaticClass", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a58cbcfb0e96940cde06664286950c811", null ],
+    [ "AdjustSize", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a01631d1a86365a0937a7cebfd0f5ecaa", null ],
+    [ "AutoDirectionAngle", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#ab66e04f2b112c58922b26c7322697951", null ],
+    [ "bFrontTarget", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#acadcb810e361470cb9387a7cf63542b7", null ],
+    [ "bOnlyLocalPlayer", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#ae76575d763dac9df260af2cd132bfd93", null ],
+    [ "bPlayActionAgentDecal", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a77d25964ef68f1a17e11878a8200df3e", null ],
+    [ "bUsingRootMotionAffectedOffset", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#aa1591cf036f47b4bcab461fdb4179a24", null ],
+    [ "DecalBlendInTime", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#aa169072459ed8729e255e5f5b94b4435", null ],
+    [ "DecalBlendOutTime", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a3de24da95df82a86ef9464dde62af3eb", null ],
+    [ "DecalColor", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a258c90ca6ce2d62076222b36a8a5b7ba", null ],
+    [ "DecalDirectionAngle", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a4a26db849dae1a1a4e1c9def57cef877", null ],
+    [ "DecalFillTime", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a016c0e7eac292e79ea04bb894d58ad5c", null ],
+    [ "DecalScaleTime", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a0d27c2b942bdec8eca7bdf41d90fafa3", null ],
+    [ "DecalTableIndex", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#af3c4b44fb0a28cdb211a1f7bbafaa675", null ],
+    [ "EffectAngle", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a6eb4d0347b92a0408721c7fa58b96ea6", null ],
+    [ "ForcedOutput", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a13a79532a83978901b4876d9426d8b9c", null ],
+    [ "OffsetIsTargetPosition", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#ae0bad4e262d3bb5fadadb0ce543621ad", null ],
+    [ "OffsetX", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a186b6fe860766c04dd79845f3953b1f5", null ],
+    [ "OffsetY", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#ad57ef3b47c141450b67075ae8fcd5129", null ],
+    [ "SizeHeight", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#a4c8e412ca9e453fe0fb132edd2e34d2a", null ],
+    [ "SizeWidth", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#ae583466ea0fe464dc1ee7993cbc91e46", null ],
+    [ "SkillEffectId", "d6/d9c/classSDK_1_1UEFActionNotify__PlayDecalEffect.html#aaed66e0c9b0667f421fe80303505ff22", null ]
+];

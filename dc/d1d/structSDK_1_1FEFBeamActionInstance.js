@@ -1,0 +1,25 @@
+var structSDK_1_1FEFBeamActionInstance =
+[
+    [ "BeamInstIndexArr", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a38e2702f5618f2514f9a68c64b411db3", null ],
+    [ "bTickable", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a30a382c0e85f89db1c228db070c6afd0", null ],
+    [ "CurSourceSocket", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a95d76c70f2d7da79abeef77a6e1b1315", null ],
+    [ "CurTargetSocket", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a59f804061eaaba72c447c70b3935b94a", null ],
+    [ "HitEffectPSCIndex", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a0b334ec0440e5762fa24a0f985eccfe9", null ],
+    [ "HitPSCIndex", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ab99b588ef2f2b6e506d1081113824074", null ],
+    [ "MaxDistance", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ab48bbd59fc7ff2217bb92258e44eda0c", null ],
+    [ "MouseTargetPos", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ae46e35f4d187a9b2b32b689f5fe8cb53", null ],
+    [ "PSCIndex", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#aab30526975ff5281e78b1dca3d5557e1", null ],
+    [ "SkillEffectGroupID", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#aea8b4226d6f9f393ccf4deed2f7e80d0", null ],
+    [ "SourceLocation", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a55b56990bda7623d1cc602e4a0e76b17", null ],
+    [ "SourceMoveNameArr", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#abeda0789e4903cd02ec74d2d094e75a3", null ],
+    [ "SourceMoveNameNextTime", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ab51db54f4ac4ea50b4965282183a9683", null ],
+    [ "SourceMoveNamePerTime", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#abbc8671711a4a2a2480e451b35c7e5ed", null ],
+    [ "SourceOffset", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#abae021455965a8e71064aff3bae95a1c", null ],
+    [ "SourceOID", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ab382c344d24611d9910ae209e849186d", null ],
+    [ "TargetLocation", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a493103669d11b0a158527d3265c60847", null ],
+    [ "TargetMoveNameArr", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a0200b917fd5a16050998c15d3b81af62", null ],
+    [ "TargetMoveNameNextTime", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ad7e969eef177523ed2518d58033324f5", null ],
+    [ "TargetMoveNamePerTime", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a314d6a3460387c0594af29dc46015350", null ],
+    [ "TargetNormal", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#a3961c91781b2ec8d3aef5a30ad984874", null ],
+    [ "TargetOID", "dc/d1d/structSDK_1_1FEFBeamActionInstance.html#ab2713b297212f41a5cee4b50149cdc5d", null ]
+];

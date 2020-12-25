@@ -1,0 +1,26 @@
+var classSDK_1_1UParticleModuleTypeDataRibbon =
+[
+    [ "StaticClass", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a46a363e1ea65585558039f96158438ef", null ],
+    [ "bCatmullRomSpline", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a862962a4ac89df718155fc2f7ac1e97c", null ],
+    [ "bClipSourceSegement", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a4a8570268e5923c1301b268888a158db", null ],
+    [ "bDeadTrailsOnDeactivate", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a3c7f2f7a91e0839287e821bf48bc7144", null ],
+    [ "bDeadTrailsOnSourceLoss", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a4cfcb55e41c8084b63a480ff16154279", null ],
+    [ "bEnablePreviousTangentRecalculation", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#aa1f312c7c3577c3e101b26f6f8ba0a13", null ],
+    [ "bEnableTangentDiffInterpScale", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#ae224c4b2bc699f7115ce3fbc20a2fc1d", null ],
+    [ "bRenderGeometry", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a7edcc16b59f05c7cf6548b510d38f00a", null ],
+    [ "bRenderSpawnPoints", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#ac76f2b9b2e5b94d7b96eac687fdcf107", null ],
+    [ "bRenderTangents", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a127924631f0bce0c89af4e464d84b23c", null ],
+    [ "bRenderTessellation", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#ab5328f9b2d473adb5a46d6158561b21c", null ],
+    [ "bSpawnInitialParticle", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a1a5d03f753484d2d2fd6623e18edd4be", null ],
+    [ "bTangentRecalculationEveryFrame", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#aa78e8c87ac9b6aa5ba675a0103598cce", null ],
+    [ "DistanceTessellationStepSize", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a93c5ec1061d35612f559a19e103f4022", null ],
+    [ "MaxParticleInTrailCount", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#aed773b1c7319af4b92de6cd729ce3154", null ],
+    [ "MaxTessellationBetweenParticles", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a7caf6d704f022dafe287a370ea63e4ba", null ],
+    [ "MaxTrailCount", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a7b42e454327a1907a23cc7c13a58b0de", null ],
+    [ "RenderAxis", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a20306c682f4fa42a6daa01ffa19c6ee1", null ],
+    [ "SheetsPerTrail", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a473b2649890baefcda8cc2a2ce078666", null ],
+    [ "TangentSpawningScalar", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#acd5833f9bb1faa75bcf8252039e2937c", null ],
+    [ "TangentTessellationScalar", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#ad131616c51823be8ad0d7ab046e2e907", null ],
+    [ "TilingDistance", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a6be6f06a2afdf6c850439ef3caee7d78", null ],
+    [ "UnknownData00", "d2/d73/classSDK_1_1UParticleModuleTypeDataRibbon.html#a339a99837660babf95fe54ae34ab48bf", null ]
+];

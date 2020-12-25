@@ -1,0 +1,5 @@
+<map id="SDK::FEFPropSubCollisionElem" name="SDK::FEFPropSubCollisionElem">
+<area shape="rect" id="node1" title=" " alt="" coords="93,5,306,141"/>
+<area shape="rect" id="node2" href="$d7/de2/structSDK_1_1FEFPropSubCollisionBoxElem.html" title=" " alt="" coords="5,197,188,289"/>
+<area shape="rect" id="node3" href="$d3/de3/structSDK_1_1FEFPropSubCollisionCylinderElem.html" title=" " alt="" coords="212,189,395,296"/>
+</map>

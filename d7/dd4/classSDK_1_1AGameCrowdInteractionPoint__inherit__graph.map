@@ -1,0 +1,10 @@
+<map id="SDK::AGameCrowdInteractionPoint" name="SDK::AGameCrowdInteractionPoint">
+<area shape="rect" id="node1" title=" " alt="" coords="254,975,455,1096"/>
+<area shape="rect" id="node4" href="$dd/d13/classSDK_1_1AGameCrowdBehaviorPoint.html" title=" " alt="" coords="5,1276,227,1471"/>
+<area shape="rect" id="node5" href="$da/dfb/classSDK_1_1AGameCrowdDestination.html" title=" " alt="" coords="251,1144,458,1603"/>
+<area shape="rect" id="node8" href="$d3/d43/classSDK_1_1AGameCrowdDestinationQueuePoint.html" title=" " alt="" coords="482,1217,689,1529"/>
+<area shape="rect" id="node2" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="257,527,452,927"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="223,5,487,479"/>
+<area shape="rect" id="node6" href="$da/d6a/classSDK_1_1ADynamicGameCrowdDestination.html" title=" " alt="" coords="99,1658,357,1735"/>
+<area shape="rect" id="node7" href="$d9/d2f/classSDK_1_1AGameCrowdInteractionDestination.html" title=" " alt="" coords="382,1651,583,1743"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="SDK::UDmgType_Suicided" name="SDK::UDmgType_Suicided">
+<area shape="rect" id="node1" title=" " alt="" coords="49,1875,231,1953"/>
+<area shape="rect" id="node2" href="$dd/daa/classSDK_1_1UKillZDamageType.html" title=" " alt="" coords="54,1727,226,1804"/>
+<area shape="rect" id="node3" href="$d1/d70/classSDK_1_1UDamageType.html" title=" " alt="" coords="15,1424,265,1677"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="381,777,645,1104"/>
+<area shape="rect" id="node10" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="650,1167,865,1347"/>
+<area shape="rect" id="node12" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="402,1853,563,1975"/>
+<area shape="rect" id="node15" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="299,1218,410,1295"/>
+<area shape="rect" id="node16" href="$da/db0/classSDK_1_1UForceFeedbackWaveform.html" title=" " alt="" coords="5,1203,224,1310"/>
+<area shape="rect" id="node5" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="501,557,608,649"/>
+<area shape="rect" id="node6" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="334,520,477,685"/>
+<area shape="rect" id="node7" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="472,263,712,443"/>
+<area shape="rect" id="node8" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="790,57,922,149"/>
+<area shape="rect" id="node9" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="527,5,657,200"/>
+<area shape="rect" id="node17" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="32,843,219,1038"/>
+<area shape="rect" id="node11" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="632,557,763,649"/>
+<area shape="rect" id="node13" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="309,1727,440,1804"/>
+<area shape="rect" id="node14" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="304,1497,435,1604"/>
+<area shape="rect" id="node18" href="$db/df4/structSDK_1_1FWaveformSample.html" title=" " alt="" coords="40,549,211,656"/>
+<area shape="rect" id="node19" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="13,270,237,435"/>
+<area shape="rect" id="node20" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="21,27,230,178"/>
+</map>

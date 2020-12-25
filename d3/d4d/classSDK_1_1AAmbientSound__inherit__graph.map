@@ -1,0 +1,15 @@
+<map id="SDK::AAmbientSound" name="SDK::AAmbientSound">
+<area shape="rect" id="node1" title=" " alt="" coords="254,1100,406,1207"/>
+<area shape="rect" id="node5" href="$d3/d2d/classSDK_1_1AAmbientSoundMovable.html" title=" " alt="" coords="8,1269,209,1347"/>
+<area shape="rect" id="node6" href="$d9/d3b/classSDK_1_1AAmbientSoundSimple.html" title=" " alt="" coords="234,1255,426,1361"/>
+<area shape="rect" id="node10" href="$d6/d77/classSDK_1_1AAmbientSoundSpline.html" title=" " alt="" coords="459,1255,647,1361"/>
+<area shape="rect" id="node2" href="$df/dbe/classSDK_1_1AKeypoint.html" title=" " alt="" coords="271,975,389,1052"/>
+<area shape="rect" id="node3" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="233,527,427,927"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="198,5,462,479"/>
+<area shape="rect" id="node7" href="$d3/d2f/classSDK_1_1AAmbientSoundNonLoop.html" title=" " alt="" coords="5,1512,209,1589"/>
+<area shape="rect" id="node8" href="$de/d77/classSDK_1_1AAmbientSoundSimpleToggleable.html" title=" " alt="" coords="234,1409,426,1692"/>
+<area shape="rect" id="node9" href="$d0/d60/classSDK_1_1AAmbientSoundNonLoopingToggleable.html" title=" " alt="" coords="215,1740,437,1832"/>
+<area shape="rect" id="node11" href="$d6/dd9/classSDK_1_1AAmbientSoundSimpleSpline.html" title=" " alt="" coords="457,1505,649,1597"/>
+<area shape="rect" id="node13" href="$d0/dd7/classSDK_1_1AAmbientSoundSplineMultiCue.html" title=" " alt="" coords="673,1505,861,1597"/>
+<area shape="rect" id="node12" href="$db/d16/classSDK_1_1AAmbientSoundSimpleSplineNonLoop.html" title=" " alt="" coords="461,1740,653,1832"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="SDK::UParticleModuleEventBase" name="SDK::UParticleModuleEventBase">
+<area shape="rect" id="node1" title=" " alt="" coords="95,857,314,935"/>
+<area shape="rect" id="node4" href="$d9/d8a/classSDK_1_1UParticleModuleEventGenerator.html" title=" " alt="" coords="5,997,193,1089"/>
+<area shape="rect" id="node5" href="$d7/d1a/classSDK_1_1UParticleModuleEventReceiverBase.html" title=" " alt="" coords="217,983,405,1104"/>
+<area shape="rect" id="node2" href="$d5/df1/classSDK_1_1UParticleModule.html" title=" " alt="" coords="103,527,307,809"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="73,5,337,479"/>
+<area shape="rect" id="node6" href="$df/dd3/classSDK_1_1UParticleModuleEventReceiverKillParticles.html" title=" " alt="" coords="111,1181,299,1273"/>
+<area shape="rect" id="node7" href="$d4/da2/classSDK_1_1UParticleModuleEventReceiverSpawn.html" title=" " alt="" coords="323,1152,511,1303"/>
+</map>

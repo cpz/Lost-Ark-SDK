@@ -1,0 +1,25 @@
+<map id="SDK::UEFGFxWidgetCustomColorPicker" name="SDK::UEFGFxWidgetCustomColorPicker">
+<area shape="rect" id="node1" title=" " alt="" coords="5,3468,233,3721"/>
+<area shape="rect" id="node2" href="$d0/d88/classSDK_1_1UEFUIWindowContent.html" title=" " alt="" coords="23,3341,215,3419"/>
+<area shape="rect" id="node3" href="$d2/d77/classSDK_1_1UEFUIControl.html" title=" " alt="" coords="49,3215,190,3292"/>
+<area shape="rect" id="node4" href="$dd/d3c/classSDK_1_1UEFUIComponent.html" title=" " alt="" coords="36,2927,203,3165"/>
+<area shape="rect" id="node5" href="$dc/dd3/classSDK_1_1UGFxClikWidget.html" title=" " alt="" coords="8,2683,231,2877"/>
+<area shape="rect" id="node6" href="$d2/d23/classSDK_1_1UGFxObject.html" title=" " alt="" coords="837,2380,1036,2633"/>
+<area shape="rect" id="node7" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="623,869,887,1196"/>
+<area shape="rect" id="node13" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="487,1259,701,1439"/>
+<area shape="rect" id="node15" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="663,1799,824,1920"/>
+<area shape="rect" id="node18" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="895,1310,1005,1387"/>
+<area shape="rect" id="node23" href="$dc/dd6/structSDK_1_1FScriptDelegate.html" title=" " alt="" coords="107,1310,259,1387"/>
+<area shape="rect" id="node8" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="701,557,807,649"/>
+<area shape="rect" id="node9" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="344,520,487,685"/>
+<area shape="rect" id="node20" href="$d0/d8a/structSDK_1_1FGFxWidgetBinding.html" title=" " alt="" coords="468,1983,643,2060"/>
+<area shape="rect" id="node10" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="277,270,517,450"/>
+<area shape="rect" id="node11" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="116,57,248,149"/>
+<area shape="rect" id="node12" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="405,5,535,200"/>
+<area shape="rect" id="node19" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="460,2123,651,2317"/>
+<area shape="rect" id="node22" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="843,263,1009,457"/>
+<area shape="rect" id="node14" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="831,557,962,649"/>
+<area shape="rect" id="node16" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="873,1672,1003,1749"/>
+<area shape="rect" id="node17" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="941,1516,1071,1623"/>
+<area shape="rect" id="node21" href="$d3/d88/classSDK_1_1FString.html" title=" " alt="" coords="1059,709,1159,845"/>
+</map>

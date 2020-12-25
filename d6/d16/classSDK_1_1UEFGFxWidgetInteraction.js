@@ -1,0 +1,28 @@
+var classSDK_1_1UEFGFxWidgetInteraction =
+[
+    [ "ClearFunctionButtonState", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#aa1aa55ac95e17d458cb8e53d698c3e59", null ],
+    [ "ClearInteractionState", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a9e5a5b2b186688bf422c5b97f4d58f06", null ],
+    [ "ClickInteractionFunctionMenu", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#acf39d1689adfb5bebbdfc4cd89945136", null ],
+    [ "ClickInteractionTalkList", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#ad9aaec5e3909fc0592f389a0877b2e54", null ],
+    [ "ClickInteractionTalkSelectList", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a1858c8dabb60a74eec9978832bd020dc", null ],
+    [ "CloseBackGround", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a939a1bb187499993ba4e76897d534f4e", null ],
+    [ "EndInteractionMode", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a2e21adbef9ba4bcbfc16f7c6b458037a", null ],
+    [ "InteractionCloseBackGround", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a733173a5352dc62754a791deebc8f697", null ],
+    [ "InteractionCommonCloseBtnClick", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#abe23631920569934f9186068fdd1811e", null ],
+    [ "InteractionCommonMenuListClick", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#add62e879e2d271e7cbeb1bfadcdaf7b7", null ],
+    [ "InteractionCommonNPCTalkListClick", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a5e7be5c5c3e30d3a30bdde595b2280dd", null ],
+    [ "InteractionCommonPlayerTalkListClick", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a305255c087e822dc6250611a668db974", null ],
+    [ "InteractionOpenBackGround", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a9d873e382e1eafb4baa82a9ce392a1a1", null ],
+    [ "OpenBackGround", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a48f651a504edd7d7ce735f0abb1e5505", null ],
+    [ "RelationShipLevelUp", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a62b601a944245482140ccc2211238ca6", null ],
+    [ "SelectFunctionContainer", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a4709d7484fbdbcdeb7f37e46e58a9e7b", null ],
+    [ "SelectFunctionType", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a2a2358cea38474f40f43d2c6aa2ecf84", null ],
+    [ "SelectQuestList", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a59616b34c2e53335e3b10f79aeeb09e1", null ],
+    [ "SelectQuestListIndex", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#abb253e9e6f5c4eeea045d79a4c9c693e", null ],
+    [ "ShowMaximumIntimatePoint", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a73e374e16e7178e1a19e9376a60838d6", null ],
+    [ "ShowMaxIntimatePoint", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a90c44d4bba0c08c8cf74d670409e879c", null ],
+    [ "StaticClass", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#ac5f102be0330d697bbd9dbea4dc99eeb", null ],
+    [ "WidgetInitialized", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a8032a4253e36fa88d274e2022c3f5ccb", null ],
+    [ "InteractionColosseum", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a231b012c690a322a5528d2621b027d92", null ],
+    [ "InteractionWarehouse", "d6/d16/classSDK_1_1UEFGFxWidgetInteraction.html#a2990d2113886b9a62307f7b3879b9ed9", null ]
+];

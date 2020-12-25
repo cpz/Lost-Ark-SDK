@@ -1,0 +1,9 @@
+<map id="SDK::UDamageType" name="SDK::UDamageType">
+<area shape="rect" id="node1" title=" " alt="" coords="263,527,513,809"/>
+<area shape="rect" id="node3" href="$d8/d88/classSDK_1_1UDmgType__Crushed.html" title=" " alt="" coords="5,857,187,935"/>
+<area shape="rect" id="node4" href="$da/d32/classSDK_1_1UDmgType__Fell.html" title=" " alt="" coords="211,857,365,935"/>
+<area shape="rect" id="node5" href="$dd/de7/classSDK_1_1UDmgType__Telefragged.html" title=" " alt="" coords="388,857,588,935"/>
+<area shape="rect" id="node6" href="$dd/daa/classSDK_1_1UKillZDamageType.html" title=" " alt="" coords="613,857,785,935"/>
+<area shape="rect" id="node2" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="256,5,520,479"/>
+<area shape="rect" id="node7" href="$da/d1c/classSDK_1_1UDmgType__Suicided.html" title=" " alt="" coords="607,983,790,1060"/>
+</map>

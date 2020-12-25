@@ -1,0 +1,27 @@
+var classSDK_1_1UAmbientOcclusionEffect =
+[
+    [ "StaticClass", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#ad3720b7c175bf4075eb39dec79a6f269", null ],
+    [ "bAngleBasedSSAO", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a17de9ad2ab4b23d37afa29c6c3da40e3", null ],
+    [ "EdgeDistanceScale", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a7cc133b03553404823e4c312519d757a", null ],
+    [ "EdgeDistanceThreshold", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#ac8fe2a62ddcfb086d988cf0c6669e9e8", null ],
+    [ "FilterDistanceScale", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a4720c1b7e338d4168b36a4444ebe5de5", null ],
+    [ "FilterSize", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a09bbf3544602d150a1e89d40966a7b82", null ],
+    [ "HaloDistanceScale", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a1ede71b1d18e0de2e420585b998d121a", null ],
+    [ "HaloDistanceThreshold", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a960af23406e4b19c2278717d2aa957f7", null ],
+    [ "HaloOcclusion", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a7fa295fea57c80a97aa1a110106a4059", null ],
+    [ "HistoryConvergenceTime", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a38360a57dc2714a00267be5efccc7b84", null ],
+    [ "HistoryWeightConvergenceTime", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a5cec415b889bcbc2a6dde6558a71cab1", null ],
+    [ "MinOcclusion", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a45a772adc02d5d85e44a64955d2fb8ee", null ],
+    [ "OcclusionAttenuation", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a5b7cb0f40227833fb9e1ce30ec5bf64a", null ],
+    [ "OcclusionBias", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#aa66894ccc6c407a7b38c85207dbd8c49", null ],
+    [ "OcclusionColor", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#ae322f8b7202bc966abd9f8bc17d1e18b", null ],
+    [ "OcclusionFadeoutMaxDistance", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a94f64e19f0c27556b31e5fb021b01af4", null ],
+    [ "OcclusionFadeoutMinDistance", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a2662cefee9fb51dbec541a9ca29e5c1e", null ],
+    [ "OcclusionPower", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a8e0863d8dd610485e67522f10c0d8059", null ],
+    [ "OcclusionQuality", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#abdeb6edaa6b426bff0b410bc5668466f", null ],
+    [ "OcclusionRadius", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#ae0627e4697ab7ed227301e075270ea63", null ],
+    [ "OcclusionScale", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#abaa3dcd671eff2cf84c85689f31c8698", null ],
+    [ "SSAO2", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#aa2ad39daac449c781b87442751086cff", null ],
+    [ "UnknownData00", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#a15b50c839533a6af99d46c5625452218", null ],
+    [ "UnknownData01", "d2/da9/classSDK_1_1UAmbientOcclusionEffect.html#abc2be1b4fc5d150c0170d295b81cc274", null ]
+];

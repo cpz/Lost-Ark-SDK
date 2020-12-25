@@ -1,0 +1,24 @@
+<map id="SDK::UParticleModuleVelocityCone" name="SDK::UParticleModuleVelocityCone">
+<area shape="rect" id="node1" title=" " alt="" coords="637,2821,869,2899"/>
+<area shape="rect" id="node2" href="$d3/dd7/classSDK_1_1UParticleModuleVelocityBase.html" title=" " alt="" coords="997,1915,1228,2007"/>
+<area shape="rect" id="node3" href="$d5/df1/classSDK_1_1UParticleModule.html" title=" " alt="" coords="1013,1439,1217,1707"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="607,1049,871,1376"/>
+<area shape="rect" id="node10" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="472,1483,687,1663"/>
+<area shape="rect" id="node12" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="499,2157,660,2279"/>
+<area shape="rect" id="node15" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="711,1534,821,1611"/>
+<area shape="rect" id="node22" href="$dc/d28/classSDK_1_1UComponent.html" title=" " alt="" coords="392,2341,527,2419"/>
+<area shape="rect" id="node5" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="713,722,819,814"/>
+<area shape="rect" id="node6" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="545,685,688,851"/>
+<area shape="rect" id="node7" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="459,263,699,443"/>
+<area shape="rect" id="node8" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="513,57,645,149"/>
+<area shape="rect" id="node9" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="181,5,311,200"/>
+<area shape="rect" id="node20" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="59,467,206,661"/>
+<area shape="rect" id="node11" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="391,722,522,814"/>
+<area shape="rect" id="node21" href="$dd/d27/classSDK_1_1UDistributionFloat.html" title=" " alt="" coords="185,2468,347,2575"/>
+<area shape="rect" id="node13" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="567,2031,698,2108"/>
+<area shape="rect" id="node14" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="606,1784,737,1891"/>
+<area shape="rect" id="node16" href="$d4/daf/structSDK_1_1FColor.html" title=" " alt="" coords="1067,1145,1164,1281"/>
+<area shape="rect" id="node17" href="$dd/d43/structSDK_1_1FVector.html" title=" " alt="" coords="701,2637,805,2744"/>
+<area shape="rect" id="node18" href="$d0/da8/structSDK_1_1FRawDistributionFloat.html" title=" " alt="" coords="172,2652,360,2729"/>
+<area shape="rect" id="node19" href="$dc/d37/structSDK_1_1FRawDistribution.html" title=" " alt="" coords="5,875,196,1025"/>
+</map>

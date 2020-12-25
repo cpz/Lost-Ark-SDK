@@ -1,0 +1,39 @@
+<map id="SDK::UEFActionCondition" name="SDK::UEFActionCondition">
+<area shape="rect" id="node1" title=" " alt="" coords="4194,527,4371,633"/>
+<area shape="rect" id="node3" href="$d6/d10/classSDK_1_1UEFActionConditionAbility.html" title=" " alt="" coords="5,696,219,773"/>
+<area shape="rect" id="node4" href="$d2/d8f/classSDK_1_1UEFActionConditionAbnormal.html" title=" " alt="" coords="243,696,475,773"/>
+<area shape="rect" id="node5" href="$dd/d19/classSDK_1_1UEFActionConditionAlreadyDie.html" title=" " alt="" coords="499,696,741,773"/>
+<area shape="rect" id="node6" href="$d2/de6/classSDK_1_1UEFActionConditionBattleMode.html" title=" " alt="" coords="765,696,1008,773"/>
+<area shape="rect" id="node7" href="$d7/d44/classSDK_1_1UEFActionConditionBurrow.html" title=" " alt="" coords="1032,696,1251,773"/>
+<area shape="rect" id="node8" href="$d6/d18/classSDK_1_1UEFActionConditionComaDuraion.html" title=" " alt="" coords="1275,689,1487,781"/>
+<area shape="rect" id="node9" href="$d6/d75/classSDK_1_1UEFActionConditionDespawn.html" title=" " alt="" coords="1512,696,1744,773"/>
+<area shape="rect" id="node10" href="$dc/d3f/classSDK_1_1UEFActionConditionDespawnAnimIndex.html" title=" " alt="" coords="1768,689,2000,781"/>
+<area shape="rect" id="node11" href="$da/d1c/classSDK_1_1UEFActionConditionDyingType.html" title=" " alt="" coords="2024,696,2264,773"/>
+<area shape="rect" id="node12" href="$db/d0a/classSDK_1_1UEFActionConditionForcedMove.html" title=" " alt="" coords="2289,696,2538,773"/>
+<area shape="rect" id="node13" href="$d9/d69/classSDK_1_1UEFActionConditionGadgetExitType.html" title=" " alt="" coords="2563,689,2781,781"/>
+<area shape="rect" id="node14" href="$d5/dc3/classSDK_1_1UEFActionConditionGadgetState.html" title=" " alt="" coords="2805,689,3024,781"/>
+<area shape="rect" id="node15" href="$dc/d40/classSDK_1_1UEFActionConditionHitAdditive.html" title=" " alt="" coords="3048,689,3243,781"/>
+<area shape="rect" id="node16" href="$d2/da0/classSDK_1_1UEFActionConditionHitReaction.html" title=" " alt="" coords="3267,689,3461,781"/>
+<area shape="rect" id="node17" href="$db/d95/classSDK_1_1UEFActionConditionIdentity.html" title=" " alt="" coords="3486,696,3706,773"/>
+<area shape="rect" id="node18" href="$dc/d17/classSDK_1_1UEFActionConditionInputDirLeftRight.html" title=" " alt="" coords="3730,689,3937,781"/>
+<area shape="rect" id="node19" href="$dc/d7f/classSDK_1_1UEFActionConditionIsDeleteMe.html" title=" " alt="" coords="3961,689,4149,781"/>
+<area shape="rect" id="node20" href="$dd/d88/classSDK_1_1UEFActionConditionLearnCommonActionEffectType.html" title=" " alt="" coords="4173,689,4393,781"/>
+<area shape="rect" id="node21" href="$de/db3/classSDK_1_1UEFActionConditionMoveAni.html" title=" " alt="" coords="4417,696,4645,773"/>
+<area shape="rect" id="node22" href="$d2/ddd/classSDK_1_1UEFActionConditionNpcStatus.html" title=" " alt="" coords="4669,689,4870,781"/>
+<area shape="rect" id="node23" href="$d5/d43/classSDK_1_1UEFActionConditionPickupMode.html" title=" " alt="" coords="4894,696,5143,773"/>
+<area shape="rect" id="node24" href="$dc/d9b/classSDK_1_1UEFActionConditionPlayerClass.html" title=" " alt="" coords="5167,689,5382,781"/>
+<area shape="rect" id="node25" href="$d7/d18/classSDK_1_1UEFActionConditionProbablity.html" title=" " alt="" coords="5407,696,5641,773"/>
+<area shape="rect" id="node26" href="$db/de6/classSDK_1_1UEFActionConditionRandom.html" title=" " alt="" coords="5665,696,5892,773"/>
+<area shape="rect" id="node27" href="$d1/d56/classSDK_1_1UEFActionConditionRidingMode.html" title=" " alt="" coords="5917,696,6163,773"/>
+<area shape="rect" id="node28" href="$df/dbc/classSDK_1_1UEFActionConditionSelectNpcIdleType.html" title=" " alt="" coords="6187,689,6402,781"/>
+<area shape="rect" id="node29" href="$d3/db7/classSDK_1_1UEFActionConditionShipAnchorMode.html" title=" " alt="" coords="6427,689,6629,781"/>
+<area shape="rect" id="node30" href="$d8/d22/classSDK_1_1UEFActionConditionShipBoostMode.html" title=" " alt="" coords="6653,689,6856,781"/>
+<area shape="rect" id="node31" href="$d0/d1f/classSDK_1_1UEFActionConditionSkillEffectHit.html" title=" " alt="" coords="6880,689,7083,781"/>
+<area shape="rect" id="node32" href="$df/d44/classSDK_1_1UEFActionConditionSpawnAnimIndex.html" title=" " alt="" coords="7107,689,7325,781"/>
+<area shape="rect" id="node33" href="$d2/d9a/classSDK_1_1UEFActionConditionSpawnType.html" title=" " alt="" coords="7349,696,7595,773"/>
+<area shape="rect" id="node34" href="$dc/d1b/classSDK_1_1UEFActionConditionStanceMode.html" title=" " alt="" coords="7620,696,7871,773"/>
+<area shape="rect" id="node35" href="$d2/d11/classSDK_1_1UEFActionConditionStatusEffect.html" title=" " alt="" coords="7895,681,8110,788"/>
+<area shape="rect" id="node36" href="$d1/d11/classSDK_1_1UEFActionConditionTakeDamage.html" title=" " alt="" coords="8134,689,8341,781"/>
+<area shape="rect" id="node37" href="$de/d6a/classSDK_1_1UEFActionConditionWeaponMode.html" title=" " alt="" coords="8365,696,8622,773"/>
+<area shape="rect" id="node2" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="4151,5,4415,479"/>
+</map>

@@ -1,0 +1,25 @@
+var classSDK_1_1UUIDataProvider__OnlinePlayerStorage =
+[
+    [ "AddReadCompleteDelegate", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#aef11aca0347e91cc7a6a209f084b4ff8", null ],
+    [ "ClearReadCompleteDelegate", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#aa44a63f67e32506d2f4019cf44d7b6c4", null ],
+    [ "GetData", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a3d5dbc2491c404f40d447921df0295f8", null ],
+    [ "OnDeviceSelectionComplete", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#adf74697565d34fe8a29666087a20acbc", null ],
+    [ "OnExternalUIChange", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a7d00ceb73135fa1c075e0d36221fce77", null ],
+    [ "OnLoginChange", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a07eac2b8fdeb7833b5cddc3143b59d03", null ],
+    [ "OnReadStorageComplete", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a1eb0b6cb4b8c7e8c2084650a0938dd05", null ],
+    [ "OnRegister", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#abfe1a35b2179ead73805e8998c37b347", null ],
+    [ "OnStorageDeviceChange", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a6f452669004f8c3e8b9e9ba09de8448a", null ],
+    [ "OnUnregister", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#acff4ced98fa808f8f5a427db1015aec2", null ],
+    [ "ReadData", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a9fb92ff73a6ed1e1bb74cfdf54f4d776", null ],
+    [ "RefreshStorageData", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a3952e38e698710050c4d73756238286d", null ],
+    [ "ShowDeviceSelection", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#aeb77c4ffe6d2c8bf7d51a4383eea9379", null ],
+    [ "StaticClass", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#ab5a8976b68ca3a021c5d43b59b934b89", null ],
+    [ "WriteData", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#ae7b85ccc2f05df3c28085babf4b54a0f", null ],
+    [ "bIsExternalUIOpen", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#af3e660b251b7cc3b72cea27ca2b56fcc", null ],
+    [ "bNeedsDeferredRefresh", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a23c0004b0b9aaa474af77155ffd20d93", null ],
+    [ "bWasErrorLastRead", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a371e4b28134fefe53d881d694e7cbed0", null ],
+    [ "DeviceStorageSizeNeeded", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#ab8d7f1c092148819a49e139ccc275f6a", null ],
+    [ "PlayerStorageArrayProviders", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a1c954fab03843f7322ec73e3cdb2ebd1", null ],
+    [ "Profile", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#ab1d1310a95abe915f0ccff2b791ee04a", null ],
+    [ "ProviderName", "db/dfb/classSDK_1_1UUIDataProvider__OnlinePlayerStorage.html#a92dfbca5df9a4f24ac8f13bbe8a1b00d", null ]
+];

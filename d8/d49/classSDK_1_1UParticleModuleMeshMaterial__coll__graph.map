@@ -1,0 +1,44 @@
+<map id="SDK::UParticleModuleMeshMaterial" name="SDK::UParticleModuleMeshMaterial">
+<area shape="rect" id="node1" title=" " alt="" coords="1822,3191,2009,3283"/>
+<area shape="rect" id="node2" href="$d0/dd0/classSDK_1_1UParticleModuleMaterialBase.html" title=" " alt="" coords="1311,2992,1541,3069"/>
+<area shape="rect" id="node3" href="$d5/df1/classSDK_1_1UParticleModule.html" title=" " alt="" coords="515,2507,719,2775"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="378,943,642,1269"/>
+<area shape="rect" id="node10" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="257,1541,472,1721"/>
+<area shape="rect" id="node12" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="139,2970,300,3091"/>
+<area shape="rect" id="node15" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="5,1593,116,1670"/>
+<area shape="rect" id="node19" href="$de/dd8/classSDK_1_1USurface.html" title=" " alt="" coords="1314,1578,1461,1685"/>
+<area shape="rect" id="node5" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="457,722,563,814"/>
+<area shape="rect" id="node6" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="3584,685,3727,851"/>
+<area shape="rect" id="node18" href="$dc/db2/classSDK_1_1UMaterialInterface.html" title=" " alt="" coords="2171,2412,2409,2871"/>
+<area shape="rect" id="node7" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="3535,263,3775,443"/>
+<area shape="rect" id="node8" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="3527,57,3659,149"/>
+<area shape="rect" id="node9" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="3728,5,3857,200"/>
+<area shape="rect" id="node17" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="2195,2933,2385,3128"/>
+<area shape="rect" id="node32" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="3756,467,3923,661"/>
+<area shape="rect" id="node11" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="3379,722,3510,814"/>
+<area shape="rect" id="node25" href="$d8/da8/classSDK_1_1UTexture.html" title=" " alt="" coords="3369,1979,3592,2203"/>
+<area shape="rect" id="node29" href="$d3/dd6/structSDK_1_1FUntypedBulkData__Mirror.html" title=" " alt="" coords="3521,1293,3715,1517"/>
+<area shape="rect" id="node13" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="49,2603,179,2680"/>
+<area shape="rect" id="node14" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="41,2037,171,2144"/>
+<area shape="rect" id="node16" href="$d4/daf/structSDK_1_1FColor.html" title=" " alt="" coords="635,2023,732,2159"/>
+<area shape="rect" id="node20" href="$d0/d6f/structSDK_1_1FRenderCommandFence__Mirror.html" title=" " alt="" coords="1667,2045,1871,2137"/>
+<area shape="rect" id="node21" href="$dd/d43/structSDK_1_1FVector.html" title=" " alt="" coords="1895,2037,1999,2144"/>
+<area shape="rect" id="node22" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2276,1745,2515,1925"/>
+<area shape="rect" id="node23" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2096,1031,2305,1181"/>
+<area shape="rect" id="node26" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2909,1541,3124,1721"/>
+<area shape="rect" id="node27" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="3149,1549,3357,1714"/>
+<area shape="rect" id="node30" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2413,1549,2652,1714"/>
+<area shape="rect" id="node33" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2677,1549,2885,1714"/>
+<area shape="rect" id="node34" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="3734,1745,3942,1925"/>
+<area shape="rect" id="node35" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="699,1745,902,1925"/>
+<area shape="rect" id="node36" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="920,1753,1143,1918"/>
+<area shape="rect" id="node37" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1152,1745,1361,1925"/>
+<area shape="rect" id="node38" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1437,1753,1652,1918"/>
+<area shape="rect" id="node39" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1711,1745,1917,1925"/>
+<area shape="rect" id="node41" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1930,1745,2133,1925"/>
+<area shape="rect" id="node42" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2897,2001,3099,2181"/>
+<area shape="rect" id="node24" href="$dc/d5e/structSDK_1_1FLightmassMaterialInterfaceSettings.html" title=" " alt="" coords="2023,1949,2253,2232"/>
+<area shape="rect" id="node28" href="$dc/d32/structSDK_1_1FGuid.html" title=" " alt="" coords="3926,1571,4019,1692"/>
+<area shape="rect" id="node31" href="$d3/d88/classSDK_1_1FString.html" title=" " alt="" coords="3789,1563,3889,1699"/>
+<area shape="rect" id="node40" href="$de/d7c/structSDK_1_1FLinearColor.html" title=" " alt="" coords="2277,2030,2409,2151"/>
+</map>

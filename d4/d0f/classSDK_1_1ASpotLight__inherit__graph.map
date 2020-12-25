@@ -1,0 +1,11 @@
+<map id="SDK::ASpotLight" name="SDK::ASpotLight">
+<area shape="rect" id="node1" title=" " alt="" coords="363,1144,485,1221"/>
+<area shape="rect" id="node5" href="$df/d76/classSDK_1_1ADominantSpotLight.html" title=" " alt="" coords="5,1291,184,1369"/>
+<area shape="rect" id="node6" href="$d6/dd9/classSDK_1_1AGeneratedMeshAreaLight.html" title=" " alt="" coords="209,1291,423,1369"/>
+<area shape="rect" id="node7" href="$dd/d6e/classSDK_1_1ASpotLightMovable.html" title=" " alt="" coords="448,1291,619,1369"/>
+<area shape="rect" id="node9" href="$d6/d58/classSDK_1_1ASpotLightToggleable.html" title=" " alt="" coords="643,1269,840,1391"/>
+<area shape="rect" id="node2" href="$d0/dd7/classSDK_1_1ALight.html" title=" " alt="" coords="355,975,493,1096"/>
+<area shape="rect" id="node3" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="327,527,521,927"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="292,5,556,479"/>
+<area shape="rect" id="node8" href="$d2/d38/classSDK_1_1AEFLightBeam.html" title=" " alt="" coords="460,1439,607,1604"/>
+</map>

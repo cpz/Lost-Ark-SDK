@@ -1,0 +1,25 @@
+var classSDK_1_1UProcBuildingRuleset =
+[
+    [ "StaticClass", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a264e56a486f3025be87edf4a83e3b2e9", null ],
+    [ "bBeingEdited", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a9e7d9c25478699a49ec68df5570fd558", null ],
+    [ "bEnableInteriorTexture", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a0df67418b0d765fe531dd5db03a69fe6", null ],
+    [ "bLODOnlyRoof", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a7f310e5a8c106a4563e186f36cc3be8a", null ],
+    [ "bPickRandomSwatch", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a68afa6cb0ac869ecc36ee94c8d3af9e3", null ],
+    [ "BuildingLODSpecular", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ae5eba30db054dc9c7bc19eabdace6098", null ],
+    [ "Comments", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a4c49e6f05edc5293e4b4bf5f5fd9bc22", null ],
+    [ "DefaultFloorMaterial", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a34d36b1cef90421e6923f113485a8e80", null ],
+    [ "DefaultNonRectWallMaterial", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ab6c31a736d3b62646985b0931940f15c", null ],
+    [ "DefaultRoofMaterial", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a75b0cc9497b0d8de43ea67d84fb68be1", null ],
+    [ "FloorPolyInset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#af079373210dd70e3040cbab52c3d9a71", null ],
+    [ "FloorZOffset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a5afd50e3204d6613d0c41527a6d68ce4", null ],
+    [ "InteriorTexture", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#af2b3e49caec1282e2975f0404bb0edda", null ],
+    [ "LODCubemap", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a069ac8439b3e587abfae73c8df15c272", null ],
+    [ "NotFloorZOffset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a6ae096bbe93792390fb80426241b3886", null ],
+    [ "NotRoofZOffset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a55a9d7553d8cd66d04d74ee050abe8eb", null ],
+    [ "ParamSwatches", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ab0fa8426b5b162c79838fdba60d2697b", null ],
+    [ "RoofEdgeScopeRaise", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ad8f0f373033e52e63f789bb14203377c", null ],
+    [ "RoofPolyInset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ad45f8473973dcaaa46e86a4bf72be903", null ],
+    [ "RoofZOffset", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a27d780b6ea03c8cceb0d97033b9014c3", null ],
+    [ "RootRule", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#a27259f5481775280643c73dbc62c57a8", null ],
+    [ "Variations", "d0/d29/classSDK_1_1UProcBuildingRuleset.html#ae91078099460d8fde375063299b7c554", null ]
+];

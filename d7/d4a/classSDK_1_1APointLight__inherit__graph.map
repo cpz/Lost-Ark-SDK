@@ -1,0 +1,10 @@
+<map id="SDK::APointLight" name="SDK::APointLight">
+<area shape="rect" id="node1" title=" " alt="" coords="236,1144,361,1221"/>
+<area shape="rect" id="node5" href="$d3/d65/classSDK_1_1ADominantPointLight.html" title=" " alt="" coords="5,1291,187,1369"/>
+<area shape="rect" id="node6" href="$d5/dbb/classSDK_1_1APointLightMovable.html" title=" " alt="" coords="211,1291,386,1369"/>
+<area shape="rect" id="node8" href="$dd/d8d/classSDK_1_1APointLightToggleable.html" title=" " alt="" coords="411,1269,608,1391"/>
+<area shape="rect" id="node2" href="$d0/dd7/classSDK_1_1ALight.html" title=" " alt="" coords="229,975,368,1096"/>
+<area shape="rect" id="node3" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="201,527,396,927"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="167,5,431,479"/>
+<area shape="rect" id="node7" href="$d3/d99/classSDK_1_1AEFPointLightMovable.html" title=" " alt="" coords="203,1439,394,1516"/>
+</map>
