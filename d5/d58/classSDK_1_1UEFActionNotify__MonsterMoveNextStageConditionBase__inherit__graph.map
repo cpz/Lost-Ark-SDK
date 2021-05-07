@@ -1,0 +1,11 @@
+<map id="SDK::UEFActionNotify_MonsterMoveNextStageConditionBase" name="SDK::UEFActionNotify_MonsterMoveNextStageConditionBase">
+<area shape="rect" id="node1" title=" " alt="" coords="489,939,744,1045"/>
+<area shape="rect" id="node5" href="$da/d93/classSDK_1_1UEFActionNotify__MonsterMoveNextStageConditionChangeTarget.html" title=" " alt="" coords="5,1093,231,1244"/>
+<area shape="rect" id="node6" href="$d8/d3c/classSDK_1_1UEFActionNotify__MonsterMoveNextStageConditionCheckArea.html" title=" " alt="" coords="255,1108,480,1229"/>
+<area shape="rect" id="node7" href="$d6/d05/classSDK_1_1UEFActionNotify__MonsterMoveNextStageConditionProbability.html" title=" " alt="" coords="504,1115,729,1222"/>
+<area shape="rect" id="node8" href="$d6/db0/classSDK_1_1UEFActionNotify__MonsterMoveNextStageConditionSkillEffectHit.html" title=" " alt="" coords="753,1115,979,1222"/>
+<area shape="rect" id="node9" href="$df/d8d/classSDK_1_1UEFActionNotify__MonsterMoveNextStageConditionStatusEffect.html" title=" " alt="" coords="1003,1093,1228,1244"/>
+<area shape="rect" id="node2" href="$da/d29/classSDK_1_1UEFActionNotify__MonsterMoveNextStageBase.html" title=" " alt="" coords="517,799,717,891"/>
+<area shape="rect" id="node3" href="$df/d32/classSDK_1_1UEFAction__Notify.html" title=" " alt="" coords="535,527,699,751"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="485,5,749,479"/>
+</map>

@@ -1,0 +1,26 @@
+var structSDK_1_1FLightmassWorldInfoSettings =
+[
+    [ "bCompressShadowmap", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#af3d42cc1f60cd6b566fcb6977ec8127e", null ],
+    [ "bEnableAdvancedEnvironmentColor", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a8fee842e24bfe658567d643811ffcda2", null ],
+    [ "bEnableImageReflectionShadowing", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#ae31ec1220113dd730ef67b5fb89c17fd", null ],
+    [ "bUseAmbientOcclusion", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a4420cf6ee398c6d9af8d19180c2f200b", null ],
+    [ "bVisualizeAmbientOcclusion", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a650f6373a8c2125191b4375230c7e886", null ],
+    [ "bVisualizeMaterialDiffuse", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a7057ae431636a8944608c458cd9f50da", null ],
+    [ "DiffuseBoost", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a7ccd6949374f087cbcd3202c3eeb0ea3", null ],
+    [ "DirectIlluminationOcclusionFraction", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#acc9c4a0d6977ffaf3d8d6e2f524f5ea9", null ],
+    [ "EmissiveBoost", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#ab2c1a79422a533a247adab91d754b7b4", null ],
+    [ "EnvironmentColor", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#aa604a9426477b17feae61428eb46e3a6", null ],
+    [ "EnvironmentIntensity", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#aa9ef6ec7eedbe8d237783d4d65ecbb28", null ],
+    [ "EnvironmentLightDirection", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a8de6350ba37d93e2aa19e0366e951362", null ],
+    [ "EnvironmentLightTerminatorAngle", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a81cd4c9c772ea04be0ce41fe5af98030", null ],
+    [ "EnvironmentSunColor", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#acad355e7dcc8698ea0b4e0612e55485c", null ],
+    [ "EnvironmentSunIntensity", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#af5b4fd04a063a6aab719e1a2c52f5df8", null ],
+    [ "FullyOccludedSamplesFraction", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a4bce8ecfedb918dc0d0fd17fbbdf922a", null ],
+    [ "IndirectIlluminationOcclusionFraction", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#abfdccf262cde50882d0f979cca918ae3", null ],
+    [ "IndirectNormalInfluenceBoost", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a1b791f7059ed44ba222fe6cfc9e7c6d1", null ],
+    [ "MaxOcclusionDistance", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a342d9c3502b550cc31848e2ce6e57d28", null ],
+    [ "NumIndirectLightingBounces", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a0a5e752c27a9c5cb469c9db213cd7edf", null ],
+    [ "OcclusionExponent", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a55c066b23e4ec6c045a2f08c2749c5a0", null ],
+    [ "SpecularBoost", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#ae190da23875c27013dc0f597fde5a3e7", null ],
+    [ "StaticLightingLevelScale", "d0/db9/structSDK_1_1FLightmassWorldInfoSettings.html#a6b0ac89770af6aa19161b6e39282dc7f", null ]
+];

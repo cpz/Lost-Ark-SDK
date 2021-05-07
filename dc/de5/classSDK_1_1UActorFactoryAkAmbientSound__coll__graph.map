@@ -1,0 +1,24 @@
+<map id="SDK::UActorFactoryAkAmbientSound" name="SDK::UActorFactoryAkAmbientSound">
+<area shape="rect" id="node1" title=" " alt="" coords="809,2417,1016,2509"/>
+<area shape="rect" id="node2" href="$d8/d94/classSDK_1_1UActorFactory.html" title=" " alt="" coords="715,2232,900,2368"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="377,957,641,1284"/>
+<area shape="rect" id="node9" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="43,1347,257,1527"/>
+<area shape="rect" id="node11" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="451,2033,612,2155"/>
+<area shape="rect" id="node14" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="333,1398,444,1475"/>
+<area shape="rect" id="node18" href="$db/d7a/classSDK_1_1UAkBaseSoundObject.html" title=" " alt="" coords="635,1398,825,1475"/>
+<area shape="rect" id="node19" href="$d9/d05/classSDK_1_1UAkBank.html" title=" " alt="" coords="900,1376,1043,1497"/>
+<area shape="rect" id="node4" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="313,737,419,829"/>
+<area shape="rect" id="node5" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="597,700,740,865"/>
+<area shape="rect" id="node6" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="549,270,789,450"/>
+<area shape="rect" id="node7" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="5,57,137,149"/>
+<area shape="rect" id="node8" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="919,5,1048,200"/>
+<area shape="rect" id="node16" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="900,263,1067,457"/>
+<area shape="rect" id="node20" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="912,1023,1055,1218"/>
+<area shape="rect" id="node21" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="1261,481,1407,676"/>
+<area shape="rect" id="node10" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="443,737,574,829"/>
+<area shape="rect" id="node12" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="377,1907,507,1984"/>
+<area shape="rect" id="node13" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="369,1692,499,1799"/>
+<area shape="rect" id="node15" href="$d3/d88/classSDK_1_1FString.html" title=" " alt="" coords="933,715,1033,851"/>
+<area shape="rect" id="node17" href="$d2/da1/classSDK_1_1UAkEvent.html" title=" " alt="" coords="1022,1633,1230,1857"/>
+<area shape="rect" id="node22" href="$da/d8c/structSDK_1_1FThreadSafeCounter.html" title=" " alt="" coords="1067,1398,1246,1475"/>
+</map>

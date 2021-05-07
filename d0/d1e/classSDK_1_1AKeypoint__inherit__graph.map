@@ -1,0 +1,18 @@
+<map id="SDK::AKeypoint" name="SDK::AKeypoint">
+<area shape="rect" id="node1" title=" " alt="" coords="368,975,487,1052"/>
+<area shape="rect" id="node4" href="$d1/d59/classSDK_1_1AAkAmbientSound.html" title=" " alt="" coords="7,1100,229,1324"/>
+<area shape="rect" id="node5" href="$d8/d1b/classSDK_1_1AAmbientSound.html" title=" " alt="" coords="254,1159,406,1265"/>
+<area shape="rect" id="node15" href="$d3/dd7/classSDK_1_1APathTargetPoint.html" title=" " alt="" coords="430,1159,619,1265"/>
+<area shape="rect" id="node16" href="$db/d3e/classSDK_1_1ATargetPoint.html" title=" " alt="" coords="643,1166,795,1258"/>
+<area shape="rect" id="node2" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="330,527,525,927"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="295,5,559,479"/>
+<area shape="rect" id="node6" href="$d3/d2d/classSDK_1_1AAmbientSoundMovable.html" title=" " alt="" coords="8,1387,209,1464"/>
+<area shape="rect" id="node7" href="$d9/d3b/classSDK_1_1AAmbientSoundSimple.html" title=" " alt="" coords="234,1372,426,1479"/>
+<area shape="rect" id="node11" href="$d6/d77/classSDK_1_1AAmbientSoundSpline.html" title=" " alt="" coords="459,1372,647,1479"/>
+<area shape="rect" id="node8" href="$d3/d2f/classSDK_1_1AAmbientSoundNonLoop.html" title=" " alt="" coords="5,1629,209,1707"/>
+<area shape="rect" id="node9" href="$de/d77/classSDK_1_1AAmbientSoundSimpleToggleable.html" title=" " alt="" coords="234,1527,426,1809"/>
+<area shape="rect" id="node10" href="$d0/d60/classSDK_1_1AAmbientSoundNonLoopingToggleable.html" title=" " alt="" coords="215,1857,437,1949"/>
+<area shape="rect" id="node12" href="$d6/dd9/classSDK_1_1AAmbientSoundSimpleSpline.html" title=" " alt="" coords="457,1622,649,1714"/>
+<area shape="rect" id="node14" href="$d0/dd7/classSDK_1_1AAmbientSoundSplineMultiCue.html" title=" " alt="" coords="673,1622,861,1714"/>
+<area shape="rect" id="node13" href="$db/d16/classSDK_1_1AAmbientSoundSimpleSplineNonLoop.html" title=" " alt="" coords="461,1857,653,1949"/>
+</map>

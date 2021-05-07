@@ -1,0 +1,11 @@
+<map id="SDK::UEFUIButton" name="SDK::UEFUIButton">
+<area shape="rect" id="node1" title=" " alt="" coords="203,1512,341,1589"/>
+<area shape="rect" id="node7" href="$d2/dd2/classSDK_1_1UEFUICheckBox.html" title=" " alt="" coords="5,1718,165,1795"/>
+<area shape="rect" id="node8" href="$dc/dd9/classSDK_1_1UEFUIComboBox.html" title=" " alt="" coords="190,1718,354,1795"/>
+<area shape="rect" id="node9" href="$d0/dea/classSDK_1_1UEFUISlot.html" title=" " alt="" coords="378,1637,518,1876"/>
+<area shape="rect" id="node2" href="$d2/d77/classSDK_1_1UEFUIControl.html" title=" " alt="" coords="201,1387,343,1464"/>
+<area shape="rect" id="node3" href="$dd/d3c/classSDK_1_1UEFUIComponent.html" title=" " alt="" coords="189,1100,355,1339"/>
+<area shape="rect" id="node4" href="$dc/dd3/classSDK_1_1UGFxClikWidget.html" title=" " alt="" coords="161,857,383,1052"/>
+<area shape="rect" id="node5" href="$d2/d23/classSDK_1_1UGFxObject.html" title=" " alt="" coords="173,527,371,809"/>
+<area shape="rect" id="node6" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="140,5,404,479"/>
+</map>

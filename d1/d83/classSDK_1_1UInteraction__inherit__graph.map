@@ -1,0 +1,16 @@
+<map id="SDK::UInteraction" name="SDK::UInteraction">
+<area shape="rect" id="node1" title=" " alt="" coords="499,784,714,1111"/>
+<area shape="rect" id="node4" href="$df/ddc/classSDK_1_1UConsole.html" title=" " alt="" coords="5,1181,229,1566"/>
+<area shape="rect" id="node6" href="$d2/d87/classSDK_1_1UGFxInteraction.html" title=" " alt="" coords="254,1283,487,1463"/>
+<area shape="rect" id="node7" href="$d3/da8/classSDK_1_1UInput.html" title=" " alt="" coords="512,1225,701,1522"/>
+<area shape="rect" id="node13" href="$da/da0/classSDK_1_1UPlayerManagerInteraction.html" title=" " alt="" coords="725,1335,941,1412"/>
+<area shape="rect" id="node14" href="$dd/de4/classSDK_1_1UUIInteraction.html" title=" " alt="" coords="965,1159,1216,1588"/>
+<area shape="rect" id="node2" href="$da/dd4/classSDK_1_1UUIRoot.html" title=" " alt="" coords="477,527,736,736"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="475,5,739,479"/>
+<area shape="rect" id="node5" href="$d7/d70/classSDK_1_1UEFConsole.html" title=" " alt="" coords="10,1761,225,1897"/>
+<area shape="rect" id="node8" href="$d6/de2/classSDK_1_1UPlayerInput.html" title=" " alt="" coords="505,1636,708,2021"/>
+<area shape="rect" id="node9" href="$dc/d23/classSDK_1_1UDebugCameraInput.html" title=" " alt="" coords="297,2216,479,2308"/>
+<area shape="rect" id="node10" href="$d0/db2/classSDK_1_1UEFPlayerInput.html" title=" " alt="" coords="503,2099,710,2425"/>
+<area shape="rect" id="node11" href="$d2/d6b/classSDK_1_1UMobilePlayerInput.html" title=" " alt="" coords="735,2069,921,2455"/>
+<area shape="rect" id="node12" href="$da/d7b/classSDK_1_1UMobileDebugCameraInput.html" title=" " alt="" coords="719,2503,937,2595"/>
+</map>

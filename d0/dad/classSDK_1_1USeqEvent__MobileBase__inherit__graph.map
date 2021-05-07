@@ -1,0 +1,12 @@
+<map id="SDK::USeqEvent_MobileBase" name="SDK::USeqEvent_MobileBase">
+<area shape="rect" id="node1" title=" " alt="" coords="138,1724,338,1831"/>
+<area shape="rect" id="node6" href="$d4/d62/classSDK_1_1USeqEvent__MobileMotion.html" title=" " alt="" coords="7,1879,223,2044"/>
+<area shape="rect" id="node7" href="$d6/df6/classSDK_1_1USeqEvent__MobileZoneBase.html" title=" " alt="" coords="247,1915,477,2007"/>
+<area shape="rect" id="node2" href="$d6/d90/classSDK_1_1USequenceEvent.html" title=" " alt="" coords="158,1349,318,1676"/>
+<area shape="rect" id="node3" href="$d7/d19/classSDK_1_1USequenceOp.html" title=" " alt="" coords="129,916,347,1301"/>
+<area shape="rect" id="node4" href="$d6/d03/classSDK_1_1USequenceObject.html" title=" " alt="" coords="130,527,346,868"/>
+<area shape="rect" id="node5" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="106,5,370,479"/>
+<area shape="rect" id="node8" href="$df/dd8/classSDK_1_1USeqEvent__MobileButton.html" title=" " alt="" coords="5,2114,239,2221"/>
+<area shape="rect" id="node9" href="$df/d42/classSDK_1_1USeqEvent__MobileInput.html" title=" " alt="" coords="263,2092,461,2243"/>
+<area shape="rect" id="node10" href="$d3/d97/classSDK_1_1USeqEvent__MobileLook.html" title=" " alt="" coords="485,2114,684,2221"/>
+</map>

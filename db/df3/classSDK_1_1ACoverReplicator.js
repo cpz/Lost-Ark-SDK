@@ -1,0 +1,25 @@
+var classSDK_1_1ACoverReplicator =
+[
+    [ "ClientReceiveAdjustedSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ae31caeafe84b3b9c944eb4be637ace29", null ],
+    [ "ClientReceiveDisabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#a0f6eb2b0c7de5ce051c37187c51a1618", null ],
+    [ "ClientReceiveEnabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ac50f26b0cd591ee01a6fb3b264ac8315", null ],
+    [ "ClientReceiveInitialCoverReplicationInfo", "db/df3/classSDK_1_1ACoverReplicator.html#a5a2cfd8dcaa36a62222c8950133a54b8", null ],
+    [ "ClientReceiveLinkDisabledState", "db/df3/classSDK_1_1ACoverReplicator.html#a01c3a61433c92bfe769631ad153e58c5", null ],
+    [ "ClientReceiveManualCoverTypeSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ac3483c94abd879760a95f1497a03b5ac", null ],
+    [ "ClientSetOwner", "db/df3/classSDK_1_1ACoverReplicator.html#a3835b289406e93b2722212f0d73bddf0", null ],
+    [ "NotifyAutoAdjustSlots", "db/df3/classSDK_1_1ACoverReplicator.html#a59fbe1e56d7a8cbc668a30fce559deef", null ],
+    [ "NotifyDisabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ae79c76a4b7eb7018cc495a8c974da0eb", null ],
+    [ "NotifyEnabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#a178c64ae8d1cc98d502e6d54ec4dae74", null ],
+    [ "NotifyLinkDisabledStateChange", "db/df3/classSDK_1_1ACoverReplicator.html#a82e6da74e18a77c7c5c31b954b7e7eeb", null ],
+    [ "NotifySetManualCoverTypeForSlots", "db/df3/classSDK_1_1ACoverReplicator.html#a95e1a7de45259867e91e510585cdad66", null ],
+    [ "PurgeOldEntries", "db/df3/classSDK_1_1ACoverReplicator.html#afc1962ed707809285f7918829ea64277", null ],
+    [ "ReplicateInitialCoverInfo", "db/df3/classSDK_1_1ACoverReplicator.html#aea122521761314d450119c74cbceefb3", null ],
+    [ "ServerSendAdjustedSlots", "db/df3/classSDK_1_1ACoverReplicator.html#abc56593f880f2c6be1a1689554083f19", null ],
+    [ "ServerSendDisabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#a846477034c4b10f91054383ecfda131a", null ],
+    [ "ServerSendEnabledSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ae381ce6962cf5f00c7b1e5e4ff0220e1", null ],
+    [ "ServerSendInitialCoverReplicationInfo", "db/df3/classSDK_1_1ACoverReplicator.html#a9d5133e29de4ee0687fddb2180aaa586", null ],
+    [ "ServerSendLinkDisabledState", "db/df3/classSDK_1_1ACoverReplicator.html#ad5b550fea0564260632a7fc09350e509", null ],
+    [ "ServerSendManualCoverTypeSlots", "db/df3/classSDK_1_1ACoverReplicator.html#ae6d9bfa561de35e93d462ed7d5ce2095", null ],
+    [ "StaticClass", "db/df3/classSDK_1_1ACoverReplicator.html#a06e9064cc40639e25d043e31ea895f63", null ],
+    [ "CoverReplicationData", "db/df3/classSDK_1_1ACoverReplicator.html#a1b9d1d9bbc1459e5226f002d2dd6c00b", null ]
+];

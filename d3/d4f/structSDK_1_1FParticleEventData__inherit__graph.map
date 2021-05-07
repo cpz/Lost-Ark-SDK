@@ -1,0 +1,8 @@
+<map id="SDK::FParticleEventData" name="SDK::FParticleEventData">
+<area shape="rect" id="node1" title=" " alt="" coords="376,5,548,156"/>
+<area shape="rect" id="node2" href="$da/d33/structSDK_1_1FParticleEventCollideData.html" title=" " alt="" coords="5,204,217,340"/>
+<area shape="rect" id="node4" href="$da/d1f/structSDK_1_1FParticleEventDeathData.html" title=" " alt="" coords="241,233,448,311"/>
+<area shape="rect" id="node5" href="$d1/dce/structSDK_1_1FParticleEventKismetData.html" title=" " alt="" coords="473,226,686,318"/>
+<area shape="rect" id="node6" href="$d2/de2/structSDK_1_1FParticleEventSpawnData.html" title=" " alt="" coords="711,233,923,311"/>
+<area shape="rect" id="node3" href="$d6/d60/structSDK_1_1FParticleEventAttractorCollideData.html" title=" " alt="" coords="14,388,209,480"/>
+</map>

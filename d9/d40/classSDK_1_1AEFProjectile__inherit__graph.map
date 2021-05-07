@@ -1,0 +1,10 @@
+<map id="SDK::AEFProjectile" name="SDK::AEFProjectile">
+<area shape="rect" id="node1" title=" " alt="" coords="340,1408,527,1705"/>
+<area shape="rect" id="node5" href="$dd/dd1/classSDK_1_1AEFProjectileFixArea.html" title=" " alt="" coords="5,1753,211,2080"/>
+<area shape="rect" id="node6" href="$d2/d1e/classSDK_1_1AEFProjectileGrenade.html" title=" " alt="" coords="235,1871,421,1963"/>
+<area shape="rect" id="node7" href="$dd/db1/classSDK_1_1AEFProjectileMissile.html" title=" " alt="" coords="446,1841,634,1992"/>
+<area shape="rect" id="node8" href="$d9/d1e/classSDK_1_1AEFProjectileTrace.html" title=" " alt="" coords="659,1805,829,2029"/>
+<area shape="rect" id="node2" href="$d2/d13/classSDK_1_1AProjectile.html" title=" " alt="" coords="311,975,556,1360"/>
+<area shape="rect" id="node3" href="$d3/dfc/classSDK_1_1AActor.html" title=" " alt="" coords="336,527,531,927"/>
+<area shape="rect" id="node4" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="301,5,565,479"/>
+</map>

@@ -1,0 +1,21 @@
+<map id="SDK::UMaterialExpressionTextureSample" name="SDK::UMaterialExpressionTextureSample">
+<area shape="rect" id="node1" title=" " alt="" coords="411,799,589,935"/>
+<area shape="rect" id="node4" href="$d2/d9e/classSDK_1_1UMaterialExpressionDepthBiasBlend.html" title=" " alt="" coords="5,983,184,1104"/>
+<area shape="rect" id="node5" href="$d5/dea/classSDK_1_1UMaterialExpressionFlipBookSample.html" title=" " alt="" coords="208,997,387,1089"/>
+<area shape="rect" id="node6" href="$da/d54/classSDK_1_1UMaterialExpressionMeshSubUV.html" title=" " alt="" coords="411,997,589,1089"/>
+<area shape="rect" id="node8" href="$d6/d89/classSDK_1_1UMaterialExpressionParticleSubUV.html" title=" " alt="" coords="613,997,792,1089"/>
+<area shape="rect" id="node9" href="$dd/dcd/classSDK_1_1UMaterialExpressionTextureSampleParameter.html" title=" " alt="" coords="927,983,1105,1104"/>
+<area shape="rect" id="node2" href="$d2/d9a/classSDK_1_1UMaterialExpression.html" title=" " alt="" coords="406,527,594,751"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="368,5,632,479"/>
+<area shape="rect" id="node7" href="$d7/db6/classSDK_1_1UMaterialExpressionMeshSubUVBlend.html" title=" " alt="" coords="355,1152,533,1244"/>
+<area shape="rect" id="node10" href="$d2/d8c/classSDK_1_1UMaterialExpressionTextureObjectParameter.html" title=" " alt="" coords="557,1152,736,1244"/>
+<area shape="rect" id="node11" href="$df/df0/classSDK_1_1UMaterialExpressionTextureSampleParameter2D.html" title=" " alt="" coords="760,1152,947,1244"/>
+<area shape="rect" id="node17" href="$d2/d9a/classSDK_1_1UMaterialExpressionTextureSampleParameterCube.html" title=" " alt="" coords="971,1152,1173,1244"/>
+<area shape="rect" id="node18" href="$d5/dbc/classSDK_1_1UMaterialExpressionTextureSampleParameterMovie.html" title=" " alt="" coords="1197,1152,1403,1244"/>
+<area shape="rect" id="node19" href="$dc/d12/classSDK_1_1UMaterialExpressionTextureSampleParameterNormal.html" title=" " alt="" coords="1427,1152,1639,1244"/>
+<area shape="rect" id="node12" href="$df/db6/classSDK_1_1UMaterialExpressionAntialiasedTextureMask.html" title=" " alt="" coords="413,1292,592,1399"/>
+<area shape="rect" id="node13" href="$d4/ded/classSDK_1_1UMaterialExpressionTextureSampleParameterFlipbook.html" title=" " alt="" coords="616,1299,835,1391"/>
+<area shape="rect" id="node14" href="$dc/dcf/classSDK_1_1UMaterialExpressionTextureSampleParameterMeshSubUV.html" title=" " alt="" coords="859,1299,1103,1391"/>
+<area shape="rect" id="node16" href="$d8/d5b/classSDK_1_1UMaterialExpressionTextureSampleParameterSubUV.html" title=" " alt="" coords="1127,1299,1339,1391"/>
+<area shape="rect" id="node15" href="$d0/d3b/classSDK_1_1UMaterialExpressionTextureSampleParameterMeshSubUVBlend.html" title=" " alt="" coords="869,1447,1094,1553"/>
+</map>

@@ -1,0 +1,26 @@
+var classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression =
+[
+    [ "StaticClass", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a676ee5741814bb092da9ca870e882bd3", null ],
+    [ "AllowedRotationFormats", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#adcbeeb4df6078c759e8001a5121446fb", null ],
+    [ "AllowedScaleFormats", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#aab261e59f3f1d95ae0a7aca183fe6d49", null ],
+    [ "AllowedTranslationFormats", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#aaacdade827331fe75916a9106783afb7", null ],
+    [ "bResampleAnimation", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a882cb56f555e95eb2d8e7af4773119f7", null ],
+    [ "bUseAdaptiveError", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ad76b7aa7b1e19be6bc80f09d0f566a16", null ],
+    [ "bUseAdaptiveError2", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ad636f7ad267e75c8f49b06dc398c0652", null ],
+    [ "bUseOverrideForEndEffectors", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a58b306de31c0eeb1b152c843f1319f31", null ],
+    [ "MaxAngleDiffBitwise", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a770946af5bb8f1394790215a2652b94b", null ],
+    [ "MaxErrorPerTrackRatio", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a87084485f4ca53e3f52a9fadb920d7fa", null ],
+    [ "MaxPosDiffBitwise", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a418fb3cab52e3e2e3edafb5a670d0e8f", null ],
+    [ "MaxScaleDiffBitwise", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#af76e9f2094466e189682df231882179e", null ],
+    [ "MaxZeroingThreshold", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a8352ac1dd67af723168b3eb133323ce6", null ],
+    [ "MinKeysForResampling", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ae3cb3f7ef5b92494e8759fafda19a6eb", null ],
+    [ "ParentingDivisor", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ae7455755c3dcf49507aba6f34fc8aa14", null ],
+    [ "ParentingDivisorExponent", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a333ab598e3dc2a5d6d917fa265c8af2c", null ],
+    [ "PerReductionCachedData", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ac2ccd8203c35911ce980ae4d128ad3fa", null ],
+    [ "PerturbationProbeSize", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#abd72357acf50b3b3c31c7f9f066db868", null ],
+    [ "ResampledFramerate", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a9a0e10df30dd69407d16da50a778a991", null ],
+    [ "RotationErrorSourceRatio", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a944f45006c58d91a32f84059603c5988", null ],
+    [ "ScaleErrorSourceRatio", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#af485be17e197e2412634b3a6aeacdb07", null ],
+    [ "TrackHeightBias", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#ab1d8cb4a172b34589e098f1297cf735f", null ],
+    [ "TranslationErrorSourceRatio", "db/dde/classSDK_1_1UAnimationCompressionAlgorithm__PerTrackCompression.html#a56e173eb3c52629fcc9597cc5fb00bd4", null ]
+];

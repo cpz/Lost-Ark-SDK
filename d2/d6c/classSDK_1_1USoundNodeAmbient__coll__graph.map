@@ -1,0 +1,33 @@
+<map id="SDK::USoundNodeAmbient" name="SDK::USoundNodeAmbient">
+<area shape="rect" id="node1" title=" " alt="" coords="1487,3177,1671,3431"/>
+<area shape="rect" id="node2" href="$dd/d78/classSDK_1_1USoundNode.html" title=" " alt="" coords="693,2100,829,2177"/>
+<area shape="rect" id="node15" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="574,2471,735,2666"/>
+<area shape="rect" id="node18" href="$d9/d70/classSDK_1_1USoundNodeWave.html" title=" " alt="" coords="1252,2449,1473,2688"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="81,1443,345,1769"/>
+<area shape="rect" id="node9" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="358,2049,573,2229"/>
+<area shape="rect" id="node11" href="$d7/d85/classSDK_1_1UClass.html" title=" " alt="" coords="19,2957,181,3078"/>
+<area shape="rect" id="node14" href="$de/dd6/classSDK_1_1UField.html" title=" " alt="" coords="158,2100,269,2177"/>
+<area shape="rect" id="node4" href="$d0/d22/structSDK_1_1FQWord.html" title=" " alt="" coords="309,1193,416,1285"/>
+<area shape="rect" id="node5" href="$d0/db6/structSDK_1_1FName.html" title=" " alt="" coords="142,1156,285,1321"/>
+<area shape="rect" id="node6" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="113,899,353,1079"/>
+<area shape="rect" id="node7" href="$d7/ddf/classSDK_1_1FNameEntry.html" title=" " alt="" coords="167,722,299,814"/>
+<area shape="rect" id="node8" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="903,5,1033,200"/>
+<area shape="rect" id="node16" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="1483,2920,1674,3115"/>
+<area shape="rect" id="node19" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="1283,2041,1464,2236"/>
+<area shape="rect" id="node21" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="1195,1141,1346,1336"/>
+<area shape="rect" id="node24" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="1253,263,1419,457"/>
+<area shape="rect" id="node27" href="$d3/d79/classSDK_1_1TArray.html" title=" " alt="" coords="793,481,927,676"/>
+<area shape="rect" id="node10" href="$d9/dfa/structSDK_1_1FPointer.html" title=" " alt="" coords="941,1193,1072,1285"/>
+<area shape="rect" id="node30" href="$d3/dd6/structSDK_1_1FUntypedBulkData__Mirror.html" title=" " alt="" coords="837,1793,1032,2017"/>
+<area shape="rect" id="node12" href="$df/d72/classSDK_1_1UState.html" title=" " alt="" coords="193,2765,324,2843"/>
+<area shape="rect" id="node13" href="$d8/de9/classSDK_1_1UStruct.html" title=" " alt="" coords="251,2515,381,2622"/>
+<area shape="rect" id="node17" href="$d8/d46/structSDK_1_1FAmbientSoundSlot.html" title=" " alt="" coords="1481,2751,1655,2857"/>
+<area shape="rect" id="node20" href="$d2/d26/structSDK_1_1FLocalizedSubtitle.html" title=" " alt="" coords="1299,1553,1464,1659"/>
+<area shape="rect" id="node22" href="$de/d99/structSDK_1_1FSubtitleCue.html" title=" " alt="" coords="1219,950,1354,1027"/>
+<area shape="rect" id="node23" href="$d3/d88/classSDK_1_1FString.html" title=" " alt="" coords="1383,700,1483,836"/>
+<area shape="rect" id="node25" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1811,2056,2066,2221"/>
+<area shape="rect" id="node26" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1951,1531,2161,1681"/>
+<area shape="rect" id="node28" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2090,2056,2289,2221"/>
+<area shape="rect" id="node29" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="1538,2063,1787,2214"/>
+<area shape="rect" id="node31" href="$df/d1c/classSDK_1_1TEnumAsByte.html" title=" " alt="" coords="2187,2260,2413,2425"/>
+</map>

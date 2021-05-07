@@ -1,0 +1,7 @@
+<map id="SDK::FMaterialInput" name="SDK::FMaterialInput">
+<area shape="rect" id="node1" title=" " alt="" coords="323,5,465,200"/>
+<area shape="rect" id="node2" href="$d5/ddc/structSDK_1_1FColorMaterialInput.html" title=" " alt="" coords="5,255,177,347"/>
+<area shape="rect" id="node3" href="$db/d5f/structSDK_1_1FScalarMaterialInput.html" title=" " alt="" coords="202,255,381,347"/>
+<area shape="rect" id="node4" href="$de/dac/structSDK_1_1FVector2MaterialInput.html" title=" " alt="" coords="405,248,591,355"/>
+<area shape="rect" id="node5" href="$d3/dae/structSDK_1_1FVectorMaterialInput.html" title=" " alt="" coords="615,255,794,347"/>
+</map>

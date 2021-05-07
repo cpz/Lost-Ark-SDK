@@ -1,0 +1,25 @@
+var classSDK_1_1UUIDataStore__OnlineGameSearch =
+[
+    [ "ClearAllSearchResults", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a95ff9d5fc4ca47e414259807add2f437", null ],
+    [ "FindSearchConfigurationIndex", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#aa7eec60c6bd56ed3b54f6e0067db281a", null ],
+    [ "GetActiveGameSearch", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a45c41f1ddeeb820c0767791c345b4d82", null ],
+    [ "GetCurrentGameSearch", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a86dd778a1776d46be8c9e3bbb3144e91", null ],
+    [ "GetSearchResultFromIndex", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a167949e14194f7b491880c80a871159d", null ],
+    [ "Init", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a599cc6e6de7414cbbe3c389671c0a14a", null ],
+    [ "InvalidateCurrentSearchResults", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#acbe34d390081ab0a931f62fbf62edccc", null ],
+    [ "MoveToNext", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a26e0d47f58f94f733f6358e1ce119cae", null ],
+    [ "MoveToPrevious", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a2d9dc0e1a9cfc1dfb14072a18a704c2b", null ],
+    [ "OnSearchComplete", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#adb0ffde1f374a52a148c8831385e317e", null ],
+    [ "OverrideQuerySubmission", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a7857445c5ab9789f50d338954824d5d2", null ],
+    [ "SetCurrentByIndex", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a2bdcd3ed48eb2b04868198dd3d86e370", null ],
+    [ "SetCurrentByName", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a2115409d30580df9049618c8bd75dc63", null ],
+    [ "ShowHostGamercard", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a00aebbe7e6e44b5dae2aa56d8c508c7c", null ],
+    [ "StaticClass", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#ab89c8feedc6d711856bbfe56cc81023f", null ],
+    [ "SubmitGameSearch", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#af6addbd304e68f63a8196a2f37bf255e", null ],
+    [ "ActiveSearchIndex", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#ac89c41e9a45482946d8cc02ad60dc242", null ],
+    [ "GameInterface", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#ae0b43c3603627930426a78ac637d6d25", null ],
+    [ "GameSearchCfgList", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a588dae23e0ec09c88b69a06695a5fa0f", null ],
+    [ "OnlineSub", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#ae75e0fb7cf159e5d62b6d02c2bcda72f", null ],
+    [ "SearchResultsName", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#a198be8dc427f3416f9cf9be59d295850", null ],
+    [ "SelectedIndex", "da/dfe/classSDK_1_1UUIDataStore__OnlineGameSearch.html#ade165768a1d6c440ccaac82c65574b6e", null ]
+];

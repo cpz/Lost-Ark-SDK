@@ -1,0 +1,26 @@
+var classSDK_1_1UAnalyticEventsBase =
+[
+    [ "EndSession", "db/d00/classSDK_1_1UAnalyticEventsBase.html#ab9ea1d75a9b41dabf6e7a9840e6026f8", null ],
+    [ "EndStringEvent", "db/d00/classSDK_1_1UAnalyticEventsBase.html#acf4ab5cc8bbfb2a423b444bbe442febc", null ],
+    [ "EndStringEventParam", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a2f3a4d230730b2b2dd88fa15087fc57e", null ],
+    [ "EndStringEventParamArray", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a76e06a91d52640daaf6aa04800140304", null ],
+    [ "Init", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a95cd76592201c1a033e155a7b335ee08", null ],
+    [ "IsSessionInProgress", "db/d00/classSDK_1_1UAnalyticEventsBase.html#ad80b30a1287da867be5f8e95cce41594", null ],
+    [ "LogCurrencyGivenEvent", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a15558d912de558c312a6ef978a9866d5", null ],
+    [ "LogCurrencyPurchaseEvent", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a757a4652f3ffa4c005f379f4d5012a76", null ],
+    [ "LogErrorMessage", "db/d00/classSDK_1_1UAnalyticEventsBase.html#aed575fa95acae989b529d13405b198e8", null ],
+    [ "LogItemPurchaseEvent", "db/d00/classSDK_1_1UAnalyticEventsBase.html#ab418bff557cb8645a6f71f4f3e160369", null ],
+    [ "LogStringEvent", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a249b2b1d7e1497e28f65ba74855924f9", null ],
+    [ "LogStringEventParam", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a00f74ebccbc70dcf22ecf8383e2a1896", null ],
+    [ "LogStringEventParamArray", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a54bc2ab834395a5dfe67e67ccf3d5ce0", null ],
+    [ "LogUserAttributeUpdate", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a9160cc5ca89f3af178250b8ff9fb3444", null ],
+    [ "LogUserAttributeUpdateArray", "db/d00/classSDK_1_1UAnalyticEventsBase.html#aa601710e7e7b1033854d7566d26df079", null ],
+    [ "SendCachedEvents", "db/d00/classSDK_1_1UAnalyticEventsBase.html#aa83a2d4390f222b335b3c5679a356fc9", null ],
+    [ "SetUserId", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a2532a48f252f31dee792da9f2d47b37c", null ],
+    [ "StartSession", "db/d00/classSDK_1_1UAnalyticEventsBase.html#aeed196b3cf9ce27312fba7e7b83ca199", null ],
+    [ "StaticClass", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a1d3df43a23e0fd59c0a81a819adfe31b", null ],
+    [ "bAutoStartSession", "db/d00/classSDK_1_1UAnalyticEventsBase.html#abcd25c82a416d938f17e5a1eee1dc08c", null ],
+    [ "bSessionInProgress", "db/d00/classSDK_1_1UAnalyticEventsBase.html#af1c69c6c5de779d22dd56220927e19ba", null ],
+    [ "SessionPauseThresholdSec", "db/d00/classSDK_1_1UAnalyticEventsBase.html#ad328be30bb3371e77e5b51ffb0d4d2ad", null ],
+    [ "UserId", "db/d00/classSDK_1_1UAnalyticEventsBase.html#a08353ecfc7a56b9c99188fbbaaf729d8", null ]
+];

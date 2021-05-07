@@ -1,0 +1,11 @@
+<map id="SDK::UMobileMenuObject" name="SDK::UMobileMenuObject">
+<area shape="rect" id="node1" title=" " alt="" coords="606,527,789,839"/>
+<area shape="rect" id="node3" href="$df/d38/classSDK_1_1UMobileMenuBar.html" title=" " alt="" coords="5,960,173,1228"/>
+<area shape="rect" id="node4" href="$d6/d8d/classSDK_1_1UMobileMenuButton.html" title=" " alt="" coords="197,1004,373,1184"/>
+<area shape="rect" id="node5" href="$df/d8e/classSDK_1_1UMobileMenuImage.html" title=" " alt="" coords="398,1019,573,1169"/>
+<area shape="rect" id="node6" href="$d1/d82/classSDK_1_1UMobileMenuInventory.html" title=" " alt="" coords="597,887,798,1301"/>
+<area shape="rect" id="node7" href="$d6/d7b/classSDK_1_1UMobileMenuLabel.html" title=" " alt="" coords="822,1004,991,1184"/>
+<area shape="rect" id="node8" href="$d1/d32/classSDK_1_1UMobileMenuList.html" title=" " alt="" coords="1015,901,1214,1287"/>
+<area shape="rect" id="node9" href="$d2/d83/classSDK_1_1UMobileMenuObjectProxy.html" title=" " alt="" coords="1237,1019,1448,1169"/>
+<area shape="rect" id="node2" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="565,5,829,479"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="SDK::UMorphNodeBase" name="SDK::UMorphNodeBase">
+<area shape="rect" id="node1" title=" " alt="" coords="223,740,389,832"/>
+<area shape="rect" id="node4" href="$d2/d1a/classSDK_1_1UMorphNodeMultiPose.html" title=" " alt="" coords="5,880,199,1031"/>
+<area shape="rect" id="node5" href="$dc/de2/classSDK_1_1UMorphNodePose.html" title=" " alt="" coords="223,895,389,1016"/>
+<area shape="rect" id="node6" href="$d2/dc6/classSDK_1_1UMorphNodeWeightBase.html" title=" " alt="" coords="413,917,620,994"/>
+<area shape="rect" id="node2" href="$de/d78/classSDK_1_1UAnimObject.html" title=" " alt="" coords="238,527,374,692"/>
+<area shape="rect" id="node3" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="174,5,438,479"/>
+<area shape="rect" id="node7" href="$df/d11/classSDK_1_1UMorphNodeWeight.html" title=" " alt="" coords="205,1174,381,1266"/>
+<area shape="rect" id="node8" href="$d5/dfe/classSDK_1_1UMorphNodeWeightByBoneAngle.html" title=" " alt="" coords="405,1079,628,1361"/>
+<area shape="rect" id="node9" href="$d7/d8a/classSDK_1_1UMorphNodeWeightByBoneRotation.html" title=" " alt="" coords="652,1101,875,1339"/>
+</map>

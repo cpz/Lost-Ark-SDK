@@ -1,0 +1,27 @@
+var classSDK_1_1UAnimNotify__Trails =
+[
+    [ "GetNumSteps", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a4f2599418849bbfa3a04733380c017f3", null ],
+    [ "StaticClass", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a3939ff0f2b23f75cc7e3a69016fe2654", null ],
+    [ "AnimNodeSeq", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a90499751aea6dec4ea3fbfe2c76da8df", null ],
+    [ "bEFParticleLODApply", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a417dd8d653916c7dbce405f0fad5d5d9", null ],
+    [ "bIsExtremeContent", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a6bd067c895044cfdff4ae9dae7486fb5", null ],
+    [ "bPreview", "df/d20/classSDK_1_1UAnimNotify__Trails.html#ab6ad8649861ad9cf47db10ab5c383212", null ],
+    [ "bPreviewForceExplicit", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a45cfdd24eace17d8b86ff15db1ff06ed", null ],
+    [ "bResampleRequired", "df/d20/classSDK_1_1UAnimNotify__Trails.html#ade180122e1fbac0884d7d7ebb50bfa53", null ],
+    [ "bSkipIfOwnerIsHidden", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a7d50666e2254e1e1337eaf8e57e4a6f3", null ],
+    [ "ControlPointSocketName", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a0a3bc390172f06a6b7ff6b1c92ae2b2a", null ],
+    [ "CreatedTrailPSysComp", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a9341705c3029ef5fe20581b29c984920", null ],
+    [ "CurrentTime", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a04d98bd5c783e581221fa6914b39d637", null ],
+    [ "EFDesiredLODLevel", "df/d20/classSDK_1_1UAnimNotify__Trails.html#aea6e0258ad05b4609ef2d78c23565a94", null ],
+    [ "EndTime", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a250571911c3c47306494e7ad8378aa59", null ],
+    [ "FirstEdgeSocketName", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a76f495850c5327929c137a7b46e618e0", null ],
+    [ "LastStartTime", "df/d20/classSDK_1_1UAnimNotify__Trails.html#af704f509675d2ae243164fc40434672f", null ],
+    [ "PSTemplate", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a1aedb8a7eb7b5d342747ffa517799b7f", null ],
+    [ "SampledSkeletalMesh", "df/d20/classSDK_1_1UAnimNotify__Trails.html#ab1ccca10685a96aca40f13576e0f1d2a", null ],
+    [ "SamplesPerSecond", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a43acd43773df642adcdbc6bcf779e5f1", null ],
+    [ "SampleTimeStep", "df/d20/classSDK_1_1UAnimNotify__Trails.html#ab77d70ab12b053b10e9c6443779c8a50", null ],
+    [ "SecondEdgeSocketName", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a8be71b8fb1dac11a707624a231f6720e", null ],
+    [ "TimeStep", "df/d20/classSDK_1_1UAnimNotify__Trails.html#ac82e4ac25658471c3befe1da977b1693", null ],
+    [ "TrailSampleData", "df/d20/classSDK_1_1UAnimNotify__Trails.html#aef3cbbb07319b4672035097154f76ec1", null ],
+    [ "TrailSampledData", "df/d20/classSDK_1_1UAnimNotify__Trails.html#a21f22356ff2cc1e6c3b6756830927de3", null ]
+];

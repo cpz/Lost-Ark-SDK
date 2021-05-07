@@ -1,0 +1,9 @@
+<map id="SDK::UNavMeshGoal_Filter" name="SDK::UNavMeshGoal_Filter">
+<area shape="rect" id="node1" title=" " alt="" coords="504,527,691,648"/>
+<area shape="rect" id="node3" href="$d3/dda/classSDK_1_1UNavMeshGoalFilter__MinPathDistance.html" title=" " alt="" coords="5,718,243,825"/>
+<area shape="rect" id="node4" href="$d5/d75/classSDK_1_1UNavMeshGoalFilter__NotNearOtherAI.html" title=" " alt="" coords="267,718,458,825"/>
+<area shape="rect" id="node5" href="$d3/d2a/classSDK_1_1UNavMeshGoalFilter__OutOfViewFrom.html" title=" " alt="" coords="482,703,713,839"/>
+<area shape="rect" id="node6" href="$da/d6b/classSDK_1_1UNavMeshGoalFilter__OutSideOfDotProductWedge.html" title=" " alt="" coords="737,696,951,847"/>
+<area shape="rect" id="node7" href="$dd/de6/classSDK_1_1UNavMeshGoalFilter__PolyEncompassesAI.html" title=" " alt="" coords="975,718,1166,825"/>
+<area shape="rect" id="node2" href="$d9/d45/classSDK_1_1UObject.html" title=" " alt="" coords="465,5,729,479"/>
+</map>

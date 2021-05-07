@@ -1,0 +1,25 @@
+var classSDK_1_1AEFSpawnEnvirNpc =
+[
+    [ "StaticClass", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ac04126eaa169e022729a3a518be5c316", null ],
+    [ "EN_Air", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a1c85d5378f431827da0cb2247a92d591", null ],
+    [ "EN_AnimSet", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a792f7c9e9f4add99d478b9b0f1ecd322", null ],
+    [ "EN_DieAfterMove", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a46bee762ab9a76eee6682adbd878d43a", null ],
+    [ "EN_eAiType", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a40344d25ea7d8e1c7c194fcf7662ac5a", null ],
+    [ "EN_EscapeDistance", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a855151e130b46adc80ba51abc5f5c231", null ],
+    [ "EN_fEscapeVelocity", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a1c939d6fc331a722bb40740b998ce3af", null ],
+    [ "EN_fHeightForDeath", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#aaf880adfe6d13053149518ba88b61415", null ],
+    [ "EN_fInitScale", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a301c7b72d62f0094cba2d47160b663ee", null ],
+    [ "EN_fMovingVelocity", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a94c7723431fd1da7e66833a7dc5fcd91", null ],
+    [ "EN_fRadiusForDeath", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ad91b8b1610e5c1ce6de88d3febe8edd8", null ],
+    [ "EN_iMovingChance", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a2129698b1da3cd7942ae8df137fd1386", null ],
+    [ "EN_LastLocation", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#aa4c264dd9c0bc8991c7aab809b1574ae", null ],
+    [ "EN_LastRotation", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a53591b6ec94e5b4bc60505c6f8d48d24", null ],
+    [ "EN_SkelMesh", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ac036c1caf303d749e3f5b79fbca711b5", null ],
+    [ "EN_SoundEvent", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ac23fb874426418d1d9e8d1a726b73e46", null ],
+    [ "EN_UseInitRot", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a727bfb5729567fa68ec21343e4c953ad", null ],
+    [ "EN_vIdleSecond", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#aa94f7852193d3caac8226bf373db8dde", null ],
+    [ "EN_vMovingDistance", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ad4900075f01f6f3f9ec75dcd83b73420", null ],
+    [ "EN_vMovingHeight", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#ae747ed8f9ccf677ae53fd131e218a148", null ],
+    [ "EN_vMovingRot", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a833652421638f254539f7ef3e3f65ba3", null ],
+    [ "UnknownData00", "df/d21/classSDK_1_1AEFSpawnEnvirNpc.html#a57c64715b7450aeba354384bddbf6923", null ]
+];
