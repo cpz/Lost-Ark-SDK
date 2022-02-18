@@ -11,6 +11,11 @@ Lost Ark SDK generated for CIS Region game version - 1.148.153.0
 * Hook ProcessEvent and do your magic.
 ---
 
+### Different versions of SDK
+
+As you know Lost Ark does have different version online (CIS, KR\JP, Amazon and etc), so master branch is CIS region and other region SDKs can be found in other branches. (Ex.: Amazon version Lost Ark in "Amazon" branch)
+
+---
 ### Credits
 
 Name | Reason
